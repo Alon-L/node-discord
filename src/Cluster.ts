@@ -6,7 +6,7 @@
  * @extends Map
  * @template K, V
  */
-class Cluster<K, V> extends Map {
+class Cluster<K, V> extends Map<K, V> {
   /**
    * Whether the given argument is a cluster
    * @param {*} cluster Data to check if cluster
