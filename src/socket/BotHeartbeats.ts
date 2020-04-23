@@ -12,6 +12,10 @@ interface HeartbeatInterval {
   executor: NodeJS.Timeout;
 }
 
+/**
+ * Handles the sending and receiving of Discord heartbeats
+ * @class
+ */
 class BotHeartbeats {
   private botSocket: BotSocket;
   private readonly ws: WebSocket;
@@ -33,10 +37,16 @@ class BotHeartbeats {
     };
   }
 
+  /**
+   * Starts the heartbeat interval
+   */
   public start(): void {
     this.interval.executor = setInterval(this.sendHeartbeat.bind(this), this.interval.timeout);
   }
 
+  /**
+   * Sends a heartbeat and checks if the last one acked
+   */
   public sendHeartbeat(): void {
     if (!this.acked) {
       this.ackFailed();
@@ -49,20 +59,33 @@ class BotHeartbeats {
     });
   }
 
+  /**
+   * Resets the interval timeout and stops the interval
+   */
   public stopHeartbeat(): void {
     this.interval.timeout = -1;
     clearInterval(this.interval.executor);
   }
 
+  /**
+   * Called when acking failed. Close the socket and try to reconnect
+   */
   private ackFailed(): void {
     this.botSocket.close();
     this.botSocket.connect(true);
   }
 
+  /**
+   * The data required for when sending a heartbeat
+   * @type {HeartbeatData}
+   */
   private get heartbeatData(): HeartbeatData {
     return { op: OPCodes.Heartbeat, d: this.sequence };
   }
 
+  /**
+   * Called when a heartbeat is acked
+   */
   public receivedAck(): void {
     this.acked = true;
   }
