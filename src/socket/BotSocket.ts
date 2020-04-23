@@ -115,7 +115,7 @@ class BotSocket {
       token: this.token,
     };
 
-    if (id && amount) {
+    if (id !== undefined && amount !== undefined) {
       data.shard = [id, amount];
     }
 
