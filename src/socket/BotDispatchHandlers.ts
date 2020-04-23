@@ -1,17 +1,18 @@
 import fs from 'fs';
 import path from 'path';
 import { GatewayEvents } from './BotSocket';
+import Cluster from '../Cluster';
+import Bot from '../structures/Bot';
 
-export type EventFunction = () => void;
+export type EventFunction = (bot: Bot) => void;
 
 export interface Event {
   run: EventFunction;
   name: GatewayEvents;
 }
 
-class BotEventHandlers {
-  // TODO: Turn this into a Cluster
-  public static events: Record<GatewayEvents, EventFunction>;
+class BotDispatchHandlers {
+  public static readonly events = new Cluster<GatewayEvents, EventFunction>();
   private readonly eventsPath: string;
 
   constructor() {
@@ -33,9 +34,9 @@ class BotEventHandlers {
     const events = await this.fetchEvents();
 
     for (const { name, run } of events) {
-      BotEventHandlers.events[name] = run;
+      BotDispatchHandlers.events.set(name, run);
     }
   }
 }
 
-export default BotEventHandlers;
+export default BotDispatchHandlers;

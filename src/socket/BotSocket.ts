@@ -1,8 +1,9 @@
 import fetch from 'node-fetch';
 import WebSocket from 'ws';
-import BotEventHandlers from './BotEventHandlers';
+import BotDispatchHandlers from './BotDispatchHandlers';
 import BotHeartbeats from './BotHeartbeats';
 import properties, { version, identify } from './properties';
+import Bot from '../structures/Bot';
 
 export enum OPCodes {
   Dispatch,
@@ -68,13 +69,16 @@ export interface Payload {
 }
 
 class BotSocket {
+  private readonly bot: Bot;
   private readonly token: string;
   private sessionId: string;
   private heartbeats: BotHeartbeats;
   public ws: WebSocket;
   public sequence: number;
 
-  constructor(token: string) {
+  constructor(bot: Bot, token: string) {
+    this.bot = bot;
+
     this.token = token;
 
     this.sequence = null;
@@ -131,9 +135,9 @@ class BotSocket {
       this.sessionId = payload.d.session_id;
     }
 
-    const event = BotEventHandlers.events[t];
-    if (event) {
-      event();
+    // Find the matching event and run it
+    if (BotDispatchHandlers.events.has(t)) {
+      BotDispatchHandlers.events.get(t)(this.bot);
     }
   }
 
