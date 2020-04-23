@@ -1,5 +1,14 @@
+'use strict';
+
 import config from './config.json';
-import BotSocket from '../socket/BotSocket';
+import BotEventHandlers, { EventFunction } from '../socket/BotEventHandlers';
+import BotSocket, { GatewayEvents } from '../socket/BotSocket';
 
 const botSocket = new BotSocket(config.token);
-botSocket.connect();
+const botEventHandlers = new BotEventHandlers();
+
+BotEventHandlers.events = {} as Record<GatewayEvents, EventFunction>;
+
+botEventHandlers.registerEvents().then(() => {
+  botSocket.connect();
+});

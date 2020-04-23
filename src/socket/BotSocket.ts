@@ -1,5 +1,6 @@
 import fetch from 'node-fetch';
 import WebSocket from 'ws';
+import BotEventHandlers from './BotEventHandlers';
 import BotHeartbeats from './BotHeartbeats';
 import properties, { version, identify } from './properties';
 
@@ -123,12 +124,17 @@ class BotSocket {
   }
 
   private handleDispatch(payload: Payload): void {
+    const { t } = payload;
+
     // Set session ID in case of a Ready event
-    if (payload.t === GatewayEvents.Ready) {
+    if (t === GatewayEvents.Ready) {
       this.sessionId = payload.d.session_id;
     }
 
-    console.log(payload.t);
+    const event = BotEventHandlers.events[t];
+    if (event) {
+      event();
+    }
   }
 
   private static parse(data: string): Payload {

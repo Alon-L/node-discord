@@ -73,6 +73,8 @@
     "lines-between-class-members": "off",
     "class-methods-use-this": "off",
     "default-case": "warn",
-    "quote-props": "error"
+    "quote-props": "error",
+    "strict": "off",
+    "no-restricted-syntax": "off"
   }
 }
