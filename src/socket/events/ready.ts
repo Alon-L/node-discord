@@ -9,7 +9,7 @@ export const run = ({ d }: Payload, bot: Bot, socket: BotSocket): void => {
     bot.guilds.set(guild.id, guild);
   }
 
-  console.log(bot.guilds.first, bot.guilds.last);
+  console.log(bot.guilds);
 };
 
 export const name = GatewayEvents.Ready;

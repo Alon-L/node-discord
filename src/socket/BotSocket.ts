@@ -6,11 +6,25 @@ import { OPCodes, GatewayEvents, GatewayCloseCodes, SocketStatus } from './const
 import properties, { version, identify } from './properties';
 import Bot from '../structures/Bot';
 
+import Dict = NodeJS.Dict;
+
 export enum BotSocketStatus {
   Processing,
   Ready,
   Closed,
   Terminated,
+}
+
+interface SessionStartLimit {
+  total: number;
+  remaining: number;
+  reset_after: number;
+}
+
+interface GatewayBot {
+  url: string;
+  shards: number;
+  session_start_limit: SessionStartLimit;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -46,9 +60,12 @@ class BotSocket {
   }
 
   public async connect(resume = false): Promise<void> {
-    const url = await this.socketURL();
+    const { url, session_start_limit: sessionLimit } = await this.gateway;
+    const socketURL = BotSocket.socketURL(url);
 
-    this.ws = new WebSocket(url);
+    await this.handleSessionLimit(sessionLimit);
+
+    this.ws = new WebSocket(socketURL);
 
     this.ws.onmessage = this.onMessage.bind(this);
     this.ws.onclose = this.onClose.bind(this);
@@ -63,9 +80,9 @@ class BotSocket {
   private async onMessage({ data }): Promise<void> {
     const payload = BotSocket.parse(data);
 
-    const { op, d, s } = payload;
+    const { op, t, d, s } = payload;
 
-    console.log(op);
+    console.log(op, t);
 
     switch (op) {
       case OPCodes.Dispatch:
@@ -91,13 +108,21 @@ class BotSocket {
   }
 
   private identify(): void {
+    const { id, amount } = this.bot.shardOptions;
+
+    const data: Dict<unknown> = {
+      ...identify,
+      token: this.token,
+    };
+
+    if (id && amount) {
+      data.shard = [id, amount];
+    }
+
     this.ws.send(
       BotSocket.pack({
         op: OPCodes.Identify,
-        d: {
-          ...identify,
-          token: this.token,
-        },
+        d: data,
       }),
     );
   }
@@ -169,6 +194,16 @@ class BotSocket {
     );
   }
 
+  private async handleSessionLimit(sessionLimit: SessionStartLimit): Promise<void> {
+    const { remaining, reset_after: resetAfter } = sessionLimit;
+    if (remaining === 0) {
+      console.error(
+        `Maximum number of daily Discord API connections exceeded! You will have to wait ${resetAfter}ms before attempting a new connection`,
+      );
+      await new Promise((resolve) => setTimeout(resolve, resetAfter));
+    }
+  }
+
   private cleanSocket(): void {
     this.ws.onmessage = null;
   }
@@ -181,16 +216,14 @@ class BotSocket {
     return JSON.stringify(data);
   }
 
-  private async socketURL(): Promise<string> {
-    return `${await this.url}/?v=${version}&encoding=json`;
+  private static socketURL(url: string): string {
+    return `${url}/?v=${version}&encoding=json`;
   }
 
-  private get url(): Promise<string> {
+  private get gateway(): Promise<GatewayBot> {
     return fetch(`${properties.baseURL}/gateway/bot`, {
       headers: { Authorization: `Bot ${this.token}` },
-    })
-      .then((res) => res.json())
-      .then(({ url }) => url);
+    }).then((res) => res.json());
   }
 }
 

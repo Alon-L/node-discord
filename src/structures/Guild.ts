@@ -31,7 +31,6 @@ export enum PremiumTiers {
   Tier3,
 }
 
-// TODO: Replace number with enum for every level meaning
 export interface GuildLevels {
   verification: VerificationLevel;
   notifications: NotificationLevels;
