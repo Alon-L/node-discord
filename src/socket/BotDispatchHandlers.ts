@@ -12,14 +12,22 @@ export interface Event {
   name: GatewayEvents;
 }
 
+/**
+ * Registers an event for every event shown here https://discordapp.com/developers/docs/topics/gateway#commands-and-events-gateway-events
+ * @class
+ */
 class BotDispatchHandlers {
   public static readonly events = new Cluster<GatewayEvents, EventFunction>();
   private readonly eventsPath: string;
 
   constructor() {
-    this.eventsPath = path.join(__dirname, './events/');
+    this.eventsPath = path.join(__dirname, './handlers/');
   }
 
+  /**
+   * Imports every handler file found in the handlers directory
+   * @returns {Promise<Event[]>}
+   */
   private fetchEvents(): Promise<Event[]> {
     const eventFiles = fs.readdirSync(this.eventsPath);
     const events: Promise<Event>[] = [];
@@ -31,6 +39,10 @@ class BotDispatchHandlers {
     return Promise.all(events);
   }
 
+  /**
+   * Registers every one of the found events into the {@link BotDispatchHandlers.events} Cluster
+   * @returns {Promise<void>}
+   */
   public async registerEvents(): Promise<void> {
     const events = await this.fetchEvents();
 
