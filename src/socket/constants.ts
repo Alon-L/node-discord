@@ -1,3 +1,6 @@
+/**
+ * https://discordapp.com/developers/docs/topics/opcodes-and-status-codes#gateway-gateway-opcodes
+ */
 export enum OPCodes {
   Dispatch,
   Heartbeat,
@@ -12,6 +15,9 @@ export enum OPCodes {
   HeartbeatACK,
 }
 
+/**
+ * https://discordapp.com/developers/docs/topics/gateway#commands-and-events-gateway-events
+ */
 export enum GatewayEvents {
   Ready = 'READY',
   Resumed = 'RESUMED',
@@ -53,6 +59,9 @@ export enum GatewayEvents {
   WebhooksUpdate = 'WEBHOOKS_UPDATE',
 }
 
+/**
+ * https://discordapp.com/developers/docs/topics/opcodes-and-status-codes#gateway-gateway-close-event-codes
+ */
 export enum GatewayCloseCodes {
   NormalClosure = 1000,
   UnknownError = 4000,
