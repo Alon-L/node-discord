@@ -68,13 +68,20 @@
       }
     ],
     "no-trailing-spaces": "error",
-    "@typescript-eslint/camelcase": "warn",
+    "@typescript-eslint/camelcase": "off",
     "no-console": "off",
     "lines-between-class-members": "off",
     "class-methods-use-this": "off",
     "default-case": "warn",
     "quote-props": "error",
     "strict": "off",
-    "no-restricted-syntax": "off"
+    "no-restricted-syntax": "off",
+    "object-curly-newline": "off",
+    "no-param-reassign": [
+      "error",
+      {
+        "props": false
+      }
+    ]
   }
 }

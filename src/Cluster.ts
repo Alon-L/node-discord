@@ -17,6 +17,62 @@ class Cluster<K, V> extends Map<K, V> {
   }
 
   /**
+   * Maps the {@link Cluster} values into an array
+   * @type {V[]}
+   */
+  public get toArray(): V[] {
+    return [...this.values()];
+  }
+
+  /**
+   * Maps the {@link Cluster} keys into an array
+   * @type {K[]}
+   */
+  public get toArrayKeys(): K[] {
+    return [...this.keys()];
+  }
+
+  /**
+   * Maps the {@link Cluster} entries an array
+   * @type {[K, V][]}
+   */
+  public get toArrayEntries(): [K, V][] {
+    return [...this.entries()];
+  }
+
+  /**
+   * Get the first value in the {@link Cluster}
+   * @type {V}
+   */
+  public get first(): V {
+    return this.values().next().value;
+  }
+
+  /**
+   * Get he first key in the {@link Cluster}
+   * @returns {K}
+   */
+  public get firstKey(): K {
+    return this.keys().next().value;
+  }
+
+  /**
+   * Get the last value in the {@link Cluster}
+   * @type {V}
+   */
+  public get last(): V {
+    return this.toArray[this.size - 1];
+  }
+
+  /**
+   * Get he last key in the {@link Cluster}
+   * @returns {K}
+   */
+  public get lastKey(): K {
+    return this.toArrayKeys[this.size - 1];
+  }
+
+  /**
    * Filters the map according to the given callback function, and
    * returns a new filtered {@link Cluster}.
    * Equivalent to {@link Array.filter}
@@ -33,6 +89,21 @@ class Cluster<K, V> extends Map<K, V> {
     }
 
     return cluster;
+  }
+
+  /**
+   * ֛Merges cluster(s) on top of this one. Replaces existing keys by newer clusters
+   * @param {...[K, V][] | ...Cluster<K, V> | ...(Cluster<K, V> | [K, V][])} clusters
+   */
+  public merge(...clusters: [K, V][][]): void;
+  public merge(...clusters: Cluster<K, V>[]): void;
+  public merge(...clusters: (Cluster<K, V> | [K, V][])[]): void;
+  public merge(...clusters: (Cluster<K, V> | [K, V][])[]): void {
+    for (const cluster of clusters) {
+      for (const [key, value] of cluster) {
+        this.set(key, value);
+      }
+    }
   }
 }
 
