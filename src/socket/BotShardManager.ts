@@ -2,6 +2,10 @@ import BotShard from './BotShard';
 import Cluster from '../Cluster';
 import { ShardId } from '../types';
 
+/**
+ * Creates and manages all bot shards
+ * @class
+ */
 class BotShardManager {
   private readonly token: string;
   private readonly shards: Cluster<ShardId, BotShard>;
@@ -16,6 +20,11 @@ class BotShardManager {
     this.shards = new Cluster<ShardId, BotShard>();
   }
 
+  /**
+   * Starts the shards and stores them inside a {@link Cluster}
+   * @param {number} timeout Time in milliseconds to wait for after creating each shard
+   * @returns {Promise<void>}
+   */
   public async start(timeout = 5500): Promise<void> {
     for (let i = 0; i < this.shardsAmount; i++) {
       const shard = new BotShard(this, i);
