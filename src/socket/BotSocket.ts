@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
 import WebSocket from 'ws';
-import Heartbeats from './Heartbeats';
+import BotHeartbeats from './BotHeartbeats';
 import properties, { version, identify } from './properties';
 
 export enum OPCodes {
@@ -69,7 +69,7 @@ export interface Payload {
 class BotSocket {
   private readonly token: string;
   private sessionId: string;
-  private heartbeats: Heartbeats;
+  private heartbeats: BotHeartbeats;
   public ws: WebSocket;
   public sequence: number;
 
@@ -85,7 +85,7 @@ class BotSocket {
     this.ws = new WebSocket(url);
     this.ws.on('message', this.message.bind(this));
 
-    this.heartbeats = new Heartbeats(this);
+    this.heartbeats = new BotHeartbeats(this);
   }
 
   private async message(data: string): Promise<void> {

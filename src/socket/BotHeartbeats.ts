@@ -1,7 +1,7 @@
 import WebSocket from 'ws';
 import BotSocket, { OPCodes } from './BotSocket';
 
-class Heartbeats {
+class BotHeartbeats {
   private ws: WebSocket;
   private readonly sequence: number;
   public interval: number;
@@ -22,4 +22,4 @@ class Heartbeats {
   }
 }
 
-export default Heartbeats;
+export default BotHeartbeats;
