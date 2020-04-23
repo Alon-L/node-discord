@@ -37,6 +37,11 @@ export interface Payload {
   t: GatewayEvents;
 }
 
+/**
+ * Connects the bot to a {@link WebSocket} with the Discord Gateway.
+ * Handles gateway events and messages
+ * @class
+ */
 class BotSocket {
   private readonly bot: Bot;
   private readonly token: string;
@@ -59,6 +64,11 @@ class BotSocket {
     this.lastSequence = null;
   }
 
+  /**
+   * Connects to the Discord Gateway and resumes a previous connection if needed
+   * @param {boolean} resume Whether to resume a previous connection
+   * @returns {Promise<void>}
+   */
   public async connect(resume = false): Promise<void> {
     const { url, session_start_limit: sessionLimit } = await this.gateway;
     const socketURL = BotSocket.socketURL(url);
@@ -72,11 +82,16 @@ class BotSocket {
 
     this.heartbeats = new BotHeartbeats(this);
 
-    if (resume) {
+    if (resume && this.lastSequence) {
       this.ws.onopen = this.resume.bind(this);
     }
   }
 
+  /**
+   * Called when a new message is received from the gateway
+   * @param {any} data Message data
+   * @returns {Promise<void>}
+   */
   private async onMessage({ data }): Promise<void> {
     const payload = BotSocket.parse(data);
 
@@ -107,6 +122,10 @@ class BotSocket {
     }
   }
 
+  /**
+   * Sends a new identify request to the gateway.
+   * Will use shards if needed
+   */
   private identify(): void {
     const { id, amount } = this.bot.shardOptions;
 
@@ -127,6 +146,10 @@ class BotSocket {
     );
   }
 
+  /**
+   * Calls the matching dispatch event from {@link BotDispatchHandlers.events}
+   * @param {Payload} payload Dispatch payload
+   */
   private handleDispatch(payload: Payload): void {
     const { t } = payload;
 
@@ -141,8 +164,12 @@ class BotSocket {
     }
   }
 
+  /**
+   * Close the connection between the bot and the gateway
+   * @param {GatewayCloseCodes} code Socket close code https://discordapp.com/developers/docs/topics/opcodes-and-status-codes#gateway-gateway-close-event-codes
+   */
   public close(code = GatewayCloseCodes.NormalClosure): void {
-    console.log('Terminating connection!');
+    console.log('Closing connection!');
 
     // Stop sending heartbeats
     this.heartbeats.stopHeartbeat();
@@ -164,11 +191,19 @@ class BotSocket {
     this.status = BotSocketStatus.Terminated;
   }
 
+  /**
+   * Called when the bot is fully ready to proceed, after collecting
+   * all guilds from GUILD_CREATE events
+   */
   public ready(): void {
     this.status = BotSocketStatus.Ready;
     // TODO: Call the client Ready event
   }
 
+  /**
+   * Called when the close event from the {@link WebSocket} is emitted
+   * @param {WebSocket.CloseEvent} event WebSocket close event
+   */
   private onClose(event: WebSocket.CloseEvent): void {
     console.error('Close', event.code, event.reason, event.wasClean);
 
@@ -181,6 +216,9 @@ class BotSocket {
     this.status = BotSocketStatus.Closed;
   }
 
+  /**
+   * Sends a request to the gateway in order to resume from the last connection
+   */
   private resume(): void {
     this.ws.send(
       BotSocket.pack({
@@ -194,6 +232,12 @@ class BotSocket {
     );
   }
 
+  /**
+   * Waits if no further connections can be made at the time
+   * @param {SessionStartLimit} sessionLimit Session start limit object received
+   * from connecting to the gateway
+   * @returns {Promise<void>}
+   */
   private async handleSessionLimit(sessionLimit: SessionStartLimit): Promise<void> {
     const { remaining, reset_after: resetAfter } = sessionLimit;
     if (remaining === 0) {
@@ -204,22 +248,44 @@ class BotSocket {
     }
   }
 
+  /**
+   * Clear all socket event listeners
+   */
   private cleanSocket(): void {
     this.ws.onmessage = null;
   }
 
+  /**
+   * Transfers the received data from the gateway into a {@link Payload} object
+   * @param {string} data Data received from the gateway
+   * @returns {Payload}
+   */
   private static parse(data: string): Payload {
     return JSON.parse(data);
   }
 
-  public static pack(data: any): ReturnType<typeof JSON.stringify> {
+  /**
+   * Transfers the data into format which can be sent across the gateway
+   * @param {any} data Data to be transferred and sent to the gateway
+   * @returns {string}
+   */
+  public static pack(data: any): string {
     return JSON.stringify(data);
   }
 
+  /**
+   * Get the fully modified Socket URL to use when connecting to the gateway
+   * @param {string} url Socket URL
+   * @returns {string}
+   */
   private static socketURL(url: string): string {
     return `${url}/?v=${version}&encoding=json`;
   }
 
+  /**
+   * Sends a request to the gateway in order to receive the connection information
+   * @returns {Promise<GatewayBot>}
+   */
   private get gateway(): Promise<GatewayBot> {
     return fetch(`${properties.baseURL}/gateway/bot`, {
       headers: { Authorization: `Bot ${this.token}` },
