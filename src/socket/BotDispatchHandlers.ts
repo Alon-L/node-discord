@@ -1,11 +1,11 @@
 import fs from 'fs';
 import path from 'path';
-import BotSocket, { Payload } from './BotSocket';
+import BotSocketShard, { Payload } from './BotSocketShard';
 import { GatewayEvents } from './constants';
 import Cluster from '../Cluster';
 import Bot from '../structures/Bot';
 
-export type EventFunction = (payload: Payload, bot: Bot, socket: BotSocket) => void;
+export type EventFunction = (payload: Payload, bot: Bot, socket: BotSocketShard) => void;
 
 export interface Event {
   run: EventFunction;

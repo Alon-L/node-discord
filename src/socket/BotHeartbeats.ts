@@ -1,5 +1,5 @@
 import WebSocket from 'ws';
-import BotSocket from './BotSocket';
+import BotSocketShard from './BotSocketShard';
 import { OPCodes } from './constants';
 
 interface HeartbeatData {
@@ -17,13 +17,13 @@ interface HeartbeatInterval {
  * @class
  */
 class BotHeartbeats {
-  private botSocket: BotSocket;
+  private botSocket: BotSocketShard;
   private readonly ws: WebSocket;
   private readonly sequence: number;
   private acked: boolean;
   public interval: HeartbeatInterval;
 
-  constructor(botSocket: BotSocket) {
+  constructor(botSocket: BotSocketShard) {
     this.botSocket = botSocket;
     this.ws = botSocket.ws;
 
@@ -54,7 +54,7 @@ class BotHeartbeats {
     }
 
     this.acked = false;
-    this.ws.send(BotSocket.pack(this.heartbeatData), (err) => {
+    this.ws.send(BotSocketShard.pack(this.heartbeatData), (err) => {
       if (err) throw err;
     });
   }

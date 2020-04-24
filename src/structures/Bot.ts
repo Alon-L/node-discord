@@ -4,7 +4,7 @@ import BotDispatchHandlers from '../socket/BotDispatchHandlers';
 import BotSocket from '../socket/BotSocket';
 import { ShardId, Snowflake } from '../types';
 
-interface ShardOptions {
+export interface ShardOptions {
   id?: ShardId;
   amount?: number;
 }
@@ -20,9 +20,12 @@ class Bot {
   constructor(token: string) {
     this.token = token;
 
+    const shardId = Number(process.env.SHARD_ID);
+    const shardAmount = Number(process.env.SHARD_ID);
+
     this.shardOptions = {
-      id: Number(process.env.SHARD_ID),
-      amount: Number(process.env.SHARDS_AMOUNT),
+      id: Number.isNaN(shardId) ? undefined : shardId,
+      amount: Number.isNaN(shardAmount) ? undefined : shardAmount,
     };
 
     this.socket = new BotSocket(this, token);
@@ -34,7 +37,7 @@ class Bot {
 
   public async connect(): Promise<void> {
     await this.dispatchHandlers.registerEvents();
-    await this.socket.connect();
+    await this.socket.startShards();
   }
 }
 

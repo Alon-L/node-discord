@@ -1,8 +1,8 @@
 import Bot from '../../structures/Bot';
-import BotSocket, { Payload } from '../BotSocket';
+import BotSocketShard, { Payload } from '../BotSocketShard';
 import { GatewayEvents } from '../constants';
 
-export const run = ({ d }: Payload, bot: Bot, socket: BotSocket): void => {
+export const run = ({ d }: Payload, bot: Bot, socket: BotSocketShard): void => {
   socket.sessionId = d.session_id;
 
   for (const guild of d.guilds) {
