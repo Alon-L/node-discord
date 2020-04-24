@@ -1,4 +1,6 @@
 import Guild from './Guild';
+import BotCommands from './handlers/BotCommands';
+import BotEvents from './handlers/BotEvents';
 import Cluster from '../Cluster';
 import BotDispatchHandlers from '../socket/BotDispatchHandlers';
 import BotSocket from '../socket/BotSocket';
@@ -14,6 +16,9 @@ class Bot {
   private readonly socket: BotSocket;
   private readonly dispatchHandlers: BotDispatchHandlers;
   public readonly shardOptions: ShardOptions;
+
+  public commands: BotCommands;
+  public events: BotEvents;
 
   public guilds: Cluster<Snowflake, Guild>;
 
@@ -31,6 +36,9 @@ class Bot {
     this.socket = new BotSocket(this, token);
 
     this.dispatchHandlers = new BotDispatchHandlers();
+
+    this.commands = new BotCommands(this);
+    this.events = new BotEvents(this);
 
     this.guilds = new Cluster<Snowflake, Guild>();
   }

@@ -205,11 +205,13 @@ class BotSocketShard {
    */
   public ready(): void {
     this.status = BotSocketShardStatus.Ready;
+
     console.log(
       'Ready!',
       this.bot.guilds.toArray.map((i) => i.name),
     );
-    // TODO: Call the client Ready event
+
+    this.bot.events.run(GatewayEvents.Ready);
   }
 
   /**
