@@ -3,7 +3,6 @@ import BotSocketShard from './BotSocketShard';
 import { recommendedShardTimeout } from './constants';
 import properties from './properties';
 import Bot from '../structures/Bot';
-import { ShardId } from '../types';
 
 export interface SessionStartLimit {
   total: number;
@@ -17,9 +16,12 @@ interface GatewayBot {
   session_start_limit: SessionStartLimit;
 }
 
+/**
+ * Creates and manages socket shards
+ * @class
+ */
 class BotSocket {
   private readonly token: string;
-  private readonly shards: ShardId[];
   public readonly bot: Bot;
   public gatewayURL: string;
   public sessionStartLimit: SessionStartLimit;
@@ -30,6 +32,11 @@ class BotSocket {
     this.token = token;
   }
 
+  /**
+   * Start and connect every bot shard
+   * @param {number} [timeout=5500] Time in milliseconds to wait before establishing a new shard
+   * @returns {Promise<void>}
+   */
   public async startShards(timeout = recommendedShardTimeout): Promise<void> {
     const {
       url: gatewayURL,
