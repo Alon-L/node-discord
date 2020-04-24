@@ -13,7 +13,8 @@ import {
 import { identify, version } from './properties';
 import Bot, { ShardOptions } from '../structures/Bot';
 
-export enum BotSocketStatus {
+export enum BotSocketShardStatus {
+  Connecting,
   Processing,
   Ready,
   Closed,
@@ -41,7 +42,7 @@ class BotSocketShard {
   private readonly token: string;
   private readonly shards: ShardOptions;
   private heartbeats: BotHeartbeats;
-  private status: BotSocketStatus;
+  private status: BotSocketShardStatus;
   public ws: WebSocket;
   public sessionId: string;
 
@@ -57,7 +58,7 @@ class BotSocketShard {
 
     this.shards = shards;
 
-    this.status = BotSocketStatus.Closed;
+    this.status = BotSocketShardStatus.Closed;
 
     this.sequence = null;
     this.lastSequence = null;
@@ -69,7 +70,9 @@ class BotSocketShard {
    * @returns {Promise<void>}
    */
   public async connect(resume = false): Promise<void> {
-    console.log('Connecting...');
+    if (this.status === BotSocketShardStatus.Connecting) return;
+    this.status = BotSocketShardStatus.Connecting;
+
     const { gatewayURL, sessionStartLimit } = this.botSocket;
 
     const socketURL = BotSocketShard.socketURL(gatewayURL);
@@ -120,7 +123,7 @@ class BotSocketShard {
 
         this.identify();
 
-        this.status = BotSocketStatus.Processing;
+        this.status = BotSocketShardStatus.Processing;
         break;
       case OPCodes.HeartbeatACK:
         this.heartbeats.receivedAck();
@@ -189,7 +192,7 @@ class BotSocketShard {
 
     this.ws = null;
 
-    this.status = BotSocketStatus.Terminated;
+    this.status = BotSocketShardStatus.Terminated;
   }
 
   /**
@@ -197,7 +200,7 @@ class BotSocketShard {
    * all guilds from GUILD_CREATE events
    */
   public ready(): void {
-    this.status = BotSocketStatus.Ready;
+    this.status = BotSocketShardStatus.Ready;
     // TODO: Call the client Ready event
   }
 
@@ -216,7 +219,7 @@ class BotSocketShard {
       this.cleanSocket();
     }
 
-    this.status = BotSocketStatus.Closed;
+    this.status = BotSocketShardStatus.Closed;
 
     if (!unreconnectableGatewayCloseCodes.includes(code)) {
       this.connect(!unresumeableGatewayCloseCodes.includes(code));
