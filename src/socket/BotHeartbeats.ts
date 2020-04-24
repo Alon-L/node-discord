@@ -17,14 +17,14 @@ interface HeartbeatInterval {
  * @class
  */
 class BotHeartbeats {
-  private botSocket: BotSocketShard;
+  private botSocketShard: BotSocketShard;
   private readonly ws: WebSocket;
   private readonly sequence: number;
   private acked: boolean;
   public interval: HeartbeatInterval;
 
   constructor(botSocket: BotSocketShard) {
-    this.botSocket = botSocket;
+    this.botSocketShard = botSocket;
     this.ws = botSocket.ws;
 
     this.sequence = botSocket.sequence;
@@ -71,8 +71,7 @@ class BotHeartbeats {
    * Called when acking failed. Close the socket and try to reconnect
    */
   private ackFailed(): void {
-    this.botSocket.close();
-    this.botSocket.connect(true);
+    this.botSocketShard.close();
   }
 
   /**

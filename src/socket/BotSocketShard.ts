@@ -3,14 +3,14 @@ import BotDispatchHandlers from './BotDispatchHandlers';
 import BotHeartbeats from './BotHeartbeats';
 import BotSocket, { SessionStartLimit } from './BotSocket';
 import {
-  OPCodes,
-  GatewayEvents,
   GatewayCloseCodes,
+  GatewayEvents,
+  OPCodes,
   SocketStatus,
   unreconnectableGatewayCloseCodes,
   unresumeableGatewayCloseCodes,
 } from './constants';
-import { version, identify } from './properties';
+import { identify, version } from './properties';
 import Bot, { ShardOptions } from '../structures/Bot';
 
 export enum BotSocketStatus {
@@ -69,6 +69,7 @@ class BotSocketShard {
    * @returns {Promise<void>}
    */
   public async connect(resume = false): Promise<void> {
+    console.log('Connecting...');
     const { gatewayURL, sessionStartLimit } = this.botSocket;
 
     const socketURL = BotSocketShard.socketURL(gatewayURL);
@@ -105,6 +106,9 @@ class BotSocketShard {
       case OPCodes.Dispatch:
         this.sequence = s;
         this.handleDispatch(payload);
+        break;
+      case OPCodes.Reconnect:
+        this.close(GatewayCloseCodes.UnknownError);
         break;
       case OPCodes.InvalidSession:
         // Wait 5 seconds and re-identify
@@ -256,6 +260,8 @@ class BotSocketShard {
    */
   private cleanSocket(): void {
     this.ws.onmessage = null;
+    this.ws.onclose = null;
+    this.ws.onopen = null;
   }
 
   /**
