@@ -12,6 +12,7 @@ import {
 } from './constants';
 import { identify, version } from './properties';
 import Bot, { ShardOptions } from '../structures/Bot';
+import { Snowflake } from '../types';
 
 export enum BotSocketShardStatus {
   Connecting,
@@ -42,7 +43,8 @@ class BotSocketShard {
   private readonly token: string;
   private readonly shards: ShardOptions;
   private heartbeats: BotHeartbeats;
-  private status: BotSocketShardStatus;
+  public pendingGuilds: Set<Snowflake>;
+  public status: BotSocketShardStatus;
   public ws: WebSocket;
   public sessionId: string;
 
@@ -57,6 +59,8 @@ class BotSocketShard {
     this.token = token;
 
     this.shards = shards;
+
+    this.pendingGuilds = new Set<Snowflake>();
 
     this.status = BotSocketShardStatus.Closed;
 
@@ -201,6 +205,10 @@ class BotSocketShard {
    */
   public ready(): void {
     this.status = BotSocketShardStatus.Ready;
+    console.log(
+      'Ready!',
+      this.bot.guilds.toArray.map((i) => i.name),
+    );
     // TODO: Call the client Ready event
   }
 

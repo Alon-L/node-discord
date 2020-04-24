@@ -79,6 +79,7 @@ class Guild {
   }
 
   private build(guild: Guild | Record<string, any>) {
+    this.id = guild.id;
     this.name = guild.name;
     this.icon = guild.icon;
     this.splash = guild.splash;

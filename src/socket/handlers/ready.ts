@@ -7,6 +7,8 @@ export const run = ({ d }: Payload, bot: Bot, socket: BotSocketShard): void => {
 
   for (const guild of d.guilds) {
     bot.guilds.set(guild.id, guild);
+
+    socket.pendingGuilds.add(guild.id);
   }
 
   console.log(bot.guilds);
