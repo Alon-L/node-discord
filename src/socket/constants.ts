@@ -80,6 +80,19 @@ export enum GatewayCloseCodes {
   DisallowedIntent,
 }
 
+export const unreconnectableGatewayCloseCodes: GatewayCloseCodes[] = [
+  GatewayCloseCodes.AuthenticationFailed,
+  GatewayCloseCodes.InvalidShard,
+  GatewayCloseCodes.ShardingRequired,
+  GatewayCloseCodes.InvalidIntent,
+  GatewayCloseCodes.DisallowedIntent,
+];
+
+export const unresumeableGatewayCloseCodes: GatewayCloseCodes[] = [
+  GatewayCloseCodes.NormalClosure,
+  GatewayCloseCodes.InvalidSeq,
+];
+
 export enum SocketStatus {
   Connecting,
   Open,

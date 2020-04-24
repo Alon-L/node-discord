@@ -2,7 +2,14 @@ import WebSocket from 'ws';
 import BotDispatchHandlers from './BotDispatchHandlers';
 import BotHeartbeats from './BotHeartbeats';
 import BotSocket, { SessionStartLimit } from './BotSocket';
-import { OPCodes, GatewayEvents, GatewayCloseCodes, SocketStatus } from './constants';
+import {
+  OPCodes,
+  GatewayEvents,
+  GatewayCloseCodes,
+  SocketStatus,
+  unreconnectableGatewayCloseCodes,
+  unresumeableGatewayCloseCodes,
+} from './constants';
 import { version, identify } from './properties';
 import Bot, { ShardOptions } from '../structures/Bot';
 
@@ -164,6 +171,8 @@ class BotSocketShard {
     // Stop sending heartbeats
     this.heartbeats.stopHeartbeat();
 
+    this.lastSequence = this.sequence;
+
     if (this.ws) {
       if (this.ws.readyState !== SocketStatus.Open) {
         // Remove all socket listeners
@@ -175,8 +184,6 @@ class BotSocketShard {
     }
 
     this.ws = null;
-
-    this.lastSequence = this.sequence;
 
     this.status = BotSocketStatus.Terminated;
   }
@@ -197,6 +204,8 @@ class BotSocketShard {
   private onClose(event: WebSocket.CloseEvent): void {
     console.error('Close', event.code, event.reason, event.wasClean);
 
+    const { code } = event;
+
     this.heartbeats.stopHeartbeat();
 
     if (this.ws) {
@@ -204,6 +213,10 @@ class BotSocketShard {
     }
 
     this.status = BotSocketStatus.Closed;
+
+    if (!unreconnectableGatewayCloseCodes.includes(code)) {
+      this.connect(!unresumeableGatewayCloseCodes.includes(code));
+    }
   }
 
   /**
