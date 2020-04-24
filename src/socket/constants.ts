@@ -86,3 +86,5 @@ export enum SocketStatus {
   Closing,
   Closed,
 }
+
+export const recommendedShardTimeout = 5500;

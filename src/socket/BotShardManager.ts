@@ -1,4 +1,5 @@
 import BotShard from './BotShard';
+import { recommendedShardTimeout } from './constants';
 import Cluster from '../Cluster';
 import { ShardId } from '../types';
 
@@ -25,7 +26,7 @@ class BotShardManager {
    * @param {number} timeout Time in milliseconds to wait for after creating each shard
    * @returns {Promise<void>}
    */
-  public async start(timeout = 5500): Promise<void> {
+  public async start(timeout = recommendedShardTimeout): Promise<void> {
     for (let i = 0; i < this.shardsAmount; i++) {
       const shard = new BotShard(this, i);
       this.shards.set(shard.id, shard);

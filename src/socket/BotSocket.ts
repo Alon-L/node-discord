@@ -1,5 +1,6 @@
 import fetch from 'node-fetch';
 import BotSocketShard from './BotSocketShard';
+import { recommendedShardTimeout } from './constants';
 import properties from './properties';
 import Bot from '../structures/Bot';
 import { ShardId } from '../types';
@@ -29,7 +30,7 @@ class BotSocket {
     this.token = token;
   }
 
-  public async startShards(): Promise<void> {
+  public async startShards(timeout = recommendedShardTimeout): Promise<void> {
     const {
       url: gatewayURL,
       shards: suggestedShards,
@@ -52,7 +53,7 @@ class BotSocket {
       botShard.connect();
 
       // eslint-disable-next-line no-await-in-loop
-      await new Promise((resolve) => setTimeout(resolve, 5500));
+      await new Promise((resolve) => setTimeout(resolve, timeout));
     }
   }
 
