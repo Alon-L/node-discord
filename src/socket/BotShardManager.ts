@@ -23,7 +23,7 @@ class BotShardManager {
 
   /**
    * Starts the shards and stores them inside a {@link Cluster}
-   * @param {number} timeout Time in milliseconds to wait for after creating each shard
+   * @param {number} [timeout=5500] Time in milliseconds to wait for after creating each shard
    * @returns {Promise<void>}
    */
   public async start(timeout = recommendedShardTimeout): Promise<void> {
