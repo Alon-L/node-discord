@@ -13,7 +13,7 @@ const initialSize = cluster.size;
 test('cluster filter', () => {
   const filtered = cluster.filter(v => v > 1);
 
-  expect(filtered.size).toBe(cluster.size - filtered.size);
+  expect(filtered.size).toBe(cluster.size - 1);
 });
 
 describe('cluster merging', () => {
