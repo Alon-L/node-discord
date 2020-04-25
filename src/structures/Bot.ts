@@ -52,7 +52,7 @@ class Bot {
     this.token = token;
 
     const shardId = Number(process.env.SHARD_ID);
-    const shardAmount = Number(process.env.SHARD_ID);
+    const shardAmount = Number(process.env.SHARDS_AMOUNT);
 
     this.shardOptions = {
       id: Number.isNaN(shardId) ? undefined : shardId,
