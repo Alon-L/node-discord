@@ -7,6 +7,9 @@ import { Dimensions } from '../types';
 export type GatewayStruct = Dict<any>;
 
 class BaseStruct {
+  /**
+   * The bot operating this structure
+   */
   public bot: Bot;
 
   constructor(bot: Bot) {
