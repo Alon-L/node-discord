@@ -9,7 +9,6 @@ export const identify = {
   presence: {
     status: 'online',
   },
-  // eslint-disable-next-line @typescript-eslint/camelcase
   large_threshold: 250,
   version,
 };
