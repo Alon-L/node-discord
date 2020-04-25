@@ -1,7 +1,7 @@
 import Cluster from '../../Cluster';
 import Bot from '../Bot';
 
-class BotHandler<T> extends Cluster<string, T> {
+abstract class BotHandler<T> extends Cluster<string, T> {
   protected bot: Bot;
 
   constructor(bot: Bot) {
@@ -9,6 +9,8 @@ class BotHandler<T> extends Cluster<string, T> {
 
     this.bot = bot;
   }
+
+  abstract wait(name: string): Promise<unknown>;
 
   protected find(name: string): T {
     if (this.has(name)) {

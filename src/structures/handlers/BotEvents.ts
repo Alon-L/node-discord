@@ -9,11 +9,17 @@ class BotEvents extends BotHandler<RegisterCallback> {
 
     if (!command) return false;
 
-    if (typeof command === 'function') {
-      command(this.bot);
-    }
+    command(this.bot);
 
     return true;
+  }
+
+  public wait(name: string): Promise<Parameters<RegisterCallback>> {
+    return new Promise(resolve => {
+      this.set(name, (...args: Parameters<RegisterCallback>) => {
+        resolve(args);
+      });
+    });
   }
 }
 

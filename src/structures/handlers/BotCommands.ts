@@ -17,6 +17,10 @@ class BotCommands extends BotHandler<RegisterCallback> {
 
     return true;
   }
+
+  public wait(name: string): Promise<unknown> {
+    return;
+  }
 }
 
 export default BotCommands;
