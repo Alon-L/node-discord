@@ -7,19 +7,45 @@ import BotSocket from '../socket/BotSocket';
 import { ShardId, Snowflake } from '../types';
 
 export interface ShardOptions {
+  /**
+   * Shard ID
+   */
   id?: ShardId;
+
+  /**
+   * Number of shards this instance of the bot uses
+   */
   amount?: number;
 }
 
 class Bot {
+  /**
+   * Bot token
+   */
   private readonly token: string;
+
+  /**
+   * Bot socket connection (may split into shards)
+   */
   private readonly socket: BotSocket;
+
+  /**
+   * Handles every dispatch requests received from the Discord gateway
+   */
   private readonly dispatchHandlers: BotDispatchHandlers;
+
+  /**
+   * {@link ShardOptions} object containing sharding information
+   */
   public readonly shardOptions: ShardOptions;
 
+  // TODO: Document these fields
   public commands: BotCommands;
   public events: BotEvents;
 
+  /**
+   * {@link Cluster} of all {@link Guild}s associated to the Bot
+   */
   public guilds: Cluster<Snowflake, Guild>;
 
   constructor(token: string) {
@@ -43,6 +69,10 @@ class Bot {
     this.guilds = new Cluster<Snowflake, Guild>();
   }
 
+  /**
+   * Creates a new bot connection
+   * @returns {Promise<void>}
+   */
   public async connect(): Promise<void> {
     await this.dispatchHandlers.registerEvents();
     await this.socket.startShards();
