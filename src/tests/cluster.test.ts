@@ -11,7 +11,7 @@ cluster.set('3', 3);
 const initialSize = cluster.size;
 
 test('cluster filter', () => {
-  const filtered = cluster.filter((v) => v > 1);
+  const filtered = cluster.filter(v => v > 1);
 
   expect(filtered.size).toBe(cluster.size - filtered.size);
 });
