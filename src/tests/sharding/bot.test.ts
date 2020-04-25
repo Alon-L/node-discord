@@ -15,4 +15,7 @@ bot.commands.set('help', {
 
 bot.events.set('READY', () => {
   console.log('Bot ready!');
+
+  // console.log(bot.guilds.last.channels);
+  console.log(bot.guilds.last.channels.first.guild.id);
 });
