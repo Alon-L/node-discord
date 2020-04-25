@@ -6,7 +6,7 @@ import { GatewayEvents } from '../constants';
 export const run = ({ d }: Payload, bot: Bot, socket: BotSocketShard): void => {
   socket.sessionId = d.session_id;
 
-  const guild = new Guild(d);
+  const guild = new Guild(bot, d);
 
   bot.guilds.set(guild.id, guild);
 

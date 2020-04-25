@@ -1,5 +1,7 @@
 {
   "printWidth": 100,
   "trailingComma": "all",
-  "singleQuote": true
+  "singleQuote": true,
+  "quoteProps": "as-needed",
+  "arrowParens": "avoid"
 }

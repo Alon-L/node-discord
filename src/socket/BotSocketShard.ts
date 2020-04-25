@@ -208,7 +208,7 @@ class BotSocketShard {
 
     console.log(
       'Ready!',
-      this.bot.guilds.toArray.map((i) => i.name),
+      this.bot.guilds.toArray.map(i => i.name),
     );
 
     this.bot.events.run(GatewayEvents.Ready);
@@ -264,7 +264,7 @@ class BotSocketShard {
       console.error(
         `Maximum number of daily Discord API connections exceeded! You will have to wait ${resetAfter}ms before attempting a new connection`,
       );
-      await new Promise((resolve) => setTimeout(resolve, resetAfter));
+      await new Promise(resolve => setTimeout(resolve, resetAfter));
     }
   }
 

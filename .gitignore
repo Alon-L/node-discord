@@ -1,5 +1,14 @@
+# Node modules
 node_modules
+
+# Workspace configuration
 .idea
+
+# Compiled output
 /lib
 
+# Test bot credentials
 src/tests/config.json
+
+# Documentation
+/docs

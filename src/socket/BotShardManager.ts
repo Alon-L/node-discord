@@ -34,7 +34,7 @@ class BotShardManager {
       shard.spawn();
 
       // eslint-disable-next-line no-await-in-loop
-      await new Promise((resolve) => setTimeout(resolve, timeout));
+      await new Promise(resolve => setTimeout(resolve, timeout));
     }
   }
 }

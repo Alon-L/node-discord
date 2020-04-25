@@ -60,7 +60,7 @@ class BotSocket {
       botShard.connect();
 
       // eslint-disable-next-line no-await-in-loop
-      await new Promise((resolve) => setTimeout(resolve, timeout));
+      await new Promise(resolve => setTimeout(resolve, timeout));
     }
   }
 
@@ -71,7 +71,7 @@ class BotSocket {
   private get gateway(): Promise<GatewayBot> {
     return fetch(`${properties.baseURL}/gateway/bot`, {
       headers: { Authorization: `Bot ${this.token}` },
-    }).then((res) => res.json());
+    }).then(res => res.json());
   }
 }
 

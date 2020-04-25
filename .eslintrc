@@ -4,12 +4,11 @@
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "prettier/@typescript-eslint",
-    "plugin:prettier/recommended",
-    "airbnb-base",
     "plugin:@typescript-eslint/eslint-recommended"
   ],
   "plugins": [
-    "import"
+    "import",
+    "prettier"
   ],
   "parserOptions": {
     "ecmaVersion": 2019
@@ -75,7 +74,7 @@
     "lines-between-class-members": "off",
     "class-methods-use-this": "off",
     "default-case": "warn",
-    "quote-props": "error",
+    "quote-props": "off",
     "strict": "off",
     "no-restricted-syntax": "off",
     "object-curly-newline": "off",
