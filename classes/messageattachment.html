@@ -104,7 +104,6 @@
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="messageattachment.html#build" class="tsd-kind-icon">build</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="messageattachment.html#clone" class="tsd-kind-icon">clone</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="messageattachment.html#getdimensions" class="tsd-kind-icon">get<wbr>Dimensions</a></li>
 							</ul>
 						</section>
@@ -117,14 +116,14 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Message<wbr>Attachment<span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">?: </span><a href="message.html" class="tsd-signature-type">Message</a>, attachment<span class="tsd-signature-symbol">?: </span><a href="../globals.html#baseparam" class="tsd-signature-type">BaseParam</a><span class="tsd-signature-symbol">&lt;</span><a href="messageattachment.html" class="tsd-signature-type">MessageAttachment</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="messageattachment.html" class="tsd-signature-type">MessageAttachment</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Message<wbr>Attachment<span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">?: </span><a href="message.html" class="tsd-signature-type">Message</a>, attachment<span class="tsd-signature-symbol">?: </span><a href="../globals.html#gatewaystruct" class="tsd-signature-type">GatewayStruct</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="messageattachment.html" class="tsd-signature-type">MessageAttachment</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="basestruct.html">BaseStruct</a>.<a href="basestruct.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/95113d1/src/structures/message/MessageAttachment.ts#L12">src/structures/message/MessageAttachment.ts:12</a></li>
+									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/94b60c6/src/structures/message/MessageAttachment.ts#L40">src/structures/message/MessageAttachment.ts:40</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -133,7 +132,7 @@
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> message: <a href="message.html" class="tsd-signature-type">Message</a></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> attachment: <a href="../globals.html#baseparam" class="tsd-signature-type">BaseParam</a><span class="tsd-signature-symbol">&lt;</span><a href="messageattachment.html" class="tsd-signature-type">MessageAttachment</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> attachment: <a href="../globals.html#gatewaystruct" class="tsd-signature-type">GatewayStruct</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="messageattachment.html" class="tsd-signature-type">MessageAttachment</a></h4>
@@ -150,7 +149,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="basestruct.html">BaseStruct</a>.<a href="basestruct.html#bot">bot</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/95113d1/src/structures/BaseStruct.ts#L10">src/structures/BaseStruct.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/94b60c6/src/structures/BaseStruct.ts#L10">src/structures/BaseStruct.ts:10</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -160,9 +159,15 @@
 					<div class="tsd-signature tsd-kind-icon">dimensions<span class="tsd-signature-symbol">:</span> <a href="../globals.html#nullable" class="tsd-signature-type">Nullable</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/dimensions.html" class="tsd-signature-type">Dimensions</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/95113d1/src/structures/message/MessageAttachment.ts#L12">src/structures/message/MessageAttachment.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/94b60c6/src/structures/message/MessageAttachment.ts#L40">src/structures/message/MessageAttachment.ts:40</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The width and height of the file.
+							Possibly null if the attached file is not an image</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="filename" class="tsd-anchor"></a>
@@ -170,9 +175,14 @@
 					<div class="tsd-signature tsd-kind-icon">filename<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/95113d1/src/structures/message/MessageAttachment.ts#L8">src/structures/message/MessageAttachment.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/94b60c6/src/structures/message/MessageAttachment.ts#L19">src/structures/message/MessageAttachment.ts:19</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Name of the attached file</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="id" class="tsd-anchor"></a>
@@ -180,9 +190,14 @@
 					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/95113d1/src/structures/message/MessageAttachment.ts#L7">src/structures/message/MessageAttachment.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/94b60c6/src/structures/message/MessageAttachment.ts#L14">src/structures/message/MessageAttachment.ts:14</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The attachment&#39;s ID</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="message" class="tsd-anchor"></a>
@@ -190,9 +205,14 @@
 					<div class="tsd-signature tsd-kind-icon">message<span class="tsd-signature-symbol">:</span> <a href="message.html" class="tsd-signature-type">Message</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/95113d1/src/structures/message/MessageAttachment.ts#L6">src/structures/message/MessageAttachment.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/94b60c6/src/structures/message/MessageAttachment.ts#L9">src/structures/message/MessageAttachment.ts:9</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The <a href="message.html">Message</a> associated to this attachment</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="proxyurl" class="tsd-anchor"></a>
@@ -200,9 +220,14 @@
 					<div class="tsd-signature tsd-kind-icon">proxyURL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/95113d1/src/structures/message/MessageAttachment.ts#L11">src/structures/message/MessageAttachment.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/94b60c6/src/structures/message/MessageAttachment.ts#L34">src/structures/message/MessageAttachment.ts:34</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>A proxies URL of the attached file</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="size" class="tsd-anchor"></a>
@@ -210,9 +235,14 @@
 					<div class="tsd-signature tsd-kind-icon">size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/95113d1/src/structures/message/MessageAttachment.ts#L9">src/structures/message/MessageAttachment.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/94b60c6/src/structures/message/MessageAttachment.ts#L24">src/structures/message/MessageAttachment.ts:24</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Size of the attached file in bytes</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="url" class="tsd-anchor"></a>
@@ -220,9 +250,14 @@
 					<div class="tsd-signature tsd-kind-icon">url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/95113d1/src/structures/message/MessageAttachment.ts#L10">src/structures/message/MessageAttachment.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/94b60c6/src/structures/message/MessageAttachment.ts#L29">src/structures/message/MessageAttachment.ts:29</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Source URL of the attached file</p>
+						</div>
+					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group tsd-is-private-protected">
@@ -237,37 +272,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/95113d1/src/structures/message/MessageAttachment.ts#L28">src/structures/message/MessageAttachment.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/94b60c6/src/structures/message/MessageAttachment.ts#L52">src/structures/message/MessageAttachment.ts:52</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>attachment: <a href="../globals.html#gatewaystruct" class="tsd-signature-type">GatewayStruct</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-					<a name="clone" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> clone</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-						<li class="tsd-signature tsd-kind-icon">clone<span class="tsd-signature-symbol">(</span>struct<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Inherited from <a href="basestruct.html">BaseStruct</a>.<a href="basestruct.html#clone">clone</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/95113d1/src/structures/BaseStruct.ts#L16">src/structures/BaseStruct.ts:16</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>struct: <span class="tsd-signature-type">unknown</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -285,7 +296,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="basestruct.html">BaseStruct</a>.<a href="basestruct.html#getdimensions">getDimensions</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/95113d1/src/structures/BaseStruct.ts#L20">src/structures/BaseStruct.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/94b60c6/src/structures/BaseStruct.ts#L16">src/structures/BaseStruct.ts:16</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -352,9 +363,6 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
 								<a href="messageattachment.html#build" class="tsd-kind-icon">build</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-								<a href="messageattachment.html#clone" class="tsd-kind-icon">clone</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 								<a href="messageattachment.html#getdimensions" class="tsd-kind-icon">get<wbr>Dimensions</a>

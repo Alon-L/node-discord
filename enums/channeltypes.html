@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>SocketStatus | node-discord</title>
+	<title>ChannelTypes | node-discord</title>
 	<meta name="description" content="Documentation for node-discord">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,16 +54,23 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="socketstatus.html">SocketStatus</a>
+					<a href="channeltypes.html">ChannelTypes</a>
 				</li>
 			</ul>
-			<h1>Enumeration SocketStatus</h1>
+			<h1>Enumeration ChannelTypes</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>The type of a channel</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
@@ -71,10 +78,13 @@
 						<section class="tsd-index-section ">
 							<h3>Enumeration members</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="socketstatus.html#closed" class="tsd-kind-icon">Closed</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="socketstatus.html#closing" class="tsd-kind-icon">Closing</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="socketstatus.html#connecting" class="tsd-kind-icon">Connecting</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="socketstatus.html#open" class="tsd-kind-icon">Open</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="channeltypes.html#dm" class="tsd-kind-icon">DM</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="channeltypes.html#groupdm" class="tsd-kind-icon">GroupDM</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="channeltypes.html#guildcategory" class="tsd-kind-icon">Guild<wbr>Category</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="channeltypes.html#guildnews" class="tsd-kind-icon">Guild<wbr>News</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="channeltypes.html#guildstore" class="tsd-kind-icon">Guild<wbr>Store</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="channeltypes.html#guildtext" class="tsd-kind-icon">Guild<wbr>Text</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="channeltypes.html#guildvoice" class="tsd-kind-icon">Guild<wbr>Voice</a></li>
 							</ul>
 						</section>
 					</div>
@@ -83,42 +93,72 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Enumeration members</h2>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="closed" class="tsd-anchor"></a>
-					<h3>Closed</h3>
-					<div class="tsd-signature tsd-kind-icon">Closed<span class="tsd-signature-symbol">:</span></div>
+					<a name="dm" class="tsd-anchor"></a>
+					<h3>DM</h3>
+					<div class="tsd-signature tsd-kind-icon">DM<span class="tsd-signature-symbol">:</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/94b60c6/src/socket/constants.ts#L100">src/socket/constants.ts:100</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/94b60c6/src/structures/channels/GuildChannel.ts#L14">src/structures/channels/GuildChannel.ts:14</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="closing" class="tsd-anchor"></a>
-					<h3>Closing</h3>
-					<div class="tsd-signature tsd-kind-icon">Closing<span class="tsd-signature-symbol">:</span></div>
+					<a name="groupdm" class="tsd-anchor"></a>
+					<h3>GroupDM</h3>
+					<div class="tsd-signature tsd-kind-icon">GroupDM<span class="tsd-signature-symbol">:</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/94b60c6/src/socket/constants.ts#L99">src/socket/constants.ts:99</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/94b60c6/src/structures/channels/GuildChannel.ts#L16">src/structures/channels/GuildChannel.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="connecting" class="tsd-anchor"></a>
-					<h3>Connecting</h3>
-					<div class="tsd-signature tsd-kind-icon">Connecting<span class="tsd-signature-symbol">:</span></div>
+					<a name="guildcategory" class="tsd-anchor"></a>
+					<h3>Guild<wbr>Category</h3>
+					<div class="tsd-signature tsd-kind-icon">Guild<wbr>Category<span class="tsd-signature-symbol">:</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/94b60c6/src/socket/constants.ts#L97">src/socket/constants.ts:97</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/94b60c6/src/structures/channels/GuildChannel.ts#L17">src/structures/channels/GuildChannel.ts:17</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="open" class="tsd-anchor"></a>
-					<h3>Open</h3>
-					<div class="tsd-signature tsd-kind-icon">Open<span class="tsd-signature-symbol">:</span></div>
+					<a name="guildnews" class="tsd-anchor"></a>
+					<h3>Guild<wbr>News</h3>
+					<div class="tsd-signature tsd-kind-icon">Guild<wbr>News<span class="tsd-signature-symbol">:</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/94b60c6/src/socket/constants.ts#L98">src/socket/constants.ts:98</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/94b60c6/src/structures/channels/GuildChannel.ts#L18">src/structures/channels/GuildChannel.ts:18</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="guildstore" class="tsd-anchor"></a>
+					<h3>Guild<wbr>Store</h3>
+					<div class="tsd-signature tsd-kind-icon">Guild<wbr>Store<span class="tsd-signature-symbol">:</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/94b60c6/src/structures/channels/GuildChannel.ts#L19">src/structures/channels/GuildChannel.ts:19</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="guildtext" class="tsd-anchor"></a>
+					<h3>Guild<wbr>Text</h3>
+					<div class="tsd-signature tsd-kind-icon">Guild<wbr>Text<span class="tsd-signature-symbol">:</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/94b60c6/src/structures/channels/GuildChannel.ts#L13">src/structures/channels/GuildChannel.ts:13</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="guildvoice" class="tsd-anchor"></a>
+					<h3>Guild<wbr>Voice</h3>
+					<div class="tsd-signature tsd-kind-icon">Guild<wbr>Voice<span class="tsd-signature-symbol">:</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/94b60c6/src/structures/channels/GuildChannel.ts#L15">src/structures/channels/GuildChannel.ts:15</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -137,19 +177,28 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-enum">
-						<a href="socketstatus.html" class="tsd-kind-icon">Socket<wbr>Status</a>
+						<a href="channeltypes.html" class="tsd-kind-icon">Channel<wbr>Types</a>
 						<ul>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="socketstatus.html#closed" class="tsd-kind-icon">Closed</a>
+								<a href="channeltypes.html#dm" class="tsd-kind-icon">DM</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="socketstatus.html#closing" class="tsd-kind-icon">Closing</a>
+								<a href="channeltypes.html#groupdm" class="tsd-kind-icon">GroupDM</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="socketstatus.html#connecting" class="tsd-kind-icon">Connecting</a>
+								<a href="channeltypes.html#guildcategory" class="tsd-kind-icon">Guild<wbr>Category</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="socketstatus.html#open" class="tsd-kind-icon">Open</a>
+								<a href="channeltypes.html#guildnews" class="tsd-kind-icon">Guild<wbr>News</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="channeltypes.html#guildstore" class="tsd-kind-icon">Guild<wbr>Store</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="channeltypes.html#guildtext" class="tsd-kind-icon">Guild<wbr>Text</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="channeltypes.html#guildvoice" class="tsd-kind-icon">Guild<wbr>Voice</a>
 							</li>
 						</ul>
 					</li>

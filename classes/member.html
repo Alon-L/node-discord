@@ -106,7 +106,6 @@
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="member.html#build" class="tsd-kind-icon">build</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="member.html#clone" class="tsd-kind-icon">clone</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="member.html#getdimensions" class="tsd-kind-icon">get<wbr>Dimensions</a></li>
 							</ul>
 						</section>
@@ -119,14 +118,14 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Member<span class="tsd-signature-symbol">(</span>bot<span class="tsd-signature-symbol">: </span><a href="bot.html" class="tsd-signature-type">Bot</a>, member<span class="tsd-signature-symbol">?: </span><a href="../globals.html#baseparam" class="tsd-signature-type">BaseParam</a><span class="tsd-signature-symbol">&lt;</span><a href="member.html" class="tsd-signature-type">Member</a><span class="tsd-signature-symbol">&gt;</span>, guild<span class="tsd-signature-symbol">?: </span><a href="guild.html" class="tsd-signature-type">Guild</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="member.html" class="tsd-signature-type">Member</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Member<span class="tsd-signature-symbol">(</span>bot<span class="tsd-signature-symbol">: </span><a href="bot.html" class="tsd-signature-type">Bot</a>, member<span class="tsd-signature-symbol">?: </span><a href="../globals.html#gatewaystruct" class="tsd-signature-type">GatewayStruct</a>, guild<span class="tsd-signature-symbol">?: </span><a href="guild.html" class="tsd-signature-type">Guild</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="member.html" class="tsd-signature-type">Member</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="guildbasestruct.html">GuildBaseStruct</a>.<a href="guildbasestruct.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/95113d1/src/structures/Member.ts#L18">src/structures/Member.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/94b60c6/src/structures/Member.ts#L50">src/structures/Member.ts:50</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -135,7 +134,7 @@
 									<h5>bot: <a href="bot.html" class="tsd-signature-type">Bot</a></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> member: <a href="../globals.html#baseparam" class="tsd-signature-type">BaseParam</a><span class="tsd-signature-symbol">&lt;</span><a href="member.html" class="tsd-signature-type">Member</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> member: <a href="../globals.html#gatewaystruct" class="tsd-signature-type">GatewayStruct</a></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> guild: <a href="guild.html" class="tsd-signature-type">Guild</a></h5>
@@ -155,7 +154,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="basestruct.html">BaseStruct</a>.<a href="basestruct.html#bot">bot</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/95113d1/src/structures/BaseStruct.ts#L10">src/structures/BaseStruct.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/94b60c6/src/structures/BaseStruct.ts#L10">src/structures/BaseStruct.ts:10</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -165,9 +164,14 @@
 					<div class="tsd-signature tsd-kind-icon">deaf<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/95113d1/src/structures/Member.ts#L17">src/structures/Member.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/94b60c6/src/structures/Member.ts#L45">src/structures/Member.ts:45</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Whether the member is deafened in voice channels</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="guild" class="tsd-anchor"></a>
@@ -176,7 +180,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="guildbasestruct.html">GuildBaseStruct</a>.<a href="guildbasestruct.html#guild">guild</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/95113d1/src/structures/GuildBaseStruct.ts#L6">src/structures/GuildBaseStruct.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/94b60c6/src/structures/GuildBaseStruct.ts#L6">src/structures/GuildBaseStruct.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -186,9 +190,14 @@
 					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/95113d1/src/structures/Member.ts#L11">src/structures/Member.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/94b60c6/src/structures/Member.ts#L14">src/structures/Member.ts:14</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The member&#39;s user ID</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="joinedat" class="tsd-anchor"></a>
@@ -196,9 +205,14 @@
 					<div class="tsd-signature tsd-kind-icon">joined<wbr>At<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/95113d1/src/structures/Member.ts#L15">src/structures/Member.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/94b60c6/src/structures/Member.ts#L34">src/structures/Member.ts:34</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Timestamp of when the member joined the guild</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="mute" class="tsd-anchor"></a>
@@ -206,9 +220,14 @@
 					<div class="tsd-signature tsd-kind-icon">mute<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/95113d1/src/structures/Member.ts#L18">src/structures/Member.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/94b60c6/src/structures/Member.ts#L50">src/structures/Member.ts:50</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Whether the member is muted in voice channels</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="nick" class="tsd-anchor"></a>
@@ -216,9 +235,14 @@
 					<div class="tsd-signature tsd-kind-icon">nick<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/95113d1/src/structures/Member.ts#L13">src/structures/Member.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/94b60c6/src/structures/Member.ts#L24">src/structures/Member.ts:24</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The user&#39;s guild nickname</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="premiumsince" class="tsd-anchor"></a>
@@ -226,9 +250,15 @@
 					<div class="tsd-signature tsd-kind-icon">premium<wbr>Since<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/95113d1/src/structures/Member.ts#L16">src/structures/Member.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/94b60c6/src/structures/Member.ts#L40">src/structures/Member.ts:40</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Timestamp of when the member start boosting the guild.
+							Possibly null if the user has never boosted this server</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="roles" class="tsd-anchor"></a>
@@ -236,9 +266,14 @@
 					<div class="tsd-signature tsd-kind-icon">roles<span class="tsd-signature-symbol">:</span> <a href="cluster.html" class="tsd-signature-type">Cluster</a><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol">, </span><a href="role.html" class="tsd-signature-type">Role</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/95113d1/src/structures/Member.ts#L14">src/structures/Member.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/94b60c6/src/structures/Member.ts#L29">src/structures/Member.ts:29</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p><a href="cluster.html">Cluster</a> of all <a href="role.html">Role</a>s associated to this member</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="user" class="tsd-anchor"></a>
@@ -246,9 +281,14 @@
 					<div class="tsd-signature tsd-kind-icon">user<span class="tsd-signature-symbol">:</span> <a href="user.html" class="tsd-signature-type">User</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/95113d1/src/structures/Member.ts#L12">src/structures/Member.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/94b60c6/src/structures/Member.ts#L19">src/structures/Member.ts:19</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The user this guild member represents</p>
+						</div>
+					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group tsd-is-private-protected">
@@ -263,37 +303,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/95113d1/src/structures/Member.ts#L34">src/structures/Member.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/94b60c6/src/structures/Member.ts#L62">src/structures/Member.ts:62</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>member: <a href="../globals.html#gatewaystruct" class="tsd-signature-type">GatewayStruct</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-					<a name="clone" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> clone</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-						<li class="tsd-signature tsd-kind-icon">clone<span class="tsd-signature-symbol">(</span>struct<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Inherited from <a href="basestruct.html">BaseStruct</a>.<a href="basestruct.html#clone">clone</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/95113d1/src/structures/BaseStruct.ts#L16">src/structures/BaseStruct.ts:16</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>struct: <span class="tsd-signature-type">unknown</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -311,7 +327,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="basestruct.html">BaseStruct</a>.<a href="basestruct.html#getdimensions">getDimensions</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/95113d1/src/structures/BaseStruct.ts#L20">src/structures/BaseStruct.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/94b60c6/src/structures/BaseStruct.ts#L16">src/structures/BaseStruct.ts:16</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -384,9 +400,6 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
 								<a href="member.html#build" class="tsd-kind-icon">build</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-								<a href="member.html#clone" class="tsd-kind-icon">clone</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 								<a href="member.html#getdimensions" class="tsd-kind-icon">get<wbr>Dimensions</a>
