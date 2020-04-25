@@ -8,7 +8,7 @@ node_modules
 /lib
 
 # Test bot credentials
-src/tests/config.json
+tests/config.json
 
 # Documentation
 /docs

@@ -1,6 +1,6 @@
 'use strict';
 
-import Bot from '../../structures/Bot';
+import Bot from '../../src/structures/Bot';
 import config from '../config.json';
 
 const bot = new Bot(config.token);

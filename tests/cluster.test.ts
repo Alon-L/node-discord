@@ -1,6 +1,6 @@
 'use strict';
 
-import Cluster from '../Cluster';
+import Cluster from '../src/Cluster';
 
 const cluster = new Cluster<string, number>();
 
