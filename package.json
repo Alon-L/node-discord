@@ -7,8 +7,7 @@
     "build": "tsc",
     "lint": "eslint src --ext .ts --ext .js",
     "lint:fix": "eslint --fix src --ext .ts --ext .js",
-    "docs:generate": "typedoc --options typedoc.json",
-    "docs:serve": "gh-pages -d docs"
+    "docs:generate": "typedoc --options typedoc.json"
   },
   "main": "./lib/types/index.js",
   "types": "./lib/types/index.d.ts",
@@ -32,7 +31,6 @@
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-prettier": "^3.1.3",
-    "gh-pages": "^2.2.0",
     "husky": "^4.2.5",
     "jest": "^25.4.0",
     "lint-staged": "^10.1.7",

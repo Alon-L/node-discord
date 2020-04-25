@@ -25,4 +25,8 @@ jobs:
         run: npm run docs:generate
 
       - name: Serve documentation to github pages
-        run: npm run docs:serve
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+          with:
+            ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+            BRANCH: gh-pages
+            FOLDER: docs
