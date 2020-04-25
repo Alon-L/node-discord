@@ -8,7 +8,7 @@ export type GatewayStruct = Dict<any>;
 
 class BaseStruct {
   /**
-   * The bot operating this structure
+   * The {@link Bot} operating this structure
    */
   public bot: Bot;
 
