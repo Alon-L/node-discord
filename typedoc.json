@@ -1,0 +1,10 @@
+{
+  "excludeExternals": false,
+  "name": "node-discord",
+  "mode": "file",
+  "theme": "default",
+  "excludeNotExported": true,
+  "excludePrivate": true,
+  "categorizeByGroup": true,
+  "out": "docs"
+}
