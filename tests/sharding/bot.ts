@@ -1,6 +1,7 @@
 'use strict';
 
 import Bot from '../../src/structures/Bot';
+import Guild from '../../src/structures/Guild';
 import config from '../config.json';
 
 const bot = new Bot(config.token);
@@ -14,8 +15,8 @@ bot.commands.set('help', {
 });
 
 bot.events.set('READY', () => {
-  console.log('Bot ready!');
+  const guild = bot.guilds.first;
 
-  // console.log(bot.guilds.last.channels);
-  console.log(bot.guilds.last.channels.first.guild.id);
+  console.log(guild instanceof Guild);
+  console.log(guild.id);
 });
