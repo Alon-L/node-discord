@@ -49,7 +49,7 @@ class BotSocket {
 
     const { id, amount = suggestedShards } = this.bot.shardOptions;
 
-    const shards = id ? [id] : Array.from({ length: amount }).map((_, i) => i);
+    const shards = id !== undefined ? [id] : Array.from({ length: amount }).map((_, i) => i);
 
     for (const shard of shards) {
       const botShard = new BotSocketShard(this, this.token, {
