@@ -87,9 +87,11 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="bot.html#commands" class="tsd-kind-icon">commands</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="bot.html#connection" class="tsd-kind-icon">connection</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="bot.html#dms" class="tsd-kind-icon">dms</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="bot.html#events" class="tsd-kind-icon">events</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="bot.html#guilds" class="tsd-kind-icon">guilds</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="bot.html#shardoptions" class="tsd-kind-icon">shard<wbr>Options</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="bot.html#user" class="tsd-kind-icon">user</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -113,7 +115,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/e5bd860/src/structures/bot/Bot.ts#L43">src/structures/bot/Bot.ts:43</a></li>
+									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/93b7a8d/src/structures/bot/Bot.ts#L55">src/structures/bot/Bot.ts:55</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -135,7 +137,7 @@
 					<div class="tsd-signature tsd-kind-icon">commands<span class="tsd-signature-symbol">:</span> <a href="botcommands.html" class="tsd-signature-type">BotCommands</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/e5bd860/src/structures/bot/Bot.ts#L32">src/structures/bot/Bot.ts:32</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/93b7a8d/src/structures/bot/Bot.ts#L34">src/structures/bot/Bot.ts:34</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -145,7 +147,7 @@
 					<div class="tsd-signature tsd-kind-icon">connection<span class="tsd-signature-symbol">:</span> <a href="botconnection.html" class="tsd-signature-type">BotConnection</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/e5bd860/src/structures/bot/Bot.ts#L38">src/structures/bot/Bot.ts:38</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/93b7a8d/src/structures/bot/Bot.ts#L40">src/structures/bot/Bot.ts:40</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -155,12 +157,27 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="dms" class="tsd-anchor"></a>
+					<h3>dms</h3>
+					<div class="tsd-signature tsd-kind-icon">dms<span class="tsd-signature-symbol">:</span> <a href="cluster.html" class="tsd-signature-type">Cluster</a><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol">, </span><a href="dmchannel.html" class="tsd-signature-type">DMChannel</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/93b7a8d/src/structures/bot/Bot.ts#L55">src/structures/bot/Bot.ts:55</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p><a href="cluster.html">Cluster</a> of all <a href="dmchannel.html">DMChannel</a>s the Bot is part of</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="events" class="tsd-anchor"></a>
 					<h3>events</h3>
 					<div class="tsd-signature tsd-kind-icon">events<span class="tsd-signature-symbol">:</span> <a href="botevents.html" class="tsd-signature-type">BotEvents</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/e5bd860/src/structures/bot/Bot.ts#L33">src/structures/bot/Bot.ts:33</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/93b7a8d/src/structures/bot/Bot.ts#L35">src/structures/bot/Bot.ts:35</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -170,7 +187,7 @@
 					<div class="tsd-signature tsd-kind-icon">guilds<span class="tsd-signature-symbol">:</span> <a href="cluster.html" class="tsd-signature-type">Cluster</a><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol">, </span><a href="guild.html" class="tsd-signature-type">Guild</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/e5bd860/src/structures/bot/Bot.ts#L43">src/structures/bot/Bot.ts:43</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/93b7a8d/src/structures/bot/Bot.ts#L50">src/structures/bot/Bot.ts:50</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -185,12 +202,27 @@
 					<div class="tsd-signature tsd-kind-icon">shard<wbr>Options<span class="tsd-signature-symbol">:</span> <a href="../interfaces/shardoptions.html" class="tsd-signature-type">ShardOptions</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/e5bd860/src/structures/bot/Bot.ts#L29">src/structures/bot/Bot.ts:29</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/93b7a8d/src/structures/bot/Bot.ts#L31">src/structures/bot/Bot.ts:31</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p><a href="../interfaces/shardoptions.html">ShardOptions</a> object containing sharding information</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="user" class="tsd-anchor"></a>
+					<h3>user</h3>
+					<div class="tsd-signature tsd-kind-icon">user<span class="tsd-signature-symbol">:</span> <a href="user.html" class="tsd-signature-type">User</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/93b7a8d/src/structures/bot/Bot.ts#L45">src/structures/bot/Bot.ts:45</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Bot Discord user</p>
 						</div>
 					</div>
 				</section>
@@ -207,7 +239,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/e5bd860/src/structures/bot/Bot.ts#L65">src/structures/bot/Bot.ts:65</a></li>
+									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/93b7a8d/src/structures/bot/Bot.ts#L79">src/structures/bot/Bot.ts:79</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -247,6 +279,9 @@
 								<a href="bot.html#connection" class="tsd-kind-icon">connection</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="bot.html#dms" class="tsd-kind-icon">dms</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="bot.html#events" class="tsd-kind-icon">events</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
@@ -254,6 +289,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="bot.html#shardoptions" class="tsd-kind-icon">shard<wbr>Options</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="bot.html#user" class="tsd-kind-icon">user</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="bot.html#log" class="tsd-kind-icon">log</a>

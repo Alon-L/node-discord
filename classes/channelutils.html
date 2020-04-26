@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>BotShard | node-discord</title>
+	<title>ChannelUtils | node-discord</title>
 	<meta name="description" content="Documentation for node-discord">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,28 +54,21 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="botshard.html">BotShard</a>
+					<a href="channelutils.html">ChannelUtils</a>
 				</li>
 			</ul>
-			<h1>Class BotShard</h1>
+			<h1>Class ChannelUtils</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Creates and handles the communication of a shard</p>
-					</div>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">BotShard</span>
+						<span class="target">ChannelUtils</span>
 					</li>
 				</ul>
 			</section>
@@ -84,90 +77,96 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Constructors</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="botshard.html#constructor" class="tsd-kind-icon">constructor</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
-							<h3>Properties</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="botshard.html#id" class="tsd-kind-icon">id</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botshard.html#spawn" class="tsd-kind-icon">spawn</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="channelutils.html#create" class="tsd-kind-icon">create</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="channelutils.html#find" class="tsd-kind-icon">find</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="channelutils.html#finddm" class="tsd-kind-icon">findDM</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Constructors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
-					<a name="constructor" class="tsd-anchor"></a>
-					<h3>constructor</h3>
-					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Bot<wbr>Shard<span class="tsd-signature-symbol">(</span>manager<span class="tsd-signature-symbol">: </span><a href="botshardmanager.html" class="tsd-signature-type">BotShardManager</a>, id<span class="tsd-signature-symbol">: </span><a href="../globals.html#shardid" class="tsd-signature-type">ShardId</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="botshard.html" class="tsd-signature-type">BotShard</a></li>
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="create" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> create</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">create<span class="tsd-signature-symbol">(</span>bot<span class="tsd-signature-symbol">: </span><a href="bot.html" class="tsd-signature-type">Bot</a>, data<span class="tsd-signature-symbol">: </span><a href="../globals.html#gatewaystruct" class="tsd-signature-type">GatewayStruct</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="channel.html" class="tsd-signature-type">Channel</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/93b7a8d/src/socket/BotShard.ts#L13">src/socket/BotShard.ts:13</a></li>
+									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/93b7a8d/src/utils/ChannelUtils.ts#L8">src/utils/ChannelUtils.ts:8</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>manager: <a href="botshardmanager.html" class="tsd-signature-type">BotShardManager</a></h5>
+									<h5>bot: <a href="bot.html" class="tsd-signature-type">Bot</a></h5>
 								</li>
 								<li>
-									<h5>id: <a href="../globals.html#shardid" class="tsd-signature-type">ShardId</a></h5>
+									<h5>data: <a href="../globals.html#gatewaystruct" class="tsd-signature-type">GatewayStruct</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="botshard.html" class="tsd-signature-type">BotShard</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="channel.html" class="tsd-signature-type">Channel</a></h4>
 						</li>
 					</ul>
 				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="id" class="tsd-anchor"></a>
-					<h3>id</h3>
-					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <a href="../globals.html#shardid" class="tsd-signature-type">ShardId</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/93b7a8d/src/socket/BotShard.ts#L13">src/socket/BotShard.ts:13</a></li>
-						</ul>
-					</aside>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="spawn" class="tsd-anchor"></a>
-					<h3>spawn</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">spawn<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="find" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> find</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">find<span class="tsd-signature-symbol">(</span>bot<span class="tsd-signature-symbol">: </span><a href="bot.html" class="tsd-signature-type">Bot</a>, guildId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span>, channelId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="channel.html" class="tsd-signature-type">Channel</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/93b7a8d/src/socket/BotShard.ts#L25">src/socket/BotShard.ts:25</a></li>
+									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/93b7a8d/src/utils/ChannelUtils.ts#L26">src/utils/ChannelUtils.ts:26</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Spawns a new child according to the given file path.
-									Sets the environmental variables for the process with the sharding information</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>bot: <a href="bot.html" class="tsd-signature-type">Bot</a></h5>
+								</li>
+								<li>
+									<h5>guildId: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
+								</li>
+								<li>
+									<h5>channelId: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="channel.html" class="tsd-signature-type">Channel</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="finddm" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> findDM</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">findDM<span class="tsd-signature-symbol">(</span>bot<span class="tsd-signature-symbol">: </span><a href="bot.html" class="tsd-signature-type">Bot</a>, channelId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="dmchannel.html" class="tsd-signature-type">DMChannel</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/93b7a8d/src/utils/ChannelUtils.ts#L33">src/utils/ChannelUtils.ts:33</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>bot: <a href="bot.html" class="tsd-signature-type">Bot</a></h5>
+								</li>
+								<li>
+									<h5>channelId: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="dmchannel.html" class="tsd-signature-type">DMChannel</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -186,16 +185,16 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="botshard.html" class="tsd-kind-icon">Bot<wbr>Shard</a>
+						<a href="channelutils.html" class="tsd-kind-icon">Channel<wbr>Utils</a>
 						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="botshard.html#constructor" class="tsd-kind-icon">constructor</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="channelutils.html#create" class="tsd-kind-icon">create</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="botshard.html#id" class="tsd-kind-icon">id</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="channelutils.html#find" class="tsd-kind-icon">find</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="botshard.html#spawn" class="tsd-kind-icon">spawn</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="channelutils.html#finddm" class="tsd-kind-icon">findDM</a>
 							</li>
 						</ul>
 					</li>
