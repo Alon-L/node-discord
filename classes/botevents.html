@@ -68,19 +68,13 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="tsd-signature-type">EventEmitter</span>
+						<a href="bothandler.html" class="tsd-signature-type">BotHandler</a><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#registercallback" class="tsd-signature-type">RegisterCallback</a><span class="tsd-signature-symbol">&gt;</span>
 						<ul class="tsd-hierarchy">
 							<li>
 								<span class="target">BotEvents</span>
 							</li>
 						</ul>
 					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel">
-				<h3>Implements</h3>
-				<ul class="tsd-hierarchy">
-					<li><a href="bothandler.html" class="tsd-signature-type">BotHandler</a><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#registercallback" class="tsd-signature-type">RegisterCallback</a><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -93,10 +87,10 @@
 								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="botevents.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section tsd-is-inherited">
+						<section class="tsd-index-section tsd-is-inherited tsd-is-private-protected">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="botevents.html#defaultmaxlisteners" class="tsd-kind-icon">default<wbr>Max<wbr>Listeners</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="botevents.html#bot" class="tsd-kind-icon">bot</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -117,8 +111,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="botevents.html#removealllisteners" class="tsd-kind-icon">remove<wbr>All<wbr>Listeners</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="botevents.html#removelistener" class="tsd-kind-icon">remove<wbr>Listener</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="botevents.html#setmaxlisteners" class="tsd-kind-icon">set<wbr>Max<wbr>Listeners</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botevents.html#wait" class="tsd-kind-icon">wait</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="botevents.html#listenercount-1" class="tsd-kind-icon">listener<wbr>Count</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="botevents.html#wait" class="tsd-kind-icon">wait</a></li>
 							</ul>
 						</section>
 					</div>
@@ -135,9 +128,9 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="botcommands.html">BotCommands</a>.<a href="botcommands.html#constructor">constructor</a></p>
+								<p>Overrides <a href="bothandler.html">BotHandler</a>.<a href="bothandler.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/baddd3f/src/structures/handlers/BotEvents.ts#L9">src/structures/handlers/BotEvents.ts:9</a></li>
+									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/36c2191/src/structures/handlers/BotEvents.ts#L7">src/structures/handlers/BotEvents.ts:7</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -151,16 +144,16 @@
 					</ul>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
+			<section class="tsd-panel-group tsd-member-group tsd-is-inherited tsd-is-private-protected">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
-					<a name="defaultmaxlisteners" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> default<wbr>Max<wbr>Listeners</h3>
-					<div class="tsd-signature tsd-kind-icon">default<wbr>Max<wbr>Listeners<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+					<a name="bot" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> bot</h3>
+					<div class="tsd-signature tsd-kind-icon">bot<span class="tsd-signature-symbol">:</span> <a href="bot.html" class="tsd-signature-type">Bot</a></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="botcommands.html">BotCommands</a>.<a href="botcommands.html#defaultmaxlisteners">defaultMaxListeners</a></p>
+						<p>Inherited from <a href="bothandler.html">BotHandler</a>.<a href="bothandler.html#bot">bot</a></p>
 						<ul>
-							<li>Defined in node_modules/@types/node/events.d.ts:45</li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/36c2191/src/structures/handlers/BotHandler.ts#L5">src/structures/handlers/BotHandler.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -176,7 +169,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="botcommands.html">BotCommands</a>.<a href="botcommands.html#addlistener">addListener</a></p>
+								<p>Inherited from <a href="bothandler.html">BotHandler</a>.<a href="bothandler.html#addlistener">addListener</a></p>
 								<ul>
 									<li>Defined in node_modules/@types/node/globals.d.ts:554</li>
 								</ul>
@@ -221,7 +214,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="botcommands.html">BotCommands</a>.<a href="botcommands.html#emit">emit</a></p>
+								<p>Inherited from <a href="bothandler.html">BotHandler</a>.<a href="bothandler.html#emit">emit</a></p>
 								<ul>
 									<li>Defined in node_modules/@types/node/globals.d.ts:564</li>
 								</ul>
@@ -248,7 +241,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="botcommands.html">BotCommands</a>.<a href="botcommands.html#eventnames">eventNames</a></p>
+								<p>Inherited from <a href="bothandler.html">BotHandler</a>.<a href="bothandler.html#eventnames">eventNames</a></p>
 								<ul>
 									<li>Defined in node_modules/@types/node/globals.d.ts:569</li>
 								</ul>
@@ -266,7 +259,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="botcommands.html">BotCommands</a>.<a href="botcommands.html#getmaxlisteners">getMaxListeners</a></p>
+								<p>Inherited from <a href="bothandler.html">BotHandler</a>.<a href="bothandler.html#getmaxlisteners">getMaxListeners</a></p>
 								<ul>
 									<li>Defined in node_modules/@types/node/globals.d.ts:561</li>
 								</ul>
@@ -284,7 +277,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="botcommands.html">BotCommands</a>.<a href="botcommands.html#listenercount">listenerCount</a></p>
+								<p>Inherited from <a href="bothandler.html">BotHandler</a>.<a href="bothandler.html#listenercount">listenerCount</a></p>
 								<ul>
 									<li>Defined in node_modules/@types/node/globals.d.ts:565</li>
 								</ul>
@@ -308,7 +301,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="botcommands.html">BotCommands</a>.<a href="botcommands.html#listeners">listeners</a></p>
+								<p>Inherited from <a href="bothandler.html">BotHandler</a>.<a href="bothandler.html#listeners">listeners</a></p>
 								<ul>
 									<li>Defined in node_modules/@types/node/globals.d.ts:562</li>
 								</ul>
@@ -332,7 +325,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="botcommands.html">BotCommands</a>.<a href="botcommands.html#off">off</a></p>
+								<p>Inherited from <a href="bothandler.html">BotHandler</a>.<a href="bothandler.html#off">off</a></p>
 								<ul>
 									<li>Defined in node_modules/@types/node/globals.d.ts:558</li>
 								</ul>
@@ -377,7 +370,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="botcommands.html">BotCommands</a>.<a href="botcommands.html#on">on</a></p>
+								<p>Inherited from <a href="bothandler.html">BotHandler</a>.<a href="bothandler.html#on">on</a></p>
 								<ul>
 									<li>Defined in node_modules/@types/node/globals.d.ts:555</li>
 								</ul>
@@ -422,7 +415,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="botcommands.html">BotCommands</a>.<a href="botcommands.html#once">once</a></p>
+								<p>Inherited from <a href="bothandler.html">BotHandler</a>.<a href="bothandler.html#once">once</a></p>
 								<ul>
 									<li>Defined in node_modules/@types/node/globals.d.ts:556</li>
 								</ul>
@@ -467,7 +460,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="botcommands.html">BotCommands</a>.<a href="botcommands.html#prependlistener">prependListener</a></p>
+								<p>Inherited from <a href="bothandler.html">BotHandler</a>.<a href="bothandler.html#prependlistener">prependListener</a></p>
 								<ul>
 									<li>Defined in node_modules/@types/node/globals.d.ts:567</li>
 								</ul>
@@ -512,7 +505,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="botcommands.html">BotCommands</a>.<a href="botcommands.html#prependoncelistener">prependOnceListener</a></p>
+								<p>Inherited from <a href="bothandler.html">BotHandler</a>.<a href="bothandler.html#prependoncelistener">prependOnceListener</a></p>
 								<ul>
 									<li>Defined in node_modules/@types/node/globals.d.ts:568</li>
 								</ul>
@@ -557,7 +550,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="botcommands.html">BotCommands</a>.<a href="botcommands.html#rawlisteners">rawListeners</a></p>
+								<p>Inherited from <a href="bothandler.html">BotHandler</a>.<a href="bothandler.html#rawlisteners">rawListeners</a></p>
 								<ul>
 									<li>Defined in node_modules/@types/node/globals.d.ts:563</li>
 								</ul>
@@ -581,7 +574,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="botcommands.html">BotCommands</a>.<a href="botcommands.html#removealllisteners">removeAllListeners</a></p>
+								<p>Inherited from <a href="bothandler.html">BotHandler</a>.<a href="bothandler.html#removealllisteners">removeAllListeners</a></p>
 								<ul>
 									<li>Defined in node_modules/@types/node/globals.d.ts:559</li>
 								</ul>
@@ -605,7 +598,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="botcommands.html">BotCommands</a>.<a href="botcommands.html#removelistener">removeListener</a></p>
+								<p>Inherited from <a href="bothandler.html">BotHandler</a>.<a href="bothandler.html#removelistener">removeListener</a></p>
 								<ul>
 									<li>Defined in node_modules/@types/node/globals.d.ts:557</li>
 								</ul>
@@ -650,7 +643,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="botcommands.html">BotCommands</a>.<a href="botcommands.html#setmaxlisteners">setMaxListeners</a></p>
+								<p>Inherited from <a href="bothandler.html">BotHandler</a>.<a href="bothandler.html#setmaxlisteners">setMaxListeners</a></p>
 								<ul>
 									<li>Defined in node_modules/@types/node/globals.d.ts:560</li>
 								</ul>
@@ -665,17 +658,18 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 					<a name="wait" class="tsd-anchor"></a>
 					<h3>wait</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 						<li class="tsd-signature tsd-kind-icon">wait<span class="tsd-signature-symbol">(</span>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Parameters</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#registercallback" class="tsd-signature-type">RegisterCallback</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Overrides <a href="bothandler.html">BotHandler</a>.<a href="bothandler.html#wait">wait</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/baddd3f/src/structures/handlers/BotEvents.ts#L17">src/structures/handlers/BotEvents.ts:17</a></li>
+									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/36c2191/src/structures/handlers/BotEvents.ts#L12">src/structures/handlers/BotEvents.ts:12</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -685,40 +679,6 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Parameters</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#registercallback" class="tsd-signature-type">RegisterCallback</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
-					<a name="listenercount-1" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> listener<wbr>Count</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">listener<wbr>Count<span class="tsd-signature-symbol">(</span>emitter<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">EventEmitter</span>, event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Inherited from <a href="botcommands.html">BotCommands</a>.<a href="botcommands.html#listenercount-1">listenerCount</a></p>
-								<ul>
-									<li>Defined in node_modules/@types/node/events.d.ts:44</li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<dl class="tsd-comment-tags">
-									<dt>deprecated</dt>
-									<dd><p>since v4.0.0</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>emitter: <span class="tsd-signature-type">EventEmitter</span></h5>
-								</li>
-								<li>
-									<h5>event: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -742,8 +702,8 @@
 							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
 								<a href="botevents.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
-								<a href="botevents.html#defaultmaxlisteners" class="tsd-kind-icon">default<wbr>Max<wbr>Listeners</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+								<a href="botevents.html#bot" class="tsd-kind-icon">bot</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="botevents.html#addlistener" class="tsd-kind-icon">add<wbr>Listener</a>
@@ -790,11 +750,8 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="botevents.html#setmaxlisteners" class="tsd-kind-icon">set<wbr>Max<wbr>Listeners</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 								<a href="botevents.html#wait" class="tsd-kind-icon">wait</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
-								<a href="botevents.html#listenercount-1" class="tsd-kind-icon">listener<wbr>Count</a>
 							</li>
 						</ul>
 					</li>
@@ -820,14 +777,15 @@
 				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
 			</ul>
 			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+			</ul>
+			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
 			</ul>
 		</div>
 	</div>
