@@ -54,12 +54,16 @@ class Bot {
       amount: Number.isNaN(shardAmount) ? undefined : shardAmount,
     };
 
-    this.commands = new BotCommands(this);
+    this.commands = new BotCommands();
     this.events = new BotEvents(this);
 
     this.connection = new BotConnection(this, token);
 
     this.guilds = new Cluster<Snowflake, Guild>();
+  }
+
+  public log(...messages: unknown[]): void {
+    this.events.emit('LOG', ...messages);
   }
 }
 

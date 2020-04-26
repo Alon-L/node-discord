@@ -107,7 +107,7 @@ class BotSocketShard {
 
     const { op, t, d, s } = payload;
 
-    console.log(op, t);
+    this.bot.log(op, t);
 
     switch (op) {
       case OPCodes.Dispatch:
@@ -177,7 +177,8 @@ class BotSocketShard {
    * @param {GatewayCloseCodes} code Socket close code https://discordapp.com/developers/docs/topics/opcodes-and-status-codes#gateway-gateway-close-event-codes
    */
   public close(code = GatewayCloseCodes.NormalClosure): void {
-    console.log('Closing connection!');
+    this.bot.log('Closing connection!');
+
     this.status = BotSocketShardStatus.Terminated;
 
     // Stop sending heartbeats
@@ -205,12 +206,12 @@ class BotSocketShard {
   public ready(): void {
     this.status = BotSocketShardStatus.Ready;
 
-    console.log(
+    this.bot.log(
       'Ready!',
       this.bot.guilds.toArray.map(i => i.name),
     );
 
-    this.bot.events.run(GatewayEvents.Ready);
+    this.bot.events.emit(GatewayEvents.Ready);
   }
 
   /**
@@ -218,7 +219,7 @@ class BotSocketShard {
    * @param {WebSocket.CloseEvent} event WebSocket close event
    */
   private onClose(event: WebSocket.CloseEvent): void {
-    console.log('Close', event.code, event.reason, event.wasClean);
+    this.bot.log('Close', event.code, event.reason, event.wasClean);
 
     const { code } = event;
 

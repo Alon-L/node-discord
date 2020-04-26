@@ -1,24 +1,27 @@
+import { EventEmitter } from 'events';
 import BotHandler from './BotHandler';
 import { EventFunction } from '../../types';
+import Bot from '../bot/Bot';
 
 type RegisterCallback = EventFunction;
 
-class BotEvents extends BotHandler<RegisterCallback> {
-  public run(name: string): boolean {
-    const command = this.find(name);
+class BotEvents extends EventEmitter implements BotHandler<RegisterCallback> {
+  private readonly bot: Bot;
 
-    if (!command) return false;
+  constructor(bot: Bot) {
+    super();
 
-    command(this.bot);
-
-    return true;
+    this.bot = bot;
   }
 
   public wait(name: string): Promise<Parameters<RegisterCallback>> {
     return new Promise(resolve => {
-      this.set(name, (...args: Parameters<RegisterCallback>) => {
+      const listener = (...args: Parameters<RegisterCallback>): void => {
         resolve(args);
-      });
+        this.removeListener(name, listener);
+      };
+
+      this.on(name, listener);
     });
   }
 }
