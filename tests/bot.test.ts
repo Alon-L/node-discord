@@ -5,14 +5,24 @@ import Bot from '../src/structures/bot/Bot';
 
 const bot = new Bot(config.token);
 
-afterAll(() => {
+beforeEach(() => {
+  bot.connection.connect();
+});
+
+afterEach(async () => {
   bot.connection.disconnect();
+
+  await new Promise(resolve => setTimeout(resolve, 5000));
 });
 
 test('Bot connection', async () => {
-  bot.connection.connect();
-
   await bot.events.wait('READY');
 
   expect(bot.guilds.size).toBeGreaterThan(0);
+});
+
+test('Bot wait remove listener', async () => {
+  await bot.events.wait('READY');
+
+  expect(bot.events.listeners('READY')).toHaveLength(0);
 });
