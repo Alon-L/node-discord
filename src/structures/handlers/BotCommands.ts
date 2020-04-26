@@ -1,10 +1,14 @@
-import { EventEmitter } from 'events';
 import BotHandler from './BotHandler';
 import { Command, CommandFunction } from '../../types';
+import Bot from '../bot/Bot';
 
 type RegisterCallback = CommandFunction | Command;
 
-class BotCommands extends EventEmitter implements BotHandler<RegisterCallback> {
+class BotCommands extends BotHandler<RegisterCallback> {
+  constructor(bot: Bot) {
+    super(bot);
+  }
+
   public wait(name: string): Promise<unknown> {
     return;
   }

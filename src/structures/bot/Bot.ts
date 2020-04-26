@@ -54,7 +54,7 @@ class Bot {
       amount: Number.isNaN(shardAmount) ? undefined : shardAmount,
     };
 
-    this.commands = new BotCommands();
+    this.commands = new BotCommands(this);
     this.events = new BotEvents(this);
 
     this.connection = new BotConnection(this, token);
