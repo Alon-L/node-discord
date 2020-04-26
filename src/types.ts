@@ -1,7 +1,7 @@
 import Bot from './structures/Bot';
 
 /**
- * Discord Snowflake
+ * Discord Snowflake.
  * More information can be found here {@link https://discordapp.com/developers/docs/reference#snowflakes}
  */
 export type Snowflake = string;
