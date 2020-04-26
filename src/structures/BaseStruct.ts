@@ -1,4 +1,4 @@
-import Bot from './Bot';
+import Bot from './bot/Bot';
 
 import Dict = NodeJS.Dict;
 import { Dimensions } from '../types';

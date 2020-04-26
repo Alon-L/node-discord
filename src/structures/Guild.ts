@@ -1,7 +1,7 @@
 import BaseStruct, { GatewayStruct } from './BaseStruct';
-import Bot from './Bot';
 import Member from './Member';
 import Role from './Role';
+import Bot from './bot/Bot';
 import GuildChannel from './channels/GuildChannel';
 import TextChannel from './channels/TextChannel';
 import Cluster from '../Cluster';

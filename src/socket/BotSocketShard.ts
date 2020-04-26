@@ -11,7 +11,7 @@ import {
   unresumeableGatewayCloseCodes,
 } from './constants';
 import { identify, version } from './properties';
-import Bot, { ShardOptions } from '../structures/Bot';
+import Bot, { ShardOptions } from '../structures/bot/Bot';
 import { Snowflake } from '../types';
 
 export enum BotSocketShardStatus {
@@ -178,6 +178,7 @@ class BotSocketShard {
    */
   public close(code = GatewayCloseCodes.NormalClosure): void {
     console.log('Closing connection!');
+    this.status = BotSocketShardStatus.Terminated;
 
     // Stop sending heartbeats
     this.heartbeats.stopHeartbeat();
@@ -195,8 +196,6 @@ class BotSocketShard {
     }
 
     this.ws = null;
-
-    this.status = BotSocketShardStatus.Terminated;
   }
 
   /**
@@ -219,7 +218,7 @@ class BotSocketShard {
    * @param {WebSocket.CloseEvent} event WebSocket close event
    */
   private onClose(event: WebSocket.CloseEvent): void {
-    console.error('Close', event.code, event.reason, event.wasClean);
+    console.log('Close', event.code, event.reason, event.wasClean);
 
     const { code } = event;
 

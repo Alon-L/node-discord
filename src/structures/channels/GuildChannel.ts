@@ -1,9 +1,9 @@
 import CategoryChannel from './CategoryChannel';
 import { Snowflake } from '../../types';
 import { GatewayStruct } from '../BaseStruct';
-import Bot from '../Bot';
 import Guild from '../Guild';
 import GuildBaseStruct from '../GuildBaseStruct';
+import Bot from '../bot/Bot';
 
 // TODO: Move this enum to the Channel class
 /**

@@ -1,5 +1,5 @@
 import Cluster from '../../Cluster';
-import Bot from '../Bot';
+import Bot from '../bot/Bot';
 
 abstract class BotHandler<T> extends Cluster<string, T> {
   protected bot: Bot;

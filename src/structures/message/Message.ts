@@ -4,10 +4,10 @@ import MessageMentions from './MessageMentions';
 import Cluster from '../../Cluster';
 import { Snowflake } from '../../types';
 import BaseStruct, { GatewayStruct } from '../BaseStruct';
-import Bot from '../Bot';
 import Guild from '../Guild';
 import Member from '../Member';
 import User from '../User';
+import Bot from '../bot/Bot';
 import TextChannel from '../channels/TextChannel';
 
 /**

@@ -1,10 +1,9 @@
-import Guild from './Guild';
-import BotCommands from './handlers/BotCommands';
-import BotEvents from './handlers/BotEvents';
-import Cluster from '../Cluster';
-import BotDispatchHandlers from '../socket/BotDispatchHandlers';
-import BotSocket from '../socket/BotSocket';
-import { ShardId, Snowflake } from '../types';
+import BotConnection from './BotConnection';
+import Cluster from '../../Cluster';
+import { ShardId, Snowflake } from '../../types';
+import Guild from '../Guild';
+import BotCommands from '../handlers/BotCommands';
+import BotEvents from '../handlers/BotEvents';
 
 export interface ShardOptions {
   /**
@@ -25,16 +24,6 @@ class Bot {
   private readonly token: string;
 
   /**
-   * Bot socket connection (may split into shards)
-   */
-  private readonly socket: BotSocket;
-
-  /**
-   * Handles every dispatch requests received from the Discord gateway
-   */
-  private readonly dispatchHandlers: BotDispatchHandlers;
-
-  /**
    * {@link ShardOptions} object containing sharding information
    */
   public readonly shardOptions: ShardOptions;
@@ -44,6 +33,11 @@ class Bot {
   public events: BotEvents;
 
   /**
+   * Responsible for managing the bot connection to the Discord gateway
+   */
+  public connection: BotConnection;
+
+  /**
    * {@link Cluster} of all {@link Guild}s associated to the Bot
    */
   public guilds: Cluster<Snowflake, Guild>;
@@ -51,6 +45,7 @@ class Bot {
   constructor(token: string) {
     this.token = token;
 
+    // Set bot sharding data
     const shardId = Number(process.env.SHARD_ID);
     const shardAmount = Number(process.env.SHARDS_AMOUNT);
 
@@ -59,23 +54,12 @@ class Bot {
       amount: Number.isNaN(shardAmount) ? undefined : shardAmount,
     };
 
-    this.socket = new BotSocket(this, token);
-
-    this.dispatchHandlers = new BotDispatchHandlers();
-
     this.commands = new BotCommands(this);
     this.events = new BotEvents(this);
 
-    this.guilds = new Cluster<Snowflake, Guild>();
-  }
+    this.connection = new BotConnection(this, token);
 
-  /**
-   * Creates a new bot connection
-   * @returns {Promise<void>}
-   */
-  public async connect(): Promise<void> {
-    await this.dispatchHandlers.registerEvents();
-    await this.socket.startShards();
+    this.guilds = new Cluster<Snowflake, Guild>();
   }
 }
 

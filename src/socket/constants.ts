@@ -64,6 +64,7 @@ export enum GatewayEvents {
  */
 export enum GatewayCloseCodes {
   NormalClosure = 1000,
+  ManualClosure = 3000,
   UnknownError = 4000,
   UnknownOpcode,
   DecodeError,
@@ -81,6 +82,7 @@ export enum GatewayCloseCodes {
 }
 
 export const unreconnectableGatewayCloseCodes: GatewayCloseCodes[] = [
+  GatewayCloseCodes.ManualClosure,
   GatewayCloseCodes.AuthenticationFailed,
   GatewayCloseCodes.InvalidShard,
   GatewayCloseCodes.ShardingRequired,

@@ -1,7 +1,7 @@
 import { GatewayStruct } from './BaseStruct';
-import Bot from './Bot';
 import Guild from './Guild';
 import GuildBaseStruct from './GuildBaseStruct';
+import Bot from './bot/Bot';
 import { Snowflake } from '../types';
 
 class Role extends GuildBaseStruct {

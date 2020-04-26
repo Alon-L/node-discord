@@ -1,7 +1,7 @@
 import GuildChannel from './GuildChannel';
 import { Snowflake } from '../../types';
 import { GatewayStruct } from '../BaseStruct';
-import Bot from '../Bot';
+import Bot from '../bot/Bot';
 
 // TODO: Create Channel class and add the type TextBasedChannel = TextChannel | DMChannel with the send.message methods, send.embed, send.files, etc...
 

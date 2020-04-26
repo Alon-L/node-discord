@@ -3,7 +3,7 @@ import path from 'path';
 import BotSocketShard, { Payload } from './BotSocketShard';
 import { GatewayEvents } from './constants';
 import Cluster from '../Cluster';
-import Bot from '../structures/Bot';
+import Bot from '../structures/bot/Bot';
 
 export type EventFunction = (payload: Payload, bot: Bot, socket: BotSocketShard) => void;
 
@@ -49,6 +49,10 @@ class BotDispatchHandlers {
     for (const { name, run } of events) {
       BotDispatchHandlers.events.set(name, run);
     }
+  }
+
+  public clearEvents(): void {
+    BotDispatchHandlers.events.clear();
   }
 }
 

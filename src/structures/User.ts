@@ -1,5 +1,5 @@
 import BaseStruct, { GatewayStruct } from './BaseStruct';
-import Bot from './Bot';
+import Bot from './bot/Bot';
 import { Snowflake } from '../types';
 
 /**

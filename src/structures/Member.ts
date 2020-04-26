@@ -1,9 +1,9 @@
 import { GatewayStruct } from './BaseStruct';
-import Bot from './Bot';
 import Guild from './Guild';
 import GuildBaseStruct from './GuildBaseStruct';
 import Role from './Role';
 import User from './User';
+import Bot from './bot/Bot';
 import Cluster from '../Cluster';
 import { Snowflake } from '../types';
 

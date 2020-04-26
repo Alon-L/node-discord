@@ -1,8 +1,10 @@
 import fetch from 'node-fetch';
 import BotSocketShard from './BotSocketShard';
-import { recommendedShardTimeout } from './constants';
+import { GatewayCloseCodes, recommendedShardTimeout } from './constants';
 import properties from './properties';
-import Bot from '../structures/Bot';
+import Cluster from '../Cluster';
+import Bot from '../structures/bot/Bot';
+import { ShardId } from '../types';
 
 export interface SessionStartLimit {
   total: number;
@@ -22,6 +24,7 @@ interface GatewayBot {
  */
 class BotSocket {
   private readonly token: string;
+  private readonly shards: Cluster<ShardId, BotSocketShard>;
   public readonly bot: Bot;
   public gatewayURL: string;
   public sessionStartLimit: SessionStartLimit;
@@ -30,6 +33,8 @@ class BotSocket {
     this.bot = bot;
 
     this.token = token;
+
+    this.shards = new Cluster<ShardId, BotSocketShard>();
   }
 
   /**
@@ -51,16 +56,24 @@ class BotSocket {
 
     const shards = id !== undefined ? [id] : Array.from({ length: amount }).map((_, i) => i);
 
-    for (const shard of shards) {
+    for (const shardId of shards) {
       const botShard = new BotSocketShard(this, this.token, {
         amount,
-        id: shard,
+        id: shardId,
       });
+
+      this.shards.set(shardId, botShard);
 
       botShard.connect();
 
       // eslint-disable-next-line no-await-in-loop
       await new Promise(resolve => setTimeout(resolve, timeout));
+    }
+  }
+
+  public stopShards(code: GatewayCloseCodes): void {
+    for (const [, shard] of this.shards) {
+      shard.close(code);
     }
   }
 
