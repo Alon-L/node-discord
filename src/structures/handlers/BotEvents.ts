@@ -1,5 +1,4 @@
 import BotHandler from './BotHandler';
-import { GatewayEvents } from '../../socket/constants';
 import { EventFunction } from '../../types';
 import Bot from '../bot/Bot';
 
