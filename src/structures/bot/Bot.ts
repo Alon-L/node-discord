@@ -2,6 +2,8 @@ import BotConnection from './BotConnection';
 import Cluster from '../../Cluster';
 import { ShardId, Snowflake } from '../../types';
 import Guild from '../Guild';
+import User from '../User';
+import DMChannel from '../channels/DMChannel';
 import BotCommands from '../handlers/BotCommands';
 import BotEvents from '../handlers/BotEvents';
 
@@ -38,9 +40,19 @@ class Bot {
   public connection: BotConnection;
 
   /**
+   * Bot Discord user
+   */
+  public user: User;
+
+  /**
    * {@link Cluster} of all {@link Guild}s associated to the Bot
    */
   public guilds: Cluster<Snowflake, Guild>;
+
+  /**
+   * {@link Cluster} of all {@link DMChannel}s the Bot is part of
+   */
+  public dms: Cluster<Snowflake, DMChannel>;
 
   constructor(token: string) {
     this.token = token;
@@ -60,6 +72,8 @@ class Bot {
     this.connection = new BotConnection(this, token);
 
     this.guilds = new Cluster<Snowflake, Guild>();
+
+    this.dms = new Cluster<Snowflake, DMChannel>();
   }
 
   public log(...messages: unknown[]): void {
