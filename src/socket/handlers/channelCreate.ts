@@ -1,29 +1,21 @@
 import Bot from '../../structures/bot/Bot';
-import Channel, { ChannelTypes } from '../../structures/channels/Channel';
 import DMChannel from '../../structures/channels/DMChannel';
 import GuildChannel from '../../structures/channels/GuildChannel';
-import GuildTextChannel from '../../structures/channels/GuildTextChannel';
+import ChannelUtils from '../../utils/ChannelUtils';
 import { Payload } from '../BotSocketShard';
 import { GatewayEvents } from '../constants';
 
 export const run = ({ d }: Payload, bot: Bot): void => {
-  let channel: Channel;
+  const channel = ChannelUtils.create(bot, d);
 
-  switch (d.type as ChannelTypes) {
-    case ChannelTypes.GuildText:
-      channel = new GuildTextChannel(bot, d);
-      break;
-    case ChannelTypes.DM:
-      channel = new DMChannel(bot, d);
-      break;
-    default:
-      channel = new Channel(bot, d);
-      break;
-  }
-
+  // Add this channel to the right Cluster.
+  // If GuildChannel, add to the correct guild.
+  // Otherwise, add to the bot DMs Cluster
   if (channel instanceof GuildChannel) {
     // TODO: Change this to match issue #5
     channel.guild.channels.set(channel.id, channel);
+  } else if (channel instanceof DMChannel) {
+    bot.dms.set(channel.id, channel);
   }
 
   /**

@@ -11,7 +11,7 @@ bot.connection.connect();
 (async function () {
   await bot.events.wait(GatewayEvents.Ready);
 
-  const [channel] = await bot.events.wait(GatewayEvents.ChannelCreate);
-
-  console.log((channel as Channel).id);
+  bot.events.on(GatewayEvents.ChannelCreate, channel => {
+    console.log((channel as Channel).id, (channel as Channel).type);
+  });
 })();
