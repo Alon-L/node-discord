@@ -1,4 +1,5 @@
 import BotHandler from './BotHandler';
+import { GatewayEvents } from '../../socket/constants';
 import { EventFunction } from '../../types';
 import Bot from '../bot/Bot';
 
@@ -8,6 +9,13 @@ class BotEvents extends BotHandler<RegisterCallback> {
   constructor(bot: Bot) {
     super(bot);
   }
+
+  /**
+   * Channel Create event
+   *
+   * @event BotEvents#CHANNEL_CREATE
+   * @type {Channel} The channel that has been created
+   */
 
   public wait(name: string): Promise<Parameters<RegisterCallback>> {
     return new Promise(resolve => {

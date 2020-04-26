@@ -1,5 +1,6 @@
 import { Snowflake } from '../../types';
 import BaseStruct, { GatewayStruct } from '../BaseStruct';
+import Bot from '../bot/Bot';
 
 /**
  * The type of a channel
@@ -24,6 +25,14 @@ class Channel extends BaseStruct {
    * The type of this channel
    */
   public type: ChannelTypes;
+
+  constructor(bot: Bot, channel?: GatewayStruct) {
+    super(bot);
+
+    if (channel) {
+      this.build(channel);
+    }
+  }
 
   protected build(channel: GatewayStruct): void {
     this.id = channel.id;

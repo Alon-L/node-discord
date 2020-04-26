@@ -23,7 +23,7 @@ export interface Dimensions {
   width: number;
 }
 
-export type EventFunction = (bot: Bot, ...args: unknown[]) => unknown;
+export type EventFunction = (...args: unknown[]) => unknown;
 export type CommandFunction = (bot: Bot, ...args: unknown[]) => unknown;
 
 export interface Command {
