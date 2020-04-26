@@ -8,7 +8,7 @@ import config from '../config.json';
 const bot = new Bot(config.token);
 bot.connection.connect();
 
-(async function () {
+(async function (): Promise<void> {
   await bot.events.wait(GatewayEvents.Ready);
 
   bot.events.on(GatewayEvents.ChannelCreate, channel => {
