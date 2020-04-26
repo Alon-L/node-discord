@@ -18,7 +18,9 @@ bot.events.on('READY', () => {
   const guild = bot.guilds.first;
 
   console.log(guild instanceof Guild);
-  console.log(guild.id);
+  console.log(guild.id, 'GUILD ID');
+
+  console.log(guild.channels.first.id, 'GUILD FIRST CHANNEL ID');
 });
 
 bot.events.on('LOG', (...messages: unknown[]) => {

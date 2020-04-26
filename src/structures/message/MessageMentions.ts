@@ -19,6 +19,8 @@ interface MentionTypes {
   channels: ChannelMention[];
 }
 
+// TODO: Test if this works
+
 class MessageMentions extends BaseStruct {
   /**
    * The {@link Message} associated to these mentions

@@ -2,7 +2,7 @@ import GuildChannel from './GuildChannel';
 import Cluster from '../../Cluster';
 import { Snowflake } from '../../types';
 
-class CategoryChannel extends GuildChannel {
+class GuildCategoryChannel extends GuildChannel {
   /**
    * All {@link GuildChannel}s under this category channel
    * @type {Cluster<Snowflake, GuildChannel>}
@@ -12,4 +12,4 @@ class CategoryChannel extends GuildChannel {
   }
 }
 
-export default CategoryChannel;
+export default GuildCategoryChannel;

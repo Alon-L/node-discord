@@ -8,7 +8,7 @@ import Guild from '../Guild';
 import Member from '../Member';
 import User from '../User';
 import Bot from '../bot/Bot';
-import TextChannel from '../channels/TextChannel';
+import GuildTextChannel from '../channels/GuildTextChannel';
 
 /**
  * The type of a message
@@ -45,7 +45,7 @@ class Message extends BaseStruct {
   /**
    * The channel the message was sent in
    */
-  public channel: TextChannel; // | DMChannel;
+  public channel: GuildTextChannel; // | DMChannel;
 
   /**
    * The author of this message.
@@ -130,7 +130,7 @@ class Message extends BaseStruct {
 
   public flags?: undefined;
 
-  constructor(bot: Bot, message?: GatewayStruct, channel?: TextChannel /* | DMChannel*/) {
+  constructor(bot: Bot, message?: GatewayStruct, channel?: GuildTextChannel /* | DMChannel*/) {
     super(bot);
 
     this.guild = message.guild || channel?.guild;
@@ -144,7 +144,7 @@ class Message extends BaseStruct {
 
   protected build(message: GatewayStruct): void {
     this.mentions = new MessageMentions(this, {
-      members: message.mentions,
+      members: message.mentions.map(member => new Member(member)),
       roles: message.mention_roles,
       channels: message.mention_channels,
     });

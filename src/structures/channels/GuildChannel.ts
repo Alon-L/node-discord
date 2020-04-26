@@ -1,76 +1,56 @@
-import CategoryChannel from './CategoryChannel';
-import { Snowflake } from '../../types';
+import Channel from './Channel';
+import GuildCategoryChannel from './GuildCategoryChannel';
 import { GatewayStruct } from '../BaseStruct';
 import Guild from '../Guild';
-import GuildBaseStruct from '../GuildBaseStruct';
 import Bot from '../bot/Bot';
 
-// TODO: Move this enum to the Channel class
-/**
- * The type of a channel
- */
-export enum ChannelTypes {
-  GuildText,
-  DM,
-  GuildVoice,
-  GroupDM,
-  GuildCategory,
-  GuildNews,
-  GuildStore,
-}
-
-class GuildChannel extends GuildBaseStruct {
+class GuildChannel extends Channel {
   /**
-   * The ID of this channel
+   * The guild this channel is associated to
    */
-  public id: Snowflake;
-
-  /**
-   * The type of this channel
-   */
-  public type: ChannelTypes;
+  public guild: Guild;
 
   /**
    * Sorting position of the channel
    */
-  public position?: number;
+  public position: number;
 
   /**
    * The name of the channel
    */
-  public name?: string;
+  public name: string;
 
   /**
    * The topic of the channel.
    * Possibly null if channel does not have a topic
    */
-  public topic?: string | null;
+  public topic: string | null;
 
   /**
-   * Parent {@link CategoryChannel} of this channel.
+   * Parent {@link GuildCategoryChannel} of this channel.
    * Possibly null if this channel does not have a parent category channel
    */
-  public parent?: CategoryChannel | null;
+  public parent: GuildCategoryChannel | null;
 
-  constructor(bot: Bot, guild: Guild, channel?: GatewayStruct) {
-    super(bot, guild);
+  constructor(bot: Bot, guild: Guild, guildChannel?: GatewayStruct) {
+    super(bot);
 
-    if (channel) {
-      this.build(channel);
+    this.guild = guild;
+
+    if (guildChannel) {
+      this.build(guildChannel);
     }
   }
 
-  protected build(channel: GatewayStruct): void {
-    this.id = channel.id;
-    this.type = channel.type;
-    this.position = channel.position;
-    this.name = channel.name;
-    this.topic = channel.topic;
-    this.parent = channel.parent;
+  protected build(guildChannel: GatewayStruct): void {
+    super.build(guildChannel);
 
-    if (channel.guild_id) {
-      this.guild = this.bot.guilds.get(channel.guild_id) || this.guild;
-    }
+    this.position = guildChannel.position;
+    this.name = guildChannel.name;
+    this.topic = guildChannel.topic;
+    this.parent = guildChannel.parent;
+
+    this.guild = this.bot.guilds.get(guildChannel.guild_id) || this.guild;
   }
 }
 

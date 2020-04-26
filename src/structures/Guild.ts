@@ -3,7 +3,7 @@ import Member from './Member';
 import Role from './Role';
 import Bot from './bot/Bot';
 import GuildChannel from './channels/GuildChannel';
-import TextChannel from './channels/TextChannel';
+import GuildTextChannel from './channels/GuildTextChannel';
 import Cluster from '../Cluster';
 import { Snowflake } from '../types';
 
@@ -93,7 +93,7 @@ export interface GuildSystem {
    * The channel where guild notices such as welcome messages and boost events are posted.
    * Possibly null if such channel does not exist
    */
-  channel: TextChannel | null;
+  channel: GuildTextChannel | null;
 }
 
 export interface GuildPremium {
@@ -156,7 +156,7 @@ class Guild extends BaseStruct {
    */
   public region: string;
 
-  public afk: undefined; // TODO: { channel: TextChannel | null, timeout: number }
+  public afk: undefined; // TODO: { channel: GuildTextChannel | null, timeout: number }
 
   public embedEnabled?: undefined;
 
@@ -191,7 +191,7 @@ class Guild extends BaseStruct {
   /**
    * The channel where public guilds display rules and/or guidelines
    */
-  public rulesChannel: TextChannel | null;
+  public rulesChannel: GuildTextChannel | null;
 
   /**
    * Timestamp for when the guild was created
@@ -255,7 +255,7 @@ class Guild extends BaseStruct {
   /**
    * The channel where admins and moderators of public guilds receive notice from Discord
    */
-  public updatesChannel: TextChannel | null;
+  public updatesChannel: GuildTextChannel | null;
 
   constructor(bot: Bot, guild?: GatewayStruct) {
     super(bot);
