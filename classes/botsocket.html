@@ -101,6 +101,7 @@
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botsocket.html#startshards" class="tsd-kind-icon">start<wbr>Shards</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botsocket.html#stopshards" class="tsd-kind-icon">stop<wbr>Shards</a></li>
 							</ul>
 						</section>
 					</div>
@@ -118,7 +119,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/4c9d121/src/socket/BotSocket.ts#L27">src/socket/BotSocket.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/a331518/src/socket/BotSocket.ts#L30">src/socket/BotSocket.ts:30</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -143,7 +144,7 @@
 					<div class="tsd-signature tsd-kind-icon">bot<span class="tsd-signature-symbol">:</span> <a href="bot.html" class="tsd-signature-type">Bot</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/4c9d121/src/socket/BotSocket.ts#L25">src/socket/BotSocket.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/a331518/src/socket/BotSocket.ts#L28">src/socket/BotSocket.ts:28</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -153,7 +154,7 @@
 					<div class="tsd-signature tsd-kind-icon">gatewayURL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/4c9d121/src/socket/BotSocket.ts#L26">src/socket/BotSocket.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/a331518/src/socket/BotSocket.ts#L29">src/socket/BotSocket.ts:29</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -163,7 +164,7 @@
 					<div class="tsd-signature tsd-kind-icon">session<wbr>Start<wbr>Limit<span class="tsd-signature-symbol">:</span> <a href="../interfaces/sessionstartlimit.html" class="tsd-signature-type">SessionStartLimit</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/4c9d121/src/socket/BotSocket.ts#L27">src/socket/BotSocket.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/a331518/src/socket/BotSocket.ts#L30">src/socket/BotSocket.ts:30</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -180,7 +181,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/4c9d121/src/socket/BotSocket.ts#L40">src/socket/BotSocket.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/a331518/src/socket/BotSocket.ts#L45">src/socket/BotSocket.ts:45</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -195,6 +196,29 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="stopshards" class="tsd-anchor"></a>
+					<h3>stop<wbr>Shards</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">stop<wbr>Shards<span class="tsd-signature-symbol">(</span>code<span class="tsd-signature-symbol">: </span><a href="../enums/gatewayclosecodes.html" class="tsd-signature-type">GatewayCloseCodes</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/a331518/src/socket/BotSocket.ts#L74">src/socket/BotSocket.ts:74</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>code: <a href="../enums/gatewayclosecodes.html" class="tsd-signature-type">GatewayCloseCodes</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -230,6 +254,9 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="botsocket.html#startshards" class="tsd-kind-icon">start<wbr>Shards</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="botsocket.html#stopshards" class="tsd-kind-icon">stop<wbr>Shards</a>
+							</li>
 						</ul>
 					</li>
 				</ul>
@@ -254,15 +281,14 @@
 				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
-			</ul>
-			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
 			</ul>
 		</div>
 	</div>
