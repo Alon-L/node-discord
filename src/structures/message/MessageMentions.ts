@@ -55,14 +55,14 @@ class MessageMentions extends BaseStruct {
       this.members.merge(mentions.members.map(member => [member.id, member]));
     }
 
-    if (mentions.roles) {
-      this.roles.merge(this.message.guild.roles.filter(role => mentions.roles.includes(role.id)));
+    if (mentions.roles && this.message.guild) {
+      this.roles.merge(this.message.guild.roles.filter(role => mentions.roles!.includes(role.id)));
     }
 
     if (mentions.channels && this.message.guild) {
       this.channels.merge(
         this.message.guild.channels.filter(channel =>
-          mentions.channels.some(
+          mentions.channels!.some(
             mention => mention.guild_id === channel.guild.id && mention.id === channel.id,
           ),
         ),
