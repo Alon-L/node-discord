@@ -99,19 +99,18 @@
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="guildchannel.html#bot" class="tsd-kind-icon">bot</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="guildchannel.html#category" class="tsd-kind-icon">category</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="guildchannel.html#guild" class="tsd-kind-icon">guild</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="guildchannel.html#id" class="tsd-kind-icon">id</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="guildchannel.html#name" class="tsd-kind-icon">name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="guildchannel.html#parent" class="tsd-kind-icon">parent</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="guildchannel.html#position" class="tsd-kind-icon">position</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="guildchannel.html#topic" class="tsd-kind-icon">topic</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="guildchannel.html#type" class="tsd-kind-icon">type</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section tsd-is-private-protected">
+						<section class="tsd-index-section tsd-is-inherited tsd-is-private-protected">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected"><a href="guildchannel.html#build" class="tsd-kind-icon">build</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="guildchannel.html#getdimensions" class="tsd-kind-icon">get<wbr>Dimensions</a></li>
 							</ul>
 						</section>
@@ -124,14 +123,14 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Guild<wbr>Channel<span class="tsd-signature-symbol">(</span>bot<span class="tsd-signature-symbol">: </span><a href="bot.html" class="tsd-signature-type">Bot</a>, guild<span class="tsd-signature-symbol">: </span><a href="guild.html" class="tsd-signature-type">Guild</a>, guildChannel<span class="tsd-signature-symbol">?: </span><a href="../globals.html#gatewaystruct" class="tsd-signature-type">GatewayStruct</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Guild<wbr>Channel<span class="tsd-signature-symbol">(</span>bot<span class="tsd-signature-symbol">: </span><a href="bot.html" class="tsd-signature-type">Bot</a>, guildChannel<span class="tsd-signature-symbol">: </span><a href="../globals.html#gatewaystruct" class="tsd-signature-type">GatewayStruct</a>, guild<span class="tsd-signature-symbol">: </span><a href="guild.html" class="tsd-signature-type">Guild</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="channel.html">Channel</a>.<a href="channel.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/06d6e9c/src/structures/channels/GuildChannel.ts#L33">src/structures/channels/GuildChannel.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/edeb698/src/structures/channels/GuildChannel.ts#L33">src/structures/channels/GuildChannel.ts:33</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -140,10 +139,10 @@
 									<h5>bot: <a href="bot.html" class="tsd-signature-type">Bot</a></h5>
 								</li>
 								<li>
-									<h5>guild: <a href="guild.html" class="tsd-signature-type">Guild</a></h5>
+									<h5>guildChannel: <a href="../globals.html#gatewaystruct" class="tsd-signature-type">GatewayStruct</a></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> guildChannel: <a href="../globals.html#gatewaystruct" class="tsd-signature-type">GatewayStruct</a></h5>
+									<h5>guild: <a href="guild.html" class="tsd-signature-type">Guild</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a></h4>
@@ -160,7 +159,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="basestruct.html">BaseStruct</a>.<a href="basestruct.html#bot">bot</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/06d6e9c/src/structures/BaseStruct.ts#L13">src/structures/BaseStruct.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/edeb698/src/structures/BaseStruct.ts#L13">src/structures/BaseStruct.ts:13</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -170,12 +169,28 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="category" class="tsd-anchor"></a>
+					<h3>category</h3>
+					<div class="tsd-signature tsd-kind-icon">category<span class="tsd-signature-symbol">:</span> <a href="guildcategorychannel.html" class="tsd-signature-type">GuildCategoryChannel</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/edeb698/src/structures/channels/GuildChannel.ts#L33">src/structures/channels/GuildChannel.ts:33</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Parent <a href="guildcategorychannel.html">GuildCategoryChannel</a> of this channel.
+							Possibly null if this channel does not have a parent category channel</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="guild" class="tsd-anchor"></a>
 					<h3>guild</h3>
 					<div class="tsd-signature tsd-kind-icon">guild<span class="tsd-signature-symbol">:</span> <a href="guild.html" class="tsd-signature-type">Guild</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/06d6e9c/src/structures/channels/GuildChannel.ts#L11">src/structures/channels/GuildChannel.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/edeb698/src/structures/channels/GuildChannel.ts#L11">src/structures/channels/GuildChannel.ts:11</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -191,7 +206,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="channel.html">Channel</a>.<a href="channel.html#id">id</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/06d6e9c/src/structures/channels/Channel.ts#L22">src/structures/channels/Channel.ts:22</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/edeb698/src/structures/channels/Channel.ts#L22">src/structures/channels/Channel.ts:22</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -206,7 +221,7 @@
 					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/06d6e9c/src/structures/channels/GuildChannel.ts#L21">src/structures/channels/GuildChannel.ts:21</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/edeb698/src/structures/channels/GuildChannel.ts#L21">src/structures/channels/GuildChannel.ts:21</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -216,28 +231,12 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="parent" class="tsd-anchor"></a>
-					<h3>parent</h3>
-					<div class="tsd-signature tsd-kind-icon">parent<span class="tsd-signature-symbol">:</span> <a href="guildcategorychannel.html" class="tsd-signature-type">GuildCategoryChannel</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/06d6e9c/src/structures/channels/GuildChannel.ts#L33">src/structures/channels/GuildChannel.ts:33</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Parent <a href="guildcategorychannel.html">GuildCategoryChannel</a> of this channel.
-							Possibly null if this channel does not have a parent category channel</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="position" class="tsd-anchor"></a>
 					<h3>position</h3>
 					<div class="tsd-signature tsd-kind-icon">position<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/06d6e9c/src/structures/channels/GuildChannel.ts#L16">src/structures/channels/GuildChannel.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/edeb698/src/structures/channels/GuildChannel.ts#L16">src/structures/channels/GuildChannel.ts:16</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -252,7 +251,7 @@
 					<div class="tsd-signature tsd-kind-icon">topic<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/06d6e9c/src/structures/channels/GuildChannel.ts#L27">src/structures/channels/GuildChannel.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/edeb698/src/structures/channels/GuildChannel.ts#L27">src/structures/channels/GuildChannel.ts:27</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -269,7 +268,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="channel.html">Channel</a>.<a href="channel.html#type">type</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/06d6e9c/src/structures/channels/Channel.ts#L27">src/structures/channels/Channel.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/edeb698/src/structures/channels/Channel.ts#L27">src/structures/channels/Channel.ts:27</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -279,32 +278,8 @@
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-private-protected">
+			<section class="tsd-panel-group tsd-member-group tsd-is-inherited tsd-is-private-protected">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
-					<a name="build" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> build</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
-						<li class="tsd-signature tsd-kind-icon">build<span class="tsd-signature-symbol">(</span>guildChannel<span class="tsd-signature-symbol">: </span><a href="../globals.html#gatewaystruct" class="tsd-signature-type">GatewayStruct</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Overrides <a href="channel.html">Channel</a>.<a href="channel.html#build">build</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/06d6e9c/src/structures/channels/GuildChannel.ts#L45">src/structures/channels/GuildChannel.ts:45</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>guildChannel: <a href="../globals.html#gatewaystruct" class="tsd-signature-type">GatewayStruct</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 					<a name="getdimensions" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> get<wbr>Dimensions</h3>
@@ -316,7 +291,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="basestruct.html">BaseStruct</a>.<a href="basestruct.html#getdimensions">getDimensions</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/06d6e9c/src/structures/BaseStruct.ts#L19">src/structures/BaseStruct.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/edeb698/src/structures/BaseStruct.ts#L19">src/structures/BaseStruct.ts:19</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -361,6 +336,9 @@
 								<a href="guildchannel.html#bot" class="tsd-kind-icon">bot</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="guildchannel.html#category" class="tsd-kind-icon">category</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="guildchannel.html#guild" class="tsd-kind-icon">guild</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
@@ -370,9 +348,6 @@
 								<a href="guildchannel.html#name" class="tsd-kind-icon">name</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="guildchannel.html#parent" class="tsd-kind-icon">parent</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="guildchannel.html#position" class="tsd-kind-icon">position</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
@@ -380,9 +355,6 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="guildchannel.html#type" class="tsd-kind-icon">type</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
-								<a href="guildchannel.html#build" class="tsd-kind-icon">build</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 								<a href="guildchannel.html#getdimensions" class="tsd-kind-icon">get<wbr>Dimensions</a>
