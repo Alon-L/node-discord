@@ -1,12 +1,12 @@
 import BotConnection from './BotConnection';
+import BotCommands from './handlers/BotCommands';
+import BotEvents from './handlers/events/BotEvents';
 import Cluster from '../../Cluster';
 import { ShardId, Snowflake } from '../../types';
 import User from '../User';
 import DMChannel from '../channels/DMChannel';
 import Guild from '../guild/Guild';
 import GuildUnavailable from '../guild/GuildUnavailable';
-import BotCommands from '../handlers/BotCommands';
-import BotEvents from '../handlers/events/BotEvents';
 
 export interface ShardOptions {
   /**

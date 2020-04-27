@@ -1,5 +1,5 @@
 import { EventEmitter } from 'events';
-import Bot from '../bot/Bot';
+import Bot from '../Bot';
 
 abstract class BotHandler<T> extends EventEmitter {
   protected bot: Bot;

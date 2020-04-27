@@ -1,5 +1,5 @@
-import { GatewayEvents } from '../../../socket/constants';
-import Channel from '../../channels/Channel';
+import { GatewayEvents } from '../../../../socket/constants';
+import Channel from '../../../channels/Channel';
 
 /**
  * Sent when a new channel is created
@@ -30,10 +30,10 @@ export declare function CHANNEL_UPDATE(oldChannel: Channel, newChannel: Channel)
 export declare function CHANNEL_DELETE(channel: Channel): void;
 
 export declare interface Events {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  on(event: string | symbol, listener: (...args: any) => void): this;
+
   on(event: GatewayEvents.ChannelCreate, listener: typeof CHANNEL_CREATE): this;
   on(event: GatewayEvents.ChannelUpdate, listener: typeof CHANNEL_UPDATE): this;
   on(event: GatewayEvents.ChannelDelete, listener: typeof CHANNEL_DELETE): this;
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  on(event: string | symbol, listener: (...args: any) => void): this;
 }

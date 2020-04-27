@@ -1,6 +1,6 @@
 import { Events } from './events';
-import { EventFunction } from '../../../types';
-import Bot from '../../bot/Bot';
+import { EventFunction } from '../../../../types';
+import Bot from '../../Bot';
 import BotHandler from '../BotHandler';
 
 type RegisterCallback = EventFunction;

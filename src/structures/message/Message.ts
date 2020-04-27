@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+
 import MessageAttachment from './MessageAttachment';
 import MessageEmbed from './MessageEmbed';
 import MessageMentions from './MessageMentions';
