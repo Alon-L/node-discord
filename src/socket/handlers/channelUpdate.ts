@@ -14,13 +14,6 @@ export const run = ({ d }: Payload, bot: Bot): void => {
     newChannel.guild.channels.set(newChannel.id, newChannel);
   }
 
-  /**
-   * Channel Update event
-   *
-   * @event BotEvents#CHANNEL_UPDATE
-   * @type {Channel} oldChannel The channel before being updated
-   * @type {Channel} newChannel The channel after being updated
-   */
   bot.events.emit(GatewayEvents.ChannelUpdate, oldChannel, newChannel);
 };
 
