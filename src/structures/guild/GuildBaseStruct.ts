@@ -1,6 +1,6 @@
-import BaseStruct from './BaseStruct';
 import Guild from './Guild';
-import Bot from './bot/Bot';
+import BaseStruct from '../BaseStruct';
+import Bot from '../bot/Bot';
 
 class GuildBaseStruct extends BaseStruct {
   /**

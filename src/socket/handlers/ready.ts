@@ -9,7 +9,7 @@ export const run = ({ d }: Payload, bot: Bot, socket: BotSocketShard): void => {
   bot.user = new User(bot, d.user);
 
   for (const guild of d.guilds) {
-    bot.guilds.set(guild.id, guild);
+    bot.unavailableGuilds.set(guild.id, guild);
 
     socket.pendingGuilds.add(guild.id);
   }

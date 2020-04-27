@@ -6,7 +6,6 @@ import {
   GatewayCloseCodes,
   GatewayEvents,
   OPCodes,
-  SocketStatus,
   unreconnectableGatewayCloseCodes,
   unresumeableGatewayCloseCodes,
 } from './constants';
@@ -42,14 +41,14 @@ class BotSocketShard {
   private readonly bot: Bot;
   private readonly token: string;
   private readonly shards: ShardOptions;
-  private heartbeats: BotHeartbeats;
+  private heartbeats!: BotHeartbeats;
   public pendingGuilds: Set<Snowflake>;
   public status: BotSocketShardStatus;
-  public ws: WebSocket;
-  public sessionId: string;
+  public ws!: WebSocket;
+  public sessionId!: string;
 
-  public sequence: number;
-  private lastSequence: number;
+  public sequence: number | null;
+  private lastSequence: number | null;
 
   constructor(botSocket: BotSocket, token: string, shards: ShardOptions) {
     this.botSocket = botSocket;
@@ -99,11 +98,11 @@ class BotSocketShard {
 
   /**
    * Called when a new message is received from the gateway
-   * @param {any} data Message data
+   * @param {WebSocket.MessageEvent} data WebSocket message event
    * @returns {Promise<void>}
    */
-  private async onMessage({ data }): Promise<void> {
-    const payload = BotSocketShard.parse(data);
+  private async onMessage({ data }: WebSocket.MessageEvent): Promise<void> {
+    const payload = BotSocketShard.parse(data as string);
 
     const { op, t, d, s } = payload;
 
@@ -167,8 +166,9 @@ class BotSocketShard {
     }
 
     // Find the matching event and run it
-    if (BotDispatchHandlers.events.has(t)) {
-      BotDispatchHandlers.events.get(t)(payload, this.bot, this);
+    const event = BotDispatchHandlers.events.get(t);
+    if (event) {
+      event(payload, this.bot, this);
     }
   }
 
@@ -186,17 +186,8 @@ class BotSocketShard {
 
     this.lastSequence = this.sequence;
 
-    if (this.ws) {
-      if (this.ws.readyState !== SocketStatus.Open) {
-        // Remove all socket listeners
-        this.cleanSocket();
-      }
-
-      // Close socket
-      this.ws.close(code);
-    }
-
-    this.ws = null;
+    // Close socket
+    this.ws.close(code);
   }
 
   /**
@@ -218,21 +209,17 @@ class BotSocketShard {
    * Called when the close event from the {@link WebSocket} is emitted
    * @param {WebSocket.CloseEvent} event WebSocket close event
    */
-  private onClose(event: WebSocket.CloseEvent): void {
+  private async onClose(event: WebSocket.CloseEvent): Promise<void> {
     this.bot.log('Close', event.code, event.reason, event.wasClean);
 
     const { code } = event;
 
     this.heartbeats.stopHeartbeat();
 
-    if (this.ws) {
-      this.cleanSocket();
-    }
-
     this.status = BotSocketShardStatus.Closed;
 
     if (!unreconnectableGatewayCloseCodes.includes(code)) {
-      this.connect(!unresumeableGatewayCloseCodes.includes(code));
+      await this.connect(!unresumeableGatewayCloseCodes.includes(code));
     }
   }
 
@@ -266,15 +253,6 @@ class BotSocketShard {
       );
       await new Promise(resolve => setTimeout(resolve, resetAfter));
     }
-  }
-
-  /**
-   * Clear all socket event listeners
-   */
-  private cleanSocket(): void {
-    this.ws.onmessage = null;
-    this.ws.onclose = null;
-    this.ws.onopen = null;
   }
 
   /**

@@ -1,7 +1,7 @@
 import { GatewayStruct } from './BaseStruct';
-import Guild from './Guild';
-import GuildBaseStruct from './GuildBaseStruct';
 import Bot from './bot/Bot';
+import Guild from './guild/Guild';
+import GuildBaseStruct from './guild/GuildBaseStruct';
 import { Snowflake } from '../types';
 
 class Role extends GuildBaseStruct {
@@ -42,15 +42,9 @@ class Role extends GuildBaseStruct {
    */
   public mentionable: boolean;
 
-  constructor(bot: Bot, role?: GatewayStruct, guild?: Guild) {
+  constructor(bot: Bot, role: GatewayStruct, guild: Guild) {
     super(bot, guild);
 
-    if (role) {
-      this.build(role);
-    }
-  }
-
-  protected build(role: GatewayStruct): void {
     this.id = role.id;
     this.name = role.name;
     this.color = role.color;

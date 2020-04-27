@@ -21,23 +21,19 @@ class GuildTextChannel extends GuildChannel implements TextChannel {
   /**
    * Amount of seconds a user has to wait before sending another message
    */
-  public slowModeTimeout: number;
+  public slowModeTimeout!: number;
 
   /**
    * Timestamp of when the last pinned message was pinned
    */
   public lastPinTimestamp?: number;
 
-  constructor(bot: Bot, textChannel?: GatewayStruct) {
-    super(bot, bot.guilds.get(textChannel.guild_id));
+  constructor(bot: Bot, textChannel: GatewayStruct) {
+    const guild = bot.guilds.get(textChannel.guild_id);
 
-    if (textChannel) {
-      this.build(textChannel);
-    }
-  }
+    if (!guild) throw new Error('Invalid text channel guild');
 
-  protected build(textChannel: GatewayStruct): void {
-    super.build(textChannel);
+    super(bot, textChannel, guild);
 
     this.nsfw = textChannel.nsfw;
     this.lastMessageId = textChannel.last_message_id;

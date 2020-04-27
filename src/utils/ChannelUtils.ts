@@ -3,6 +3,7 @@ import Bot from '../structures/bot/Bot';
 import Channel, { ChannelTypes } from '../structures/channels/Channel';
 import DMChannel from '../structures/channels/DMChannel';
 import GuildTextChannel from '../structures/channels/GuildTextChannel';
+import { Snowflake } from '../types';
 
 class ChannelUtils {
   public static create(bot: Bot, data: GatewayStruct): Channel {
@@ -23,14 +24,18 @@ class ChannelUtils {
     return channel;
   }
 
-  public static find(bot: Bot, guildId: string | undefined, channelId: string): Channel {
-    const guild = bot.guilds.get(guildId);
-    if (!guild) return;
+  public static find(
+    bot: Bot,
+    guildId: Snowflake | undefined,
+    channelId: Snowflake,
+  ): Channel | DMChannel | undefined {
+    const guild = guildId ? bot.guilds.get(guildId) : undefined;
+    if (!guild) return ChannelUtils.findDM(bot, channelId);
 
     return guild.channels.get(channelId);
   }
 
-  public static findDM(bot: Bot, channelId: string): DMChannel {
+  public static findDM(bot: Bot, channelId: string): DMChannel | undefined {
     return bot.dms.get(channelId);
   }
 }

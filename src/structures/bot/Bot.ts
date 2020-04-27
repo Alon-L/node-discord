@@ -1,9 +1,10 @@
 import BotConnection from './BotConnection';
 import Cluster from '../../Cluster';
 import { ShardId, Snowflake } from '../../types';
-import Guild from '../Guild';
 import User from '../User';
 import DMChannel from '../channels/DMChannel';
+import Guild from '../guild/Guild';
+import GuildUnavailable from '../guild/GuildUnavailable';
 import BotCommands from '../handlers/BotCommands';
 import BotEvents from '../handlers/BotEvents';
 
@@ -41,13 +42,19 @@ class Bot {
 
   /**
    * Bot Discord user
+   * Initializes right before the Bot READY event
    */
-  public user: User;
+  public user?: User;
 
   /**
-   * {@link Cluster} of all {@link Guild}s associated to the Bot
+   * {@link Cluster} of all {@link Guild}s after fetching their unavailable version
    */
   public guilds: Cluster<Snowflake, Guild>;
+
+  /**
+   * {@link Cluster} of all {@link GuildUnavailable}s associated to the Bot
+   */
+  public unavailableGuilds: Cluster<Snowflake, GuildUnavailable>;
 
   /**
    * {@link Cluster} of all {@link DMChannel}s the Bot is part of
@@ -72,6 +79,8 @@ class Bot {
     this.connection = new BotConnection(this, token);
 
     this.guilds = new Cluster<Snowflake, Guild>();
+
+    this.unavailableGuilds = new Cluster<Snowflake, GuildUnavailable>();
 
     this.dms = new Cluster<Snowflake, DMChannel>();
   }

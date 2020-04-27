@@ -1,7 +1,7 @@
 'use strict';
 
-import Guild from '../../src/structures/Guild';
 import Bot from '../../src/structures/bot/Bot';
+import Guild from '../../src/structures/guild/Guild';
 import config from '../config.json';
 
 const bot = new Bot(config.token);

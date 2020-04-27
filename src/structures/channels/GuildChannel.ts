@@ -1,8 +1,8 @@
 import Channel from './Channel';
 import GuildCategoryChannel from './GuildCategoryChannel';
 import { GatewayStruct } from '../BaseStruct';
-import Guild from '../Guild';
 import Bot from '../bot/Bot';
+import Guild from '../guild/Guild';
 
 class GuildChannel extends Channel {
   /**
@@ -32,18 +32,10 @@ class GuildChannel extends Channel {
    */
   public category: GuildCategoryChannel | null;
 
-  constructor(bot: Bot, guild: Guild, guildChannel?: GatewayStruct) {
-    super(bot);
+  constructor(bot: Bot, guildChannel: GatewayStruct, guild: Guild) {
+    super(bot, guildChannel);
 
     this.guild = guild;
-
-    if (guildChannel) {
-      this.build(guildChannel);
-    }
-  }
-
-  protected build(guildChannel: GatewayStruct): void {
-    super.build(guildChannel);
 
     this.position = guildChannel.position;
     this.name = guildChannel.name;

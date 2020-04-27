@@ -39,17 +39,11 @@ class MessageAttachment extends BaseStruct {
    */
   public dimensions: Nullable<Dimensions>;
 
-  constructor(message?: Message, attachment?: GatewayStruct) {
-    super(message?.bot);
+  constructor(message: Message, attachment: GatewayStruct) {
+    super(message.bot);
 
     this.message = message;
 
-    if (attachment) {
-      this.build(attachment);
-    }
-  }
-
-  protected build(attachment: GatewayStruct): void {
     this.id = attachment.id;
     this.filename = attachment.filename;
     this.size = attachment.size;

@@ -2,7 +2,6 @@
 
 import { GatewayEvents } from '../../src/socket/constants';
 import Bot from '../../src/structures/bot/Bot';
-import Channel from '../../src/structures/channels/Channel';
 import config from '../config.json';
 
 const bot = new Bot(config.token);

@@ -42,7 +42,7 @@ class MessageMentions extends BaseStruct {
    */
   public channels: Cluster<Snowflake, GuildChannel>;
 
-  constructor(message: Message, mentions?: Partial<MentionTypes>) {
+  constructor(message: Message, mentions: Partial<MentionTypes>) {
     super(message.bot);
 
     this.message = message;
@@ -51,23 +51,23 @@ class MessageMentions extends BaseStruct {
     this.roles = new Cluster<Snowflake, Role>();
     this.channels = new Cluster<Snowflake, GuildChannel>();
 
-    if (mentions) {
-      this.build(mentions);
+    if (mentions.members) {
+      this.members.merge(mentions.members.map(member => [member.id, member]));
     }
-  }
 
-  protected build(mentions: Partial<MentionTypes>): void {
-    this.members.merge(mentions.members?.map(member => [member.id, member]));
+    if (mentions.roles) {
+      this.roles.merge(this.message.guild.roles.filter(role => mentions.roles.includes(role.id)));
+    }
 
-    this.roles.merge(this.message.guild.roles.filter(role => mentions.roles?.includes(role.id)));
-
-    this.channels.merge(
-      this.message.guild.channels.filter(channel =>
-        mentions.channels?.some(
-          mention => mention.guild_id === channel.guild.id && mention.id === channel.id,
+    if (mentions.channels && this.message.guild) {
+      this.channels.merge(
+        this.message.guild.channels.filter(channel =>
+          mentions.channels.some(
+            mention => mention.guild_id === channel.guild.id && mention.id === channel.id,
+          ),
         ),
-      ),
-    );
+      );
+    }
   }
 }
 

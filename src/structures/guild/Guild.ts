@@ -1,11 +1,12 @@
-import BaseStruct, { GatewayStruct } from './BaseStruct';
-import Member from './Member';
-import Role from './Role';
-import Bot from './bot/Bot';
-import GuildChannel from './channels/GuildChannel';
-import GuildTextChannel from './channels/GuildTextChannel';
-import Cluster from '../Cluster';
-import { Snowflake } from '../types';
+import GuildUnavailable from './GuildUnavailable';
+import Cluster from '../../Cluster';
+import { Snowflake } from '../../types';
+import BaseStruct, { GatewayStruct } from '../BaseStruct';
+import Member from '../Member';
+import Role from '../Role';
+import Bot from '../bot/Bot';
+import GuildChannel from '../channels/GuildChannel';
+import GuildTextChannel from '../channels/GuildTextChannel';
 
 /**
  * Guild verification levels
@@ -91,9 +92,9 @@ export interface GuildSystem {
   flags: undefined; // TODO: Flag system
   /**
    * The channel where guild notices such as welcome messages and boost events are posted.
-   * Possibly null if such channel does not exist
+   * Possibly undefined if such channel does not exist
    */
-  channel: GuildTextChannel | null;
+  channel?: GuildTextChannel;
 }
 
 export interface GuildPremium {
@@ -117,7 +118,17 @@ class Guild extends BaseStruct {
   /**
    * {@link Cluster} of {@link GuildChannel}s associated to this Guild
    */
-  public channels?: Cluster<Snowflake, GuildChannel>;
+  public channels: Cluster<Snowflake, GuildChannel>;
+
+  /**
+   * {@link Cluster} of all {@link Role}s associated to this guild
+   */
+  public roles: Cluster<Snowflake, Role>;
+
+  /**
+   * {@link Cluster} of all {@link Member}s in this guild
+   */
+  public members: Cluster<Snowflake, Member>;
 
   /**
    * Guild name
@@ -140,9 +151,10 @@ class Guild extends BaseStruct {
   public discoverySplash: string | null;
 
   /**
-   * Guild owner {@link Member}. Possibly null if the bot is yet to cache that member
+   * Guild owner {@link Member}.
+   * Possibly undefined if the bot is yet to cache that member
    */
-  public owner: Member | null;
+  public owner?: Member;
 
   /**
    * Guild owner ID
@@ -167,11 +179,6 @@ class Guild extends BaseStruct {
    */
   public levels: GuildLevels;
 
-  /**
-   * {@link Cluster} of all {@link Role}s associated to this guild
-   */
-  public roles: Cluster<Snowflake, Role>;
-
   // public emojis: Cluster<Snowflake, Emoji>;
 
   public features: undefined;
@@ -191,7 +198,7 @@ class Guild extends BaseStruct {
   /**
    * The channel where public guilds display rules and/or guidelines
    */
-  public rulesChannel: GuildTextChannel | null;
+  public rulesChannel?: GuildTextChannel;
 
   /**
    * Timestamp for when the guild was created
@@ -202,6 +209,7 @@ class Guild extends BaseStruct {
    * Whether this guild is considered a large guild
    */
   public large?: boolean;
+
   /**
    * Whether this guild is unavailable
    */
@@ -214,11 +222,6 @@ class Guild extends BaseStruct {
   public memberCount?: number;
 
   public voiceStates?: undefined;
-
-  /**
-   * {@link Cluster} of all {@link Member}s in this guild
-   */
-  public members?: Cluster<Snowflake, Member>;
 
   public presences?: undefined;
 
@@ -255,42 +258,56 @@ class Guild extends BaseStruct {
   /**
    * The channel where admins and moderators of public guilds receive notice from Discord
    */
-  public updatesChannel: GuildTextChannel | null;
+  public updatesChannel?: GuildTextChannel;
 
-  constructor(bot: Bot, guild?: GatewayStruct) {
+  constructor(bot: Bot, guild: GatewayStruct) {
     super(bot);
 
-    if (guild && !guild.unavailable) {
-      this.build(guild);
-    } else {
-      this.id = guild.id;
-      this.unavailable = guild.unavailable;
-    }
-  }
-
-  private build(guild: GatewayStruct): void {
     // TODO: assign all other fields
     this.id = guild.id;
+
     this.channels = new Cluster<Snowflake, GuildChannel>(
-      guild.channels.map(channel => [channel.id, new GuildChannel(this.bot, this, channel)]),
+      guild.channels?.map((channel: GatewayStruct) => [
+        channel.id,
+        new GuildChannel(this.bot, channel, this),
+      ]),
     );
+
+    this.roles = new Cluster<Snowflake, Role>(
+      guild.roles.map((role: GatewayStruct) => [role.id, new Role(bot, role, this)]),
+    );
+
+    this.members = new Cluster<Snowflake, Member>(
+      guild.members?.map((member: GatewayStruct) => [member.id, new Member(bot, member, this)]),
+    );
+
     this.name = guild.name;
     this.icon = guild.icon;
     this.splash = guild.splash;
     this.discoverySplash = guild.discoverySplash;
-    // TODO: this.owner = guild.members.get(guild.owner_id);
+    this.owner = this.members.get(guild.owner_id);
     this.ownerId = guild.owner_id;
     this.region = guild.region;
+
     this.levels = {
       verification: guild.verification_level,
       notifications: guild.default_message_notifications,
       explicitContent: guild.explicit_content_filter,
       mfa: guild.mfa_level,
     };
+
     this.widget = {
       enabled: guild.widget_enabled,
       channel: this.channels.get(guild.widget_channel_id),
     };
+
+    this.system = {
+      channel: this.channels.get(guild.system_channel_id) as GuildTextChannel,
+      flags: undefined,
+    };
+
+    this.rulesChannel = this.channels.get(guild.rules_channel_id) as GuildTextChannel;
+
     this.createdAt = guild.joined_at;
     this.large = guild.large;
     this.unavailable = guild.unavailable;
@@ -298,11 +315,19 @@ class Guild extends BaseStruct {
     this.vanityURLCode = guild.vanity_url_code;
     this.description = guild.description;
     this.banner = guild.banner;
+
     this.premium = {
       tier: guild.premium_tier,
       boostsCount: guild.premium_subscription_count,
     };
+
     this.locale = guild.locale;
+
+    this.updatesChannel = this.channels.get(guild.public_updates_channel_id) as GuildTextChannel;
+  }
+
+  public static create(bot: Bot, guild: GatewayStruct): Guild | GuildUnavailable {
+    return guild.unavailable ? new GuildUnavailable(bot, guild) : new Guild(bot, guild);
   }
 }
 

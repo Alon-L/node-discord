@@ -9,7 +9,7 @@ interface HeartbeatData {
 
 interface HeartbeatInterval {
   timeout: number;
-  executor: NodeJS.Timeout;
+  executor?: NodeJS.Timeout;
 }
 
 /**
@@ -19,7 +19,7 @@ interface HeartbeatInterval {
 class BotHeartbeats {
   private botSocketShard: BotSocketShard;
   private readonly ws: WebSocket;
-  private readonly sequence: number;
+  private readonly sequence: number | null;
   private acked: boolean;
   public interval: HeartbeatInterval;
 
@@ -33,7 +33,6 @@ class BotHeartbeats {
 
     this.interval = {
       timeout: 0,
-      executor: null,
     };
   }
 
@@ -64,7 +63,10 @@ class BotHeartbeats {
    */
   public stopHeartbeat(): void {
     this.interval.timeout = -1;
-    clearInterval(this.interval.executor);
+
+    if (this.interval.executor) {
+      clearInterval(this.interval.executor);
+    }
   }
 
   /**
@@ -79,7 +81,7 @@ class BotHeartbeats {
    * @type {HeartbeatData}
    */
   private get heartbeatData(): HeartbeatData {
-    return { op: OPCodes.Heartbeat, d: this.sequence };
+    return { op: OPCodes.Heartbeat, d: this.sequence || -1 };
   }
 
   /**

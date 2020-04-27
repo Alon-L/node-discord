@@ -26,8 +26,8 @@ class BotSocket {
   private readonly token: string;
   private readonly shards: Cluster<ShardId, BotSocketShard>;
   public readonly bot: Bot;
-  public gatewayURL: string;
-  public sessionStartLimit: SessionStartLimit;
+  public gatewayURL!: string;
+  public sessionStartLimit!: SessionStartLimit;
 
   constructor(bot: Bot, token: string) {
     this.bot = bot;

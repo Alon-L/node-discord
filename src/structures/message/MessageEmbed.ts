@@ -220,17 +220,11 @@ class MessageEmbed extends BaseStruct {
    */
   public fields?: MessageEmbedField[];
 
-  constructor(message?: Message, embed?: GatewayStruct) {
-    super(message?.bot);
+  constructor(message: Message, embed: GatewayStruct) {
+    super(message.bot);
 
     this.message = message;
 
-    if (embed) {
-      this.build(embed);
-    }
-  }
-
-  protected build(embed: GatewayStruct): void {
     this.title = embed.title;
     this.type = embed.type;
     this.description = embed.description;
@@ -273,7 +267,7 @@ class MessageEmbed extends BaseStruct {
       proxyIconURL: embed.author.proxy_icon_url,
     };
 
-    this.fields = embed.fields.map(field => ({
+    this.fields = embed.fields.map((field: GatewayStruct) => ({
       name: field.name,
       content: field.value,
       inline: field.inline,

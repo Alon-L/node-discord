@@ -26,15 +26,9 @@ class Channel extends BaseStruct {
    */
   public type: ChannelTypes;
 
-  constructor(bot: Bot, channel?: GatewayStruct) {
+  constructor(bot: Bot, channel: GatewayStruct) {
     super(bot);
 
-    if (channel) {
-      this.build(channel);
-    }
-  }
-
-  protected build(channel: GatewayStruct): void {
     this.id = channel.id;
     this.type = channel.type;
   }

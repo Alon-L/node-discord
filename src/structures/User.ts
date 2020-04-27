@@ -71,15 +71,9 @@ class User extends BaseStruct {
 
   public publicFlags: undefined;
 
-  constructor(bot: Bot, user?: GatewayStruct) {
+  constructor(bot: Bot, user: GatewayStruct) {
     super(bot);
 
-    if (user) {
-      this.build(user);
-    }
-  }
-
-  protected build(user: GatewayStruct): void {
     this.id = user.id;
     this.username = user.username;
     this.hashtag = user.discriminator;

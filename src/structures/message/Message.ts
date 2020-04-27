@@ -4,11 +4,11 @@ import MessageMentions from './MessageMentions';
 import Cluster from '../../Cluster';
 import { Snowflake } from '../../types';
 import BaseStruct, { GatewayStruct } from '../BaseStruct';
-import Guild from '../Guild';
 import Member from '../Member';
 import User from '../User';
 import Bot from '../bot/Bot';
 import GuildTextChannel from '../channels/GuildTextChannel';
+import Guild from '../guild/Guild';
 
 /**
  * The type of a message
@@ -73,7 +73,7 @@ class Message extends BaseStruct {
    * Timestamp of when this message was edited.
    * Possibly null if message has not been edited
    */
-  public editedTimestamp: number | null;
+  public editedAt: number | null;
 
   /**
    * Whether this was a TTS message
@@ -130,30 +130,42 @@ class Message extends BaseStruct {
 
   public flags?: undefined;
 
-  constructor(bot: Bot, message?: GatewayStruct, channel?: GuildTextChannel /* | DMChannel*/) {
+  constructor(bot: Bot, message: GatewayStruct, channel: GuildTextChannel /* | DMChannel*/) {
     super(bot);
 
-    this.guild = message.guild || channel?.guild;
-
-    this.channel = channel;
-
-    if (message) {
-      this.build(message);
+    if (message.guild_id) {
+      this.guild = this.bot.guilds.get(message.guild_id);
     }
-  }
+    this.channel = channel;
+    this.id = message.id;
+    this.author = new User(this.bot, message.author);
+    this.content = message.content;
+    this.sentAt = message.timestamp;
+    this.editedAt = message.edited_timestamp;
+    this.tts = message.tts;
+    this.mentionsEveryone = message.mention_everyone;
 
-  protected build(message: GatewayStruct): void {
+    console.log(message.mentions);
+
     this.mentions = new MessageMentions(this, {
-      members: message.mentions.map(member => new Member(member)),
+      members: this.guild
+        ? message.mentions.map((member: GatewayStruct) => new Member(this.bot, member, this.guild!))
+        : undefined,
       roles: message.mention_roles,
       channels: message.mention_channels,
     });
 
     this.attachments = new Cluster<Snowflake, MessageAttachment>(
-      message.attachments.map(attachment => [attachment.id, new MessageAttachment(attachment)]),
+      message.attachments.map((attachment: GatewayStruct) => [
+        attachment.id,
+        new MessageAttachment(this, attachment),
+      ]),
     );
 
-    this.embeds = message.embeds.map(embed => new MessageEmbed(embed));
+    this.embeds = message.embeds.map((embed: GatewayStruct) => new MessageEmbed(this, embed));
+    this.nonce = message.nonce;
+    this.pinned = message.pinned;
+    this.type = message.type;
   }
 }
 

@@ -9,7 +9,7 @@ class BotCommands extends BotHandler<RegisterCallback> {
     super(bot);
   }
 
-  public wait(name: string): Promise<unknown> {
+  public async wait(name: string): Promise<unknown> {
     return;
   }
 }

@@ -9,7 +9,7 @@ import { ShardId } from '../types';
  */
 class BotShard {
   private readonly manager: BotShardManager;
-  private process: ChildProcess;
+  private process!: ChildProcess;
   public readonly id: ShardId;
 
   constructor(manager: BotShardManager, id: ShardId) {
