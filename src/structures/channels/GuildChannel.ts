@@ -30,7 +30,7 @@ class GuildChannel extends Channel {
    * Parent {@link GuildCategoryChannel} of this channel.
    * Possibly null if this channel does not have a parent category channel
    */
-  public parent: GuildCategoryChannel | null;
+  public category: GuildCategoryChannel | null;
 
   constructor(bot: Bot, guild: Guild, guildChannel?: GatewayStruct) {
     super(bot);
@@ -48,7 +48,7 @@ class GuildChannel extends Channel {
     this.position = guildChannel.position;
     this.name = guildChannel.name;
     this.topic = guildChannel.topic;
-    this.parent = guildChannel.parent;
+    this.category = guildChannel.parent;
 
     this.guild = this.bot.guilds.get(guildChannel.guild_id) || this.guild;
   }
