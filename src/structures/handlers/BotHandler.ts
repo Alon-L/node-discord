@@ -1,4 +1,4 @@
-import { EventEmitter } from 'events';
+import { EventEmitter } from 'src/structures/handlers/events/events';
 import Bot from '../bot/Bot';
 
 abstract class BotHandler<T> extends EventEmitter {

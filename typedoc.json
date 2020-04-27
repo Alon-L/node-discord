@@ -6,5 +6,8 @@
   "excludeNotExported": true,
   "excludePrivate": true,
   "categorizeByGroup": true,
-  "out": "docs"
+  "out": "docs",
+  "plugin": [
+    "typedoc-plugin-as-member-of"
+  ]
 }

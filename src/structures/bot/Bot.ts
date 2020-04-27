@@ -6,7 +6,7 @@ import DMChannel from '../channels/DMChannel';
 import Guild from '../guild/Guild';
 import GuildUnavailable from '../guild/GuildUnavailable';
 import BotCommands from '../handlers/BotCommands';
-import BotEvents from '../handlers/BotEvents';
+import BotEvents from '../handlers/events/BotEvents';
 
 export interface ShardOptions {
   /**

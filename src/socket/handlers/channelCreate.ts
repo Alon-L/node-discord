@@ -18,12 +18,6 @@ export const run = ({ d }: Payload, bot: Bot): void => {
     bot.dms.set(channel.id, channel);
   }
 
-  /**
-   * Channel Create event
-   *
-   * @event BotEvents#CHANNEL_CREATE
-   * @type {Channel} The channel that has been created
-   */
   bot.events.emit(GatewayEvents.ChannelCreate, channel);
 };
 

@@ -1,20 +1,14 @@
-import BotHandler from './BotHandler';
-import { EventFunction } from '../../types';
-import Bot from '../bot/Bot';
+import { Events } from './events';
+import { EventFunction } from '../../../types';
+import Bot from '../../bot/Bot';
+import BotHandler from '../BotHandler';
 
 type RegisterCallback = EventFunction;
 
-class BotEvents extends BotHandler<RegisterCallback> {
+class BotEvents extends BotHandler<RegisterCallback> implements Events {
   constructor(bot: Bot) {
     super(bot);
   }
-
-  /**
-   * Channel Create event
-   *
-   * @event BotEvents#CHANNEL_CREATE
-   * @type {Channel} The channel that has been created
-   */
 
   public wait(name: string): Promise<Parameters<RegisterCallback>> {
     return new Promise(resolve => {
