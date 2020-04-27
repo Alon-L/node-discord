@@ -5,6 +5,7 @@
   "theme": "default",
   "excludeNotExported": true,
   "excludePrivate": true,
+  "excludeProtected": true,
   "categorizeByGroup": true,
   "out": "docs",
   "plugin": [
