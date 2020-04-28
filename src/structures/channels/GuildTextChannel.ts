@@ -7,7 +7,7 @@ import Bot from '../bot/Bot';
 import Guild from '../guild/Guild';
 
 /**
- * Represents a channel found in a guild of type Text
+ * Represents a channel found in a guild of type {@link ChannelTypes.GuildText}
  * @class
  * @extends GuildChannel
  * @implements {TextChannel}
