@@ -9,7 +9,7 @@ import { Snowflake } from '../../types';
  */
 class GuildCategoryChannel extends GuildChannel {
   /**
-   * All {@link GuildChannel}s under this category channel
+   * Returns all {@link GuildChannel}s under this category channel
    * @type {Cluster<Snowflake, GuildChannel>}
    */
   public get children(): Cluster<Snowflake, GuildChannel> {
