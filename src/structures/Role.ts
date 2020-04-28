@@ -4,6 +4,11 @@ import Guild from './guild/Guild';
 import GuildBaseStruct from './guild/GuildBaseStruct';
 import { Snowflake } from '../types';
 
+/**
+ * Represents a role in a guild
+ * @class
+ * @extends GuildBaseStruct
+ */
 class Role extends GuildBaseStruct {
   /**
    * The role's ID
