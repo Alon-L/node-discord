@@ -33,6 +33,11 @@ enum MessageTypes {
   GuildDiscoveryRequalified,
 }
 
+/**
+ * Represents a message sent in a {@link TextChannel}
+ * @class
+ * @extends BaseStruct
+ */
 class Message extends BaseStruct {
   /**
    * The message's ID
