@@ -3,15 +3,16 @@ import Bot from '../structures/bot/Bot';
 import Channel, { ChannelTypes } from '../structures/channels/Channel';
 import DMChannel from '../structures/channels/DMChannel';
 import GuildTextChannel from '../structures/channels/GuildTextChannel';
+import Guild from '../structures/guild/Guild';
 import { Snowflake } from '../types';
 
 class ChannelUtils {
-  public static create(bot: Bot, data: GatewayStruct): Channel {
+  public static create(bot: Bot, data: GatewayStruct, guild?: Guild): Channel {
     let channel: Channel;
 
     switch (data.type as ChannelTypes) {
       case ChannelTypes.GuildText:
-        channel = new GuildTextChannel(bot, data);
+        channel = new GuildTextChannel(bot, data, guild);
         break;
       case ChannelTypes.DM:
         channel = new DMChannel(bot, data);

@@ -2,7 +2,9 @@ import GuildChannel from './GuildChannel';
 import TextChannel from './TextChannel';
 import { Snowflake } from '../../types';
 import { GatewayStruct } from '../BaseStruct';
+import Timestamp from '../Timestamp';
 import Bot from '../bot/Bot';
+import Guild from '../guild/Guild';
 
 // TODO: Create Channel class and add the type TextBasedChannel = GuildTextChannel | DMChannel with the send.message methods, send.embed, send.files, etc...
 
@@ -26,10 +28,11 @@ class GuildTextChannel extends GuildChannel implements TextChannel {
   /**
    * Timestamp of when the last pinned message was pinned
    */
-  public lastPinTimestamp?: number;
+  public lastPinTimestamp?: Timestamp;
 
-  constructor(bot: Bot, textChannel: GatewayStruct) {
-    const guild = bot.guilds.get(textChannel.guild_id);
+  // Guild parameter used when creating the channel from the Guild constructor
+  constructor(bot: Bot, textChannel: GatewayStruct, guild_?: Guild) {
+    const guild = bot.guilds.get(textChannel.guild_id) || guild_;
 
     if (!guild) throw new Error('Invalid text channel guild');
 
@@ -38,7 +41,7 @@ class GuildTextChannel extends GuildChannel implements TextChannel {
     this.nsfw = textChannel.nsfw;
     this.lastMessageId = textChannel.last_message_id;
     this.slowModeTimeout = textChannel.rate_limit_per_user;
-    this.lastPinTimestamp = textChannel.last_pin_timestamp;
+    this.lastPinTimestamp = new Timestamp(textChannel.last_pin_timestamp);
   }
 }
 

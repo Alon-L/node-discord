@@ -1,5 +1,8 @@
 import { GatewayEvents } from '../../../../socket/constants';
+import Timestamp from '../../../Timestamp';
 import Channel from '../../../channels/Channel';
+import DMChannel from '../../../channels/DMChannel';
+import GuildTextChannel from '../../../channels/GuildTextChannel';
 
 /**
  * Sent when a new channel is created
@@ -29,11 +32,25 @@ export declare function CHANNEL_UPDATE(oldChannel: Channel, newChannel: Channel)
  */
 export declare function CHANNEL_DELETE(channel: Channel): void;
 
-export declare interface Events {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  on(event: string | symbol, listener: (...args: any) => void): this;
+/**
+ * Sent when a message is pinned or unpinned in a text channel.
+ * This is not sent when a pinned message is deleted
+ * @param {GuildTextChannel | DMChannel} channel The channel which pins were updated
+ * @param {number | undefined} oldPinTimestamp The previous last pin timestamp
+ * @asMemberOf BotEvents
+ * @event BotEvents#CHANNEL_PINS_UPDATE
+ */
+export declare function CHANNEL_PINS_UPDATE(
+  channel: GuildTextChannel | DMChannel,
+  oldPinTimestamp: Timestamp | undefined,
+): void;
 
+export declare interface Events {
   on(event: GatewayEvents.ChannelCreate, listener: typeof CHANNEL_CREATE): this;
   on(event: GatewayEvents.ChannelUpdate, listener: typeof CHANNEL_UPDATE): this;
   on(event: GatewayEvents.ChannelDelete, listener: typeof CHANNEL_DELETE): this;
+  on(event: GatewayEvents.ChannelPinsUpdate, listener: typeof CHANNEL_PINS_UPDATE): this;
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  on(event: string | symbol, listener: (...args: any) => void): this;
 }

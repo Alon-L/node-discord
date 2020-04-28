@@ -1,6 +1,7 @@
 import GuildUnavailable from './GuildUnavailable';
 import Cluster from '../../Cluster';
 import { Snowflake } from '../../types';
+import ChannelUtils from '../../utils/ChannelUtils';
 import BaseStruct, { GatewayStruct } from '../BaseStruct';
 import Member from '../Member';
 import Role from '../Role';
@@ -269,7 +270,7 @@ class Guild extends BaseStruct {
     this.channels = new Cluster<Snowflake, GuildChannel>(
       guild.channels?.map((channel: GatewayStruct) => [
         channel.id,
-        new GuildChannel(this.bot, channel, this),
+        ChannelUtils.create(this.bot, channel, this),
       ]),
     );
 

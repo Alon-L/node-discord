@@ -3,6 +3,7 @@ import TextChannel from './TextChannel';
 import Cluster from '../../Cluster';
 import { Snowflake } from '../../types';
 import { GatewayStruct } from '../BaseStruct';
+import Timestamp from '../Timestamp';
 import User from '../User';
 import Bot from '../bot/Bot';
 
@@ -21,7 +22,7 @@ class DMChannel extends Channel implements TextChannel {
   /**
    * Timestamp of when the last pinned message was pinned
    */
-  public lastPinTimestamp?: number;
+  public lastPinTimestamp?: Timestamp;
 
   constructor(bot: Bot, dmChannel: GatewayStruct) {
     super(bot, dmChannel);
@@ -32,7 +33,7 @@ class DMChannel extends Channel implements TextChannel {
       dmChannel.recipients.map((user: GatewayStruct) => [user.id, new User(this.bot, user)]),
     );
 
-    this.lastPinTimestamp = dmChannel.last_pin_timestamp;
+    this.lastPinTimestamp = new Timestamp(dmChannel.last_pin_timestamp);
   }
 }
 

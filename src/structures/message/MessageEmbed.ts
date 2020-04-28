@@ -1,6 +1,7 @@
 import Message from './Message';
 import { Dimensions } from '../../types';
 import BaseStruct, { GatewayStruct } from '../BaseStruct';
+import Timestamp from '../Timestamp';
 
 /**
  * Embed types are "loosely defined" and, for the most part, are not used by our clients for rendering. Embed attributes power what is rendered. Embed types should be considered deprecated and might be removed in a future API version.
@@ -178,7 +179,7 @@ class MessageEmbed extends BaseStruct {
   /**
    * Timestamp of this embed's content
    */
-  public timestamp?: number;
+  public timestamp?: Timestamp;
 
   /**
    * Color code of the embed
@@ -229,7 +230,7 @@ class MessageEmbed extends BaseStruct {
     this.type = embed.type;
     this.description = embed.description;
     this.url = embed.url;
-    this.timestamp = embed.timestamp;
+    this.timestamp = new Timestamp(embed.timestamp);
     this.color = embed.color;
 
     this.footer = {
