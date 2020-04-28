@@ -6,8 +6,12 @@ import Timestamp from '../Timestamp';
 import Bot from '../bot/Bot';
 import Guild from '../guild/Guild';
 
-// TODO: Create Channel class and add the type TextBasedChannel = GuildTextChannel | DMChannel with the send.message methods, send.embed, send.files, etc...
-
+/**
+ * Represents a channel found in a guild of type Text
+ * @class
+ * @extends GuildChannel
+ * @implements {TextChannel}
+ */
 class GuildTextChannel extends GuildChannel implements TextChannel {
   /**
    * Whether the channel is configured as NSFW
