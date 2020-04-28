@@ -15,6 +15,11 @@ export enum ChannelTypes {
   GuildStore,
 }
 
+/**
+ * Represents a guild or DM channel within Discord.
+ * @class
+ * @extends BaseStruct
+ */
 class Channel extends BaseStruct {
   /**
    * The ID of this channel
