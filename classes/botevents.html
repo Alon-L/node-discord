@@ -98,6 +98,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-event tsd-parent-kind-class"><a href="botevents.html#channel_create" class="tsd-kind-icon">CHANNEL_<wbr>CREATE</a></li>
 								<li class="tsd-kind-event tsd-parent-kind-class"><a href="botevents.html#channel_delete" class="tsd-kind-icon">CHANNEL_<wbr>DELETE</a></li>
+								<li class="tsd-kind-event tsd-parent-kind-class"><a href="botevents.html#channel_pins_update" class="tsd-kind-icon">CHANNEL_<wbr>PINS_<wbr>UPDATE</a></li>
 								<li class="tsd-kind-event tsd-parent-kind-class"><a href="botevents.html#channel_update" class="tsd-kind-icon">CHANNEL_<wbr>UPDATE</a></li>
 							</ul>
 						</section>
@@ -138,7 +139,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides BotHandler.__constructor</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/e0bd956/src/structures/bot/handlers/events/BotEvents.ts#L8">src/structures/bot/handlers/events/BotEvents.ts:8</a></li>
+									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/4c6bb9e/src/structures/bot/handlers/events/BotEvents.ts#L8">src/structures/bot/handlers/events/BotEvents.ts:8</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -164,7 +165,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/e0bd956/src/structures/bot/handlers/events/events.ts#L10">src/structures/bot/handlers/events/events.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/4c6bb9e/src/structures/bot/handlers/events/events.ts#L13">src/structures/bot/handlers/events/events.ts:13</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -200,7 +201,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/e0bd956/src/structures/bot/handlers/events/events.ts#L30">src/structures/bot/handlers/events/events.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/4c6bb9e/src/structures/bot/handlers/events/events.ts#L33">src/structures/bot/handlers/events/events.ts:33</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -227,6 +228,49 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-event tsd-parent-kind-class">
+					<a name="channel_pins_update" class="tsd-anchor"></a>
+					<h3>CHANNEL_<wbr>PINS_<wbr>UPDATE</h3>
+					<ul class="tsd-signatures tsd-kind-event tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">CHANNEL_<wbr>PINS_<wbr>UPDATE<span class="tsd-signature-symbol">(</span>channel<span class="tsd-signature-symbol">: </span><a href="guildtextchannel.html" class="tsd-signature-type">GuildTextChannel</a><span class="tsd-signature-symbol"> | </span><a href="dmchannel.html" class="tsd-signature-type">DMChannel</a>, oldPinTimestamp<span class="tsd-signature-symbol">: </span><a href="timestamp.html" class="tsd-signature-type">Timestamp</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/4c6bb9e/src/structures/bot/handlers/events/events.ts#L43">src/structures/bot/handlers/events/events.ts:43</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sent when a message is pinned or unpinned in a text channel.
+									This is not sent when a pinned message is deleted</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>asmemberof</dt>
+									<dd><p>BotEvents</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>channel: <a href="guildtextchannel.html" class="tsd-signature-type">GuildTextChannel</a><span class="tsd-signature-symbol"> | </span><a href="dmchannel.html" class="tsd-signature-type">DMChannel</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The channel which pins were updated</p>
+									</div>
+								</li>
+								<li>
+									<h5>oldPinTimestamp: <a href="timestamp.html" class="tsd-signature-type">Timestamp</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The previous last pin timestamp</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-event tsd-parent-kind-class">
 					<a name="channel_update" class="tsd-anchor"></a>
 					<h3>CHANNEL_<wbr>UPDATE</h3>
 					<ul class="tsd-signatures tsd-kind-event tsd-parent-kind-class">
@@ -236,7 +280,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/e0bd956/src/structures/bot/handlers/events/events.ts#L22">src/structures/bot/handlers/events/events.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/4c6bb9e/src/structures/bot/handlers/events/events.ts#L25">src/structures/bot/handlers/events/events.ts:25</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -782,7 +826,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="bothandler.html">BotHandler</a>.<a href="bothandler.html#wait">wait</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/e0bd956/src/structures/bot/handlers/events/BotEvents.ts#L13">src/structures/bot/handlers/events/BotEvents.ts:13</a></li>
+									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/4c6bb9e/src/structures/bot/handlers/events/BotEvents.ts#L13">src/structures/bot/handlers/events/BotEvents.ts:13</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -820,6 +864,9 @@
 							</li>
 							<li class=" tsd-kind-event tsd-parent-kind-class">
 								<a href="botevents.html#channel_delete" class="tsd-kind-icon">CHANNEL_<wbr>DELETE</a>
+							</li>
+							<li class=" tsd-kind-event tsd-parent-kind-class">
+								<a href="botevents.html#channel_pins_update" class="tsd-kind-icon">CHANNEL_<wbr>PINS_<wbr>UPDATE</a>
 							</li>
 							<li class=" tsd-kind-event tsd-parent-kind-class">
 								<a href="botevents.html#channel_update" class="tsd-kind-icon">CHANNEL_<wbr>UPDATE</a>
