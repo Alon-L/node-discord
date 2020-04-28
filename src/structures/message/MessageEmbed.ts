@@ -150,6 +150,10 @@ export interface MessageEmbedField {
   inline?: boolean;
 }
 
+// TODO: Link this description to a guide page about Discord message embeds
+/**
+ * Represents an embed contained in a {@link Message}
+ */
 class MessageEmbed extends BaseStruct {
   /**
    * The {@link Message} associated to this embed
