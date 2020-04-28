@@ -1,11 +1,15 @@
 import Bot from './bot/Bot';
 
 import Dict = NodeJS.Dict;
-import { Dimensions } from '../types';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type GatewayStruct = Dict<any>;
 
+/**
+ * Basic structure that all other structures extend
+ * Includes the bot property which every structure must have
+ * @class
+ */
 class BaseStruct {
   /**
    * The {@link Bot} operating this structure
@@ -14,13 +18,6 @@ class BaseStruct {
 
   constructor(bot: Bot) {
     this.bot = bot;
-  }
-
-  protected getDimensions(struct: { height: number; width: number }): Dimensions {
-    return {
-      height: struct.height,
-      width: struct.width,
-    };
   }
 }
 
