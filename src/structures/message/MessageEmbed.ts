@@ -246,18 +246,18 @@ class MessageEmbed extends BaseStruct {
     this.image = {
       url: embed.image.url,
       proxyURL: embed.image.proxy_url,
-      dimensions: this.getDimensions(embed.image),
+      dimensions: MessageEmbed.getDimensions(embed.image),
     };
 
     this.thumbnail = {
       url: embed.thumbnail.url,
       proxyURL: embed.thumbnail.proxy_url,
-      dimensions: this.getDimensions(embed.thumbnail),
+      dimensions: MessageEmbed.getDimensions(embed.thumbnail),
     };
 
     this.video = {
       url: embed.video.url,
-      dimensions: this.getDimensions(embed.video),
+      dimensions: MessageEmbed.getDimensions(embed.video),
     };
 
     this.provider = {
@@ -277,6 +277,13 @@ class MessageEmbed extends BaseStruct {
       content: field.value,
       inline: field.inline,
     }));
+  }
+
+  private static getDimensions(struct: { height: number; width: number }): Dimensions {
+    return {
+      height: struct.height,
+      width: struct.width,
+    };
   }
 }
 
