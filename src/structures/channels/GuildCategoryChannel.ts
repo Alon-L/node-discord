@@ -2,6 +2,11 @@ import GuildChannel from './GuildChannel';
 import Cluster from '../../Cluster';
 import { Snowflake } from '../../types';
 
+/**
+ * Represents a channel found in a guild of type {@link ChannelTypes.GuildCategory}
+ * @class
+ * @extends GuildChannel
+ */
 class GuildCategoryChannel extends GuildChannel {
   /**
    * All {@link GuildChannel}s under this category channel
