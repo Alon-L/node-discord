@@ -7,6 +7,9 @@ import Timestamp from '../Timestamp';
 import User from '../User';
 import Bot from '../bot/Bot';
 
+/**
+ * Represents a private channel between the Bot and a User
+ */
 class DMChannel extends Channel implements TextChannel {
   /**
    * The ID of the last message sent in this channel.
@@ -14,6 +17,7 @@ class DMChannel extends Channel implements TextChannel {
    */
   public lastMessageId?: Snowflake | null;
 
+  // TODO: Rename this to recipient because only one recipient is engaged in a DM
   /**
    * The recipients of the DM
    */
