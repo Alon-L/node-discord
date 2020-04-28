@@ -71,6 +71,10 @@ class BotSocket {
     }
   }
 
+  /**
+   * Stops and disconnects all active shards started by this process
+   * @param {GatewayCloseCodes} code Gateway closure code
+   */
   public stopShards(code: GatewayCloseCodes): void {
     for (const [, shard] of this.shards) {
       shard.close(code);
