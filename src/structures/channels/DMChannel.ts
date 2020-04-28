@@ -9,6 +9,9 @@ import Bot from '../bot/Bot';
 
 /**
  * Represents a private channel between the Bot and a User
+ * @class
+ * @extends Channel
+ * @implements {TextChannel}
  */
 class DMChannel extends Channel implements TextChannel {
   /**
