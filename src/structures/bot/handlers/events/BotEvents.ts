@@ -18,7 +18,7 @@ class BotEvents extends BotHandler<RegisterCallback> implements Events {
         this.removeListener(name, listener);
       };
 
-      this.on(name, listener);
+      this.once(name, listener);
     });
   }
 }
