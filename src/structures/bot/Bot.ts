@@ -20,6 +20,11 @@ export interface ShardOptions {
   amount?: number;
 }
 
+/**
+ * The bot is the main operator of the API.
+ * It handles the events, and properties for all structures.
+ * @class
+ */
 class Bot {
   /**
    * Bot token
