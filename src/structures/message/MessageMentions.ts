@@ -23,6 +23,11 @@ interface MentionTypes {
 
 // TODO: Test if this works
 
+/**
+ * Represents all mentions (members, roles, channels) that appear in a {@link Message}
+ * @class
+ * @extends BaseStruct
+ */
 class MessageMentions extends BaseStruct {
   /**
    * The {@link Message} associated to these mentions
