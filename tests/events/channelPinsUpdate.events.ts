@@ -11,7 +11,7 @@ bot.connection.connect();
   await bot.events.wait(GatewayEvents.Ready);
 
   bot.events.on(GatewayEvents.ChannelPinsUpdate, (channel, oldPinTimestamp) => {
-    console.log(channel.name);
+    console.log(channel.name, channel.type);
     console.log('old', oldPinTimestamp.unix(), 'new', channel.lastPinTimestamp.unix(), Date.now());
   });
 })();
