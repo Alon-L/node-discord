@@ -51,6 +51,9 @@ class BotDispatchHandlers {
     }
   }
 
+  /**
+   * Deletes all registered events
+   */
   public clearEvents(): void {
     BotDispatchHandlers.events.clear();
   }
