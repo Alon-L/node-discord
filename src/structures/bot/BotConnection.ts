@@ -3,7 +3,14 @@ import BotDispatchHandlers from '../../socket/BotDispatchHandlers';
 import BotSocket from '../../socket/BotSocket';
 import { GatewayCloseCodes } from '../../socket/constants';
 
+/**
+ * Responsible for the creation and closure of the WebSocket connection to the Discord API gateway
+ * @class
+ */
 class BotConnection {
+  /**
+   * The bot behind the connection
+   */
   private readonly bot: Bot;
 
   /**
