@@ -6,7 +6,7 @@ import Dict = NodeJS.Dict;
 export type GatewayStruct = Dict<any>;
 
 /**
- * Basic structure that all other structures extend
+ * Basic structure that all other API-related structures extend
  * Includes the bot property which every structure must have
  * @class
  */
