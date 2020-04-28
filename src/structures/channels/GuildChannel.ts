@@ -4,6 +4,11 @@ import { GatewayStruct } from '../BaseStruct';
 import Bot from '../bot/Bot';
 import Guild from '../guild/Guild';
 
+/**
+ * Represents a channel found in a guild of any type
+ * @class
+ * @extends Channel
+ */
 class GuildChannel extends Channel {
   /**
    * The guild this channel is associated to
