@@ -7,6 +7,11 @@ import GuildBaseStruct from './guild/GuildBaseStruct';
 import Cluster from '../Cluster';
 import { Snowflake } from '../types';
 
+/**
+ * Representation of a Discord {@link User} in a guild
+ * @class
+ * @extends GuildBaseStruct
+ */
 class Member extends GuildBaseStruct {
   /**
    * The member's user ID
