@@ -1,3 +1,7 @@
+/**
+ * Handles the conversion of timestamps receives from the Discord API into UNIX timestamps
+ * @class
+ */
 class Timestamp {
   public date?: string;
 
