@@ -34,7 +34,7 @@ enum MessageTypes {
 }
 
 /**
- * Represents a message sent in a {@link TextChannel}
+ * Represents a message sent in a {@link TextChannel} within Discord
  * @class
  * @extends BaseStruct
  */
