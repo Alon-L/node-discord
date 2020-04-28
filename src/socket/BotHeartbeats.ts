@@ -70,7 +70,7 @@ class BotHeartbeats {
   }
 
   /**
-   * Called when acking failed. Close the socket and try to reconnect
+   * Called when acking failed. Closes the socket and tries to reconnect
    */
   private ackFailed(): void {
     this.botSocketShard.close();
