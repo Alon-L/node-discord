@@ -18,15 +18,21 @@ class DMChannel extends Channel implements TextChannel {
    */
   public recipients: Cluster<Snowflake, User>;
 
+  /**
+   * Timestamp of when the last pinned message was pinned
+   */
+  public lastPinTimestamp?: number;
+
   constructor(bot: Bot, dmChannel: GatewayStruct) {
     super(bot, dmChannel);
 
-    this.recipients = new Cluster<Snowflake, User>();
-
     this.lastMessageId = dmChannel.last_message_id;
-    this.recipients.merge(
+
+    this.recipients = new Cluster<Snowflake, User>(
       dmChannel.recipients.map((user: GatewayStruct) => [user.id, new User(this.bot, user)]),
     );
+
+    this.lastPinTimestamp = dmChannel.last_pin_timestamp;
   }
 }
 
