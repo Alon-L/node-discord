@@ -75,7 +75,7 @@
 			<section class="tsd-panel">
 				<h3>Implemented by</h3>
 				<ul class="tsd-hierarchy">
-					<li><a href="../classes/botevents.html" class="tsd-signature-type">BotEvents</a></li>
+					<li><a href="../classes/boteventshandler.html" class="tsd-signature-type">BotEventsHandler</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -97,26 +97,29 @@
 					<a name="on" class="tsd-anchor"></a>
 					<h3>on</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="../enums/gatewayevents.html#channelcreate" class="tsd-signature-type">ChannelCreate</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="../classes/botevents.html#channel_create" class="tsd-signature-type">CHANNEL_CREATE</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
-						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="../enums/gatewayevents.html#channelupdate" class="tsd-signature-type">ChannelUpdate</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="../classes/botevents.html#channel_update" class="tsd-signature-type">CHANNEL_UPDATE</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
-						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="../enums/gatewayevents.html#channeldelete" class="tsd-signature-type">ChannelDelete</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="../classes/botevents.html#channel_delete" class="tsd-signature-type">CHANNEL_DELETE</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
-						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="../enums/gatewayevents.html#channelpinsupdate" class="tsd-signature-type">ChannelPinsUpdate</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="../classes/botevents.html#channel_pins_update" class="tsd-signature-type">CHANNEL_PINS_UPDATE</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="../enums/botevents.html#ready" class="tsd-signature-type">Ready</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="../classes/boteventshandler.html#ready" class="tsd-signature-type">READY</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="../enums/botevents.html#shardready" class="tsd-signature-type">ShardReady</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="../classes/boteventshandler.html#shard_ready" class="tsd-signature-type">SHARD_READY</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="../enums/botevents.html#shardclose" class="tsd-signature-type">ShardClose</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="../classes/boteventshandler.html#shard_close" class="tsd-signature-type">SHARD_CLOSE</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="../enums/botevents.html#channelcreate" class="tsd-signature-type">ChannelCreate</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="../classes/boteventshandler.html#channel_create" class="tsd-signature-type">CHANNEL_CREATE</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="../enums/botevents.html#channelupdate" class="tsd-signature-type">ChannelUpdate</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="../classes/boteventshandler.html#channel_update" class="tsd-signature-type">CHANNEL_UPDATE</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="../enums/botevents.html#channeldelete" class="tsd-signature-type">ChannelDelete</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="../classes/boteventshandler.html#channel_delete" class="tsd-signature-type">CHANNEL_DELETE</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="../enums/botevents.html#channelpinsupdate" class="tsd-signature-type">ChannelPinsUpdate</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="../classes/boteventshandler.html#channel_pins_update" class="tsd-signature-type">CHANNEL_PINS_UPDATE</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
 						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/2772bea/src/structures/bot/handlers/events/events.ts#L49">src/structures/bot/handlers/events/events.ts:49</a></li>
+									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/d1b3cbc/src/structures/bot/handlers/events/events.ts#L73">src/structures/bot/handlers/events/events.ts:73</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>event: <a href="../enums/gatewayevents.html#channelcreate" class="tsd-signature-type">ChannelCreate</a></h5>
+									<h5>event: <a href="../enums/botevents.html#ready" class="tsd-signature-type">Ready</a></h5>
 								</li>
 								<li>
-									<h5>listener: <span class="tsd-signature-symbol">typeof </span><a href="../classes/botevents.html#channel_create" class="tsd-signature-type">CHANNEL_CREATE</a></h5>
+									<h5>listener: <span class="tsd-signature-symbol">typeof </span><a href="../classes/boteventshandler.html#ready" class="tsd-signature-type">READY</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
@@ -124,16 +127,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/2772bea/src/structures/bot/handlers/events/events.ts#L50">src/structures/bot/handlers/events/events.ts:50</a></li>
+									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/d1b3cbc/src/structures/bot/handlers/events/events.ts#L74">src/structures/bot/handlers/events/events.ts:74</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>event: <a href="../enums/gatewayevents.html#channelupdate" class="tsd-signature-type">ChannelUpdate</a></h5>
+									<h5>event: <a href="../enums/botevents.html#shardready" class="tsd-signature-type">ShardReady</a></h5>
 								</li>
 								<li>
-									<h5>listener: <span class="tsd-signature-symbol">typeof </span><a href="../classes/botevents.html#channel_update" class="tsd-signature-type">CHANNEL_UPDATE</a></h5>
+									<h5>listener: <span class="tsd-signature-symbol">typeof </span><a href="../classes/boteventshandler.html#shard_ready" class="tsd-signature-type">SHARD_READY</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
@@ -141,16 +144,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/2772bea/src/structures/bot/handlers/events/events.ts#L51">src/structures/bot/handlers/events/events.ts:51</a></li>
+									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/d1b3cbc/src/structures/bot/handlers/events/events.ts#L75">src/structures/bot/handlers/events/events.ts:75</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>event: <a href="../enums/gatewayevents.html#channeldelete" class="tsd-signature-type">ChannelDelete</a></h5>
+									<h5>event: <a href="../enums/botevents.html#shardclose" class="tsd-signature-type">ShardClose</a></h5>
 								</li>
 								<li>
-									<h5>listener: <span class="tsd-signature-symbol">typeof </span><a href="../classes/botevents.html#channel_delete" class="tsd-signature-type">CHANNEL_DELETE</a></h5>
+									<h5>listener: <span class="tsd-signature-symbol">typeof </span><a href="../classes/boteventshandler.html#shard_close" class="tsd-signature-type">SHARD_CLOSE</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
@@ -158,16 +161,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/2772bea/src/structures/bot/handlers/events/events.ts#L52">src/structures/bot/handlers/events/events.ts:52</a></li>
+									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/d1b3cbc/src/structures/bot/handlers/events/events.ts#L76">src/structures/bot/handlers/events/events.ts:76</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>event: <a href="../enums/gatewayevents.html#channelpinsupdate" class="tsd-signature-type">ChannelPinsUpdate</a></h5>
+									<h5>event: <a href="../enums/botevents.html#channelcreate" class="tsd-signature-type">ChannelCreate</a></h5>
 								</li>
 								<li>
-									<h5>listener: <span class="tsd-signature-symbol">typeof </span><a href="../classes/botevents.html#channel_pins_update" class="tsd-signature-type">CHANNEL_PINS_UPDATE</a></h5>
+									<h5>listener: <span class="tsd-signature-symbol">typeof </span><a href="../classes/boteventshandler.html#channel_create" class="tsd-signature-type">CHANNEL_CREATE</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
@@ -175,7 +178,58 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/2772bea/src/structures/bot/handlers/events/events.ts#L55">src/structures/bot/handlers/events/events.ts:55</a></li>
+									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/d1b3cbc/src/structures/bot/handlers/events/events.ts#L77">src/structures/bot/handlers/events/events.ts:77</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <a href="../enums/botevents.html#channelupdate" class="tsd-signature-type">ChannelUpdate</a></h5>
+								</li>
+								<li>
+									<h5>listener: <span class="tsd-signature-symbol">typeof </span><a href="../classes/boteventshandler.html#channel_update" class="tsd-signature-type">CHANNEL_UPDATE</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/d1b3cbc/src/structures/bot/handlers/events/events.ts#L78">src/structures/bot/handlers/events/events.ts:78</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <a href="../enums/botevents.html#channeldelete" class="tsd-signature-type">ChannelDelete</a></h5>
+								</li>
+								<li>
+									<h5>listener: <span class="tsd-signature-symbol">typeof </span><a href="../classes/boteventshandler.html#channel_delete" class="tsd-signature-type">CHANNEL_DELETE</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/d1b3cbc/src/structures/bot/handlers/events/events.ts#L79">src/structures/bot/handlers/events/events.ts:79</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <a href="../enums/botevents.html#channelpinsupdate" class="tsd-signature-type">ChannelPinsUpdate</a></h5>
+								</li>
+								<li>
+									<h5>listener: <span class="tsd-signature-symbol">typeof </span><a href="../classes/boteventshandler.html#channel_pins_update" class="tsd-signature-type">CHANNEL_PINS_UPDATE</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/d1b3cbc/src/structures/bot/handlers/events/events.ts#L82">src/structures/bot/handlers/events/events.ts:82</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>

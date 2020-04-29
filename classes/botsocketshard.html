@@ -96,7 +96,8 @@
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="botsocketshard.html#pendingguilds" class="tsd-kind-icon">pending<wbr>Guilds</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="botsocketshard.html#sequence" class="tsd-kind-icon">sequence</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="botsocketshard.html#sessionid" class="tsd-kind-icon">session<wbr>Id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="botsocketshard.html#status" class="tsd-kind-icon">status</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="botsocketshard.html#shard" class="tsd-kind-icon">shard</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="botsocketshard.html#state" class="tsd-kind-icon">state</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="botsocketshard.html#ws" class="tsd-kind-icon">ws</a></li>
 							</ul>
 						</section>
@@ -118,13 +119,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Bot<wbr>Socket<wbr>Shard<span class="tsd-signature-symbol">(</span>botSocket<span class="tsd-signature-symbol">: </span><a href="botsocket.html" class="tsd-signature-type">BotSocket</a>, token<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, shards<span class="tsd-signature-symbol">: </span><a href="../interfaces/shardoptions.html" class="tsd-signature-type">ShardOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="botsocketshard.html" class="tsd-signature-type">BotSocketShard</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Bot<wbr>Socket<wbr>Shard<span class="tsd-signature-symbol">(</span>botSocket<span class="tsd-signature-symbol">: </span><a href="botsocket.html" class="tsd-signature-type">BotSocket</a>, token<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, shard<span class="tsd-signature-symbol">: </span><a href="../interfaces/shardoptions.html" class="tsd-signature-type">ShardOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="botsocketshard.html" class="tsd-signature-type">BotSocketShard</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/2772bea/src/socket/BotSocketShard.ts#L51">src/socket/BotSocketShard.ts:51</a></li>
+									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/d1b3cbc/src/socket/BotSocketShard.ts#L60">src/socket/BotSocketShard.ts:60</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -136,7 +137,7 @@
 									<h5>token: <span class="tsd-signature-type">string</span></h5>
 								</li>
 								<li>
-									<h5>shards: <a href="../interfaces/shardoptions.html" class="tsd-signature-type">ShardOptions</a></h5>
+									<h5>shard: <a href="../interfaces/shardoptions.html" class="tsd-signature-type">ShardOptions</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="botsocketshard.html" class="tsd-signature-type">BotSocketShard</a></h4>
@@ -152,7 +153,7 @@
 					<div class="tsd-signature tsd-kind-icon">pending<wbr>Guilds<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Set</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/2772bea/src/socket/BotSocketShard.ts#L45">src/socket/BotSocketShard.ts:45</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/d1b3cbc/src/socket/BotSocketShard.ts#L54">src/socket/BotSocketShard.ts:54</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -162,7 +163,7 @@
 					<div class="tsd-signature tsd-kind-icon">sequence<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/2772bea/src/socket/BotSocketShard.ts#L50">src/socket/BotSocketShard.ts:50</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/d1b3cbc/src/socket/BotSocketShard.ts#L59">src/socket/BotSocketShard.ts:59</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -172,17 +173,27 @@
 					<div class="tsd-signature tsd-kind-icon">session<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/2772bea/src/socket/BotSocketShard.ts#L48">src/socket/BotSocketShard.ts:48</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/d1b3cbc/src/socket/BotSocketShard.ts#L57">src/socket/BotSocketShard.ts:57</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="status" class="tsd-anchor"></a>
-					<h3>status</h3>
-					<div class="tsd-signature tsd-kind-icon">status<span class="tsd-signature-symbol">:</span> <a href="../enums/botsocketshardstatus.html" class="tsd-signature-type">BotSocketShardStatus</a></div>
+					<a name="shard" class="tsd-anchor"></a>
+					<h3>shard</h3>
+					<div class="tsd-signature tsd-kind-icon">shard<span class="tsd-signature-symbol">:</span> <a href="../interfaces/shardoptions.html" class="tsd-signature-type">ShardOptions</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/2772bea/src/socket/BotSocketShard.ts#L46">src/socket/BotSocketShard.ts:46</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/d1b3cbc/src/socket/BotSocketShard.ts#L46">src/socket/BotSocketShard.ts:46</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="state" class="tsd-anchor"></a>
+					<h3>state</h3>
+					<div class="tsd-signature tsd-kind-icon">state<span class="tsd-signature-symbol">:</span> <a href="../enums/botsocketshardstate.html" class="tsd-signature-type">BotSocketShardState</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/d1b3cbc/src/socket/BotSocketShard.ts#L55">src/socket/BotSocketShard.ts:55</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -192,7 +203,7 @@
 					<div class="tsd-signature tsd-kind-icon">ws<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">WebSocket</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/2772bea/src/socket/BotSocketShard.ts#L47">src/socket/BotSocketShard.ts:47</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/d1b3cbc/src/socket/BotSocketShard.ts#L56">src/socket/BotSocketShard.ts:56</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -209,7 +220,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/2772bea/src/socket/BotSocketShard.ts#L179">src/socket/BotSocketShard.ts:179</a></li>
+									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/d1b3cbc/src/socket/BotSocketShard.ts#L191">src/socket/BotSocketShard.ts:191</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -240,7 +251,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/2772bea/src/socket/BotSocketShard.ts#L75">src/socket/BotSocketShard.ts:75</a></li>
+									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/d1b3cbc/src/socket/BotSocketShard.ts#L86">src/socket/BotSocketShard.ts:86</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -271,7 +282,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/2772bea/src/socket/BotSocketShard.ts#L197">src/socket/BotSocketShard.ts:197</a></li>
+									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/d1b3cbc/src/socket/BotSocketShard.ts#L209">src/socket/BotSocketShard.ts:209</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -294,7 +305,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/2772bea/src/socket/BotSocketShard.ts#L272">src/socket/BotSocketShard.ts:272</a></li>
+									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/d1b3cbc/src/socket/BotSocketShard.ts#L305">src/socket/BotSocketShard.ts:305</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -345,7 +356,10 @@
 								<a href="botsocketshard.html#sessionid" class="tsd-kind-icon">session<wbr>Id</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="botsocketshard.html#status" class="tsd-kind-icon">status</a>
+								<a href="botsocketshard.html#shard" class="tsd-kind-icon">shard</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="botsocketshard.html#state" class="tsd-kind-icon">state</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="botsocketshard.html#ws" class="tsd-kind-icon">ws</a>

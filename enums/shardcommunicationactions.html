@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ChannelTypes | node-discord</title>
+	<title>ShardCommunicationActions | node-discord</title>
 	<meta name="description" content="Documentation for node-discord">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,23 +54,16 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="channeltypes.html">ChannelTypes</a>
+					<a href="shardcommunicationactions.html">ShardCommunicationActions</a>
 				</li>
 			</ul>
-			<h1>Enumeration ChannelTypes</h1>
+			<h1>Enumeration ShardCommunicationActions</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>The type of a channel</p>
-					</div>
-				</div>
-			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
@@ -78,13 +71,10 @@
 						<section class="tsd-index-section ">
 							<h3>Enumeration members</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="channeltypes.html#dm" class="tsd-kind-icon">DM</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="channeltypes.html#groupdm" class="tsd-kind-icon">GroupDM</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="channeltypes.html#guildcategory" class="tsd-kind-icon">Guild<wbr>Category</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="channeltypes.html#guildnews" class="tsd-kind-icon">Guild<wbr>News</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="channeltypes.html#guildstore" class="tsd-kind-icon">Guild<wbr>Store</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="channeltypes.html#guildtext" class="tsd-kind-icon">Guild<wbr>Text</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="channeltypes.html#guildvoice" class="tsd-kind-icon">Guild<wbr>Voice</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="shardcommunicationactions.html#broadcast" class="tsd-kind-icon">Broadcast</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="shardcommunicationactions.html#send" class="tsd-kind-icon">Send</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="shardcommunicationactions.html#shardclose" class="tsd-kind-icon">Shard<wbr>Close</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="shardcommunicationactions.html#shardready" class="tsd-kind-icon">Shard<wbr>Ready</a></li>
 							</ul>
 						</section>
 					</div>
@@ -93,72 +83,42 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Enumeration members</h2>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="dm" class="tsd-anchor"></a>
-					<h3>DM</h3>
-					<div class="tsd-signature tsd-kind-icon">DM<span class="tsd-signature-symbol">:</span></div>
+					<a name="broadcast" class="tsd-anchor"></a>
+					<h3>Broadcast</h3>
+					<div class="tsd-signature tsd-kind-icon">Broadcast<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;broadcast&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/d1b3cbc/src/structures/channels/Channel.ts#L10">src/structures/channels/Channel.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/d1b3cbc/src/structures/bot/BotCommunication.ts#L9">src/structures/bot/BotCommunication.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="groupdm" class="tsd-anchor"></a>
-					<h3>GroupDM</h3>
-					<div class="tsd-signature tsd-kind-icon">GroupDM<span class="tsd-signature-symbol">:</span></div>
+					<a name="send" class="tsd-anchor"></a>
+					<h3>Send</h3>
+					<div class="tsd-signature tsd-kind-icon">Send<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;send&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/d1b3cbc/src/structures/channels/Channel.ts#L12">src/structures/channels/Channel.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/d1b3cbc/src/structures/bot/BotCommunication.ts#L10">src/structures/bot/BotCommunication.ts:10</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="guildcategory" class="tsd-anchor"></a>
-					<h3>Guild<wbr>Category</h3>
-					<div class="tsd-signature tsd-kind-icon">Guild<wbr>Category<span class="tsd-signature-symbol">:</span></div>
+					<a name="shardclose" class="tsd-anchor"></a>
+					<h3>Shard<wbr>Close</h3>
+					<div class="tsd-signature tsd-kind-icon">Shard<wbr>Close<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;shardClose&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/d1b3cbc/src/structures/channels/Channel.ts#L13">src/structures/channels/Channel.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/d1b3cbc/src/structures/bot/BotCommunication.ts#L12">src/structures/bot/BotCommunication.ts:12</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="guildnews" class="tsd-anchor"></a>
-					<h3>Guild<wbr>News</h3>
-					<div class="tsd-signature tsd-kind-icon">Guild<wbr>News<span class="tsd-signature-symbol">:</span></div>
+					<a name="shardready" class="tsd-anchor"></a>
+					<h3>Shard<wbr>Ready</h3>
+					<div class="tsd-signature tsd-kind-icon">Shard<wbr>Ready<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;shardReady&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/d1b3cbc/src/structures/channels/Channel.ts#L14">src/structures/channels/Channel.ts:14</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="guildstore" class="tsd-anchor"></a>
-					<h3>Guild<wbr>Store</h3>
-					<div class="tsd-signature tsd-kind-icon">Guild<wbr>Store<span class="tsd-signature-symbol">:</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/d1b3cbc/src/structures/channels/Channel.ts#L15">src/structures/channels/Channel.ts:15</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="guildtext" class="tsd-anchor"></a>
-					<h3>Guild<wbr>Text</h3>
-					<div class="tsd-signature tsd-kind-icon">Guild<wbr>Text<span class="tsd-signature-symbol">:</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/d1b3cbc/src/structures/channels/Channel.ts#L9">src/structures/channels/Channel.ts:9</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="guildvoice" class="tsd-anchor"></a>
-					<h3>Guild<wbr>Voice</h3>
-					<div class="tsd-signature tsd-kind-icon">Guild<wbr>Voice<span class="tsd-signature-symbol">:</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/d1b3cbc/src/structures/channels/Channel.ts#L11">src/structures/channels/Channel.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/d1b3cbc/src/structures/bot/BotCommunication.ts#L11">src/structures/bot/BotCommunication.ts:11</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -177,28 +137,19 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-enum">
-						<a href="channeltypes.html" class="tsd-kind-icon">Channel<wbr>Types</a>
+						<a href="shardcommunicationactions.html" class="tsd-kind-icon">Shard<wbr>Communication<wbr>Actions</a>
 						<ul>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="channeltypes.html#dm" class="tsd-kind-icon">DM</a>
+								<a href="shardcommunicationactions.html#broadcast" class="tsd-kind-icon">Broadcast</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="channeltypes.html#groupdm" class="tsd-kind-icon">GroupDM</a>
+								<a href="shardcommunicationactions.html#send" class="tsd-kind-icon">Send</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="channeltypes.html#guildcategory" class="tsd-kind-icon">Guild<wbr>Category</a>
+								<a href="shardcommunicationactions.html#shardclose" class="tsd-kind-icon">Shard<wbr>Close</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="channeltypes.html#guildnews" class="tsd-kind-icon">Guild<wbr>News</a>
-							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="channeltypes.html#guildstore" class="tsd-kind-icon">Guild<wbr>Store</a>
-							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="channeltypes.html#guildtext" class="tsd-kind-icon">Guild<wbr>Text</a>
-							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="channeltypes.html#guildvoice" class="tsd-kind-icon">Guild<wbr>Voice</a>
+								<a href="shardcommunicationactions.html#shardready" class="tsd-kind-icon">Shard<wbr>Ready</a>
 							</li>
 						</ul>
 					</li>

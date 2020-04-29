@@ -100,6 +100,8 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botsocket.html#checkshardsstate" class="tsd-kind-icon">check<wbr>Shards<wbr>State</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botsocket.html#shardchangedstate" class="tsd-kind-icon">shard<wbr>Changed<wbr>State</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botsocket.html#startshards" class="tsd-kind-icon">start<wbr>Shards</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botsocket.html#stopshards" class="tsd-kind-icon">stop<wbr>Shards</a></li>
 							</ul>
@@ -119,7 +121,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/2772bea/src/socket/BotSocket.ts#L30">src/socket/BotSocket.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/d1b3cbc/src/socket/BotSocket.ts#L32">src/socket/BotSocket.ts:32</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -144,7 +146,7 @@
 					<div class="tsd-signature tsd-kind-icon">bot<span class="tsd-signature-symbol">:</span> <a href="bot.html" class="tsd-signature-type">Bot</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/2772bea/src/socket/BotSocket.ts#L28">src/socket/BotSocket.ts:28</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/d1b3cbc/src/socket/BotSocket.ts#L30">src/socket/BotSocket.ts:30</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -154,7 +156,7 @@
 					<div class="tsd-signature tsd-kind-icon">gatewayURL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/2772bea/src/socket/BotSocket.ts#L29">src/socket/BotSocket.ts:29</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/d1b3cbc/src/socket/BotSocket.ts#L31">src/socket/BotSocket.ts:31</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -164,13 +166,98 @@
 					<div class="tsd-signature tsd-kind-icon">session<wbr>Start<wbr>Limit<span class="tsd-signature-symbol">:</span> <a href="../interfaces/sessionstartlimit.html" class="tsd-signature-type">SessionStartLimit</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/2772bea/src/socket/BotSocket.ts#L30">src/socket/BotSocket.ts:30</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/d1b3cbc/src/socket/BotSocket.ts#L32">src/socket/BotSocket.ts:32</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="checkshardsstate" class="tsd-anchor"></a>
+					<h3>check<wbr>Shards<wbr>State</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">check<wbr>Shards<wbr>State<span class="tsd-signature-symbol">(</span>state<span class="tsd-signature-symbol">: </span><a href="../enums/botsocketshardstate.html" class="tsd-signature-type">BotSocketShardState</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/d1b3cbc/src/socket/BotSocket.ts#L91">src/socket/BotSocket.ts:91</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Checks if all shards under this socket match a given state</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>state: <a href="../enums/botsocketshardstate.html" class="tsd-signature-type">BotSocketShardState</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The state to be checked for</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="shardchangedstate" class="tsd-anchor"></a>
+					<h3>shard<wbr>Changed<wbr>State</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">shard<wbr>Changed<wbr>State<span class="tsd-signature-symbol">(</span>state<span class="tsd-signature-symbol">: </span><a href="../enums/botsocketshardstate.html" class="tsd-signature-type">BotSocketShardState</a>, shardState<span class="tsd-signature-symbol">: </span><a href="../enums/botshardstate.html" class="tsd-signature-type">BotShardState</a>, botEvent<span class="tsd-signature-symbol">: </span><a href="../enums/botevents.html" class="tsd-signature-type">BotEvents</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/d1b3cbc/src/socket/BotSocket.ts#L109">src/socket/BotSocket.ts:109</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Called when a shard under this socket changed its state.
+										If all shards under this socket now have the same state, a message will be sent to the <a href="botshardmanager.html">BotShardManager</a>
+									telling it to emit an event for all shards</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><p>this.botSocket.shardChangedState(
+											BotSocketShardState.Ready,
+											BotShardState.Ready,
+											BotEvents.Ready,
+										);</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>state: <a href="../enums/botsocketshardstate.html" class="tsd-signature-type">BotSocketShardState</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The state to be checked for</p>
+									</div>
+								</li>
+								<li>
+									<h5>shardState: <a href="../enums/botshardstate.html" class="tsd-signature-type">BotShardState</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The state <a href="botshard.html">BotShard</a> should be at after sending the message</p>
+									</div>
+								</li>
+								<li>
+									<h5>botEvent: <a href="../enums/botevents.html" class="tsd-signature-type">BotEvents</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The event that should be emitted to all shards</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="startshards" class="tsd-anchor"></a>
 					<h3>start<wbr>Shards</h3>
@@ -181,7 +268,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/2772bea/src/socket/BotSocket.ts#L45">src/socket/BotSocket.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/d1b3cbc/src/socket/BotSocket.ts#L47">src/socket/BotSocket.ts:47</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -209,7 +296,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/2772bea/src/socket/BotSocket.ts#L78">src/socket/BotSocket.ts:78</a></li>
+									<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/d1b3cbc/src/socket/BotSocket.ts#L80">src/socket/BotSocket.ts:80</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -258,6 +345,12 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="botsocket.html#sessionstartlimit" class="tsd-kind-icon">session<wbr>Start<wbr>Limit</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="botsocket.html#checkshardsstate" class="tsd-kind-icon">check<wbr>Shards<wbr>State</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="botsocket.html#shardchangedstate" class="tsd-kind-icon">shard<wbr>Changed<wbr>State</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="botsocket.html#startshards" class="tsd-kind-icon">start<wbr>Shards</a>
