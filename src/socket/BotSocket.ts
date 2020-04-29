@@ -99,12 +99,13 @@ class BotSocket {
    * @param {BotSocketShardState} state The state to be checked for
    * @param {BotShardState} shardState The state {@link BotShard} should be at after sending the message
    * @param {BotEvents} botEvent The event that should be emitted to all shards
-   * @example
+   * @example ```typescript
    * this.botSocket.shardChangedState(
    *  BotSocketShardState.Ready,
    *  BotShardState.Ready,
    *  BotEvents.Ready,
    * );
+   * ```
    */
   public shardChangedState(
     state: BotSocketShardState,
