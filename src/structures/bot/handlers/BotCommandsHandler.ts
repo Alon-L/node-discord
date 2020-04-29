@@ -3,7 +3,7 @@ import { Command, CommandFunction } from '../../../types';
 
 type RegisterCallback = CommandFunction | Command;
 
-class BotCommands extends BotHandler<RegisterCallback> {
+class BotCommandsHandler extends BotHandler<RegisterCallback> {
   constructor() {
     super();
   }
@@ -13,4 +13,4 @@ class BotCommands extends BotHandler<RegisterCallback> {
   }
 }
 
-export default BotCommands;
+export default BotCommandsHandler;

@@ -1,6 +1,6 @@
 import { Serializable } from 'child_process';
-import BotShard from './BotShard';
-import { recommendedShardTimeout } from './constants';
+import BotShard, { BotShardState } from './BotShard';
+import { BotEvents, recommendedShardTimeout } from './constants';
 import Cluster from '../Cluster';
 import { ShardId } from '../types';
 
@@ -31,7 +31,9 @@ class BotShardManager {
     for (let i = 0; i < this.shardsAmount; i++) {
       const shard = new BotShard(this, i);
       this.shards.set(shard.id, shard);
+    }
 
+    for (const [, shard] of this.shards) {
       shard.spawn();
 
       // eslint-disable-next-line no-await-in-loop
@@ -47,11 +49,21 @@ class BotShardManager {
   public broadcast(event: string): Promise<Serializable[]> {
     const results: Promise<Serializable>[] = [];
 
-    for (const shard of this.shards.values()) {
+    for (const [, shard] of this.shards) {
       results.push(shard.communicate(event));
     }
 
     return Promise.all(results);
+  }
+
+  /**
+   * Emits a given event for all shards under this manager
+   * @param {BotEvents} event The event to emit
+   */
+  public emitEvent(event: BotEvents): void {
+    for (const [, shard] of this.shards) {
+      shard.emitEvent(event);
+    }
   }
 
   /**
@@ -67,6 +79,15 @@ class BotShardManager {
     if (!shard) return undefined;
 
     return shard.communicate(event);
+  }
+
+  /**
+   * Checks if all shards under this manager match the given state
+   * @param {BotShardState} state The state to check if all shards match
+   * @returns {boolean} Whether all shards match that state
+   */
+  public checkShardsState(state: BotShardState): boolean {
+    return this.shards.toArray.every(value => value.state === state);
   }
 }
 

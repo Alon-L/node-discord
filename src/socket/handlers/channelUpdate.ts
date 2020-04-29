@@ -2,7 +2,7 @@ import Bot from '../../structures/bot/Bot';
 import GuildChannel from '../../structures/channels/GuildChannel';
 import ChannelUtils from '../../utils/ChannelUtils';
 import { Payload } from '../BotSocketShard';
-import { GatewayEvents } from '../constants';
+import { BotEvents, GatewayEvents } from '../constants';
 
 export const run = ({ d }: Payload, bot: Bot): void => {
   const oldChannel = ChannelUtils.find(bot, d.guild_id, d.id);
@@ -14,7 +14,7 @@ export const run = ({ d }: Payload, bot: Bot): void => {
     newChannel.guild.channels.set(newChannel.id, newChannel);
   }
 
-  bot.events.emit(GatewayEvents.ChannelUpdate, oldChannel, newChannel);
+  bot.events.emit(BotEvents.ChannelUpdate, oldChannel, newChannel);
 };
 
 export const name = GatewayEvents.ChannelUpdate;

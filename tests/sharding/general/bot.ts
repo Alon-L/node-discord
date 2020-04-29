@@ -14,7 +14,6 @@ bot.connection.connect();
   },
 });*/
 
-// TODO: Only call READY event when all shards are ready
 bot.events.on('READY', () => {
   const guild = bot.guilds.first;
 

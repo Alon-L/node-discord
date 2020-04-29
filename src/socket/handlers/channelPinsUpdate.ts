@@ -4,7 +4,7 @@ import DMChannel from '../../structures/channels/DMChannel';
 import GuildTextChannel from '../../structures/channels/GuildTextChannel';
 import ChannelUtils from '../../utils/ChannelUtils';
 import { Payload } from '../BotSocketShard';
-import { GatewayEvents } from '../constants';
+import { BotEvents, GatewayEvents } from '../constants';
 
 export const run = ({ d }: Payload, bot: Bot): void => {
   const channel = ChannelUtils.find(bot, d.guild_id, d.channel_id);
@@ -15,7 +15,7 @@ export const run = ({ d }: Payload, bot: Bot): void => {
 
   channel.lastPinTimestamp = new Timestamp(d.last_pin_timestamp);
 
-  bot.events.emit(GatewayEvents.ChannelPinsUpdate, channel, oldPinTimestamp);
+  bot.events.emit(BotEvents.ChannelPinsUpdate, channel, oldPinTimestamp);
 };
 
 export const name = GatewayEvents.ChannelPinsUpdate;

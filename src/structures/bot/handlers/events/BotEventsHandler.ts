@@ -4,7 +4,7 @@ import BotHandler from '../BotHandler';
 
 type RegisterCallback = EventFunction;
 
-class BotEvents extends BotHandler<RegisterCallback> implements Events {
+class BotEventsHandler extends BotHandler<RegisterCallback> implements Events {
   public wait(name: string): Promise<Parameters<RegisterCallback>> {
     return new Promise(resolve => {
       const listener = (...args: Parameters<RegisterCallback>): void => {
@@ -18,4 +18,4 @@ class BotEvents extends BotHandler<RegisterCallback> implements Events {
   }
 }
 
-export default BotEvents;
+export default BotEventsHandler;

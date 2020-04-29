@@ -1,8 +1,10 @@
 import WebSocket, { Data } from 'ws';
 import BotDispatchHandlers from './BotDispatchHandlers';
 import BotHeartbeats from './BotHeartbeats';
+import { BotShardState } from './BotShard';
 import BotSocket, { SessionStartLimit } from './BotSocket';
 import {
+  BotEvents,
   GatewayCloseCodes,
   GatewayEvents,
   OPCodes,
@@ -13,7 +15,7 @@ import { identify, version } from './properties';
 import Bot, { ShardOptions } from '../structures/bot/Bot';
 import { Snowflake } from '../types';
 
-export enum BotSocketShardStatus {
+export enum BotSocketShardState {
   Connecting,
   Processing,
   Ready,
@@ -40,8 +42,8 @@ class BotSocketShard {
   private readonly botSocket: BotSocket;
   private readonly bot: Bot;
   private readonly token: string;
-  private readonly shards: ShardOptions;
   private heartbeats!: BotHeartbeats;
+  public readonly shard: ShardOptions;
 
   /**
    * Timeout before retrying to create a new connection after disconnection
@@ -50,27 +52,27 @@ class BotSocketShard {
   private retryTimeout: number;
 
   public pendingGuilds: Set<Snowflake>;
-  public status: BotSocketShardStatus;
+  public state: BotSocketShardState;
   public ws!: WebSocket;
   public sessionId!: string;
 
   public sequence: number | null;
   private lastSequence: number | null;
 
-  constructor(botSocket: BotSocket, token: string, shards: ShardOptions) {
+  constructor(botSocket: BotSocket, token: string, shard: ShardOptions) {
     this.botSocket = botSocket;
 
     this.bot = botSocket.bot;
 
     this.token = token;
 
-    this.shards = shards;
+    this.shard = shard;
 
     this.retryTimeout = 0;
 
     this.pendingGuilds = new Set<Snowflake>();
 
-    this.status = BotSocketShardStatus.Closed;
+    this.state = BotSocketShardState.Closed;
 
     this.sequence = null;
     this.lastSequence = null;
@@ -82,8 +84,8 @@ class BotSocketShard {
    * @returns {Promise<void>}
    */
   public async connect(resume = false): Promise<void> {
-    if (this.status === BotSocketShardStatus.Connecting) return;
-    this.status = BotSocketShardStatus.Connecting;
+    if (this.state === BotSocketShardState.Connecting) return;
+    this.state = BotSocketShardState.Connecting;
 
     const { gatewayURL, sessionStartLimit } = this.botSocket;
 
@@ -136,7 +138,7 @@ class BotSocketShard {
 
         this.identify();
 
-        this.status = BotSocketShardStatus.Processing;
+        this.state = BotSocketShardState.Processing;
         break;
       case OPCodes.HeartbeatACK:
         this.heartbeats.receivedAck();
@@ -149,7 +151,7 @@ class BotSocketShard {
    * Will use shards if needed
    */
   private identify(): void {
-    const { id, amount } = this.shards;
+    const { id, amount } = this.shard;
 
     this.ws.send(
       BotSocketShard.pack({
@@ -189,7 +191,7 @@ class BotSocketShard {
   public close(code = GatewayCloseCodes.NormalClosure): void {
     this.bot.log('Closing connection!');
 
-    this.status = BotSocketShardStatus.Terminated;
+    this.state = BotSocketShardState.Terminated;
 
     // Stop sending heartbeats
     this.heartbeats.stopHeartbeat();
@@ -205,14 +207,20 @@ class BotSocketShard {
    * all guilds from GUILD_CREATE events
    */
   public ready(): void {
-    this.status = BotSocketShardStatus.Ready;
+    this.state = BotSocketShardState.Ready;
 
     this.bot.log(
       'Ready!',
       this.bot.guilds.toArray.map(i => i.name),
     );
 
-    this.bot.events.emit(GatewayEvents.Ready);
+    this.bot.events.emit(BotEvents.ShardReady, this);
+
+    this.botSocket.shardChangedState(
+      BotSocketShardState.Ready,
+      BotShardState.Ready,
+      BotEvents.Ready,
+    );
   }
 
   /**
@@ -223,12 +231,21 @@ class BotSocketShard {
   private async onClose(code: number, reason: string): Promise<void> {
     this.bot.log('Close', code, reason);
 
+    this.state = BotSocketShardState.Closed;
+
+    // Emit the 'ShardClose' event to the Bot
+    this.bot.events.emit(BotEvents.ShardClose, this);
+
+    // Tell the BotSocket that the shard has been closed
+    this.botSocket.shardChangedState(
+      BotSocketShardState.Closed,
+      BotShardState.Closed,
+      BotEvents.Close,
+    );
+
     this.heartbeats.stopHeartbeat();
 
-    this.status = BotSocketShardStatus.Closed;
-
     if (!unreconnectableGatewayCloseCodes.includes(code)) {
-      console.log(this.retryTimeout);
       if (this.retryTimeout) {
         await new Promise(resolve => setTimeout(resolve, this.retryTimeout));
       }

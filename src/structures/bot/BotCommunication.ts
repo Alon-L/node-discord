@@ -1,13 +1,15 @@
 import { Serializable } from 'child_process';
 import { EventEmitter } from 'events';
 import Bot from './Bot';
+import { BotShardState } from '../../socket/BotShard';
+import { BotEvents } from '../../socket/constants';
 import { ShardId } from '../../types';
 
 export enum ShardCommunicationActions {
   Broadcast = 'broadcast',
   Send = 'send',
-  DispatchEvent = 'dispatchEvent',
-  DispatchEventResult = 'dispatchEventResult',
+  ShardReady = 'shardReady',
+  ShardClose = 'shardClose',
 }
 
 export enum ShardCommunicationResults {
@@ -25,7 +27,24 @@ export interface ShardCommunicationSendPayload {
   shardId: ShardId;
 }
 
-export interface ShardReply extends ShardMessage {
+export interface ShardChangedState {
+  action: 'shardChangedState';
+  payload: {
+    state: BotShardState;
+    botEvent: BotEvents;
+  };
+}
+
+export interface ShardEmitEvent {
+  action: 'emitEvent';
+  payload: {
+    event: BotEvents;
+    params: unknown[];
+  };
+}
+
+export interface ShardDispatchEvent {
+  action: 'dispatchEvent' | 'dispatchEventResult';
   payload: {
     event: string;
     data?: Serializable | Serializable[];
@@ -51,20 +70,25 @@ class BotCommunication extends EventEmitter {
 
   /**
    * Listener function for new messages coming from the parent process
-   * @param {ShardReply} message The message received from the parent process
+   * @param {ShardDispatchEvent} message The message received from the parent process
    * @returns {Promise<void>}
    */
-  private async onMessage({ action, payload: { event }, identifier }: ShardReply): Promise<void> {
-    switch (action) {
-      case ShardCommunicationActions.DispatchEvent:
+  private async onMessage(message: ShardDispatchEvent | ShardEmitEvent): Promise<void> {
+    switch (message.action) {
+      // Tells the Bot to dispatch an event and return its result
+      case 'dispatchEvent':
         if (process.send) {
           const reply: ShardResponse = {
-            data: await this.emit(event),
-            identifier,
+            data: await this.emit(message.payload.event),
+            identifier: message.identifier,
           };
 
           process.send(reply);
         }
+        break;
+      // Tells the Bot to emit an event to BotEvents
+      case 'emitEvent':
+        this.bot.events.emit(message.payload.event, ...message.payload.params);
         break;
     }
   }
@@ -107,9 +131,9 @@ class BotCommunication extends EventEmitter {
    */
   public async broadcast(event: string): Promise<Serializable[]> {
     return new Promise<Serializable[]>(resolve => {
-      const listener = ({ action, payload: { event: event, data } }: ShardReply): void => {
+      const listener = ({ action, payload: { event: event, data } }: ShardDispatchEvent): void => {
         if (
-          action === ShardCommunicationActions.DispatchEventResult &&
+          action === 'dispatchEventResult' &&
           event === ShardCommunicationResults.BroadcastResults &&
           Array.isArray(data)
         ) {
@@ -138,11 +162,8 @@ class BotCommunication extends EventEmitter {
    */
   public async send(event: string, shardId: ShardId): Promise<Serializable> {
     return new Promise<Serializable>(resolve => {
-      const listener = ({ action, payload: { event, data } }: ShardReply): void => {
-        if (
-          action === ShardCommunicationActions.DispatchEventResult &&
-          event === ShardCommunicationResults.SendResult
-        ) {
+      const listener = ({ action, payload: { event, data } }: ShardDispatchEvent): void => {
+        if (action === 'dispatchEventResult' && event === ShardCommunicationResults.SendResult) {
           resolve(data);
         }
       };

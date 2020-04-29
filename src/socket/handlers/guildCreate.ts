@@ -1,6 +1,6 @@
 import Bot from '../../structures/bot/Bot';
 import Guild from '../../structures/guild/Guild';
-import BotSocketShard, { BotSocketShardStatus, Payload } from '../BotSocketShard';
+import BotSocketShard, { BotSocketShardState, Payload } from '../BotSocketShard';
 import { GatewayEvents } from '../constants';
 
 export const run = ({ d }: Payload, bot: Bot, socket: BotSocketShard): void => {
@@ -15,7 +15,7 @@ export const run = ({ d }: Payload, bot: Bot, socket: BotSocketShard): void => {
     bot.unavailableGuilds.set(guild.id, guild);
   }
 
-  if (socket.status === BotSocketShardStatus.Processing) {
+  if (socket.state === BotSocketShardState.Processing) {
     socket.pendingGuilds.delete(guild.id);
 
     if (!socket.pendingGuilds.size) {

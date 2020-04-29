@@ -1,15 +1,26 @@
 import { ChildProcess, fork, Serializable } from 'child_process';
 import path from 'path';
 import BotShardManager from './BotShardManager';
+import { BotEvents } from './constants';
 import {
   ShardCommunicationActions,
-  ShardMessage,
-  ShardReply,
-  ShardCommunicationSendPayload,
   ShardCommunicationResults,
+  ShardCommunicationSendPayload,
+  ShardDispatchEvent,
+  ShardEmitEvent,
+  ShardMessage,
   ShardResponse,
+  ShardChangedState,
 } from '../structures/bot/BotCommunication';
 import { ShardId } from '../types';
+
+/**
+ * The shard state
+ */
+export enum BotShardState {
+  Ready,
+  Closed,
+}
 
 /**
  * Creates and handles the communication of a shard
@@ -19,11 +30,14 @@ class BotShard {
   private readonly manager: BotShardManager;
   private process!: ChildProcess;
   public readonly id: ShardId;
+  public state: BotShardState;
 
   constructor(manager: BotShardManager, id: ShardId) {
     this.manager = manager;
 
     this.id = id;
+
+    this.state = BotShardState.Closed;
   }
 
   /**
@@ -46,16 +60,16 @@ class BotShard {
    * @param {ShardMessage} message The message received from the child process
    * @returns {Promise<void>}
    */
-  public async onMessage({ action, payload }: ShardMessage): Promise<void> {
-    switch (action) {
+  public async onMessage(message: ShardMessage | ShardChangedState): Promise<void> {
+    switch (message.action) {
       // Broadcast requested by the shard
       case ShardCommunicationActions.Broadcast: {
-        if (typeof payload !== 'string')
+        if (typeof message.payload !== 'string')
           throw new TypeError('Invalid type of payload when calling the sharding broadcast action');
 
-        const results = await this.manager.broadcast(payload);
-        const reply: ShardReply = {
-          action: ShardCommunicationActions.DispatchEventResult,
+        const results = await this.manager.broadcast(message.payload);
+        const reply: ShardDispatchEvent = {
+          action: 'dispatchEventResult',
           payload: {
             event: ShardCommunicationResults.BroadcastResults,
             data: results,
@@ -67,14 +81,14 @@ class BotShard {
       }
       // Single shard send requested by the shard
       case ShardCommunicationActions.Send: {
-        if (typeof payload !== 'object')
+        if (typeof message.payload !== 'object')
           throw new TypeError('Invalid type of payload when calling the shard send action');
 
-        const { event, shardId } = payload as ShardCommunicationSendPayload;
+        const { event, shardId } = message.payload as ShardCommunicationSendPayload;
 
         const result = await this.manager.send(event, shardId);
-        const reply: ShardReply = {
-          action: ShardCommunicationActions.DispatchEventResult,
+        const reply: ShardDispatchEvent = {
+          action: 'dispatchEventResult',
           payload: {
             event: ShardCommunicationResults.SendResult,
             data: result,
@@ -82,6 +96,14 @@ class BotShard {
         };
 
         this.process.send(reply);
+        break;
+      }
+      // The shard changed its state
+      case 'shardChangedState': {
+        this.state = message.payload.state;
+        if (this.manager.checkShardsState(message.payload.state)) {
+          this.manager.emitEvent(message.payload.botEvent);
+        }
         break;
       }
     }
@@ -116,16 +138,32 @@ class BotShard {
 
       this.process.on('message', listener);
 
-      const payload: ShardReply = {
-        action: ShardCommunicationActions.DispatchEvent,
+      const message: ShardDispatchEvent = {
+        action: 'dispatchEvent',
         payload: { event },
         identifier,
       };
 
-      this.process.send(payload, err => {
+      this.process.send(message, err => {
         if (err) reject(err);
       });
     });
+  }
+
+  /**
+   * Sends the child process a message to emit the given event to {@link BotEventsHandler}
+   * @param {BotEvents} event The event to be emitted
+   */
+  public emitEvent(event: BotEvents): void {
+    const message: ShardEmitEvent = {
+      action: 'emitEvent',
+      payload: {
+        event,
+        params: [],
+      },
+    };
+
+    this.process.send(message);
   }
 }
 

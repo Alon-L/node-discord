@@ -3,7 +3,7 @@ import DMChannel from '../../structures/channels/DMChannel';
 import GuildChannel from '../../structures/channels/GuildChannel';
 import ChannelUtils from '../../utils/ChannelUtils';
 import { Payload } from '../BotSocketShard';
-import { GatewayEvents } from '../constants';
+import { BotEvents, GatewayEvents } from '../constants';
 
 export const run = ({ d }: Payload, bot: Bot): void => {
   const channel = ChannelUtils.create(bot, d);
@@ -15,7 +15,7 @@ export const run = ({ d }: Payload, bot: Bot): void => {
     bot.dms.delete(channel.id);
   }
 
-  bot.events.emit(GatewayEvents.ChannelDelete, channel);
+  bot.events.emit(BotEvents.ChannelDelete, channel);
 };
 
 export const name = GatewayEvents.ChannelDelete;

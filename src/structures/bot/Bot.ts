@@ -1,10 +1,9 @@
 import { Serializable } from 'child_process';
 import BotCommunication from './BotCommunication';
 import BotConnection from './BotConnection';
-import BotCommands from './handlers/BotCommands';
-import BotEvents from './handlers/events/BotEvents';
+import BotCommandsHandler from './handlers/BotCommandsHandler';
+import BotEventsHandler from './handlers/events/BotEventsHandler';
 import Cluster from '../../Cluster';
-import BotShardManager from '../../socket/BotShardManager';
 import { ShardId, Snowflake } from '../../types';
 import User from '../User';
 import DMChannel from '../channels/DMChannel';
@@ -40,8 +39,8 @@ class Bot {
   public readonly shardOptions: ShardOptions;
 
   // TODO: Document these fields
-  public commands: BotCommands;
-  public events: BotEvents;
+  public commands: BotCommandsHandler;
+  public events: BotEventsHandler;
 
   /**
    * Responsible for managing the bot connection to the Discord gateway
@@ -86,8 +85,8 @@ class Bot {
       amount: Number.isNaN(shardAmount) ? undefined : shardAmount,
     };
 
-    this.commands = new BotCommands();
-    this.events = new BotEvents();
+    this.commands = new BotCommandsHandler();
+    this.events = new BotEventsHandler();
 
     this.connection = new BotConnection(this, token);
 

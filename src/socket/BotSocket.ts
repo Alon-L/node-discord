@@ -1,9 +1,11 @@
 import fetch from 'node-fetch';
-import BotSocketShard from './BotSocketShard';
-import { GatewayCloseCodes, recommendedShardTimeout } from './constants';
+import { BotShardState } from './BotShard';
+import BotSocketShard, { BotSocketShardState } from './BotSocketShard';
+import { BotEvents, GatewayCloseCodes, recommendedShardTimeout } from './constants';
 import properties from './properties';
 import Cluster from '../Cluster';
 import Bot from '../structures/bot/Bot';
+import { ShardChangedState } from '../structures/bot/BotCommunication';
 import { ShardId } from '../types';
 
 export interface SessionStartLimit {
@@ -78,6 +80,51 @@ class BotSocket {
   public stopShards(code: GatewayCloseCodes): void {
     for (const [, shard] of this.shards) {
       shard.close(code);
+    }
+  }
+
+  /**
+   * Checks if all shards under this socket match a given state
+   * @param {BotSocketShardState} state The state to be checked for
+   * @returns {boolean}
+   */
+  public checkShardsState(state: BotSocketShardState): boolean {
+    return this.shards.toArray.every(value => value.state === state);
+  }
+
+  /**
+   * Called when a shard under this socket changed its state.
+   * If all shards under this socket now have the same state, a message will be sent to the {@link BotShardManager}
+   * telling it to emit an event for all shards
+   * @param {BotSocketShardState} state The state to be checked for
+   * @param {BotShardState} shardState The state {@link BotShard} should be at after sending the message
+   * @param {BotEvents} botEvent The event that should be emitted to all shards
+   * @example
+   * this.botSocket.shardChangedState(
+   *  BotSocketShardState.Ready,
+   *  BotShardState.Ready,
+   *  BotEvents.Ready,
+   * );
+   */
+  public shardChangedState(
+    state: BotSocketShardState,
+    shardState: BotShardState,
+    botEvent: BotEvents,
+  ): void {
+    if (!this.checkShardsState(state)) return;
+
+    if (process.send) {
+      const message: ShardChangedState = {
+        action: 'shardChangedState',
+        payload: {
+          state: shardState,
+          botEvent,
+        },
+      };
+
+      process.send(message);
+    } else {
+      this.bot.events.emit(botEvent);
     }
   }
 
