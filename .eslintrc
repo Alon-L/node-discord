@@ -73,7 +73,7 @@
     "no-console": "off",
     "lines-between-class-members": "off",
     "class-methods-use-this": "off",
-    "default-case": "warn",
+    "default-case": "off",
     "quote-props": "off",
     "strict": "off",
     "no-restricted-syntax": "off",

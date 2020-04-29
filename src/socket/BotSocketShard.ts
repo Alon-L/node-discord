@@ -1,4 +1,4 @@
-import WebSocket from 'ws';
+import WebSocket, { Data } from 'ws';
 import BotDispatchHandlers from './BotDispatchHandlers';
 import BotHeartbeats from './BotHeartbeats';
 import BotSocket, { SessionStartLimit } from './BotSocket';
@@ -42,6 +42,13 @@ class BotSocketShard {
   private readonly token: string;
   private readonly shards: ShardOptions;
   private heartbeats!: BotHeartbeats;
+
+  /**
+   * Timeout before retrying to create a new connection after disconnection
+   * Resets on successful connection
+   */
+  private retryTimeout: number;
+
   public pendingGuilds: Set<Snowflake>;
   public status: BotSocketShardStatus;
   public ws!: WebSocket;
@@ -58,6 +65,8 @@ class BotSocketShard {
     this.token = token;
 
     this.shards = shards;
+
+    this.retryTimeout = 0;
 
     this.pendingGuilds = new Set<Snowflake>();
 
@@ -84,15 +93,16 @@ class BotSocketShard {
 
     this.ws = new WebSocket(socketURL);
 
-    this.ws.onmessage = this.onMessage.bind(this);
-    this.ws.onclose = this.onClose.bind(this);
+    this.ws.on('message', this.onMessage.bind(this));
+    this.ws.on('close', this.onClose.bind(this));
+    this.ws.on('open', () => (this.retryTimeout = 0));
 
     this.heartbeats = new BotHeartbeats(this);
 
     this.botSocket.sessionStartLimit.remaining--;
 
     if (resume && this.lastSequence) {
-      this.ws.onopen = this.resume.bind(this);
+      this.ws.on('open', this.resume.bind(this));
     }
   }
 
@@ -101,7 +111,7 @@ class BotSocketShard {
    * @param {WebSocket.MessageEvent} data WebSocket message event
    * @returns {Promise<void>}
    */
-  private async onMessage({ data }: WebSocket.MessageEvent): Promise<void> {
+  private async onMessage(data: Data): Promise<void> {
     const payload = BotSocketShard.parse(data as string);
 
     const { op, t, d, s } = payload;
@@ -207,18 +217,24 @@ class BotSocketShard {
 
   /**
    * Called when the close event from the {@link WebSocket} is emitted
-   * @param {WebSocket.CloseEvent} event WebSocket close event
+   * @param {number} code WebSocket closure code
+   * @param {string} reason The reason for the WebSocket closure
    */
-  private async onClose(event: WebSocket.CloseEvent): Promise<void> {
-    this.bot.log('Close', event.code, event.reason, event.wasClean);
-
-    const { code } = event;
+  private async onClose(code: number, reason: string): Promise<void> {
+    this.bot.log('Close', code, reason);
 
     this.heartbeats.stopHeartbeat();
 
     this.status = BotSocketShardStatus.Closed;
 
     if (!unreconnectableGatewayCloseCodes.includes(code)) {
+      console.log(this.retryTimeout);
+      if (this.retryTimeout) {
+        await new Promise(resolve => setTimeout(resolve, this.retryTimeout));
+      }
+
+      this.retryTimeout += 1000;
+
       await this.connect(!unresumeableGatewayCloseCodes.includes(code));
     }
   }

@@ -102,6 +102,10 @@ class Cluster<K, V> extends Map<K, V> {
       }
     }
   }
+
+  public toJSON(): V[] {
+    return this.toArray;
+  }
 }
 
 export default Cluster;

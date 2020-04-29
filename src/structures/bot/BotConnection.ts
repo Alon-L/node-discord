@@ -9,11 +9,6 @@ import { GatewayCloseCodes } from '../../socket/constants';
  */
 class BotConnection {
   /**
-   * The bot behind the connection
-   */
-  private readonly bot: Bot;
-
-  /**
    * Bot socket connection (may split into shards)
    */
   private readonly socket: BotSocket;
@@ -24,8 +19,6 @@ class BotConnection {
   private readonly dispatchHandlers: BotDispatchHandlers;
 
   constructor(bot: Bot, token: string) {
-    this.bot = bot;
-
     this.socket = new BotSocket(bot, token);
 
     this.dispatchHandlers = new BotDispatchHandlers();

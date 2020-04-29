@@ -57,7 +57,7 @@ class Member extends GuildBaseStruct {
   constructor(bot: Bot, member: GatewayStruct, guild: Guild) {
     super(bot, guild);
 
-    this.user = member.user;
+    this.user = new User(this.bot, member.user);
     this.id = member.user?.id;
     this.nick = member.nick;
     this.roles = new Cluster<Snowflake, Role>(

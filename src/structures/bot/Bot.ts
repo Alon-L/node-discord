@@ -1,7 +1,10 @@
+import { Serializable } from 'child_process';
+import BotCommunication from './BotCommunication';
 import BotConnection from './BotConnection';
 import BotCommands from './handlers/BotCommands';
 import BotEvents from './handlers/events/BotEvents';
 import Cluster from '../../Cluster';
+import BotShardManager from '../../socket/BotShardManager';
 import { ShardId, Snowflake } from '../../types';
 import User from '../User';
 import DMChannel from '../channels/DMChannel';
@@ -46,6 +49,11 @@ class Bot {
   public connection: BotConnection;
 
   /**
+   * Responsible for the communication between shards created by {@link BotShardManager}
+   */
+  public communication: BotCommunication;
+
+  /**
    * Bot Discord user
    * Initializes right before the Bot READY event
    */
@@ -78,10 +86,12 @@ class Bot {
       amount: Number.isNaN(shardAmount) ? undefined : shardAmount,
     };
 
-    this.commands = new BotCommands(this);
-    this.events = new BotEvents(this);
+    this.commands = new BotCommands();
+    this.events = new BotEvents();
 
     this.connection = new BotConnection(this, token);
+
+    this.communication = new BotCommunication(this);
 
     this.guilds = new Cluster<Snowflake, Guild>();
 
@@ -92,6 +102,15 @@ class Bot {
 
   public log(...messages: unknown[]): void {
     this.events.emit('LOG', ...messages);
+  }
+
+  public toJSON(): Serializable {
+    return {
+      token: this.token,
+      shardOptions: this.shardOptions,
+      commands: this.commands,
+      events: this.events,
+    };
   }
 }
 

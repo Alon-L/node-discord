@@ -1,3 +1,4 @@
+import { Serializable } from 'child_process';
 import BotShard from './BotShard';
 import { recommendedShardTimeout } from './constants';
 import Cluster from '../Cluster';
@@ -36,6 +37,36 @@ class BotShardManager {
       // eslint-disable-next-line no-await-in-loop
       await new Promise(resolve => setTimeout(resolve, timeout));
     }
+  }
+
+  /**
+   * Emits an event for all shards initiated with this manager
+   * @param {string} event The event to be emitted
+   * @returns {Promise<Serializable[]>}
+   */
+  public broadcast(event: string): Promise<Serializable[]> {
+    const results: Promise<Serializable>[] = [];
+
+    for (const shard of this.shards.values()) {
+      results.push(shard.communicate(event));
+    }
+
+    return Promise.all(results);
+  }
+
+  /**
+   * Emits an event for a specific shard.
+   * Returns undefined if no shard matching the supplied ID was found
+   * @param {string} event The event to be emitted
+   * @param {ShardId} shardId The ID of the shard where this event should be emitted
+   * @returns {Promise<Serializable> | null}
+   */
+  public send(event: string, shardId: ShardId): Promise<Serializable> | undefined {
+    const shard = this.shards.get(shardId);
+
+    if (!shard) return undefined;
+
+    return shard.communicate(event);
   }
 }
 

@@ -1,15 +1,10 @@
 import { Events } from './events';
 import { EventFunction } from '../../../../types';
-import Bot from '../../Bot';
 import BotHandler from '../BotHandler';
 
 type RegisterCallback = EventFunction;
 
 class BotEvents extends BotHandler<RegisterCallback> implements Events {
-  constructor(bot: Bot) {
-    super(bot);
-  }
-
   public wait(name: string): Promise<Parameters<RegisterCallback>> {
     return new Promise(resolve => {
       const listener = (...args: Parameters<RegisterCallback>): void => {
@@ -18,7 +13,7 @@ class BotEvents extends BotHandler<RegisterCallback> implements Events {
         this.removeListener(name, listener);
       };
 
-      this.once(name, listener);
+      this.on(name, listener);
     });
   }
 }

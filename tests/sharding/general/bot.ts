@@ -1,8 +1,8 @@
 'use strict';
 
-import Bot from '../../src/structures/bot/Bot';
-import Guild from '../../src/structures/guild/Guild';
-import config from '../config.json';
+import Bot from '../../../src/structures/bot/Bot';
+import Guild from '../../../src/structures/guild/Guild';
+import config from '../../config.json';
 
 const bot = new Bot(config.token);
 bot.connection.connect();
@@ -14,6 +14,7 @@ bot.connection.connect();
   },
 });*/
 
+// TODO: Only call READY event when all shards are ready
 bot.events.on('READY', () => {
   const guild = bot.guilds.first;
 
@@ -23,6 +24,4 @@ bot.events.on('READY', () => {
   console.log(guild.channels.first.id, 'GUILD FIRST CHANNEL ID');
 });
 
-bot.events.on('LOG', (...messages: unknown[]) => {
-  console.log(...messages);
-});
+bot.events.on('LOG', console.log);

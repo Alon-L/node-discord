@@ -1,12 +1,11 @@
 import BotHandler from './BotHandler';
 import { Command, CommandFunction } from '../../../types';
-import Bot from '../Bot';
 
 type RegisterCallback = CommandFunction | Command;
 
 class BotCommands extends BotHandler<RegisterCallback> {
-  constructor(bot: Bot) {
-    super(bot);
+  constructor() {
+    super();
   }
 
   public async wait(name: string): Promise<unknown> {
