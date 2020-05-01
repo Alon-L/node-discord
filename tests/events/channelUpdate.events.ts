@@ -8,9 +8,9 @@ const bot = new Bot(config.token);
 bot.connection.connect();
 
 (async function (): Promise<void> {
-  await bot.events.wait(BotEvents.Ready);
-
   bot.events.on(BotEvents.ChannelUpdate, (oldChannel, newChannel) => {
     console.log(oldChannel.name, newChannel.name);
   });
+
+  await bot.events.wait(BotEvents.Ready);
 })();

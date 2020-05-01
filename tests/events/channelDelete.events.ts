@@ -8,9 +8,9 @@ const bot = new Bot(config.token);
 bot.connection.connect();
 
 (async function (): Promise<void> {
-  await bot.events.wait(BotEvents.Ready);
-
   bot.events.on(BotEvents.ChannelDelete, channel => {
     console.log(channel.name, channel.guild.channels.get(channel.id));
   });
+
+  await bot.events.wait(BotEvents.Ready);
 })();
