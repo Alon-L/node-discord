@@ -4,6 +4,8 @@ import Timestamp from '../../../Timestamp';
 import Channel from '../../../channels/Channel';
 import DMChannel from '../../../channels/DMChannel';
 import GuildTextChannel from '../../../channels/GuildTextChannel';
+import Guild from '../../../guild/Guild';
+import GuildUnavailable from '../../../guild/GuildUnavailable';
 
 /**
  * Sent when all shards become ready
@@ -69,6 +71,14 @@ declare function CHANNEL_PINS_UPDATE(
   oldPinTimestamp: Timestamp | undefined,
 ): void;
 
+/**
+ * Sent when the Bot joins a guild, or a guild becomes available to the Bot
+ * @param {Guild | GuildUnavailable} guild The guild that was created
+ * @asMemberOf BotEventsHandler
+ * @event BotEventsHandler#GUILD_CREATE
+ */
+declare function GUILD_CREATE(guild: Guild | GuildUnavailable): void;
+
 export declare interface Events {
   on(event: BotEvents.Ready, listener: typeof READY): this;
   on(event: BotEvents.ShardReady, listener: typeof SHARD_READY): this;
@@ -77,6 +87,7 @@ export declare interface Events {
   on(event: BotEvents.ChannelUpdate, listener: typeof CHANNEL_UPDATE): this;
   on(event: BotEvents.ChannelDelete, listener: typeof CHANNEL_DELETE): this;
   on(event: BotEvents.ChannelPinsUpdate, listener: typeof CHANNEL_PINS_UPDATE): this;
+  on(event: BotEvents.GuildCreate, listener: typeof GUILD_CREATE): this;
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   on(event: string | symbol, listener: (...args: any) => void): this;
