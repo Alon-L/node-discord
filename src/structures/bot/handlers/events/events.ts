@@ -79,6 +79,25 @@ declare function CHANNEL_PINS_UPDATE(
  */
 declare function GUILD_CREATE(guild: Guild | GuildUnavailable): void;
 
+/**
+ * Sent when a guild is updated
+ * @param {Guild | GuildUnavailable | undefined} oldGuild The guild before being updated
+ * @param {Guild | GuildUnavailable} newGuild The guild after being updated
+ * @asMemberOf BotEventsHandler
+ * @event BotEventsHandler#GUILD_UPDATE
+ */
+declare function GUILD_UPDATE(
+  oldGuild: Guild | GuildUnavailable | undefined,
+  newGuild: Guild | GuildUnavailable,
+): void;
+
+/**
+ * Sent when a guild becomes unavailable during a guild outage, or when the user leaves or is removed from a guild
+ * @asMemberOf BotEventsHandler
+ * @event BotEventsHandler#GUILD_DELETE
+ */
+declare function GUILD_DELETE(): void;
+
 export declare interface Events {
   on(event: BotEvents.Ready, listener: typeof READY): this;
   on(event: BotEvents.ShardReady, listener: typeof SHARD_READY): this;
@@ -88,6 +107,8 @@ export declare interface Events {
   on(event: BotEvents.ChannelDelete, listener: typeof CHANNEL_DELETE): this;
   on(event: BotEvents.ChannelPinsUpdate, listener: typeof CHANNEL_PINS_UPDATE): this;
   on(event: BotEvents.GuildCreate, listener: typeof GUILD_CREATE): this;
+  on(event: BotEvents.GuildUpdate, listener: typeof GUILD_UPDATE): this;
+  on(event: BotEvents.GuildDelete, listener: typeof GUILD_DELETE): this;
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   on(event: string | symbol, listener: (...args: any) => void): this;

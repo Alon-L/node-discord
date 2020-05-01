@@ -335,6 +335,16 @@ class Guild extends BaseStruct {
   public static create(bot: Bot, guild: GatewayStruct): Guild | GuildUnavailable {
     return guild.unavailable ? new GuildUnavailable(bot, guild) : new Guild(bot, guild);
   }
+
+  public static find(bot: Bot, guildId: Snowflake): Guild | GuildUnavailable | undefined {
+    if (bot.unavailableGuilds.has(guildId)) {
+      // Guild is part of the unavailable guilds cluster
+      return bot.unavailableGuilds.get(guildId);
+    } else {
+      // Guild is part of the guilds cluster
+      return bot.guilds.get(guildId);
+    }
+  }
 }
 
 export default Guild;
