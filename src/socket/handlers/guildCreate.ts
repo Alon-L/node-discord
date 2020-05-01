@@ -1,7 +1,7 @@
 import Bot from '../../structures/bot/Bot';
 import Guild from '../../structures/guild/Guild';
 import BotSocketShard, { BotSocketShardState, Payload } from '../BotSocketShard';
-import { GatewayEvents } from '../constants';
+import { BotEvents, GatewayEvents } from '../constants';
 
 export const run = ({ d }: Payload, bot: Bot, socket: BotSocketShard): void => {
   socket.sessionId = d.session_id;
@@ -21,6 +21,8 @@ export const run = ({ d }: Payload, bot: Bot, socket: BotSocketShard): void => {
     if (!socket.pendingGuilds.size) {
       socket.ready();
     }
+  } else {
+    bot.events.emit(BotEvents.GuildCreate, guild);
   }
 };
 
