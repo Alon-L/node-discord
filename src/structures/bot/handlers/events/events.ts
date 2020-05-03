@@ -1,6 +1,8 @@
 import BotSocketShard from '../../../../socket/BotSocketShard';
 import { BotEvents } from '../../../../socket/constants';
+import Member from '../../../Member';
 import Timestamp from '../../../Timestamp';
+import User from '../../../User';
 import Channel from '../../../channels/Channel';
 import DMChannel from '../../../channels/DMChannel';
 import GuildTextChannel from '../../../channels/GuildTextChannel';
@@ -98,6 +100,15 @@ declare function GUILD_UPDATE(
  */
 declare function GUILD_DELETE(): void;
 
+/**
+ * Sent when a user is banned from a guild
+ * @param {Guild | GuildUnavailable} guild The guild where this ban occurred
+ * @param {Member | User} member The member that has been banned
+ * @asMemberOf BotEventsHandler
+ * @event BotEventHandler#GUILD_BAN_ADD
+ */
+declare function GUILD_BAN_ADD(guild: Guild | GuildUnavailable, member: Member | User): void;
+
 export declare interface Events {
   on(event: BotEvents.Ready, listener: typeof READY): this;
   on(event: BotEvents.ShardReady, listener: typeof SHARD_READY): this;
@@ -109,6 +120,7 @@ export declare interface Events {
   on(event: BotEvents.GuildCreate, listener: typeof GUILD_CREATE): this;
   on(event: BotEvents.GuildUpdate, listener: typeof GUILD_UPDATE): this;
   on(event: BotEvents.GuildDelete, listener: typeof GUILD_DELETE): this;
+  on(event: BotEvents.GuildBanAdd, listener: typeof GUILD_BAN_ADD): this;
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   on(event: string | symbol, listener: (...args: any) => void): this;
