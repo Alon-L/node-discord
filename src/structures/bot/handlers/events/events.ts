@@ -109,6 +109,15 @@ declare function GUILD_DELETE(): void;
  */
 declare function GUILD_BAN_ADD(guild: Guild | GuildUnavailable, member: Member | User): void;
 
+/**
+ * Sent when a user is unbanned from a guild.
+ * @param {Guild | GuildUnavailable} guild The guild where this un-ban occurred
+ * @param {User} user The user that been unbanned
+ * @asMemberOf BotEventsHandler
+ * @event BotEventsHandler#GUILD_BAN_ADD
+ */
+declare function GUILD_BAN_REMOVE(guild: Guild | GuildUnavailable, user: User): void;
+
 export declare interface Events {
   on(event: BotEvents.Ready, listener: typeof READY): this;
   on(event: BotEvents.ShardReady, listener: typeof SHARD_READY): this;
@@ -121,6 +130,7 @@ export declare interface Events {
   on(event: BotEvents.GuildUpdate, listener: typeof GUILD_UPDATE): this;
   on(event: BotEvents.GuildDelete, listener: typeof GUILD_DELETE): this;
   on(event: BotEvents.GuildBanAdd, listener: typeof GUILD_BAN_ADD): this;
+  on(event: BotEvents.GuildBanRemove, listener: typeof GUILD_BAN_REMOVE): this;
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   on(event: string | symbol, listener: (...args: any) => void): this;
