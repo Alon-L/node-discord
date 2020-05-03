@@ -284,7 +284,10 @@ class Guild extends BaseStruct {
     );
 
     this.members = new Cluster<Snowflake, Member>(
-      guild.members?.map((member: GatewayStruct) => [member.id, new Member(bot, member, this)]),
+      guild.members?.map((member: GatewayStruct) => [
+        member.user.id,
+        new Member(bot, member, this),
+      ]),
     );
 
     this.name = guild.name;
