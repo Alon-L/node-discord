@@ -149,6 +149,14 @@ declare function GUILD_INTEGRATIONS_UPDATE(guild: Guild): void;
  */
 declare function GUILD_MEMBER_ADD(member: Member): void;
 
+/**
+ * Sent when a user is removed from a guild (leave/kick/ban).
+ * @param {Member | User} member The member that left the guild
+ * @asMemberOf BotEventsHandler
+ * @event BotEventsHandler#GUILD_MEMBER_REMOVE
+ */
+declare function GUILD_MEMBER_REMOVE(member: Member | User): void;
+
 export declare interface Events {
   on(event: BotEvents.Ready, listener: typeof READY): this;
   on(event: BotEvents.ShardReady, listener: typeof SHARD_READY): this;
@@ -165,6 +173,7 @@ export declare interface Events {
   on(event: BotEvents.GuildEmojisUpdate, listener: typeof GUILD_EMOJIS_UPDATE): this;
   on(event: BotEvents.GuildIntegrationsUpdate, listener: typeof GUILD_INTEGRATIONS_UPDATE): this;
   on(event: BotEvents.GuildMemberAdd, listener: typeof GUILD_MEMBER_ADD): this;
+  on(event: BotEvents.GuildMemberRemove, listener: typeof GUILD_MEMBER_REMOVE): this;
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   on(event: string | symbol, listener: (...args: any) => void): this;
