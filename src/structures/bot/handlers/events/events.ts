@@ -141,6 +141,14 @@ declare function GUILD_EMOJIS_UPDATE(
  */
 declare function GUILD_INTEGRATIONS_UPDATE(guild: Guild): void;
 
+/**
+ * Sent when a new user joins a guild
+ * @param {Member} member The member that joined the guild
+ * @asMemberOf BotEventsHandler
+ * @event BotEventsHandler#GUILD_MEMBER_ADD
+ */
+declare function GUILD_MEMBER_ADD(member: Member): void;
+
 export declare interface Events {
   on(event: BotEvents.Ready, listener: typeof READY): this;
   on(event: BotEvents.ShardReady, listener: typeof SHARD_READY): this;
@@ -156,6 +164,7 @@ export declare interface Events {
   on(event: BotEvents.GuildBanRemove, listener: typeof GUILD_BAN_REMOVE): this;
   on(event: BotEvents.GuildEmojisUpdate, listener: typeof GUILD_EMOJIS_UPDATE): this;
   on(event: BotEvents.GuildIntegrationsUpdate, listener: typeof GUILD_INTEGRATIONS_UPDATE): this;
+  on(event: BotEvents.GuildMemberAdd, listener: typeof GUILD_MEMBER_ADD): this;
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   on(event: string | symbol, listener: (...args: any) => void): this;
