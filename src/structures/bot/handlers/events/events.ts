@@ -1,5 +1,8 @@
+import Cluster from '../../../../Cluster';
 import BotSocketShard from '../../../../socket/BotSocketShard';
 import { BotEvents } from '../../../../socket/constants';
+import { Snowflake } from '../../../../types';
+import Emoji from '../../../Emoji';
 import Member from '../../../Member';
 import Timestamp from '../../../Timestamp';
 import User from '../../../User';
@@ -107,7 +110,7 @@ declare function GUILD_DELETE(): void;
  * @asMemberOf BotEventsHandler
  * @event BotEventHandler#GUILD_BAN_ADD
  */
-declare function GUILD_BAN_ADD(guild: Guild | GuildUnavailable, member: Member | User): void;
+declare function GUILD_BAN_ADD(guild: Guild, member: Member | User): void;
 
 /**
  * Sent when a user is unbanned from a guild.
@@ -116,7 +119,19 @@ declare function GUILD_BAN_ADD(guild: Guild | GuildUnavailable, member: Member |
  * @asMemberOf BotEventsHandler
  * @event BotEventsHandler#GUILD_BAN_ADD
  */
-declare function GUILD_BAN_REMOVE(guild: Guild | GuildUnavailable, user: User): void;
+declare function GUILD_BAN_REMOVE(guild: Guild, user: User): void;
+
+/**
+ * Sent when a guild's emojis have been updated.
+ * @param {Cluster<Snowflake, Emoji>} oldEmojis {@link Cluster} of {@link Emoji}s before the update
+ * @param {Cluster<Snowflake, Emoji>} newEmojis {@link Cluster} of {@link Emoji}s after the update
+ * @asMemberOf BotEventsHandler
+ * @event BotEventsHandler#GUILD_EMOJIS_UPDATE
+ */
+declare function GUILD_EMOJIS_UPDATE(
+  oldEmojis: Cluster<Snowflake, Emoji>,
+  newEmojis: Cluster<Snowflake, Emoji>,
+): void;
 
 export declare interface Events {
   on(event: BotEvents.Ready, listener: typeof READY): this;
@@ -131,6 +146,7 @@ export declare interface Events {
   on(event: BotEvents.GuildDelete, listener: typeof GUILD_DELETE): this;
   on(event: BotEvents.GuildBanAdd, listener: typeof GUILD_BAN_ADD): this;
   on(event: BotEvents.GuildBanRemove, listener: typeof GUILD_BAN_REMOVE): this;
+  on(event: BotEvents.GuildEmojisUpdate, listener: typeof GUILD_EMOJIS_UPDATE): this;
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   on(event: string | symbol, listener: (...args: any) => void): this;

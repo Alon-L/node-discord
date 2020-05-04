@@ -1,11 +1,12 @@
 import User from '../../structures/User';
 import Bot from '../../structures/bot/Bot';
-import Guild from '../../structures/guild/Guild';
 import { Payload } from '../BotSocketShard';
 import { GatewayEvents } from '../constants';
 
 export const run = ({ d }: Payload, bot: Bot): void => {
-  const guild = Guild.find(bot, d.guild_id);
+  const guild = bot.guilds.get(d.guild_id);
+
+  if (!guild) return;
 
   const user = new User(bot, d.user);
 
