@@ -157,6 +157,15 @@ declare function GUILD_MEMBER_ADD(member: Member): void;
  */
 declare function GUILD_MEMBER_REMOVE(member: Member | User): void;
 
+/**
+ * Sent when a guild member is updated. This will also fire when the user object of a guild member changes.
+ * @param {Member} oldMember The member before being updated
+ * @param {Member} newMember The member after being updated
+ * @asMemberOf BotEventsHandler
+ * @event BotEventsHandler#GUILD_MEMBER_UPDATE
+ */
+declare function GUILD_MEMBER_UPDATE(oldMember: Member, newMember: Member): void;
+
 export declare interface Events {
   on(event: BotEvents.Ready, listener: typeof READY): this;
   on(event: BotEvents.ShardReady, listener: typeof SHARD_READY): this;
@@ -174,6 +183,7 @@ export declare interface Events {
   on(event: BotEvents.GuildIntegrationsUpdate, listener: typeof GUILD_INTEGRATIONS_UPDATE): this;
   on(event: BotEvents.GuildMemberAdd, listener: typeof GUILD_MEMBER_ADD): this;
   on(event: BotEvents.GuildMemberRemove, listener: typeof GUILD_MEMBER_REMOVE): this;
+  on(event: BotEvents.GuildMemberUpdate, listener: typeof GUILD_MEMBER_UPDATE): this;
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   on(event: string | symbol, listener: (...args: any) => void): this;
