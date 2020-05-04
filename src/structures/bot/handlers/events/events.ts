@@ -166,6 +166,15 @@ declare function GUILD_MEMBER_REMOVE(member: Member | User): void;
  */
 declare function GUILD_MEMBER_UPDATE(oldMember: Member, newMember: Member): void;
 
+// TODO: Maybe change the Guild Members request if this library won't call it the same way as the documentation
+/**
+ * Sent in response to a Guild Members request
+ * @param {Guild} guild The guild whose members were requested
+ * @asMemberOf BotEventsHandler
+ * @event BotEventsHandler#GUILD_MEMBERS_CHUNK
+ */
+declare function GUILD_MEMBERS_CHUNK(guild: Guild): void;
+
 export declare interface Events {
   on(event: BotEvents.Ready, listener: typeof READY): this;
   on(event: BotEvents.ShardReady, listener: typeof SHARD_READY): this;
@@ -184,6 +193,7 @@ export declare interface Events {
   on(event: BotEvents.GuildMemberAdd, listener: typeof GUILD_MEMBER_ADD): this;
   on(event: BotEvents.GuildMemberRemove, listener: typeof GUILD_MEMBER_REMOVE): this;
   on(event: BotEvents.GuildMemberUpdate, listener: typeof GUILD_MEMBER_UPDATE): this;
+  on(event: BotEvents.GuildMembersChunk, listener: typeof GUILD_MEMBERS_CHUNK): this;
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   on(event: string | symbol, listener: (...args: any) => void): this;
