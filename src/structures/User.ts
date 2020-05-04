@@ -40,7 +40,7 @@ class User extends BaseStruct {
   /**
    * Whether the user is a bot
    */
-  public isBot?: boolean;
+  public isBot: boolean;
 
   /**
    * Whether the user is an Official Discord System user (part of urgent message system)
@@ -83,7 +83,7 @@ class User extends BaseStruct {
     this.username = user.username;
     this.hashtag = user.discriminator;
     this.avatar = user.avatar;
-    this.isBot = user.bot;
+    this.isBot = user.bot || false;
     this.system = user.system;
     this.mfaEnabled = user.mfa_enabled;
     this.locale = user.locale;
@@ -92,6 +92,15 @@ class User extends BaseStruct {
     this.flags = user.flags;
     this.nitroType = user.premium_type;
     this.publicFlags = user.public_flags;
+  }
+
+  /**
+   * Combines a user's username and hashtag and generates a full name
+   * @type {string}
+   * @example Discord#0001
+   */
+  get fullName(): string {
+    return `${this.username}#${this.hashtag}`;
   }
 }
 
