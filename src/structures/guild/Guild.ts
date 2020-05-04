@@ -3,6 +3,7 @@ import Cluster from '../../Cluster';
 import { Snowflake } from '../../types';
 import ChannelUtils from '../../utils/ChannelUtils';
 import BaseStruct, { GatewayStruct } from '../BaseStruct';
+import Emoji from '../Emoji';
 import Member from '../Member';
 import Role from '../Role';
 import Bot from '../bot/Bot';
@@ -185,7 +186,10 @@ class Guild extends BaseStruct {
    */
   public levels: GuildLevels;
 
-  // public emojis: Cluster<Snowflake, Emoji>;
+  /**
+   * {@link Cluster} of all custom guild {@link Emoji}s
+   */
+  public emojis: Cluster<Snowflake, Emoji>;
 
   public features: undefined;
 
@@ -304,6 +308,10 @@ class Guild extends BaseStruct {
       explicitContent: guild.explicit_content_filter,
       mfa: guild.mfa_level,
     };
+
+    this.emojis = new Cluster<Snowflake, Emoji>(
+      guild.emojis.map((emoji: GatewayStruct) => [emoji.id, new Emoji(this.bot, emoji, this)]),
+    );
 
     this.widget = {
       enabled: guild.widget_enabled,

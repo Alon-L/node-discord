@@ -15,12 +15,14 @@ bot.connection.connect();
 });*/
 
 bot.events.on('READY', () => {
-  const guild = bot.guilds.first;
+  const guild = bot.guilds.last;
 
   console.log(guild instanceof Guild);
   console.log(guild.id, 'GUILD ID');
 
   console.log(guild.channels.first.id, 'GUILD FIRST CHANNEL ID');
+
+  console.log(guild.emojis);
 });
 
 bot.events.on('LOG', console.log);
