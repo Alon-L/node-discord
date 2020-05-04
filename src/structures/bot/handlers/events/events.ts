@@ -193,6 +193,14 @@ declare function GUILD_ROLE_CREATE(role: Role): void;
  */
 declare function GUILD_ROLE_UPDATE(oldRole: Role, newRole: Role): void;
 
+/**
+ * Sent when a guild role is deleted
+ * @param {Role} role The role that has been deleted
+ * @asMemberOf BotEventsHandler
+ * @event BotEventsHandler#GUILD_ROLE_DELETE
+ */
+declare function GUILD_ROLE_DELETE(role: Role): void;
+
 export declare interface Events {
   on(event: BotEvents.Ready, listener: typeof READY): this;
   on(event: BotEvents.ShardReady, listener: typeof SHARD_READY): this;
@@ -214,6 +222,7 @@ export declare interface Events {
   on(event: BotEvents.GuildMembersChunk, listener: typeof GUILD_MEMBERS_CHUNK): this;
   on(event: BotEvents.GuildRoleCreate, listener: typeof GUILD_ROLE_CREATE): this;
   on(event: BotEvents.GuildRoleUpdate, listener: typeof GUILD_ROLE_UPDATE): this;
+  on(event: BotEvents.GuildRoleDelete, listener: typeof GUILD_ROLE_DELETE): this;
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   on(event: string | symbol, listener: (...args: any) => void): this;
