@@ -13,6 +13,8 @@ bot.connection.connect();
     console.log(
       oldMember.nick,
       newMember.nick,
+      oldMember.roles,
+      newMember.roles,
       // These two should be equal to each other if other fields were copied correctly
       oldMember.joinedAt,
       newMember.joinedAt,
