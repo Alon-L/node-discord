@@ -7,6 +7,7 @@ import Cluster from '../../Cluster';
 import { Snowflake } from '../../types';
 import BaseStruct, { GatewayStruct } from '../BaseStruct';
 import Member from '../Member';
+import Timestamp from '../Timestamp';
 import User from '../User';
 import Bot from '../bot/Bot';
 import GuildTextChannel from '../channels/GuildTextChannel';
@@ -74,13 +75,13 @@ class Message extends BaseStruct {
   /**
    * Timestamp of when this message was sent
    */
-  public sentAt: number;
+  public sentAt: Timestamp;
 
   /**
    * Timestamp of when this message was edited.
    * Possibly null if message has not been edited
    */
-  public editedAt: number | null;
+  public editedAt: Timestamp | null;
 
   /**
    * Whether this was a TTS message
@@ -147,8 +148,8 @@ class Message extends BaseStruct {
     this.id = message.id;
     this.author = new User(this.bot, message.author);
     this.content = message.content;
-    this.sentAt = message.timestamp;
-    this.editedAt = message.edited_timestamp;
+    this.sentAt = new Timestamp(message.timestamp);
+    this.editedAt = message.edited_timestamp ? new Timestamp(message.edited_timestamp) : null;
     this.tts = message.tts;
     this.mentionsEveryone = message.mention_everyone;
 

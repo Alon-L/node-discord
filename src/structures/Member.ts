@@ -1,5 +1,6 @@
 import { GatewayStruct } from './BaseStruct';
 import Role from './Role';
+import Timestamp from './Timestamp';
 import User from './User';
 import Bot from './bot/Bot';
 import Guild from './guild/Guild';
@@ -16,7 +17,7 @@ class Member extends GuildBaseStruct {
   /**
    * The member's user ID
    */
-  public id!: Snowflake;
+  public id: Snowflake;
 
   /**
    * The user this guild member represents
@@ -26,7 +27,7 @@ class Member extends GuildBaseStruct {
   /**
    * The user's guild nickname
    */
-  public nick!: string | null;
+  public nick: string | null;
 
   /**
    * {@link Cluster} of all {@link Role}s associated to this member
@@ -36,23 +37,23 @@ class Member extends GuildBaseStruct {
   /**
    * Timestamp of when the member joined the guild
    */
-  public joinedAt!: number;
+  public joinedAt: Timestamp;
 
   /**
    * Timestamp of when the member start boosting the guild.
    * Possibly null if the user has never boosted this server
    */
-  public premiumSince!: number | null;
+  public premiumSince: Timestamp | null;
 
   /**
    * Whether the member is deafened in voice channels
    */
-  public deaf!: boolean;
+  public deaf: boolean;
 
   /**
    * Whether the member is muted in voice channels
    */
-  public mute!: boolean;
+  public mute: boolean;
 
   constructor(bot: Bot, member: GatewayStruct, guild: Guild) {
     super(bot, guild);
@@ -68,8 +69,10 @@ class Member extends GuildBaseStruct {
       this.guild.roles.filter((_r, id) => member.roles.includes(id)),
     );
 
-    this.joinedAt = member.joined_at;
-    this.premiumSince = member.premium_since;
+    this.joinedAt = new Timestamp(member.joined_at);
+
+    this.premiumSince = member.premium_since ? new Timestamp(member.premium_since) : null;
+
     this.deaf = member.deaf;
     this.mute = member.mute;
   }
