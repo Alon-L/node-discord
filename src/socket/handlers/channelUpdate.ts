@@ -7,6 +7,8 @@ import { BotEvents, GatewayEvents } from '../constants';
 export const run = ({ d }: Payload, bot: Bot): void => {
   const oldChannel = ChannelUtils.find(bot, d.guild_id, d.id);
 
+  if (!oldChannel) return;
+
   const newChannel = ChannelUtils.create(bot, d);
 
   if (newChannel instanceof GuildChannel) {
