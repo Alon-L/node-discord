@@ -5,7 +5,6 @@ import { Payload } from '../BotSocketShard';
 import { GatewayEvents } from '../constants';
 
 export const run = ({ d }: Payload, bot: Bot): void => {
-  console.log('Guild Members Chunk');
   if (d.not_found) throw new Error('An invalid ID was passed to the Guild Members request');
 
   const guild = bot.guilds.get(d.guild_id);
