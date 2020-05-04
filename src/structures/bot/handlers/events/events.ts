@@ -133,6 +133,14 @@ declare function GUILD_EMOJIS_UPDATE(
   newEmojis: Cluster<Snowflake, Emoji>,
 ): void;
 
+/**
+ * Sent when a guild integration is updated.
+ * @param {Guild} guild The guild whose integrations were updated
+ * @asMemberOf BotEventsHandler
+ * @event BotEventsHandler#GUILD_INTEGRATIONS_UPDATE
+ */
+declare function GUILD_INTEGRATIONS_UPDATE(guild: Guild): void;
+
 export declare interface Events {
   on(event: BotEvents.Ready, listener: typeof READY): this;
   on(event: BotEvents.ShardReady, listener: typeof SHARD_READY): this;
@@ -147,6 +155,7 @@ export declare interface Events {
   on(event: BotEvents.GuildBanAdd, listener: typeof GUILD_BAN_ADD): this;
   on(event: BotEvents.GuildBanRemove, listener: typeof GUILD_BAN_REMOVE): this;
   on(event: BotEvents.GuildEmojisUpdate, listener: typeof GUILD_EMOJIS_UPDATE): this;
+  on(event: BotEvents.GuildIntegrationsUpdate, listener: typeof GUILD_INTEGRATIONS_UPDATE): this;
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   on(event: string | symbol, listener: (...args: any) => void): this;
