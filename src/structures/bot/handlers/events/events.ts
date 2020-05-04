@@ -177,12 +177,21 @@ declare function GUILD_MEMBER_UPDATE(oldMember: Member, newMember: Member): void
 declare function GUILD_MEMBERS_CHUNK(guild: Guild): void;
 
 /**
- * Sent when a guild role is created.
+ * Sent when a guild role is created
  * @param {Role} role The newly created role
  * @asMemberOf BotEventsHandler
  * @event BotEventsHandler#GUILD_ROLE_CREATE
  */
 declare function GUILD_ROLE_CREATE(role: Role): void;
+
+/**
+ * Sent when a guild role is updated
+ * @param {Role} oldRole The role before being updated
+ * @param {Role} newRole The role after being updated
+ * @asMemberOf BotEventsHandler
+ * @event BotEventsHandler#GUILD_ROLE_UPDATE
+ */
+declare function GUILD_ROLE_UPDATE(oldRole: Role, newRole: Role): void;
 
 export declare interface Events {
   on(event: BotEvents.Ready, listener: typeof READY): this;
@@ -204,6 +213,7 @@ export declare interface Events {
   on(event: BotEvents.GuildMemberUpdate, listener: typeof GUILD_MEMBER_UPDATE): this;
   on(event: BotEvents.GuildMembersChunk, listener: typeof GUILD_MEMBERS_CHUNK): this;
   on(event: BotEvents.GuildRoleCreate, listener: typeof GUILD_ROLE_CREATE): this;
+  on(event: BotEvents.GuildRoleUpdate, listener: typeof GUILD_ROLE_UPDATE): this;
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   on(event: string | symbol, listener: (...args: any) => void): this;
