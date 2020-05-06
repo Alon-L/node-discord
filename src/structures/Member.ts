@@ -66,7 +66,7 @@ class Member extends GuildBaseStruct {
     this.nick = member.nick;
 
     this.roles = new Cluster<Snowflake, Role>(
-      this.guild.roles.filter((_r, id) => member.roles.includes(id)),
+      this.guild.roles.filter((_r, id) => member.roles?.includes(id)),
     );
 
     this.joinedAt = new Timestamp(member.joined_at);

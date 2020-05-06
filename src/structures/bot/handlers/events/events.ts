@@ -12,6 +12,7 @@ import DMChannel from '../../../channels/DMChannel';
 import GuildTextChannel from '../../../channels/GuildTextChannel';
 import Guild from '../../../guild/Guild';
 import GuildUnavailable from '../../../guild/GuildUnavailable';
+import Message from '../../../message/Message';
 
 /**
  * Sent when all shards become ready
@@ -201,6 +202,14 @@ declare function GUILD_ROLE_UPDATE(oldRole: Role, newRole: Role): void;
  */
 declare function GUILD_ROLE_DELETE(role: Role): void;
 
+/**
+ * Sent when a message is created
+ * @param {Message} message
+ * @asMemberOf BotEventsHandler
+ * @event BotEventsHandler#MESSAGE_CREATE
+ */
+declare function MESSAGE_CREATE(message: Message): void;
+
 export declare interface Events {
   on(event: BotEvents.Ready, listener: typeof READY): this;
   on(event: BotEvents.ShardReady, listener: typeof SHARD_READY): this;
@@ -223,6 +232,7 @@ export declare interface Events {
   on(event: BotEvents.GuildRoleCreate, listener: typeof GUILD_ROLE_CREATE): this;
   on(event: BotEvents.GuildRoleUpdate, listener: typeof GUILD_ROLE_UPDATE): this;
   on(event: BotEvents.GuildRoleDelete, listener: typeof GUILD_ROLE_DELETE): this;
+  on(event: BotEvents.MessageCreate, listener: typeof MESSAGE_CREATE): this;
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   on(event: string | symbol, listener: (...args: any) => void): this;

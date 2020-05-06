@@ -6,6 +6,7 @@ import { Snowflake } from '../../types';
 import BaseStruct from '../BaseStruct';
 import Member from '../Member';
 import Role from '../Role';
+import User from '../User';
 import GuildChannel from '../channels/GuildChannel';
 
 interface ChannelMention {
@@ -16,6 +17,7 @@ interface ChannelMention {
 }
 
 interface MentionTypes {
+  users: User[];
   members: Member[];
   roles: Snowflake[];
   channels: ChannelMention[];
@@ -33,6 +35,11 @@ class MessageMentions extends BaseStruct {
    * The {@link Message} associated to these mentions
    */
   public message: Message;
+
+  /**
+   * {@link Cluster} of all {@link User}s mentioned in this message
+   */
+  public users: Cluster<Snowflake, User>;
 
   /**
    * {@link Cluster} of all {@link Member}s mentioned in this message
@@ -54,9 +61,14 @@ class MessageMentions extends BaseStruct {
 
     this.message = message;
 
+    this.users = new Cluster<Snowflake, User>();
     this.members = new Cluster<Snowflake, Member>();
     this.roles = new Cluster<Snowflake, Role>();
     this.channels = new Cluster<Snowflake, GuildChannel>();
+
+    if (mentions.users) {
+      this.users.merge(mentions.users.map(user => [user.id, user]));
+    }
 
     if (mentions.members) {
       this.members.merge(mentions.members.map(member => [member.id, member]));

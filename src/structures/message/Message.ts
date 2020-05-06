@@ -10,6 +10,7 @@ import Member from '../Member';
 import Timestamp from '../Timestamp';
 import User from '../User';
 import Bot from '../bot/Bot';
+import DMChannel from '../channels/DMChannel';
 import GuildTextChannel from '../channels/GuildTextChannel';
 import Guild from '../guild/Guild';
 
@@ -53,7 +54,7 @@ class Message extends BaseStruct {
   /**
    * The channel the message was sent in
    */
-  public channel: GuildTextChannel; // | DMChannel;
+  public channel: GuildTextChannel | DMChannel; // | DMChannel;
 
   /**
    * The author of this message.
@@ -138,7 +139,7 @@ class Message extends BaseStruct {
 
   public flags?: undefined;
 
-  constructor(bot: Bot, message: GatewayStruct, channel: GuildTextChannel /* | DMChannel*/) {
+  constructor(bot: Bot, message: GatewayStruct, channel: GuildTextChannel | DMChannel) {
     super(bot);
 
     if (message.guild_id) {
@@ -153,11 +154,19 @@ class Message extends BaseStruct {
     this.tts = message.tts;
     this.mentionsEveryone = message.mention_everyone;
 
-    console.log(message.mentions);
+    console.log(message.mention_channels);
 
     this.mentions = new MessageMentions(this, {
+      users: message.mentions.map((user: GatewayStruct) => new User(this.bot, user)),
+      // TODO: Try to figure a better way to deal with member mentions
       members: this.guild
-        ? message.mentions.map((member: GatewayStruct) => new Member(this.bot, member, this.guild!))
+        ? message.mentions
+            .map((member: GatewayStruct) =>
+              member.member
+                ? new Member(this.bot, { ...member.member, user: member }, this.guild!)
+                : undefined,
+            )
+            .filter((i: Member | undefined) => i)
         : undefined,
       roles: message.mention_roles,
       channels: message.mention_channels,
