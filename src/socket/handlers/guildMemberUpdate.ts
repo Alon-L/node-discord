@@ -1,7 +1,7 @@
 import Member from '../../structures/Member';
 import Bot from '../../structures/bot/Bot';
 import { Payload } from '../BotSocketShard';
-import { GatewayEvents } from '../constants';
+import { BotEvents, GatewayEvents } from '../constants';
 
 export const run = ({ d }: Payload, bot: Bot): void => {
   const guild = bot.guilds.get(d.guild_id);
@@ -24,7 +24,7 @@ export const run = ({ d }: Payload, bot: Bot): void => {
     guild,
   );
 
-  bot.events.emit(GatewayEvents.GuildMemberUpdate, oldMember, newMember);
+  bot.events.emit(BotEvents.GuildMemberUpdate, oldMember, newMember);
 };
 
 export const name = GatewayEvents.GuildMemberUpdate;

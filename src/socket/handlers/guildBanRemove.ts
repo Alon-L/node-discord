@@ -1,7 +1,7 @@
 import User from '../../structures/User';
 import Bot from '../../structures/bot/Bot';
 import { Payload } from '../BotSocketShard';
-import { GatewayEvents } from '../constants';
+import { BotEvents, GatewayEvents } from '../constants';
 
 export const run = ({ d }: Payload, bot: Bot): void => {
   const guild = bot.guilds.get(d.guild_id);
@@ -12,7 +12,7 @@ export const run = ({ d }: Payload, bot: Bot): void => {
 
   // TODO: Guild bans cluster field. Remove user from that cluster
 
-  bot.events.emit(GatewayEvents.GuildBanRemove, guild, user);
+  bot.events.emit(BotEvents.GuildBanRemove, guild, user);
 };
 
 export const name = GatewayEvents.GuildBanRemove;
