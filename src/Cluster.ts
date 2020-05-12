@@ -79,7 +79,7 @@ class Cluster<K, V> extends Map<K, V> {
    * @param {function(value: V, key: K, cluster: this): boolean} cb Callback function
    * @returns {Cluster<K, V>}
    */
-  public filter(cb: (value: V, key: K, cluster: this) => boolean): Cluster<K, V> {
+  public filter(cb: (value: V, key?: K, cluster?: this) => boolean): Cluster<K, V> {
     const cluster = new Cluster<K, V>();
 
     for (const [key, value] of this) {
