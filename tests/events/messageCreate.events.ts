@@ -20,6 +20,9 @@ bot.connection.connect();
       message.mentions.members,
       message.mentions.users,
       message.content,
+      message.attachments.first?.dimensions,
+      message.embeds,
+      message.type,
     );
   });
 
