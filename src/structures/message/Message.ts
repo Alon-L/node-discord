@@ -19,7 +19,7 @@ import Guild from '../guild/Guild';
  */
 enum MessageTypes {
   Default,
-  ReceipientAdd,
+  RecipientAdd,
   RecipientRemove,
   Call,
   ChannelNameChange,
