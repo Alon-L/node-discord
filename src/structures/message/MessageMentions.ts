@@ -3,25 +3,21 @@
 import Message from './Message';
 import Cluster from '../../Cluster';
 import { Snowflake } from '../../types';
-import BaseStruct from '../BaseStruct';
+import BaseStruct, { GatewayStruct } from '../BaseStruct';
 import Member from '../Member';
 import Role from '../Role';
 import User from '../User';
 import GuildChannel from '../channels/GuildChannel';
 
-interface ChannelMention {
-  id: Snowflake;
-  guild_id: Snowflake;
-  type: number;
-  name: string;
+interface MentionTypes {
+  users: GatewayStruct[];
+  roles: Snowflake[];
+  crosspostedChannels: GatewayStruct[];
 }
 
-interface MentionTypes {
-  users: User[];
-  members: Member[];
-  roles: Snowflake[];
-  channels: ChannelMention[];
-}
+const mentionsRegexp = {
+  channels: new RegExp(/<#(\d{17,19})>/g),
+};
 
 // TODO: Test if this works
 
@@ -51,10 +47,12 @@ class MessageMentions extends BaseStruct {
    */
   public roles: Cluster<Snowflake, Role>;
 
+  public crosspostedChannels: Cluster<Snowflake, GuildChannel>;
+
   /**
-   * {@link Cluster} of all {@link GuildChannel}s mentioned in this message
+   * Cache for all channel mentions found in the message
    */
-  public channels: Cluster<Snowflake, GuildChannel>;
+  private matchedChannels?: Cluster<Snowflake, GuildChannel>;
 
   constructor(message: Message, mentions: Partial<MentionTypes>) {
     super(message.bot);
@@ -64,28 +62,60 @@ class MessageMentions extends BaseStruct {
     this.users = new Cluster<Snowflake, User>();
     this.members = new Cluster<Snowflake, Member>();
     this.roles = new Cluster<Snowflake, Role>();
-    this.channels = new Cluster<Snowflake, GuildChannel>();
+    this.crosspostedChannels = new Cluster<Snowflake, GuildChannel>();
 
     if (mentions.users) {
-      this.users.merge(mentions.users.map(user => [user.id, user]));
+      this.users.merge(mentions.users.map(user => [user.id, new User(this.bot, user)]));
     }
 
-    if (mentions.members) {
-      this.members.merge(mentions.members.map(member => [member.id, member]));
+    // We have to use mentions.users to obtain the members
+    if (mentions.users && this.message.guild) {
+      this.members.merge(
+        mentions.users
+          .filter(user => user.member)
+          .map(user => [
+            user.id,
+            new Member(this.bot, { ...user.member, user }, this.message.guild!),
+          ]),
+      );
     }
 
     if (mentions.roles && this.message.guild) {
-      this.roles.merge(this.message.guild.roles.filter(role => mentions.roles!.includes(role.id)));
+      this.roles.merge(
+        this.message.guild.roles.filter(role => (mentions.roles as Snowflake[]).includes(role.id)),
+      );
     }
 
-    if (mentions.channels && this.message.guild) {
-      this.channels.merge(
+    if (mentions.crosspostedChannels && this.message.guild) {
+      this.crosspostedChannels.merge(
         this.message.guild.channels.filter(channel =>
-          mentions.channels!.some(
+          (mentions.crosspostedChannels as GatewayStruct[]).some(
             mention => mention.guild_id === channel.guild.id && mention.id === channel.id,
           ),
         ),
       );
+    }
+  }
+
+  /**
+   * Fetches or retrieves from cache all channels mentioned in the message
+   * @type {Cluster<Snowflake, GuildChannel> | undefined}
+   */
+  get channels(): Cluster<Snowflake, GuildChannel> | undefined {
+    if (this.matchedChannels) return this.matchedChannels;
+
+    if (this.message.guild) {
+      this.matchedChannels = new Cluster<Snowflake, GuildChannel>();
+
+      let matches;
+      while ((matches = mentionsRegexp.channels.exec(this.message.content))) {
+        const channel = this.message.guild.channels.get(matches[1]);
+        if (channel) {
+          this.matchedChannels.set(channel.id, channel);
+        }
+      }
+
+      return this.matchedChannels;
     }
   }
 }

@@ -10,7 +10,15 @@ bot.connection.connect();
 
 (async function (): Promise<void> {
   bot.events.on(BotEvents.MessageCreate, (message: Message) => {
-    console.log(message.id, message.author.id, message.channel.type, message.mentions.members);
+    console.log(
+      message.id,
+      message.author.id,
+      message.channel.type,
+      message.mentions.channels,
+      message.mentions.channels?.size,
+      message.mentions.channels?.toArrayKeys,
+      message.content,
+    );
   });
 
   await bot.events.wait(BotEvents.Ready);

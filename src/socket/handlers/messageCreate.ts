@@ -17,8 +17,6 @@ export const run = ({ d }: Payload, bot: Bot): void => {
 
   const message = new Message(bot, d, channel);
 
-  console.log(message);
-
   bot.events.emit(BotEvents.MessageCreate, message);
 };
 

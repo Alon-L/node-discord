@@ -154,22 +154,10 @@ class Message extends BaseStruct {
     this.tts = message.tts;
     this.mentionsEveryone = message.mention_everyone;
 
-    console.log(message.mention_channels);
-
     this.mentions = new MessageMentions(this, {
-      users: message.mentions.map((user: GatewayStruct) => new User(this.bot, user)),
-      // TODO: Try to figure a better way to deal with member mentions
-      members: this.guild
-        ? message.mentions
-            .map((member: GatewayStruct) =>
-              member.member
-                ? new Member(this.bot, { ...member.member, user: member }, this.guild!)
-                : undefined,
-            )
-            .filter((i: Member | undefined) => i)
-        : undefined,
+      users: message.mentions,
       roles: message.mention_roles,
-      channels: message.mention_channels,
+      crosspostedChannels: message.mention_channels,
     });
 
     this.attachments = new Cluster<Snowflake, MessageAttachment>(
