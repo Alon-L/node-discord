@@ -42,9 +42,11 @@ class Cluster<K, V> extends Map<K, V> {
 
   /**
    * Get the first value in the {@link Cluster}
-   * @type {V}
+   * @type {V | undefined}
    */
-  public get first(): V {
+  public get first(): V | undefined {
+    if (!this.size) return undefined;
+
     return this.values().next().value;
   }
 
@@ -52,7 +54,9 @@ class Cluster<K, V> extends Map<K, V> {
    * Get he first key in the {@link Cluster}
    * @returns {K}
    */
-  public get firstKey(): K {
+  public get firstKey(): K | undefined {
+    if (!this.size) return undefined;
+
     return this.keys().next().value;
   }
 
@@ -60,7 +64,9 @@ class Cluster<K, V> extends Map<K, V> {
    * Get the last value in the {@link Cluster}
    * @type {V}
    */
-  public get last(): V {
+  public get last(): V | undefined {
+    if (!this.size) return undefined;
+
     return this.toArray[this.size - 1];
   }
 
@@ -68,7 +74,9 @@ class Cluster<K, V> extends Map<K, V> {
    * Get he last key in the {@link Cluster}
    * @returns {K}
    */
-  public get lastKey(): K {
+  public get lastKey(): K | undefined {
+    if (!this.size) return undefined;
+
     return this.toArrayKeys[this.size - 1];
   }
 
