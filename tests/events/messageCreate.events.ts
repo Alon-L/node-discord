@@ -17,6 +17,8 @@ bot.connection.connect();
       message.mentions.channels,
       message.mentions.channels?.size,
       message.mentions.channels?.toArrayKeys,
+      message.mentions.members,
+      message.mentions.users,
       message.content,
     );
   });

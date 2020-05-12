@@ -11,8 +11,6 @@ export const run = ({ d }: Payload, bot: Bot): void => {
     ? (bot.guilds.get(guildId)?.channels.get(channelId) as GuildTextChannel)
     : bot.dms.get(channelId);
 
-  console.log(!!channel);
-
   if (!channel) return;
 
   const message = new Message(bot, d, channel);
