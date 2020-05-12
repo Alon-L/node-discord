@@ -52,7 +52,7 @@ class MessageMentions extends BaseStruct {
   /**
    * Cache for all channel mentions found in the message
    */
-  private matchedChannels?: Cluster<Snowflake, GuildChannel>;
+  private _channels?: Cluster<Snowflake, GuildChannel>;
 
   constructor(message: Message, mentions: Partial<MentionTypes>) {
     super(message.bot);
@@ -102,20 +102,20 @@ class MessageMentions extends BaseStruct {
    * @type {Cluster<Snowflake, GuildChannel> | undefined}
    */
   get channels(): Cluster<Snowflake, GuildChannel> | undefined {
-    if (this.matchedChannels) return this.matchedChannels;
+    if (this._channels) return this._channels;
 
     if (this.message.guild) {
-      this.matchedChannels = new Cluster<Snowflake, GuildChannel>();
+      this._channels = new Cluster<Snowflake, GuildChannel>();
 
       let matches;
       while ((matches = mentionsRegexp.channels.exec(this.message.content))) {
         const channel = this.message.guild.channels.get(matches[1]);
         if (channel) {
-          this.matchedChannels.set(channel.id, channel);
+          this._channels.set(channel.id, channel);
         }
       }
 
-      return this.matchedChannels;
+      return this._channels;
     }
   }
 }
