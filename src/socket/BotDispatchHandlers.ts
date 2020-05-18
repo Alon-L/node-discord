@@ -45,6 +45,7 @@ class BotDispatchHandlers {
    */
   public async registerEvents(): Promise<void> {
     const events = await this.fetchEvents();
+    console.log(events);
 
     for (const { name, run } of events) {
       BotDispatchHandlers.events.set(name, run);

@@ -6,6 +6,7 @@ import { GatewayStruct } from '../BaseStruct';
 import Timestamp from '../Timestamp';
 import User from '../User';
 import Bot from '../bot/Bot';
+import Message from '../message/Message';
 
 /**
  * Represents a private channel between the Bot and a User
@@ -31,6 +32,11 @@ class DMChannel extends Channel implements TextChannel {
    */
   public lastPinTimestamp?: Timestamp;
 
+  /**
+   * Limited Cluster containing all cached messages sent in this channel
+   */
+  public messages: Cluster<Snowflake, Message>;
+
   constructor(bot: Bot, dmChannel: GatewayStruct) {
     super(bot, dmChannel);
 
@@ -41,6 +47,9 @@ class DMChannel extends Channel implements TextChannel {
     );
 
     this.lastPinTimestamp = new Timestamp(dmChannel.last_pin_timestamp);
+
+    // TODO: Turn this limit into a variable inside the bot's options
+    this.messages = new Cluster<Snowflake, Message>(null, 100);
   }
 }
 

@@ -1,10 +1,12 @@
 import GuildChannel from './GuildChannel';
 import TextChannel from './TextChannel';
+import Cluster from '../../Cluster';
 import { Snowflake } from '../../types';
 import { GatewayStruct } from '../BaseStruct';
 import Timestamp from '../Timestamp';
 import Bot from '../bot/Bot';
 import Guild from '../guild/Guild';
+import Message from '../message/Message';
 
 /**
  * Represents a channel found in a guild of type {@link ChannelTypes.GuildText}
@@ -34,6 +36,11 @@ class GuildTextChannel extends GuildChannel implements TextChannel {
    */
   public lastPinTimestamp?: Timestamp;
 
+  /**
+   * Limited Cluster containing all cached messages sent in this channel
+   */
+  public messages: Cluster<Snowflake, Message>;
+
   // Guild parameter used when creating the channel from the Guild constructor
   constructor(bot: Bot, textChannel: GatewayStruct, guild_?: Guild) {
     const guild = bot.guilds.get(textChannel.guild_id) || guild_;
@@ -46,6 +53,9 @@ class GuildTextChannel extends GuildChannel implements TextChannel {
     this.lastMessageId = textChannel.last_message_id;
     this.slowModeTimeout = textChannel.rate_limit_per_user;
     this.lastPinTimestamp = new Timestamp(textChannel.last_pin_timestamp);
+
+    // TODO: Turn this limit into a variable inside the bot's options
+    this.messages = new Cluster<Snowflake, Message>(null, 100);
   }
 }
 

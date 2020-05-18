@@ -23,6 +23,8 @@ bot.connection.connect();
       message.attachments.first?.dimensions,
       message.embeds,
       message.type,
+      message.channel.lastMessageId === message.id,
+      message.channel.messages.lastKey === message.id,
     );
   });
 

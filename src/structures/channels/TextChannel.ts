@@ -1,7 +1,9 @@
 // TODO: Create Channel class and add the type TextBasedChannel = GuildTextChannel | DMChannel with the send.message methods, send.embed, send.files, etc...
 
+import Cluster from '../../Cluster';
 import { Snowflake } from '../../types';
 import Timestamp from '../Timestamp';
+import Message from '../message/Message';
 
 abstract class TextChannel {
   /**
@@ -14,6 +16,11 @@ abstract class TextChannel {
    * Timestamp of when the last pinned message was pinned
    */
   abstract lastPinTimestamp?: Timestamp;
+
+  /**
+   * Limited Cluster containing all cached messages sent in this channel
+   */
+  abstract messages: Cluster<Snowflake, Message>;
 }
 
 export default TextChannel;

@@ -226,6 +226,8 @@ declare function INVITE_DELETE(invite: Invite | PartialInvite): void;
  */
 declare function MESSAGE_CREATE(message: Message): void;
 
+// TODO: MESSAGE_UPDATE event
+
 export declare interface Events {
   on(event: BotEvents.Ready, listener: typeof READY): this;
   on(event: BotEvents.ShardReady, listener: typeof SHARD_READY): this;
