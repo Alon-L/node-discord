@@ -8,6 +8,21 @@
  */
 class Cluster<K, V> extends Map<K, V> {
   /**
+   * The maximum amount of items allowed in this Cluster
+   */
+  public readonly limit: number;
+
+  constructor(entries?: Iterable<readonly [K, V]>, limit?: number) {
+    if (entries) {
+      super(entries);
+    } else {
+      super();
+    }
+
+    this.limit = limit || 0;
+  }
+
+  /**
    * Whether the given argument is a cluster
    * @param {*} cluster Data to check if cluster
    * @returns {boolean}
@@ -38,6 +53,25 @@ class Cluster<K, V> extends Map<K, V> {
    */
   public get toArrayEntries(): [K, V][] {
     return [...this.entries()];
+  }
+
+  /**
+   * Filters the map according to the given callback function, and
+   * returns a new filtered {@link Cluster}.
+   * Equivalent to {@link Array.filter}
+   * @param {function(value: V, key: K, cluster: this): boolean} cb Callback function
+   * @returns {Cluster<K, V>}
+   */
+  public filter(cb: (value: V, key?: K, cluster?: this) => boolean): Cluster<K, V> {
+    const cluster = new Cluster<K, V>();
+
+    for (const [key, value] of this) {
+      if (cb(value, key, this)) {
+        cluster.set(key, value);
+      }
+    }
+
+    return cluster;
   }
 
   /**
@@ -78,25 +112,6 @@ class Cluster<K, V> extends Map<K, V> {
     if (!this.size) return undefined;
 
     return this.toArrayKeys[this.size - 1];
-  }
-
-  /**
-   * Filters the map according to the given callback function, and
-   * returns a new filtered {@link Cluster}.
-   * Equivalent to {@link Array.filter}
-   * @param {function(value: V, key: K, cluster: this): boolean} cb Callback function
-   * @returns {Cluster<K, V>}
-   */
-  public filter(cb: (value: V, key?: K, cluster?: this) => boolean): Cluster<K, V> {
-    const cluster = new Cluster<K, V>();
-
-    for (const [key, value] of this) {
-      if (cb(value, key, this)) {
-        cluster.set(key, value);
-      }
-    }
-
-    return cluster;
   }
 
   /**
