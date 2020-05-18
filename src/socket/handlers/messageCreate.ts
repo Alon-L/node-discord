@@ -15,6 +15,9 @@ export const run = ({ d }: Payload, bot: Bot): void => {
 
   const message = new Message(bot, d, channel);
 
+  // Set the last message ID of the channel to that message
+  channel.lastMessageId = message.id;
+
   bot.events.emit(BotEvents.MessageCreate, message);
 };
 
