@@ -14,7 +14,7 @@ export const run = ({ d }: Payload, bot: Bot, socket: BotSocketShard): void => {
     socket.pendingGuilds.add(guild.id);
   }
 
-  bot.log(bot.guilds);
+  bot.debug(bot.guilds);
 };
 
 export const name = GatewayEvents.Ready;

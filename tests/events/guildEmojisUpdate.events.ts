@@ -14,9 +14,11 @@ bot.connection.connect();
   bot.events.on(
     BotEvents.GuildEmojisUpdate,
     (oldEmojis: Cluster<Snowflake, Emoji>, newEmojis: Cluster<Snowflake, Emoji>) => {
-      console.log(oldEmojis.first.name, newEmojis.first.name);
+      console.log(oldEmojis.first?.name, newEmojis.first?.name);
     },
   );
 
   await bot.events.wait(BotEvents.Ready);
 })();
+
+bot.events.on(BotEvents.Debug, console.log);

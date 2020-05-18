@@ -66,6 +66,7 @@ export enum GatewayEvents {
 export enum BotEvents {
   Ready = 'READY',
   Close = 'CLOSE',
+  Debug = 'DEBUG',
   Resumed = 'RESUMED',
   Reconnect = 'RECONNECT',
   InvalidSession = 'INVALID_SESSION',

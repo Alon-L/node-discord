@@ -14,3 +14,5 @@ bot.connection.connect();
 
   await bot.events.wait(BotEvents.Ready);
 })();
+
+bot.events.on(BotEvents.Debug, console.log);

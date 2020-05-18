@@ -84,6 +84,8 @@ class BotSocketShard {
    * @returns {Promise<void>}
    */
   public async connect(resume = false): Promise<void> {
+    this.bot.debug('Connecting...');
+
     if (this.state === BotSocketShardState.Connecting) return;
     this.state = BotSocketShardState.Connecting;
 
@@ -118,7 +120,7 @@ class BotSocketShard {
 
     const { op, t, d, s } = payload;
 
-    this.bot.log(op, t);
+    this.bot.debug(op, t);
 
     switch (op) {
       case OPCodes.Dispatch:
@@ -189,7 +191,7 @@ class BotSocketShard {
    * @param {GatewayCloseCodes} code Socket close code https://discordapp.com/developers/docs/topics/opcodes-and-status-codes#gateway-gateway-close-event-codes
    */
   public close(code = GatewayCloseCodes.NormalClosure): void {
-    this.bot.log('Closing connection!');
+    this.bot.debug('Closing connection!');
 
     this.state = BotSocketShardState.Terminated;
 
@@ -209,7 +211,7 @@ class BotSocketShard {
   public ready(): void {
     this.state = BotSocketShardState.Ready;
 
-    this.bot.log(
+    this.bot.debug(
       'Ready!',
       this.bot.guilds.toArray.map(i => i.name),
     );
@@ -229,7 +231,7 @@ class BotSocketShard {
    * @param {string} reason The reason for the WebSocket closure
    */
   private async onClose(code: number, reason: string): Promise<void> {
-    this.bot.log('Close', code, reason);
+    this.bot.debug('Close', code, reason);
 
     this.state = BotSocketShardState.Closed;
 
@@ -280,6 +282,7 @@ class BotSocketShard {
    */
   private async handleSessionLimit(sessionLimit: SessionStartLimit): Promise<void> {
     const { remaining, reset_after: resetAfter } = sessionLimit;
+    this.bot.debug(remaining, resetAfter, 'Handle session limit');
     if (remaining === 0) {
       console.error(
         `Maximum number of daily Discord API connections exceeded! You will have to wait ${resetAfter}ms before attempting a new connection`,

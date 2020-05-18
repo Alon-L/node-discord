@@ -4,6 +4,7 @@ import BotConnection from './BotConnection';
 import BotCommandsHandler from './handlers/BotCommandsHandler';
 import BotEventsHandler from './handlers/events/BotEventsHandler';
 import Cluster from '../../Cluster';
+import { BotEvents } from '../../socket/constants';
 import { ShardId, Snowflake } from '../../types';
 import User from '../User';
 import DMChannel from '../channels/DMChannel';
@@ -99,8 +100,8 @@ class Bot {
     this.dms = new Cluster<Snowflake, DMChannel>();
   }
 
-  public log(...messages: unknown[]): void {
-    this.events.emit('LOG', ...messages);
+  public debug(...messages: unknown[]): void {
+    this.events.emit(BotEvents.Debug, ...messages);
   }
 
   public toJSON(): Serializable {
