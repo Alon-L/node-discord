@@ -144,7 +144,7 @@ class Cluster<K, V> extends Map<K, V> {
    * Checks if the Cluster has reached its limit and sets the item using {@link Map.prototype.set}
    * @param {K} key The key to set
    * @param {V} value The value to set
-   * @param {Partial<ClusterSetOptions>} options The options to considerate when reaching a limit
+   * @param {Partial<ClusterSetOptions>} options The options to considerate when reaching the Cluster's limit
    * @returns {this}
    */
   public set(key: K, value: V, options?: Partial<ClusterSetOptions>): this {
