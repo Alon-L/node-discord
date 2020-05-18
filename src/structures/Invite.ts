@@ -4,8 +4,18 @@ import User from './User';
 import Bot from './bot/Bot';
 import GuildChannel from './channels/GuildChannel';
 import Guild from './guild/Guild';
+import { Snowflake } from '../types';
 
 export type InviteCode = string;
+
+/**
+ * Returned from the {@link INVITE_DELETE} event when the invite hasn't been fetched yet.
+ */
+export interface PartialInvite {
+  channelId: Snowflake;
+  guildId?: Snowflake;
+  code: InviteCode;
+}
 
 export interface InviteMax {
   age: number;

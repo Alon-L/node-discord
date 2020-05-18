@@ -3,7 +3,7 @@ import BotSocketShard from '../../../../socket/BotSocketShard';
 import { BotEvents } from '../../../../socket/constants';
 import { Snowflake } from '../../../../types';
 import Emoji from '../../../Emoji';
-import Invite from '../../../Invite';
+import Invite, { PartialInvite } from '../../../Invite';
 import Member from '../../../Member';
 import Role from '../../../Role';
 import Timestamp from '../../../Timestamp';
@@ -203,20 +203,28 @@ declare function GUILD_ROLE_UPDATE(oldRole: Role, newRole: Role): void;
 declare function GUILD_ROLE_DELETE(role: Role): void;
 
 /**
- * Sent when a message is created
- * @param {Message} message The message that has been created
- * @asMemberOf BotEventsHandler
- * @event BotEventsHandler#MESSAGE_CREATE
- */
-declare function MESSAGE_CREATE(message: Message): void;
-
-/**
  * Sent when a new invite to a channel is created.
  * @param {Invite} invite The invite that has been created
  * @asMemberOf BotEventsHandler
  * @event BotEventsHandler#INVITE_CREATE
  */
 declare function INVITE_CREATE(invite: Invite): void;
+
+/**
+ * Sent when an invite is deleted.
+ * @param {Invite | PartialInvite} invite The {@link Invite} that has been deleted. Possibly {@link PartialInvite} if the invite hasn't been fetched yet.
+ * @asMemberOf BotEventsHandler
+ * @event BotEventsHandler#INVITE_DELETE
+ */
+declare function INVITE_DELETE(invite: Invite | PartialInvite): void;
+
+/**
+ * Sent when a message is created
+ * @param {Message} message The message that has been created
+ * @asMemberOf BotEventsHandler
+ * @event BotEventsHandler#MESSAGE_CREATE
+ */
+declare function MESSAGE_CREATE(message: Message): void;
 
 export declare interface Events {
   on(event: BotEvents.Ready, listener: typeof READY): this;
@@ -240,8 +248,9 @@ export declare interface Events {
   on(event: BotEvents.GuildRoleCreate, listener: typeof GUILD_ROLE_CREATE): this;
   on(event: BotEvents.GuildRoleUpdate, listener: typeof GUILD_ROLE_UPDATE): this;
   on(event: BotEvents.GuildRoleDelete, listener: typeof GUILD_ROLE_DELETE): this;
-  on(event: BotEvents.MessageCreate, listener: typeof MESSAGE_CREATE): this;
   on(event: BotEvents.InviteCreate, listener: typeof INVITE_CREATE): this;
+  on(event: BotEvents.InviteDelete, listener: typeof INVITE_DELETE): this;
+  on(event: BotEvents.MessageCreate, listener: typeof MESSAGE_CREATE): this;
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   on(event: string | symbol, listener: (...args: any) => void): this;
