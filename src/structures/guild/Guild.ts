@@ -4,6 +4,7 @@ import { Snowflake } from '../../types';
 import ChannelUtils from '../../utils/ChannelUtils';
 import BaseStruct, { GatewayStruct } from '../BaseStruct';
 import Emoji from '../Emoji';
+import Invite, { InviteCode } from '../Invite';
 import Member from '../Member';
 import Role from '../Role';
 import Bot from '../bot/Bot';
@@ -270,6 +271,8 @@ class Guild extends BaseStruct {
    */
   public updatesChannel?: GuildTextChannel;
 
+  public invites: Cluster<InviteCode, Invite>;
+
   constructor(bot: Bot, guild: GatewayStruct) {
     super(bot);
 
@@ -341,6 +344,8 @@ class Guild extends BaseStruct {
     this.locale = guild.locale;
 
     this.updatesChannel = this.channels.get(guild.public_updates_channel_id) as GuildTextChannel;
+
+    this.invites = new Cluster<InviteCode, Invite>();
   }
 
   public static create(bot: Bot, guild: GatewayStruct): Guild | GuildUnavailable {

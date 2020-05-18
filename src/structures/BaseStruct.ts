@@ -2,6 +2,9 @@ import Bot from './bot/Bot';
 
 import Dict = NodeJS.Dict;
 
+/**
+ * Payload data received from the Discord gateway
+ */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type GatewayStruct = Dict<any>;
 
