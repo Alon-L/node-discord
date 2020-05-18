@@ -99,7 +99,6 @@ class BotSocketShard {
 
     this.ws.on('message', this.onMessage.bind(this));
     this.ws.on('close', this.onClose.bind(this));
-    this.ws.on('open', () => (this.retryTimeout = 0));
 
     this.heartbeats = new BotHeartbeats(this);
 
@@ -210,6 +209,8 @@ class BotSocketShard {
    */
   public ready(): void {
     this.state = BotSocketShardState.Ready;
+
+    this.retryTimeout = 0;
 
     this.bot.debug(
       'Ready!',
