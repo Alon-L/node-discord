@@ -22,9 +22,9 @@ export interface ClusterSetOptions {
  */
 class Cluster<K, V> extends Map<K, V> {
   /**
-   * The maximum amount of items allowed in this Cluster
+   * The maximum number of items allowed in this Cluster
    */
-  public readonly limit: number;
+  public readonly limit?: number;
 
   constructor(entries?: Iterable<readonly [K, V]> | null, limit?: number) {
     if (entries) {
@@ -33,7 +33,7 @@ class Cluster<K, V> extends Map<K, V> {
       super();
     }
 
-    this.limit = limit || 0;
+    this.limit = limit;
   }
 
   /**
@@ -149,7 +149,7 @@ class Cluster<K, V> extends Map<K, V> {
    */
   public set(key: K, value: V, options?: Partial<ClusterSetOptions>): this {
     // If the key already exists, a new item won't be added, thus keeping the size at the limit
-    if (!options?.force && this.limit <= this.size && !this.has(key)) {
+    if (!options?.force && this.limit && this.limit <= this.size && !this.has(key)) {
       if (options?.shift && this.firstKey) {
         this.delete(this.firstKey);
       } else return this;
