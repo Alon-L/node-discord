@@ -12,7 +12,7 @@ class Cluster<K, V> extends Map<K, V> {
    */
   public readonly limit: number;
 
-  constructor(entries?: Iterable<readonly [K, V]>, limit?: number) {
+  constructor(entries?: Iterable<readonly [K, V]> | null, limit?: number) {
     if (entries) {
       super(entries);
     } else {
