@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>MessageEmbedFooter | node-discord</title>
+	<title>PartialInvite | node-discord</title>
 	<meta name="description" content="Documentation for node-discord">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="messageembedfooter.html">MessageEmbedFooter</a>
+					<a href="partialinvite.html">PartialInvite</a>
 				</li>
 			</ul>
-			<h1>Interface MessageEmbedFooter</h1>
+			<h1>Interface PartialInvite</h1>
 		</div>
 	</div>
 </header>
@@ -67,7 +67,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Message embed footer data</p>
+						<p>Returned from the <a href="../classes/boteventshandler.html#invite_delete">INVITE_DELETE</a> event when the invite hasn&#39;t been fetched yet.</p>
 					</div>
 				</div>
 			</section>
@@ -75,7 +75,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">MessageEmbedFooter</span>
+						<span class="target">PartialInvite</span>
 					</li>
 				</ul>
 			</section>
@@ -86,9 +86,9 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="messageembedfooter.html#iconurl" class="tsd-kind-icon">iconURL</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="messageembedfooter.html#proxyiconurl" class="tsd-kind-icon">proxy<wbr>IconURL</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="messageembedfooter.html#text" class="tsd-kind-icon">text</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="partialinvite.html#channelid" class="tsd-kind-icon">channel<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="partialinvite.html#code" class="tsd-kind-icon">code</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="partialinvite.html#guildid" class="tsd-kind-icon">guild<wbr>Id</a></li>
 							</ul>
 						</section>
 					</div>
@@ -97,49 +97,34 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="iconurl" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> iconURL</h3>
-					<div class="tsd-signature tsd-kind-icon">iconURL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<a name="channelid" class="tsd-anchor"></a>
+					<h3>channel<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">channel<wbr>Id<span class="tsd-signature-symbol">:</span> <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/34e316e/src/structures/message/MessageEmbed.ts#L30">src/structures/message/MessageEmbed.ts:30</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/34e316e/src/structures/Invite.ts#L15">src/structures/Invite.ts:15</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>URL of footer icon (only supports http(s) and attachments)</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="proxyiconurl" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> proxy<wbr>IconURL</h3>
-					<div class="tsd-signature tsd-kind-icon">proxy<wbr>IconURL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<a name="code" class="tsd-anchor"></a>
+					<h3>code</h3>
+					<div class="tsd-signature tsd-kind-icon">code<span class="tsd-signature-symbol">:</span> <a href="../globals.html#invitecode" class="tsd-signature-type">InviteCode</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/34e316e/src/structures/message/MessageEmbed.ts#L35">src/structures/message/MessageEmbed.ts:35</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/34e316e/src/structures/Invite.ts#L17">src/structures/Invite.ts:17</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>A proxied URL of footer icon</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="text" class="tsd-anchor"></a>
-					<h3>text</h3>
-					<div class="tsd-signature tsd-kind-icon">text<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="guildid" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> guild<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">guild<wbr>Id<span class="tsd-signature-symbol">:</span> <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/34e316e/src/structures/message/MessageEmbed.ts#L25">src/structures/message/MessageEmbed.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/34e316e/src/structures/Invite.ts#L16">src/structures/Invite.ts:16</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Footer text</p>
-						</div>
-					</div>
 				</section>
 			</section>
 		</div>
@@ -156,16 +141,16 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="messageembedfooter.html" class="tsd-kind-icon">Message<wbr>Embed<wbr>Footer</a>
+						<a href="partialinvite.html" class="tsd-kind-icon">Partial<wbr>Invite</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="messageembedfooter.html#iconurl" class="tsd-kind-icon">iconURL</a>
+								<a href="partialinvite.html#channelid" class="tsd-kind-icon">channel<wbr>Id</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="messageembedfooter.html#proxyiconurl" class="tsd-kind-icon">proxy<wbr>IconURL</a>
+								<a href="partialinvite.html#code" class="tsd-kind-icon">code</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="messageembedfooter.html#text" class="tsd-kind-icon">text</a>
+								<a href="partialinvite.html#guildid" class="tsd-kind-icon">guild<wbr>Id</a>
 							</li>
 						</ul>
 					</li>
