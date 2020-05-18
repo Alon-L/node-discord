@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>GuildLevels | node-discord</title>
+	<title>InviteMax | node-discord</title>
 	<meta name="description" content="Documentation for node-discord">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="guildlevels.html">GuildLevels</a>
+					<a href="invitemax.html">InviteMax</a>
 				</li>
 			</ul>
-			<h1>Interface GuildLevels</h1>
+			<h1>Interface InviteMax</h1>
 		</div>
 	</div>
 </header>
@@ -68,7 +68,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">GuildLevels</span>
+						<span class="target">InviteMax</span>
 					</li>
 				</ul>
 			</section>
@@ -79,10 +79,8 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="guildlevels.html#explicitcontent" class="tsd-kind-icon">explicit<wbr>Content</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="guildlevels.html#mfa" class="tsd-kind-icon">mfa</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="guildlevels.html#notifications" class="tsd-kind-icon">notifications</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="guildlevels.html#verification" class="tsd-kind-icon">verification</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="invitemax.html#age" class="tsd-kind-icon">age</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="invitemax.html#uses" class="tsd-kind-icon">uses</a></li>
 							</ul>
 						</section>
 					</div>
@@ -91,64 +89,24 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="explicitcontent" class="tsd-anchor"></a>
-					<h3>explicit<wbr>Content</h3>
-					<div class="tsd-signature tsd-kind-icon">explicit<wbr>Content<span class="tsd-signature-symbol">:</span> <a href="../enums/explicitcontentlevels.html" class="tsd-signature-type">ExplicitContentLevels</a></div>
+					<a name="age" class="tsd-anchor"></a>
+					<h3>age</h3>
+					<div class="tsd-signature tsd-kind-icon">age<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/f1866eb/src/structures/guild/Guild.ts#L74">src/structures/guild/Guild.ts:74</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/f1866eb/src/structures/Invite.ts#L11">src/structures/Invite.ts:11</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Explicit content filter level</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="mfa" class="tsd-anchor"></a>
-					<h3>mfa</h3>
-					<div class="tsd-signature tsd-kind-icon">mfa<span class="tsd-signature-symbol">:</span> <a href="../enums/mfalevel.html" class="tsd-signature-type">MFALevel</a></div>
+					<a name="uses" class="tsd-anchor"></a>
+					<h3>uses</h3>
+					<div class="tsd-signature tsd-kind-icon">uses<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/f1866eb/src/structures/guild/Guild.ts#L79">src/structures/guild/Guild.ts:79</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/f1866eb/src/structures/Invite.ts#L12">src/structures/Invite.ts:12</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Required MFA level for the guild</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="notifications" class="tsd-anchor"></a>
-					<h3>notifications</h3>
-					<div class="tsd-signature tsd-kind-icon">notifications<span class="tsd-signature-symbol">:</span> <a href="../enums/notificationlevels.html" class="tsd-signature-type">NotificationLevels</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/f1866eb/src/structures/guild/Guild.ts#L69">src/structures/guild/Guild.ts:69</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Default notifications level</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="verification" class="tsd-anchor"></a>
-					<h3>verification</h3>
-					<div class="tsd-signature tsd-kind-icon">verification<span class="tsd-signature-symbol">:</span> <a href="../enums/verificationlevel.html" class="tsd-signature-type">VerificationLevel</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/f1866eb/src/structures/guild/Guild.ts#L64">src/structures/guild/Guild.ts:64</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Verification level required for the guild</p>
-						</div>
-					</div>
 				</section>
 			</section>
 		</div>
@@ -165,19 +123,13 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="guildlevels.html" class="tsd-kind-icon">Guild<wbr>Levels</a>
+						<a href="invitemax.html" class="tsd-kind-icon">Invite<wbr>Max</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="guildlevels.html#explicitcontent" class="tsd-kind-icon">explicit<wbr>Content</a>
+								<a href="invitemax.html#age" class="tsd-kind-icon">age</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="guildlevels.html#mfa" class="tsd-kind-icon">mfa</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="guildlevels.html#notifications" class="tsd-kind-icon">notifications</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="guildlevels.html#verification" class="tsd-kind-icon">verification</a>
+								<a href="invitemax.html#uses" class="tsd-kind-icon">uses</a>
 							</li>
 						</ul>
 					</li>
