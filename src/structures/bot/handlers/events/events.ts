@@ -45,11 +45,10 @@ declare function SHARD_CLOSE(shard: BotSocketShard): void;
  */
 declare function CHANNEL_CREATE(channel: Channel): void;
 
-// TODO: {@link MESSAGE_CREATE} instead of writing MESSAGE_CREATE
 /**
  * Sent when a channel is updated.
  * This is not sent when the field {@link GuildTextChannel.lastMessageId} is altered.
- * To keep track of the lastMessageId changes, you must listen for MESSAGE_CREATE events
+ * To keep track of the lastMessageId changes, you must listen for {@link MESSAGE_CREATE} events
  * @param {Channel} oldChannel The channel before its modification
  * @param {Channel} newChannel The channel after its modification
  * @asMemberOf BotEventsHandler
