@@ -46,3 +46,17 @@ describe('cluster merging', () => {
     expect(cluster.size).toBe(initialSize + cluster2.length + cluster3.length + cluster4.size);
   });
 });
+
+test('cluster limit', () => {
+  const cluster = new Cluster<string, number>(null, 3);
+  cluster.set('1', 1);
+  cluster.set('2', 2);
+  cluster.set('3', 3);
+  cluster.set('4', 4);
+
+  expect(cluster.size).toBe(3);
+
+  cluster.set('5', 5, true);
+
+  expect(cluster.size).toBe(4);
+});

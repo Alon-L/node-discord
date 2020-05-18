@@ -126,6 +126,22 @@ class Cluster<K, V> extends Map<K, V> {
     }
   }
 
+  /**
+   * Checks if the Cluster has reached its limit and sets the item using {@link Map.prototype.set}
+   * @param {K} key The key to set
+   * @param {V} value The value to set
+   * @param {boolean} force Whether or not the item should be set even if the
+   * @returns {this}
+   */
+  public set(key: K, value: V, force?: boolean): this {
+    // If the key already exists, a new item won't be added, thus keeping the size at the limit
+    if (!force && this.limit <= this.size && !this.has(key)) {
+      return this;
+    }
+
+    return super.set(key, value);
+  }
+
   public toJSON(): V[] {
     return this.toArray;
   }
