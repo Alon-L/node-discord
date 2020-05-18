@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>NotificationLevels | node-discord</title>
+	<title>ClusterSetOptions | node-discord</title>
 	<meta name="description" content="Documentation for node-discord">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="notificationlevels.html">NotificationLevels</a>
+					<a href="clustersetoptions.html">ClusterSetOptions</a>
 				</li>
 			</ul>
-			<h1>Enumeration NotificationLevels</h1>
+			<h1>Interface ClusterSetOptions</h1>
 		</div>
 	</div>
 </header>
@@ -67,45 +67,63 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Guild default notification levels</p>
+						<p>A set of options passed to the set method</p>
 					</div>
 				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">ClusterSetOptions</span>
+					</li>
+				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Enumeration members</h3>
+							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="notificationlevels.html#allmessages" class="tsd-kind-icon">All<wbr>Messages</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="notificationlevels.html#onlymentions" class="tsd-kind-icon">Only<wbr>Mentions</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="clustersetoptions.html#force" class="tsd-kind-icon">force</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="clustersetoptions.html#shift" class="tsd-kind-icon">shift</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Enumeration members</h2>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="allmessages" class="tsd-anchor"></a>
-					<h3>All<wbr>Messages</h3>
-					<div class="tsd-signature tsd-kind-icon">All<wbr>Messages<span class="tsd-signature-symbol">:</span></div>
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="force" class="tsd-anchor"></a>
+					<h3>force</h3>
+					<div class="tsd-signature tsd-kind-icon">force<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/d1175d1/src/structures/guild/Guild.ts#L29">src/structures/guild/Guild.ts:29</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/d1175d1/src/Cluster.ts#L8">src/Cluster.ts:8</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Whether or not to add the new item when the Cluster&#39;s limit is reached</p>
+						</div>
+					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="onlymentions" class="tsd-anchor"></a>
-					<h3>Only<wbr>Mentions</h3>
-					<div class="tsd-signature tsd-kind-icon">Only<wbr>Mentions<span class="tsd-signature-symbol">:</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="shift" class="tsd-anchor"></a>
+					<h3>shift</h3>
+					<div class="tsd-signature tsd-kind-icon">shift<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/d1175d1/src/structures/guild/Guild.ts#L30">src/structures/guild/Guild.ts:30</a></li>
+							<li>Defined in <a href="https://github.com/DayColor/node-discord/blob/d1175d1/src/Cluster.ts#L12">src/Cluster.ts:12</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Whether or not to shift the first item in the Cluster when the limit is reached</p>
+						</div>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -121,14 +139,14 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-enum">
-						<a href="notificationlevels.html" class="tsd-kind-icon">Notification<wbr>Levels</a>
+					<li class="current tsd-kind-interface">
+						<a href="clustersetoptions.html" class="tsd-kind-icon">Cluster<wbr>Set<wbr>Options</a>
 						<ul>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="notificationlevels.html#allmessages" class="tsd-kind-icon">All<wbr>Messages</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="clustersetoptions.html#force" class="tsd-kind-icon">force</a>
 							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="notificationlevels.html#onlymentions" class="tsd-kind-icon">Only<wbr>Mentions</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="clustersetoptions.html#shift" class="tsd-kind-icon">shift</a>
 							</li>
 						</ul>
 					</li>
