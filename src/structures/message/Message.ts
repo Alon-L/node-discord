@@ -145,6 +145,7 @@ class Message extends BaseStruct {
     if (message.guild_id) {
       this.guild = this.bot.guilds.get(message.guild_id);
     }
+
     this.channel = channel;
     this.id = message.id;
     this.author = new User(this.bot, message.author);

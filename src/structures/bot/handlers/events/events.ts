@@ -226,7 +226,14 @@ declare function INVITE_DELETE(invite: Invite | PartialInvite): void;
  */
 declare function MESSAGE_CREATE(message: Message): void;
 
-// TODO: MESSAGE_UPDATE event
+/**
+ * Sent when a message is updated
+ * @param {Message | undefined} oldMessage The message before being updated
+ * @param {Message} newMessage The message after being updated
+ * @asMemberOf BotEventsHandler
+ * @event BotEventsHandler#MESSAGE_UPDATE
+ */
+declare function MESSAGE_UPDATE(oldMessage: Message | undefined, newMessage: Message): void;
 
 export declare interface Events {
   on(event: BotEvents.Ready, listener: typeof READY): this;
@@ -253,6 +260,7 @@ export declare interface Events {
   on(event: BotEvents.InviteCreate, listener: typeof INVITE_CREATE): this;
   on(event: BotEvents.InviteDelete, listener: typeof INVITE_DELETE): this;
   on(event: BotEvents.MessageCreate, listener: typeof MESSAGE_CREATE): this;
+  on(event: BotEvents.MessageUpdate, listener: typeof MESSAGE_UPDATE): this;
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   on(event: string | symbol, listener: (...args: any) => void): this;

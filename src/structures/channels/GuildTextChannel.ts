@@ -55,7 +55,7 @@ class GuildTextChannel extends GuildChannel implements TextChannel {
     this.lastPinTimestamp = new Timestamp(textChannel.last_pin_timestamp);
 
     // TODO: Turn this limit into a variable inside the bot's options
-    this.messages = new Cluster<Snowflake, Message>(null, 100);
+    this.messages = new Cluster<Snowflake, Message>(null, 3);
   }
 }
 
