@@ -13,7 +13,7 @@ export type InviteCode = string;
  */
 export interface PartialInvite {
   channelId: Snowflake;
-  guildId?: Snowflake;
+  guild?: Guild;
   code: InviteCode;
 }
 

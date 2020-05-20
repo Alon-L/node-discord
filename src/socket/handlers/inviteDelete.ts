@@ -8,7 +8,7 @@ export const run = ({ d }: Payload, bot: Bot): void => {
 
   const invite: Invite | PartialInvite = guild?.invites.get(d.code) || {
     channelId: d.channel_id,
-    guildId: d.guild_id,
+    guild,
     code: d.code,
   };
 

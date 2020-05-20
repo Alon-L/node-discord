@@ -13,7 +13,7 @@ bot.connection.connect();
     if (invite instanceof Invite) {
       console.log(invite.code, invite.channel?.id, invite.guild?.id);
     } else {
-      console.log(invite.code, invite.channelId, invite.guildId);
+      console.log(invite.code, invite.channelId, invite.guild?.id);
     }
   });
 
