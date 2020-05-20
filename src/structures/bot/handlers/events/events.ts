@@ -13,7 +13,7 @@ import DMChannel from '../../../channels/DMChannel';
 import GuildTextChannel from '../../../channels/GuildTextChannel';
 import Guild from '../../../guild/Guild';
 import GuildUnavailable from '../../../guild/GuildUnavailable';
-import Message from '../../../message/Message';
+import Message, { PartialMessage } from '../../../message/Message';
 
 /**
  * Sent when all shards become ready
@@ -235,6 +235,14 @@ declare function MESSAGE_CREATE(message: Message): void;
  */
 declare function MESSAGE_UPDATE(oldMessage: Message | undefined, newMessage: Message): void;
 
+/**
+ * Sent when a message is deleted
+ * @param {Message | PartialMessage} message The deleted message
+ * @asMemberOf BotEventsHandler
+ * @event BotEventsHandler#MESSAGE_DELETE
+ */
+declare function MESSAGE_DELETE(message: Message | PartialMessage): void;
+
 export declare interface Events {
   on(event: BotEvents.Ready, listener: typeof READY): this;
   on(event: BotEvents.ShardReady, listener: typeof SHARD_READY): this;
@@ -261,6 +269,7 @@ export declare interface Events {
   on(event: BotEvents.InviteDelete, listener: typeof INVITE_DELETE): this;
   on(event: BotEvents.MessageCreate, listener: typeof MESSAGE_CREATE): this;
   on(event: BotEvents.MessageUpdate, listener: typeof MESSAGE_UPDATE): this;
+  on(event: BotEvents.MessageDelete, listener: typeof MESSAGE_DELETE): this;
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   on(event: string | symbol, listener: (...args: any) => void): this;

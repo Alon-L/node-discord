@@ -35,6 +35,12 @@ enum MessageTypes {
   GuildDiscoveryRequalified,
 }
 
+export interface PartialMessage {
+  id: Snowflake;
+  guild?: Guild;
+  channel: GuildTextChannel | DMChannel;
+}
+
 /**
  * Represents a message sent in a {@link TextChannel} within Discord
  * @class
