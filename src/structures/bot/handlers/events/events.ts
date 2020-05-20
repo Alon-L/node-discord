@@ -212,7 +212,7 @@ declare function INVITE_CREATE(invite: Invite): void;
 
 /**
  * Sent when an invite is deleted.
- * @param {Invite | PartialInvite} invite The {@link Invite} that has been deleted. Possibly {@link PartialInvite} if the invite hasn't been fetched yet.
+ * @param {Invite | PartialInvite} invite The {@link Invite} that has been deleted. Possibly {@link PartialInvite} if the invite has not been cached.
  * @asMemberOf BotEventsHandler
  * @event BotEventsHandler#INVITE_DELETE
  */

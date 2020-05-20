@@ -9,7 +9,7 @@ import { Snowflake } from '../types';
 export type InviteCode = string;
 
 /**
- * Returned from the {@link INVITE_DELETE} event when the invite hasn't been fetched yet.
+ * Returned from the {@link INVITE_DELETE} event when the invite has not been cached
  */
 export interface PartialInvite {
   channelId: Snowflake;
