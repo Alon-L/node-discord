@@ -15,7 +15,9 @@ export const run = ({ d }: Payload, bot: Bot): void => {
     // TODO: Change this to match issue #5
     channel.guild.channels.set(channel.id, channel);
   } else if (channel instanceof DMChannel) {
-    bot.dms.set(channel.id, channel);
+    if (!bot.dms.has(channel.id)) {
+      bot.dms.set(channel.id, channel);
+    }
   }
 
   bot.events.emit(BotEvents.ChannelCreate, channel);
