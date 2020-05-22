@@ -1,17 +1,21 @@
-import { GatewayStruct } from './BaseStruct';
+import BaseStruct, { GatewayStruct } from './BaseStruct';
 import Role from './Role';
 import User from './User';
 import Bot from './bot/Bot';
 import Guild from './guild/Guild';
-import GuildBaseStruct from './guild/GuildBaseStruct';
 import Cluster from '../Cluster';
 import { Snowflake } from '../types';
 
-class Emoji extends GuildBaseStruct {
+class Emoji extends BaseStruct {
   /**
    * The ID of the emoji. Possibly null if the emoji class was generated from a reaction standard emoji
    */
   public id: Snowflake | null;
+
+  /**
+   * The guild this emoji was created. Possibly undefined if this is a standard emoji
+   */
+  public guild?: Guild;
 
   /**
    * The name of the emoji. Possibly null in reaction emoji objects
@@ -48,14 +52,16 @@ class Emoji extends GuildBaseStruct {
    */
   public available?: boolean;
 
-  constructor(bot: Bot, emoji: GatewayStruct, guild: Guild) {
-    super(bot, guild);
+  constructor(bot: Bot, emoji: GatewayStruct, guild?: Guild) {
+    super(bot);
 
     this.id = emoji.id;
     this.name = emoji.name;
 
+    this.guild = guild;
+
     this.roles = new Cluster<Snowflake, Role>(
-      this.guild.roles.filter((_r, id) => emoji.roles.includes(id)),
+      this.guild?.roles.filter((_r, id) => emoji.roles.includes(id)),
     );
 
     if (emoji.user) {

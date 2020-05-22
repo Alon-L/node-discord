@@ -3,6 +3,7 @@
 import MessageAttachment from './MessageAttachment';
 import MessageEmbed from './MessageEmbed';
 import MessageMentions from './MessageMentions';
+import MessageReaction from './MessageReaction';
 import Cluster from '../../Cluster';
 import { Snowflake } from '../../types';
 import BaseStruct, { GatewayStruct } from '../BaseStruct';
@@ -115,7 +116,11 @@ class Message extends BaseStruct {
    */
   public embeds: MessageEmbed[];
 
-  // public reactions?: MessageReaction;
+  /**
+   * {@link Cluster} of all {@link MessageReaction} added to this message.
+   * The reactions are mapped by the emoji ID they use.
+   */
+  public reactions: Cluster<Snowflake, MessageReaction>;
 
   /**
    * Used for validating a message was sent
@@ -175,6 +180,18 @@ class Message extends BaseStruct {
     );
 
     this.embeds = message.embeds.map((embed: GatewayStruct) => new MessageEmbed(this, embed));
+
+    this.reactions = new Cluster<Snowflake, MessageReaction>();
+
+    if (message.reactions) {
+      this.reactions.merge(
+        message.reactions.map((reaction: GatewayStruct) => [
+          reaction.emoji.id,
+          new MessageReaction(this, reaction),
+        ]),
+      );
+    }
+
     this.nonce = message.nonce;
     this.pinned = message.pinned;
     this.type = message.type;
