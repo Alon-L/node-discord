@@ -144,9 +144,11 @@ class Cluster<K, V> extends Map<K, V> {
    * Identical to {@link Array.prototype.map}
    * @param {function(value: V, key: K, cluster: this): V} cb Callback function. The returned value is added to the new Cluster
    * @returns {Cluster<K, V>}
+   * @template K, V
+   * @template R - is the type of the values the new Cluster will contain
    */
-  public map(cb: (value: V, key?: K, cluster?: this) => V): Cluster<K, V> {
-    const cluster = new Cluster<K, V>();
+  public map<R>(cb: (value: V, key?: K, cluster?: this) => R): Cluster<K, R> {
+    const cluster = new Cluster<K, R>();
 
     for (const [key, value] of this) {
       cluster.set(key, cb(value, key, this));
