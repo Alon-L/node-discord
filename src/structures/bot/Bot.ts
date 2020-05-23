@@ -74,6 +74,11 @@ class Bot {
    */
   public dms: Cluster<Snowflake, DMChannel>;
 
+  /**
+   * {@link Cluster} of all {@link User}s found in all guilds the Bot is part of
+   */
+  public users: Cluster<Snowflake, User>;
+
   constructor(token: string) {
     this.token = token;
 
@@ -98,6 +103,8 @@ class Bot {
     this.unavailableGuilds = new Cluster<Snowflake, GuildUnavailable>();
 
     this.dms = new Cluster<Snowflake, DMChannel>();
+
+    this.users = new Cluster<Snowflake, User>();
   }
 
   public debug(...messages: unknown[]): void {

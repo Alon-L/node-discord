@@ -7,6 +7,7 @@ import Emoji from '../Emoji';
 import Invite, { InviteCode } from '../Invite';
 import Member from '../Member';
 import Role from '../Role';
+import User from '../User';
 import Bot from '../bot/Bot';
 import GuildChannel from '../channels/GuildChannel';
 import GuildTextChannel from '../channels/GuildTextChannel';
@@ -295,6 +296,11 @@ class Guild extends BaseStruct {
         member.user.id,
         new Member(bot, member, this),
       ]),
+    );
+
+    // Add all Guild members to the Bot's users Cluster
+    this.bot.users.merge(
+      new Cluster<Snowflake, User>(this.members.map<User>((member: Member) => member.user!)),
     );
 
     this.name = guild.name;

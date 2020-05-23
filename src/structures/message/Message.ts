@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
-
 import MessageAttachment from './MessageAttachment';
 import MessageEmbed from './MessageEmbed';
 import MessageMentions from './MessageMentions';
@@ -118,9 +116,9 @@ class Message extends BaseStruct {
 
   /**
    * {@link Cluster} of all {@link MessageReaction} added to this message.
-   * The reactions are mapped by the emoji ID they use.
+   * The reactions are mapped by the emoji name or emoji ID.
    */
-  public reactions: Cluster<Snowflake, MessageReaction>;
+  public reactions: Cluster<string, MessageReaction>;
 
   /**
    * Used for validating a message was sent

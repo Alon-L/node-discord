@@ -42,8 +42,8 @@ class MessageReaction extends BaseStruct {
 
     this.message = message;
 
-    this.count = reaction.count;
-    this.botReacted = reaction.me;
+    this.count = reaction.count || 0;
+    this.botReacted = reaction.me || false;
 
     this.users = new Cluster<Snowflake, User>();
     this.members = new Cluster<Snowflake, Member>();

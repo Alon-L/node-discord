@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
-
 import Message from './Message';
 import Cluster from '../../Cluster';
 import { Snowflake } from '../../types';

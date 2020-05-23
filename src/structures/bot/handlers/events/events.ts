@@ -14,6 +14,7 @@ import GuildTextChannel from '../../../channels/GuildTextChannel';
 import Guild from '../../../guild/Guild';
 import GuildUnavailable from '../../../guild/GuildUnavailable';
 import Message, { PartialMessage } from '../../../message/Message';
+import MessageReaction from '../../../message/MessageReaction';
 
 /**
  * Sent when all shards become ready
@@ -243,6 +244,15 @@ declare function MESSAGE_UPDATE(oldMessage: Message | undefined, newMessage: Mes
  */
 declare function MESSAGE_DELETE(message: Message | PartialMessage): void;
 
+/**
+ * Sent when a user adds a reaction to a message.
+ * @param {MessageReaction} reaction The reaction the user has added to the message
+ * @param {Member | User} user The user that added the reaction
+ * @asMemberOf BotEventsHandler
+ * @event BotEventsHandler#MESSAGE_REACTION_ADD
+ */
+declare function MESSAGE_REACTION_ADD(reaction: MessageReaction, user: Member | User): void;
+
 export declare interface Events {
   on(event: BotEvents.Ready, listener: typeof READY): this;
   on(event: BotEvents.ShardReady, listener: typeof SHARD_READY): this;
@@ -270,6 +280,7 @@ export declare interface Events {
   on(event: BotEvents.MessageCreate, listener: typeof MESSAGE_CREATE): this;
   on(event: BotEvents.MessageUpdate, listener: typeof MESSAGE_UPDATE): this;
   on(event: BotEvents.MessageDelete, listener: typeof MESSAGE_DELETE): this;
+  on(event: BotEvents.MessageReactionAdd, listener: typeof MESSAGE_REACTION_ADD): this;
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   on(event: string | symbol, listener: (...args: any) => void): this;

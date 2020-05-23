@@ -84,6 +84,7 @@
         "props": false
       }
     ],
-    "no-plusplus": "off"
+    "no-plusplus": "off",
+    "@typescript-eslint/no-non-null-assertion": "off"
   }
 }
