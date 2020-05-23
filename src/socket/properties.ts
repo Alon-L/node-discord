@@ -14,5 +14,5 @@ export const identify = {
 };
 
 export default {
-  baseURL: 'https://discordapp.com/api/v6',
+  baseURL: 'https://discord.com/api/v6',
 };
