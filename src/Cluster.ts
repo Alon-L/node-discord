@@ -70,10 +70,9 @@ class Cluster<K, V> extends Map<K, V> {
   }
 
   /**
-   * Filters the map according to the given callback function, and
-   * returns a new filtered {@link Cluster}.
-   * Equivalent to {@link Array.filter}
-   * @param {function(value: V, key: K, cluster: this): boolean} cb Callback function
+   * Creates a new Cluster with all elements that pass the test implemented by the provided callback.
+   * Identical to {@link Array.prototype.filter}
+   * @param {function(value: V, key: K, cluster: this): boolean} cb Callback function. Return true to keep the element, false otherwise
    * @returns {Cluster<K, V>}
    */
   public filter(cb: (value: V, key?: K, cluster?: this) => boolean): Cluster<K, V> {
@@ -138,6 +137,22 @@ class Cluster<K, V> extends Map<K, V> {
         this.set(key, value);
       }
     }
+  }
+
+  /**
+   * Create a new Cluster populated with the results of calling a provided callback on every element in the calling Cluster.
+   * Identical to {@link Array.prototype.map}
+   * @param {function(value: V, key: K, cluster: this): V} cb Callback function. The returned value is added to the new Cluster
+   * @returns {Cluster<K, V>}
+   */
+  public map(cb: (value: V, key?: K, cluster?: this) => V): Cluster<K, V> {
+    const cluster = new Cluster<K, V>();
+
+    for (const [key, value] of this) {
+      cluster.set(key, cb(value, key, this));
+    }
+
+    return cluster;
   }
 
   /**
