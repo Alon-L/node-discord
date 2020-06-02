@@ -251,7 +251,22 @@ declare function MESSAGE_DELETE(message: Message | PartialMessage): void;
  * @asMemberOf BotEventsHandler
  * @event BotEventsHandler#MESSAGE_REACTION_ADD
  */
-declare function MESSAGE_REACTION_ADD(reaction: MessageReaction, user: Member | User): void;
+declare function MESSAGE_REACTION_ADD(
+  reaction: MessageReaction,
+  user: Member | User | undefined,
+): void;
+
+/**
+ * Sent when a user removes a reaction from a message.
+ * @param {MessageReaction} reaction The reaction the user has removed from the message
+ * @param {Member | User | undefined} user The user that removed the reaction
+ * @asMemberOf BotEventsHandler
+ * @event BotEventsHandler#MESSAGE_REACTION_REMOVE
+ */
+declare function MESSAGE_REACTION_REMOVE(
+  reaction: MessageReaction,
+  user: Member | User | undefined,
+): void;
 
 export declare interface Events {
   on(event: BotEvents.Ready, listener: typeof READY): this;
@@ -281,6 +296,7 @@ export declare interface Events {
   on(event: BotEvents.MessageUpdate, listener: typeof MESSAGE_UPDATE): this;
   on(event: BotEvents.MessageDelete, listener: typeof MESSAGE_DELETE): this;
   on(event: BotEvents.MessageReactionAdd, listener: typeof MESSAGE_REACTION_ADD): this;
+  on(event: BotEvents.MessageReactionRemove, listener: typeof MESSAGE_REACTION_REMOVE): this;
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   on(event: string | symbol, listener: (...args: any) => void): this;
