@@ -11,7 +11,7 @@ export const run = ({ d }: Payload, bot: Bot): void => {
 
   const emoji = new Emoji(bot, d.emoji);
 
-  const identifier = emoji.id || emoji.name;
+  const { identifier } = emoji;
   if (!identifier) return;
 
   const guild = bot.guilds.get(guildId);

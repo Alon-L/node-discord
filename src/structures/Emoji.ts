@@ -73,6 +73,10 @@ class Emoji extends BaseStruct {
     this.animated = emoji.animated || false;
     this.available = emoji.available;
   }
+
+  public get identifier(): string | null {
+    return this.id || this.name;
+  }
 }
 
 export default Emoji;
