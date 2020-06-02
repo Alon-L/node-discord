@@ -268,6 +268,14 @@ declare function MESSAGE_REACTION_REMOVE(
   user: Member | User | undefined,
 ): void;
 
+/**
+ * Sent when a user explicitly removes all reactions from a message.
+ * @param {Message} message The message of which reactions were removed
+ * @asMemberOf BotEventsHandler
+ * @event BotEventsHandler#MESSAGE_REACTION_REMOVE_ALL
+ */
+declare function MESSAGE_REACTION_REMOVE_ALL(message: Message): void;
+
 export declare interface Events {
   on(event: BotEvents.Ready, listener: typeof READY): this;
   on(event: BotEvents.ShardReady, listener: typeof SHARD_READY): this;
@@ -297,6 +305,7 @@ export declare interface Events {
   on(event: BotEvents.MessageDelete, listener: typeof MESSAGE_DELETE): this;
   on(event: BotEvents.MessageReactionAdd, listener: typeof MESSAGE_REACTION_ADD): this;
   on(event: BotEvents.MessageReactionRemove, listener: typeof MESSAGE_REACTION_REMOVE): this;
+  on(event: BotEvents.MessageReactionRemoveAll, listener: typeof MESSAGE_REACTION_REMOVE_ALL): this;
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   on(event: string | symbol, listener: (...args: any) => void): this;
