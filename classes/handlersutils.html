@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Command | node-discord</title>
+	<title>HandlersUtils | node-discord</title>
 	<meta name="description" content="Documentation for node-discord">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,21 +54,33 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="command.html">Command</a>
+					<a href="handlersutils.html">HandlersUtils</a>
 				</li>
 			</ul>
-			<h1>Interface Command</h1>
+			<h1>Class HandlersUtils</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Main class for all util methods for socket event handlers.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Command</span>
+						<span class="target">HandlersUtils</span>
+						<ul class="tsd-hierarchy">
+							<li>
+								<a href="reactionhandlersutils.html" class="tsd-signature-type">ReactionHandlersUtils</a>
+							</li>
+						</ul>
 					</li>
 				</ul>
 			</section>
@@ -77,36 +89,41 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Properties</h3>
+							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="command.html#execute" class="tsd-kind-icon">execute</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="command.html#name" class="tsd-kind-icon">name</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="handlersutils.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="execute" class="tsd-anchor"></a>
-					<h3>execute</h3>
-					<div class="tsd-signature tsd-kind-icon">execute<span class="tsd-signature-symbol">:</span> <a href="../globals.html#commandfunction" class="tsd-signature-type">CommandFunction</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/72588db/src/types.ts#L31">src/types.ts:31</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="name" class="tsd-anchor"></a>
-					<h3>name</h3>
-					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/72588db/src/types.ts#L30">src/types.ts:30</a></li>
-						</ul>
-					</aside>
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Handlers<wbr>Utils<span class="tsd-signature-symbol">(</span>bot<span class="tsd-signature-symbol">: </span><a href="bot.html" class="tsd-signature-type">Bot</a>, data<span class="tsd-signature-symbol">: </span><a href="../globals.html#payloaddata" class="tsd-signature-type">PayloadData</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="handlersutils.html" class="tsd-signature-type">HandlersUtils</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/72588db/src/utils/handlers/HandlersUtils.ts#L17">src/utils/handlers/HandlersUtils.ts:17</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>bot: <a href="bot.html" class="tsd-signature-type">Bot</a></h5>
+								</li>
+								<li>
+									<h5>data: <a href="../globals.html#payloaddata" class="tsd-signature-type">PayloadData</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="handlersutils.html" class="tsd-signature-type">HandlersUtils</a></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -122,14 +139,11 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface">
-						<a href="command.html" class="tsd-kind-icon">Command</a>
+					<li class="current tsd-kind-class">
+						<a href="handlersutils.html" class="tsd-kind-icon">Handlers<wbr>Utils</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="command.html#execute" class="tsd-kind-icon">execute</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="command.html#name" class="tsd-kind-icon">name</a>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="handlersutils.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 						</ul>
 					</li>

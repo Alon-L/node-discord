@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>BotConnection | node-discord</title>
+	<title>ReactionHandlersUtils | node-discord</title>
 	<meta name="description" content="Documentation for node-discord">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="botconnection.html">BotConnection</a>
+					<a href="reactionhandlersutils.html">ReactionHandlersUtils</a>
 				</li>
 			</ul>
-			<h1>Class BotConnection</h1>
+			<h1>Class ReactionHandlersUtils</h1>
 		</div>
 	</div>
 </header>
@@ -67,7 +67,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Responsible for the creation and closure of the WebSocket connection to the Discord API gateway</p>
+						<p>Provides util methods for all reactions-related handlers</p>
 					</div>
 				</div>
 			</section>
@@ -75,7 +75,12 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">BotConnection</span>
+						<a href="handlersutils.html" class="tsd-signature-type">HandlersUtils</a>
+						<ul class="tsd-hierarchy">
+							<li>
+								<span class="target">ReactionHandlersUtils</span>
+							</li>
+						</ul>
 					</li>
 				</ul>
 			</section>
@@ -83,35 +88,36 @@
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
-						<section class="tsd-index-section ">
+						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="botconnection.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><a href="reactionhandlersutils.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
-							<h3>Methods</h3>
+							<h3>Accessors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botconnection.html#connect" class="tsd-kind-icon">connect</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botconnection.html#disconnect" class="tsd-kind-icon">disconnect</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="reactionhandlersutils.html#emoji" class="tsd-kind-icon">emoji</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="reactionhandlersutils.html#message" class="tsd-kind-icon">message</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group ">
+			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
 				<h2>Constructors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
-					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Bot<wbr>Connection<span class="tsd-signature-symbol">(</span>bot<span class="tsd-signature-symbol">: </span><a href="bot.html" class="tsd-signature-type">Bot</a>, token<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="botconnection.html" class="tsd-signature-type">BotConnection</a></li>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Reaction<wbr>Handlers<wbr>Utils<span class="tsd-signature-symbol">(</span>bot<span class="tsd-signature-symbol">: </span><a href="bot.html" class="tsd-signature-type">Bot</a>, data<span class="tsd-signature-symbol">: </span><a href="../globals.html#payloaddata" class="tsd-signature-type">PayloadData</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="reactionhandlersutils.html" class="tsd-signature-type">ReactionHandlersUtils</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Inherited from <a href="handlersutils.html">HandlersUtils</a>.<a href="handlersutils.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/72588db/src/structures/bot/BotConnection.ts#L19">src/structures/bot/BotConnection.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/72588db/src/utils/handlers/HandlersUtils.ts#L17">src/utils/handlers/HandlersUtils.ts:17</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -120,66 +126,57 @@
 									<h5>bot: <a href="bot.html" class="tsd-signature-type">Bot</a></h5>
 								</li>
 								<li>
-									<h5>token: <span class="tsd-signature-type">string</span></h5>
+									<h5>data: <a href="../globals.html#payloaddata" class="tsd-signature-type">PayloadData</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="botconnection.html" class="tsd-signature-type">BotConnection</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="reactionhandlersutils.html" class="tsd-signature-type">ReactionHandlersUtils</a></h4>
 						</li>
 					</ul>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="connect" class="tsd-anchor"></a>
-					<h3>connect</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">connect<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+				<h2>Accessors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+					<a name="emoji" class="tsd-anchor"></a>
+					<h3>emoji</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> emoji<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="emoji.html" class="tsd-signature-type">Emoji</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/72588db/src/structures/bot/BotConnection.ts#L31">src/structures/bot/BotConnection.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/72588db/src/utils/handlers/ReactionHandlersUtils.ts#L15">src/utils/handlers/ReactionHandlersUtils.ts:15</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Creates a new bot connection</p>
+									<p>Returns the <a href="emoji.html">Emoji</a> received from the event data</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="emoji.html" class="tsd-signature-type">Emoji</a></h4>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="disconnect" class="tsd-anchor"></a>
-					<h3>disconnect</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">disconnect<span class="tsd-signature-symbol">(</span>code<span class="tsd-signature-symbol">?: </span><a href="../enums/gatewayclosecodes.html" class="tsd-signature-type">GatewayCloseCodes</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+					<a name="message" class="tsd-anchor"></a>
+					<h3>message</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> message<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="message.html" class="tsd-signature-type">Message</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/72588db/src/structures/bot/BotConnection.ts#L40">src/structures/bot/BotConnection.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/72588db/src/utils/handlers/ReactionHandlersUtils.ts#L23">src/utils/handlers/ReactionHandlersUtils.ts:23</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Closes the currently running connection</p>
+									<p>Returns the message extracted from the event data</p>
 								</div>
 							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> code: <a href="../enums/gatewayclosecodes.html" class="tsd-signature-type">GatewayCloseCodes</a><span class="tsd-signature-symbol"> = GatewayCloseCodes.ManualClosure</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>WebSocket close code</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="message.html" class="tsd-signature-type">Message</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -198,16 +195,16 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="botconnection.html" class="tsd-kind-icon">Bot<wbr>Connection</a>
+						<a href="reactionhandlersutils.html" class="tsd-kind-icon">Reaction<wbr>Handlers<wbr>Utils</a>
 						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="botconnection.html#constructor" class="tsd-kind-icon">constructor</a>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
+								<a href="reactionhandlersutils.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="botconnection.html#connect" class="tsd-kind-icon">connect</a>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+								<a href="reactionhandlersutils.html#emoji" class="tsd-kind-icon">emoji</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="botconnection.html#disconnect" class="tsd-kind-icon">disconnect</a>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+								<a href="reactionhandlersutils.html#message" class="tsd-kind-icon">message</a>
 							</li>
 						</ul>
 					</li>
