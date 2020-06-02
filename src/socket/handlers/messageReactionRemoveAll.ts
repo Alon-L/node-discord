@@ -1,21 +1,12 @@
 import Bot from '../../structures/bot/Bot';
-import GuildTextChannel from '../../structures/channels/GuildTextChannel';
+import ReactionHandlersUtils from '../../utils/handlers/ReactionHandlersUtils';
 import { Payload } from '../BotSocketShard';
 import { GatewayEvents, BotEvents } from '../constants';
 
 export const run = ({ d }: Payload, bot: Bot): void => {
-  const { guild_id: guildId, channel_id: channelId, message_id: messageId } = d;
+  const handlersUtils = new ReactionHandlersUtils(bot, d);
 
-  const guild = bot.guilds.get(guildId);
-
-  const channel = guild
-    ? (guild.channels.get(channelId) as GuildTextChannel)
-    : bot.dms.get(channelId);
-
-  if (!channel) return;
-
-  // TODO: Fetch message if not found in the messages cache using channel.fetch.message()
-  const message = channel.messages.get(messageId);
+  const { message } = handlersUtils;
 
   if (!message) return;
 

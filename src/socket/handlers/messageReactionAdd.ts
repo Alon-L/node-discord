@@ -1,31 +1,23 @@
-import Emoji from '../../structures/Emoji';
 import Member from '../../structures/Member';
 import Bot from '../../structures/bot/Bot';
-import GuildTextChannel from '../../structures/channels/GuildTextChannel';
 import MessageReaction from '../../structures/message/MessageReaction';
+import ReactionHandlersUtils from '../../utils/handlers/ReactionHandlersUtils';
 import { Payload } from '../BotSocketShard';
 import { GatewayEvents, BotEvents } from '../constants';
 
 export const run = ({ d }: Payload, bot: Bot): void => {
-  const { guild_id: guildId, channel_id: channelId, message_id: messageId, user_id: userId } = d;
+  const { user_id: userId } = d;
 
-  const emoji = new Emoji(bot, d.emoji);
+  const handlersUtils = new ReactionHandlersUtils(bot, d);
 
-  const { identifier } = emoji;
-  if (!identifier) return;
-
-  const guild = bot.guilds.get(guildId);
-
-  const channel = guild
-    ? (guild.channels.get(channelId) as GuildTextChannel)
-    : bot.dms.get(channelId);
-
-  if (!channel) return;
-
-  // TODO: Fetch message if not found in the messages cache using channel.fetch.message()
-  const message = channel.messages.get(messageId);
+  const { emoji, message } = handlersUtils;
 
   if (!message) return;
+
+  const { guild } = message;
+  const { identifier } = emoji;
+
+  if (!identifier) return;
 
   // Set the reaction object for this Emoji if one hasn't been set before
   if (!message.reactions.has(identifier)) {
