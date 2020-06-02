@@ -11,9 +11,12 @@ const bot = new Bot(config.token);
 bot.connection.connect();
 
 (async function (): Promise<void> {
-  bot.events.on(BotEvents.MessageReactionAdd, (reaction: MessageReaction, user: Member | User) => {
-    console.log(reaction.emoji.name, user.id, reaction.message.reactions.toArrayKeys);
-  });
+  bot.events.on(
+    BotEvents.MessageReactionAdd,
+    (reaction: MessageReaction, user: Member | User | undefined) => {
+      console.log(reaction.emoji.name, user?.id, reaction.message.reactions.toArrayKeys);
+    },
+  );
 
   await bot.events.wait(BotEvents.Ready);
 })();

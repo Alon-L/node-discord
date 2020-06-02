@@ -28,7 +28,7 @@ export const run = ({ d }: Payload, bot: Bot): void => {
   if (!message) return;
 
   // Set the reaction object for this Emoji if one hasn't been set before
-  if (!message.reactions.has(d.emoji.id)) {
+  if (!message.reactions.has(identifier)) {
     message.reactions.set(
       identifier,
       new MessageReaction(message, {
@@ -44,6 +44,7 @@ export const run = ({ d }: Payload, bot: Bot): void => {
   reaction.count++;
 
   const user = bot.users.get(userId);
+  const member = d.member && guild ? new Member(bot, d.member, guild) : undefined;
 
   // Add the user to the Cluster of users who reacted with this reaction
   if (user) {
@@ -51,7 +52,6 @@ export const run = ({ d }: Payload, bot: Bot): void => {
   }
 
   // Add the member to the Cluster of members who reacted with this reaction
-  const member = d.member && guild ? new Member(bot, d.member, guild) : undefined;
   if (member) {
     reaction.members.set(member.id, member);
   }
