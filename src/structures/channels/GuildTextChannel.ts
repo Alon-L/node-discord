@@ -42,11 +42,7 @@ class GuildTextChannel extends GuildChannel implements TextChannel {
   public messages: Cluster<Snowflake, Message>;
 
   // Guild parameter used when creating the channel from the Guild constructor
-  constructor(bot: Bot, textChannel: GatewayStruct, guild_?: Guild) {
-    const guild = bot.guilds.get(textChannel.guild_id) || guild_;
-
-    if (!guild) throw new Error('Invalid text channel guild');
-
+  constructor(bot: Bot, textChannel: GatewayStruct, guild: Guild) {
     super(bot, textChannel, guild);
 
     this.nsfw = textChannel.nsfw || false;

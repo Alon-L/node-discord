@@ -56,7 +56,7 @@ declare function CHANNEL_CREATE(channel: Channel): void;
  * @asMemberOf BotEventsHandler
  * @event BotEventsHandler#CHANNEL_UPDATE
  */
-declare function CHANNEL_UPDATE(oldChannel: Channel, newChannel: Channel): void;
+declare function CHANNEL_UPDATE(oldChannel: Channel | undefined, newChannel: Channel): void;
 
 /**
  * Sent when a channel is deleted
