@@ -8,11 +8,8 @@ export const run = ({ d }: Payload, bot: Bot): void => {
 
   const newGuild = Guild.create(bot, d);
 
-  if (newGuild instanceof Guild) {
-    bot.guilds.set(newGuild.id, newGuild);
-  } else {
-    bot.unavailableGuilds.set(newGuild.id, newGuild);
-  }
+  // Cache the updated guild
+  Guild.cache(bot, newGuild);
 
   bot.events.emit(BotEvents.GuildUpdate, oldGuild, newGuild);
 };
