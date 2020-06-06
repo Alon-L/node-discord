@@ -5,17 +5,19 @@ import { Payload } from '../BotSocketShard';
 import { BotEvents, GatewayEvents } from '../constants';
 
 export const run = ({ d }: Payload, bot: Bot): void => {
-  if (d.not_found) throw new Error('An invalid ID was passed to the Guild Members request');
+  const { not_found: notFound, guild_id: guildId, members, presences } = d;
 
-  const guild = bot.guilds.get(d.guild_id);
+  if (notFound) throw new Error('An invalid ID was passed to the Guild Members request');
+
+  const guild = bot.guilds.get(guildId);
 
   if (!guild) return;
 
   guild.members.merge(
-    d.members.map((member: GatewayStruct) => [member.user.id, new Member(bot, member, guild)]),
+    members.map((member: GatewayStruct) => [member.user.id, new Member(bot, member, guild)]),
   );
 
-  if (d.presences) {
+  if (presences) {
     // TODO: Do something with the presences
   }
 

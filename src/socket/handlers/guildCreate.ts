@@ -4,7 +4,9 @@ import BotSocketShard, { BotSocketShardState, Payload } from '../BotSocketShard'
 import { BotEvents, GatewayEvents } from '../constants';
 
 export const run = ({ d }: Payload, bot: Bot, socket: BotSocketShard): void => {
-  socket.sessionId = d.session_id;
+  const { session_id: sessionId } = d;
+
+  socket.sessionId = sessionId;
 
   const guild = Guild.create(bot, d);
 

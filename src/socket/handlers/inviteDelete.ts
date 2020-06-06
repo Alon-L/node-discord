@@ -4,16 +4,18 @@ import { Payload } from '../BotSocketShard';
 import { BotEvents, GatewayEvents } from '../constants';
 
 export const run = ({ d }: Payload, bot: Bot): void => {
-  const guild = bot.guilds.get(d.guild_id);
+  const { guild_id: guildId, channel_id: channelId, code } = d;
 
-  const invite: Invite | PartialInvite = guild?.invites.get(d.code) || {
-    channelId: d.channel_id,
+  const guild = bot.guilds.get(guildId);
+
+  const invite: Invite | PartialInvite = guild?.invites.get(code) || {
+    channelId: channelId,
     guild,
-    code: d.code,
+    code,
   };
 
   // Delete the invite from the guild invites cluster
-  guild?.invites.delete(d.code);
+  guild?.invites.delete(code);
 
   bot.events.emit(BotEvents.InviteDelete, invite);
 };

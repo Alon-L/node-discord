@@ -3,7 +3,9 @@ import { Payload } from '../BotSocketShard';
 import { BotEvents, GatewayEvents } from '../constants';
 
 export const run = ({ d }: Payload, bot: Bot): void => {
-  const guild = bot.guilds.get(d.guild_id);
+  const { guild_id: guildId } = d;
+
+  const guild = bot.guilds.get(guildId);
 
   if (!guild) return;
 
