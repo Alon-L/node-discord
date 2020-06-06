@@ -6,14 +6,10 @@ import { BotEvents, GatewayEvents } from '../constants';
 export const run = ({ d }: Payload, bot: Bot): void => {
   const newChannel = ChannelUtils.create(bot, d);
 
-  ChannelUtils.cache(bot, newChannel);
-
   const oldChannel = ChannelUtils.find(bot, d.guild_id, d.id);
 
-  if (!oldChannel) {
-    // Cache the new channel if the old one wasn't found
-    ChannelUtils.cache(bot, newChannel, true);
-  }
+  // Cache the new channel instead of the old one
+  ChannelUtils.cache(bot, newChannel, true);
 
   bot.events.emit(BotEvents.ChannelUpdate, oldChannel, newChannel);
 };
