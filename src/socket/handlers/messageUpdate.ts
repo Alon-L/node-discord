@@ -1,15 +1,13 @@
 import Bot from '../../structures/bot/Bot';
-import GuildTextChannel from '../../structures/channels/GuildTextChannel';
 import Message from '../../structures/message/Message';
+import ChannelUtils from '../../utils/ChannelUtils';
 import { Payload } from '../BotSocketShard';
 import { BotEvents, GatewayEvents } from '../constants';
 
 export const run = ({ d }: Payload, bot: Bot): void => {
   const { guild_id: guildId, channel_id: channelId } = d;
 
-  const channel = guildId
-    ? (bot.guilds.get(guildId)?.channels.get(channelId) as GuildTextChannel)
-    : bot.dms.get(channelId);
+  const channel = ChannelUtils.findText(bot, guildId, channelId);
 
   if (!channel) return;
 

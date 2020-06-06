@@ -1,7 +1,7 @@
 import HandlersUtils from './HandlersUtils';
 import Emoji from '../../structures/Emoji';
-import GuildTextChannel from '../../structures/channels/GuildTextChannel';
 import Message from '../../structures/message/Message';
+import ChannelUtils from '../ChannelUtils';
 
 /**
  * Provides util methods for all reactions-related handlers
@@ -23,11 +23,7 @@ class ReactionHandlersUtils extends HandlersUtils {
   public get message(): Message | undefined {
     const { guild_id: guildId, channel_id: channelId, message_id: messageId } = this.data;
 
-    const guild = this.bot.guilds.get(guildId);
-
-    const channel = guild
-      ? (guild.channels.get(channelId) as GuildTextChannel)
-      : this.bot.dms.get(channelId);
+    const channel = ChannelUtils.findText(this.bot, guildId, channelId);
 
     if (!channel) return;
 
