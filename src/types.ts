@@ -30,3 +30,6 @@ export interface Command {
   name: string;
   execute: CommandFunction;
 }
+
+// TODO: Replace all TEMP fields with real types.
+export type TEMP = undefined;
