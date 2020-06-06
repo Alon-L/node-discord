@@ -24,6 +24,8 @@ export const run = ({ d }: Payload, bot: Bot): void => {
     guild,
   );
 
+  guild.members.set(oldMember.id, newMember);
+
   bot.events.emit(BotEvents.GuildMemberUpdate, oldMember, newMember);
 };
 
