@@ -12,24 +12,73 @@ export type InviteCode = string;
  * Returned from the {@link INVITE_DELETE} event when the invite has not been cached
  */
 export interface PartialInvite {
+  /**
+   * The ID of the channel this invite is for
+   */
   channelId: Snowflake;
-  guild?: Guild;
+
+  /**
+   * The guild this invite is for
+   */
+  guild: Guild | undefined;
+
+  /**
+   * The invite code (unique ID)
+   */
   code: InviteCode;
 }
 
 export interface InviteMax {
+  /**
+   * Duration (in seconds) after which the invite expires
+   */
   age: number;
+
+  /**
+   * Maximum number of times this invite can be used
+   */
   uses: number;
 }
 
 class Invite extends BaseStruct {
-  public channel?: GuildChannel;
+  /**
+   * The channel this invite is for
+   */
+  public channel: GuildChannel | undefined;
+
+  /**
+   * The invite code (unique ID)
+   */
   public code: InviteCode;
+
+  /**
+   * The timestamp of when the invite was created
+   */
   public createdAt: Timestamp;
-  public guild?: Guild;
-  public inviter?: User;
+
+  /**
+   * The guild this invite is for
+   */
+  public guild: Guild | undefined;
+
+  /**
+   * The user who created the invite
+   */
+  public inviter: User | undefined;
+
+  /**
+   * {@link InviteMax} object containing maximum data
+   */
   public max: InviteMax;
+
+  /**
+   * Whether this invite grants temporary membership
+   */
   public temporary: boolean;
+
+  /**
+   * Number of times this invite has been used
+   */
   public uses: number;
 
   constructor(bot: Bot, invite: GatewayStruct) {
