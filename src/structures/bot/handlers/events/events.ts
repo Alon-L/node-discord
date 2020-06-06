@@ -298,6 +298,15 @@ declare function TYPING_START(
   startedAt: number,
 ): void;
 
+/**
+ * Sent when properties about the Bot's user change
+ * @param {User} oldUser The user before being updated
+ * @param {User} newUser The user after being updated
+ * @asMemberOf BotEventsHandler
+ * @event BotEventsHandler#USER_UPDATE
+ */
+declare function USER_UPDATE(oldUser: User, newUser: User): void;
+
 export declare interface Events {
   on(event: BotEvents.Ready, listener: typeof READY): this;
   on(event: BotEvents.ShardReady, listener: typeof SHARD_READY): this;
@@ -333,6 +342,7 @@ export declare interface Events {
     listener: typeof MESSAGE_REACTION_REMOVE_EMOJI,
   ): this;
   on(event: BotEvents.TypingStart, listener: typeof TYPING_START): this;
+  on(event: BotEvents.UserUpdate, listener: typeof USER_UPDATE): this;
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   on(event: string | symbol, listener: (...args: any) => void): this;
