@@ -1,5 +1,5 @@
 /**
- * Handles the conversion of timestamps receives from the Discord API into UNIX timestamps
+ * Handles the conversion of timestamps received from the Discord API into UNIX timestamps
  * @class
  */
 class Timestamp {
