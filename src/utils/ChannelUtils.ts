@@ -55,6 +55,18 @@ class ChannelUtils {
     return guild.channels.get(channelId);
   }
 
+  public static findText(
+    bot: Bot,
+    guildId: Snowflake | undefined,
+    channelId: Snowflake,
+  ): GuildTextChannel | DMChannel | undefined {
+    const channel = ChannelUtils.find(bot, guildId, channelId);
+
+    return channel instanceof GuildTextChannel || channel instanceof DMChannel
+      ? channel
+      : undefined;
+  }
+
   /**
    * Searches for a DM channel in the Bot's {@link Bot.dms} cache
    * @param {Bot} bot The bot instance

@@ -1,5 +1,4 @@
 import Bot from '../../structures/bot/Bot';
-import DMChannel from '../../structures/channels/DMChannel';
 import GuildTextChannel from '../../structures/channels/GuildTextChannel';
 import Message, { PartialMessage } from '../../structures/message/Message';
 import ChannelUtils from '../../utils/ChannelUtils';
@@ -9,11 +8,9 @@ import { BotEvents, GatewayEvents } from '../constants';
 export const run = ({ d }: Payload, bot: Bot): void => {
   const { id, guild_id: guildId, channel_id: channelId } = d;
 
-  const channel = ChannelUtils.find(bot, guildId, channelId);
+  const channel = ChannelUtils.findText(bot, guildId, channelId);
 
-  // Channel should be either GuildTextChannel or DMChannel
-  if (!channel || (!(channel instanceof GuildTextChannel) && !(channel instanceof DMChannel)))
-    return;
+  if (!channel) return;
 
   const guild = channel instanceof GuildTextChannel ? channel.guild : undefined;
 
