@@ -24,7 +24,7 @@ class Cluster<K, V> extends Map<K, V> {
   /**
    * The maximum number of items allowed in this Cluster
    */
-  public readonly limit?: number;
+  public readonly limit: number | undefined;
 
   constructor(entries?: Iterable<readonly [K, V]> | null, limit?: number) {
     if (entries) {
