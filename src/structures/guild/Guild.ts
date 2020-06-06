@@ -354,10 +354,22 @@ class Guild extends BaseStruct {
     this.invites = new Cluster<InviteCode, Invite>();
   }
 
+  /**
+   * Creates a {@link Guild} or {@link GuildUnavailable}
+   * @param {Bot} bot The bot instance
+   * @param {GatewayStruct} guild The guild data
+   * @returns {Guild | GuildUnavailable}
+   */
   public static create(bot: Bot, guild: GatewayStruct): Guild | GuildUnavailable {
     return guild.unavailable ? new GuildUnavailable(bot, guild) : new Guild(bot, guild);
   }
 
+  /**
+   * Finds a {@link Guild} or {@link GuildUnavailable} from the relevant Cluster
+   * @param {Bot} bot The bot instance
+   * @param {Snowflake} guildId The ID of the guild
+   * @returns {Guild | GuildUnavailable | undefined}
+   */
   public static find(bot: Bot, guildId: Snowflake): Guild | GuildUnavailable | undefined {
     if (bot.unavailableGuilds.has(guildId)) {
       // Guild is part of the unavailable guilds cluster
@@ -365,6 +377,19 @@ class Guild extends BaseStruct {
     } else {
       // Guild is part of the guilds cluster
       return bot.guilds.get(guildId);
+    }
+  }
+
+  /**
+   * Cache a guild in the correct cluster
+   * @param {Bot} bot The bot instance
+   * @param {Guild | GuildUnavailable} guild The guild you wish to cache
+   */
+  public static cache(bot: Bot, guild: Guild | GuildUnavailable): void {
+    if (guild instanceof Guild) {
+      bot.guilds.set(guild.id, guild);
+    } else {
+      bot.unavailableGuilds.set(guild.id, guild);
     }
   }
 }
