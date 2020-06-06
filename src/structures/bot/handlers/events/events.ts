@@ -284,6 +284,20 @@ declare function MESSAGE_REACTION_REMOVE_ALL(message: Message): void;
  */
 declare function MESSAGE_REACTION_REMOVE_EMOJI(reaction: MessageReaction | undefined): void;
 
+/**
+ * Sent when a user starts typing in a channel.
+ * @param {GuildTextChannel | DMChannel} channel The channel the user started typing in
+ * @param {Member | User} user The user that started typing
+ * @param {number} startedAt The unix time (in seconds) of when the user started typing
+ * @asMemberOf BotEventsHandler
+ * @event BotEventsHandler#TYPING_START
+ */
+declare function TYPING_START(
+  channel: GuildTextChannel | DMChannel | undefined,
+  user: Member | User,
+  startedAt: number,
+): void;
+
 export declare interface Events {
   on(event: BotEvents.Ready, listener: typeof READY): this;
   on(event: BotEvents.ShardReady, listener: typeof SHARD_READY): this;
@@ -318,6 +332,7 @@ export declare interface Events {
     event: BotEvents.MessageReactionRemoveEmoji,
     listener: typeof MESSAGE_REACTION_REMOVE_EMOJI,
   ): this;
+  on(event: BotEvents.TypingStart, listener: typeof TYPING_START): this;
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   on(event: string | symbol, listener: (...args: any) => void): this;
