@@ -1,6 +1,6 @@
 import BaseStruct, { GatewayStruct } from './BaseStruct';
 import Bot from './bot/Bot';
-import { Snowflake } from '../types';
+import { Snowflake, TEMP } from '../types';
 
 /**
  * User nitro types
@@ -20,65 +20,74 @@ class User extends BaseStruct {
   /**
    * The user's ID
    */
-  public id: Snowflake;
+  public id!: Snowflake;
 
   /**
    * User's username, not unique across the platform
    */
-  public username: string;
+  public username!: string;
 
   /**
    * User's 4-digit discord-tag
    */
-  public hashtag: string;
+  public hashtag!: string;
 
   /**
    * User's avatar image. Possibly null if user does not have an avatar image
    */
-  public avatar: string | null;
+  public avatar!: string | null;
 
   /**
    * Whether the user is a bot
    */
-  public isBot: boolean;
+  public isBot!: boolean;
 
   /**
    * Whether the user is an Official Discord System user (part of urgent message system)
    */
-  public system?: boolean;
+  public system: boolean | undefined;
 
   /**
    * Whether the user has two factor enabled on their account
    */
-  public mfaEnabled?: boolean;
+  public mfaEnabled: boolean | undefined;
 
   /**
    * The user's chosen language option
    */
-  public locale: string;
+  public locale!: string;
 
   /**
    * Whether the email on this user has been verified
    */
-  public verified?: boolean;
+  public verified: boolean | undefined;
 
   /**
    * The user's email
    */
-  public email?: string | null;
+  public email: string | null | undefined;
 
-  public flags?: undefined;
+  public flags: TEMP | undefined;
 
   /**
    * {@link NitroTypes} object containing the type of nitro subscription on a user's account
    */
-  public nitroType?: NitroTypes;
+  public nitroType: NitroTypes | undefined;
 
-  public publicFlags: undefined;
+  public publicFlags!: TEMP;
 
   constructor(bot: Bot, user: GatewayStruct) {
     super(bot);
 
+    this.init(user);
+  }
+
+  /**
+   * @ignore
+   * @param {GatewayStruct} user The user data
+   * @returns {this}
+   */
+  public init(user: GatewayStruct): this {
     this.id = user.id;
     this.username = user.username;
     this.hashtag = user.discriminator;
@@ -92,6 +101,8 @@ class User extends BaseStruct {
     this.flags = user.flags;
     this.nitroType = user.premium_type;
     this.publicFlags = user.public_flags;
+
+    return this;
   }
 
   /**

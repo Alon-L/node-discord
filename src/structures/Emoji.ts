@@ -10,55 +10,64 @@ class Emoji extends BaseStruct {
   /**
    * The ID of the emoji. Possibly null if the emoji class was generated from a reaction standard emoji
    */
-  public id: Snowflake | null;
+  public id!: Snowflake | null;
 
   /**
    * The guild this emoji was created. Possibly undefined if this is a standard emoji
    */
-  public guild?: Guild;
+  public guild: Guild | undefined;
 
   /**
    * The name of the emoji. Possibly null in reaction emoji objects
    */
-  public name: string | null;
+  public name!: string | null;
 
   /**
    * {@link Cluster} of {@link Role}s this emoji is whitelisted to
    */
-  public roles?: Cluster<Snowflake, Role>;
+  public roles: Cluster<Snowflake, Role> | undefined;
 
   /**
    * The user that created this emoji
    */
-  public user?: User;
+  public user: User | undefined;
 
   /**
    * Whether this emoji must be wrapped in colons
    */
-  public requiresColons: boolean;
+  public requiresColons!: boolean;
 
   /**
    * Whether this emoji is managed
    */
-  public managed: boolean;
+  public managed!: boolean;
 
   /**
    * Whether this emoji is animated
    */
-  public animated: boolean;
+  public animated!: boolean;
 
   /**
    * Whether this emoji can be used, may be false due to loss of Server Boosts
    */
-  public available?: boolean;
+  public available: boolean | undefined;
 
   constructor(bot: Bot, emoji: GatewayStruct, guild?: Guild) {
     super(bot);
 
+    this.guild = guild;
+
+    this.init(emoji);
+  }
+
+  /**
+   * @ignore
+   * @param {GatewayStruct} emoji The emoji data
+   * @returns {this}
+   */
+  public init(emoji: GatewayStruct): this {
     this.id = emoji.id;
     this.name = emoji.name;
-
-    this.guild = guild;
 
     this.roles = new Cluster<Snowflake, Role>(
       this.guild?.roles.filter((_r, id) => emoji.roles.includes(id)),
@@ -72,6 +81,8 @@ class Emoji extends BaseStruct {
     this.managed = emoji.managed || false;
     this.animated = emoji.animated || false;
     this.available = emoji.available;
+
+    return this;
   }
 
   public get identifier(): string | null {

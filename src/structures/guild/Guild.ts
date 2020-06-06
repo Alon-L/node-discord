@@ -1,13 +1,12 @@
 import GuildUnavailable from './GuildUnavailable';
 import Cluster from '../../Cluster';
-import { Snowflake } from '../../types';
+import { Snowflake, TEMP } from '../../types';
 import ChannelUtils from '../../utils/ChannelUtils';
 import BaseStruct, { GatewayStruct } from '../BaseStruct';
 import Emoji from '../Emoji';
 import Invite, { InviteCode } from '../Invite';
 import Member from '../Member';
 import Role from '../Role';
-import User from '../User';
 import Bot from '../bot/Bot';
 import GuildChannel from '../channels/GuildChannel';
 import GuildTextChannel from '../channels/GuildTextChannel';
@@ -84,12 +83,13 @@ export interface GuildWidget {
   /**
    * Whether or not the server widget is enabled
    */
-  enabled?: boolean;
+  enabled: boolean | undefined;
+
   /**
    * The channel for the server widget. Possibly null if widget is not enabled or widget
    * channel has not been selected
    */
-  channel?: GuildChannel | null;
+  channel: GuildChannel | null | undefined;
 }
 
 export interface GuildSystem {
@@ -98,7 +98,7 @@ export interface GuildSystem {
    * The channel where guild notices such as welcome messages and boost events are posted.
    * Possibly undefined if such channel does not exist
    */
-  channel?: GuildTextChannel;
+  channel: GuildTextChannel | undefined;
 }
 
 export interface GuildPremium {
@@ -110,7 +110,7 @@ export interface GuildPremium {
   /**
    * Number of boosts this server currently has
    */
-  boostsCount?: number;
+  boostsCount: number | undefined;
 }
 
 /**
@@ -122,161 +122,172 @@ class Guild extends BaseStruct {
   /**
    * Guild ID
    */
-  public id: Snowflake;
+  public id!: Snowflake;
 
   /**
    * {@link Cluster} of {@link GuildChannel}s associated to this Guild
    */
-  public channels: Cluster<Snowflake, GuildChannel>;
+  public channels!: Cluster<Snowflake, GuildChannel>;
 
   /**
    * {@link Cluster} of all {@link Role}s associated to this guild
    */
-  public roles: Cluster<Snowflake, Role>;
+  public roles!: Cluster<Snowflake, Role>;
 
   /**
    * {@link Cluster} of all {@link Member}s in this guild
    */
-  public members: Cluster<Snowflake, Member>;
+  public members!: Cluster<Snowflake, Member>;
 
   /**
    * Guild name
    */
-  public name: string;
+  public name!: string;
 
   /**
    * Guild icon URL. Possibly null if guild does not have an icon
    */
-  public icon: string | null;
+  public icon!: string | null;
 
   /**
    * Guild splash image URL. Possibly null if guild does not have a splash image
    */
-  public splash: string | null;
+  public splash!: string | null;
 
   /**
    * Guild discovery splash image URL. Possibly null if guild does not have a discovery splash image
    */
-  public discoverySplash: string | null;
+  public discoverySplash!: string | null;
 
   /**
    * Guild owner {@link Member}.
    * Possibly undefined if the bot is yet to cache that member
    */
-  public owner?: Member;
+  public owner: Member | undefined;
 
   /**
    * Guild owner ID
    */
-  public ownerId: Snowflake;
+  public ownerId!: Snowflake;
 
-  public permissions?: undefined;
+  public permissions: TEMP | undefined;
 
   /**
    * Guild voice region
    */
-  public region: string;
+  public region!: string;
 
-  public afk: undefined; // TODO: { channel: GuildTextChannel | null, timeout: number }
+  public afk: TEMP; // TODO: { channel: GuildTextChannel | null, timeout: number }
 
-  public embedEnabled?: undefined;
+  public embedEnabled: TEMP | undefined;
 
-  public embedChannelId?: undefined | null;
+  public embedChannelId: TEMP | null | undefined;
 
   /**
    * {@link GuildLevels} object containing information about all guild level data
    */
-  public levels: GuildLevels;
+  public levels!: GuildLevels;
 
   /**
    * {@link Cluster} of all custom guild {@link Emoji}s
    */
-  public emojis: Cluster<Snowflake, Emoji>;
+  public emojis!: Cluster<Snowflake, Emoji>;
 
-  public features: undefined;
+  public features: TEMP;
 
-  public applicationId: undefined | null;
+  public applicationId: TEMP | null;
 
   /**
    * {@link GuildWidget} object containing information about the guild widget data
    */
-  public widget: GuildWidget;
+  public widget!: GuildWidget;
 
   /**
    * {@link GuildSystem} object containing information about the guild system channel
    */
-  public system: GuildSystem;
+  public system!: GuildSystem;
 
   /**
    * The channel where public guilds display rules and/or guidelines
    */
-  public rulesChannel?: GuildTextChannel;
+  public rulesChannel: GuildTextChannel | undefined;
 
   /**
    * Timestamp for when the guild was created
    */
-  public createdAt?: string;
+  public createdAt: string | undefined;
 
   /**
    * Whether this guild is considered a large guild
    */
-  public large?: boolean;
+  public large: boolean | undefined;
 
   /**
    * Whether this guild is unavailable
    */
-  public unavailable?: boolean;
+  public unavailable: boolean | undefined;
 
   // TODO: Think of a smart way to map memberCount, memebrs, max_members...
   /**
    * Total number of members in this guild
    */
-  public memberCount?: number;
+  public memberCount: number | undefined;
 
-  public voiceStates?: undefined;
+  public voiceStates: TEMP | undefined;
 
-  public presences?: undefined;
+  public presences: TEMP | undefined;
 
-  public maxPresences?: undefined | null;
+  public maxPresences: TEMP | null | undefined;
 
-  public maxMembers?: undefined;
+  public maxMembers: TEMP | undefined;
 
   /**
    * The vanity URL code for the guild. Possibly null if guild does not have a vanity URL
    */
-  public vanityURLCode: string | null;
+  public vanityURLCode!: string | null;
 
   /**
    * The description for the guild. Possibly null if guild does not have a description
    */
-  public description: string | null;
+  public description!: string | null;
 
   /**
    * Guild banner image. Possibly null if guild does not have a banner image
    */
-  public banner: string | null;
+  public banner!: string | null;
 
   /**
    * {@link GuildPremium} object containing guild premium (boosts) data
    */
-  public premium: GuildPremium;
+  public premium!: GuildPremium;
 
   /**
    * The preferred locale of a public guild used in server discovery and notices from Discord
    * @default "en-US"
    */
-  public locale: string;
+  public locale!: string;
 
   /**
    * The channel where admins and moderators of public guilds receive notice from Discord
    */
-  public updatesChannel?: GuildTextChannel;
+  public updatesChannel: GuildTextChannel | undefined;
 
-  public invites: Cluster<InviteCode, Invite>;
+  public invites!: Cluster<InviteCode, Invite>;
 
   constructor(bot: Bot, guild: GatewayStruct) {
     super(bot);
 
+    this.init(guild);
+
+    this.invites = new Cluster<InviteCode, Invite>();
+  }
+
+  /**
+   * @ignore
+   * @param {GatewayStruct} guild The guild data
+   * @returns {this}
+   */
+  public init(guild: GatewayStruct): this {
     // TODO: assign all other fields
     this.id = guild.id;
 
@@ -288,19 +299,14 @@ class Guild extends BaseStruct {
     );
 
     this.roles = new Cluster<Snowflake, Role>(
-      guild.roles.map((role: GatewayStruct) => [role.id, new Role(bot, role, this)]),
+      guild.roles.map((role: GatewayStruct) => [role.id, new Role(this.bot, role, this)]),
     );
 
     this.members = new Cluster<Snowflake, Member>(
       guild.members?.map((member: GatewayStruct) => [
         member.user.id,
-        new Member(bot, member, this),
+        new Member(this.bot, member, this),
       ]),
-    );
-
-    // Add all Guild members to the Bot's users Cluster
-    this.bot.users.merge(
-      new Cluster<Snowflake, User>(this.members.map<User>((member: Member) => member.user!)),
     );
 
     this.name = guild.name;
@@ -351,7 +357,7 @@ class Guild extends BaseStruct {
 
     this.updatesChannel = this.channels.get(guild.public_updates_channel_id) as GuildTextChannel;
 
-    this.invites = new Cluster<InviteCode, Invite>();
+    return this;
   }
 
   /**
@@ -388,6 +394,15 @@ class Guild extends BaseStruct {
   public static cache(bot: Bot, guild: Guild | GuildUnavailable): void {
     if (guild instanceof Guild) {
       bot.guilds.set(guild.id, guild);
+    } else {
+      bot.unavailableGuilds.set(guild.id, guild);
+    }
+  }
+
+  public static delete(bot: Bot, guild: Guild | GuildUnavailable): void {
+    if (guild instanceof Guild) {
+      // The bot left the guild or it has become unavailable.
+      bot.guilds.delete(guild.id);
     } else {
       bot.unavailableGuilds.set(guild.id, guild);
     }

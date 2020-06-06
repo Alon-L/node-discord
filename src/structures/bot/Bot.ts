@@ -57,7 +57,7 @@ class Bot {
    * This bot's Discord user
    * Initializes right before the Bot READY event
    */
-  public user?: User;
+  public user: User | undefined;
 
   /**
    * {@link Cluster} of all {@link Guild}s after fetching their unavailable version

@@ -10,12 +10,12 @@ abstract class TextChannel {
    * The ID of the last message sent in this channel.
    * May not point to an existing or valid message
    */
-  abstract lastMessageId?: Snowflake | null;
+  abstract lastMessageId: Snowflake | null | undefined;
 
   /**
    * Timestamp of when the last pinned message was pinned
    */
-  abstract lastPinTimestamp?: Timestamp;
+  abstract lastPinTimestamp: Timestamp | undefined;
 
   /**
    * Limited Cluster containing all cached messages sent in this channel

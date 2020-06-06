@@ -18,13 +18,13 @@ class GuildTextChannel extends GuildChannel implements TextChannel {
   /**
    * Whether the channel is configured as NSFW
    */
-  public nsfw: boolean;
+  public nsfw!: boolean;
 
   /**
    * The ID of the last message sent in this channel.
    * May not point to an existing or valid message
    */
-  public lastMessageId?: Snowflake | null;
+  public lastMessageId: Snowflake | null | undefined;
 
   /**
    * Amount of seconds a user has to wait before sending another message
@@ -34,7 +34,7 @@ class GuildTextChannel extends GuildChannel implements TextChannel {
   /**
    * Timestamp of when the last pinned message was pinned
    */
-  public lastPinTimestamp?: Timestamp;
+  public lastPinTimestamp: Timestamp | undefined;
 
   /**
    * Limited Cluster containing all cached messages sent in this channel
@@ -45,13 +45,24 @@ class GuildTextChannel extends GuildChannel implements TextChannel {
   constructor(bot: Bot, textChannel: GatewayStruct, guild: Guild) {
     super(bot, textChannel, guild);
 
+    // TODO: Turn this limit into a variable inside the bot's options
+    this.messages = new Cluster<Snowflake, Message>(null, 100);
+  }
+
+  /**
+   * @ignore
+   * @param {GatewayStruct} textChannel The text channel data
+   * @returns {this}
+   */
+  public init(textChannel: GatewayStruct): this {
+    super.init(textChannel);
+
     this.nsfw = textChannel.nsfw || false;
     this.lastMessageId = textChannel.last_message_id;
     this.slowModeTimeout = textChannel.rate_limit_per_user;
     this.lastPinTimestamp = new Timestamp(textChannel.last_pin_timestamp);
 
-    // TODO: Turn this limit into a variable inside the bot's options
-    this.messages = new Cluster<Snowflake, Message>(null, 100);
+    return this;
   }
 }
 

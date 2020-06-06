@@ -17,53 +17,70 @@ class Member extends GuildBaseStruct {
   /**
    * The member's user ID
    */
-  public id: Snowflake;
+  public id!: Snowflake;
 
   /**
    * The user this guild member represents
    */
-  public user?: User;
+  public user: User | undefined;
 
   /**
    * The user's guild nickname
    */
-  public nick: string | null;
+  public nick!: string | null;
 
   /**
    * {@link Cluster} of all {@link Role}s associated to this member
    */
-  public roles: Cluster<Snowflake, Role>;
+  public roles!: Cluster<Snowflake, Role>;
 
   /**
    * Timestamp of when the member joined the guild
    */
-  public joinedAt: Timestamp;
+  public joinedAt!: Timestamp;
 
   /**
    * Timestamp of when the member start boosting the guild.
    * Possibly null if the user has never boosted this server
    */
-  public premiumSince: Timestamp | null;
+  public premiumSince!: Timestamp | null;
 
   /**
    * Whether the member is deafened in voice channels
    */
-  public deaf: boolean;
+  public deaf!: boolean;
 
   /**
    * Whether the member is muted in voice channels
    */
-  public mute: boolean;
+  public mute!: boolean;
 
   constructor(bot: Bot, member: GatewayStruct, guild: Guild) {
     super(bot, guild);
 
-    if (member.user) {
-      this.user = new User(this.bot, member.user);
-    }
+    this.init(member);
+  }
 
+  /**
+   * @ignore
+   * @param {GatewayStruct} member The member data
+   * @returns {this}
+   */
+  public init(member: GatewayStruct): this {
     this.id = member.user?.id;
     this.nick = member.nick;
+
+    if (member.user) {
+      if (this.bot.users.has(this.id)) {
+        // Update the cached user to this member's user
+        // Store the cached user in this user field
+        this.user = this.bot.users.get(this.id)!.init(member.user);
+      } else {
+        // Create a new user instance and cache it
+        this.user = new User(this.bot, member.user);
+        this.bot.users.set(this.id, this.user);
+      }
+    }
 
     this.roles = new Cluster<Snowflake, Role>(
       this.guild.roles.filter((_r, id) => member.roles?.includes(id)),
@@ -75,6 +92,8 @@ class Member extends GuildBaseStruct {
 
     this.deaf = member.deaf;
     this.mute = member.mute;
+
+    return this;
   }
 }
 

@@ -50,7 +50,7 @@ class MessageMentions extends BaseStruct {
   /**
    * Cache for all channel mentions found in the message
    */
-  private _channels?: Cluster<Snowflake, GuildChannel>;
+  private _channels: Cluster<Snowflake, GuildChannel> | undefined;
 
   constructor(message: Message, mentions: Partial<MentionTypes>) {
     super(message.bot);
@@ -62,6 +62,15 @@ class MessageMentions extends BaseStruct {
     this.roles = new Cluster<Snowflake, Role>();
     this.crosspostedChannels = new Cluster<Snowflake, GuildChannel>();
 
+    this.init(mentions);
+  }
+
+  /**
+   * @ignore
+   * @param {GatewayStruct} mentions The message mentions data
+   * @returns {this}
+   */
+  public init(mentions: Partial<MentionTypes>): this {
     if (mentions.users) {
       this.users.merge(mentions.users.map(user => [user.id, new User(this.bot, user)]));
     }
@@ -93,6 +102,8 @@ class MessageMentions extends BaseStruct {
         ),
       );
     }
+
+    return this;
   }
 
   /**

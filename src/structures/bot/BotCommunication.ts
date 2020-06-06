@@ -54,7 +54,7 @@ export interface ShardDispatchEvent {
 
 export interface ShardResponse {
   data: Serializable | Serializable[];
-  identifier?: number;
+  identifier: number | undefined;
 }
 
 class BotCommunication extends EventEmitter {

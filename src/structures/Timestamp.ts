@@ -3,7 +3,7 @@
  * @class
  */
 class Timestamp {
-  public date?: string;
+  public date: string | undefined;
 
   constructor(date: string | undefined) {
     this.date = date;

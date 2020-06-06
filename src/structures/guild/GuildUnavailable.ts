@@ -12,18 +12,29 @@ class GuildUnavailable extends BaseStruct {
   /**
    * Guild ID
    */
-  public id: Snowflake;
+  public id!: Snowflake;
 
   /**
    * Whether this guild is unavailable
    */
-  public unavailable?: boolean;
+  public unavailable!: boolean;
 
   constructor(bot: Bot, guild: GatewayStruct) {
     super(bot);
 
+    this.init(guild);
+  }
+
+  /**
+   * @ignore
+   * @param {GatewayStruct} guild The unavailable guild data
+   * @returns {this}
+   */
+  public init(guild: GatewayStruct): this {
     this.id = guild.id;
-    this.unavailable = guild.unavailable;
+    this.unavailable = guild.unavailable || false;
+
+    return this;
   }
 }
 

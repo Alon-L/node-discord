@@ -15,12 +15,12 @@ class MessageReaction extends BaseStruct {
   /**
    * The times this emoji has been used to react
    */
-  public count: number;
+  public count!: number;
 
   /**
    * Whether the bot reacted using this emoji
    */
-  public botReacted: boolean;
+  public botReacted!: boolean;
 
   /**
    * The users that added this reaction
@@ -42,13 +42,26 @@ class MessageReaction extends BaseStruct {
 
     this.message = message;
 
-    this.count = reaction.count || 0;
-    this.botReacted = reaction.me || false;
-
     this.users = new Cluster<Snowflake, User>();
     this.members = new Cluster<Snowflake, Member>();
 
     this.emoji = new Emoji(this.bot, reaction.emoji);
+
+    this.init(reaction);
+  }
+
+  /**
+   * @ignore
+   * @param {GatewayStruct} reaction The reaction data
+   * @returns {this}
+   */
+  public init(reaction: GatewayStruct): this {
+    this.count = reaction.count || 0;
+    this.botReacted = reaction.me || false;
+
+    this.emoji = new Emoji(this.bot, reaction.emoji);
+
+    return this;
   }
 }
 

@@ -16,39 +16,48 @@ class MessageAttachment extends BaseStruct {
   /**
    * The attachment's ID
    */
-  public id: Snowflake;
+  public id!: Snowflake;
 
   /**
    * Name of the attached file
    */
-  public filename: string;
+  public filename!: string;
 
   /**
    * Size of the attached file in bytes
    */
-  public size: number;
+  public size!: number;
 
   /**
    * Source URL of the attached file
    */
-  public url: string;
+  public url!: string;
 
   /**
    * A proxies URL of the attached file
    */
-  public proxyURL: string;
+  public proxyURL!: string;
 
   /**
    * The width and height of the file.
    * Possibly null if the attached file is not an image
    */
-  public dimensions: Nullable<Dimensions>;
+  public dimensions!: Nullable<Dimensions>;
 
   constructor(message: Message, attachment: GatewayStruct) {
     super(message.bot);
 
     this.message = message;
 
+    this.init(attachment);
+  }
+
+  /**
+   * @ignore
+   * @param {GatewayStruct} attachment The attachment data
+   * @returns {this}
+   */
+  public init(attachment: GatewayStruct): this {
     this.id = attachment.id;
     this.filename = attachment.filename;
     this.size = attachment.size;
@@ -58,6 +67,8 @@ class MessageAttachment extends BaseStruct {
       height: attachment.height,
       width: attachment.width,
     };
+
+    return this;
   }
 }
 

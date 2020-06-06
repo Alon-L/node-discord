@@ -49,12 +49,12 @@ class Invite extends BaseStruct {
   /**
    * The invite code (unique ID)
    */
-  public code: InviteCode;
+  public code!: InviteCode;
 
   /**
    * The timestamp of when the invite was created
    */
-  public createdAt: Timestamp;
+  public createdAt!: Timestamp;
 
   /**
    * The guild this invite is for
@@ -69,21 +69,30 @@ class Invite extends BaseStruct {
   /**
    * {@link InviteMax} object containing maximum data
    */
-  public max: InviteMax;
+  public max!: InviteMax;
 
   /**
    * Whether this invite grants temporary membership
    */
-  public temporary: boolean;
+  public temporary!: boolean;
 
   /**
    * Number of times this invite has been used
    */
-  public uses: number;
+  public uses!: number;
 
   constructor(bot: Bot, invite: GatewayStruct) {
     super(bot);
 
+    this.init(invite);
+  }
+
+  /**
+   * @ignore
+   * @param {GatewayStruct} invite The invite data
+   * @returns {this}
+   */
+  public init(invite: GatewayStruct): this {
     this.code = invite.code;
     this.createdAt = new Timestamp(invite.created_at);
 
@@ -103,6 +112,8 @@ class Invite extends BaseStruct {
 
     this.temporary = invite.temporary;
     this.uses = invite.uses;
+
+    return this;
   }
 }
 

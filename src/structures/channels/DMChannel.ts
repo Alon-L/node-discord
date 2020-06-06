@@ -19,25 +19,37 @@ class DMChannel extends Channel implements TextChannel {
    * The ID of the last message sent in this channel.
    * May not point to an existing or valid message
    */
-  public lastMessageId?: Snowflake | null;
+  public lastMessageId: Snowflake | null | undefined;
 
   /**
    * The recipient of the DM
    */
-  public recipient: User;
+  public recipient!: User;
 
   /**
    * Timestamp of when the last pinned message was pinned
    */
-  public lastPinTimestamp?: Timestamp;
+  public lastPinTimestamp: Timestamp | undefined;
 
   /**
    * Limited Cluster containing all cached messages sent in this channel
    */
-  public messages: Cluster<Snowflake, Message>;
+  public messages!: Cluster<Snowflake, Message>;
 
   constructor(bot: Bot, dmChannel: GatewayStruct) {
     super(bot, dmChannel);
+
+    // TODO: Turn this limit into a variable inside the bot's options
+    this.messages = new Cluster<Snowflake, Message>(null, 100);
+  }
+
+  /**
+   * @ignore
+   * @param {GatewayStruct} dmChannel The DM channel data
+   * @returns {this}
+   */
+  public init(dmChannel: GatewayStruct): this {
+    super.init(dmChannel);
 
     this.lastMessageId = dmChannel.last_message_id;
 
@@ -45,8 +57,7 @@ class DMChannel extends Channel implements TextChannel {
 
     this.lastPinTimestamp = new Timestamp(dmChannel.last_pin_timestamp);
 
-    // TODO: Turn this limit into a variable inside the bot's options
-    this.messages = new Cluster<Snowflake, Message>(null, 100);
+    return this;
   }
 }
 

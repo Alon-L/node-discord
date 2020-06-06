@@ -24,18 +24,29 @@ class Channel extends BaseStruct {
   /**
    * The ID of this channel
    */
-  public id: Snowflake;
+  public id!: Snowflake;
 
   /**
    * The type of this channel
    */
-  public type: ChannelTypes;
+  public type!: ChannelTypes;
 
   constructor(bot: Bot, channel: GatewayStruct) {
     super(bot);
 
+    this.init(channel);
+  }
+
+  /**
+   * @ignore
+   * @param {GatewayStruct} channel The channel data
+   * @returns {this}
+   */
+  public init(channel: GatewayStruct): this {
     this.id = channel.id;
     this.type = channel.type;
+
+    return this;
   }
 }
 

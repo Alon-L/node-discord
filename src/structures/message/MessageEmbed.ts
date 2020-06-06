@@ -27,12 +27,12 @@ export interface MessageEmbedFooter {
   /**
    * URL of footer icon (only supports http(s) and attachments)
    */
-  iconURL?: string;
+  iconURL: string | undefined;
 
   /**
    * A proxied URL of footer icon
    */
-  proxyIconURL?: string;
+  proxyIconURL: string | undefined;
 }
 
 /**
@@ -42,12 +42,12 @@ export interface MessageEmbedImage {
   /**
    * Source URL of image (only supports http(s) and attachments)
    */
-  url?: string;
+  url: string | undefined;
 
   /**
    * A proxied URL of the image
    */
-  proxyURL?: string;
+  proxyURL: string | undefined;
 
   /**
    * {@link Dimensions} object containing the dimensions of the image
@@ -62,12 +62,12 @@ export interface MessageEmbedThumbnail {
   /**
    * Source URL of thumbnail (only supports http(s) and attachments)
    */
-  url?: string;
+  url: string | undefined;
 
   /**
    * A proxied URL of the thumbnail
    */
-  proxyURL?: string;
+  proxyURL: string | undefined;
 
   /**
    * {@link Dimensions} object containing the dimensions of the thumbnail image
@@ -82,7 +82,7 @@ export interface MessageEmbedVideo {
   /**
    * Source URL of the video
    */
-  url?: string;
+  url: string | undefined;
 
   /**
    * {@link Dimensions} object containing the dimensions of the video
@@ -97,12 +97,12 @@ export interface MessageEmbedProvider {
   /**
    * Name of the provider
    */
-  name?: string;
+  name: string | undefined;
 
   /**
    * URL of the provider
    */
-  url?: string;
+  url: string | undefined;
 }
 
 /**
@@ -112,22 +112,22 @@ export interface MessageEmbedAuthor {
   /**
    * Name of the author
    */
-  name?: string;
+  name: string | undefined;
 
   /**
    * URL of the author
    */
-  url?: string;
+  url: string | undefined;
 
   /**
    * URL of the author's icon (only supports http(s) and attachments)
    */
-  iconURL?: string;
+  iconURL: string | undefined;
 
   /**
    * A proxied URL of the author's icon
    */
-  proxyIconURL?: string;
+  proxyIconURL: string | undefined;
 }
 
 /**
@@ -147,7 +147,7 @@ export interface MessageEmbedField {
   /**
    * Whether or not this field should be displayed inline
    */
-  inline?: boolean;
+  inline: boolean | undefined;
 }
 
 // TODO: Link this description to a guide page about Discord message embeds
@@ -163,73 +163,82 @@ class MessageEmbed extends BaseStruct {
   /**
    * Title of this embed
    */
-  public title?: string;
+  public title: string | undefined;
 
   /**
    * Type of this embed (always "rich" for webhook embeds)
    */
-  public type?: MessageEmbedTypes;
+  public type: MessageEmbedTypes | undefined;
 
   /**
    * Description of this embed
    */
-  public description?: string;
+  public description: string | undefined;
 
   /**
    * URL of this embed
    */
-  public url?: string;
+  public url: string | undefined;
 
   /**
    * Timestamp of this embed's content
    */
-  public timestamp?: Timestamp;
+  public timestamp: Timestamp | undefined;
 
   /**
    * Color code of the embed
    */
-  public color?: number;
+  public color: number | undefined;
 
   /**
    * {@link MessageEmbedFooter} object containing this embed's footer data
    */
-  public footer?: MessageEmbedFooter;
+  public footer: MessageEmbedFooter | undefined;
 
   /**
    * {@link MessageEmbedImage} object containing this embed's image data
    */
-  public image?: MessageEmbedImage;
+  public image: MessageEmbedImage | undefined;
 
   /**
    * {@link MessageEmbedThumbnail} object containing this embed's thumbnail data
    */
-  public thumbnail?: MessageEmbedThumbnail;
+  public thumbnail: MessageEmbedThumbnail | undefined;
 
   /**
    * {@link MessageEmbedVideo} object containing this embed's video data
    */
-  public video?: MessageEmbedVideo;
+  public video: MessageEmbedVideo | undefined;
 
   /**
    * {@link MessageEmbedProvider} object containing this embed's provider data
    */
-  public provider?: MessageEmbedProvider;
+  public provider: MessageEmbedProvider | undefined;
 
   /**
    * {@link MessageEmbedFooter} object containing this embed's author data
    */
-  public author?: MessageEmbedAuthor;
+  public author: MessageEmbedAuthor | undefined;
 
   /**
    * {@link MessageEmbedField} array containing this embed's fields
    */
-  public fields?: MessageEmbedField[];
+  public fields: MessageEmbedField[] | undefined;
 
   constructor(message: Message, embed: GatewayStruct) {
     super(message.bot);
 
     this.message = message;
 
+    this.init(embed);
+  }
+
+  /**
+   * @ignore
+   * @param {GatewayStruct} embed The embed data
+   * @returns {this}
+   */
+  public init(embed: GatewayStruct): this {
     this.title = embed.title;
     this.type = embed.type;
     this.description = embed.description;
@@ -277,6 +286,8 @@ class MessageEmbed extends BaseStruct {
       content: field.value,
       inline: field.inline,
     }));
+
+    return this;
   }
 
   private static getDimensions(struct: { height: number; width: number }): Dimensions {
