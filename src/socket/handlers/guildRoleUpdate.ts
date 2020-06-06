@@ -14,7 +14,7 @@ export const run = ({ d }: Payload, bot: Bot): void => {
 
   const newRole = new Role(bot, d.role, guild);
 
-  // Update the new role in the guild's roles cluster
+  // Cache the updated role
   guild.roles.set(oldRole.id, newRole);
 
   bot.events.emit(BotEvents.GuildRoleUpdate, oldRole, newRole);
