@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>MessageEmbedThumbnail | node-discord</title>
+	<title>UpdateReturn | node-discord</title>
 	<meta name="description" content="Documentation for node-discord">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,28 +54,21 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="messageembedthumbnail.html">MessageEmbedThumbnail</a>
+					<a href="updatereturn.html">UpdateReturn</a>
 				</li>
 			</ul>
-			<h1>Interface MessageEmbedThumbnail</h1>
+			<h1>Interface UpdateReturn</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Message embed thumbnail data</p>
-					</div>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">MessageEmbedThumbnail</span>
+						<span class="target">UpdateReturn</span>
 					</li>
 				</ul>
 			</section>
@@ -86,9 +79,8 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="messageembedthumbnail.html#dimensions" class="tsd-kind-icon">dimensions</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="messageembedthumbnail.html#proxyurl" class="tsd-kind-icon">proxyURL</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="messageembedthumbnail.html#url" class="tsd-kind-icon">url</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="updatereturn.html#after" class="tsd-kind-icon">after</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="updatereturn.html#before" class="tsd-kind-icon">before</a></li>
 							</ul>
 						</section>
 					</div>
@@ -97,49 +89,24 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="dimensions" class="tsd-anchor"></a>
-					<h3>dimensions</h3>
-					<div class="tsd-signature tsd-kind-icon">dimensions<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="dimensions.html" class="tsd-signature-type">Dimensions</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<a name="after" class="tsd-anchor"></a>
+					<h3>after</h3>
+					<div class="tsd-signature tsd-kind-icon">after<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">unknown</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/structures/message/MessageEmbed.ts#L75">src/structures/message/MessageEmbed.ts:75</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/structures/BaseStruct.ts#L13">src/structures/BaseStruct.ts:13</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p><a href="dimensions.html">Dimensions</a> object containing the dimensions of the thumbnail image</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="proxyurl" class="tsd-anchor"></a>
-					<h3>proxyURL</h3>
-					<div class="tsd-signature tsd-kind-icon">proxyURL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
+					<a name="before" class="tsd-anchor"></a>
+					<h3>before</h3>
+					<div class="tsd-signature tsd-kind-icon">before<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">unknown</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/structures/message/MessageEmbed.ts#L70">src/structures/message/MessageEmbed.ts:70</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/structures/BaseStruct.ts#L12">src/structures/BaseStruct.ts:12</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>A proxied URL of the thumbnail</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="url" class="tsd-anchor"></a>
-					<h3>url</h3>
-					<div class="tsd-signature tsd-kind-icon">url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/structures/message/MessageEmbed.ts#L65">src/structures/message/MessageEmbed.ts:65</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Source URL of thumbnail (only supports http(s) and attachments)</p>
-						</div>
-					</div>
 				</section>
 			</section>
 		</div>
@@ -156,16 +123,13 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="messageembedthumbnail.html" class="tsd-kind-icon">Message<wbr>Embed<wbr>Thumbnail</a>
+						<a href="updatereturn.html" class="tsd-kind-icon">Update<wbr>Return</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="messageembedthumbnail.html#dimensions" class="tsd-kind-icon">dimensions</a>
+								<a href="updatereturn.html#after" class="tsd-kind-icon">after</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="messageembedthumbnail.html#proxyurl" class="tsd-kind-icon">proxyURL</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="messageembedthumbnail.html#url" class="tsd-kind-icon">url</a>
+								<a href="updatereturn.html#before" class="tsd-kind-icon">before</a>
 							</li>
 						</ul>
 					</li>
