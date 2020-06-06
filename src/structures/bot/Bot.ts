@@ -54,7 +54,7 @@ class Bot {
   public communication: BotCommunication;
 
   /**
-   * Bot Discord user
+   * This bot's Discord user
    * Initializes right before the Bot READY event
    */
   public user?: User;
