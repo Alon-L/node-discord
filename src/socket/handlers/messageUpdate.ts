@@ -1,24 +1,22 @@
 import Bot from '../../structures/bot/Bot';
-import Message from '../../structures/message/Message';
 import ChannelUtils from '../../utils/ChannelUtils';
 import { Payload } from '../BotSocketShard';
 import { BotEvents, GatewayEvents } from '../constants';
 
 export const run = ({ d }: Payload, bot: Bot): void => {
-  const { guild_id: guildId, channel_id: channelId } = d;
+  const { guild_id: guildId, channel_id: channelId, id } = d;
 
   const channel = ChannelUtils.findText(bot, guildId, channelId);
 
   if (!channel) return;
 
-  const newMessage = new Message(bot, d, channel);
+  const message = channel.messages.get(id);
 
-  const oldMessage = channel.messages.get(newMessage.id);
+  if (!message) return;
 
-  // Update the new message in the channel's messages cluster
-  channel.messages.set(oldMessage?.id || newMessage.id, newMessage);
+  const { before, after } = message.update(d);
 
-  bot.events.emit(BotEvents.MessageUpdate, oldMessage, newMessage);
+  bot.events.emit(BotEvents.MessageUpdate, before, after);
 };
 
 export const name = GatewayEvents.MessageUpdate;

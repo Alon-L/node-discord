@@ -4,14 +4,15 @@ import { Payload } from '../BotSocketShard';
 import { BotEvents, GatewayEvents } from '../constants';
 
 export const run = ({ d }: Payload, bot: Bot): void => {
-  const oldGuild = Guild.find(bot, d.id);
+  const { id } = d;
 
-  const newGuild = Guild.create(bot, d);
+  const guild = Guild.find(bot, id);
 
-  // Cache the updated guild
-  Guild.cache(bot, newGuild);
+  if (!guild) return;
 
-  bot.events.emit(BotEvents.GuildUpdate, oldGuild, newGuild);
+  const { before, after } = guild.update(d);
+
+  bot.events.emit(BotEvents.GuildUpdate, before, after);
 };
 
 export const name = GatewayEvents.GuildUpdate;

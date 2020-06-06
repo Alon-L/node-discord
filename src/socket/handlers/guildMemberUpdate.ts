@@ -1,33 +1,27 @@
-import Member from '../../structures/Member';
 import Bot from '../../structures/bot/Bot';
 import { Payload } from '../BotSocketShard';
 import { BotEvents, GatewayEvents } from '../constants';
 
 export const run = ({ d }: Payload, bot: Bot): void => {
-  const guild = bot.guilds.get(d.guild_id);
+  const { guild_id: guildId, user } = d;
+
+  const guild = bot.guilds.get(guildId);
 
   if (!guild) return;
 
-  const oldMember = guild.members.get(d.user.id);
+  const member = guild.members.get(user.id);
 
-  if (!oldMember) return;
+  if (!member) return;
 
-  const newMember = new Member(
-    bot,
-    {
-      nick: oldMember.nick,
-      joined_at: oldMember.joinedAt.date,
-      deaf: oldMember.deaf,
-      mute: oldMember.mute,
-      ...d,
-    },
-    guild,
-  );
+  const { before, after } = member.update({
+    nick: member.nick,
+    joined_at: member.joinedAt.date,
+    deaf: member.deaf,
+    mute: member.mute,
+    ...d,
+  });
 
-  // Cache the updated member
-  guild.members.set(oldMember.id, newMember);
-
-  bot.events.emit(BotEvents.GuildMemberUpdate, oldMember, newMember);
+  bot.events.emit(BotEvents.GuildMemberUpdate, before, after);
 };
 
 export const name = GatewayEvents.GuildMemberUpdate;
