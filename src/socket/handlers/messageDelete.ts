@@ -3,9 +3,9 @@ import GuildTextChannel from '../../structures/channels/GuildTextChannel';
 import Message, { PartialMessage } from '../../structures/message/Message';
 import ChannelUtils from '../../utils/ChannelUtils';
 import { Payload } from '../BotSocketShard';
-import { BotEvents, GatewayEvents } from '../constants';
+import { BotEvents } from '../constants';
 
-export const run = ({ d }: Payload, bot: Bot): void => {
+export default ({ d }: Payload, bot: Bot): void => {
   const { id, guild_id: guildId, channel_id: channelId } = d;
 
   const channel = ChannelUtils.findText(bot, guildId, channelId);
@@ -24,5 +24,3 @@ export const run = ({ d }: Payload, bot: Bot): void => {
 
   bot.events.emit(BotEvents.MessageDelete, message);
 };
-
-export const name = GatewayEvents.MessageDelete;

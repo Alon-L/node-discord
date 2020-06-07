@@ -2,9 +2,9 @@ import { GatewayStruct } from '../../structures/BaseStruct';
 import Member from '../../structures/Member';
 import Bot from '../../structures/bot/Bot';
 import { Payload } from '../BotSocketShard';
-import { BotEvents, GatewayEvents } from '../constants';
+import { BotEvents } from '../constants';
 
-export const run = ({ d }: Payload, bot: Bot): void => {
+export default ({ d }: Payload, bot: Bot): void => {
   const { not_found: notFound, guild_id: guildId, members, presences } = d;
 
   if (notFound) throw new Error('An invalid ID was passed to the Guild Members request');
@@ -23,5 +23,3 @@ export const run = ({ d }: Payload, bot: Bot): void => {
 
   bot.events.emit(BotEvents.GuildMembersChunk, guild);
 };
-
-export const name = GatewayEvents.GuildMembersChunk;

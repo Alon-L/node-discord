@@ -2,9 +2,9 @@ import Bot from '../../structures/bot/Bot';
 import Message from '../../structures/message/Message';
 import ChannelUtils from '../../utils/ChannelUtils';
 import { Payload } from '../BotSocketShard';
-import { GatewayEvents, BotEvents } from '../constants';
+import { BotEvents } from '../constants';
 
-export const run = ({ d }: Payload, bot: Bot): void => {
+export default ({ d }: Payload, bot: Bot): void => {
   const { guild_id: guildId, channel_id: channelId } = d;
 
   const channel = ChannelUtils.findText(bot, guildId, channelId);
@@ -21,5 +21,3 @@ export const run = ({ d }: Payload, bot: Bot): void => {
 
   bot.events.emit(BotEvents.MessageCreate, message);
 };
-
-export const name = GatewayEvents.MessageCreate;

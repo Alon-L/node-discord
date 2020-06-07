@@ -1,9 +1,8 @@
 import User from '../../structures/User';
 import Bot from '../../structures/bot/Bot';
 import BotSocketShard, { Payload } from '../BotSocketShard';
-import { GatewayEvents } from '../constants';
 
-export const run = ({ d }: Payload, bot: Bot, socket: BotSocketShard): void => {
+export default ({ d }: Payload, bot: Bot, socket: BotSocketShard): void => {
   const { session_id: sessionId, user, guilds } = d;
 
   socket.sessionId = sessionId;
@@ -25,5 +24,3 @@ export const run = ({ d }: Payload, bot: Bot, socket: BotSocketShard): void => {
 
   bot.debug(bot.guilds);
 };
-
-export const name = GatewayEvents.Ready;

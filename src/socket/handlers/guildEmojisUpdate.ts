@@ -4,9 +4,9 @@ import Emoji from '../../structures/Emoji';
 import Bot from '../../structures/bot/Bot';
 import { Snowflake } from '../../types';
 import { Payload } from '../BotSocketShard';
-import { BotEvents, GatewayEvents } from '../constants';
+import { BotEvents } from '../constants';
 
-export const run = ({ d }: Payload, bot: Bot): void => {
+export default ({ d }: Payload, bot: Bot): void => {
   const { guild_id: guildId, emojis } = d;
 
   const guild = bot.guilds.get(guildId);
@@ -23,5 +23,3 @@ export const run = ({ d }: Payload, bot: Bot): void => {
 
   bot.events.emit(BotEvents.GuildEmojisUpdate, oldEmojis, newEmojis);
 };
-
-export const name = GatewayEvents.GuildEmojisUpdate;

@@ -3,9 +3,9 @@ import Bot from '../../structures/bot/Bot';
 import MessageReaction from '../../structures/message/MessageReaction';
 import ReactionHandlersUtils from '../../utils/handlers/ReactionHandlersUtils';
 import { Payload } from '../BotSocketShard';
-import { GatewayEvents, BotEvents } from '../constants';
+import { BotEvents } from '../constants';
 
-export const run = ({ d }: Payload, bot: Bot): void => {
+export default ({ d }: Payload, bot: Bot): void => {
   const { user_id: userId } = d;
 
   const handlersUtils = new ReactionHandlersUtils(bot, d);
@@ -50,5 +50,3 @@ export const run = ({ d }: Payload, bot: Bot): void => {
 
   bot.events.emit(BotEvents.MessageReactionAdd, reaction, member || user);
 };
-
-export const name = GatewayEvents.MessageReactionAdd;

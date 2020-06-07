@@ -1,9 +1,9 @@
 import Bot from '../../structures/bot/Bot';
 import Guild from '../../structures/guild/Guild';
 import BotSocketShard, { BotSocketShardState, Payload } from '../BotSocketShard';
-import { BotEvents, GatewayEvents } from '../constants';
+import { BotEvents } from '../constants';
 
-export const run = ({ d }: Payload, bot: Bot, socket: BotSocketShard): void => {
+export default ({ d }: Payload, bot: Bot, socket: BotSocketShard): void => {
   const { session_id: sessionId } = d;
 
   socket.sessionId = sessionId;
@@ -31,5 +31,3 @@ export const run = ({ d }: Payload, bot: Bot, socket: BotSocketShard): void => {
     bot.events.emit(BotEvents.GuildCreate, guild);
   }
 };
-
-export const name = GatewayEvents.GuildCreate;
