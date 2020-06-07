@@ -9,7 +9,7 @@ const bot = new Bot(config.token);
 bot.connection.connect();
 
 bot.communication.on('test', (bot: Bot) => {
-  return bot.guilds.first.name;
+  return bot.guilds.first?.name;
 });
 
 bot.communication.on('close', (bot: Bot) => {
