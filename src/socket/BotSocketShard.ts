@@ -1,5 +1,6 @@
 import erlpack from 'erlpack';
 import WebSocket, { Data } from 'ws';
+import { Inflate, Z_SYNC_FLUSH } from 'zlib-sync';
 import BotDispatchHandlers from './BotDispatchHandlers';
 import BotHeartbeats from './BotHeartbeats';
 import { BotShardState } from './BotShard';
@@ -60,6 +61,8 @@ class BotSocketShard {
   public sequence: number | null;
   private lastSequence: number | null;
 
+  private zlib: Inflate;
+
   constructor(botSocket: BotSocket, token: string, shard: ShardOptions) {
     this.botSocket = botSocket;
 
@@ -77,6 +80,10 @@ class BotSocketShard {
 
     this.sequence = null;
     this.lastSequence = null;
+
+    this.zlib = new Inflate({
+      chunkSize: 128 * 1024,
+    });
   }
 
   /**
@@ -110,13 +117,32 @@ class BotSocketShard {
     }
   }
 
+  private decompressMessage(message: Buffer): Buffer | undefined {
+    if (message.length >= 4 && message.readUInt32BE(message.length - 4) === 0xffff) {
+      this.zlib.push(message, Z_SYNC_FLUSH);
+
+      if (this.zlib.err) {
+        throw this.zlib.err;
+      }
+
+      return Buffer.from(this.zlib.result!);
+    } else {
+      this.zlib.push(message, false);
+    }
+  }
+
   /**
    * Called when a new message is received from the gateway
-   * @param {WebSocket.MessageEvent} data WebSocket message event
+   * @param {Data} message WebSocket message event
    * @returns {Promise<void>}
    */
-  private async onMessage(data: Data): Promise<void> {
-    const payload = BotSocketShard.parse(data as Buffer);
+  private async onMessage(message: Data): Promise<void> {
+    if (!(message instanceof Buffer)) return;
+
+    const data = this.decompressMessage(message);
+    if (!data) return;
+
+    const payload = BotSocketShard.parse(data);
 
     const { op, t, d, s } = payload;
 
@@ -317,7 +343,7 @@ class BotSocketShard {
    * @returns {string}
    */
   private static socketURL(url: string): string {
-    return `${url}/?v=${version}&encoding=etf`;
+    return `${url}/?v=${version}&encoding=etf&compress=zlib-stream`;
   }
 }
 
