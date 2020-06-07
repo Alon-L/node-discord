@@ -1,5 +1,12 @@
 export const version = 6;
 
+export interface WebsocketOptions {
+  v: number;
+  encoding: 'json' | 'etf';
+  compress?: 'zlib-stream';
+  [key: string]: number | string | undefined;
+}
+
 export const identify = {
   properties: {
     $os: process.platform,

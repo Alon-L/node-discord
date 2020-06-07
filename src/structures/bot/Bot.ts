@@ -5,6 +5,7 @@ import BotCommandsHandler from './handlers/BotCommandsHandler';
 import BotEventsHandler from './handlers/events/BotEventsHandler';
 import Cluster from '../../Cluster';
 import { BotEvents } from '../../socket/constants';
+import { WebsocketOptions } from '../../socket/properties';
 import { ShardId, Snowflake } from '../../types';
 import User from '../User';
 import DMChannel from '../channels/DMChannel';
@@ -33,6 +34,11 @@ class Bot {
    * Bot token
    */
   private readonly token: string;
+
+  /**
+   * Options used to determine how the Bot operates
+   */
+  public readonly options: Partial<WebsocketOptions> | undefined;
 
   /**
    * {@link ShardOptions} object containing sharding information
@@ -79,8 +85,10 @@ class Bot {
    */
   public users: Cluster<Snowflake, User>;
 
-  constructor(token: string) {
+  constructor(token: string, options?: Partial<WebsocketOptions>) {
     this.token = token;
+
+    this.options = options;
 
     // Set bot sharding data
     const shardId = Number(process.env.SHARD_ID);
