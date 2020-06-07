@@ -53,7 +53,7 @@ class BotHeartbeats {
     }
 
     this.acked = false;
-    this.ws.send(BotSocketShard.pack(this.heartbeatData), err => {
+    this.ws.send(this.botSocketShard.pack(this.heartbeatData), err => {
       if (err) throw err;
     });
   }

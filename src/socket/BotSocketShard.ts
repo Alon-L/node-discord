@@ -1,7 +1,5 @@
-import erlpack from 'erlpack';
+import querystring from 'querystring';
 import WebSocket, { Data } from 'ws';
-import { Inflate, Z_SYNC_FLUSH } from 'zlib-sync';
-import BotDispatchHandlers from './BotDispatchHandlers';
 import BotHeartbeats from './BotHeartbeats';
 import { BotShardState } from './BotShard';
 import BotSocket, { SessionStartLimit } from './BotSocket';
@@ -13,7 +11,8 @@ import {
   unreconnectableGatewayCloseCodes,
   unresumeableGatewayCloseCodes,
 } from './constants';
-import { identify, version } from './properties';
+import * as events from './handlers';
+import { identify, version, WebsocketOptions } from './properties';
 import Bot, { ShardOptions } from '../structures/bot/Bot';
 import { Snowflake } from '../types';
 
@@ -35,16 +34,44 @@ export interface Payload {
   t: GatewayEvents;
 }
 
+export type Events = Record<
+  GatewayEvents,
+  (payload: Payload, bot?: Bot, socketShard?: BotSocketShard) => void
+>;
+
+// Initializes variables for optional libraries
+let erlpack: typeof import('erlpack') | undefined;
+let zlib: typeof import('zlib-sync') | undefined;
+
 /**
  * Connects every bot shard to a {@link WebSocket} with the Discord Gateway.
  * Handles gateway events and messages
  * @class
  */
 class BotSocketShard {
+  /**
+   * The bot socket connection that initialized this shard
+   */
   private readonly botSocket: BotSocket;
+
+  /**
+   * The bot instance associated to this shard
+   */
   private readonly bot: Bot;
+
+  /**
+   * The token of the bot associated to this shard
+   */
   private readonly token: string;
+
+  /**
+   * Responsible for sending heartbeat payloads representing this shard
+   */
   private heartbeats!: BotHeartbeats;
+
+  /**
+   * Holds shard details
+   */
   public readonly shard: ShardOptions;
 
   /**
@@ -53,15 +80,45 @@ class BotSocketShard {
    */
   private retryTimeout: number;
 
+  /**
+   * All guilds pending to be cached from the gateway READY event
+   */
   public pendingGuilds: Set<Snowflake>;
+
+  /**
+   * This shard's state
+   */
   public state: BotSocketShardState;
+
+  /**
+   * The WebSocket connection associated to this shard
+   */
   public ws!: WebSocket;
+
+  /**
+   * The session ID of this shard
+   */
   public sessionId!: string;
 
+  /**
+   * The sequence number of this shard
+   */
   public sequence: number | null;
+
+  /**
+   * The number of the last sequence of this shard. Used to resume the connection from the last sequence in case of connection loss
+   */
   private lastSequence: number | null;
 
-  private zlib: Inflate;
+  /**
+   * Holds options for the websocket connection
+   */
+  private options!: WebsocketOptions;
+
+  /**
+   * The Inflate context used to compress incoming payloads
+   */
+  private zlib: import('zlib-sync').Inflate | undefined;
 
   constructor(botSocket: BotSocket, token: string, shard: ShardOptions) {
     this.botSocket = botSocket;
@@ -80,10 +137,34 @@ class BotSocketShard {
 
     this.sequence = null;
     this.lastSequence = null;
+  }
 
-    this.zlib = new Inflate({
-      chunkSize: 128 * 1024,
-    });
+  public async configure(): Promise<void> {
+    try {
+      erlpack = await import('erlpack');
+    } catch (err) {
+      // Use json encoding
+    }
+
+    try {
+      zlib = await import('zlib-sync');
+
+      // Create new Inflate context
+      this.zlib = new zlib.Inflate({
+        chunkSize: 128 * 1024,
+      });
+    } catch (err) {
+      // Do not use data compressing
+    }
+
+    this.options = {
+      v: version,
+      encoding: erlpack ? 'etf' : 'json',
+      compress: zlib && 'zlib-stream',
+      ...this.bot.options,
+    };
+
+    console.log(this.options);
   }
 
   /**
@@ -99,7 +180,7 @@ class BotSocketShard {
 
     const { gatewayURL, sessionStartLimit } = this.botSocket;
 
-    const socketURL = BotSocketShard.socketURL(gatewayURL);
+    const socketURL = this.socketURL(gatewayURL);
 
     await this.handleSessionLimit(sessionStartLimit);
 
@@ -117,32 +198,69 @@ class BotSocketShard {
     }
   }
 
+  /**
+   * Decompressed a message if the compress option is sent to the gateway
+   * @param {Buffer} message The message received from the gateway
+   * @returns {Buffer | undefined}
+   */
   private decompressMessage(message: Buffer): Buffer | undefined {
-    if (message.length >= 4 && message.readUInt32BE(message.length - 4) === 0xffff) {
-      this.zlib.push(message, Z_SYNC_FLUSH);
+    if (!this.zlib) return;
 
-      if (this.zlib.err) {
-        throw this.zlib.err;
-      }
-
-      return Buffer.from(this.zlib.result!);
-    } else {
+    if (message.length < 4 || message.readUInt32BE(message.length - 4) !== 0xffff) {
       this.zlib.push(message, false);
+      return;
     }
+
+    this.zlib.push(message, zlib?.Z_SYNC_FLUSH);
+
+    if (this.zlib.err) {
+      throw this.zlib.err;
+    }
+
+    return Buffer.from(this.zlib.result!);
+  }
+
+  /**
+   * Uses the right decoding and decompression to retrieve the payload object from the gateway message
+   * @param {WebSocket.Data} message The message received from the gateway
+   * @returns {Payload | undefined}
+   */
+  private retrievePayload(message: Data): Payload | undefined {
+    let data: string | Buffer | undefined;
+
+    if (message instanceof Buffer) {
+      /*
+      Payloads are served inside Buffer when:
+      1. The ETF encoding is used
+      2. Compression is used
+
+      Decompress the message, and store it in the right format
+       */
+      const decompressed =
+        this.options.compress === 'zlib-stream' ? this.decompressMessage(message) : message;
+
+      if (!decompressed) return;
+
+      data = this.options.encoding === 'etf' ? decompressed : decompressed.toString();
+    } else if (typeof message === 'string') {
+      // Payloads are served inside a string when the JSON encoding is used without compression
+      data = message;
+    }
+
+    if (!data) return;
+
+    return BotSocketShard.parse(data);
   }
 
   /**
    * Called when a new message is received from the gateway
    * @param {Data} message WebSocket message event
-   * @returns {Promise<void>}
+   * @returns {void}
    */
-  private async onMessage(message: Data): Promise<void> {
-    if (!(message instanceof Buffer)) return;
+  private onMessage(message: Data): void {
+    const payload = this.retrievePayload(message);
 
-    const data = this.decompressMessage(message);
-    if (!data) return;
-
-    const payload = BotSocketShard.parse(data);
+    if (!payload) return;
 
     const { op, t, d, s } = payload;
 
@@ -182,7 +300,7 @@ class BotSocketShard {
     const { id, amount } = this.shard;
 
     this.ws.send(
-      BotSocketShard.pack({
+      this.pack({
         op: OPCodes.Identify,
         d: {
           ...identify,
@@ -194,7 +312,7 @@ class BotSocketShard {
   }
 
   /**
-   * Calls the matching dispatch event from {@link BotDispatchHandlers.events}
+   * Calls the matching dispatch event from {@link events}
    * @param {Payload} payload Dispatch payload
    */
   private handleDispatch(payload: Payload): void {
@@ -206,7 +324,8 @@ class BotSocketShard {
     }
 
     // Find the matching event and run it
-    const event = BotDispatchHandlers.events.get(t);
+    const event = (events as Events)[t];
+
     if (event) {
       event(payload, this.bot, this);
     }
@@ -291,7 +410,7 @@ class BotSocketShard {
    */
   private resume(): void {
     this.ws.send(
-      BotSocketShard.pack({
+      this.pack({
         op: OPCodes.Resume,
         d: {
           token: this.token,
@@ -324,8 +443,14 @@ class BotSocketShard {
    * @param {string} data Data received from the gateway
    * @returns {Payload}
    */
-  private static parse(data: Buffer): Payload {
-    return erlpack.unpack(data);
+  private static parse(data: Buffer | string): Payload | undefined {
+    if (data instanceof Buffer) {
+      if (!erlpack) return;
+
+      return erlpack.unpack(data);
+    } else {
+      return JSON.parse(data);
+    }
   }
 
   /**
@@ -333,8 +458,8 @@ class BotSocketShard {
    * @param {any} data Data to be transferred and sent to the gateway
    * @returns {string}
    */
-  public static pack(data: any): Buffer {
-    return erlpack.pack(data);
+  public pack(data: any): Buffer | string | undefined {
+    return this.options.encoding === 'etf' ? erlpack?.pack(data) : JSON.stringify(data);
   }
 
   /**
@@ -342,8 +467,8 @@ class BotSocketShard {
    * @param {string} url Socket URL
    * @returns {string}
    */
-  private static socketURL(url: string): string {
-    return `${url}/?v=${version}&encoding=etf&compress=zlib-stream`;
+  private socketURL(url: string): string {
+    return `${url}/?${querystring.stringify(this.options)}`;
   }
 }
 
