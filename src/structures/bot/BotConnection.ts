@@ -1,5 +1,4 @@
 import Bot from './Bot';
-import BotDispatchHandlers from '../../socket/BotDispatchHandlers';
 import BotSocket from '../../socket/BotSocket';
 import { GatewayCloseCodes } from '../../socket/constants';
 
@@ -13,15 +12,8 @@ class BotConnection {
    */
   private readonly socket: BotSocket;
 
-  /**
-   * Handles every dispatch requests received from the Discord gateway
-   */
-  private readonly dispatchHandlers: BotDispatchHandlers;
-
   constructor(bot: Bot, token: string) {
     this.socket = new BotSocket(bot, token);
-
-    this.dispatchHandlers = new BotDispatchHandlers();
   }
 
   /**
@@ -29,7 +21,6 @@ class BotConnection {
    * @returns {Promise<void>}
    */
   public async connect(): Promise<void> {
-    await this.dispatchHandlers.registerEvents();
     await this.socket.startShards();
   }
 
@@ -38,7 +29,6 @@ class BotConnection {
    * @param {GatewayCloseCodes} code WebSocket close code
    */
   public disconnect(code = GatewayCloseCodes.ManualClosure): void {
-    this.dispatchHandlers.clearEvents();
     this.socket.stopShards(code);
   }
 }
