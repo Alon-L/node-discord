@@ -95,7 +95,6 @@
 								<li class="tsd-kind-class"><a href="classes/botcommandshandler.html" class="tsd-kind-icon">Bot<wbr>Commands<wbr>Handler</a></li>
 								<li class="tsd-kind-class"><a href="classes/botcommunication.html" class="tsd-kind-icon">Bot<wbr>Communication</a></li>
 								<li class="tsd-kind-class"><a href="classes/botconnection.html" class="tsd-kind-icon">Bot<wbr>Connection</a></li>
-								<li class="tsd-kind-class"><a href="classes/botdispatchhandlers.html" class="tsd-kind-icon">Bot<wbr>Dispatch<wbr>Handlers</a></li>
 								<li class="tsd-kind-class"><a href="classes/boteventshandler.html" class="tsd-kind-icon">Bot<wbr>Events<wbr>Handler</a></li>
 								<li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/bothandler.html" class="tsd-kind-icon">Bot<wbr>Handler</a></li>
 								<li class="tsd-kind-class"><a href="classes/botheartbeats.html" class="tsd-kind-icon">Bot<wbr>Heartbeats</a></li>
@@ -135,8 +134,6 @@
 								<li class="tsd-kind-interface"><a href="interfaces/clustersetoptions.html" class="tsd-kind-icon">Cluster<wbr>Set<wbr>Options</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/command.html" class="tsd-kind-icon">Command</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/dimensions.html" class="tsd-kind-icon">Dimensions</a></li>
-								<li class="tsd-kind-interface"><a href="interfaces/event.html" class="tsd-kind-icon">Event</a></li>
-								<li class="tsd-kind-interface"><a href="interfaces/events.html" class="tsd-kind-icon">Events</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/gatewaybot.html" class="tsd-kind-icon">Gateway<wbr>Bot</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/guildlevels.html" class="tsd-kind-icon">Guild<wbr>Levels</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/guildpremium.html" class="tsd-kind-icon">Guild<wbr>Premium</a></li>
@@ -165,6 +162,7 @@
 								<li class="tsd-kind-interface"><a href="interfaces/shardoptions.html" class="tsd-kind-icon">Shard<wbr>Options</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/shardresponse.html" class="tsd-kind-icon">Shard<wbr>Response</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/updatereturn.html" class="tsd-kind-icon">Update<wbr>Return</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/websocketoptions.html" class="tsd-kind-icon">Websocket<wbr>Options</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -172,6 +170,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-type-alias"><a href="globals.html#commandfunction" class="tsd-kind-icon">Command<wbr>Function</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#eventfunction" class="tsd-kind-icon">Event<wbr>Function</a></li>
+								<li class="tsd-kind-type-alias"><a href="globals.html#events" class="tsd-kind-icon">Events</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#gatewaystruct" class="tsd-kind-icon">Gateway<wbr>Struct</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#invitecode" class="tsd-kind-icon">Invite<wbr>Code</a></li>
 								<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#nullable" class="tsd-kind-icon">Nullable</a></li>
@@ -186,17 +185,12 @@
 							<h3>Variables</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-variable"><a href="globals.html#dict" class="tsd-kind-icon">Dict</a></li>
-								<li class="tsd-kind-variable"><a href="globals.html#name" class="tsd-kind-icon">name</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#erlpack" class="tsd-kind-icon">erlpack</a></li>
 								<li class="tsd-kind-variable"><a href="globals.html#recommendedshardtimeout" class="tsd-kind-icon">recommended<wbr>Shard<wbr>Timeout</a></li>
 								<li class="tsd-kind-variable"><a href="globals.html#unreconnectablegatewayclosecodes" class="tsd-kind-icon">unreconnectable<wbr>Gateway<wbr>Close<wbr>Codes</a></li>
 								<li class="tsd-kind-variable"><a href="globals.html#unresumeablegatewayclosecodes" class="tsd-kind-icon">unresumeable<wbr>Gateway<wbr>Close<wbr>Codes</a></li>
 								<li class="tsd-kind-variable"><a href="globals.html#version" class="tsd-kind-icon">version</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
-							<h3>Functions</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-function"><a href="globals.html#run" class="tsd-kind-icon">run</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#zlib" class="tsd-kind-icon">zlib</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -217,7 +211,7 @@
 					<div class="tsd-signature tsd-kind-icon">Command<wbr>Function<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>bot<span class="tsd-signature-symbol">: </span><a href="classes/bot.html" class="tsd-signature-type">Bot</a>, <span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">unknown</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/types.ts#L27">src/types.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/types.ts#L27">src/types.ts:27</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -251,8 +245,7 @@
 					<div class="tsd-signature tsd-kind-icon">Event<wbr>Function<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/BotDispatchHandlers.ts#L8">src/socket/BotDispatchHandlers.ts:8</a></li>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/types.ts#L26">src/types.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/types.ts#L26">src/types.ts:26</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -278,12 +271,643 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="events" class="tsd-anchor"></a>
+					<h3>Events</h3>
+					<div class="tsd-signature tsd-kind-icon">Events<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><a href="enums/gatewayevents.html" class="tsd-signature-type">GatewayEvents</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">(</span>payload<span class="tsd-signature-symbol">: </span><a href="interfaces/payload.html" class="tsd-signature-type">Payload</a>, bot<span class="tsd-signature-symbol">?: </span><a href="classes/bot.html" class="tsd-signature-type">Bot</a>, socketShard<span class="tsd-signature-symbol">?: </span><a href="classes/botsocketshard.html" class="tsd-signature-type">BotSocketShard</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/socket/BotSocketShard.ts#L37">src/socket/BotSocketShard.ts:37</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/handlers/events/events.ts#L310">src/structures/bot/handlers/events/events.ts:310</a></li>
+						</ul>
+					</aside>
+					<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-type-alias">
+						<a name="events.on" class="tsd-anchor"></a>
+						<h3>on</h3>
+						<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-type-alias">
+							<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="enums/botevents.html#ready" class="tsd-signature-type">Ready</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#ready" class="tsd-signature-type">READY</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+							<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="enums/botevents.html#shardready" class="tsd-signature-type">ShardReady</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#shard_ready" class="tsd-signature-type">SHARD_READY</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+							<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="enums/botevents.html#shardclose" class="tsd-signature-type">ShardClose</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#shard_close" class="tsd-signature-type">SHARD_CLOSE</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+							<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="enums/botevents.html#channelcreate" class="tsd-signature-type">ChannelCreate</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#channel_create" class="tsd-signature-type">CHANNEL_CREATE</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+							<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="enums/botevents.html#channelupdate" class="tsd-signature-type">ChannelUpdate</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#channel_update" class="tsd-signature-type">CHANNEL_UPDATE</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+							<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="enums/botevents.html#channeldelete" class="tsd-signature-type">ChannelDelete</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#channel_delete" class="tsd-signature-type">CHANNEL_DELETE</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+							<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="enums/botevents.html#channelpinsupdate" class="tsd-signature-type">ChannelPinsUpdate</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#channel_pins_update" class="tsd-signature-type">CHANNEL_PINS_UPDATE</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+							<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="enums/botevents.html#guildcreate" class="tsd-signature-type">GuildCreate</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#guild_create" class="tsd-signature-type">GUILD_CREATE</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+							<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="enums/botevents.html#guildupdate" class="tsd-signature-type">GuildUpdate</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#guild_update" class="tsd-signature-type">GUILD_UPDATE</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+							<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="enums/botevents.html#guilddelete" class="tsd-signature-type">GuildDelete</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#guild_delete" class="tsd-signature-type">GUILD_DELETE</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+							<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="enums/botevents.html#guildbanadd" class="tsd-signature-type">GuildBanAdd</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#guild_ban_add" class="tsd-signature-type">GUILD_BAN_ADD</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+							<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="enums/botevents.html#guildbanremove" class="tsd-signature-type">GuildBanRemove</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#guild_ban_remove" class="tsd-signature-type">GUILD_BAN_REMOVE</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+							<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="enums/botevents.html#guildemojisupdate" class="tsd-signature-type">GuildEmojisUpdate</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#guild_emojis_update" class="tsd-signature-type">GUILD_EMOJIS_UPDATE</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+							<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="enums/botevents.html#guildintegrationsupdate" class="tsd-signature-type">GuildIntegrationsUpdate</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#guild_integrations_update" class="tsd-signature-type">GUILD_INTEGRATIONS_UPDATE</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+							<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="enums/botevents.html#guildmemberadd" class="tsd-signature-type">GuildMemberAdd</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#guild_member_add" class="tsd-signature-type">GUILD_MEMBER_ADD</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+							<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="enums/botevents.html#guildmemberremove" class="tsd-signature-type">GuildMemberRemove</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#guild_member_remove" class="tsd-signature-type">GUILD_MEMBER_REMOVE</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+							<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="enums/botevents.html#guildmemberupdate" class="tsd-signature-type">GuildMemberUpdate</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#guild_member_update" class="tsd-signature-type">GUILD_MEMBER_UPDATE</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+							<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="enums/botevents.html#guildmemberschunk" class="tsd-signature-type">GuildMembersChunk</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#guild_members_chunk" class="tsd-signature-type">GUILD_MEMBERS_CHUNK</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+							<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="enums/botevents.html#guildrolecreate" class="tsd-signature-type">GuildRoleCreate</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#guild_role_create" class="tsd-signature-type">GUILD_ROLE_CREATE</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+							<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="enums/botevents.html#guildroleupdate" class="tsd-signature-type">GuildRoleUpdate</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#guild_role_update" class="tsd-signature-type">GUILD_ROLE_UPDATE</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+							<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="enums/botevents.html#guildroledelete" class="tsd-signature-type">GuildRoleDelete</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#guild_role_delete" class="tsd-signature-type">GUILD_ROLE_DELETE</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+							<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="enums/botevents.html#invitecreate" class="tsd-signature-type">InviteCreate</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#invite_create" class="tsd-signature-type">INVITE_CREATE</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+							<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="enums/botevents.html#invitedelete" class="tsd-signature-type">InviteDelete</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#invite_delete" class="tsd-signature-type">INVITE_DELETE</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+							<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="enums/botevents.html#messagecreate" class="tsd-signature-type">MessageCreate</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#message_create" class="tsd-signature-type">MESSAGE_CREATE</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+							<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="enums/botevents.html#messageupdate" class="tsd-signature-type">MessageUpdate</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#message_update" class="tsd-signature-type">MESSAGE_UPDATE</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+							<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="enums/botevents.html#messagedelete" class="tsd-signature-type">MessageDelete</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#message_delete" class="tsd-signature-type">MESSAGE_DELETE</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+							<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="enums/botevents.html#messagereactionadd" class="tsd-signature-type">MessageReactionAdd</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#message_reaction_add" class="tsd-signature-type">MESSAGE_REACTION_ADD</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+							<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="enums/botevents.html#messagereactionremove" class="tsd-signature-type">MessageReactionRemove</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#message_reaction_remove" class="tsd-signature-type">MESSAGE_REACTION_REMOVE</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+							<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="enums/botevents.html#messagereactionremoveall" class="tsd-signature-type">MessageReactionRemoveAll</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#message_reaction_remove_all" class="tsd-signature-type">MESSAGE_REACTION_REMOVE_ALL</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+							<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="enums/botevents.html#messagereactionremoveemoji" class="tsd-signature-type">MessageReactionRemoveEmoji</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#message_reaction_remove_emoji" class="tsd-signature-type">MESSAGE_REACTION_REMOVE_EMOJI</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+							<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="enums/botevents.html#typingstart" class="tsd-signature-type">TypingStart</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#typing_start" class="tsd-signature-type">TYPING_START</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+							<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="enums/botevents.html#userupdate" class="tsd-signature-type">UserUpdate</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#user_update" class="tsd-signature-type">USER_UPDATE</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+							<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						</ul>
+						<ul class="tsd-descriptions">
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/handlers/events/events.ts#L311">src/structures/bot/handlers/events/events.ts:311</a></li>
+									</ul>
+								</aside>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>event: <a href="enums/botevents.html#ready" class="tsd-signature-type">Ready</a></h5>
+									</li>
+									<li>
+										<h5>listener: <span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#ready" class="tsd-signature-type">READY</a></h5>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+							</li>
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/handlers/events/events.ts#L312">src/structures/bot/handlers/events/events.ts:312</a></li>
+									</ul>
+								</aside>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>event: <a href="enums/botevents.html#shardready" class="tsd-signature-type">ShardReady</a></h5>
+									</li>
+									<li>
+										<h5>listener: <span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#shard_ready" class="tsd-signature-type">SHARD_READY</a></h5>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+							</li>
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/handlers/events/events.ts#L313">src/structures/bot/handlers/events/events.ts:313</a></li>
+									</ul>
+								</aside>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>event: <a href="enums/botevents.html#shardclose" class="tsd-signature-type">ShardClose</a></h5>
+									</li>
+									<li>
+										<h5>listener: <span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#shard_close" class="tsd-signature-type">SHARD_CLOSE</a></h5>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+							</li>
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/handlers/events/events.ts#L314">src/structures/bot/handlers/events/events.ts:314</a></li>
+									</ul>
+								</aside>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>event: <a href="enums/botevents.html#channelcreate" class="tsd-signature-type">ChannelCreate</a></h5>
+									</li>
+									<li>
+										<h5>listener: <span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#channel_create" class="tsd-signature-type">CHANNEL_CREATE</a></h5>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+							</li>
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/handlers/events/events.ts#L315">src/structures/bot/handlers/events/events.ts:315</a></li>
+									</ul>
+								</aside>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>event: <a href="enums/botevents.html#channelupdate" class="tsd-signature-type">ChannelUpdate</a></h5>
+									</li>
+									<li>
+										<h5>listener: <span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#channel_update" class="tsd-signature-type">CHANNEL_UPDATE</a></h5>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+							</li>
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/handlers/events/events.ts#L316">src/structures/bot/handlers/events/events.ts:316</a></li>
+									</ul>
+								</aside>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>event: <a href="enums/botevents.html#channeldelete" class="tsd-signature-type">ChannelDelete</a></h5>
+									</li>
+									<li>
+										<h5>listener: <span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#channel_delete" class="tsd-signature-type">CHANNEL_DELETE</a></h5>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+							</li>
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/handlers/events/events.ts#L317">src/structures/bot/handlers/events/events.ts:317</a></li>
+									</ul>
+								</aside>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>event: <a href="enums/botevents.html#channelpinsupdate" class="tsd-signature-type">ChannelPinsUpdate</a></h5>
+									</li>
+									<li>
+										<h5>listener: <span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#channel_pins_update" class="tsd-signature-type">CHANNEL_PINS_UPDATE</a></h5>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+							</li>
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/handlers/events/events.ts#L318">src/structures/bot/handlers/events/events.ts:318</a></li>
+									</ul>
+								</aside>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>event: <a href="enums/botevents.html#guildcreate" class="tsd-signature-type">GuildCreate</a></h5>
+									</li>
+									<li>
+										<h5>listener: <span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#guild_create" class="tsd-signature-type">GUILD_CREATE</a></h5>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+							</li>
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/handlers/events/events.ts#L319">src/structures/bot/handlers/events/events.ts:319</a></li>
+									</ul>
+								</aside>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>event: <a href="enums/botevents.html#guildupdate" class="tsd-signature-type">GuildUpdate</a></h5>
+									</li>
+									<li>
+										<h5>listener: <span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#guild_update" class="tsd-signature-type">GUILD_UPDATE</a></h5>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+							</li>
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/handlers/events/events.ts#L320">src/structures/bot/handlers/events/events.ts:320</a></li>
+									</ul>
+								</aside>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>event: <a href="enums/botevents.html#guilddelete" class="tsd-signature-type">GuildDelete</a></h5>
+									</li>
+									<li>
+										<h5>listener: <span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#guild_delete" class="tsd-signature-type">GUILD_DELETE</a></h5>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+							</li>
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/handlers/events/events.ts#L321">src/structures/bot/handlers/events/events.ts:321</a></li>
+									</ul>
+								</aside>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>event: <a href="enums/botevents.html#guildbanadd" class="tsd-signature-type">GuildBanAdd</a></h5>
+									</li>
+									<li>
+										<h5>listener: <span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#guild_ban_add" class="tsd-signature-type">GUILD_BAN_ADD</a></h5>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+							</li>
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/handlers/events/events.ts#L322">src/structures/bot/handlers/events/events.ts:322</a></li>
+									</ul>
+								</aside>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>event: <a href="enums/botevents.html#guildbanremove" class="tsd-signature-type">GuildBanRemove</a></h5>
+									</li>
+									<li>
+										<h5>listener: <span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#guild_ban_remove" class="tsd-signature-type">GUILD_BAN_REMOVE</a></h5>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+							</li>
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/handlers/events/events.ts#L323">src/structures/bot/handlers/events/events.ts:323</a></li>
+									</ul>
+								</aside>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>event: <a href="enums/botevents.html#guildemojisupdate" class="tsd-signature-type">GuildEmojisUpdate</a></h5>
+									</li>
+									<li>
+										<h5>listener: <span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#guild_emojis_update" class="tsd-signature-type">GUILD_EMOJIS_UPDATE</a></h5>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+							</li>
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/handlers/events/events.ts#L324">src/structures/bot/handlers/events/events.ts:324</a></li>
+									</ul>
+								</aside>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>event: <a href="enums/botevents.html#guildintegrationsupdate" class="tsd-signature-type">GuildIntegrationsUpdate</a></h5>
+									</li>
+									<li>
+										<h5>listener: <span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#guild_integrations_update" class="tsd-signature-type">GUILD_INTEGRATIONS_UPDATE</a></h5>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+							</li>
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/handlers/events/events.ts#L325">src/structures/bot/handlers/events/events.ts:325</a></li>
+									</ul>
+								</aside>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>event: <a href="enums/botevents.html#guildmemberadd" class="tsd-signature-type">GuildMemberAdd</a></h5>
+									</li>
+									<li>
+										<h5>listener: <span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#guild_member_add" class="tsd-signature-type">GUILD_MEMBER_ADD</a></h5>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+							</li>
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/handlers/events/events.ts#L326">src/structures/bot/handlers/events/events.ts:326</a></li>
+									</ul>
+								</aside>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>event: <a href="enums/botevents.html#guildmemberremove" class="tsd-signature-type">GuildMemberRemove</a></h5>
+									</li>
+									<li>
+										<h5>listener: <span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#guild_member_remove" class="tsd-signature-type">GUILD_MEMBER_REMOVE</a></h5>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+							</li>
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/handlers/events/events.ts#L327">src/structures/bot/handlers/events/events.ts:327</a></li>
+									</ul>
+								</aside>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>event: <a href="enums/botevents.html#guildmemberupdate" class="tsd-signature-type">GuildMemberUpdate</a></h5>
+									</li>
+									<li>
+										<h5>listener: <span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#guild_member_update" class="tsd-signature-type">GUILD_MEMBER_UPDATE</a></h5>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+							</li>
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/handlers/events/events.ts#L328">src/structures/bot/handlers/events/events.ts:328</a></li>
+									</ul>
+								</aside>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>event: <a href="enums/botevents.html#guildmemberschunk" class="tsd-signature-type">GuildMembersChunk</a></h5>
+									</li>
+									<li>
+										<h5>listener: <span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#guild_members_chunk" class="tsd-signature-type">GUILD_MEMBERS_CHUNK</a></h5>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+							</li>
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/handlers/events/events.ts#L329">src/structures/bot/handlers/events/events.ts:329</a></li>
+									</ul>
+								</aside>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>event: <a href="enums/botevents.html#guildrolecreate" class="tsd-signature-type">GuildRoleCreate</a></h5>
+									</li>
+									<li>
+										<h5>listener: <span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#guild_role_create" class="tsd-signature-type">GUILD_ROLE_CREATE</a></h5>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+							</li>
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/handlers/events/events.ts#L330">src/structures/bot/handlers/events/events.ts:330</a></li>
+									</ul>
+								</aside>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>event: <a href="enums/botevents.html#guildroleupdate" class="tsd-signature-type">GuildRoleUpdate</a></h5>
+									</li>
+									<li>
+										<h5>listener: <span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#guild_role_update" class="tsd-signature-type">GUILD_ROLE_UPDATE</a></h5>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+							</li>
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/handlers/events/events.ts#L331">src/structures/bot/handlers/events/events.ts:331</a></li>
+									</ul>
+								</aside>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>event: <a href="enums/botevents.html#guildroledelete" class="tsd-signature-type">GuildRoleDelete</a></h5>
+									</li>
+									<li>
+										<h5>listener: <span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#guild_role_delete" class="tsd-signature-type">GUILD_ROLE_DELETE</a></h5>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+							</li>
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/handlers/events/events.ts#L332">src/structures/bot/handlers/events/events.ts:332</a></li>
+									</ul>
+								</aside>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>event: <a href="enums/botevents.html#invitecreate" class="tsd-signature-type">InviteCreate</a></h5>
+									</li>
+									<li>
+										<h5>listener: <span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#invite_create" class="tsd-signature-type">INVITE_CREATE</a></h5>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+							</li>
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/handlers/events/events.ts#L333">src/structures/bot/handlers/events/events.ts:333</a></li>
+									</ul>
+								</aside>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>event: <a href="enums/botevents.html#invitedelete" class="tsd-signature-type">InviteDelete</a></h5>
+									</li>
+									<li>
+										<h5>listener: <span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#invite_delete" class="tsd-signature-type">INVITE_DELETE</a></h5>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+							</li>
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/handlers/events/events.ts#L334">src/structures/bot/handlers/events/events.ts:334</a></li>
+									</ul>
+								</aside>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>event: <a href="enums/botevents.html#messagecreate" class="tsd-signature-type">MessageCreate</a></h5>
+									</li>
+									<li>
+										<h5>listener: <span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#message_create" class="tsd-signature-type">MESSAGE_CREATE</a></h5>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+							</li>
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/handlers/events/events.ts#L335">src/structures/bot/handlers/events/events.ts:335</a></li>
+									</ul>
+								</aside>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>event: <a href="enums/botevents.html#messageupdate" class="tsd-signature-type">MessageUpdate</a></h5>
+									</li>
+									<li>
+										<h5>listener: <span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#message_update" class="tsd-signature-type">MESSAGE_UPDATE</a></h5>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+							</li>
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/handlers/events/events.ts#L336">src/structures/bot/handlers/events/events.ts:336</a></li>
+									</ul>
+								</aside>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>event: <a href="enums/botevents.html#messagedelete" class="tsd-signature-type">MessageDelete</a></h5>
+									</li>
+									<li>
+										<h5>listener: <span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#message_delete" class="tsd-signature-type">MESSAGE_DELETE</a></h5>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+							</li>
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/handlers/events/events.ts#L337">src/structures/bot/handlers/events/events.ts:337</a></li>
+									</ul>
+								</aside>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>event: <a href="enums/botevents.html#messagereactionadd" class="tsd-signature-type">MessageReactionAdd</a></h5>
+									</li>
+									<li>
+										<h5>listener: <span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#message_reaction_add" class="tsd-signature-type">MESSAGE_REACTION_ADD</a></h5>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+							</li>
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/handlers/events/events.ts#L338">src/structures/bot/handlers/events/events.ts:338</a></li>
+									</ul>
+								</aside>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>event: <a href="enums/botevents.html#messagereactionremove" class="tsd-signature-type">MessageReactionRemove</a></h5>
+									</li>
+									<li>
+										<h5>listener: <span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#message_reaction_remove" class="tsd-signature-type">MESSAGE_REACTION_REMOVE</a></h5>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+							</li>
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/handlers/events/events.ts#L339">src/structures/bot/handlers/events/events.ts:339</a></li>
+									</ul>
+								</aside>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>event: <a href="enums/botevents.html#messagereactionremoveall" class="tsd-signature-type">MessageReactionRemoveAll</a></h5>
+									</li>
+									<li>
+										<h5>listener: <span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#message_reaction_remove_all" class="tsd-signature-type">MESSAGE_REACTION_REMOVE_ALL</a></h5>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+							</li>
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/handlers/events/events.ts#L340">src/structures/bot/handlers/events/events.ts:340</a></li>
+									</ul>
+								</aside>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>event: <a href="enums/botevents.html#messagereactionremoveemoji" class="tsd-signature-type">MessageReactionRemoveEmoji</a></h5>
+									</li>
+									<li>
+										<h5>listener: <span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#message_reaction_remove_emoji" class="tsd-signature-type">MESSAGE_REACTION_REMOVE_EMOJI</a></h5>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+							</li>
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/handlers/events/events.ts#L344">src/structures/bot/handlers/events/events.ts:344</a></li>
+									</ul>
+								</aside>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>event: <a href="enums/botevents.html#typingstart" class="tsd-signature-type">TypingStart</a></h5>
+									</li>
+									<li>
+										<h5>listener: <span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#typing_start" class="tsd-signature-type">TYPING_START</a></h5>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+							</li>
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/handlers/events/events.ts#L345">src/structures/bot/handlers/events/events.ts:345</a></li>
+									</ul>
+								</aside>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>event: <a href="enums/botevents.html#userupdate" class="tsd-signature-type">UserUpdate</a></h5>
+									</li>
+									<li>
+										<h5>listener: <span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#user_update" class="tsd-signature-type">USER_UPDATE</a></h5>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+							</li>
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/handlers/events/events.ts#L348">src/structures/bot/handlers/events/events.ts:348</a></li>
+									</ul>
+								</aside>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>event: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span></h5>
+									</li>
+									<li>
+										<h5>listener: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+										<ul class="tsd-parameters">
+											<li class="tsd-parameter-signature">
+												<ul class="tsd-signatures tsd-kind-type-literal">
+													<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+												</ul>
+												<ul class="tsd-descriptions">
+													<li class="tsd-description">
+														<h4 class="tsd-parameters-title">Parameters</h4>
+														<ul class="tsd-parameters">
+															<li>
+																<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span></h5>
+															</li>
+														</ul>
+														<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+													</li>
+												</ul>
+											</li>
+										</ul>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+							</li>
+						</ul>
+					</section>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
 					<a name="gatewaystruct" class="tsd-anchor"></a>
 					<h3>Gateway<wbr>Struct</h3>
 					<div class="tsd-signature tsd-kind-icon">Gateway<wbr>Struct<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Dict</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/structures/BaseStruct.ts#L9">src/structures/BaseStruct.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/BaseStruct.ts#L9">src/structures/BaseStruct.ts:9</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -298,7 +922,7 @@
 					<div class="tsd-signature tsd-kind-icon">Invite<wbr>Code<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/structures/Invite.ts#L9">src/structures/Invite.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/Invite.ts#L9">src/structures/Invite.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -308,7 +932,7 @@
 					<div class="tsd-signature tsd-kind-icon">Nullable&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{}</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/types.ts#L14">src/types.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/types.ts#L14">src/types.ts:14</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -334,7 +958,7 @@
 					<div class="tsd-signature tsd-kind-icon">Payload<wbr>Data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/BotSocketShard.ts#L27">src/socket/BotSocketShard.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/socket/BotSocketShard.ts#L28">src/socket/BotSocketShard.ts:28</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -344,8 +968,8 @@
 					<div class="tsd-signature tsd-kind-icon">Register<wbr>Callback<span class="tsd-signature-symbol">:</span> <a href="globals.html#eventfunction" class="tsd-signature-type">EventFunction</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/structures/bot/handlers/BotCommandsHandler.ts#L4">src/structures/bot/handlers/BotCommandsHandler.ts:4</a></li>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/structures/bot/handlers/events/BotEventsHandler.ts#L5">src/structures/bot/handlers/events/BotEventsHandler.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/handlers/BotCommandsHandler.ts#L4">src/structures/bot/handlers/BotCommandsHandler.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/handlers/events/BotEventsHandler.ts#L5">src/structures/bot/handlers/events/BotEventsHandler.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -355,7 +979,7 @@
 					<div class="tsd-signature tsd-kind-icon">Shard<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/types.ts#L9">src/types.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/types.ts#L9">src/types.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -365,7 +989,7 @@
 					<div class="tsd-signature tsd-kind-icon">Snowflake<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/types.ts#L7">src/types.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/types.ts#L7">src/types.ts:7</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -381,7 +1005,7 @@
 					<div class="tsd-signature tsd-kind-icon">TEMP<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/types.ts#L35">src/types.ts:35</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/types.ts#L35">src/types.ts:35</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -394,46 +1018,17 @@
 					<div class="tsd-signature tsd-kind-icon">Dict<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/structures/BaseStruct.ts#L3">src/structures/BaseStruct.ts:3</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/BaseStruct.ts#L3">src/structures/BaseStruct.ts:3</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-variable">
-					<a name="name" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> name</h3>
-					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <a href="enums/gatewayevents.html#userupdate" class="tsd-signature-type">UserUpdate</a><span class="tsd-signature-symbol"> = GatewayEvents.UserUpdate</span></div>
+					<a name="erlpack" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagLet">Let</span> erlpack</h3>
+					<div class="tsd-signature tsd-kind-icon">erlpack<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;erlpack&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/channelCreate.ts#L14">src/socket/handlers/channelCreate.ts:14</a></li>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/channelDelete.ts#L14">src/socket/handlers/channelDelete.ts:14</a></li>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/channelPinsUpdate.ts#L21">src/socket/handlers/channelPinsUpdate.ts:21</a></li>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/channelUpdate.ts#L18">src/socket/handlers/channelUpdate.ts:18</a></li>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/guildBanAdd.ts#L26">src/socket/handlers/guildBanAdd.ts:26</a></li>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/guildBanRemove.ts#L20">src/socket/handlers/guildBanRemove.ts:20</a></li>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/guildCreate.ts#L35">src/socket/handlers/guildCreate.ts:35</a></li>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/guildDelete.ts#L19">src/socket/handlers/guildDelete.ts:19</a></li>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/guildEmojisUpdate.ts#L27">src/socket/handlers/guildEmojisUpdate.ts:27</a></li>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/guildIntegrationsUpdate.ts#L15">src/socket/handlers/guildIntegrationsUpdate.ts:15</a></li>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/guildMemberAdd.ts#L26">src/socket/handlers/guildMemberAdd.ts:26</a></li>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/guildMemberRemove.ts#L21">src/socket/handlers/guildMemberRemove.ts:21</a></li>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/guildMemberUpdate.ts#L27">src/socket/handlers/guildMemberUpdate.ts:27</a></li>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/guildMembersChunk.ts#L27">src/socket/handlers/guildMembersChunk.ts:27</a></li>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/guildRoleCreate.ts#L21">src/socket/handlers/guildRoleCreate.ts:21</a></li>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/guildRoleDelete.ts#L22">src/socket/handlers/guildRoleDelete.ts:22</a></li>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/guildRoleUpdate.ts#L21">src/socket/handlers/guildRoleUpdate.ts:21</a></li>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/guildUpdate.ts#L18">src/socket/handlers/guildUpdate.ts:18</a></li>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/inviteCreate.ts#L15">src/socket/handlers/inviteCreate.ts:15</a></li>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/inviteDelete.ts#L23">src/socket/handlers/inviteDelete.ts:23</a></li>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/messageCreate.ts#L25">src/socket/handlers/messageCreate.ts:25</a></li>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/messageDelete.ts#L28">src/socket/handlers/messageDelete.ts:28</a></li>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/messageReactionAdd.ts#L54">src/socket/handlers/messageReactionAdd.ts:54</a></li>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/messageReactionRemove.ts#L48">src/socket/handlers/messageReactionRemove.ts:48</a></li>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/messageReactionRemoveAll.ts#L18">src/socket/handlers/messageReactionRemoveAll.ts:18</a></li>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/messageReactionRemoveEmoji.ts#L23">src/socket/handlers/messageReactionRemoveEmoji.ts:23</a></li>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/messageUpdate.ts#L22">src/socket/handlers/messageUpdate.ts:22</a></li>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/ready.ts#L29">src/socket/handlers/ready.ts:29</a></li>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/typingStart.ts#L30">src/socket/handlers/typingStart.ts:30</a></li>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/userUpdate.ts#L17">src/socket/handlers/userUpdate.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/socket/BotSocketShard.ts#L43">src/socket/BotSocketShard.ts:43</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -443,7 +1038,7 @@
 					<div class="tsd-signature tsd-kind-icon">recommended<wbr>Shard<wbr>Timeout<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">5500</span><span class="tsd-signature-symbol"> = 5500</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/constants.ts#L147">src/socket/constants.ts:147</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/socket/constants.ts#L147">src/socket/constants.ts:147</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -453,7 +1048,7 @@
 					<div class="tsd-signature tsd-kind-icon">unreconnectable<wbr>Gateway<wbr>Close<wbr>Codes<span class="tsd-signature-symbol">:</span> <a href="enums/gatewayclosecodes.html" class="tsd-signature-type">GatewayCloseCodes</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = [GatewayCloseCodes.ManualClosure,GatewayCloseCodes.AuthenticationFailed,GatewayCloseCodes.InvalidShard,GatewayCloseCodes.ShardingRequired,GatewayCloseCodes.InvalidIntent,GatewayCloseCodes.DisallowedIntent,]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/constants.ts#L133">src/socket/constants.ts:133</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/socket/constants.ts#L133">src/socket/constants.ts:133</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -463,7 +1058,7 @@
 					<div class="tsd-signature tsd-kind-icon">unresumeable<wbr>Gateway<wbr>Close<wbr>Codes<span class="tsd-signature-symbol">:</span> <a href="enums/gatewayclosecodes.html" class="tsd-signature-type">GatewayCloseCodes</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = [GatewayCloseCodes.NormalClosure,GatewayCloseCodes.InvalidSeq,]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/constants.ts#L142">src/socket/constants.ts:142</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/socket/constants.ts#L142">src/socket/constants.ts:142</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -473,716 +1068,19 @@
 					<div class="tsd-signature tsd-kind-icon">version<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">6</span><span class="tsd-signature-symbol"> = 6</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/properties.ts#L1">src/socket/properties.ts:1</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/socket/properties.ts#L1">src/socket/properties.ts:1</a></li>
 						</ul>
 					</aside>
 				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function">
-					<a name="run" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> run</h3>
-					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">run<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span>, bot<span class="tsd-signature-symbol">: </span><a href="classes/bot.html" class="tsd-signature-type">Bot</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-						<li class="tsd-signature tsd-kind-icon">run<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span>, bot<span class="tsd-signature-symbol">: </span><a href="classes/bot.html" class="tsd-signature-type">Bot</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-						<li class="tsd-signature tsd-kind-icon">run<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span>, bot<span class="tsd-signature-symbol">: </span><a href="classes/bot.html" class="tsd-signature-type">Bot</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-						<li class="tsd-signature tsd-kind-icon">run<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span>, bot<span class="tsd-signature-symbol">: </span><a href="classes/bot.html" class="tsd-signature-type">Bot</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-						<li class="tsd-signature tsd-kind-icon">run<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span>, bot<span class="tsd-signature-symbol">: </span><a href="classes/bot.html" class="tsd-signature-type">Bot</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-						<li class="tsd-signature tsd-kind-icon">run<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span>, bot<span class="tsd-signature-symbol">: </span><a href="classes/bot.html" class="tsd-signature-type">Bot</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-						<li class="tsd-signature tsd-kind-icon">run<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span>, bot<span class="tsd-signature-symbol">: </span><a href="classes/bot.html" class="tsd-signature-type">Bot</a>, socket<span class="tsd-signature-symbol">: </span><a href="classes/botsocketshard.html" class="tsd-signature-type">BotSocketShard</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-						<li class="tsd-signature tsd-kind-icon">run<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span>, bot<span class="tsd-signature-symbol">: </span><a href="classes/bot.html" class="tsd-signature-type">Bot</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-						<li class="tsd-signature tsd-kind-icon">run<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span>, bot<span class="tsd-signature-symbol">: </span><a href="classes/bot.html" class="tsd-signature-type">Bot</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-						<li class="tsd-signature tsd-kind-icon">run<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span>, bot<span class="tsd-signature-symbol">: </span><a href="classes/bot.html" class="tsd-signature-type">Bot</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-						<li class="tsd-signature tsd-kind-icon">run<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span>, bot<span class="tsd-signature-symbol">: </span><a href="classes/bot.html" class="tsd-signature-type">Bot</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-						<li class="tsd-signature tsd-kind-icon">run<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span>, bot<span class="tsd-signature-symbol">: </span><a href="classes/bot.html" class="tsd-signature-type">Bot</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-						<li class="tsd-signature tsd-kind-icon">run<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span>, bot<span class="tsd-signature-symbol">: </span><a href="classes/bot.html" class="tsd-signature-type">Bot</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-						<li class="tsd-signature tsd-kind-icon">run<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span>, bot<span class="tsd-signature-symbol">: </span><a href="classes/bot.html" class="tsd-signature-type">Bot</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-						<li class="tsd-signature tsd-kind-icon">run<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span>, bot<span class="tsd-signature-symbol">: </span><a href="classes/bot.html" class="tsd-signature-type">Bot</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-						<li class="tsd-signature tsd-kind-icon">run<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span>, bot<span class="tsd-signature-symbol">: </span><a href="classes/bot.html" class="tsd-signature-type">Bot</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-						<li class="tsd-signature tsd-kind-icon">run<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span>, bot<span class="tsd-signature-symbol">: </span><a href="classes/bot.html" class="tsd-signature-type">Bot</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-						<li class="tsd-signature tsd-kind-icon">run<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span>, bot<span class="tsd-signature-symbol">: </span><a href="classes/bot.html" class="tsd-signature-type">Bot</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-						<li class="tsd-signature tsd-kind-icon">run<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span>, bot<span class="tsd-signature-symbol">: </span><a href="classes/bot.html" class="tsd-signature-type">Bot</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-						<li class="tsd-signature tsd-kind-icon">run<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span>, bot<span class="tsd-signature-symbol">: </span><a href="classes/bot.html" class="tsd-signature-type">Bot</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-						<li class="tsd-signature tsd-kind-icon">run<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span>, bot<span class="tsd-signature-symbol">: </span><a href="classes/bot.html" class="tsd-signature-type">Bot</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-						<li class="tsd-signature tsd-kind-icon">run<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span>, bot<span class="tsd-signature-symbol">: </span><a href="classes/bot.html" class="tsd-signature-type">Bot</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-						<li class="tsd-signature tsd-kind-icon">run<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span>, bot<span class="tsd-signature-symbol">: </span><a href="classes/bot.html" class="tsd-signature-type">Bot</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-						<li class="tsd-signature tsd-kind-icon">run<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span>, bot<span class="tsd-signature-symbol">: </span><a href="classes/bot.html" class="tsd-signature-type">Bot</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-						<li class="tsd-signature tsd-kind-icon">run<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span>, bot<span class="tsd-signature-symbol">: </span><a href="classes/bot.html" class="tsd-signature-type">Bot</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-						<li class="tsd-signature tsd-kind-icon">run<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span>, bot<span class="tsd-signature-symbol">: </span><a href="classes/bot.html" class="tsd-signature-type">Bot</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-						<li class="tsd-signature tsd-kind-icon">run<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span>, bot<span class="tsd-signature-symbol">: </span><a href="classes/bot.html" class="tsd-signature-type">Bot</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-						<li class="tsd-signature tsd-kind-icon">run<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span>, bot<span class="tsd-signature-symbol">: </span><a href="classes/bot.html" class="tsd-signature-type">Bot</a>, socket<span class="tsd-signature-symbol">: </span><a href="classes/botsocketshard.html" class="tsd-signature-type">BotSocketShard</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-						<li class="tsd-signature tsd-kind-icon">run<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span>, bot<span class="tsd-signature-symbol">: </span><a href="classes/bot.html" class="tsd-signature-type">Bot</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-						<li class="tsd-signature tsd-kind-icon">run<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span>, bot<span class="tsd-signature-symbol">: </span><a href="classes/bot.html" class="tsd-signature-type">Bot</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/channelCreate.ts#L6">src/socket/handlers/channelCreate.ts:6</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></h5>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<h5>bot: <a href="classes/bot.html" class="tsd-signature-type">Bot</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/channelDelete.ts#L6">src/socket/handlers/channelDelete.ts:6</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></h5>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<h5>bot: <a href="classes/bot.html" class="tsd-signature-type">Bot</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/channelPinsUpdate.ts#L7">src/socket/handlers/channelPinsUpdate.ts:7</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></h5>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<h5>bot: <a href="classes/bot.html" class="tsd-signature-type">Bot</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/channelUpdate.ts#L6">src/socket/handlers/channelUpdate.ts:6</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></h5>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<h5>bot: <a href="classes/bot.html" class="tsd-signature-type">Bot</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/guildBanAdd.ts#L6">src/socket/handlers/guildBanAdd.ts:6</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></h5>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<h5>bot: <a href="classes/bot.html" class="tsd-signature-type">Bot</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/guildBanRemove.ts#L6">src/socket/handlers/guildBanRemove.ts:6</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></h5>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<h5>bot: <a href="classes/bot.html" class="tsd-signature-type">Bot</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/guildCreate.ts#L6">src/socket/handlers/guildCreate.ts:6</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></h5>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<h5>bot: <a href="classes/bot.html" class="tsd-signature-type">Bot</a></h5>
-								</li>
-								<li>
-									<h5>socket: <a href="classes/botsocketshard.html" class="tsd-signature-type">BotSocketShard</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/guildDelete.ts#L7">src/socket/handlers/guildDelete.ts:7</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></h5>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<h5>bot: <a href="classes/bot.html" class="tsd-signature-type">Bot</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/guildEmojisUpdate.ts#L9">src/socket/handlers/guildEmojisUpdate.ts:9</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></h5>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<h5>bot: <a href="classes/bot.html" class="tsd-signature-type">Bot</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/guildIntegrationsUpdate.ts#L5">src/socket/handlers/guildIntegrationsUpdate.ts:5</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></h5>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<h5>bot: <a href="classes/bot.html" class="tsd-signature-type">Bot</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/guildMemberAdd.ts#L6">src/socket/handlers/guildMemberAdd.ts:6</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></h5>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<h5>bot: <a href="classes/bot.html" class="tsd-signature-type">Bot</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/guildMemberRemove.ts#L6">src/socket/handlers/guildMemberRemove.ts:6</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></h5>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<h5>bot: <a href="classes/bot.html" class="tsd-signature-type">Bot</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/guildMemberUpdate.ts#L5">src/socket/handlers/guildMemberUpdate.ts:5</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></h5>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<h5>bot: <a href="classes/bot.html" class="tsd-signature-type">Bot</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/guildMembersChunk.ts#L7">src/socket/handlers/guildMembersChunk.ts:7</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></h5>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<h5>bot: <a href="classes/bot.html" class="tsd-signature-type">Bot</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/guildRoleCreate.ts#L6">src/socket/handlers/guildRoleCreate.ts:6</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></h5>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<h5>bot: <a href="classes/bot.html" class="tsd-signature-type">Bot</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/guildRoleDelete.ts#L5">src/socket/handlers/guildRoleDelete.ts:5</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></h5>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<h5>bot: <a href="classes/bot.html" class="tsd-signature-type">Bot</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/guildRoleUpdate.ts#L5">src/socket/handlers/guildRoleUpdate.ts:5</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></h5>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<h5>bot: <a href="classes/bot.html" class="tsd-signature-type">Bot</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/guildUpdate.ts#L6">src/socket/handlers/guildUpdate.ts:6</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></h5>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<h5>bot: <a href="classes/bot.html" class="tsd-signature-type">Bot</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/inviteCreate.ts#L6">src/socket/handlers/inviteCreate.ts:6</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></h5>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<h5>bot: <a href="classes/bot.html" class="tsd-signature-type">Bot</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/inviteDelete.ts#L6">src/socket/handlers/inviteDelete.ts:6</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></h5>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<h5>bot: <a href="classes/bot.html" class="tsd-signature-type">Bot</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/messageCreate.ts#L7">src/socket/handlers/messageCreate.ts:7</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></h5>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<h5>bot: <a href="classes/bot.html" class="tsd-signature-type">Bot</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/messageDelete.ts#L8">src/socket/handlers/messageDelete.ts:8</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></h5>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<h5>bot: <a href="classes/bot.html" class="tsd-signature-type">Bot</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/messageReactionAdd.ts#L8">src/socket/handlers/messageReactionAdd.ts:8</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></h5>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<h5>bot: <a href="classes/bot.html" class="tsd-signature-type">Bot</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/messageReactionRemove.ts#L6">src/socket/handlers/messageReactionRemove.ts:6</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></h5>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<h5>bot: <a href="classes/bot.html" class="tsd-signature-type">Bot</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/messageReactionRemoveAll.ts#L6">src/socket/handlers/messageReactionRemoveAll.ts:6</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></h5>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<h5>bot: <a href="classes/bot.html" class="tsd-signature-type">Bot</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/messageReactionRemoveEmoji.ts#L6">src/socket/handlers/messageReactionRemoveEmoji.ts:6</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></h5>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<h5>bot: <a href="classes/bot.html" class="tsd-signature-type">Bot</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/messageUpdate.ts#L6">src/socket/handlers/messageUpdate.ts:6</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></h5>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<h5>bot: <a href="classes/bot.html" class="tsd-signature-type">Bot</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/ready.ts#L6">src/socket/handlers/ready.ts:6</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></h5>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<h5>bot: <a href="classes/bot.html" class="tsd-signature-type">Bot</a></h5>
-								</li>
-								<li>
-									<h5>socket: <a href="classes/botsocketshard.html" class="tsd-signature-type">BotSocketShard</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/typingStart.ts#L9">src/socket/handlers/typingStart.ts:9</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></h5>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<h5>bot: <a href="classes/bot.html" class="tsd-signature-type">Bot</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/handlers/userUpdate.ts#L5">src/socket/handlers/userUpdate.ts:5</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></h5>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<h5>bot: <a href="classes/bot.html" class="tsd-signature-type">Bot</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="zlib" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagLet">Let</span> zlib</h3>
+					<div class="tsd-signature tsd-kind-icon">zlib<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;zlib-sync&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/socket/BotSocketShard.ts#L44">src/socket/BotSocketShard.ts:44</a></li>
+						</ul>
+					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -1193,7 +1091,7 @@
 					<div class="tsd-signature tsd-kind-icon">identify<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/properties.ts#L3">src/socket/properties.ts:3</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/socket/properties.ts#L10">src/socket/properties.ts:10</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -1202,7 +1100,7 @@
 						<div class="tsd-signature tsd-kind-icon">large_<wbr>threshold<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 250</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/properties.ts#L12">src/socket/properties.ts:12</a></li>
+								<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/socket/properties.ts#L19">src/socket/properties.ts:19</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -1212,7 +1110,7 @@
 						<div class="tsd-signature tsd-kind-icon">version<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/properties.ts#L13">src/socket/properties.ts:13</a></li>
+								<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/socket/properties.ts#L20">src/socket/properties.ts:20</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -1222,7 +1120,7 @@
 						<div class="tsd-signature tsd-kind-icon">presence<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/properties.ts#L9">src/socket/properties.ts:9</a></li>
+								<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/socket/properties.ts#L16">src/socket/properties.ts:16</a></li>
 							</ul>
 						</aside>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -1231,7 +1129,7 @@
 							<div class="tsd-signature tsd-kind-icon">status<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;online&quot;</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/properties.ts#L10">src/socket/properties.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/socket/properties.ts#L17">src/socket/properties.ts:17</a></li>
 								</ul>
 							</aside>
 						</section>
@@ -1242,7 +1140,7 @@
 						<div class="tsd-signature tsd-kind-icon">properties<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/properties.ts#L4">src/socket/properties.ts:4</a></li>
+								<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/socket/properties.ts#L11">src/socket/properties.ts:11</a></li>
 							</ul>
 						</aside>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -1251,7 +1149,7 @@
 							<div class="tsd-signature tsd-kind-icon">$browser<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;node-discord&quot;</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/properties.ts#L6">src/socket/properties.ts:6</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/socket/properties.ts#L13">src/socket/properties.ts:13</a></li>
 								</ul>
 							</aside>
 						</section>
@@ -1261,7 +1159,7 @@
 							<div class="tsd-signature tsd-kind-icon">$device<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;node-discord&quot;</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/properties.ts#L7">src/socket/properties.ts:7</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/socket/properties.ts#L14">src/socket/properties.ts:14</a></li>
 								</ul>
 							</aside>
 						</section>
@@ -1271,7 +1169,7 @@
 							<div class="tsd-signature tsd-kind-icon">$os<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"aix"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"android"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"darwin"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"freebsd"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"linux"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"openbsd"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"sunos"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"win32"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"cygwin"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"netbsd"</span><span class="tsd-signature-symbol"> = process.platform</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/socket/properties.ts#L5">src/socket/properties.ts:5</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/socket/properties.ts#L12">src/socket/properties.ts:12</a></li>
 								</ul>
 							</aside>
 						</section>
@@ -1283,7 +1181,7 @@
 					<div class="tsd-signature tsd-kind-icon">mentions<wbr>Regexp<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/structures/message/MessageMentions.ts#L16">src/structures/message/MessageMentions.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/message/MessageMentions.ts#L16">src/structures/message/MessageMentions.ts:16</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -1292,7 +1190,7 @@
 						<div class="tsd-signature tsd-kind-icon">channels<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">RegExp</span><span class="tsd-signature-symbol"> = new RegExp(/&lt;#(\d{17,19})&gt;/g)</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/structures/message/MessageMentions.ts#L17">src/structures/message/MessageMentions.ts:17</a></li>
+								<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/message/MessageMentions.ts#L17">src/structures/message/MessageMentions.ts:17</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -1374,9 +1272,6 @@
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/botconnection.html" class="tsd-kind-icon">Bot<wbr>Connection</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/botdispatchhandlers.html" class="tsd-kind-icon">Bot<wbr>Dispatch<wbr>Handlers</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/boteventshandler.html" class="tsd-kind-icon">Bot<wbr>Events<wbr>Handler</a>
@@ -1481,12 +1376,6 @@
 						<a href="interfaces/dimensions.html" class="tsd-kind-icon">Dimensions</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/event.html" class="tsd-kind-icon">Event</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/events.html" class="tsd-kind-icon">Events</a>
-					</li>
-					<li class=" tsd-kind-interface">
 						<a href="interfaces/gatewaybot.html" class="tsd-kind-icon">Gateway<wbr>Bot</a>
 					</li>
 					<li class=" tsd-kind-interface">
@@ -1570,11 +1459,17 @@
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/updatereturn.html" class="tsd-kind-icon">Update<wbr>Return</a>
 					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/websocketoptions.html" class="tsd-kind-icon">Websocket<wbr>Options</a>
+					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#commandfunction" class="tsd-kind-icon">Command<wbr>Function</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#eventfunction" class="tsd-kind-icon">Event<wbr>Function</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#events" class="tsd-kind-icon">Events</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#gatewaystruct" class="tsd-kind-icon">Gateway<wbr>Struct</a>
@@ -1604,7 +1499,7 @@
 						<a href="globals.html#dict" class="tsd-kind-icon">Dict</a>
 					</li>
 					<li class=" tsd-kind-variable">
-						<a href="globals.html#name" class="tsd-kind-icon">name</a>
+						<a href="globals.html#erlpack" class="tsd-kind-icon">erlpack</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#recommendedshardtimeout" class="tsd-kind-icon">recommended<wbr>Shard<wbr>Timeout</a>
@@ -1618,8 +1513,8 @@
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#version" class="tsd-kind-icon">version</a>
 					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#run" class="tsd-kind-icon">run</a>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#zlib" class="tsd-kind-icon">zlib</a>
 					</li>
 					<li class=" tsd-kind-object-literal">
 						<a href="globals.html#identify" class="tsd-kind-icon">identify</a>
@@ -1647,12 +1542,11 @@
 				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
-			</ul>
-			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
 			</ul>
 		</div>
 	</div>

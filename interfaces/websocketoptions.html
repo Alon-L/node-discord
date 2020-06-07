@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ShardDispatchEvent | node-discord</title>
+	<title>WebsocketOptions | node-discord</title>
 	<meta name="description" content="Documentation for node-discord">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="sharddispatchevent.html">ShardDispatchEvent</a>
+					<a href="websocketoptions.html">WebsocketOptions</a>
 				</li>
 			</ul>
-			<h1>Interface ShardDispatchEvent</h1>
+			<h1>Interface WebsocketOptions</h1>
 		</div>
 	</div>
 </header>
@@ -68,9 +68,13 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">ShardDispatchEvent</span>
+						<span class="target">WebsocketOptions</span>
 					</li>
 				</ul>
+			</section>
+			<section class="tsd-panel tsd-kind-interface">
+				<h3 class="tsd-before-signature">Indexable</h3>
+				<div class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">[</span>key: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
@@ -79,9 +83,9 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="sharddispatchevent.html#action" class="tsd-kind-icon">action</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="sharddispatchevent.html#identifier" class="tsd-kind-icon">identifier</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="sharddispatchevent.html#payload" class="tsd-kind-icon">payload</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="websocketoptions.html#compress" class="tsd-kind-icon">compress</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="websocketoptions.html#encoding" class="tsd-kind-icon">encoding</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="websocketoptions.html#v" class="tsd-kind-icon">v</a></li>
 							</ul>
 						</section>
 					</div>
@@ -90,45 +94,34 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="action" class="tsd-anchor"></a>
-					<h3>action</h3>
-					<div class="tsd-signature tsd-kind-icon">action<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"dispatchEvent"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"dispatchEventResult"</span></div>
+					<a name="compress" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> compress</h3>
+					<div class="tsd-signature tsd-kind-icon">compress<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"zlib-stream"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/BotCommunication.ts#L47">src/structures/bot/BotCommunication.ts:47</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/socket/properties.ts#L6">src/socket/properties.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="identifier" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> identifier</h3>
-					<div class="tsd-signature tsd-kind-icon">identifier<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
+					<a name="encoding" class="tsd-anchor"></a>
+					<h3>encoding</h3>
+					<div class="tsd-signature tsd-kind-icon">encoding<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"json"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"etf"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/BotCommunication.ts#L52">src/structures/bot/BotCommunication.ts:52</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/socket/properties.ts#L5">src/socket/properties.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="payload" class="tsd-anchor"></a>
-					<h3>payload</h3>
-					<div class="tsd-signature tsd-kind-icon">payload<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>data<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Serializable</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Serializable</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></div>
+					<a name="v" class="tsd-anchor"></a>
+					<h3>v</h3>
+					<div class="tsd-signature tsd-kind-icon">v<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/BotCommunication.ts#L48">src/structures/bot/BotCommunication.ts:48</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/socket/properties.ts#L4">src/socket/properties.ts:4</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter">
-								<h5><span class="tsd-flag ts-flagOptional">Optional</span> data<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Serializable</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Serializable</span><span class="tsd-signature-symbol">[]</span></h5>
-							</li>
-							<li class="tsd-parameter">
-								<h5>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
-							</li>
-						</ul>
-					</div>
 				</section>
 			</section>
 		</div>
@@ -145,16 +138,16 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="sharddispatchevent.html" class="tsd-kind-icon">Shard<wbr>Dispatch<wbr>Event</a>
+						<a href="websocketoptions.html" class="tsd-kind-icon">Websocket<wbr>Options</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="sharddispatchevent.html#action" class="tsd-kind-icon">action</a>
+								<a href="websocketoptions.html#compress" class="tsd-kind-icon">compress</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="sharddispatchevent.html#identifier" class="tsd-kind-icon">identifier</a>
+								<a href="websocketoptions.html#encoding" class="tsd-kind-icon">encoding</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="sharddispatchevent.html#payload" class="tsd-kind-icon">payload</a>
+								<a href="websocketoptions.html#v" class="tsd-kind-icon">v</a>
 							</li>
 						</ul>
 					</li>

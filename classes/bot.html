@@ -99,6 +99,7 @@
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="bot.html#dms" class="tsd-kind-icon">dms</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="bot.html#events" class="tsd-kind-icon">events</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="bot.html#guilds" class="tsd-kind-icon">guilds</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="bot.html#options" class="tsd-kind-icon">options</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="bot.html#shardoptions" class="tsd-kind-icon">shard<wbr>Options</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="bot.html#unavailableguilds" class="tsd-kind-icon">unavailable<wbr>Guilds</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="bot.html#user" class="tsd-kind-icon">user</a></li>
@@ -121,19 +122,22 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Bot<span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="bot.html" class="tsd-signature-type">Bot</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Bot<span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/websocketoptions.html" class="tsd-signature-type">WebsocketOptions</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="bot.html" class="tsd-signature-type">Bot</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/structures/bot/Bot.ts#L80">src/structures/bot/Bot.ts:80</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/Bot.ts#L86">src/structures/bot/Bot.ts:86</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>token: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/websocketoptions.html" class="tsd-signature-type">WebsocketOptions</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="bot.html" class="tsd-signature-type">Bot</a></h4>
@@ -149,7 +153,7 @@
 					<div class="tsd-signature tsd-kind-icon">commands<span class="tsd-signature-symbol">:</span> <a href="botcommandshandler.html" class="tsd-signature-type">BotCommandsHandler</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/structures/bot/Bot.ts#L43">src/structures/bot/Bot.ts:43</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/Bot.ts#L49">src/structures/bot/Bot.ts:49</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -159,7 +163,7 @@
 					<div class="tsd-signature tsd-kind-icon">communication<span class="tsd-signature-symbol">:</span> <a href="botcommunication.html" class="tsd-signature-type">BotCommunication</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/structures/bot/Bot.ts#L54">src/structures/bot/Bot.ts:54</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/Bot.ts#L60">src/structures/bot/Bot.ts:60</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -174,7 +178,7 @@
 					<div class="tsd-signature tsd-kind-icon">connection<span class="tsd-signature-symbol">:</span> <a href="botconnection.html" class="tsd-signature-type">BotConnection</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/structures/bot/Bot.ts#L49">src/structures/bot/Bot.ts:49</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/Bot.ts#L55">src/structures/bot/Bot.ts:55</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -189,7 +193,7 @@
 					<div class="tsd-signature tsd-kind-icon">dms<span class="tsd-signature-symbol">:</span> <a href="cluster.html" class="tsd-signature-type">Cluster</a><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol">, </span><a href="dmchannel.html" class="tsd-signature-type">DMChannel</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/structures/bot/Bot.ts#L75">src/structures/bot/Bot.ts:75</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/Bot.ts#L81">src/structures/bot/Bot.ts:81</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -204,7 +208,7 @@
 					<div class="tsd-signature tsd-kind-icon">events<span class="tsd-signature-symbol">:</span> <a href="boteventshandler.html" class="tsd-signature-type">BotEventsHandler</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/structures/bot/Bot.ts#L44">src/structures/bot/Bot.ts:44</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/Bot.ts#L50">src/structures/bot/Bot.ts:50</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -214,7 +218,7 @@
 					<div class="tsd-signature tsd-kind-icon">guilds<span class="tsd-signature-symbol">:</span> <a href="cluster.html" class="tsd-signature-type">Cluster</a><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol">, </span><a href="guild.html" class="tsd-signature-type">Guild</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/structures/bot/Bot.ts#L65">src/structures/bot/Bot.ts:65</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/Bot.ts#L71">src/structures/bot/Bot.ts:71</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -224,12 +228,27 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="options" class="tsd-anchor"></a>
+					<h3>options</h3>
+					<div class="tsd-signature tsd-kind-icon">options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/websocketoptions.html" class="tsd-signature-type">WebsocketOptions</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/Bot.ts#L41">src/structures/bot/Bot.ts:41</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Options used to determine how the Bot operates</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="shardoptions" class="tsd-anchor"></a>
 					<h3>shard<wbr>Options</h3>
 					<div class="tsd-signature tsd-kind-icon">shard<wbr>Options<span class="tsd-signature-symbol">:</span> <a href="../interfaces/shardoptions.html" class="tsd-signature-type">ShardOptions</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/structures/bot/Bot.ts#L40">src/structures/bot/Bot.ts:40</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/Bot.ts#L46">src/structures/bot/Bot.ts:46</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -244,7 +263,7 @@
 					<div class="tsd-signature tsd-kind-icon">unavailable<wbr>Guilds<span class="tsd-signature-symbol">:</span> <a href="cluster.html" class="tsd-signature-type">Cluster</a><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol">, </span><a href="guildunavailable.html" class="tsd-signature-type">GuildUnavailable</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/structures/bot/Bot.ts#L70">src/structures/bot/Bot.ts:70</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/Bot.ts#L76">src/structures/bot/Bot.ts:76</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -259,7 +278,7 @@
 					<div class="tsd-signature tsd-kind-icon">user<span class="tsd-signature-symbol">:</span> <a href="user.html" class="tsd-signature-type">User</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/structures/bot/Bot.ts#L60">src/structures/bot/Bot.ts:60</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/Bot.ts#L66">src/structures/bot/Bot.ts:66</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -275,7 +294,7 @@
 					<div class="tsd-signature tsd-kind-icon">users<span class="tsd-signature-symbol">:</span> <a href="cluster.html" class="tsd-signature-type">Cluster</a><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol">, </span><a href="user.html" class="tsd-signature-type">User</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/structures/bot/Bot.ts#L80">src/structures/bot/Bot.ts:80</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/Bot.ts#L86">src/structures/bot/Bot.ts:86</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -297,7 +316,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/structures/bot/Bot.ts#L110">src/structures/bot/Bot.ts:110</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/Bot.ts#L118">src/structures/bot/Bot.ts:118</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -320,7 +339,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7f59f2c/src/structures/bot/Bot.ts#L114">src/structures/bot/Bot.ts:114</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f0e14a3/src/structures/bot/Bot.ts#L122">src/structures/bot/Bot.ts:122</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Serializable</span></h4>
@@ -366,6 +385,9 @@
 								<a href="bot.html#guilds" class="tsd-kind-icon">guilds</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="bot.html#options" class="tsd-kind-icon">options</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="bot.html#shardoptions" class="tsd-kind-icon">shard<wbr>Options</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
@@ -407,12 +429,11 @@
 				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
-			</ul>
-			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
 			</ul>
 		</div>
 	</div>
