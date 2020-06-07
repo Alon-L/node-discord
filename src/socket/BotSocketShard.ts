@@ -1,3 +1,4 @@
+import erlpack from 'erlpack';
 import WebSocket, { Data } from 'ws';
 import BotDispatchHandlers from './BotDispatchHandlers';
 import BotHeartbeats from './BotHeartbeats';
@@ -115,7 +116,7 @@ class BotSocketShard {
    * @returns {Promise<void>}
    */
   private async onMessage(data: Data): Promise<void> {
-    const payload = BotSocketShard.parse(data as string);
+    const payload = BotSocketShard.parse(data as Buffer);
 
     const { op, t, d, s } = payload;
 
@@ -297,8 +298,8 @@ class BotSocketShard {
    * @param {string} data Data received from the gateway
    * @returns {Payload}
    */
-  private static parse(data: string): Payload {
-    return JSON.parse(data);
+  private static parse(data: Buffer): Payload {
+    return erlpack.unpack(data);
   }
 
   /**
@@ -306,8 +307,8 @@ class BotSocketShard {
    * @param {any} data Data to be transferred and sent to the gateway
    * @returns {string}
    */
-  public static pack(data: any): string {
-    return JSON.stringify(data);
+  public static pack(data: any): Buffer {
+    return erlpack.pack(data);
   }
 
   /**
@@ -316,7 +317,7 @@ class BotSocketShard {
    * @returns {string}
    */
   private static socketURL(url: string): string {
-    return `${url}/?v=${version}&encoding=json`;
+    return `${url}/?v=${version}&encoding=etf`;
   }
 }
 

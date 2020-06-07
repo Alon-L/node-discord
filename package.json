@@ -17,6 +17,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "erlpack": "^0.1.3",
     "node-fetch": "^2.6.0",
     "ws": "^7.2.3"
   },
