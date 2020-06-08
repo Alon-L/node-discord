@@ -142,12 +142,12 @@ class Cluster<K, V> extends Map<K, V> {
   /**
    * Create a new Cluster populated with the results of calling a provided callback on every element in the calling Cluster.
    * Identical to {@link Array.prototype.map}
-   * @param {function(value: V, key: K, cluster: this): V} cb Callback function. The returned value is added to the new Cluster
+   * @param {function(value: V, key: K, cluster: this): R} cb Callback function. The returned value is added to the new Cluster
    * @returns {Cluster<K, V>}
    * @template K, V
    * @template R - is the type of the values the new Cluster will contain
    */
-  public map<R>(cb: (value: V, key?: K, cluster?: this) => R): Cluster<K, R> {
+  public map<R>(cb: (value?: V, key?: K, cluster?: this) => R): Cluster<K, R> {
     const cluster = new Cluster<K, R>();
 
     for (const [key, value] of this) {
@@ -173,6 +173,91 @@ class Cluster<K, V> extends Map<K, V> {
     }
 
     return super.set(key, value);
+  }
+
+  /**
+   * Returns the matching values for the given keys inside the Cluster.
+   * @param {K[]} keys Array of all keys to look for
+   * @returns {V[]}
+   */
+  public getMany(keys: K[]): (V | undefined)[] {
+    const values: (V | undefined)[] = [];
+
+    for (const key of keys) {
+      values.push(this.get(key));
+    }
+
+    return values;
+  }
+
+  /**
+   * Removes the last item from the Cluster and returns that item
+   * Equivalent to Array#pop() https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop
+   * @returns {[K, V] | undefined}
+   */
+  public pop(): [K, V] | undefined {
+    if (!this.lastKey || !this.last) return;
+
+    const popped: [K, V] = [this.lastKey, this.last];
+
+    this.delete(this.lastKey);
+
+    return popped;
+  }
+
+  /**
+   * Removes the first item from a Cluster and returns that removed item
+   * Equivalent to Array#shift() https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/shift
+   * @returns {[K, V] | undefined}
+   */
+  public shift(): [K, V] | undefined {
+    if (!this.first || !this.firstKey) return;
+
+    const shifted: [K, V] = [this.firstKey, this.first];
+
+    this.delete(this.firstKey);
+
+    return shifted;
+  }
+
+  /**
+   * Tests whether all items in the Cluster pass the test implemented by the provided function
+   * Equivalent to Array#every() https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every
+   * @param {function(value: V, key: K, cluster: this): boolean} cb A function to test for each element
+   * @returns {boolean}
+   */
+  public every(cb: (value?: V, key?: K, cluster?: this) => boolean): boolean {
+    let flag = true;
+
+    for (const [key, value] of this) {
+      const result = cb(value, key, this);
+      if (!result) {
+        flag = false;
+        break;
+      }
+    }
+
+    return flag;
+  }
+
+  /**
+   * Tests whether at least one element in the array passes the test implemented by the provided function
+   * Equivalent to Array#some() https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some
+   * @param {function(value: V, key: K, cluster: this): boolean} cb A function to test for each element
+   * @returns {boolean}
+   */
+  public some(cb: (value?: V, key?: K, cluster?: this) => boolean): boolean {
+    let flag = false;
+
+    for (const [key, value] of this) {
+      const result = cb(value, key, this);
+      if (result) {
+        flag = true;
+        break;
+      }
+    }
+
+    return flag;
   }
 
   public toJSON(): V[] {
