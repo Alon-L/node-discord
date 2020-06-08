@@ -168,7 +168,7 @@ class BotSocketShard {
       ...this.bot.options,
     };
 
-    console.log(this.options);
+    this.bot.debug(this.options);
   }
 
   /**
