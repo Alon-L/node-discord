@@ -26,6 +26,7 @@ export { default as MESSAGE_REACTION_REMOVE_ALL } from './messageReactionRemoveA
 export { default as MESSAGE_REACTION_REMOVE_EMOJI } from './messageReactionRemoveEmoji';
 export { default as MESSAGE_UPDATE } from './messageUpdate';
 export { default as READY } from './ready';
+export { default as PRESENCE_UPDATE } from './presenceUpdate';
 export { default as TYPING_START } from './typingStart';
 export { default as USER_UPDATE } from './userUpdate';
 export { default as WEBHOOKS_UPDATE } from './webhooksUpdate';
