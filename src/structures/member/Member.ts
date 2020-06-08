@@ -1,12 +1,13 @@
-import { GatewayStruct } from './BaseStruct';
-import Role from './Role';
-import Timestamp from './Timestamp';
-import User from './User';
-import Bot from './bot/Bot';
-import Guild from './guild/Guild';
-import GuildBaseStruct from './guild/GuildBaseStruct';
-import Cluster from '../Cluster';
-import { Snowflake } from '../types';
+import MemberPresence from './MemberPresence';
+import Cluster from '../../Cluster';
+import { Snowflake } from '../../types';
+import { GatewayStruct } from '../BaseStruct';
+import Role from '../Role';
+import Timestamp from '../Timestamp';
+import User from '../User';
+import Bot from '../bot/Bot';
+import Guild from '../guild/Guild';
+import GuildBaseStruct from '../guild/GuildBaseStruct';
 
 /**
  * Representation of a Discord {@link User} in a guild
@@ -55,20 +56,29 @@ class Member extends GuildBaseStruct {
    */
   public mute!: boolean;
 
-  constructor(bot: Bot, member: GatewayStruct, guild: Guild) {
+  public presence: MemberPresence | undefined;
+
+  constructor(bot: Bot, member: GatewayStruct, guild: Guild, presence?: GatewayStruct) {
     super(bot, guild);
 
-    this.init(member);
+    this.init(member, presence);
   }
 
   /**
    * @ignore
    * @param {GatewayStruct} member The member data
+   * @param {GatewayStruct} presence The member presence data
    * @returns {this}
    */
-  public init(member: GatewayStruct): this {
+  public init(member: GatewayStruct, presence?: GatewayStruct): this {
     this.id = member.user?.id;
     this.nick = member.nick;
+
+    if (presence) {
+      this.presence = new MemberPresence(this.bot, presence, this);
+
+      this.guild.presences.set(this.id, this.presence);
+    }
 
     if (member.user) {
       if (this.bot.users.has(this.id)) {

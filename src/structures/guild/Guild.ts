@@ -5,11 +5,12 @@ import ChannelUtils from '../../utils/ChannelUtils';
 import BaseStruct, { GatewayStruct } from '../BaseStruct';
 import Emoji from '../Emoji';
 import Invite, { InviteCode } from '../Invite';
-import Member from '../Member';
 import Role from '../Role';
 import Bot from '../bot/Bot';
 import GuildChannel from '../channels/GuildChannel';
 import GuildTextChannel from '../channels/GuildTextChannel';
+import Member from '../member/Member';
+import MemberPresence from '../member/MemberPresence';
 
 /**
  * Guild verification levels
@@ -235,7 +236,7 @@ class Guild extends BaseStruct {
 
   public voiceStates: TEMP | undefined;
 
-  public presences: TEMP | undefined;
+  public presences: Cluster<Snowflake, MemberPresence>;
 
   public maxPresences: TEMP | null | undefined;
 
@@ -277,9 +278,11 @@ class Guild extends BaseStruct {
   constructor(bot: Bot, guild: GatewayStruct) {
     super(bot);
 
-    this.init(guild);
-
     this.invites = new Cluster<InviteCode, Invite>();
+
+    this.presences = new Cluster<Snowflake, MemberPresence>();
+
+    this.init(guild);
   }
 
   /**
@@ -305,7 +308,12 @@ class Guild extends BaseStruct {
     this.members = new Cluster<Snowflake, Member>(
       guild.members?.map((member: GatewayStruct) => [
         member.user.id,
-        new Member(this.bot, member, this),
+        new Member(
+          this.bot,
+          member,
+          this,
+          guild.presences?.find((presence: GatewayStruct) => presence.user.id === member.user.id),
+        ),
       ]),
     );
 
