@@ -44,7 +44,7 @@ class Member extends GuildBaseStruct {
    * Timestamp of when the member start boosting the guild.
    * Possibly null if the user has never boosted this server
    */
-  public premiumSince!: Timestamp | null;
+  public boostingSince!: Timestamp | null;
 
   /**
    * Whether the member is deafened in voice channels
@@ -98,7 +98,7 @@ class Member extends GuildBaseStruct {
 
     this.joinedAt = new Timestamp(member.joined_at);
 
-    this.premiumSince = member.premium_since ? new Timestamp(member.premium_since) : null;
+    this.boostingSince = member.premium_since ? new Timestamp(member.premium_since) : null;
 
     this.deaf = member.deaf;
     this.mute = member.mute;
