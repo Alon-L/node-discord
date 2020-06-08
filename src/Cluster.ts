@@ -147,7 +147,7 @@ class Cluster<K, V> extends Map<K, V> {
    * @template K, V
    * @template R - is the type of the values the new Cluster will contain
    */
-  public map<R>(cb: (value?: V, key?: K, cluster?: this) => R): Cluster<K, R> {
+  public map<R>(cb: (value: V, key: K, cluster: this) => R): Cluster<K, R> {
     const cluster = new Cluster<K, R>();
 
     for (const [key, value] of this) {
@@ -226,7 +226,7 @@ class Cluster<K, V> extends Map<K, V> {
    * @param {function(value: V, key: K, cluster: this): boolean} cb A function to test for each element
    * @returns {boolean}
    */
-  public every(cb: (value?: V, key?: K, cluster?: this) => boolean): boolean {
+  public every(cb: (value: V, key: K, cluster: this) => boolean): boolean {
     let flag = true;
 
     for (const [key, value] of this) {
@@ -246,7 +246,7 @@ class Cluster<K, V> extends Map<K, V> {
    * @param {function(value: V, key: K, cluster: this): boolean} cb A function to test for each element
    * @returns {boolean}
    */
-  public some(cb: (value?: V, key?: K, cluster?: this) => boolean): boolean {
+  public some(cb: (value: V, key: K, cluster: this) => boolean): boolean {
     let flag = false;
 
     for (const [key, value] of this) {
