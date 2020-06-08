@@ -18,7 +18,7 @@ class GuildTextChannel extends GuildChannel implements TextChannel {
   /**
    * Whether the channel is configured as NSFW
    */
-  public nsfw!: boolean;
+  public nsfw: boolean | undefined;
 
   /**
    * The ID of the last message sent in this channel.
@@ -57,7 +57,7 @@ class GuildTextChannel extends GuildChannel implements TextChannel {
   public init(textChannel: GatewayStruct): this {
     super.init(textChannel);
 
-    this.nsfw = textChannel.nsfw || false;
+    this.nsfw = textChannel.nsfw;
     this.lastMessageId = textChannel.last_message_id;
     this.slowModeTimeout = textChannel.rate_limit_per_user;
     this.lastPinTimestamp = new Timestamp(textChannel.last_pin_timestamp);

@@ -35,17 +35,17 @@ class Emoji extends BaseStruct {
   /**
    * Whether this emoji must be wrapped in colons
    */
-  public requiresColons!: boolean;
+  public requiresColons: boolean | undefined;
 
   /**
    * Whether this emoji is managed
    */
-  public managed!: boolean;
+  public managed: boolean | undefined;
 
   /**
    * Whether this emoji is animated
    */
-  public animated!: boolean;
+  public animated: boolean | undefined;
 
   /**
    * Whether this emoji can be used, may be false due to loss of Server Boosts
@@ -77,9 +77,9 @@ class Emoji extends BaseStruct {
       this.user = new User(this.bot, emoji.user);
     }
 
-    this.requiresColons = emoji.require_colons || false;
-    this.managed = emoji.managed || false;
-    this.animated = emoji.animated || false;
+    this.requiresColons = emoji.require_colons;
+    this.managed = emoji.managed;
+    this.animated = emoji.animated;
     this.available = emoji.available;
 
     return this;

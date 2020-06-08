@@ -3,8 +3,8 @@ import Cluster from '../../Cluster';
 import { Snowflake } from '../../types';
 import BaseStruct, { GatewayStruct } from '../BaseStruct';
 import Emoji from '../Emoji';
-import Member from '../Member';
 import User from '../User';
+import Member from '../member/Member';
 
 class MessageReaction extends BaseStruct {
   /**
@@ -20,7 +20,7 @@ class MessageReaction extends BaseStruct {
   /**
    * Whether the bot reacted using this emoji
    */
-  public botReacted!: boolean;
+  public botReacted: boolean | undefined;
 
   /**
    * The users that added this reaction
@@ -57,7 +57,7 @@ class MessageReaction extends BaseStruct {
    */
   public init(reaction: GatewayStruct): this {
     this.count = reaction.count || 0;
-    this.botReacted = reaction.me || false;
+    this.botReacted = reaction.me;
 
     this.emoji = new Emoji(this.bot, reaction.emoji);
 

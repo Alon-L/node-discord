@@ -17,7 +17,7 @@ class GuildUnavailable extends BaseStruct {
   /**
    * Whether this guild is unavailable
    */
-  public unavailable!: boolean;
+  public unavailable: boolean | undefined;
 
   constructor(bot: Bot, guild: GatewayStruct) {
     super(bot);
@@ -32,7 +32,7 @@ class GuildUnavailable extends BaseStruct {
    */
   public init(guild: GatewayStruct): this {
     this.id = guild.id;
-    this.unavailable = guild.unavailable || false;
+    this.unavailable = guild.unavailable;
 
     return this;
   }
