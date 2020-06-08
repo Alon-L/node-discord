@@ -139,6 +139,10 @@ class BotSocketShard {
     this.lastSequence = null;
   }
 
+  /**
+   * Loads optional libraries and sets the options for the gateway websocket initialization
+   * @returns {Promise<void>}
+   */
   public async configure(): Promise<void> {
     try {
       erlpack = await import('erlpack');
@@ -199,7 +203,7 @@ class BotSocketShard {
   }
 
   /**
-   * Decompressed a message if the compress option is sent to the gateway
+   * Decompresses a message if the compress option is sent to the gateway
    * @param {Buffer} message The message received from the gateway
    * @returns {Buffer | undefined}
    */
