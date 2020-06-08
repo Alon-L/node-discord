@@ -19,6 +19,7 @@ export { default as INVITE_CREATE } from './inviteCreate';
 export { default as INVITE_DELETE } from './inviteDelete';
 export { default as MESSAGE_CREATE } from './messageCreate';
 export { default as MESSAGE_DELETE } from './messageDelete';
+export { default as MESSAGE_DELETE_BULK } from './messageDeleteBulk';
 export { default as MESSAGE_REACTION_ADD } from './messageReactionAdd';
 export { default as MESSAGE_REACTION_REMOVE } from './messageReactionRemove';
 export { default as MESSAGE_REACTION_REMOVE_ALL } from './messageReactionRemoveAll';

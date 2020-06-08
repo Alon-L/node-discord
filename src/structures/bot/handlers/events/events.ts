@@ -246,6 +246,19 @@ declare function MESSAGE_UPDATE(oldMessage: Message | undefined, newMessage: Mes
 declare function MESSAGE_DELETE(message: Message | PartialMessage): void;
 
 /**
+ * Sent when multiple messages are deleted at once.
+ * @param {GuildTextChannel | DMChannel} channel The channel the messages were deleted in
+ * @param {(Message | Snowflake)[]} messages Array of the deleted messages.
+ * Cached messages will show as {@link Message}s while the rest will show as {@link Snowflake}s
+ * @asMemberOf BotEventsHandler
+ * @event BotEventsHandler#MESSAGE_DELETE_BULK
+ */
+declare function MESSAGE_DELETE_BULK(
+  channel: GuildTextChannel | DMChannel,
+  messages: (Message | Snowflake)[],
+): void;
+
+/**
  * Sent when a user adds a reaction to a message.
  * @param {MessageReaction} reaction The reaction the user has added to the message
  * @param {Member | User} user The user that added the reaction
@@ -343,6 +356,7 @@ export declare interface Events {
   on(event: BotEvents.MessageCreate, listener: typeof MESSAGE_CREATE): this;
   on(event: BotEvents.MessageUpdate, listener: typeof MESSAGE_UPDATE): this;
   on(event: BotEvents.MessageDelete, listener: typeof MESSAGE_DELETE): this;
+  on(event: BotEvents.MessageDeleteBulk, listener: typeof MESSAGE_DELETE_BULK): this;
   on(event: BotEvents.MessageReactionAdd, listener: typeof MESSAGE_REACTION_ADD): this;
   on(event: BotEvents.MessageReactionRemove, listener: typeof MESSAGE_REACTION_REMOVE): this;
   on(event: BotEvents.MessageReactionRemoveAll, listener: typeof MESSAGE_REACTION_REMOVE_ALL): this;
