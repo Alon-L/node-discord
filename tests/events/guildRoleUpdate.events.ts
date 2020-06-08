@@ -9,8 +9,8 @@ const bot = new Bot(config.token);
 bot.connection.connect();
 
 (async function (): Promise<void> {
-  bot.events.on(BotEvents.GuildRoleUpdate, (oldRole: Role, newRole: Role) => {
-    console.log(oldRole.name, newRole.name);
+  bot.events.on(BotEvents.GuildRoleUpdate, (before: Role, after: Role) => {
+    console.log(before.name, after.name);
   });
 
   await bot.events.wait(BotEvents.Ready);

@@ -13,13 +13,13 @@ export default ({ d }: Payload, bot: Bot): void => {
 
   if (!guild) return;
 
-  const oldEmojis = guild.emojis;
+  const before = guild.emojis;
 
-  const newEmojis = new Cluster<Snowflake, Emoji>(
+  const after = new Cluster<Snowflake, Emoji>(
     emojis.map((emoji: GatewayStruct) => [emoji.id, new Emoji(bot, emoji, guild)]),
   );
 
-  guild.emojis = newEmojis;
+  guild.emojis = after;
 
-  bot.events.emit(BotEvents.GuildEmojisUpdate, oldEmojis, newEmojis);
+  bot.events.emit(BotEvents.GuildEmojisUpdate, before, after);
 };

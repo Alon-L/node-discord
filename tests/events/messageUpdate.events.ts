@@ -9,12 +9,12 @@ const bot = new Bot(config.token);
 bot.connection.connect();
 
 (async function (): Promise<void> {
-  bot.events.on(BotEvents.MessageUpdate, (oldMessage: Message | undefined, newMessage: Message) => {
+  bot.events.on(BotEvents.MessageUpdate, (before: Message | undefined, after: Message) => {
     console.log(
-      oldMessage?.content,
-      newMessage.content,
-      oldMessage?.id === newMessage.id,
-      newMessage.channel.messages.toArrayKeys,
+      before?.content,
+      after.content,
+      before?.id === after.id,
+      after.channel.messages.toArrayKeys,
     );
   });
 

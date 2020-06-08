@@ -9,15 +9,15 @@ const bot = new Bot(config.token);
 bot.connection.connect();
 
 (async function (): Promise<void> {
-  bot.events.on(BotEvents.GuildMemberUpdate, (oldMember: Member, newMember: Member) => {
+  bot.events.on(BotEvents.GuildMemberUpdate, (before: Member, after: Member) => {
     console.log(
-      oldMember.nick,
-      newMember.nick,
-      oldMember.roles,
-      newMember.roles,
+      before.nick,
+      after.nick,
+      before.roles,
+      after.roles,
       // These two should be equal to each other if other fields were copied correctly
-      oldMember.joinedAt,
-      newMember.joinedAt,
+      before.joinedAt,
+      after.joinedAt,
     );
   });
 

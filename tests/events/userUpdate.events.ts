@@ -9,11 +9,11 @@ const bot = new Bot(config.token);
 bot.connection.connect();
 
 (async function (): Promise<void> {
-  bot.events.on(BotEvents.UserUpdate, (oldUser: User, newUser: User) => {
+  bot.events.on(BotEvents.UserUpdate, (before: User, after: User) => {
     console.log(
-      oldUser.username,
-      newUser.username,
-      bot.guilds.first?.members.get(newUser.id)?.user?.username,
+      before.username,
+      after.username,
+      bot.guilds.first?.members.get(after.id)?.user?.username,
       bot.user?.username,
     );
   });

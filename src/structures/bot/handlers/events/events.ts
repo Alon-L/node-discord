@@ -14,6 +14,7 @@ import GuildTextChannel from '../../../channels/GuildTextChannel';
 import Guild from '../../../guild/Guild';
 import GuildUnavailable from '../../../guild/GuildUnavailable';
 import Member from '../../../member/Member';
+import MemberPresence from '../../../member/MemberPresence';
 import Message, { PartialMessage } from '../../../message/Message';
 import MessageReaction from '../../../message/MessageReaction';
 
@@ -52,12 +53,12 @@ declare function CHANNEL_CREATE(channel: Channel): void;
  * Sent when a channel is updated.
  * This is not sent when the field {@link GuildTextChannel.lastMessageId} is altered.
  * To keep track of the lastMessageId changes, you must listen for {@link MESSAGE_CREATE} events
- * @param {Channel} oldChannel The channel before its modification
- * @param {Channel} newChannel The channel after its modification
+ * @param {Channel} before The channel before its modification
+ * @param {Channel} after The channel after its modification
  * @asMemberOf BotEventsHandler
  * @event BotEventsHandler#CHANNEL_UPDATE
  */
-declare function CHANNEL_UPDATE(oldChannel: Channel | undefined, newChannel: Channel): void;
+declare function CHANNEL_UPDATE(before: Channel | undefined, after: Channel): void;
 
 /**
  * Sent when a channel is deleted
@@ -90,14 +91,14 @@ declare function GUILD_CREATE(guild: Guild | GuildUnavailable): void;
 
 /**
  * Sent when a guild is updated
- * @param {Guild | GuildUnavailable | undefined} oldGuild The guild before being updated
- * @param {Guild | GuildUnavailable} newGuild The guild after being updated
+ * @param {Guild | GuildUnavailable | undefined} before The guild before being updated
+ * @param {Guild | GuildUnavailable} after The guild after being updated
  * @asMemberOf BotEventsHandler
  * @event BotEventsHandler#GUILD_UPDATE
  */
 declare function GUILD_UPDATE(
-  oldGuild: Guild | GuildUnavailable | undefined,
-  newGuild: Guild | GuildUnavailable,
+  before: Guild | GuildUnavailable | undefined,
+  after: Guild | GuildUnavailable,
 ): void;
 
 /**
@@ -127,14 +128,14 @@ declare function GUILD_BAN_REMOVE(guild: Guild, user: User): void;
 
 /**
  * Sent when a guild's emojis have been updated.
- * @param {Cluster<Snowflake, Emoji>} oldEmojis {@link Cluster} of {@link Emoji}s before the update
- * @param {Cluster<Snowflake, Emoji>} newEmojis {@link Cluster} of {@link Emoji}s after the update
+ * @param {Cluster<Snowflake, Emoji>} before {@link Cluster} of {@link Emoji}s before the update
+ * @param {Cluster<Snowflake, Emoji>} after {@link Cluster} of {@link Emoji}s after the update
  * @asMemberOf BotEventsHandler
  * @event BotEventsHandler#GUILD_EMOJIS_UPDATE
  */
 declare function GUILD_EMOJIS_UPDATE(
-  oldEmojis: Cluster<Snowflake, Emoji>,
-  newEmojis: Cluster<Snowflake, Emoji>,
+  before: Cluster<Snowflake, Emoji>,
+  after: Cluster<Snowflake, Emoji>,
 ): void;
 
 /**
@@ -163,12 +164,12 @@ declare function GUILD_MEMBER_REMOVE(member: Member | User): void;
 
 /**
  * Sent when a guild member is updated. This will also fire when the user object of a guild member changes.
- * @param {Member} oldMember The member before being updated
- * @param {Member} newMember The member after being updated
+ * @param {Member} before The member before being updated
+ * @param {Member} after The member after being updated
  * @asMemberOf BotEventsHandler
  * @event BotEventsHandler#GUILD_MEMBER_UPDATE
  */
-declare function GUILD_MEMBER_UPDATE(oldMember: Member, newMember: Member): void;
+declare function GUILD_MEMBER_UPDATE(before: Member, after: Member): void;
 
 // TODO: Maybe change the Guild Members request if this library won't call it the same way as the documentation
 /**
@@ -189,12 +190,12 @@ declare function GUILD_ROLE_CREATE(role: Role): void;
 
 /**
  * Sent when a guild role is updated
- * @param {Role} oldRole The role before being updated
- * @param {Role} newRole The role after being updated
+ * @param {Role} before The role before being updated
+ * @param {Role} after The role after being updated
  * @asMemberOf BotEventsHandler
  * @event BotEventsHandler#GUILD_ROLE_UPDATE
  */
-declare function GUILD_ROLE_UPDATE(oldRole: Role, newRole: Role): void;
+declare function GUILD_ROLE_UPDATE(before: Role, after: Role): void;
 
 /**
  * Sent when a guild role is deleted
@@ -230,12 +231,12 @@ declare function MESSAGE_CREATE(message: Message): void;
 
 /**
  * Sent when a message is updated
- * @param {Message | undefined} oldMessage The message before being updated
- * @param {Message} newMessage The message after being updated
+ * @param {Message | undefined} before The message before being updated
+ * @param {Message} after The message after being updated
  * @asMemberOf BotEventsHandler
  * @event BotEventsHandler#MESSAGE_UPDATE
  */
-declare function MESSAGE_UPDATE(oldMessage: Message | undefined, newMessage: Message): void;
+declare function MESSAGE_UPDATE(before: Message | undefined, after: Message): void;
 
 /**
  * Sent when a message is deleted
@@ -298,6 +299,8 @@ declare function MESSAGE_REACTION_REMOVE_ALL(message: Message): void;
  */
 declare function MESSAGE_REACTION_REMOVE_EMOJI(reaction: MessageReaction | undefined): void;
 
+declare function PRESENCE_UPDATE(before: MemberPresence | undefined, after: MemberPresence): void;
+
 /**
  * Sent when a user starts typing in a channel.
  * @param {GuildTextChannel | DMChannel} channel The channel the user started typing in
@@ -314,12 +317,12 @@ declare function TYPING_START(
 
 /**
  * Sent when properties about the Bot's user change
- * @param {User} oldUser The user before being updated
- * @param {User} newUser The user after being updated
+ * @param {User} before The user before being updated
+ * @param {User} after The user after being updated
  * @asMemberOf BotEventsHandler
  * @event BotEventsHandler#USER_UPDATE
  */
-declare function USER_UPDATE(oldUser: User, newUser: User): void;
+declare function USER_UPDATE(before: User, after: User): void;
 
 /**
  * Sent when a guild channel's webhook is created, updated, or deleted.
@@ -364,6 +367,7 @@ export declare interface Events {
     event: BotEvents.MessageReactionRemoveEmoji,
     listener: typeof MESSAGE_REACTION_REMOVE_EMOJI,
   ): this;
+  on(event: BotEvents.PresenceUpdate, listener: typeof PRESENCE_UPDATE): this;
   on(event: BotEvents.TypingStart, listener: typeof TYPING_START): this;
   on(event: BotEvents.UserUpdate, listener: typeof USER_UPDATE): this;
   on(event: BotEvents.WebhooksUpdate, listener: typeof WEBHOOKS_UPDATE): this;

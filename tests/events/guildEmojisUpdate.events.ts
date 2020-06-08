@@ -13,8 +13,8 @@ bot.connection.connect();
 (async function (): Promise<void> {
   bot.events.on(
     BotEvents.GuildEmojisUpdate,
-    (oldEmojis: Cluster<Snowflake, Emoji>, newEmojis: Cluster<Snowflake, Emoji>) => {
-      console.log(oldEmojis.first?.name, newEmojis.first?.name);
+    (before: Cluster<Snowflake, Emoji>, after: Cluster<Snowflake, Emoji>) => {
+      console.log(before.first?.name, after.first?.name);
     },
   );
 

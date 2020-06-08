@@ -9,9 +9,9 @@ const bot = new Bot(config.token);
 bot.connection.connect();
 
 (async function (): Promise<void> {
-  bot.events.on(BotEvents.ChannelUpdate, (oldChannel: GuildChannel, newChannel: GuildChannel) => {
-    if (oldChannel instanceof GuildChannel && newChannel instanceof GuildChannel) {
-      console.log(oldChannel.name, newChannel.name);
+  bot.events.on(BotEvents.ChannelUpdate, (before: GuildChannel, after: GuildChannel) => {
+    if (before instanceof GuildChannel && after instanceof GuildChannel) {
+      console.log(before.name, after.name);
     }
   });
 

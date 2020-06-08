@@ -8,8 +8,8 @@ const bot = new Bot(config.token);
 bot.connection.connect();
 
 (async function (): Promise<void> {
-  bot.events.on(BotEvents.GuildUpdate, (oldGuild, newGuild) => {
-    console.log(oldGuild.name, newGuild.name);
+  bot.events.on(BotEvents.GuildUpdate, (before, after) => {
+    console.log(before.name, after.name);
   });
 
   await bot.events.wait(BotEvents.Ready);
