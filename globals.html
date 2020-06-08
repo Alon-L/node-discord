@@ -211,7 +211,7 @@
 					<div class="tsd-signature tsd-kind-icon">Command<wbr>Function<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>bot<span class="tsd-signature-symbol">: </span><a href="classes/bot.html" class="tsd-signature-type">Bot</a>, <span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">unknown</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/types.ts#L27">src/types.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/types.ts#L27">src/types.ts:27</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -245,7 +245,7 @@
 					<div class="tsd-signature tsd-kind-icon">Event<wbr>Function<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/types.ts#L26">src/types.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/types.ts#L26">src/types.ts:26</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -276,8 +276,8 @@
 					<div class="tsd-signature tsd-kind-icon">Events<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><a href="enums/gatewayevents.html" class="tsd-signature-type">GatewayEvents</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">(</span>payload<span class="tsd-signature-symbol">: </span><a href="interfaces/payload.html" class="tsd-signature-type">Payload</a>, bot<span class="tsd-signature-symbol">?: </span><a href="classes/bot.html" class="tsd-signature-type">Bot</a>, socketShard<span class="tsd-signature-symbol">?: </span><a href="classes/botsocketshard.html" class="tsd-signature-type">BotSocketShard</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/socket/BotSocketShard.ts#L37">src/socket/BotSocketShard.ts:37</a></li>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/structures/bot/handlers/events/events.ts#L310">src/structures/bot/handlers/events/events.ts:310</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/socket/BotSocketShard.ts#L37">src/socket/BotSocketShard.ts:37</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/structures/bot/handlers/events/events.ts#L319">src/structures/bot/handlers/events/events.ts:319</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-type-alias">
@@ -316,13 +316,14 @@
 							<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="enums/botevents.html#messagereactionremoveemoji" class="tsd-signature-type">MessageReactionRemoveEmoji</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#message_reaction_remove_emoji" class="tsd-signature-type">MESSAGE_REACTION_REMOVE_EMOJI</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
 							<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="enums/botevents.html#typingstart" class="tsd-signature-type">TypingStart</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#typing_start" class="tsd-signature-type">TYPING_START</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
 							<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="enums/botevents.html#userupdate" class="tsd-signature-type">UserUpdate</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#user_update" class="tsd-signature-type">USER_UPDATE</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+							<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="enums/botevents.html#webhooksupdate" class="tsd-signature-type">WebhooksUpdate</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#webhooks_update" class="tsd-signature-type">WEBHOOKS_UPDATE</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
 							<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
 						</ul>
 						<ul class="tsd-descriptions">
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/structures/bot/handlers/events/events.ts#L311">src/structures/bot/handlers/events/events.ts:311</a></li>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/structures/bot/handlers/events/events.ts#L320">src/structures/bot/handlers/events/events.ts:320</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -339,7 +340,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/structures/bot/handlers/events/events.ts#L312">src/structures/bot/handlers/events/events.ts:312</a></li>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/structures/bot/handlers/events/events.ts#L321">src/structures/bot/handlers/events/events.ts:321</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -356,7 +357,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/structures/bot/handlers/events/events.ts#L313">src/structures/bot/handlers/events/events.ts:313</a></li>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/structures/bot/handlers/events/events.ts#L322">src/structures/bot/handlers/events/events.ts:322</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -373,7 +374,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/structures/bot/handlers/events/events.ts#L314">src/structures/bot/handlers/events/events.ts:314</a></li>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/structures/bot/handlers/events/events.ts#L323">src/structures/bot/handlers/events/events.ts:323</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -390,7 +391,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/structures/bot/handlers/events/events.ts#L315">src/structures/bot/handlers/events/events.ts:315</a></li>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/structures/bot/handlers/events/events.ts#L324">src/structures/bot/handlers/events/events.ts:324</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -407,7 +408,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/structures/bot/handlers/events/events.ts#L316">src/structures/bot/handlers/events/events.ts:316</a></li>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/structures/bot/handlers/events/events.ts#L325">src/structures/bot/handlers/events/events.ts:325</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -424,7 +425,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/structures/bot/handlers/events/events.ts#L317">src/structures/bot/handlers/events/events.ts:317</a></li>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/structures/bot/handlers/events/events.ts#L326">src/structures/bot/handlers/events/events.ts:326</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -441,7 +442,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/structures/bot/handlers/events/events.ts#L318">src/structures/bot/handlers/events/events.ts:318</a></li>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/structures/bot/handlers/events/events.ts#L327">src/structures/bot/handlers/events/events.ts:327</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -458,7 +459,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/structures/bot/handlers/events/events.ts#L319">src/structures/bot/handlers/events/events.ts:319</a></li>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/structures/bot/handlers/events/events.ts#L328">src/structures/bot/handlers/events/events.ts:328</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -475,7 +476,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/structures/bot/handlers/events/events.ts#L320">src/structures/bot/handlers/events/events.ts:320</a></li>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/structures/bot/handlers/events/events.ts#L329">src/structures/bot/handlers/events/events.ts:329</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -492,7 +493,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/structures/bot/handlers/events/events.ts#L321">src/structures/bot/handlers/events/events.ts:321</a></li>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/structures/bot/handlers/events/events.ts#L330">src/structures/bot/handlers/events/events.ts:330</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -509,7 +510,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/structures/bot/handlers/events/events.ts#L322">src/structures/bot/handlers/events/events.ts:322</a></li>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/structures/bot/handlers/events/events.ts#L331">src/structures/bot/handlers/events/events.ts:331</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -526,7 +527,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/structures/bot/handlers/events/events.ts#L323">src/structures/bot/handlers/events/events.ts:323</a></li>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/structures/bot/handlers/events/events.ts#L332">src/structures/bot/handlers/events/events.ts:332</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -543,7 +544,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/structures/bot/handlers/events/events.ts#L324">src/structures/bot/handlers/events/events.ts:324</a></li>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/structures/bot/handlers/events/events.ts#L333">src/structures/bot/handlers/events/events.ts:333</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -560,7 +561,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/structures/bot/handlers/events/events.ts#L325">src/structures/bot/handlers/events/events.ts:325</a></li>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/structures/bot/handlers/events/events.ts#L334">src/structures/bot/handlers/events/events.ts:334</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -577,7 +578,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/structures/bot/handlers/events/events.ts#L326">src/structures/bot/handlers/events/events.ts:326</a></li>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/structures/bot/handlers/events/events.ts#L335">src/structures/bot/handlers/events/events.ts:335</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -594,7 +595,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/structures/bot/handlers/events/events.ts#L327">src/structures/bot/handlers/events/events.ts:327</a></li>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/structures/bot/handlers/events/events.ts#L336">src/structures/bot/handlers/events/events.ts:336</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -611,7 +612,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/structures/bot/handlers/events/events.ts#L328">src/structures/bot/handlers/events/events.ts:328</a></li>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/structures/bot/handlers/events/events.ts#L337">src/structures/bot/handlers/events/events.ts:337</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -628,7 +629,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/structures/bot/handlers/events/events.ts#L329">src/structures/bot/handlers/events/events.ts:329</a></li>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/structures/bot/handlers/events/events.ts#L338">src/structures/bot/handlers/events/events.ts:338</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -645,7 +646,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/structures/bot/handlers/events/events.ts#L330">src/structures/bot/handlers/events/events.ts:330</a></li>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/structures/bot/handlers/events/events.ts#L339">src/structures/bot/handlers/events/events.ts:339</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -662,7 +663,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/structures/bot/handlers/events/events.ts#L331">src/structures/bot/handlers/events/events.ts:331</a></li>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/structures/bot/handlers/events/events.ts#L340">src/structures/bot/handlers/events/events.ts:340</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -679,7 +680,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/structures/bot/handlers/events/events.ts#L332">src/structures/bot/handlers/events/events.ts:332</a></li>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/structures/bot/handlers/events/events.ts#L341">src/structures/bot/handlers/events/events.ts:341</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -696,7 +697,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/structures/bot/handlers/events/events.ts#L333">src/structures/bot/handlers/events/events.ts:333</a></li>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/structures/bot/handlers/events/events.ts#L342">src/structures/bot/handlers/events/events.ts:342</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -713,7 +714,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/structures/bot/handlers/events/events.ts#L334">src/structures/bot/handlers/events/events.ts:334</a></li>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/structures/bot/handlers/events/events.ts#L343">src/structures/bot/handlers/events/events.ts:343</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -730,7 +731,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/structures/bot/handlers/events/events.ts#L335">src/structures/bot/handlers/events/events.ts:335</a></li>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/structures/bot/handlers/events/events.ts#L344">src/structures/bot/handlers/events/events.ts:344</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -747,7 +748,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/structures/bot/handlers/events/events.ts#L336">src/structures/bot/handlers/events/events.ts:336</a></li>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/structures/bot/handlers/events/events.ts#L345">src/structures/bot/handlers/events/events.ts:345</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -764,7 +765,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/structures/bot/handlers/events/events.ts#L337">src/structures/bot/handlers/events/events.ts:337</a></li>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/structures/bot/handlers/events/events.ts#L346">src/structures/bot/handlers/events/events.ts:346</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -781,7 +782,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/structures/bot/handlers/events/events.ts#L338">src/structures/bot/handlers/events/events.ts:338</a></li>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/structures/bot/handlers/events/events.ts#L347">src/structures/bot/handlers/events/events.ts:347</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -798,7 +799,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/structures/bot/handlers/events/events.ts#L339">src/structures/bot/handlers/events/events.ts:339</a></li>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/structures/bot/handlers/events/events.ts#L348">src/structures/bot/handlers/events/events.ts:348</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -815,7 +816,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/structures/bot/handlers/events/events.ts#L340">src/structures/bot/handlers/events/events.ts:340</a></li>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/structures/bot/handlers/events/events.ts#L349">src/structures/bot/handlers/events/events.ts:349</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -832,7 +833,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/structures/bot/handlers/events/events.ts#L344">src/structures/bot/handlers/events/events.ts:344</a></li>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/structures/bot/handlers/events/events.ts#L353">src/structures/bot/handlers/events/events.ts:353</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -849,7 +850,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/structures/bot/handlers/events/events.ts#L345">src/structures/bot/handlers/events/events.ts:345</a></li>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/structures/bot/handlers/events/events.ts#L354">src/structures/bot/handlers/events/events.ts:354</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -866,7 +867,24 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/structures/bot/handlers/events/events.ts#L348">src/structures/bot/handlers/events/events.ts:348</a></li>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/structures/bot/handlers/events/events.ts#L355">src/structures/bot/handlers/events/events.ts:355</a></li>
+									</ul>
+								</aside>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>event: <a href="enums/botevents.html#webhooksupdate" class="tsd-signature-type">WebhooksUpdate</a></h5>
+									</li>
+									<li>
+										<h5>listener: <span class="tsd-signature-symbol">typeof </span><a href="classes/boteventshandler.html#webhooks_update" class="tsd-signature-type">WEBHOOKS_UPDATE</a></h5>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+							</li>
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/structures/bot/handlers/events/events.ts#L358">src/structures/bot/handlers/events/events.ts:358</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -907,7 +925,7 @@
 					<div class="tsd-signature tsd-kind-icon">Gateway<wbr>Struct<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Dict</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/structures/BaseStruct.ts#L9">src/structures/BaseStruct.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/structures/BaseStruct.ts#L9">src/structures/BaseStruct.ts:9</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -922,7 +940,7 @@
 					<div class="tsd-signature tsd-kind-icon">Invite<wbr>Code<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/structures/Invite.ts#L9">src/structures/Invite.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/structures/Invite.ts#L9">src/structures/Invite.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -932,7 +950,7 @@
 					<div class="tsd-signature tsd-kind-icon">Nullable&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{}</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/types.ts#L14">src/types.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/types.ts#L14">src/types.ts:14</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -958,7 +976,7 @@
 					<div class="tsd-signature tsd-kind-icon">Payload<wbr>Data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/socket/BotSocketShard.ts#L28">src/socket/BotSocketShard.ts:28</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/socket/BotSocketShard.ts#L28">src/socket/BotSocketShard.ts:28</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -968,8 +986,8 @@
 					<div class="tsd-signature tsd-kind-icon">Register<wbr>Callback<span class="tsd-signature-symbol">:</span> <a href="globals.html#eventfunction" class="tsd-signature-type">EventFunction</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/structures/bot/handlers/BotCommandsHandler.ts#L4">src/structures/bot/handlers/BotCommandsHandler.ts:4</a></li>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/structures/bot/handlers/events/BotEventsHandler.ts#L5">src/structures/bot/handlers/events/BotEventsHandler.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/structures/bot/handlers/BotCommandsHandler.ts#L4">src/structures/bot/handlers/BotCommandsHandler.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/structures/bot/handlers/events/BotEventsHandler.ts#L5">src/structures/bot/handlers/events/BotEventsHandler.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -979,7 +997,7 @@
 					<div class="tsd-signature tsd-kind-icon">Shard<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/types.ts#L9">src/types.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/types.ts#L9">src/types.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -989,7 +1007,7 @@
 					<div class="tsd-signature tsd-kind-icon">Snowflake<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/types.ts#L7">src/types.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/types.ts#L7">src/types.ts:7</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -1005,7 +1023,7 @@
 					<div class="tsd-signature tsd-kind-icon">TEMP<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/types.ts#L35">src/types.ts:35</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/types.ts#L35">src/types.ts:35</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -1018,7 +1036,7 @@
 					<div class="tsd-signature tsd-kind-icon">Dict<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/structures/BaseStruct.ts#L3">src/structures/BaseStruct.ts:3</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/structures/BaseStruct.ts#L3">src/structures/BaseStruct.ts:3</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -1028,7 +1046,7 @@
 					<div class="tsd-signature tsd-kind-icon">erlpack<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;erlpack&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/socket/BotSocketShard.ts#L43">src/socket/BotSocketShard.ts:43</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/socket/BotSocketShard.ts#L43">src/socket/BotSocketShard.ts:43</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -1038,7 +1056,7 @@
 					<div class="tsd-signature tsd-kind-icon">recommended<wbr>Shard<wbr>Timeout<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">5500</span><span class="tsd-signature-symbol"> = 5500</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/socket/constants.ts#L147">src/socket/constants.ts:147</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/socket/constants.ts#L147">src/socket/constants.ts:147</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -1048,7 +1066,7 @@
 					<div class="tsd-signature tsd-kind-icon">unreconnectable<wbr>Gateway<wbr>Close<wbr>Codes<span class="tsd-signature-symbol">:</span> <a href="enums/gatewayclosecodes.html" class="tsd-signature-type">GatewayCloseCodes</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = [GatewayCloseCodes.ManualClosure,GatewayCloseCodes.AuthenticationFailed,GatewayCloseCodes.InvalidShard,GatewayCloseCodes.ShardingRequired,GatewayCloseCodes.InvalidIntent,GatewayCloseCodes.DisallowedIntent,]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/socket/constants.ts#L133">src/socket/constants.ts:133</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/socket/constants.ts#L133">src/socket/constants.ts:133</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -1058,7 +1076,7 @@
 					<div class="tsd-signature tsd-kind-icon">unresumeable<wbr>Gateway<wbr>Close<wbr>Codes<span class="tsd-signature-symbol">:</span> <a href="enums/gatewayclosecodes.html" class="tsd-signature-type">GatewayCloseCodes</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = [GatewayCloseCodes.NormalClosure,GatewayCloseCodes.InvalidSeq,]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/socket/constants.ts#L142">src/socket/constants.ts:142</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/socket/constants.ts#L142">src/socket/constants.ts:142</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -1068,7 +1086,7 @@
 					<div class="tsd-signature tsd-kind-icon">version<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">6</span><span class="tsd-signature-symbol"> = 6</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/socket/properties.ts#L1">src/socket/properties.ts:1</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/socket/properties.ts#L1">src/socket/properties.ts:1</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -1078,7 +1096,7 @@
 					<div class="tsd-signature tsd-kind-icon">zlib<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;zlib-sync&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/socket/BotSocketShard.ts#L44">src/socket/BotSocketShard.ts:44</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/socket/BotSocketShard.ts#L44">src/socket/BotSocketShard.ts:44</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -1091,7 +1109,7 @@
 					<div class="tsd-signature tsd-kind-icon">identify<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/socket/properties.ts#L10">src/socket/properties.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/socket/properties.ts#L10">src/socket/properties.ts:10</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -1100,7 +1118,7 @@
 						<div class="tsd-signature tsd-kind-icon">large_<wbr>threshold<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 250</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/socket/properties.ts#L19">src/socket/properties.ts:19</a></li>
+								<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/socket/properties.ts#L19">src/socket/properties.ts:19</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -1110,7 +1128,7 @@
 						<div class="tsd-signature tsd-kind-icon">version<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/socket/properties.ts#L20">src/socket/properties.ts:20</a></li>
+								<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/socket/properties.ts#L20">src/socket/properties.ts:20</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -1120,7 +1138,7 @@
 						<div class="tsd-signature tsd-kind-icon">presence<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/socket/properties.ts#L16">src/socket/properties.ts:16</a></li>
+								<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/socket/properties.ts#L16">src/socket/properties.ts:16</a></li>
 							</ul>
 						</aside>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -1129,7 +1147,7 @@
 							<div class="tsd-signature tsd-kind-icon">status<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;online&quot;</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/socket/properties.ts#L17">src/socket/properties.ts:17</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/socket/properties.ts#L17">src/socket/properties.ts:17</a></li>
 								</ul>
 							</aside>
 						</section>
@@ -1140,7 +1158,7 @@
 						<div class="tsd-signature tsd-kind-icon">properties<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/socket/properties.ts#L11">src/socket/properties.ts:11</a></li>
+								<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/socket/properties.ts#L11">src/socket/properties.ts:11</a></li>
 							</ul>
 						</aside>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -1149,7 +1167,7 @@
 							<div class="tsd-signature tsd-kind-icon">$browser<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;node-discord&quot;</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/socket/properties.ts#L13">src/socket/properties.ts:13</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/socket/properties.ts#L13">src/socket/properties.ts:13</a></li>
 								</ul>
 							</aside>
 						</section>
@@ -1159,7 +1177,7 @@
 							<div class="tsd-signature tsd-kind-icon">$device<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;node-discord&quot;</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/socket/properties.ts#L14">src/socket/properties.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/socket/properties.ts#L14">src/socket/properties.ts:14</a></li>
 								</ul>
 							</aside>
 						</section>
@@ -1169,7 +1187,7 @@
 							<div class="tsd-signature tsd-kind-icon">$os<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"aix"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"android"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"darwin"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"freebsd"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"linux"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"openbsd"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"sunos"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"win32"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"cygwin"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"netbsd"</span><span class="tsd-signature-symbol"> = process.platform</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/socket/properties.ts#L12">src/socket/properties.ts:12</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/socket/properties.ts#L12">src/socket/properties.ts:12</a></li>
 								</ul>
 							</aside>
 						</section>
@@ -1181,7 +1199,7 @@
 					<div class="tsd-signature tsd-kind-icon">mentions<wbr>Regexp<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/structures/message/MessageMentions.ts#L16">src/structures/message/MessageMentions.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/structures/message/MessageMentions.ts#L16">src/structures/message/MessageMentions.ts:16</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -1190,7 +1208,7 @@
 						<div class="tsd-signature tsd-kind-icon">channels<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">RegExp</span><span class="tsd-signature-symbol"> = new RegExp(/&lt;#(\d{17,19})&gt;/g)</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c674287/src/structures/message/MessageMentions.ts#L17">src/structures/message/MessageMentions.ts:17</a></li>
+								<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/32f7319/src/structures/message/MessageMentions.ts#L17">src/structures/message/MessageMentions.ts:17</a></li>
 							</ul>
 						</aside>
 					</section>
