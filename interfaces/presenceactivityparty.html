@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>MessageEmbedAuthor | node-discord</title>
+	<title>PresenceActivityParty | node-discord</title>
 	<meta name="description" content="Documentation for node-discord">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="messageembedauthor.html">MessageEmbedAuthor</a>
+					<a href="presenceactivityparty.html">PresenceActivityParty</a>
 				</li>
 			</ul>
-			<h1>Interface MessageEmbedAuthor</h1>
+			<h1>Interface PresenceActivityParty</h1>
 		</div>
 	</div>
 </header>
@@ -67,7 +67,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Message embed author data</p>
+						<p>Information for party showed in a member&#39;s presence activity</p>
 					</div>
 				</div>
 			</section>
@@ -75,7 +75,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">MessageEmbedAuthor</span>
+						<span class="target">PresenceActivityParty</span>
 					</li>
 				</ul>
 			</section>
@@ -86,10 +86,8 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="messageembedauthor.html#iconurl" class="tsd-kind-icon">iconURL</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="messageembedauthor.html#name" class="tsd-kind-icon">name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="messageembedauthor.html#proxyiconurl" class="tsd-kind-icon">proxy<wbr>IconURL</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="messageembedauthor.html#url" class="tsd-kind-icon">url</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="presenceactivityparty.html#id" class="tsd-kind-icon">id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="presenceactivityparty.html#size" class="tsd-kind-icon">size</a></li>
 							</ul>
 						</section>
 					</div>
@@ -98,62 +96,33 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="iconurl" class="tsd-anchor"></a>
-					<h3>iconURL</h3>
-					<div class="tsd-signature tsd-kind-icon">iconURL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
+					<a name="id" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> id</h3>
+					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cd6a274/src/structures/message/MessageEmbed.ts#L125">src/structures/message/MessageEmbed.ts:125</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cd6a274/src/structures/member/MemberPresence.ts#L60">src/structures/member/MemberPresence.ts:60</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>URL of the author&#39;s icon (only supports http(s) and attachments)</p>
+							<p>The ID of the party</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="name" class="tsd-anchor"></a>
-					<h3>name</h3>
-					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
+					<a name="size" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> size</h3>
+					<div class="tsd-signature tsd-kind-icon">size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cd6a274/src/structures/message/MessageEmbed.ts#L115">src/structures/message/MessageEmbed.ts:115</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cd6a274/src/structures/member/MemberPresence.ts#L68">src/structures/member/MemberPresence.ts:68</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Name of the author</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="proxyiconurl" class="tsd-anchor"></a>
-					<h3>proxy<wbr>IconURL</h3>
-					<div class="tsd-signature tsd-kind-icon">proxy<wbr>IconURL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cd6a274/src/structures/message/MessageEmbed.ts#L130">src/structures/message/MessageEmbed.ts:130</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>A proxied URL of the author&#39;s icon</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="url" class="tsd-anchor"></a>
-					<h3>url</h3>
-					<div class="tsd-signature tsd-kind-icon">url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cd6a274/src/structures/message/MessageEmbed.ts#L120">src/structures/message/MessageEmbed.ts:120</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>URL of the author</p>
+							<p>Used to show the party&#39;s current and maximum size</p>
+							<pre><code class="language-typescript">[current_size, max_size]</code></pre>
 						</div>
 					</div>
 				</section>
@@ -172,19 +141,13 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="messageembedauthor.html" class="tsd-kind-icon">Message<wbr>Embed<wbr>Author</a>
+						<a href="presenceactivityparty.html" class="tsd-kind-icon">Presence<wbr>Activity<wbr>Party</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="messageembedauthor.html#iconurl" class="tsd-kind-icon">iconURL</a>
+								<a href="presenceactivityparty.html#id" class="tsd-kind-icon">id</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="messageembedauthor.html#name" class="tsd-kind-icon">name</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="messageembedauthor.html#proxyiconurl" class="tsd-kind-icon">proxy<wbr>IconURL</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="messageembedauthor.html#url" class="tsd-kind-icon">url</a>
+								<a href="presenceactivityparty.html#size" class="tsd-kind-icon">size</a>
 							</li>
 						</ul>
 					</li>

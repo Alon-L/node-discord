@@ -97,6 +97,7 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="member.html#boostingsince" class="tsd-kind-icon">boosting<wbr>Since</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="member.html#bot" class="tsd-kind-icon">bot</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="member.html#deaf" class="tsd-kind-icon">deaf</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="member.html#guild" class="tsd-kind-icon">guild</a></li>
@@ -104,7 +105,7 @@
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="member.html#joinedat" class="tsd-kind-icon">joined<wbr>At</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="member.html#mute" class="tsd-kind-icon">mute</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="member.html#nick" class="tsd-kind-icon">nick</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="member.html#premiumsince" class="tsd-kind-icon">premium<wbr>Since</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="member.html#presence" class="tsd-kind-icon">presence</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="member.html#roles" class="tsd-kind-icon">roles</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="member.html#user" class="tsd-kind-icon">user</a></li>
 							</ul>
@@ -125,14 +126,14 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Member<span class="tsd-signature-symbol">(</span>bot<span class="tsd-signature-symbol">: </span><a href="bot.html" class="tsd-signature-type">Bot</a>, member<span class="tsd-signature-symbol">: </span><a href="../globals.html#gatewaystruct" class="tsd-signature-type">GatewayStruct</a>, guild<span class="tsd-signature-symbol">: </span><a href="guild.html" class="tsd-signature-type">Guild</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="member.html" class="tsd-signature-type">Member</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Member<span class="tsd-signature-symbol">(</span>bot<span class="tsd-signature-symbol">: </span><a href="bot.html" class="tsd-signature-type">Bot</a>, member<span class="tsd-signature-symbol">: </span><a href="../globals.html#gatewaystruct" class="tsd-signature-type">GatewayStruct</a>, guild<span class="tsd-signature-symbol">: </span><a href="guild.html" class="tsd-signature-type">Guild</a>, presence<span class="tsd-signature-symbol">?: </span><a href="../globals.html#gatewaystruct" class="tsd-signature-type">GatewayStruct</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="member.html" class="tsd-signature-type">Member</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="guildbasestruct.html">GuildBaseStruct</a>.<a href="guildbasestruct.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/dba65c6/src/structures/Member.ts#L56">src/structures/Member.ts:56</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cd6a274/src/structures/member/Member.ts#L59">src/structures/member/Member.ts:59</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -146,6 +147,9 @@
 								<li>
 									<h5>guild: <a href="guild.html" class="tsd-signature-type">Guild</a></h5>
 								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> presence: <a href="../globals.html#gatewaystruct" class="tsd-signature-type">GatewayStruct</a></h5>
+								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="member.html" class="tsd-signature-type">Member</a></h4>
 						</li>
@@ -154,6 +158,22 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="boostingsince" class="tsd-anchor"></a>
+					<h3>boosting<wbr>Since</h3>
+					<div class="tsd-signature tsd-kind-icon">boosting<wbr>Since<span class="tsd-signature-symbol">:</span> <a href="timestamp.html" class="tsd-signature-type">Timestamp</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cd6a274/src/structures/member/Member.ts#L47">src/structures/member/Member.ts:47</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Timestamp of when the member start boosting the guild.
+							Possibly null if the user has never boosted this server</p>
+						</div>
+					</div>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="bot" class="tsd-anchor"></a>
 					<h3>bot</h3>
@@ -161,7 +181,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="basestruct.html">BaseStruct</a>.<a href="basestruct.html#bot">bot</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/dba65c6/src/structures/BaseStruct.ts#L25">src/structures/BaseStruct.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cd6a274/src/structures/BaseStruct.ts#L25">src/structures/BaseStruct.ts:25</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -176,7 +196,7 @@
 					<div class="tsd-signature tsd-kind-icon">deaf<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/dba65c6/src/structures/Member.ts#L51">src/structures/Member.ts:51</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cd6a274/src/structures/member/Member.ts#L52">src/structures/member/Member.ts:52</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -192,7 +212,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="guildbasestruct.html">GuildBaseStruct</a>.<a href="guildbasestruct.html#guild">guild</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/dba65c6/src/structures/guild/GuildBaseStruct.ts#L15">src/structures/guild/GuildBaseStruct.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cd6a274/src/structures/guild/GuildBaseStruct.ts#L15">src/structures/guild/GuildBaseStruct.ts:15</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -207,7 +227,7 @@
 					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/dba65c6/src/structures/Member.ts#L20">src/structures/Member.ts:20</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cd6a274/src/structures/member/Member.ts#L21">src/structures/member/Member.ts:21</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -222,7 +242,7 @@
 					<div class="tsd-signature tsd-kind-icon">joined<wbr>At<span class="tsd-signature-symbol">:</span> <a href="timestamp.html" class="tsd-signature-type">Timestamp</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/dba65c6/src/structures/Member.ts#L40">src/structures/Member.ts:40</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cd6a274/src/structures/member/Member.ts#L41">src/structures/member/Member.ts:41</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -237,7 +257,7 @@
 					<div class="tsd-signature tsd-kind-icon">mute<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/dba65c6/src/structures/Member.ts#L56">src/structures/Member.ts:56</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cd6a274/src/structures/member/Member.ts#L57">src/structures/member/Member.ts:57</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -252,7 +272,7 @@
 					<div class="tsd-signature tsd-kind-icon">nick<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/dba65c6/src/structures/Member.ts#L30">src/structures/Member.ts:30</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cd6a274/src/structures/member/Member.ts#L31">src/structures/member/Member.ts:31</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -262,20 +282,14 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="premiumsince" class="tsd-anchor"></a>
-					<h3>premium<wbr>Since</h3>
-					<div class="tsd-signature tsd-kind-icon">premium<wbr>Since<span class="tsd-signature-symbol">:</span> <a href="timestamp.html" class="tsd-signature-type">Timestamp</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
+					<a name="presence" class="tsd-anchor"></a>
+					<h3>presence</h3>
+					<div class="tsd-signature tsd-kind-icon">presence<span class="tsd-signature-symbol">:</span> <a href="memberpresence.html" class="tsd-signature-type">MemberPresence</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/dba65c6/src/structures/Member.ts#L46">src/structures/Member.ts:46</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cd6a274/src/structures/member/Member.ts#L59">src/structures/member/Member.ts:59</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Timestamp of when the member start boosting the guild.
-							Possibly null if the user has never boosted this server</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="roles" class="tsd-anchor"></a>
@@ -283,7 +297,7 @@
 					<div class="tsd-signature tsd-kind-icon">roles<span class="tsd-signature-symbol">:</span> <a href="cluster.html" class="tsd-signature-type">Cluster</a><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol">, </span><a href="role.html" class="tsd-signature-type">Role</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/dba65c6/src/structures/Member.ts#L35">src/structures/Member.ts:35</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cd6a274/src/structures/member/Member.ts#L36">src/structures/member/Member.ts:36</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -298,7 +312,7 @@
 					<div class="tsd-signature tsd-kind-icon">user<span class="tsd-signature-symbol">:</span> <a href="user.html" class="tsd-signature-type">User</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/dba65c6/src/structures/Member.ts#L25">src/structures/Member.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cd6a274/src/structures/member/Member.ts#L26">src/structures/member/Member.ts:26</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -321,7 +335,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="basestruct.html">BaseStruct</a>.<a href="basestruct.html#clone">clone</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/dba65c6/src/structures/BaseStruct.ts#L45">src/structures/BaseStruct.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cd6a274/src/structures/BaseStruct.ts#L45">src/structures/BaseStruct.ts:45</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -344,7 +358,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="basestruct.html">BaseStruct</a>.<a href="basestruct.html#update">update</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/dba65c6/src/structures/BaseStruct.ts#L54">src/structures/BaseStruct.ts:54</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cd6a274/src/structures/BaseStruct.ts#L54">src/structures/BaseStruct.ts:54</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -385,6 +399,9 @@
 							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
 								<a href="member.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="member.html#boostingsince" class="tsd-kind-icon">boosting<wbr>Since</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="member.html#bot" class="tsd-kind-icon">bot</a>
 							</li>
@@ -407,7 +424,7 @@
 								<a href="member.html#nick" class="tsd-kind-icon">nick</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="member.html#premiumsince" class="tsd-kind-icon">premium<wbr>Since</a>
+								<a href="member.html#presence" class="tsd-kind-icon">presence</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="member.html#roles" class="tsd-kind-icon">roles</a>
