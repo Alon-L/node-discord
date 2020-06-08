@@ -10,6 +10,7 @@ import Timestamp from '../../../Timestamp';
 import User from '../../../User';
 import Channel from '../../../channels/Channel';
 import DMChannel from '../../../channels/DMChannel';
+import GuildChannel from '../../../channels/GuildChannel';
 import GuildTextChannel from '../../../channels/GuildTextChannel';
 import Guild from '../../../guild/Guild';
 import GuildUnavailable from '../../../guild/GuildUnavailable';
@@ -307,6 +308,14 @@ declare function TYPING_START(
  */
 declare function USER_UPDATE(oldUser: User, newUser: User): void;
 
+/**
+ * Sent when a guild channel's webhook is created, updated, or deleted.
+ * @param {GuildChannel} channel The guild channel the updated webhook is associated to
+ * @asMemberOf BotEventsHandler
+ * @event BotEventsHandler#WEBHOOKS_UPDATE
+ */
+declare function WEBHOOKS_UPDATE(channel: GuildChannel): void;
+
 export declare interface Events {
   on(event: BotEvents.Ready, listener: typeof READY): this;
   on(event: BotEvents.ShardReady, listener: typeof SHARD_READY): this;
@@ -343,6 +352,7 @@ export declare interface Events {
   ): this;
   on(event: BotEvents.TypingStart, listener: typeof TYPING_START): this;
   on(event: BotEvents.UserUpdate, listener: typeof USER_UPDATE): this;
+  on(event: BotEvents.WebhooksUpdate, listener: typeof WEBHOOKS_UPDATE): this;
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   on(event: string | symbol, listener: (...args: any) => void): this;
