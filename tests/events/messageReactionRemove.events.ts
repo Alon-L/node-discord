@@ -1,9 +1,9 @@
 'use strict';
 
 import { BotEvents } from '../../src/socket/constants';
-import Member from '../../src/structures/Member';
 import User from '../../src/structures/User';
 import Bot from '../../src/structures/bot/Bot';
+import Member from '../../src/structures/member/Member';
 import MessageReaction from '../../src/structures/message/MessageReaction';
 import config from '../config.json';
 

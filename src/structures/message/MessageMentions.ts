@@ -2,10 +2,10 @@ import Message from './Message';
 import Cluster from '../../Cluster';
 import { Snowflake } from '../../types';
 import BaseStruct, { GatewayStruct } from '../BaseStruct';
-import Member from '../Member';
 import Role from '../Role';
 import User from '../User';
 import GuildChannel from '../channels/GuildChannel';
+import Member from '../member/Member';
 
 interface MentionTypes {
   users: GatewayStruct[];

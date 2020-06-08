@@ -1,7 +1,7 @@
-import Member from '../../structures/Member';
 import User from '../../structures/User';
 import Bot from '../../structures/bot/Bot';
 import GuildTextChannel from '../../structures/channels/GuildTextChannel';
+import Member from '../../structures/member/Member';
 import ChannelUtils from '../../utils/ChannelUtils';
 import { Payload } from '../BotSocketShard';
 import { BotEvents } from '../constants';

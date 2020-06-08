@@ -4,7 +4,6 @@ import { BotEvents } from '../../../../socket/constants';
 import { Snowflake } from '../../../../types';
 import Emoji from '../../../Emoji';
 import Invite, { PartialInvite } from '../../../Invite';
-import Member from '../../../Member';
 import Role from '../../../Role';
 import Timestamp from '../../../Timestamp';
 import User from '../../../User';
@@ -14,6 +13,7 @@ import GuildChannel from '../../../channels/GuildChannel';
 import GuildTextChannel from '../../../channels/GuildTextChannel';
 import Guild from '../../../guild/Guild';
 import GuildUnavailable from '../../../guild/GuildUnavailable';
+import Member from '../../../member/Member';
 import Message, { PartialMessage } from '../../../message/Message';
 import MessageReaction from '../../../message/MessageReaction';
 

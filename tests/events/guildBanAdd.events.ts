@@ -1,11 +1,11 @@
 'use strict';
 
 import { BotEvents } from '../../src/socket/constants';
-import Member from '../../src/structures/Member';
 import User from '../../src/structures/User';
 import Bot from '../../src/structures/bot/Bot';
 import Guild from '../../src/structures/guild/Guild';
 import GuildUnavailable from '../../src/structures/guild/GuildUnavailable';
+import Member from '../../src/structures/member/Member';
 import config from '../config.json';
 
 const bot = new Bot(config.token);

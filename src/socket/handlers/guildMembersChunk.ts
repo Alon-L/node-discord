@@ -1,6 +1,6 @@
 import { GatewayStruct } from '../../structures/BaseStruct';
-import Member from '../../structures/Member';
 import Bot from '../../structures/bot/Bot';
+import Member from '../../structures/member/Member';
 import { Payload } from '../BotSocketShard';
 import { BotEvents } from '../constants';
 

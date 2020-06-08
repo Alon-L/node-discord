@@ -5,13 +5,13 @@ import MessageReaction from './MessageReaction';
 import Cluster from '../../Cluster';
 import { Snowflake, TEMP } from '../../types';
 import BaseStruct, { GatewayStruct } from '../BaseStruct';
-import Member from '../Member';
 import Timestamp from '../Timestamp';
 import User from '../User';
 import Bot from '../bot/Bot';
 import DMChannel from '../channels/DMChannel';
 import GuildTextChannel from '../channels/GuildTextChannel';
 import Guild from '../guild/Guild';
+import Member from '../member/Member';
 
 /**
  * The type of a message
