@@ -218,7 +218,8 @@ class BotSocketShard {
     this.zlib.push(message, zlib?.Z_SYNC_FLUSH);
 
     if (this.zlib.err) {
-      throw this.zlib.err;
+      this.bot.debug(this.zlib.err);
+      return;
     }
 
     return Buffer.from(this.zlib.result!);
