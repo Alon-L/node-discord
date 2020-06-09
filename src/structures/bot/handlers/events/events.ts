@@ -1,3 +1,4 @@
+import { EventEmitter } from 'events';
 import Cluster from '../../../../Cluster';
 import BotSocketShard from '../../../../socket/BotSocketShard';
 import { BotEvents } from '../../../../socket/constants';
@@ -52,8 +53,8 @@ declare function CHANNEL_CREATE(channel: Channel): void;
  * Sent when a channel is updated.
  * This is not sent when the field {@link GuildTextChannel.lastMessageId} is altered.
  * To keep track of the lastMessageId changes, you must listen for {@link MESSAGE_CREATE} events
- * @param {Channel} before The channel before its modification
- * @param {Channel} after The channel after its modification
+ * @param {Channel} before The channel before being updated
+ * @param {Channel} after The channel after being updated
  * @asMemberOf BotEventsHandler
  * @event BotEventsHandler#CHANNEL_UPDATE
  */
@@ -312,6 +313,13 @@ declare function MESSAGE_REACTION_REMOVE_ALL(message: Message): void;
  */
 declare function MESSAGE_REACTION_REMOVE_EMOJI(reaction: MessageReaction | undefined): void;
 
+/**
+ * Sent when a member's presence or info, such as name or avatar, is updated.
+ * @param {MemberPresence | undefined} before The member's presence before being updated
+ * @param {MemberPresence} after The member's presence after being updated
+ * @asMemberOf BotEventsHandler
+ * @event BotEventsHandler#PRESENCE_UPDATE
+ */
 declare function PRESENCE_UPDATE(before: MemberPresence | undefined, after: MemberPresence): void;
 
 /**
@@ -345,7 +353,7 @@ declare function USER_UPDATE(before: User, after: User): void;
  */
 declare function WEBHOOKS_UPDATE(channel: GuildChannel): void;
 
-export declare interface Events {
+export interface Events extends EventEmitter {
   on(event: BotEvents.Ready, listener: typeof READY): this;
   on(event: BotEvents.ShardReady, listener: typeof SHARD_READY): this;
   on(event: BotEvents.ShardClose, listener: typeof SHARD_CLOSE): this;
