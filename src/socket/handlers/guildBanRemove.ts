@@ -12,7 +12,8 @@ export default ({ d }: Payload, bot: Bot): void => {
 
   const user = new User(bot, d.user);
 
-  // TODO: Guild bans cluster field. Remove user from that cluster
+  // Remove the member from the Guild's bans Cluster
+  guild.bans.delete(user.id);
 
   bot.events.emit(BotEvents.GuildBanRemove, guild, user);
 };

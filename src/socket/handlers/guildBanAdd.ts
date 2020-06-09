@@ -15,10 +15,8 @@ export default ({ d }: Payload, bot: Bot): void => {
   // Member of the guild or the previously defined user
   const member = guild.members.get(user.id) || user;
 
-  // Remove the member from the guild's members cluster
-  guild.members.delete(member.id);
-
-  // TODO: Guild bans cluster field. Add member to that cluster
+  // Add the member to the Guild's bans Cluster
+  guild.bans.set(member.id, member);
 
   bot.events.emit(BotEvents.GuildBanAdd, guild, member);
 };

@@ -6,6 +6,7 @@ import BaseStruct, { GatewayStruct } from '../BaseStruct';
 import Emoji from '../Emoji';
 import Invite, { InviteCode } from '../Invite';
 import Role from '../Role';
+import User from '../User';
 import Bot from '../bot/Bot';
 import GuildChannel from '../channels/GuildChannel';
 import GuildTextChannel from '../channels/GuildTextChannel';
@@ -276,14 +277,18 @@ class Guild extends BaseStruct {
   /**
    * All cached invites created in this Guild
    */
-  public invites!: Cluster<InviteCode, Invite>;
+  public invites: Cluster<InviteCode, Invite>;
+
+  public bans: Cluster<Snowflake, Member | User>;
 
   constructor(bot: Bot, guild: GatewayStruct) {
     super(bot);
 
+    this.presences = new Cluster<Snowflake, MemberPresence>();
+
     this.invites = new Cluster<InviteCode, Invite>();
 
-    this.presences = new Cluster<Snowflake, MemberPresence>();
+    this.bans = new Cluster<Snowflake, Member>();
 
     this.init(guild);
   }
