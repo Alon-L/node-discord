@@ -5,6 +5,9 @@ import { Snowflake } from '../../types';
 import Timestamp from '../Timestamp';
 import Message from '../message/Message';
 
+/**
+ * Abstract class that all text-based channels implement
+ */
 abstract class TextChannel {
   /**
    * The ID of the last message sent in this channel.
