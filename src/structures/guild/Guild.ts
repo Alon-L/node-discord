@@ -53,13 +53,31 @@ export enum MFALevel {
 /**
  * Guild premium (boost) tiers
  */
-export enum PremiumTiers {
+export enum BoostTiers {
   None,
   Tier1,
   Tier2,
   Tier3,
 }
 
+/**
+ * Information about the Guild's AFK channel and timeout
+ */
+export interface GuildAFK {
+  /**
+   * The AFK channel
+   */
+  channel?: GuildChannel;
+
+  /**
+   * AFK timeout in seconds
+   */
+  timeout: number;
+}
+
+/**
+ * Information about guild option levels
+ */
 export interface GuildLevels {
   /**
    * Verification level required for the guild
@@ -96,7 +114,8 @@ export interface GuildWidget {
 }
 
 export interface GuildSystem {
-  flags: undefined; // TODO: Flag system
+  flags: TEMP; // TODO: Flag system
+
   /**
    * The channel where guild notices such as welcome messages and boost events are posted.
    * Possibly undefined if such channel does not exist
@@ -104,11 +123,11 @@ export interface GuildSystem {
   channel: GuildTextChannel | undefined;
 }
 
-export interface GuildPremium {
+export interface GuildBoosts {
   /**
    * Guild boost level
    */
-  tier: PremiumTiers;
+  tier: BoostTiers;
 
   /**
    * Number of boosts this server currently has
@@ -180,7 +199,10 @@ class Guild extends BaseStruct {
    */
   public region!: string;
 
-  public afk: TEMP; // TODO: { channel: GuildTextChannel | null, timeout: number }
+  /**
+   * Information about the Guild AFK options
+   */
+  public afk!: GuildAFK;
 
   public embedEnabled: TEMP | undefined;
 
@@ -260,9 +282,9 @@ class Guild extends BaseStruct {
   public banner!: string | null;
 
   /**
-   * {@link GuildPremium} object containing guild premium (boosts) data
+   * {@link GuildBoosts} object containing guild boosts data
    */
-  public premium!: GuildPremium;
+  public boosts!: GuildBoosts;
 
   /**
    * The preferred locale of a public guild used in server discovery and notices from Discord
@@ -339,6 +361,11 @@ class Guild extends BaseStruct {
 
     this.region = guild.region;
 
+    this.afk = {
+      channel: guild.afk_channel_id && this.channels.get(guild.afk_channel_id),
+      timeout: guild.afk_timeout,
+    };
+
     this.levels = {
       verification: guild.verification_level,
       notifications: guild.default_message_notifications,
@@ -370,7 +397,7 @@ class Guild extends BaseStruct {
     this.description = guild.description;
     this.banner = guild.banner;
 
-    this.premium = {
+    this.boosts = {
       tier: guild.premium_tier,
       boostsCount: guild.premium_subscription_count,
     };
