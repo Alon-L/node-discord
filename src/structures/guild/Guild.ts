@@ -1,5 +1,6 @@
 import GuildUnavailable from './GuildUnavailable';
 import Cluster from '../../Cluster';
+import { GuildFeatures } from '../../socket/constants';
 import { Snowflake, TEMP } from '../../types';
 import ChannelUtils from '../../utils/ChannelUtils';
 import BaseStruct, { GatewayStruct } from '../BaseStruct';
@@ -227,7 +228,10 @@ class Guild extends BaseStruct {
    */
   public emojis!: Cluster<Snowflake, Emoji>;
 
-  public features: TEMP;
+  /**
+   * Enabled guild features
+   */
+  public features!: GuildFeatures[];
 
   public applicationId: TEMP | null;
 
@@ -385,6 +389,8 @@ class Guild extends BaseStruct {
     this.emojis = new Cluster<Snowflake, Emoji>(
       guild.emojis.map((emoji: GatewayStruct) => [emoji.id, new Emoji(this.bot, emoji, this)]),
     );
+
+    this.features = guild.features;
 
     this.widget = {
       enabled: guild.widget_enabled,
