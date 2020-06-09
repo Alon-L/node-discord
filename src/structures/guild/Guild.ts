@@ -268,7 +268,6 @@ class Guild extends BaseStruct {
    */
   public unavailable: boolean | undefined;
 
-  // TODO: Think of a smart way to map memberCount, memebrs, max_members...
   /**
    * Total number of members in this guild
    */
@@ -328,6 +327,9 @@ class Guild extends BaseStruct {
    */
   public invites: Cluster<InviteCode, Invite>;
 
+  /**
+   * All cached guild bans
+   */
   public bans: Cluster<Snowflake, Member | User>;
 
   constructor(bot: Bot, guild: GatewayStruct) {
@@ -348,7 +350,6 @@ class Guild extends BaseStruct {
    * @returns {this}
    */
   public init(guild: GatewayStruct): this {
-    // TODO: assign all other fields
     this.id = guild.id;
 
     this.channels = new Cluster<Snowflake, GuildChannel>(
