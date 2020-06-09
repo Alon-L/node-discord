@@ -165,7 +165,7 @@ class BotSocketShard {
       v: version,
       encoding: erlpack ? 'etf' : 'json',
       compress: zlib && 'zlib-stream',
-      ...this.bot.options,
+      ...this.bot.options?.websocket,
     };
 
     this.bot.debug(this.options);
@@ -463,7 +463,7 @@ class BotSocketShard {
    * @param {any} data Data to be transferred and sent to the gateway
    * @returns {string}
    */
-  public pack(data: any): Buffer | string | undefined {
+  public pack(data: unknown): Buffer | string | undefined {
     return this.options.encoding === 'etf' ? erlpack?.pack(data) : JSON.stringify(data);
   }
 

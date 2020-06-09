@@ -24,6 +24,10 @@ export interface ShardOptions {
   amount?: number;
 }
 
+export interface BotOptions {
+  websocket?: Partial<WebsocketOptions>;
+}
+
 /**
  * The bot is the main operator of the API.
  * It handles the events, and properties for all structures.
@@ -38,7 +42,7 @@ class Bot {
   /**
    * Options used to determine how the Bot operates
    */
-  public readonly options: Partial<WebsocketOptions> | undefined;
+  public readonly options: Partial<BotOptions> | undefined;
 
   /**
    * {@link ShardOptions} object containing sharding information
@@ -91,7 +95,7 @@ class Bot {
    */
   public users: Cluster<Snowflake, User>;
 
-  constructor(token: string, options?: Partial<WebsocketOptions>) {
+  constructor(token: string, options?: BotOptions) {
     this.token = token;
 
     this.options = options;
