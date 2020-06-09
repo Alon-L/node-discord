@@ -113,7 +113,6 @@ class ChannelUtils {
    */
   public static delete(bot: Bot, channel: Channel): void {
     if (channel instanceof GuildChannel) {
-      // TODO: Change this to match issue #5
       channel.guild.channels.delete(channel.id);
     } else {
       bot.dms.delete(channel.id);
