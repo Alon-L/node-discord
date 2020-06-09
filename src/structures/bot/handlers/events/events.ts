@@ -170,7 +170,6 @@ declare function GUILD_MEMBER_REMOVE(member: Member | User): void;
  */
 declare function GUILD_MEMBER_UPDATE(before: Member, after: Member): void;
 
-// TODO: Maybe change the Guild Members request if this library won't call it the same way as the documentation
 /**
  * Sent in response to a Guild Members request
  * @param {Guild} guild The guild whose members were requested
@@ -192,7 +191,7 @@ declare function GUILD_MEMBERS_CHUNK(
  * @asMemberOf BotEventsHandler
  * @event BotEventsHandler#GUILD_MEMBERS_CHUNK_FINISH
  */
-declare function GUILD_MEMBERS_CHUNK_FINISH(guild: Guild, nonce: string | undefined);
+declare function GUILD_MEMBERS_CHUNK_FINISH(guild: Guild, nonce: string | undefined): void;
 
 /**
  * Sent when a guild role is created
