@@ -66,6 +66,36 @@ export interface MessageActivity {
 }
 
 /**
+ * Information about the message application
+ */
+export interface MessageApplication {
+  /**
+   * The ID of the application
+   */
+  id: Snowflake;
+
+  /**
+   * The ID of the embed's image asset
+   */
+  coverImage?: string;
+
+  /**
+   * The application's description
+   */
+  description: string;
+
+  /**
+   * The ID of the application's icon
+   */
+  icon: string | null;
+
+  /**
+   * The name of the application
+   */
+  name: string;
+}
+
+/**
  * Represents a message sent in a {@link TextChannel} within Discord
  * @class
  * @extends BaseStruct
@@ -167,7 +197,7 @@ class Message extends BaseStruct {
 
   public activity: MessageActivity | undefined;
 
-  public application: TEMP | undefined;
+  public application: MessageApplication | undefined;
 
   public messageReference: TEMP | undefined;
 
@@ -241,7 +271,13 @@ class Message extends BaseStruct {
     }
 
     if (message.application) {
-      this.application = {};
+      this.application = {
+        id: message.application.id,
+        coverImage: message.application.cover_image,
+        description: message.application.description,
+        icon: message.application.icon,
+        name: message.application.name,
+      };
     }
 
     if (message.message_reference) {
