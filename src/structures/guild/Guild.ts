@@ -101,6 +101,9 @@ export interface GuildLevels {
   mfa: MFALevel;
 }
 
+/**
+ * Information about the guild's widget
+ */
 export interface GuildWidget {
   /**
    * Whether or not the server widget is enabled
@@ -210,10 +213,6 @@ class Guild extends BaseStruct {
    * Information about the Guild AFK options
    */
   public afk!: GuildAFK;
-
-  public embedEnabled: TEMP | undefined;
-
-  public embedChannelId: TEMP | null | undefined;
 
   /**
    * {@link GuildLevels} object containing information about all guild level data
