@@ -17,8 +17,6 @@ const mentionsRegexp = {
   channels: new RegExp(/<#(\d{17,19})>/g),
 };
 
-// TODO: Test if this works
-
 /**
  * Represents all mentions (members, roles, channels) that appear in a {@link Message}
  * @class
