@@ -1,11 +1,35 @@
 import { GatewayStruct } from '../../structures/BaseStruct';
 import Bot from '../../structures/bot/Bot';
 import Member from '../../structures/member/Member';
+import MemberPresence from '../../structures/member/MemberPresence';
 import { Payload } from '../BotSocketShard';
 import { BotEvents } from '../constants';
 
+/**
+ * Contains information about the current Guild Members Chunk
+ */
+export interface GuildMembersChunk {
+  /**
+   * The chunk index in the expected chunks for this response
+   */
+  index: number;
+
+  /**
+   * The total number of expected chunks for this response
+   */
+  count: number;
+}
+
 export default ({ d }: Payload, bot: Bot): void => {
-  const { not_found: notFound, guild_id: guildId, members, presences } = d;
+  const {
+    not_found: notFound,
+    guild_id: guildId,
+    members,
+    presences,
+    nonce,
+    chunk_index: chunkIndex,
+    chunk_count: chunkCount,
+  } = d;
 
   if (notFound) throw new Error('An invalid ID was passed to the Guild Members request');
 
@@ -13,13 +37,39 @@ export default ({ d }: Payload, bot: Bot): void => {
 
   if (!guild) return;
 
+  // Add the new members to the guild's members cache
   guild.members.merge(
     members.map((member: GatewayStruct) => [member.user.id, new Member(bot, member, guild)]),
   );
 
+  // Assign the presences returned from the event
   if (presences) {
-    // TODO: Do something with the presences
+    for (const presence of presences) {
+      const id = presence.user.id;
+      const member = guild.members.get(id);
+
+      if (!member) continue;
+
+      if (member.presence) {
+        // Re-initialize the member presence class with the updated presence
+        member.presence.init(presence);
+      } else {
+        // Initialize the member presence class if not cached
+        member.presence = new MemberPresence(bot, presence, member);
+      }
+    }
   }
 
-  bot.events.emit(BotEvents.GuildMembersChunk, guild);
+  // This chunk's information
+  const chunk: GuildMembersChunk = {
+    index: chunkIndex,
+    count: chunkCount,
+  };
+
+  bot.events.emit(BotEvents.GuildMembersChunk, guild, nonce, chunk);
+
+  if (chunk.index === chunk.count - 1) {
+    // This is the last chunk of the request, activate the GuildMembersChunkFinish event
+    bot.events.emit(BotEvents.GuildMembersChunkFinish, guild, nonce);
+  }
 };

@@ -1,6 +1,7 @@
 import Cluster from '../../../../Cluster';
 import BotSocketShard from '../../../../socket/BotSocketShard';
 import { BotEvents } from '../../../../socket/constants';
+import { GuildMembersChunk } from '../../../../socket/handlers/guildMembersChunk';
 import { Snowflake, TextBasedChannel } from '../../../../types';
 import Emoji from '../../../Emoji';
 import Invite, { PartialInvite } from '../../../Invite';
@@ -173,10 +174,25 @@ declare function GUILD_MEMBER_UPDATE(before: Member, after: Member): void;
 /**
  * Sent in response to a Guild Members request
  * @param {Guild} guild The guild whose members were requested
+ * @param {string} nonce The nonce used in the Guild Members Request
+ * @param {GuildMembersChunk} chunk The information for the chunk that activated this event
  * @asMemberOf BotEventsHandler
  * @event BotEventsHandler#GUILD_MEMBERS_CHUNK
  */
-declare function GUILD_MEMBERS_CHUNK(guild: Guild): void;
+declare function GUILD_MEMBERS_CHUNK(
+  guild: Guild,
+  nonce: string | undefined,
+  chunk: GuildMembersChunk,
+): void;
+
+/**
+ * Sent when all Guild Member Chunks for a request are collected
+ * @param {Guild} guild The guild whose members were requested
+ * @param {string | undefined} nonce The nonce used in the Guild Members Request
+ * @asMemberOf BotEventsHandler
+ * @event BotEventsHandler#GUILD_MEMBERS_CHUNK_FINISH
+ */
+declare function GUILD_MEMBERS_CHUNK_FINISH(guild: Guild, nonce: string | undefined);
 
 /**
  * Sent when a guild role is created
@@ -349,6 +365,7 @@ export declare interface Events {
   on(event: BotEvents.GuildMemberRemove, listener: typeof GUILD_MEMBER_REMOVE): this;
   on(event: BotEvents.GuildMemberUpdate, listener: typeof GUILD_MEMBER_UPDATE): this;
   on(event: BotEvents.GuildMembersChunk, listener: typeof GUILD_MEMBERS_CHUNK): this;
+  on(event: BotEvents.GuildMembersChunkFinish, listener: typeof GUILD_MEMBERS_CHUNK_FINISH): this;
   on(event: BotEvents.GuildRoleCreate, listener: typeof GUILD_ROLE_CREATE): this;
   on(event: BotEvents.GuildRoleUpdate, listener: typeof GUILD_ROLE_UPDATE): this;
   on(event: BotEvents.GuildRoleDelete, listener: typeof GUILD_ROLE_DELETE): this;

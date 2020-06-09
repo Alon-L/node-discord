@@ -85,6 +85,7 @@ export enum BotEvents {
   GuildMemberRemove = 'GUILD_MEMBER_REMOVE',
   GuildMemberUpdate = 'GUILD_MEMBER_UPDATE',
   GuildMembersChunk = 'GUILD_MEMBERS_CHUNK',
+  GuildMembersChunkFinish = 'GUILD_MEMBERS_CHUNK_FINISH',
   GuildRoleCreate = 'GUILD_ROLE_CREATE',
   GuildRoleUpdate = 'GUILD_ROLE_UPDATE',
   GuildRoleDelete = 'GUILD_ROLE_DELETE',
