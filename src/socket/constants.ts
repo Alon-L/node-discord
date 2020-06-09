@@ -181,6 +181,10 @@ export enum PresenceActivityFlagTypes {
   Play = 1 << 5,
 }
 
+/**
+ * All message flags
+ * https://discord.com/developers/docs/resources/channel#message-object-message-flags
+ */
 export enum MessageFlagTypes {
   /**
    * This message has been published to subscribed channels (via Channel Following)
@@ -206,6 +210,22 @@ export enum MessageFlagTypes {
    * This message came from the urgent message system
    */
   Urgent = 1 << 4,
+}
+
+/**
+ * All guild system channel flags
+ * https://discord.com/developers/docs/resources/guild#guild-object-system-channel-flags
+ */
+export enum GuildSystemChannelFlagTypes {
+  /**
+   * Suppress member join notifications
+   */
+  SuppressJoinNotifications = 1 << 0,
+
+  /**
+   * Suppress server boost notifications
+   */
+  SuppressBoosts = 1 << 1,
 }
 
 /**

@@ -10,6 +10,7 @@ import User from '../User';
 import Bot from '../bot/Bot';
 import GuildChannel from '../channels/GuildChannel';
 import GuildTextChannel from '../channels/GuildTextChannel';
+import GuildSystemChannelFlags from '../flags/GuildSystemChannelFlags';
 import PermissionFlags from '../flags/PermissionFlags';
 import Member from '../member/Member';
 import MemberPresence from '../member/MemberPresence';
@@ -113,8 +114,14 @@ export interface GuildWidget {
   channel: GuildChannel | null | undefined;
 }
 
-export interface GuildSystem {
-  flags: TEMP; // TODO: Flag system
+/**
+ * Information about the guild's system channel
+ */
+export interface GuildSystemChannel {
+  /**
+   * System channel flags
+   */
+  flags: GuildSystemChannelFlags;
 
   /**
    * The channel where guild notices such as welcome messages and boost events are posted.
@@ -228,9 +235,9 @@ class Guild extends BaseStruct {
   public widget!: GuildWidget;
 
   /**
-   * {@link GuildSystem} object containing information about the guild system channel
+   * {@link GuildSystemChannel} object containing information about the guild system channel
    */
-  public system!: GuildSystem;
+  public systemChannel!: GuildSystemChannel;
 
   /**
    * The channel where public guilds display rules and/or guidelines
@@ -382,9 +389,9 @@ class Guild extends BaseStruct {
       channel: this.channels.get(guild.widget_channel_id),
     };
 
-    this.system = {
+    this.systemChannel = {
       channel: this.channels.get(guild.system_channel_id) as GuildTextChannel,
-      flags: undefined,
+      flags: new GuildSystemChannelFlags(guild.system_channel_flags),
     };
 
     this.rulesChannel = this.channels.get(guild.rules_channel_id) as GuildTextChannel;
