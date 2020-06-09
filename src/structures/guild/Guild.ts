@@ -273,6 +273,9 @@ class Guild extends BaseStruct {
    */
   public updatesChannel: GuildTextChannel | undefined;
 
+  /**
+   * All cached invites created in this Guild
+   */
   public invites!: Cluster<InviteCode, Invite>;
 
   constructor(bot: Bot, guild: GatewayStruct) {
