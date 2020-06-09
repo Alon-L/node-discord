@@ -61,7 +61,7 @@ export enum GatewayEvents {
 }
 
 /**
- * All events
+ * All Bot events
  */
 export enum BotEvents {
   Ready = 'READY',
@@ -107,6 +107,105 @@ export enum BotEvents {
   WebhooksUpdate = 'WEBHOOKS_UPDATE',
   ShardReady = 'SHARD_READY',
   ShardClose = 'SHARD_CLOSE',
+}
+
+/**
+ * All Discord permission flags
+ * https://discord.com/developers/docs/topics/permissions#permissions-bitwise-permission-flags
+ */
+export enum PermissionFlagTypes {
+  CreateInstantInvite = 0x00000001,
+  KickMembers = 0x00000002,
+  BanMembers = 0x00000004,
+  Administrator = 0x00000008,
+  ManageChannels = 0x00000010,
+  ManageGuild = 0x00000020,
+  AddReactions = 0x00000040,
+  ViewAuditLog = 0x00000080,
+  PrioritySpeaker = 0x00000100,
+  Stream = 0x00000200,
+  ViewChannel = 0x00000400,
+  SendMessages = 0x00000800,
+  SendTTSMessages = 0x00001000,
+  ManageMessages = 0x00002000,
+  EmbedLinks = 0x00004000,
+  AttachFiles = 0x00008000,
+  ReadMessageHistory = 0x00010000,
+  MentionEveryone = 0x00020000,
+  UseExternalEmojis = 0x00040000,
+  ViewGuildInsights = 0x00080000,
+  Connect = 0x00100000,
+  Speak = 0x00200000,
+  MuteMembers = 0x00400000,
+  DeafenMembers = 0x00800000,
+  MoveMembers = 0x01000000,
+  UseVAD = 0x02000000,
+  ChangeNickname = 0x04000000,
+  ManageNicknames = 0x08000000,
+  ManageRoles = 0x10000000,
+  ManageWebhooks = 0x20000000,
+  ManageEmojis = 0x40000000,
+}
+
+/**
+ * All Discord user flags (profile badges)
+ * https://discord.com/developers/docs/resources/user#user-object-user-flags
+ */
+export enum UserFlagTypes {
+  None,
+  DiscordEmployee = 1 << 0,
+  DiscordPartner = 1 << 1,
+  HypeSquadEvents = 1 << 2,
+  BugHunterLevel1 = 1 << 3,
+  HouseBravery = 1 << 6,
+  HouseBrilliance = 1 << 7,
+  HouseBalance = 1 << 8,
+  EarlySupporter = 1 << 9,
+  TeamUser = 1 << 10,
+  System = 1 << 12,
+  BugHunterLevel2 = 1 << 14,
+  VerifiedBot = 1 << 16,
+  VerifiedBotDeveloper = 1 << 17,
+}
+
+/**
+ * All Discord presence activity flags
+ * https://discord.com/developers/docs/topics/gateway#activity-object-activity-flags
+ */
+export enum PresenceActivityFlagTypes {
+  Instance = 1 << 0,
+  Join = 1 << 1,
+  Spectate = 1 << 2,
+  JoinRequest = 1 << 3,
+  Sync = 1 << 4,
+  Play = 1 << 5,
+}
+
+export enum MessageFlagTypes {
+  /**
+   * This message has been published to subscribed channels (via Channel Following)
+   */
+  Crossposted = 1 << 0,
+
+  /**
+   * This message originated from a message in another channel (via Channel Following)
+   */
+  IsCrosspost = 1 << 1,
+
+  /**
+   * Do not include any embeds when serializing this message
+   */
+  SuppressEmbeds = 1 << 2,
+
+  /**
+   * The source message for this crosspost has been deleted (via Channel Following)
+   */
+  SourceMessageDeleted = 1 << 3,
+
+  /**
+   * This message came from the urgent message system
+   */
+  Urgent = 1 << 4,
 }
 
 /**

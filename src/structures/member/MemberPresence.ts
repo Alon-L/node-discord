@@ -1,8 +1,9 @@
 import Member from './Member';
-import { Snowflake, TEMP } from '../../types';
+import { Snowflake } from '../../types';
 import { GatewayStruct } from '../BaseStruct';
 import Timestamp from '../Timestamp';
 import Bot from '../bot/Bot';
+import PresenceActivityFlags from '../flags/PresenceActivityFlags';
 import GuildBaseStruct from '../guild/GuildBaseStruct';
 
 /**
@@ -182,7 +183,10 @@ export interface PresenceActivity {
    */
   instance?: boolean;
 
-  flags?: TEMP;
+  /**
+   * Describes what the payload includes
+   */
+  flags?: PresenceActivityFlags;
 }
 
 /**
@@ -300,7 +304,7 @@ class MemberPresence extends GuildBaseStruct {
       },
       secrets: activity.secrets,
       instance: activity.instance,
-      flags: activity.flags,
+      flags: activity.flags && new PresenceActivityFlags(activity.flags),
     };
   }
 }

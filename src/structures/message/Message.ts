@@ -8,6 +8,7 @@ import BaseStruct, { GatewayStruct } from '../BaseStruct';
 import Timestamp from '../Timestamp';
 import User from '../User';
 import Bot from '../bot/Bot';
+import MessageFlags from '../flags/MessageFlags';
 import Guild from '../guild/Guild';
 import Member from '../member/Member';
 
@@ -144,7 +145,10 @@ class Message extends BaseStruct {
 
   public messageReference: TEMP | undefined;
 
-  public flags: TEMP | undefined;
+  /**
+   * Describes extra features of the message
+   */
+  public flags: MessageFlags | undefined;
 
   constructor(bot: Bot, message: GatewayStruct, channel: TextBasedChannel) {
     super(bot);
@@ -201,6 +205,10 @@ class Message extends BaseStruct {
     this.nonce = message.nonce;
     this.pinned = message.pinned;
     this.type = message.type;
+
+    if (message.flags) {
+      this.flags = new MessageFlags(message.flags);
+    }
 
     return this;
   }

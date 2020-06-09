@@ -10,6 +10,7 @@ import User from '../User';
 import Bot from '../bot/Bot';
 import GuildChannel from '../channels/GuildChannel';
 import GuildTextChannel from '../channels/GuildTextChannel';
+import PermissionFlags from '../flags/PermissionFlags';
 import Member from '../member/Member';
 import MemberPresence from '../member/MemberPresence';
 
@@ -172,7 +173,7 @@ class Guild extends BaseStruct {
    */
   public ownerId!: Snowflake;
 
-  public permissions: TEMP | undefined;
+  public permissions: PermissionFlags | undefined;
 
   /**
    * Guild voice region
@@ -331,6 +332,11 @@ class Guild extends BaseStruct {
     this.discoverySplash = guild.discoverySplash;
     this.owner = this.members.get(guild.owner_id);
     this.ownerId = guild.owner_id;
+
+    if (guild.permissions) {
+      this.permissions = new PermissionFlags(guild.permissions);
+    }
+
     this.region = guild.region;
 
     this.levels = {

@@ -1,8 +1,9 @@
 import { GatewayStruct } from './BaseStruct';
 import Bot from './bot/Bot';
+import PermissionFlags from './flags/PermissionFlags';
 import Guild from './guild/Guild';
 import GuildBaseStruct from './guild/GuildBaseStruct';
-import { Snowflake, TEMP } from '../types';
+import { Snowflake } from '../types';
 
 /**
  * Represents a role in a guild
@@ -35,7 +36,10 @@ class Role extends GuildBaseStruct {
    */
   public position!: number;
 
-  public permissions!: TEMP;
+  /**
+   * The permissions of the role
+   */
+  public permissions!: PermissionFlags;
 
   /**
    * Whether this role is managed by an integration
@@ -64,7 +68,7 @@ class Role extends GuildBaseStruct {
     this.color = role.color;
     this.listedSeparately = role.hoist;
     this.position = role.position;
-    this.permissions = role.permissions;
+    this.permissions = new PermissionFlags(role.permissions);
     this.managed = role.managed;
     this.mentionable = role.mentionable;
 

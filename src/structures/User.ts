@@ -1,6 +1,7 @@
 import BaseStruct, { GatewayStruct } from './BaseStruct';
 import Bot from './bot/Bot';
-import { Snowflake, TEMP } from '../types';
+import UserFlags from './flags/UserFlags';
+import { Snowflake } from '../types';
 
 /**
  * User nitro types
@@ -67,14 +68,20 @@ class User extends BaseStruct {
    */
   public email: string | null | undefined;
 
-  public flags: TEMP | undefined;
-
   /**
    * {@link NitroTypes} object containing the type of nitro subscription on a user's account
    */
   public nitroType: NitroTypes | undefined;
 
-  public publicFlags!: TEMP;
+  /**
+   * The flags on a user's account
+   */
+  public flags: UserFlags | undefined;
+
+  /**
+   * The public flags on a user's account
+   */
+  public publicFlags: UserFlags | undefined;
 
   constructor(bot: Bot, user: GatewayStruct) {
     super(bot);
@@ -98,9 +105,15 @@ class User extends BaseStruct {
     this.locale = user.locale;
     this.verified = user.verified;
     this.email = user.email;
-    this.flags = user.flags;
     this.nitroType = user.premium_type;
-    this.publicFlags = user.public_flags;
+
+    if (user.flags) {
+      this.flags = new UserFlags(user.flags);
+    }
+
+    if (user.public_flags) {
+      this.flags = new UserFlags(user.public_flags);
+    }
 
     return this;
   }
