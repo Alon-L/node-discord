@@ -1,7 +1,7 @@
 import GuildUnavailable from './GuildUnavailable';
 import Cluster from '../../Cluster';
 import { GuildFeatures } from '../../socket/constants';
-import { Snowflake, TEMP } from '../../types';
+import { Snowflake } from '../../types';
 import ChannelUtils from '../../utils/ChannelUtils';
 import BaseStruct, { GatewayStruct } from '../BaseStruct';
 import Emoji from '../Emoji';
@@ -233,7 +233,10 @@ class Guild extends BaseStruct {
    */
   public features!: GuildFeatures[];
 
-  public applicationId: TEMP | null;
+  /**
+   * Application ID of the guild creator if it is bot-created
+   */
+  public applicationId!: Snowflake | null;
 
   /**
    * {@link GuildWidget} object containing information about the guild widget data
@@ -271,13 +274,23 @@ class Guild extends BaseStruct {
    */
   public memberCount: number | undefined;
 
-  public voiceStates: TEMP | undefined;
+  // TODO: implement this along with voice support
+  // public voiceStates: TEMP | undefined;
 
+  /**
+   * Presences of the members in the guild, will only include non-offline members if the size is greater than {@link identify.large_threshold}
+   */
   public presences: Cluster<Snowflake, MemberPresence>;
 
-  public maxPresences: TEMP | null | undefined;
+  /**
+   * The maximum number of presences for the guild (the default value, currently 25000, is in effect when `null` is returned)
+   */
+  public maxPresences: number | null | undefined;
 
-  public maxMembers: TEMP | undefined;
+  /**
+   * The maximum number of members for the guild
+   */
+  public maxMembers: number | undefined;
 
   /**
    * The vanity URL code for the guild. Possibly null if guild does not have a vanity URL
@@ -392,6 +405,8 @@ class Guild extends BaseStruct {
 
     this.features = guild.features;
 
+    this.applicationId = guild.application_id;
+
     this.widget = {
       enabled: guild.widget_enabled,
       channel: this.channels.get(guild.widget_channel_id),
@@ -408,6 +423,8 @@ class Guild extends BaseStruct {
     this.large = guild.large;
     this.unavailable = guild.unavailable;
     this.memberCount = guild.member_count;
+    this.maxPresences = guild.max_presences;
+    this.maxMembers = guild.max_members;
     this.vanityURLCode = guild.vanity_url_code;
     this.description = guild.description;
     this.banner = guild.banner;
