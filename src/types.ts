@@ -25,6 +25,7 @@ export interface Dimensions {
   width: number;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type EventFunction = (...args: any[]) => void;
 export type CommandFunction = (bot: Bot, ...args: unknown[]) => unknown;
 
@@ -32,8 +33,5 @@ export interface Command {
   name: string;
   execute: CommandFunction;
 }
-
-// TODO: Replace all TEMP fields with real types.
-export type TEMP = undefined;
 
 export type TextBasedChannel = GuildTextChannel | DMChannel;
