@@ -3,9 +3,8 @@
 import { BotEvents } from '../../src/socket/constants';
 import User from '../../src/structures/User';
 import Bot from '../../src/structures/bot/Bot';
-import DMChannel from '../../src/structures/channels/DMChannel';
-import GuildTextChannel from '../../src/structures/channels/GuildTextChannel';
 import Member from '../../src/structures/member/Member';
+import { TextBasedChannel } from '../../src/types';
 import config from '../config.json';
 
 const bot = new Bot(config.token);
@@ -14,7 +13,7 @@ bot.connection.connect();
 (async function (): Promise<void> {
   bot.events.on(
     BotEvents.TypingStart,
-    (channel: GuildTextChannel | DMChannel | undefined, user: Member | User, startedAt: number) => {
+    (channel: TextBasedChannel | undefined, user: Member | User, startedAt: number) => {
       console.log(channel?.id, user.id, startedAt);
       if (user instanceof Member) {
         console.log(user.guild.id, user.nick);

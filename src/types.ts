@@ -1,4 +1,6 @@
 import Bot from './structures/bot/Bot';
+import DMChannel from './structures/channels/DMChannel';
+import GuildTextChannel from './structures/channels/GuildTextChannel';
 
 /**
  * Discord Snowflake.
@@ -33,3 +35,5 @@ export interface Command {
 
 // TODO: Replace all TEMP fields with real types.
 export type TEMP = undefined;
+
+export type TextBasedChannel = GuildTextChannel | DMChannel;

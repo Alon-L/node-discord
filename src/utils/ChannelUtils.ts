@@ -6,7 +6,7 @@ import GuildCategoryChannel from '../structures/channels/GuildCategoryChannel';
 import GuildChannel from '../structures/channels/GuildChannel';
 import GuildTextChannel from '../structures/channels/GuildTextChannel';
 import Guild from '../structures/guild/Guild';
-import { Snowflake } from '../types';
+import { Snowflake, TextBasedChannel } from '../types';
 
 /**
  * Handles channel-related util methods
@@ -66,13 +66,13 @@ class ChannelUtils {
    * @param {Bot} bot The bot instance
    * @param {Snowflake | undefined} guildId The guild ID associated to this channel (if none was specified, a DM channel will be searched for)
    * @param {Snowflake} channelId The ID of the searched channel
-   * @returns {GuildTextChannel | DMChannel | undefined}
+   * @returns {TextBasedChannel | undefined}
    */
   public static findText(
     bot: Bot,
     guildId: Snowflake | undefined,
     channelId: Snowflake,
-  ): GuildTextChannel | DMChannel | undefined {
+  ): TextBasedChannel | undefined {
     const channel = ChannelUtils.find(bot, guildId, channelId);
 
     return channel instanceof GuildTextChannel || channel instanceof DMChannel

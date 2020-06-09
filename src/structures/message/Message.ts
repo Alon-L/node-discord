@@ -3,13 +3,11 @@ import MessageEmbed from './MessageEmbed';
 import MessageMentions from './MessageMentions';
 import MessageReaction from './MessageReaction';
 import Cluster from '../../Cluster';
-import { Snowflake, TEMP } from '../../types';
+import { Snowflake, TEMP, TextBasedChannel } from '../../types';
 import BaseStruct, { GatewayStruct } from '../BaseStruct';
 import Timestamp from '../Timestamp';
 import User from '../User';
 import Bot from '../bot/Bot';
-import DMChannel from '../channels/DMChannel';
-import GuildTextChannel from '../channels/GuildTextChannel';
 import Guild from '../guild/Guild';
 import Member from '../member/Member';
 
@@ -37,7 +35,7 @@ enum MessageTypes {
 export interface PartialMessage {
   id: Snowflake;
   guild?: Guild;
-  channel: GuildTextChannel | DMChannel;
+  channel: TextBasedChannel;
 }
 
 /**
@@ -59,7 +57,7 @@ class Message extends BaseStruct {
   /**
    * The channel the message was sent in
    */
-  public channel: GuildTextChannel | DMChannel; // | DMChannel;
+  public channel: TextBasedChannel;
 
   /**
    * The author of this message.
@@ -148,7 +146,7 @@ class Message extends BaseStruct {
 
   public flags: TEMP | undefined;
 
-  constructor(bot: Bot, message: GatewayStruct, channel: GuildTextChannel | DMChannel) {
+  constructor(bot: Bot, message: GatewayStruct, channel: TextBasedChannel) {
     super(bot);
 
     this.channel = channel;

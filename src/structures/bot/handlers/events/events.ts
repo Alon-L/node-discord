@@ -1,16 +1,14 @@
 import Cluster from '../../../../Cluster';
 import BotSocketShard from '../../../../socket/BotSocketShard';
 import { BotEvents } from '../../../../socket/constants';
-import { Snowflake } from '../../../../types';
+import { Snowflake, TextBasedChannel } from '../../../../types';
 import Emoji from '../../../Emoji';
 import Invite, { PartialInvite } from '../../../Invite';
 import Role from '../../../Role';
 import Timestamp from '../../../Timestamp';
 import User from '../../../User';
 import Channel from '../../../channels/Channel';
-import DMChannel from '../../../channels/DMChannel';
 import GuildChannel from '../../../channels/GuildChannel';
-import GuildTextChannel from '../../../channels/GuildTextChannel';
 import Guild from '../../../guild/Guild';
 import GuildUnavailable from '../../../guild/GuildUnavailable';
 import Member from '../../../member/Member';
@@ -71,13 +69,13 @@ declare function CHANNEL_DELETE(channel: Channel): void;
 /**
  * Sent when a message is pinned or unpinned in a text channel.
  * This is not sent when a pinned message is deleted
- * @param {GuildTextChannel | DMChannel} channel The channel which pins were updated
+ * @param {TextBasedChannel} channel The channel which pins were updated
  * @param {number | undefined} oldPinTimestamp The previous last pin timestamp
  * @asMemberOf BotEventsHandler
  * @event BotEventsHandler#CHANNEL_PINS_UPDATE
  */
 declare function CHANNEL_PINS_UPDATE(
-  channel: GuildTextChannel | DMChannel,
+  channel: TextBasedChannel,
   oldPinTimestamp: Timestamp | undefined,
 ): void;
 
@@ -248,14 +246,14 @@ declare function MESSAGE_DELETE(message: Message | PartialMessage): void;
 
 /**
  * Sent when multiple messages are deleted at once.
- * @param {GuildTextChannel | DMChannel} channel The channel the messages were deleted in
+ * @param {TextBasedChannel} channel The channel the messages were deleted in
  * @param {(Message | Snowflake)[]} messages Array of the deleted messages.
  * Cached messages will show as {@link Message}s while the rest will show as {@link Snowflake}s
  * @asMemberOf BotEventsHandler
  * @event BotEventsHandler#MESSAGE_DELETE_BULK
  */
 declare function MESSAGE_DELETE_BULK(
-  channel: GuildTextChannel | DMChannel,
+  channel: TextBasedChannel,
   messages: (Message | Snowflake)[],
 ): void;
 
@@ -303,14 +301,14 @@ declare function PRESENCE_UPDATE(before: MemberPresence | undefined, after: Memb
 
 /**
  * Sent when a user starts typing in a channel.
- * @param {GuildTextChannel | DMChannel} channel The channel the user started typing in
+ * @param {TextBasedChannel} channel The channel the user started typing in
  * @param {Member | User} user The user that started typing
  * @param {number} startedAt The unix time (in seconds) of when the user started typing
  * @asMemberOf BotEventsHandler
  * @event BotEventsHandler#TYPING_START
  */
 declare function TYPING_START(
-  channel: GuildTextChannel | DMChannel | undefined,
+  channel: TextBasedChannel | undefined,
   user: Member | User,
   startedAt: number,
 ): void;

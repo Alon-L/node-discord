@@ -1,5 +1,3 @@
-// TODO: Create Channel class and add the type TextBasedChannel = GuildTextChannel | DMChannel with the send.message methods, send.embed, send.files, etc...
-
 import Cluster from '../../Cluster';
 import { Snowflake } from '../../types';
 import Timestamp from '../Timestamp';
