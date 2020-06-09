@@ -45,8 +45,14 @@ class Bot {
    */
   public readonly shardOptions: ShardOptions;
 
-  // TODO: Document these fields
+  /**
+   * Responsible for handling all of the Bot's commands
+   */
   public commands: BotCommandsHandler;
+
+  /**
+   * Responsible for handling all of the Bot's events
+   */
   public events: BotEventsHandler;
 
   /**
