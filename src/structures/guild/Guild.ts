@@ -202,6 +202,9 @@ class Guild extends BaseStruct {
    */
   public ownerId!: Snowflake;
 
+  /**
+   * Total permissions for the Bot in the guild (excludes overrides)
+   */
   public permissions: PermissionFlags | undefined;
 
   /**
