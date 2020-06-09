@@ -45,8 +45,7 @@ class GuildTextChannel extends GuildChannel implements TextChannel {
   constructor(bot: Bot, textChannel: GatewayStruct, guild: Guild) {
     super(bot, textChannel, guild);
 
-    // TODO: Turn this limit into a variable inside the bot's options
-    this.messages = new Cluster<Snowflake, Message>(null, 100);
+    this.messages = new Cluster<Snowflake, Message>(null, this.bot.options.cache.messagesLimit);
   }
 
   /**

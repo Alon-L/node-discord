@@ -39,8 +39,7 @@ class DMChannel extends Channel implements TextChannel {
   constructor(bot: Bot, dmChannel: GatewayStruct) {
     super(bot, dmChannel);
 
-    // TODO: Turn this limit into a variable inside the bot's options
-    this.messages = new Cluster<Snowflake, Message>(null, 100);
+    this.messages = new Cluster<Snowflake, Message>(null, this.bot.options.cache.messagesLimit);
   }
 
   /**

@@ -5,13 +5,16 @@ import BotCommandsHandler from './handlers/BotCommandsHandler';
 import { BotEventsHandler } from './handlers/events/BotEventsHandler';
 import Cluster from '../../Cluster';
 import { BotEvents } from '../../socket/constants';
-import { WebsocketOptions } from '../../socket/properties';
+import { WebsocketOptions, CacheOptions, botOptions } from '../../socket/properties';
 import { ShardId, Snowflake } from '../../types';
 import User from '../User';
 import DMChannel from '../channels/DMChannel';
 import Guild from '../guild/Guild';
 import GuildUnavailable from '../guild/GuildUnavailable';
 
+/**
+ * The options given to every Bot shard
+ */
 export interface ShardOptions {
   /**
    * Shard ID
@@ -24,14 +27,25 @@ export interface ShardOptions {
   amount?: number;
 }
 
+/**
+ * The options used to initialize the Bot
+ */
 export interface BotOptions {
-  websocket?: Partial<WebsocketOptions>;
+  /**
+   * Websocket connection options
+   */
+  websocket: Partial<WebsocketOptions>;
+
+  /**
+   * Bot cache options
+   */
+  cache: CacheOptions;
 }
 
 /**
  * The bot is the main operator of the API.
  * It handles the events, and properties for all structures.
- * @class
+
  */
 class Bot {
   /**
@@ -42,7 +56,7 @@ class Bot {
   /**
    * Options used to determine how the Bot operates
    */
-  public readonly options: Partial<BotOptions> | undefined;
+  public readonly options: BotOptions;
 
   /**
    * {@link ShardOptions} object containing sharding information
@@ -95,10 +109,13 @@ class Bot {
    */
   public users: Cluster<Snowflake, User>;
 
-  constructor(token: string, options?: BotOptions) {
+  constructor(token: string, options?: Partial<BotOptions>) {
     this.token = token;
 
-    this.options = options;
+    this.options = {
+      ...botOptions,
+      ...options,
+    };
 
     // Set bot sharding data
     const shardId = Number(process.env.SHARD_ID);

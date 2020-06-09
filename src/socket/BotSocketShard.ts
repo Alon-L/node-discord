@@ -165,7 +165,7 @@ class BotSocketShard {
       v: version,
       encoding: erlpack ? 'etf' : 'json',
       compress: zlib && 'zlib-stream',
-      ...this.bot.options?.websocket,
+      ...this.bot.options.websocket,
     };
 
     this.bot.debug(this.options);
