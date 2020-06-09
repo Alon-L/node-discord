@@ -3,7 +3,7 @@ import MessageEmbed from './MessageEmbed';
 import MessageMentions from './MessageMentions';
 import MessageReaction from './MessageReaction';
 import Cluster from '../../Cluster';
-import { Snowflake, TEMP, TextBasedChannel } from '../../types';
+import { Snowflake, TextBasedChannel } from '../../types';
 import BaseStruct, { GatewayStruct } from '../BaseStruct';
 import Timestamp from '../Timestamp';
 import User from '../User';
@@ -93,6 +93,26 @@ export interface MessageApplication {
    * The name of the application
    */
   name: string;
+}
+
+/**
+ * Information about the message reference for crossposted messages
+ */
+export interface MessageReference {
+  /**
+   * ID of the originating message
+   */
+  messageId?: Snowflake;
+
+  /**
+   * ID of the originating message's channel
+   */
+  channelId: Snowflake;
+
+  /**
+   * ID of the originating message's guild
+   */
+  guildId?: Snowflake;
 }
 
 /**
@@ -195,11 +215,20 @@ class Message extends BaseStruct {
    */
   public type!: MessageTypes;
 
+  /**
+   * Sent with Rich Presence-related chat embeds
+   */
   public activity: MessageActivity | undefined;
 
+  /**
+   * Sent with Rich Presence-related chat embeds
+   */
   public application: MessageApplication | undefined;
 
-  public messageReference: TEMP | undefined;
+  /**
+   * Reference data sent with crossposted messages
+   */
+  public messageReference: MessageReference | undefined;
 
   /**
    * Describes extra features of the message
@@ -281,7 +310,11 @@ class Message extends BaseStruct {
     }
 
     if (message.message_reference) {
-      this.messageReference = {};
+      this.messageReference = {
+        messageId: message.message_reference.message_id,
+        channelId: message.message_reference.channel_id,
+        guildId: message.message_reference.guild_id,
+      };
     }
 
     if (message.flags) {
