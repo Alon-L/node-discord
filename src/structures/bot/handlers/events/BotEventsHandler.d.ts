@@ -1,9 +1,8 @@
-import { EventEmitter } from 'events';
 import Cluster from '../../../../Cluster';
 import BotSocketShard from '../../../../socket/BotSocketShard';
 import { BotEvents } from '../../../../socket/constants';
 import { GuildMembersChunk } from '../../../../socket/handlers/guildMembersChunk';
-import { Snowflake, TextBasedChannel } from '../../../../types';
+import { EventFunction, Snowflake, TextBasedChannel } from '../../../../types';
 import Emoji from '../../../Emoji';
 import Invite, { PartialInvite } from '../../../Invite';
 import Role from '../../../Role';
@@ -17,6 +16,7 @@ import Member from '../../../member/Member';
 import MemberPresence from '../../../member/MemberPresence';
 import Message, { PartialMessage } from '../../../message/Message';
 import MessageReaction from '../../../message/MessageReaction';
+import BotHandler from '../BotHandler';
 
 /**
  * Sent when all shards become ready
@@ -353,47 +353,51 @@ declare function USER_UPDATE(before: User, after: User): void;
  */
 declare function WEBHOOKS_UPDATE(channel: GuildChannel): void;
 
-export interface Events extends EventEmitter {
-  on(event: BotEvents.Ready, listener: typeof READY): this;
-  on(event: BotEvents.ShardReady, listener: typeof SHARD_READY): this;
-  on(event: BotEvents.ShardClose, listener: typeof SHARD_CLOSE): this;
-  on(event: BotEvents.ChannelCreate, listener: typeof CHANNEL_CREATE): this;
-  on(event: BotEvents.ChannelUpdate, listener: typeof CHANNEL_UPDATE): this;
-  on(event: BotEvents.ChannelDelete, listener: typeof CHANNEL_DELETE): this;
-  on(event: BotEvents.ChannelPinsUpdate, listener: typeof CHANNEL_PINS_UPDATE): this;
-  on(event: BotEvents.GuildCreate, listener: typeof GUILD_CREATE): this;
-  on(event: BotEvents.GuildUpdate, listener: typeof GUILD_UPDATE): this;
-  on(event: BotEvents.GuildDelete, listener: typeof GUILD_DELETE): this;
-  on(event: BotEvents.GuildBanAdd, listener: typeof GUILD_BAN_ADD): this;
-  on(event: BotEvents.GuildBanRemove, listener: typeof GUILD_BAN_REMOVE): this;
-  on(event: BotEvents.GuildEmojisUpdate, listener: typeof GUILD_EMOJIS_UPDATE): this;
-  on(event: BotEvents.GuildIntegrationsUpdate, listener: typeof GUILD_INTEGRATIONS_UPDATE): this;
-  on(event: BotEvents.GuildMemberAdd, listener: typeof GUILD_MEMBER_ADD): this;
-  on(event: BotEvents.GuildMemberRemove, listener: typeof GUILD_MEMBER_REMOVE): this;
-  on(event: BotEvents.GuildMemberUpdate, listener: typeof GUILD_MEMBER_UPDATE): this;
-  on(event: BotEvents.GuildMembersChunk, listener: typeof GUILD_MEMBERS_CHUNK): this;
-  on(event: BotEvents.GuildMembersChunkFinish, listener: typeof GUILD_MEMBERS_CHUNK_FINISH): this;
-  on(event: BotEvents.GuildRoleCreate, listener: typeof GUILD_ROLE_CREATE): this;
-  on(event: BotEvents.GuildRoleUpdate, listener: typeof GUILD_ROLE_UPDATE): this;
-  on(event: BotEvents.GuildRoleDelete, listener: typeof GUILD_ROLE_DELETE): this;
-  on(event: BotEvents.InviteCreate, listener: typeof INVITE_CREATE): this;
-  on(event: BotEvents.InviteDelete, listener: typeof INVITE_DELETE): this;
-  on(event: BotEvents.MessageCreate, listener: typeof MESSAGE_CREATE): this;
-  on(event: BotEvents.MessageUpdate, listener: typeof MESSAGE_UPDATE): this;
-  on(event: BotEvents.MessageDelete, listener: typeof MESSAGE_DELETE): this;
-  on(event: BotEvents.MessageDeleteBulk, listener: typeof MESSAGE_DELETE_BULK): this;
-  on(event: BotEvents.MessageReactionAdd, listener: typeof MESSAGE_REACTION_ADD): this;
-  on(event: BotEvents.MessageReactionRemove, listener: typeof MESSAGE_REACTION_REMOVE): this;
-  on(event: BotEvents.MessageReactionRemoveAll, listener: typeof MESSAGE_REACTION_REMOVE_ALL): this;
-  on(
-    event: BotEvents.MessageReactionRemoveEmoji,
-    listener: typeof MESSAGE_REACTION_REMOVE_EMOJI,
-  ): this;
-  on(event: BotEvents.PresenceUpdate, listener: typeof PRESENCE_UPDATE): this;
-  on(event: BotEvents.TypingStart, listener: typeof TYPING_START): this;
-  on(event: BotEvents.UserUpdate, listener: typeof USER_UPDATE): this;
-  on(event: BotEvents.WebhooksUpdate, listener: typeof WEBHOOKS_UPDATE): this;
+declare module './BotEventsHandler' {
+  interface BotEventsHandler extends BotHandler<EventFunction> {
+    on(event: BotEvents.Ready, listener: typeof READY): this;
+    on(event: BotEvents.ShardReady, listener: typeof SHARD_READY): this;
+    on(event: BotEvents.ShardClose, listener: typeof SHARD_CLOSE): this;
+    on(event: BotEvents.ChannelCreate, listener: typeof CHANNEL_CREATE): this;
+    on(event: BotEvents.ChannelUpdate, listener: typeof CHANNEL_UPDATE): this;
+    on(event: BotEvents.ChannelDelete, listener: typeof CHANNEL_DELETE): this;
+    on(event: BotEvents.ChannelPinsUpdate, listener: typeof CHANNEL_PINS_UPDATE): this;
+    on(event: BotEvents.GuildCreate, listener: typeof GUILD_CREATE): this;
+    on(event: BotEvents.GuildUpdate, listener: typeof GUILD_UPDATE): this;
+    on(event: BotEvents.GuildDelete, listener: typeof GUILD_DELETE): this;
+    on(event: BotEvents.GuildBanAdd, listener: typeof GUILD_BAN_ADD): this;
+    on(event: BotEvents.GuildBanRemove, listener: typeof GUILD_BAN_REMOVE): this;
+    on(event: BotEvents.GuildEmojisUpdate, listener: typeof GUILD_EMOJIS_UPDATE): this;
+    on(event: BotEvents.GuildIntegrationsUpdate, listener: typeof GUILD_INTEGRATIONS_UPDATE): this;
+    on(event: BotEvents.GuildMemberAdd, listener: typeof GUILD_MEMBER_ADD): this;
+    on(event: BotEvents.GuildMemberRemove, listener: typeof GUILD_MEMBER_REMOVE): this;
+    on(event: BotEvents.GuildMemberUpdate, listener: typeof GUILD_MEMBER_UPDATE): this;
+    on(event: BotEvents.GuildMembersChunk, listener: typeof GUILD_MEMBERS_CHUNK): this;
+    on(event: BotEvents.GuildMembersChunkFinish, listener: typeof GUILD_MEMBERS_CHUNK_FINISH): this;
+    on(event: BotEvents.GuildRoleCreate, listener: typeof GUILD_ROLE_CREATE): this;
+    on(event: BotEvents.GuildRoleUpdate, listener: typeof GUILD_ROLE_UPDATE): this;
+    on(event: BotEvents.GuildRoleDelete, listener: typeof GUILD_ROLE_DELETE): this;
+    on(event: BotEvents.InviteCreate, listener: typeof INVITE_CREATE): this;
+    on(event: BotEvents.InviteDelete, listener: typeof INVITE_DELETE): this;
+    on(event: BotEvents.MessageCreate, listener: typeof MESSAGE_CREATE): this;
+    on(event: BotEvents.MessageUpdate, listener: typeof MESSAGE_UPDATE): this;
+    on(event: BotEvents.MessageDelete, listener: typeof MESSAGE_DELETE): this;
+    on(event: BotEvents.MessageDeleteBulk, listener: typeof MESSAGE_DELETE_BULK): this;
+    on(event: BotEvents.MessageReactionAdd, listener: typeof MESSAGE_REACTION_ADD): this;
+    on(event: BotEvents.MessageReactionRemove, listener: typeof MESSAGE_REACTION_REMOVE): this;
+    on(
+      event: BotEvents.MessageReactionRemoveAll,
+      listener: typeof MESSAGE_REACTION_REMOVE_ALL,
+    ): this;
+    on(
+      event: BotEvents.MessageReactionRemoveEmoji,
+      listener: typeof MESSAGE_REACTION_REMOVE_EMOJI,
+    ): this;
+    on(event: BotEvents.PresenceUpdate, listener: typeof PRESENCE_UPDATE): this;
+    on(event: BotEvents.TypingStart, listener: typeof TYPING_START): this;
+    on(event: BotEvents.UserUpdate, listener: typeof USER_UPDATE): this;
+    on(event: BotEvents.WebhooksUpdate, listener: typeof WEBHOOKS_UPDATE): this;
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  on(event: string | symbol, listener: (...args: any) => void): this;
+    on(event: BotEvents, listener: Function): this;
+  }
 }

@@ -1,13 +1,11 @@
-import { Events } from './events';
+import { BotEvents } from '../../../../socket/constants';
 import { EventFunction } from '../../../../types';
 import BotHandler from '../BotHandler';
 
-type RegisterCallback = EventFunction;
-
-class BotEventsHandler extends BotHandler<RegisterCallback> implements Events {
-  public wait(name: string): Promise<Parameters<RegisterCallback>> {
+export class BotEventsHandler extends BotHandler<EventFunction> {
+  public wait(name: BotEvents): Promise<Parameters<EventFunction>> {
     return new Promise(resolve => {
-      const listener = (...args: Parameters<RegisterCallback>): void => {
+      const listener = (...args: Parameters<EventFunction>): void => {
         resolve(args);
 
         this.removeListener(name, listener);
@@ -17,5 +15,3 @@ class BotEventsHandler extends BotHandler<RegisterCallback> implements Events {
     });
   }
 }
-
-export default BotEventsHandler;

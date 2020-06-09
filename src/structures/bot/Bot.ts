@@ -2,7 +2,7 @@ import { Serializable } from 'child_process';
 import BotCommunication from './BotCommunication';
 import BotConnection from './BotConnection';
 import BotCommandsHandler from './handlers/BotCommandsHandler';
-import BotEventsHandler from './handlers/events/BotEventsHandler';
+import { BotEventsHandler } from './handlers/events/BotEventsHandler';
 import Cluster from '../../Cluster';
 import { BotEvents } from '../../socket/constants';
 import { WebsocketOptions } from '../../socket/properties';
