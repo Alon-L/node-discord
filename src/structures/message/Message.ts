@@ -117,7 +117,7 @@ export interface MessageReference {
 
 /**
  * Represents a message sent in a {@link TextChannel} within Discord
- * @class
+
  * @extends BaseStruct
  */
 class Message extends BaseStruct {

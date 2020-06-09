@@ -6,7 +6,6 @@ import Guild from '../guild/Guild';
 
 /**
  * Represents a channel found in a guild of any type
- * @class
  * @extends Channel
  */
 class GuildChannel extends Channel {

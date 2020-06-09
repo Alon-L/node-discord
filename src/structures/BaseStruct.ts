@@ -16,7 +16,7 @@ interface UpdateReturn {
 /**
  * Basic structure that all other API-related structures extend
  * Includes the bot property which every structure must have
- * @class
+
  */
 class BaseStruct {
   /**

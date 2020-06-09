@@ -4,7 +4,7 @@ import BaseStruct, { GatewayStruct } from '../BaseStruct';
 
 /**
  * Represents an attachment added to a {@link Message}
- * @class
+
  * @extends BaseStruct
  */
 class MessageAttachment extends BaseStruct {

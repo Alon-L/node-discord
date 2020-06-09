@@ -4,7 +4,7 @@ import { GatewayCloseCodes } from '../../socket/constants';
 
 /**
  * Responsible for the creation and closure of the WebSocket connection to the Discord API gateway
- * @class
+
  */
 class BotConnection {
   /**

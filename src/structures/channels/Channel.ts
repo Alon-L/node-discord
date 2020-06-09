@@ -17,7 +17,7 @@ export enum ChannelTypes {
 
 /**
  * Represents a guild or DM channel within Discord.
- * @class
+
  * @extends BaseStruct
  */
 class Channel extends BaseStruct {

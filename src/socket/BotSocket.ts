@@ -22,7 +22,7 @@ interface GatewayBot {
 
 /**
  * Creates and manages socket shards
- * @class
+
  */
 class BotSocket {
   private readonly token: string;

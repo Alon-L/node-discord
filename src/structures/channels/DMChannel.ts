@@ -10,7 +10,7 @@ import Message from '../message/Message';
 
 /**
  * Represents a private channel between the Bot and a User
- * @class
+
  * @extends Channel
  * @implements {TextChannel}
  */

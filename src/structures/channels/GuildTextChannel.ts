@@ -10,7 +10,7 @@ import Message from '../message/Message';
 
 /**
  * Represents a channel found in a guild of type {@link ChannelTypes.GuildText}
- * @class
+
  * @extends GuildChannel
  * @implements {TextChannel}
  */

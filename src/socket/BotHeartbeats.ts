@@ -14,7 +14,6 @@ interface HeartbeatInterval {
 
 /**
  * Handles the sending and receiving of Discord heartbeats
- * @class
  */
 class BotHeartbeats {
   private botSocketShard: BotSocketShard;

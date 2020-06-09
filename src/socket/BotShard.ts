@@ -24,7 +24,7 @@ export enum BotShardState {
 
 /**
  * Creates and handles the communication of a shard
- * @class
+
  */
 class BotShard {
   private readonly manager: BotShardManager;

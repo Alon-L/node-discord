@@ -6,7 +6,7 @@ import { ShardId } from '../types';
 
 /**
  * Creates and manages all bot shards
- * @class
+
  */
 class BotShardManager {
   private readonly token: string;

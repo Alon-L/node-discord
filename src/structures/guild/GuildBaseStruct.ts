@@ -5,7 +5,7 @@ import Bot from '../bot/Bot';
 /**
  * Basic structure every guild-related structure extends
  * Handles the creation of a guild property and guild-related methods
- * @class
+
  * @extends BaseStruct
  */
 class GuildBaseStruct extends BaseStruct {

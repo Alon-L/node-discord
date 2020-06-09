@@ -5,7 +5,7 @@ import ChannelUtils from '../ChannelUtils';
 
 /**
  * Provides util methods for all reactions-related handlers
- * @class
+
  */
 class ReactionHandlersUtils extends HandlersUtils {
   /**

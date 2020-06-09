@@ -19,7 +19,7 @@ const mentionsRegexp = {
 
 /**
  * Represents all mentions (members, roles, channels) that appear in a {@link Message}
- * @class
+
  * @extends BaseStruct
  */
 class MessageMentions extends BaseStruct {

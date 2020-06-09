@@ -10,7 +10,7 @@ import { Snowflake, TextBasedChannel } from '../types';
 
 /**
  * Handles channel-related util methods
- * @class
+
  */
 class ChannelUtils {
   /**

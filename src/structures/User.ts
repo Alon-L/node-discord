@@ -14,7 +14,7 @@ enum NitroTypes {
 
 /**
  * Represents a user in the Discord platform
- * @class
+
  * @extends BaseStruct
  */
 class User extends BaseStruct {

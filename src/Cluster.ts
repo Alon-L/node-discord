@@ -16,7 +16,6 @@ export interface ClusterSetOptions {
  * Clusters serve as data holders throughout the library.
  * They are a combination of JavaScript Maps and Arrays with the
  * ability to hold large amount of data.
- * @class
  * @extends Map
  * @template K, V
  */
@@ -24,7 +23,7 @@ class Cluster<K, V> extends Map<K, V> {
   /**
    * The maximum number of items allowed in this Cluster
    */
-  public readonly limit: number | undefined;
+  public readonly limit: number | null | undefined;
 
   constructor(entries?: Iterable<readonly [K, V]> | null, limit?: number) {
     if (entries) {
@@ -33,7 +32,9 @@ class Cluster<K, V> extends Map<K, V> {
       super();
     }
 
-    this.limit = limit;
+    if (limit) {
+      this.limit = limit > 0 ? limit : null;
+    }
   }
 
   /**

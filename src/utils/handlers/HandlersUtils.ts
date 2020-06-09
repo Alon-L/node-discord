@@ -3,7 +3,7 @@ import Bot from '../../structures/bot/Bot';
 
 /**
  * Main class for all util methods for socket event handlers.
- * @class
+
  */
 class HandlersUtils {
   /**

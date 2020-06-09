@@ -5,7 +5,7 @@ import Bot from '../bot/Bot';
 /**
  * Used instead of {@link Guild} when the guild is unavailable
  * Includes just the ID of the guild, which should be fetched in order to obtain the full guild class
- * @class
+
  * @extends BaseStruct
  */
 class GuildUnavailable extends BaseStruct {

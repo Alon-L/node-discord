@@ -7,7 +7,7 @@ import { Snowflake } from '../types';
 
 /**
  * Represents a role in a guild
- * @class
+
  * @extends GuildBaseStruct
  */
 class Role extends GuildBaseStruct {

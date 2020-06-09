@@ -11,7 +11,7 @@ import GuildBaseStruct from '../guild/GuildBaseStruct';
 
 /**
  * Representation of a Discord {@link User} in a guild
- * @class
+
  * @extends GuildBaseStruct
  */
 class Member extends GuildBaseStruct {
