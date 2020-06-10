@@ -18,6 +18,12 @@ export enum ShardCommunicationResults {
   SendResult = 'sendResult',
 }
 
+export enum ShardCommunicationEvents {
+  DispatchEvent = 'dispatchEvent',
+  DispatchEventResult = 'dispatchEventResult',
+  EmitEvent = 'emitEvent',
+}
+
 export interface ShardMessage {
   action: ShardCommunicationActions;
   payload: Serializable;
@@ -45,7 +51,7 @@ export interface ShardEmitEvent<E extends keyof Events> {
 }
 
 export interface ShardDispatchEvent {
-  action: 'dispatchEvent' | 'dispatchEventResult';
+  action: ShardCommunicationEvents.DispatchEvent | ShardCommunicationEvents.DispatchEventResult;
   payload: {
     event: string;
     data?: Serializable | Serializable[];
@@ -77,7 +83,7 @@ class BotCommunication extends EventEmitter {
   private async onMessage(message: ShardDispatchEvent | ShardEmitEvent<never>): Promise<void> {
     switch (message.action) {
       // Tells the Bot to dispatch an event and return its result
-      case 'dispatchEvent':
+      case ShardCommunicationEvents.DispatchEvent:
         if (process.send) {
           const reply: ShardResponse = {
             data: await this.emit(message.payload.event),
@@ -88,7 +94,7 @@ class BotCommunication extends EventEmitter {
         }
         break;
       // Tells the Bot to emit an event to BotEvents
-      case 'emitEvent':
+      case ShardCommunicationEvents.EmitEvent:
         this.bot.events.emit(message.payload.event, ...message.payload.args);
         break;
     }
@@ -134,7 +140,7 @@ class BotCommunication extends EventEmitter {
     return new Promise<Serializable[]>(resolve => {
       const listener = ({ action, payload: { event: event, data } }: ShardDispatchEvent): void => {
         if (
-          action === 'dispatchEventResult' &&
+          action === ShardCommunicationEvents.DispatchEventResult &&
           event === ShardCommunicationResults.BroadcastResults &&
           Array.isArray(data)
         ) {
@@ -164,7 +170,10 @@ class BotCommunication extends EventEmitter {
   public async send(event: string, shardId: ShardId): Promise<Serializable> {
     return new Promise<Serializable>(resolve => {
       const listener = ({ action, payload: { event, data } }: ShardDispatchEvent): void => {
-        if (action === 'dispatchEventResult' && event === ShardCommunicationResults.SendResult) {
+        if (
+          action === ShardCommunicationEvents.DispatchEventResult &&
+          event === ShardCommunicationResults.SendResult
+        ) {
           resolve(data);
         }
       };

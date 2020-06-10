@@ -10,6 +10,7 @@ import {
   ShardMessage,
   ShardResponse,
   ShardChangedState,
+  ShardCommunicationEvents,
 } from '../structures/bot/BotCommunication';
 import { Events } from '../structures/bot/handlers/events/events';
 import { Args } from '../types/EventEmitter';
@@ -70,7 +71,7 @@ class BotShard {
 
         const results = await this.manager.broadcast(message.payload);
         const reply: ShardDispatchEvent = {
-          action: 'dispatchEventResult',
+          action: ShardCommunicationEvents.DispatchEventResult,
           payload: {
             event: ShardCommunicationResults.BroadcastResults,
             data: results,
@@ -89,7 +90,7 @@ class BotShard {
 
         const result = await this.manager.send(event, shardId);
         const reply: ShardDispatchEvent = {
-          action: 'dispatchEventResult',
+          action: ShardCommunicationEvents.DispatchEventResult,
           payload: {
             event: ShardCommunicationResults.SendResult,
             data: result,
@@ -140,7 +141,7 @@ class BotShard {
       this.process.on('message', listener);
 
       const message: ShardDispatchEvent = {
-        action: 'dispatchEvent',
+        action: ShardCommunicationEvents.DispatchEvent,
         payload: { event },
         identifier,
       };
