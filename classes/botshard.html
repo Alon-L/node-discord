@@ -100,7 +100,7 @@
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botshard.html#communicate" class="tsd-kind-icon">communicate</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botshard.html#emitevent" class="tsd-kind-icon">emit<wbr>Event</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="botshard.html#emitevent" class="tsd-kind-icon">emit<wbr>Event</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botshard.html#onmessage" class="tsd-kind-icon">on<wbr>Message</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botshard.html#spawn" class="tsd-kind-icon">spawn</a></li>
 							</ul>
@@ -120,7 +120,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/b71030f/src/socket/BotShard.ts#L33">src/socket/BotShard.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/ec49e8e/src/socket/BotShard.ts#L36">src/socket/BotShard.ts:36</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -145,7 +145,7 @@
 					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <a href="../globals.html#shardid" class="tsd-signature-type">ShardId</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/b71030f/src/socket/BotShard.ts#L32">src/socket/BotShard.ts:32</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/ec49e8e/src/socket/BotShard.ts#L35">src/socket/BotShard.ts:35</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -155,7 +155,7 @@
 					<div class="tsd-signature tsd-kind-icon">state<span class="tsd-signature-symbol">:</span> <a href="../enums/botshardstate.html" class="tsd-signature-type">BotShardState</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/b71030f/src/socket/BotShard.ts#L33">src/socket/BotShard.ts:33</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/ec49e8e/src/socket/BotShard.ts#L36">src/socket/BotShard.ts:36</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -172,7 +172,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/b71030f/src/socket/BotShard.ts#L117">src/socket/BotShard.ts:117</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/ec49e8e/src/socket/BotShard.ts#L120">src/socket/BotShard.ts:120</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -193,17 +193,17 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
 					<a name="emitevent" class="tsd-anchor"></a>
 					<h3>emit<wbr>Event</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">emit<wbr>Event<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="../enums/botevents.html" class="tsd-signature-type">BotEvents</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">emit<wbr>Event&lt;E&gt;<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">E</span>, args<span class="tsd-signature-symbol">: </span><a href="../globals.html#args" class="tsd-signature-type">Args</a><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#events" class="tsd-signature-type">Events</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">E</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/b71030f/src/socket/BotShard.ts#L157">src/socket/BotShard.ts:157</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/ec49e8e/src/socket/BotShard.ts#L156">src/socket/BotShard.ts:156</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -211,12 +211,24 @@
 									<p>Sends the child process a message to emit the given event to <a href="boteventshandler.html">BotEventsHandler</a></p>
 								</div>
 							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>E<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><a href="../globals.html#events" class="tsd-signature-type">Events</a></h4>
+								</li>
+							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>event: <a href="../enums/botevents.html" class="tsd-signature-type">BotEvents</a></h5>
+									<h5>event: <span class="tsd-signature-type">E</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The event to be emitted</p>
+									</div>
+								</li>
+								<li>
+									<h5>args: <a href="../globals.html#args" class="tsd-signature-type">Args</a><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#events" class="tsd-signature-type">Events</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">E</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The arguments of the events</p>
 									</div>
 								</li>
 							</ul>
@@ -228,13 +240,13 @@
 					<a name="onmessage" class="tsd-anchor"></a>
 					<h3>on<wbr>Message</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">on<wbr>Message<span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><a href="../interfaces/shardmessage.html" class="tsd-signature-type">ShardMessage</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/shardchangedstate.html" class="tsd-signature-type">ShardChangedState</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Message<span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">: </span><a href="../interfaces/shardbroadcastrequest.html" class="tsd-signature-type">ShardBroadcastRequest</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/shardsendrequest.html" class="tsd-signature-type">ShardSendRequest</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/shardchangedstaterequest.html" class="tsd-signature-type">ShardChangedStateRequest</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/b71030f/src/socket/BotShard.ts#L63">src/socket/BotShard.ts:63</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/ec49e8e/src/socket/BotShard.ts#L66">src/socket/BotShard.ts:66</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -245,9 +257,9 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>message: <a href="../interfaces/shardmessage.html" class="tsd-signature-type">ShardMessage</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/shardchangedstate.html" class="tsd-signature-type">ShardChangedState</a></h5>
+									<h5>request: <a href="../interfaces/shardbroadcastrequest.html" class="tsd-signature-type">ShardBroadcastRequest</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/shardsendrequest.html" class="tsd-signature-type">ShardSendRequest</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/shardchangedstaterequest.html" class="tsd-signature-type">ShardChangedStateRequest</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The message received from the child process</p>
+										<p>The request received from the child process</p>
 									</div>
 								</li>
 							</ul>
@@ -265,7 +277,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/b71030f/src/socket/BotShard.ts#L47">src/socket/BotShard.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/ec49e8e/src/socket/BotShard.ts#L50">src/socket/BotShard.ts:50</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -307,7 +319,7 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="botshard.html#communicate" class="tsd-kind-icon">communicate</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
 								<a href="botshard.html#emitevent" class="tsd-kind-icon">emit<wbr>Event</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">

@@ -101,7 +101,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botshardmanager.html#broadcast" class="tsd-kind-icon">broadcast</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botshardmanager.html#checkshardsstate" class="tsd-kind-icon">check<wbr>Shards<wbr>State</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botshardmanager.html#emitevent" class="tsd-kind-icon">emit<wbr>Event</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="botshardmanager.html#emitevent" class="tsd-kind-icon">emit<wbr>Event</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botshardmanager.html#send" class="tsd-kind-icon">send</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botshardmanager.html#start" class="tsd-kind-icon">start</a></li>
 							</ul>
@@ -121,7 +121,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/b71030f/src/socket/BotShardManager.ts#L15">src/socket/BotShardManager.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/ec49e8e/src/socket/BotShardManager.ts#L16">src/socket/BotShardManager.ts:16</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -149,7 +149,7 @@
 					<div class="tsd-signature tsd-kind-icon">file<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/b71030f/src/socket/BotShardManager.ts#L14">src/socket/BotShardManager.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/ec49e8e/src/socket/BotShardManager.ts#L15">src/socket/BotShardManager.ts:15</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -159,7 +159,7 @@
 					<div class="tsd-signature tsd-kind-icon">shards<wbr>Amount<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/b71030f/src/socket/BotShardManager.ts#L15">src/socket/BotShardManager.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/ec49e8e/src/socket/BotShardManager.ts#L16">src/socket/BotShardManager.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -176,12 +176,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/b71030f/src/socket/BotShardManager.ts#L49">src/socket/BotShardManager.ts:49</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/ec49e8e/src/socket/BotShardManager.ts#L50">src/socket/BotShardManager.ts:50</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Emits an event for all shards initiated with this manager</p>
+									<p>Emits an event on all shards initiated with this manager</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -207,7 +207,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/b71030f/src/socket/BotShardManager.ts#L89">src/socket/BotShardManager.ts:89</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/ec49e8e/src/socket/BotShardManager.ts#L91">src/socket/BotShardManager.ts:91</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -229,30 +229,42 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
 					<a name="emitevent" class="tsd-anchor"></a>
 					<h3>emit<wbr>Event</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">emit<wbr>Event<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="../enums/botevents.html" class="tsd-signature-type">BotEvents</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">emit<wbr>Event&lt;E&gt;<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">E</span>, args<span class="tsd-signature-symbol">: </span><a href="../globals.html#args" class="tsd-signature-type">Args</a><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#events" class="tsd-signature-type">Events</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">E</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/b71030f/src/socket/BotShardManager.ts#L63">src/socket/BotShardManager.ts:63</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/ec49e8e/src/socket/BotShardManager.ts#L65">src/socket/BotShardManager.ts:65</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Emits a given event for all shards under this manager</p>
+									<p>Emits a given event on all shards under this manager</p>
 								</div>
 							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>E<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><a href="../globals.html#events" class="tsd-signature-type">Events</a></h4>
+								</li>
+							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>event: <a href="../enums/botevents.html" class="tsd-signature-type">BotEvents</a></h5>
+									<h5>event: <span class="tsd-signature-type">E</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The event to emit</p>
+									</div>
+								</li>
+								<li>
+									<h5>args: <a href="../globals.html#args" class="tsd-signature-type">Args</a><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#events" class="tsd-signature-type">Events</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">E</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The arguments of the event</p>
 									</div>
 								</li>
 							</ul>
@@ -270,13 +282,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/b71030f/src/socket/BotShardManager.ts#L76">src/socket/BotShardManager.ts:76</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/ec49e8e/src/socket/BotShardManager.ts#L78">src/socket/BotShardManager.ts:78</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Emits an event for a specific shard.
-									Returns undefined if no shard matching the supplied ID was found</p>
+									<p>Emits an event on a specific shard.
+									Returns undefined if no shard matching the given ID was found</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -308,7 +320,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/b71030f/src/socket/BotShardManager.ts#L30">src/socket/BotShardManager.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/ec49e8e/src/socket/BotShardManager.ts#L31">src/socket/BotShardManager.ts:31</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -358,7 +370,7 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="botshardmanager.html#checkshardsstate" class="tsd-kind-icon">check<wbr>Shards<wbr>State</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
 								<a href="botshardmanager.html#emitevent" class="tsd-kind-icon">emit<wbr>Event</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">

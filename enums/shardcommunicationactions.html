@@ -64,6 +64,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Actions that can be sent to the shard manager to be evaluated in specific / all shards</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
@@ -73,8 +80,6 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="shardcommunicationactions.html#broadcast" class="tsd-kind-icon">Broadcast</a></li>
 								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="shardcommunicationactions.html#send" class="tsd-kind-icon">Send</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="shardcommunicationactions.html#shardclose" class="tsd-kind-icon">Shard<wbr>Close</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="shardcommunicationactions.html#shardready" class="tsd-kind-icon">Shard<wbr>Ready</a></li>
 							</ul>
 						</section>
 					</div>
@@ -88,9 +93,14 @@
 					<div class="tsd-signature tsd-kind-icon">Broadcast<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;broadcast&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/b71030f/src/structures/bot/BotCommunication.ts#L9">src/structures/bot/BotCommunication.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/ec49e8e/src/structures/bot/BotCommunication.ts#L53">src/structures/bot/BotCommunication.ts:53</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Emits an event on all shards</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
 					<a name="send" class="tsd-anchor"></a>
@@ -98,29 +108,14 @@
 					<div class="tsd-signature tsd-kind-icon">Send<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;send&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/b71030f/src/structures/bot/BotCommunication.ts#L10">src/structures/bot/BotCommunication.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/ec49e8e/src/structures/bot/BotCommunication.ts#L58">src/structures/bot/BotCommunication.ts:58</a></li>
 						</ul>
 					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="shardclose" class="tsd-anchor"></a>
-					<h3>Shard<wbr>Close</h3>
-					<div class="tsd-signature tsd-kind-icon">Shard<wbr>Close<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;shardClose&quot;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/b71030f/src/structures/bot/BotCommunication.ts#L12">src/structures/bot/BotCommunication.ts:12</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="shardready" class="tsd-anchor"></a>
-					<h3>Shard<wbr>Ready</h3>
-					<div class="tsd-signature tsd-kind-icon">Shard<wbr>Ready<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;shardReady&quot;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/b71030f/src/structures/bot/BotCommunication.ts#L11">src/structures/bot/BotCommunication.ts:11</a></li>
-						</ul>
-					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Emits an event on a specific shard</p>
+						</div>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -144,12 +139,6 @@
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
 								<a href="shardcommunicationactions.html#send" class="tsd-kind-icon">Send</a>
-							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="shardcommunicationactions.html#shardclose" class="tsd-kind-icon">Shard<wbr>Close</a>
-							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="shardcommunicationactions.html#shardready" class="tsd-kind-icon">Shard<wbr>Ready</a>
 							</li>
 						</ul>
 					</li>
