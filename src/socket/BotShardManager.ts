@@ -43,7 +43,7 @@ class BotShardManager {
   }
 
   /**
-   * Emits an event for all shards initiated with this manager
+   * Emits an event on all shards initiated with this manager
    * @param {string} event The event to be emitted
    * @returns {Promise<Serializable[]>}
    */
@@ -58,8 +58,8 @@ class BotShardManager {
   }
 
   /**
-   * Emits a given event for all shards under this manager
-   * @param {BotEvents} event The event to emit
+   * Emits a given event on all shards under this manager
+   * @param {E} event The event to emit
    * @param {Args<Events, E>} args The arguments of the event
    */
   public emitEvent<E extends keyof Events>(event: E, args: Args<Events, E>): void {
@@ -69,8 +69,8 @@ class BotShardManager {
   }
 
   /**
-   * Emits an event for a specific shard.
-   * Returns undefined if no shard matching the supplied ID was found
+   * Emits an event on a specific shard.
+   * Returns undefined if no shard matching the given ID was found
    * @param {string} event The event to be emitted
    * @param {ShardId} shardId The ID of the shard where this event should be emitted
    * @returns {Promise<Serializable> | null}

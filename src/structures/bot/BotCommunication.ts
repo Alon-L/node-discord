@@ -6,65 +6,201 @@ import { BotShardState } from '../../socket/BotShard';
 import { Args } from '../../types/EventEmitter';
 import { ShardId } from '../../types/types';
 
-export enum ShardCommunicationActions {
-  Broadcast = 'broadcast',
-  Send = 'send',
-  ShardReady = 'shardReady',
-  ShardClose = 'shardClose',
-}
+/**
+ * Abstract typing for all shard requests
+ */
+export interface ShardRequest {
+  /**
+   * The action to dispatch
+   */
+  action: string;
 
-export enum ShardCommunicationResults {
-  BroadcastResults = 'broadcastResults',
-  SendResult = 'sendResult',
-}
-
-export enum ShardCommunicationEvents {
-  DispatchEvent = 'dispatchEvent',
-  DispatchEventResult = 'dispatchEventResult',
-  EmitEvent = 'emitEvent',
-}
-
-export interface ShardMessage {
-  action: ShardCommunicationActions;
+  /**
+   * The matching payload for the action
+   */
   payload: Serializable;
+
+  /**
+   * The Unix date of when this request was sent.
+   * Used to identify the response of this request
+   */
+  identifier: number;
 }
 
-export interface ShardCommunicationSendPayload {
-  event: string;
-  shardId: ShardId;
+/**
+ * Abstract typing for all shard responses
+ */
+export interface ShardResponse {
+  /**
+   * Data to be sent in response to a request
+   */
+  payload: Serializable;
+
+  /**
+   * The Unix date of when this request was sent.
+   * Used to identify the request that led to this response
+   */
+  identifier: number;
 }
 
-export interface ShardChangedState {
+/**
+ * Actions that can be sent to the shard manager to be evaluated in specific / all shards
+ */
+export enum ShardCommunicationActions {
+  /**
+   * Emits an event on all shards
+   */
+  Broadcast = 'broadcast',
+
+  /**
+   * Emits an event on a specific shard
+   */
+  Send = 'send',
+}
+
+/**
+ * The type of result sent in response to an action ({@link ShardCommunicationActions}) from the shard manager
+ */
+export enum ShardCommunicationActionResponses {
+  /**
+   * Responses sent in response to a {@link ShardCommunicationActions.Broadcast} request
+   */
+  BroadcastResponses = 'broadcastResponses',
+
+  /**
+   * Response sent in response to a {@link ShardCommunicationActions.Send} request
+   */
+  SendResponse = 'sendResponse',
+}
+
+/**
+ * Actions to emit communication / bot events on specific / all shards
+ */
+export enum ShardCommunicationEmitEvents {
+  /**
+   * Emit a specific communication event
+   */
+  EmitCommunicationEvent = 'emitCommunicationEvent',
+
+  /**
+   * The response for {@link ShardCommunicationEmitEvents.EmitCommunicationEvent}
+   */
+  EmitCommunicationEventResponse = 'emitCommunicationEventResponse',
+
+  /**
+   * Emit a specific Bot event (registered under {@link BotEventsHandler})
+   */
+  EmitBotEvent = 'emitBotEvent',
+}
+
+/**
+ * Format for the request to emit an event on all shards
+ * {@link ShardCommunicationActions.Broadcast}
+ */
+export interface ShardBroadcastRequest extends ShardRequest {
+  action: ShardCommunicationActions.Broadcast;
+
+  /**
+   * The name of the event to emit
+   */
+  payload: string;
+}
+
+/**
+ * Format for the request to emit an event to a specific shard
+ * {@link ShardCommunicationActions.Send}
+ */
+export interface ShardSendRequest extends ShardRequest {
+  action: ShardCommunicationActions.Send;
+  payload: {
+    /**
+     * The name of the event to emit
+     */
+    event: string;
+
+    /**
+     * The shard ID to emit this event on
+     */
+    shardId: ShardId;
+  };
+}
+
+/**
+ * Request sent to the shard manager when a shard has changed its state
+ */
+export interface ShardChangedStateRequest extends ShardRequest {
   action: 'shardChangedState';
   payload: {
+    /**
+     * The new shard state
+     */
     state: BotShardState;
+
+    /**
+     * The Bot event ({@link BotEventsHandler}) to emit if all remaining shards share the same state
+     */
     botEvent: BotStateEvents;
   };
 }
 
-export interface ShardEmitEvent<E extends keyof Events> {
-  action: 'emitEvent';
+/**
+ * Request to emit a Bot event on a shard.
+ * Sent if all shards share the same state {@link ShardChangedStateRequest}
+ */
+export interface ShardEmitBotEventRequest<E extends keyof Events> extends ShardRequest {
+  action: ShardCommunicationEmitEvents.EmitBotEvent;
   payload: {
+    /**
+     * The Bot Event to emit
+     */
     event: E;
+
+    /**
+     * The arguments this event requires
+     */
     args: Args<Events, E>;
   };
 }
 
-export interface ShardDispatchEvent {
-  action: ShardCommunicationEvents.DispatchEvent | ShardCommunicationEvents.DispatchEventResult;
+/**
+ * Request a communication event to be emitted on a specific / all shards
+ */
+export interface ShardEmitCommunicationEventRequest extends ShardRequest {
+  action: ShardCommunicationEmitEvents.EmitCommunicationEvent;
+  payload: {
+    /**
+     * The event name
+     */
+    event: string;
+  };
+}
+
+/**
+ * Response for a {@link ShardBroadcastRequest} / {@link ShardSendRequest} request
+ */
+export interface ShardCommunicationActionResponse extends ShardResponse {
   payload: {
     event: string;
     data?: Serializable | Serializable[];
   };
-  identifier?: number;
 }
 
-export interface ShardResponse {
-  data: Serializable | Serializable[];
-  identifier: number | undefined;
+/**
+ * Response for a {@link ShardEmitCommunicationEventRequest}
+ */
+export interface ShardEmitCommunicationEventResponse extends ShardResponse {
+  payload: {
+    /**
+     * Data returned from the event
+     */
+    data: Serializable | Serializable[];
+  };
 }
 
 class BotCommunication extends EventEmitter {
+  /**
+   * The Bot instance
+   */
   private readonly bot: Bot;
 
   constructor(bot: Bot) {
@@ -77,16 +213,22 @@ class BotCommunication extends EventEmitter {
 
   /**
    * Listener function for new messages coming from the parent process
-   * @param {ShardDispatchEvent} message The message received from the parent process
+   * @param {ShardEmitCommunicationEventRequest | ShardEmitBotEventRequest<never>} message The message received from the parent process
    * @returns {Promise<void>}
    */
-  private async onMessage(message: ShardDispatchEvent | ShardEmitEvent<never>): Promise<void> {
+  private async onMessage(
+    message: ShardEmitCommunicationEventRequest | ShardEmitBotEventRequest<never>,
+  ): Promise<void> {
     switch (message.action) {
       // Tells the Bot to dispatch an event and return its result
-      case ShardCommunicationEvents.DispatchEvent:
+      case ShardCommunicationEmitEvents.EmitCommunicationEvent:
         if (process.send) {
-          const reply: ShardResponse = {
-            data: await this.emit(message.payload.event),
+          const data = await this.emit(message.payload.event);
+
+          const reply: ShardEmitCommunicationEventResponse = {
+            payload: {
+              data,
+            },
             identifier: message.identifier,
           };
 
@@ -94,7 +236,7 @@ class BotCommunication extends EventEmitter {
         }
         break;
       // Tells the Bot to emit an event to BotEvents
-      case ShardCommunicationEvents.EmitEvent:
+      case ShardCommunicationEmitEvents.EmitBotEvent:
         this.bot.events.emit(message.payload.event, ...message.payload.args);
         break;
     }
@@ -138,10 +280,15 @@ class BotCommunication extends EventEmitter {
    */
   public async broadcast(event: string): Promise<Serializable[]> {
     return new Promise<Serializable[]>(resolve => {
-      const listener = ({ action, payload: { event: event, data } }: ShardDispatchEvent): void => {
+      const { identifier } = BotCommunication;
+
+      const listener = ({
+        payload: { event: event, data },
+        identifier: responseIdentifier,
+      }: ShardCommunicationActionResponse): void => {
         if (
-          action === ShardCommunicationEvents.DispatchEventResult &&
-          event === ShardCommunicationResults.BroadcastResults &&
+          event === ShardCommunicationActionResponses.BroadcastResponses &&
+          identifier === responseIdentifier &&
           Array.isArray(data)
         ) {
           resolve(data);
@@ -150,13 +297,14 @@ class BotCommunication extends EventEmitter {
 
       process.on('message', listener);
 
-      const message: ShardMessage = {
+      const request: ShardBroadcastRequest = {
         action: ShardCommunicationActions.Broadcast,
         payload: event,
+        identifier,
       };
 
       if (process.send) {
-        process.send(message);
+        process.send(request);
       }
     });
   }
@@ -169,10 +317,15 @@ class BotCommunication extends EventEmitter {
    */
   public async send(event: string, shardId: ShardId): Promise<Serializable> {
     return new Promise<Serializable>(resolve => {
-      const listener = ({ action, payload: { event, data } }: ShardDispatchEvent): void => {
+      const { identifier } = BotCommunication;
+
+      const listener = ({
+        payload: { event, data },
+        identifier: responseIdentifier,
+      }: ShardCommunicationActionResponse): void => {
         if (
-          action === ShardCommunicationEvents.DispatchEventResult &&
-          event === ShardCommunicationResults.SendResult
+          event === ShardCommunicationActionResponses.SendResponse &&
+          identifier === responseIdentifier
         ) {
           resolve(data);
         }
@@ -180,15 +333,24 @@ class BotCommunication extends EventEmitter {
 
       process.on('message', listener);
 
-      const message: ShardMessage = {
+      const message: ShardSendRequest = {
         action: ShardCommunicationActions.Send,
         payload: { event, shardId },
+        identifier,
       };
 
       if (process.send) {
         process.send(message);
       }
     });
+  }
+
+  /**
+   * Generates a random identifier to provide to cross-shard requests
+   * @type {number}
+   */
+  public static get identifier(): number {
+    return Math.random();
   }
 }
 

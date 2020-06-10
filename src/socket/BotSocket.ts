@@ -5,7 +5,7 @@ import { GatewayCloseCodes, recommendedShardTimeout } from './constants';
 import properties from './properties';
 import Cluster from '../Cluster';
 import Bot from '../structures/bot/Bot';
-import { ShardChangedState } from '../structures/bot/BotCommunication';
+import { ShardChangedStateRequest } from '../structures/bot/BotCommunication';
 import { BotStateEvents } from '../structures/bot/handlers/events/events';
 import { ShardId } from '../types/types';
 
@@ -23,7 +23,6 @@ interface GatewayBot {
 
 /**
  * Creates and manages socket shards
-
  */
 class BotSocket {
   private readonly token: string;
@@ -118,15 +117,16 @@ class BotSocket {
     if (!this.checkShardsState(state)) return;
 
     if (process.send) {
-      const message: ShardChangedState = {
+      const request: ShardChangedStateRequest = {
         action: 'shardChangedState',
         payload: {
           state: shardState,
           botEvent,
         },
+        identifier: Date.now(),
       };
 
-      process.send(message);
+      process.send(request);
     } else {
       this.bot.events.emit(botEvent);
     }

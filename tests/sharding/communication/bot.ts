@@ -14,17 +14,23 @@ bot.communication.on('test', (bot: Bot) => {
 
 bot.communication.on('close', (bot: Bot) => {
   bot.connection.disconnect();
+  return 'Closed!';
 });
 
-bot.events.on(BotEvents.Ready, () => {
-  bot.communication.broadcast('test').then(console.log);
-  bot.communication.send('test', 1).then(console.log);
-  bot.communication.send('close', 1).then(res => {
-    console.log(res);
-    bot.communication.send('close', 0).then(console.log);
-  });
-
+bot.events.on(BotEvents.Ready, async () => {
   console.log('All shards are ready!');
+
+  const responses = await Promise.all([
+    bot.communication.broadcast('test'),
+    bot.communication.send('test', 1),
+  ]);
+
+  console.log(...responses);
+
+  bot.communication.send('close', 1).then(res => {
+    console.log('close send 1', res);
+    bot.communication.send('close', 0).then(console.log.bind(null, 'close send 0'));
+  });
 });
 
 bot.events.on(BotEvents.Close, () => {
@@ -39,4 +45,4 @@ bot.events.on(BotEvents.ShardClose, (shard: BotSocketShard) => {
   console.log('Shard closed!', shard.shard.id);
 });
 
-bot.events.on(BotEvents.Debug, console.log);
+// bot.events.on(BotEvents.Debug, console.log);
