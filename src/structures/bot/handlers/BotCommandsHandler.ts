@@ -1,16 +1,9 @@
-import BotHandler from './BotHandler';
-import { Command, CommandFunction } from '../../../types';
-
-type RegisterCallback = CommandFunction | Command;
-
-class BotCommandsHandler extends BotHandler<RegisterCallback> {
-  constructor() {
-    super();
-  }
-
+/*class BotCommandsHandler implements BotHandler<RegisterCallback> {
   public async wait(name: string): Promise<unknown> {
-    return;
+    return name;
   }
-}
+}*/
+
+class BotCommandsHandler {}
 
 export default BotCommandsHandler;

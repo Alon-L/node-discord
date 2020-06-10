@@ -1,7 +1,7 @@
 import GuildChannel from './GuildChannel';
 import TextChannel from './TextChannel';
 import Cluster from '../../Cluster';
-import { Snowflake } from '../../types';
+import { Snowflake } from '../../types/types';
 import { GatewayStruct } from '../BaseStruct';
 import Timestamp from '../Timestamp';
 import Bot from '../bot/Bot';

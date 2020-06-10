@@ -1,5 +1,5 @@
 import Member from './Member';
-import { Snowflake } from '../../types';
+import { Snowflake } from '../../types/types';
 import { GatewayStruct } from '../BaseStruct';
 import Timestamp from '../Timestamp';
 import Bot from '../bot/Bot';

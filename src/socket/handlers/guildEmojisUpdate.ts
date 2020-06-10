@@ -2,7 +2,7 @@ import Cluster from '../../Cluster';
 import { GatewayStruct } from '../../structures/BaseStruct';
 import Emoji from '../../structures/Emoji';
 import Bot from '../../structures/bot/Bot';
-import { Snowflake } from '../../types';
+import { Snowflake } from '../../types/types';
 import { Payload } from '../BotSocketShard';
 import { BotEvents } from '../constants';
 

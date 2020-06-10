@@ -1,7 +1,6 @@
 import { ChildProcess, fork, Serializable } from 'child_process';
 import path from 'path';
 import BotShardManager from './BotShardManager';
-import { BotEvents } from './constants';
 import {
   ShardCommunicationActions,
   ShardCommunicationResults,
@@ -12,7 +11,9 @@ import {
   ShardResponse,
   ShardChangedState,
 } from '../structures/bot/BotCommunication';
-import { ShardId } from '../types';
+import { Events } from '../structures/bot/handlers/events/events';
+import { Args } from '../types/EventEmitter';
+import { ShardId } from '../types/types';
 
 /**
  * The shard state
@@ -102,7 +103,7 @@ class BotShard {
       case 'shardChangedState': {
         this.state = message.payload.state;
         if (this.manager.checkShardsState(message.payload.state)) {
-          this.manager.emitEvent(message.payload.botEvent);
+          this.manager.emitEvent(message.payload.botEvent, []);
         }
         break;
       }
@@ -153,13 +154,14 @@ class BotShard {
   /**
    * Sends the child process a message to emit the given event to {@link BotEventsHandler}
    * @param {BotEvents} event The event to be emitted
+   * @param {Args<Events, E>} args The arguments of the events
    */
-  public emitEvent(event: BotEvents): void {
-    const message: ShardEmitEvent = {
+  public emitEvent<E extends keyof Events>(event: E, args: Args<Events, E>): void {
+    const message: ShardEmitEvent<E> = {
       action: 'emitEvent',
       payload: {
         event,
-        params: [],
+        args,
       },
     };
 

@@ -1,9 +1,10 @@
 import { Serializable } from 'child_process';
 import { EventEmitter } from 'events';
 import Bot from './Bot';
+import { Events, BotStateEvents } from './handlers/events/events';
 import { BotShardState } from '../../socket/BotShard';
-import { BotEvents } from '../../socket/constants';
-import { ShardId } from '../../types';
+import { Args } from '../../types/EventEmitter';
+import { ShardId } from '../../types/types';
 
 export enum ShardCommunicationActions {
   Broadcast = 'broadcast',
@@ -31,15 +32,15 @@ export interface ShardChangedState {
   action: 'shardChangedState';
   payload: {
     state: BotShardState;
-    botEvent: BotEvents;
+    botEvent: BotStateEvents;
   };
 }
 
-export interface ShardEmitEvent {
+export interface ShardEmitEvent<E extends keyof Events> {
   action: 'emitEvent';
   payload: {
-    event: BotEvents;
-    params: unknown[];
+    event: E;
+    args: Args<Events, E>;
   };
 }
 
@@ -73,7 +74,7 @@ class BotCommunication extends EventEmitter {
    * @param {ShardDispatchEvent} message The message received from the parent process
    * @returns {Promise<void>}
    */
-  private async onMessage(message: ShardDispatchEvent | ShardEmitEvent): Promise<void> {
+  private async onMessage(message: ShardDispatchEvent | ShardEmitEvent<never>): Promise<void> {
     switch (message.action) {
       // Tells the Bot to dispatch an event and return its result
       case 'dispatchEvent':
@@ -88,7 +89,7 @@ class BotCommunication extends EventEmitter {
         break;
       // Tells the Bot to emit an event to BotEvents
       case 'emitEvent':
-        this.bot.events.emit(message.payload.event, ...message.payload.params);
+        this.bot.events.emit(message.payload.event, ...message.payload.args);
         break;
     }
   }

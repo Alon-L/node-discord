@@ -6,7 +6,7 @@ import { BotEventsHandler } from './handlers/events/BotEventsHandler';
 import Cluster from '../../Cluster';
 import { BotEvents } from '../../socket/constants';
 import { WebsocketOptions, CacheOptions, botOptions } from '../../socket/properties';
-import { ShardId, Snowflake } from '../../types';
+import { ShardId, Snowflake } from '../../types/types';
 import User from '../User';
 import DMChannel from '../channels/DMChannel';
 import Guild from '../guild/Guild';

@@ -39,4 +39,4 @@ bot.events.on(BotEvents.ShardClose, (shard: BotSocketShard) => {
   console.log('Shard closed!', shard.shard.id);
 });
 
-bot.events.on('LOG', console.log);
+bot.events.on(BotEvents.Debug, console.log);

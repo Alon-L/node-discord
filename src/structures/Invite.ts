@@ -4,7 +4,7 @@ import User from './User';
 import Bot from './bot/Bot';
 import GuildChannel from './channels/GuildChannel';
 import Guild from './guild/Guild';
-import { Snowflake } from '../types';
+import { Snowflake } from '../types/types';
 
 export type InviteCode = string;
 

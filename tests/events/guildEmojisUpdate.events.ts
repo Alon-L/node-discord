@@ -4,7 +4,7 @@ import Cluster from '../../src/Cluster';
 import { BotEvents } from '../../src/socket/constants';
 import Emoji from '../../src/structures/Emoji';
 import Bot from '../../src/structures/bot/Bot';
-import { Snowflake } from '../../src/types';
+import { Snowflake } from '../../src/types/types';
 import config from '../config.json';
 
 const bot = new Bot(config.token);

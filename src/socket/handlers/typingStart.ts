@@ -24,5 +24,5 @@ export default ({ d }: Payload, bot: Bot): void => {
     user = bot.users.get(userId);
   }
 
-  bot.events.emit(BotEvents.TypingStart, channel, user, timestamp);
+  bot.events.emit(BotEvents.TypingStart, channel, user, timestamp as number);
 };

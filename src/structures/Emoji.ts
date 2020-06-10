@@ -4,7 +4,7 @@ import User from './User';
 import Bot from './bot/Bot';
 import Guild from './guild/Guild';
 import Cluster from '../Cluster';
-import { Snowflake } from '../types';
+import { Snowflake } from '../types/types';
 
 class Emoji extends BaseStruct {
   /**

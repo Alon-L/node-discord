@@ -1,5 +1,5 @@
 import Cluster from '../../Cluster';
-import { Snowflake } from '../../types';
+import { Snowflake } from '../../types/types';
 import Timestamp from '../Timestamp';
 import Message from '../message/Message';
 

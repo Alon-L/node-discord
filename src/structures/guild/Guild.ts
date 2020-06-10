@@ -1,7 +1,7 @@
 import GuildUnavailable from './GuildUnavailable';
 import Cluster from '../../Cluster';
 import { GuildFeatures } from '../../socket/constants';
-import { Snowflake } from '../../types';
+import { Snowflake } from '../../types/types';
 import ChannelUtils from '../../utils/ChannelUtils';
 import BaseStruct, { GatewayStruct } from '../BaseStruct';
 import Emoji from '../Emoji';

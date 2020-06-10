@@ -67,9 +67,9 @@ export enum BotEvents {
   Ready = 'READY',
   Close = 'CLOSE',
   Debug = 'DEBUG',
-  Resumed = 'RESUMED',
+  /*Resumed = 'RESUMED',
   Reconnect = 'RECONNECT',
-  InvalidSession = 'INVALID_SESSION',
+  InvalidSession = 'INVALID_SESSION',*/
   ChannelCreate = 'CHANNEL_CREATE',
   ChannelUpdate = 'CHANNEL_UPDATE',
   ChannelDelete = 'CHANNEL_DELETE',
@@ -100,13 +100,13 @@ export enum BotEvents {
   MessageReactionRemoveAll = 'MESSAGE_REACTION_REMOVE_ALL',
   MessageReactionRemoveEmoji = 'MESSAGE_REACTION_REMOVE_EMOJI',
   PresenceUpdate = 'PRESENCE_UPDATE',
-  TypingStart = 'TYPING_START',
-  UserUpdate = 'USER_UPDATE',
-  VoiceStateUpdate = 'VOICE_STATE_UPDATE',
-  VoiceServerUpdate = 'VOICE_SERVER_UPDATE',
-  WebhooksUpdate = 'WEBHOOKS_UPDATE',
   ShardReady = 'SHARD_READY',
   ShardClose = 'SHARD_CLOSE',
+  TypingStart = 'TYPING_START',
+  UserUpdate = 'USER_UPDATE',
+  /*VoiceStateUpdate = 'VOICE_STATE_UPDATE',
+  VoiceServerUpdate = 'VOICE_SERVER_UPDATE',*/
+  WebhooksUpdate = 'WEBHOOKS_UPDATE',
 }
 
 /**

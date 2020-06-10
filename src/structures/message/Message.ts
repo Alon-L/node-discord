@@ -3,7 +3,7 @@ import MessageEmbed from './MessageEmbed';
 import MessageMentions from './MessageMentions';
 import MessageReaction from './MessageReaction';
 import Cluster from '../../Cluster';
-import { Snowflake, TextBasedChannel } from '../../types';
+import { Snowflake, TextBasedChannel } from '../../types/types';
 import BaseStruct, { GatewayStruct } from '../BaseStruct';
 import Timestamp from '../Timestamp';
 import User from '../User';

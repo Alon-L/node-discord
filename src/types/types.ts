@@ -1,6 +1,5 @@
-import Bot from './structures/bot/Bot';
-import DMChannel from './structures/channels/DMChannel';
-import GuildTextChannel from './structures/channels/GuildTextChannel';
+import DMChannel from '../structures/channels/DMChannel';
+import GuildTextChannel from '../structures/channels/GuildTextChannel';
 
 /**
  * Discord Snowflake.
@@ -25,13 +24,7 @@ export interface Dimensions {
   width: number;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type EventFunction = (...args: any[]) => void;
-export type CommandFunction = (bot: Bot, ...args: unknown[]) => unknown;
-
-export interface Command {
-  name: string;
-  execute: CommandFunction;
-}
-
+/**
+ * Text based channels of Discord
+ */
 export type TextBasedChannel = GuildTextChannel | DMChannel;

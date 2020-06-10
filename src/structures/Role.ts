@@ -3,7 +3,7 @@ import Bot from './bot/Bot';
 import PermissionFlags from './flags/PermissionFlags';
 import Guild from './guild/Guild';
 import GuildBaseStruct from './guild/GuildBaseStruct';
-import { Snowflake } from '../types';
+import { Snowflake } from '../types/types';
 
 /**
  * Represents a role in a guild

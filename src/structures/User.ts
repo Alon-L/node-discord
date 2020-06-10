@@ -1,7 +1,7 @@
 import BaseStruct, { GatewayStruct } from './BaseStruct';
 import Bot from './bot/Bot';
 import UserFlags from './flags/UserFlags';
-import { Snowflake } from '../types';
+import { Snowflake } from '../types/types';
 
 /**
  * User nitro types

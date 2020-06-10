@@ -14,7 +14,7 @@ import {
 import * as events from './handlers';
 import { identify, version, WebsocketOptions } from './properties';
 import Bot, { ShardOptions } from '../structures/bot/Bot';
-import { Snowflake } from '../types';
+import { Snowflake } from '../types/types';
 
 export enum BotSocketShardState {
   Connecting,

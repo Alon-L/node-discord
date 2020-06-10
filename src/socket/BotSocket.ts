@@ -1,12 +1,13 @@
 import fetch from 'node-fetch';
 import { BotShardState } from './BotShard';
 import BotSocketShard, { BotSocketShardState } from './BotSocketShard';
-import { BotEvents, GatewayCloseCodes, recommendedShardTimeout } from './constants';
+import { GatewayCloseCodes, recommendedShardTimeout } from './constants';
 import properties from './properties';
 import Cluster from '../Cluster';
 import Bot from '../structures/bot/Bot';
 import { ShardChangedState } from '../structures/bot/BotCommunication';
-import { ShardId } from '../types';
+import { BotStateEvents } from '../structures/bot/handlers/events/events';
+import { ShardId } from '../types/types';
 
 export interface SessionStartLimit {
   total: number;
@@ -95,12 +96,12 @@ class BotSocket {
   }
 
   /**
-   * Called when a shard under this socket changed its state.
+   * Called when a shard under this socket changes its state.
    * If all shards under this socket now have the same state, a message will be sent to the {@link BotShardManager}
    * telling it to emit an event for all shards
    * @param {BotSocketShardState} state The state to be checked for
    * @param {BotShardState} shardState The state {@link BotShard} should be at after sending the message
-   * @param {BotEvents} botEvent The event that should be emitted to all shards
+   * @param {BotStateEvents} botEvent The event that should be emitted to all shards
    * @example ```typescript
    * this.botSocket.shardChangedState(
    *  BotSocketShardState.Ready,
@@ -112,7 +113,7 @@ class BotSocket {
   public shardChangedState(
     state: BotSocketShardState,
     shardState: BotShardState,
-    botEvent: BotEvents,
+    botEvent: BotStateEvents,
   ): void {
     if (!this.checkShardsState(state)) return;
 

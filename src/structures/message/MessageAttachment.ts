@@ -1,5 +1,5 @@
 import Message from './Message';
-import { Snowflake, Dimensions, Nullable } from '../../types';
+import { Snowflake, Dimensions, Nullable } from '../../types/types';
 import BaseStruct, { GatewayStruct } from '../BaseStruct';
 
 /**

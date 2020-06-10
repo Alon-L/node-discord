@@ -1,8 +1,10 @@
 import { Serializable } from 'child_process';
 import BotShard, { BotShardState } from './BotShard';
-import { BotEvents, recommendedShardTimeout } from './constants';
+import { recommendedShardTimeout } from './constants';
 import Cluster from '../Cluster';
-import { ShardId } from '../types';
+import { Events } from '../structures/bot/handlers/events/events';
+import { Args } from '../types/EventEmitter';
+import { ShardId } from '../types/types';
 
 /**
  * Creates and manages all bot shards
@@ -59,10 +61,11 @@ class BotShardManager {
   /**
    * Emits a given event for all shards under this manager
    * @param {BotEvents} event The event to emit
+   * @param {Args<Events, E>} args The arguments of the event
    */
-  public emitEvent(event: BotEvents): void {
+  public emitEvent<E extends keyof Events>(event: E, args: Args<Events, E>): void {
     for (const [, shard] of this.shards) {
-      shard.emitEvent(event);
+      shard.emitEvent(event, args);
     }
   }
 

@@ -1,7 +1,10 @@
-import { EventEmitter } from 'events';
+import { Args } from '../../../types/EventEmitter';
 
-abstract class BotHandler<T> extends EventEmitter {
-  abstract wait(name: string): Promise<unknown>;
+abstract class BotHandler<E> {
+  /**
+   * Asynchronously waits until an event is executed, and returns its arguments in an array
+   */
+  abstract wait<P extends keyof E>(name: P): Promise<Args<E, P>>;
 }
 
 export default BotHandler;

@@ -1,6 +1,6 @@
 import MemberPresence from './MemberPresence';
 import Cluster from '../../Cluster';
-import { Snowflake } from '../../types';
+import { Snowflake } from '../../types/types';
 import { GatewayStruct } from '../BaseStruct';
 import Role from '../Role';
 import Timestamp from '../Timestamp';

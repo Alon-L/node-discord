@@ -1,6 +1,6 @@
 import GuildChannel from './GuildChannel';
 import Cluster from '../../Cluster';
-import { Snowflake } from '../../types';
+import { Snowflake } from '../../types/types';
 
 /**
  * Represents a channel found in a guild of type {@link ChannelTypes.GuildCategory}

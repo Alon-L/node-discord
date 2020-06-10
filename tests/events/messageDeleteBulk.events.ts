@@ -3,7 +3,7 @@
 import { BotEvents } from '../../src/socket/constants';
 import Bot from '../../src/structures/bot/Bot';
 import Message from '../../src/structures/message/Message';
-import { Snowflake, TextBasedChannel } from '../../src/types';
+import { Snowflake, TextBasedChannel } from '../../src/types/types';
 import config from '../config.json';
 
 const bot = new Bot(config.token);

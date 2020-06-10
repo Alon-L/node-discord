@@ -1,6 +1,6 @@
 import Bot from '../../structures/bot/Bot';
 import Message from '../../structures/message/Message';
-import { Snowflake } from '../../types';
+import { Snowflake } from '../../types/types';
 import ChannelUtils from '../../utils/ChannelUtils';
 import { Payload } from '../BotSocketShard';
 import { BotEvents } from '../constants';

@@ -1,4 +1,4 @@
-import { Snowflake } from '../../types';
+import { Snowflake } from '../../types/types';
 import BaseStruct, { GatewayStruct } from '../BaseStruct';
 import Bot from '../bot/Bot';
 

@@ -1,5 +1,5 @@
 import Message from './Message';
-import { Dimensions } from '../../types';
+import { Dimensions } from '../../types/types';
 import BaseStruct, { GatewayStruct } from '../BaseStruct';
 import Timestamp from '../Timestamp';
 

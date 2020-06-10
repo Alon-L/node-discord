@@ -8,9 +8,9 @@ import Dict = NodeJS.Dict;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type GatewayStruct = Dict<any>;
 
-interface UpdateReturn {
-  before: unknown;
-  after: unknown;
+interface UpdateReturn<T extends BaseStruct> {
+  before: T;
+  after: T;
 }
 
 /**
@@ -51,7 +51,7 @@ class BaseStruct {
    * @param {GatewayStruct} data The updated data
    * @returns {UpdateReturn}
    */
-  public update(data: GatewayStruct): UpdateReturn {
+  public update(data: GatewayStruct): UpdateReturn<this> {
     const clone = this.clone();
     return { before: clone, after: this.init(data) };
   }

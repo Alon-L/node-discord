@@ -6,7 +6,7 @@ import GuildCategoryChannel from '../structures/channels/GuildCategoryChannel';
 import GuildChannel from '../structures/channels/GuildChannel';
 import GuildTextChannel from '../structures/channels/GuildTextChannel';
 import Guild from '../structures/guild/Guild';
-import { Snowflake, TextBasedChannel } from '../types';
+import { Snowflake, TextBasedChannel } from '../types/types';
 
 /**
  * Handles channel-related util methods

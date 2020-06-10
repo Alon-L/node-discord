@@ -1,6 +1,6 @@
 import Message from './Message';
 import Cluster from '../../Cluster';
-import { Snowflake } from '../../types';
+import { Snowflake } from '../../types/types';
 import BaseStruct, { GatewayStruct } from '../BaseStruct';
 import Role from '../Role';
 import User from '../User';
