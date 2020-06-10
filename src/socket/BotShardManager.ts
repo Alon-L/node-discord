@@ -8,7 +8,6 @@ import { ShardId } from '../types/types';
 
 /**
  * Creates and manages all bot shards
-
  */
 class BotShardManager {
   private readonly token: string;
