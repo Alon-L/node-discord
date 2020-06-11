@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ExplicitContentLevels | node-discord</title>
+	<title>SystemChannelType | node-discord</title>
 	<meta name="description" content="Documentation for node-discord">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="explicitcontentlevels.html">ExplicitContentLevels</a>
+					<a href="systemchanneltype.html">SystemChannelType</a>
 				</li>
 			</ul>
-			<h1>Enumeration ExplicitContentLevels</h1>
+			<h1>Enumeration SystemChannelType</h1>
 		</div>
 	</div>
 </header>
@@ -67,7 +67,8 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Guild explicit content filtering levels</p>
+						<p>All guild system channel flags
+						<a href="https://discord.com/developers/docs/resources/guild#guild-object-system-channel-flags">https://discord.com/developers/docs/resources/guild#guild-object-system-channel-flags</a></p>
 					</div>
 				</div>
 			</section>
@@ -78,9 +79,8 @@
 						<section class="tsd-index-section ">
 							<h3>Enumeration members</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="explicitcontentlevels.html#allmembers" class="tsd-kind-icon">All<wbr>Members</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="explicitcontentlevels.html#disabled" class="tsd-kind-icon">Disabled</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="explicitcontentlevels.html#memberswithoutroles" class="tsd-kind-icon">Members<wbr>Without<wbr>Roles</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="systemchanneltype.html#suppressboosts" class="tsd-kind-icon">Suppress<wbr>Boosts</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="systemchanneltype.html#suppressjoinnotifications" class="tsd-kind-icon">Suppress<wbr>Join<wbr>Notifications</a></li>
 							</ul>
 						</section>
 					</div>
@@ -89,34 +89,34 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Enumeration members</h2>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="allmembers" class="tsd-anchor"></a>
-					<h3>All<wbr>Members</h3>
-					<div class="tsd-signature tsd-kind-icon">All<wbr>Members<span class="tsd-signature-symbol">:</span></div>
+					<a name="suppressboosts" class="tsd-anchor"></a>
+					<h3>Suppress<wbr>Boosts</h3>
+					<div class="tsd-signature tsd-kind-icon">Suppress<wbr>Boosts<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 1 &lt;&lt; 1</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/20c49de/src/structures/guild/Guild.ts#L44">src/structures/guild/Guild.ts:44</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/20c49de/src/socket/constants.ts#L228">src/socket/constants.ts:228</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Suppress server boost notifications</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="disabled" class="tsd-anchor"></a>
-					<h3>Disabled</h3>
-					<div class="tsd-signature tsd-kind-icon">Disabled<span class="tsd-signature-symbol">:</span></div>
+					<a name="suppressjoinnotifications" class="tsd-anchor"></a>
+					<h3>Suppress<wbr>Join<wbr>Notifications</h3>
+					<div class="tsd-signature tsd-kind-icon">Suppress<wbr>Join<wbr>Notifications<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 1 &lt;&lt; 0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/20c49de/src/structures/guild/Guild.ts#L42">src/structures/guild/Guild.ts:42</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/20c49de/src/socket/constants.ts#L223">src/socket/constants.ts:223</a></li>
 						</ul>
 					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="memberswithoutroles" class="tsd-anchor"></a>
-					<h3>Members<wbr>Without<wbr>Roles</h3>
-					<div class="tsd-signature tsd-kind-icon">Members<wbr>Without<wbr>Roles<span class="tsd-signature-symbol">:</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/20c49de/src/structures/guild/Guild.ts#L43">src/structures/guild/Guild.ts:43</a></li>
-						</ul>
-					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Suppress member join notifications</p>
+						</div>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -133,16 +133,13 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-enum">
-						<a href="explicitcontentlevels.html" class="tsd-kind-icon">Explicit<wbr>Content<wbr>Levels</a>
+						<a href="systemchanneltype.html" class="tsd-kind-icon">System<wbr>Channel<wbr>Type</a>
 						<ul>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="explicitcontentlevels.html#allmembers" class="tsd-kind-icon">All<wbr>Members</a>
+								<a href="systemchanneltype.html#suppressboosts" class="tsd-kind-icon">Suppress<wbr>Boosts</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="explicitcontentlevels.html#disabled" class="tsd-kind-icon">Disabled</a>
-							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="explicitcontentlevels.html#memberswithoutroles" class="tsd-kind-icon">Members<wbr>Without<wbr>Roles</a>
+								<a href="systemchanneltype.html#suppressjoinnotifications" class="tsd-kind-icon">Suppress<wbr>Join<wbr>Notifications</a>
 							</li>
 						</ul>
 					</li>

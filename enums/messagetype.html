@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ExplicitContentLevels | node-discord</title>
+	<title>MessageType | node-discord</title>
 	<meta name="description" content="Documentation for node-discord">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="explicitcontentlevels.html">ExplicitContentLevels</a>
+					<a href="messagetype.html">MessageType</a>
 				</li>
 			</ul>
-			<h1>Enumeration ExplicitContentLevels</h1>
+			<h1>Enumeration MessageType</h1>
 		</div>
 	</div>
 </header>
@@ -67,7 +67,8 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Guild explicit content filtering levels</p>
+						<p>All message flags
+						<a href="https://discord.com/developers/docs/resources/channel#message-object-message-flags">https://discord.com/developers/docs/resources/channel#message-object-message-flags</a></p>
 					</div>
 				</div>
 			</section>
@@ -78,9 +79,11 @@
 						<section class="tsd-index-section ">
 							<h3>Enumeration members</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="explicitcontentlevels.html#allmembers" class="tsd-kind-icon">All<wbr>Members</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="explicitcontentlevels.html#disabled" class="tsd-kind-icon">Disabled</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="explicitcontentlevels.html#memberswithoutroles" class="tsd-kind-icon">Members<wbr>Without<wbr>Roles</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="messagetype.html#crossposted" class="tsd-kind-icon">Crossposted</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="messagetype.html#iscrosspost" class="tsd-kind-icon">Is<wbr>Crosspost</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="messagetype.html#sourcemessagedeleted" class="tsd-kind-icon">Source<wbr>Message<wbr>Deleted</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="messagetype.html#suppressembeds" class="tsd-kind-icon">Suppress<wbr>Embeds</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="messagetype.html#urgent" class="tsd-kind-icon">Urgent</a></li>
 							</ul>
 						</section>
 					</div>
@@ -89,34 +92,79 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Enumeration members</h2>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="allmembers" class="tsd-anchor"></a>
-					<h3>All<wbr>Members</h3>
-					<div class="tsd-signature tsd-kind-icon">All<wbr>Members<span class="tsd-signature-symbol">:</span></div>
+					<a name="crossposted" class="tsd-anchor"></a>
+					<h3>Crossposted</h3>
+					<div class="tsd-signature tsd-kind-icon">Crossposted<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 1 &lt;&lt; 0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/20c49de/src/structures/guild/Guild.ts#L44">src/structures/guild/Guild.ts:44</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/20c49de/src/socket/constants.ts#L192">src/socket/constants.ts:192</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>This message has been published to subscribed channels (via Channel Following)</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="disabled" class="tsd-anchor"></a>
-					<h3>Disabled</h3>
-					<div class="tsd-signature tsd-kind-icon">Disabled<span class="tsd-signature-symbol">:</span></div>
+					<a name="iscrosspost" class="tsd-anchor"></a>
+					<h3>Is<wbr>Crosspost</h3>
+					<div class="tsd-signature tsd-kind-icon">Is<wbr>Crosspost<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 1 &lt;&lt; 1</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/20c49de/src/structures/guild/Guild.ts#L42">src/structures/guild/Guild.ts:42</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/20c49de/src/socket/constants.ts#L197">src/socket/constants.ts:197</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>This message originated from a message in another channel (via Channel Following)</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="memberswithoutroles" class="tsd-anchor"></a>
-					<h3>Members<wbr>Without<wbr>Roles</h3>
-					<div class="tsd-signature tsd-kind-icon">Members<wbr>Without<wbr>Roles<span class="tsd-signature-symbol">:</span></div>
+					<a name="sourcemessagedeleted" class="tsd-anchor"></a>
+					<h3>Source<wbr>Message<wbr>Deleted</h3>
+					<div class="tsd-signature tsd-kind-icon">Source<wbr>Message<wbr>Deleted<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 1 &lt;&lt; 3</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/20c49de/src/structures/guild/Guild.ts#L43">src/structures/guild/Guild.ts:43</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/20c49de/src/socket/constants.ts#L207">src/socket/constants.ts:207</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The source message for this crosspost has been deleted (via Channel Following)</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="suppressembeds" class="tsd-anchor"></a>
+					<h3>Suppress<wbr>Embeds</h3>
+					<div class="tsd-signature tsd-kind-icon">Suppress<wbr>Embeds<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 1 &lt;&lt; 2</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/20c49de/src/socket/constants.ts#L202">src/socket/constants.ts:202</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Do not include any embeds when serializing this message</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="urgent" class="tsd-anchor"></a>
+					<h3>Urgent</h3>
+					<div class="tsd-signature tsd-kind-icon">Urgent<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 1 &lt;&lt; 4</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/20c49de/src/socket/constants.ts#L212">src/socket/constants.ts:212</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>This message came from the urgent message system</p>
+						</div>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -133,16 +181,22 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-enum">
-						<a href="explicitcontentlevels.html" class="tsd-kind-icon">Explicit<wbr>Content<wbr>Levels</a>
+						<a href="messagetype.html" class="tsd-kind-icon">Message<wbr>Type</a>
 						<ul>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="explicitcontentlevels.html#allmembers" class="tsd-kind-icon">All<wbr>Members</a>
+								<a href="messagetype.html#crossposted" class="tsd-kind-icon">Crossposted</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="explicitcontentlevels.html#disabled" class="tsd-kind-icon">Disabled</a>
+								<a href="messagetype.html#iscrosspost" class="tsd-kind-icon">Is<wbr>Crosspost</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="explicitcontentlevels.html#memberswithoutroles" class="tsd-kind-icon">Members<wbr>Without<wbr>Roles</a>
+								<a href="messagetype.html#sourcemessagedeleted" class="tsd-kind-icon">Source<wbr>Message<wbr>Deleted</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="messagetype.html#suppressembeds" class="tsd-kind-icon">Suppress<wbr>Embeds</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="messagetype.html#urgent" class="tsd-kind-icon">Urgent</a>
 							</li>
 						</ul>
 					</li>
