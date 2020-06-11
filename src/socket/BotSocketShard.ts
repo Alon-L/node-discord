@@ -46,7 +46,6 @@ let zlib: typeof import('zlib-sync') | undefined;
 /**
  * Connects every bot shard to a {@link WebSocket} with the Discord Gateway.
  * Handles gateway events and messages
-
  */
 class BotSocketShard {
   /**
