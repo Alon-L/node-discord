@@ -361,7 +361,7 @@ export type BotStateEvents = BotEvents.Ready | BotEvents.Close;
 /**
  * All possible events for the bot and their callback function
  */
-export type Events = {
+export interface Events {
   [BotEvents.Debug]: typeof console.log;
   [BotEvents.Ready]: typeof READY;
   [BotEvents.Close]: () => void;
@@ -400,4 +400,4 @@ export type Events = {
   [BotEvents.TypingStart]: typeof TYPING_START;
   [BotEvents.UserUpdate]: typeof USER_UPDATE;
   [BotEvents.WebhooksUpdate]: typeof WEBHOOKS_UPDATE;
-};
+}
