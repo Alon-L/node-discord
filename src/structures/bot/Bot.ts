@@ -146,6 +146,10 @@ class Bot {
     this.events.emit(BotEvents.Debug, ...messages);
   }
 
+  /**
+   * @ignore
+   * @returns {Serializable}
+   */
   public toJSON(): Serializable {
     return {
       token: this.token,

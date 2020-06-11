@@ -261,6 +261,10 @@ class Cluster<K, V> extends Map<K, V> {
     return flag;
   }
 
+  /**
+   * @ignore
+   * @returns {Serializable}
+   */
   public toJSON(): V[] {
     return this.toArray;
   }
