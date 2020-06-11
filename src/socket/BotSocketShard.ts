@@ -34,7 +34,7 @@ export interface Payload {
   t: GatewayEvents;
 }
 
-export type Events = Record<
+export type EventHandlers = Record<
   GatewayEvents,
   (payload: Payload, bot?: Bot, socketShard?: BotSocketShard) => void
 >;
@@ -329,7 +329,7 @@ class BotSocketShard {
     }
 
     // Find the matching event and run it
-    const event = (events as Events)[t];
+    const event = (events as EventHandlers)[t];
 
     if (event) {
       event(payload, this.bot, this);
