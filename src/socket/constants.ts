@@ -1,7 +1,7 @@
 /**
  * https://discordapp.com/developers/docs/topics/opcodes-and-status-codes#gateway-gateway-opcodes
  */
-export enum OPCodes {
+export const enum OPCodes {
   Dispatch,
   Heartbeat,
   Identify,
@@ -18,7 +18,7 @@ export enum OPCodes {
 /**
  * https://discordapp.com/developers/docs/topics/gateway#commands-and-events-gateway-events
  */
-export enum GatewayEvents {
+export const enum GatewayEvents {
   Ready = 'READY',
   Close = 'CLOSE',
   Resumed = 'RESUMED',
@@ -63,7 +63,7 @@ export enum GatewayEvents {
 /**
  * All Bot events
  */
-export enum BotEvents {
+export const enum BotEvents {
   Ready = 'READY',
   Close = 'CLOSE',
   Debug = 'DEBUG',
@@ -113,7 +113,7 @@ export enum BotEvents {
  * All Discord permission flags
  * https://discord.com/developers/docs/topics/permissions#permissions-bitwise-permission-flags
  */
-export enum PermissionFlagTypes {
+export const enum Permissions {
   CreateInstantInvite = 0x00000001,
   KickMembers = 0x00000002,
   BanMembers = 0x00000004,
@@ -151,7 +151,7 @@ export enum PermissionFlagTypes {
  * All Discord user flags (profile badges)
  * https://discord.com/developers/docs/resources/user#user-object-user-flags
  */
-export enum UserFlagTypes {
+export const enum UserType {
   None,
   DiscordEmployee = 1 << 0,
   DiscordPartner = 1 << 1,
@@ -172,7 +172,7 @@ export enum UserFlagTypes {
  * All Discord presence activity flags
  * https://discord.com/developers/docs/topics/gateway#activity-object-activity-flags
  */
-export enum PresenceActivityFlagTypes {
+export const enum PresenceActivity {
   Instance = 1 << 0,
   Join = 1 << 1,
   Spectate = 1 << 2,
@@ -185,7 +185,7 @@ export enum PresenceActivityFlagTypes {
  * All message flags
  * https://discord.com/developers/docs/resources/channel#message-object-message-flags
  */
-export enum MessageFlagTypes {
+export const enum MessageType {
   /**
    * This message has been published to subscribed channels (via Channel Following)
    */
@@ -216,7 +216,7 @@ export enum MessageFlagTypes {
  * All guild system channel flags
  * https://discord.com/developers/docs/resources/guild#guild-object-system-channel-flags
  */
-export enum GuildSystemChannelFlagTypes {
+export const enum SystemChannelType {
   /**
    * Suppress member join notifications
    */
@@ -232,7 +232,7 @@ export enum GuildSystemChannelFlagTypes {
  * All guild features
  * https://discord.com/developers/docs/resources/guild#guild-object-guild-features
  */
-export enum GuildFeatures {
+export const enum GuildFeatures {
   /**
    * Guild has access to set an invite splash background
    */
@@ -307,7 +307,7 @@ export enum GuildFeatures {
 /**
  * https://discordapp.com/developers/docs/topics/opcodes-and-status-codes#gateway-gateway-close-event-codes
  */
-export enum GatewayCloseCodes {
+export const enum GatewayCloseCodes {
   NormalClosure = 1000,
   ManualClosure = 3000,
   UnknownError = 4000,

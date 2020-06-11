@@ -1,6 +1,6 @@
 import Flags from './Flags';
-import { PermissionFlagTypes } from '../../socket/constants';
+import { Permissions } from '../../socket/constants';
 
-class PermissionFlags extends Flags<PermissionFlagTypes> {}
+class PermissionFlags extends Flags<Permissions> {}
 
 export default PermissionFlags;

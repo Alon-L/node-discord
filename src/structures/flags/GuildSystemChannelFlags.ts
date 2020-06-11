@@ -1,6 +1,6 @@
 import Flags from './Flags';
-import { GuildSystemChannelFlagTypes } from '../../socket/constants';
+import { SystemChannelType } from '../../socket/constants';
 
-class GuildSystemChannelFlags extends Flags<GuildSystemChannelFlagTypes> {}
+class GuildSystemChannelFlags extends Flags<SystemChannelType> {}
 
 export default GuildSystemChannelFlags;

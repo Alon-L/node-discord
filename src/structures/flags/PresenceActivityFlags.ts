@@ -1,6 +1,6 @@
 import Flags from './Flags';
-import { PresenceActivityFlagTypes } from '../../socket/constants';
+import { PresenceActivity } from '../../socket/constants';
 
-class PresenceActivityFlags extends Flags<PresenceActivityFlagTypes> {}
+class PresenceActivityFlags extends Flags<PresenceActivity> {}
 
 export default PresenceActivityFlags;

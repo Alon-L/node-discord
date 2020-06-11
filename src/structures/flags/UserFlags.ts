@@ -1,6 +1,6 @@
 import Flags from './Flags';
-import { UserFlagTypes } from '../../socket/constants';
+import { UserType } from '../../socket/constants';
 
-class UserFlags extends Flags<UserFlagTypes> {}
+class UserFlags extends Flags<UserType> {}
 
 export default UserFlags;
