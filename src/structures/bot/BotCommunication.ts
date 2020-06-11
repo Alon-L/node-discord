@@ -216,8 +216,8 @@ class BotCommunication extends EventEmitter {
    * @param {ShardEmitCommunicationEventRequest | ShardEmitBotEventRequest<never>} message The message received from the parent process
    * @returns {Promise<void>}
    */
-  private async onMessage(
-    message: ShardEmitCommunicationEventRequest | ShardEmitBotEventRequest<never>,
+  private async onMessage<E extends keyof Events>(
+    message: ShardEmitCommunicationEventRequest | ShardEmitBotEventRequest<E>,
   ): Promise<void> {
     switch (message.action) {
       // Tells the Bot to dispatch an event and return its result
