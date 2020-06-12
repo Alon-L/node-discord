@@ -1,18 +1,4 @@
 /**
- * A set of options passed to the set method
- */
-export interface ClusterSetOptions {
-  /**
-   * Whether or not to add the new item when the Cluster's limit is reached
-   */
-  force: boolean;
-  /**
-   * Whether or not to shift the first item in the Cluster when the limit is reached
-   */
-  shift: boolean;
-}
-
-/**
  * Clusters serve as data holders throughout the library.
  * They are a combination of JavaScript Maps and Arrays with the
  * ability to hold large amount of data.
@@ -162,15 +148,15 @@ class Cluster<K, V> extends Map<K, V> {
    * Checks if the Cluster has reached its limit and sets the item using {@link Map.prototype.set}
    * @param {K} key The key to set
    * @param {V} value The value to set
-   * @param {Partial<ClusterSetOptions>} options The options to considerate when reaching the Cluster's limit
+   * @param {boolean} force Whether to add the item to the Cluster if its limit was reached
    * @returns {this}
    */
-  public set(key: K, value: V, options?: Partial<ClusterSetOptions>): this {
+  public set(key: K, value: V, force?: boolean): this {
     // If the key already exists, a new item won't be added, thus keeping the size at the limit
-    if (!options?.force && this.limit && this.limit <= this.size && !this.has(key)) {
-      if (options?.shift && this.firstKey) {
+    if (!force && this.limit && this.limit <= this.size && !this.has(key)) {
+      if (this.firstKey) {
         this.delete(this.firstKey);
-      } else return this;
+      }
     }
 
     return super.set(key, value);
