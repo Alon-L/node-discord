@@ -56,12 +56,12 @@ test('cluster limit', () => {
 
   expect(cluster.size).toBe(3);
 
-  cluster.set('5', 5, { force: true });
+  cluster.set('5', 5, true);
 
   expect(cluster.size).toBe(4);
   expect(cluster.first).toBe(1);
 
-  cluster.set('6', 6, { shift: true });
+  cluster.set('6', 6);
 
   expect(cluster.size).toBe(4);
   expect(cluster.first).toBe(2);
