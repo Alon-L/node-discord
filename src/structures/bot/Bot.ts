@@ -6,6 +6,7 @@ import { BotEventsHandler } from './handlers/events/BotEventsHandler';
 import Cluster from '../../Cluster';
 import { BotEvents } from '../../socket/constants';
 import { WebsocketOptions, CacheOptions, botOptions } from '../../socket/properties';
+import Requests from '../../socket/rateLimit/Requests';
 import { ShardId, Snowflake } from '../../types/types';
 import User from '../User';
 import DMChannel from '../channels/DMChannel';
@@ -64,6 +65,11 @@ class Bot {
   public readonly shardOptions: ShardOptions;
 
   /**
+   * Manages all outgoing API requests
+   */
+  public requests: Requests;
+
+  /**
    * Responsible for handling all of the Bot's commands
    */
   public commands: BotCommandsHandler;
@@ -117,7 +123,9 @@ class Bot {
       ...options,
     };
 
-    // Set bot sharding data
+    this.requests = new Requests(this, this.token);
+
+    // Sets bot sharding data
     const shardId = Number(process.env.SHARD_ID);
     const shardAmount = Number(process.env.SHARDS_AMOUNT);
 

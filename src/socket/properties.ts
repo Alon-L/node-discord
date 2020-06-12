@@ -1,6 +1,16 @@
 import { BotOptions } from '../structures/bot/Bot';
 
+/**
+ * The latest version of the Discord API
+ * @type {number}
+ */
 export const version = 6;
+
+/**
+ * The base URL for the Discord API
+ * @type {string}
+ */
+export const baseURL = `https://discord.com/api/v${version}`;
 
 /**
  * Bot cache options
@@ -34,6 +44,10 @@ export interface WebsocketOptions {
   [key: string]: number | string | undefined;
 }
 
+/**
+ * The default options used to initialize a Bot instance
+ * @type {BotOptions}
+ */
 export const botOptions: BotOptions = {
   cache: {
     messagesLimit: 100,
@@ -43,6 +57,9 @@ export const botOptions: BotOptions = {
   },
 };
 
+/**
+ * All details that are sent in the Bot's 'IDENTIFY' request
+ */
 export const identify = {
   properties: {
     $os: process.platform,
@@ -54,8 +71,4 @@ export const identify = {
   },
   large_threshold: 250,
   version,
-};
-
-export default {
-  baseURL: 'https://discord.com/api/v6',
 };

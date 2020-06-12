@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 import { BotShardState } from './BotShard';
 import BotSocketShard, { BotSocketShardState } from './BotSocketShard';
 import { GatewayCloseCodes, recommendedShardTimeout } from './constants';
-import properties from './properties';
+import { baseURL } from './properties';
 import Cluster from '../Cluster';
 import Bot from '../structures/bot/Bot';
 import { ShardChangedStateRequest } from '../structures/bot/BotCommunication';
@@ -137,7 +137,7 @@ class BotSocket {
    * @returns {Promise<GatewayBot>}
    */
   private get gateway(): Promise<GatewayBot> {
-    return fetch(`${properties.baseURL}/gateway/bot`, {
+    return fetch(`${baseURL}/gateway/bot`, {
       headers: { Authorization: `Bot ${this.token}` },
     }).then(res => res.json());
   }
