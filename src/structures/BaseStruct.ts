@@ -16,7 +16,6 @@ interface UpdateReturn<T extends BaseStruct> {
 /**
  * Basic structure that all other API-related structures extend
  * Includes the bot property which every structure must have
-
  */
 class BaseStruct {
   /**
@@ -24,8 +23,15 @@ class BaseStruct {
    */
   public bot: Bot;
 
-  constructor(bot: Bot) {
+  /**
+   * The gateway structure that initialized this instance
+   * @ignore
+   */
+  private readonly structure: GatewayStruct;
+
+  constructor(bot: Bot, structure: GatewayStruct) {
     this.bot = bot;
+    this.structure = structure;
   }
 
   /**
@@ -53,7 +59,7 @@ class BaseStruct {
    */
   public update(data: GatewayStruct): UpdateReturn<this> {
     const clone = this.clone();
-    return { before: clone, after: this.init(data) };
+    return { before: clone, after: this.init({ ...this.structure, ...data }) };
   }
 }
 

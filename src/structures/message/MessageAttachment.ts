@@ -45,7 +45,7 @@ class MessageAttachment extends BaseStruct {
   public dimensions!: Nullable<Dimensions>;
 
   constructor(message: Message, attachment: GatewayStruct) {
-    super(message.bot);
+    super(message.bot, attachment);
 
     this.message = message;
 

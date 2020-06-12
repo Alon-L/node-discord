@@ -51,7 +51,7 @@ class MessageMentions extends BaseStruct {
   private _channels: Cluster<Snowflake, GuildChannel> | undefined;
 
   constructor(message: Message, mentions: Partial<MentionTypes>) {
-    super(message.bot);
+    super(message.bot, mentions);
 
     this.message = message;
 

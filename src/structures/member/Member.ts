@@ -59,7 +59,7 @@ class Member extends GuildBaseStruct {
   public presence: MemberPresence | undefined;
 
   constructor(bot: Bot, member: GatewayStruct, guild: Guild, presence?: GatewayStruct) {
-    super(bot, guild);
+    super(bot, guild, member);
 
     this.init(member, presence);
   }

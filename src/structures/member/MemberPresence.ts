@@ -243,7 +243,7 @@ class MemberPresence extends GuildBaseStruct {
   public nick: string | undefined | null;
 
   constructor(bot: Bot, presence: GatewayStruct, member: Member) {
-    super(bot, member.guild);
+    super(bot, member.guild, presence);
 
     this.member = member;
 

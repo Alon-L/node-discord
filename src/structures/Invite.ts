@@ -82,7 +82,7 @@ class Invite extends BaseStruct {
   public uses!: number;
 
   constructor(bot: Bot, invite: GatewayStruct) {
-    super(bot);
+    super(bot, invite);
 
     this.init(invite);
   }

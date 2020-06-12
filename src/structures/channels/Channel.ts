@@ -32,7 +32,7 @@ class Channel extends BaseStruct {
   public type!: ChannelTypes;
 
   constructor(bot: Bot, channel: GatewayStruct) {
-    super(bot);
+    super(bot, channel);
 
     this.init(channel);
   }

@@ -226,7 +226,7 @@ class MessageEmbed extends BaseStruct {
   public fields: MessageEmbedField[] | undefined;
 
   constructor(message: Message, embed: GatewayStruct) {
-    super(message.bot);
+    super(message.bot, embed);
 
     this.message = message;
 
@@ -247,41 +247,41 @@ class MessageEmbed extends BaseStruct {
     this.color = embed.color;
 
     this.footer = {
-      text: embed.footer.text,
-      iconURL: embed.footer.icon_url,
-      proxyIconURL: embed.footer.proxy_icon_url,
+      text: embed.footer?.text,
+      iconURL: embed.footer?.icon_url,
+      proxyIconURL: embed.footer?.proxy_icon_url,
     };
 
     this.image = {
-      url: embed.image.url,
-      proxyURL: embed.image.proxy_url,
+      url: embed.image?.url,
+      proxyURL: embed.image?.proxy_url,
       dimensions: MessageEmbed.getDimensions(embed.image),
     };
 
     this.thumbnail = {
-      url: embed.thumbnail.url,
-      proxyURL: embed.thumbnail.proxy_url,
+      url: embed.thumbnail?.url,
+      proxyURL: embed.thumbnail?.proxy_url,
       dimensions: MessageEmbed.getDimensions(embed.thumbnail),
     };
 
     this.video = {
-      url: embed.video.url,
+      url: embed.video?.url,
       dimensions: MessageEmbed.getDimensions(embed.video),
     };
 
     this.provider = {
-      name: embed.video.name,
-      url: embed.video.url,
+      name: embed.video?.name,
+      url: embed.video?.url,
     };
 
     this.author = {
-      name: embed.author.name,
-      url: embed.author.url,
-      iconURL: embed.author.icon_url,
-      proxyIconURL: embed.author.proxy_icon_url,
+      name: embed.author?.name,
+      url: embed.author?.url,
+      iconURL: embed.author?.icon_url,
+      proxyIconURL: embed.author?.proxy_icon_url,
     };
 
-    this.fields = embed.fields.map((field: GatewayStruct) => ({
+    this.fields = embed.fields?.map((field: GatewayStruct) => ({
       name: field.name,
       content: field.value,
       inline: field.inline,
@@ -290,10 +290,10 @@ class MessageEmbed extends BaseStruct {
     return this;
   }
 
-  private static getDimensions(struct: { height: number; width: number }): Dimensions {
+  private static getDimensions(struct?: { height: number; width: number }): Partial<Dimensions> {
     return {
-      height: struct.height,
-      width: struct.width,
+      height: struct?.height,
+      width: struct?.width,
     };
   }
 }

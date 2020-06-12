@@ -38,7 +38,7 @@ class MessageReaction extends BaseStruct {
   public emoji: Emoji;
 
   constructor(message: Message, reaction: GatewayStruct) {
-    super(message.bot);
+    super(message.bot, reaction);
 
     this.message = message;
 

@@ -333,7 +333,7 @@ class Guild extends BaseStruct {
   public bans: Cluster<Snowflake, Member | User>;
 
   constructor(bot: Bot, guild: GatewayStruct) {
-    super(bot);
+    super(bot, guild);
 
     this.presences = new Cluster<Snowflake, MemberPresence>();
 

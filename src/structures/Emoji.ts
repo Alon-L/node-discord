@@ -53,7 +53,7 @@ class Emoji extends BaseStruct {
   public available: boolean | undefined;
 
   constructor(bot: Bot, emoji: GatewayStruct, guild?: Guild) {
-    super(bot);
+    super(bot, emoji);
 
     this.guild = guild;
 

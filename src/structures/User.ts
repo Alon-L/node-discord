@@ -84,7 +84,7 @@ class User extends BaseStruct {
   public publicFlags: UserFlags | undefined;
 
   constructor(bot: Bot, user: GatewayStruct) {
-    super(bot);
+    super(bot, user);
 
     this.init(user);
   }

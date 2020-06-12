@@ -1,5 +1,5 @@
 import Guild from './Guild';
-import BaseStruct from '../BaseStruct';
+import BaseStruct, { GatewayStruct } from '../BaseStruct';
 import Bot from '../bot/Bot';
 
 /**
@@ -14,8 +14,8 @@ class GuildBaseStruct extends BaseStruct {
    */
   public guild: Guild;
 
-  constructor(bot: Bot, guild: Guild) {
-    super(bot);
+  constructor(bot: Bot, guild: Guild, structure: GatewayStruct) {
+    super(bot, structure);
 
     this.guild = guild;
   }

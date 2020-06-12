@@ -52,7 +52,7 @@ class Role extends GuildBaseStruct {
   public mentionable!: boolean;
 
   constructor(bot: Bot, role: GatewayStruct, guild: Guild) {
-    super(bot, guild);
+    super(bot, guild, role);
 
     this.init(role);
   }
