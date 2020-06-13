@@ -22,5 +22,5 @@ export default ({ d }: Payload, bot: Bot, socket: BotSocketShard): void => {
     socket.ready();
   }
 
-  bot.debug(bot.guilds);
+  bot.debug(bot.guilds, 'bot guilds');
 };

@@ -167,7 +167,7 @@ class BotSocketShard {
       ...this.bot.options.websocket,
     };
 
-    this.bot.debug(this.options);
+    this.bot.debug(this.options, 'options');
   }
 
   /**
@@ -217,7 +217,7 @@ class BotSocketShard {
     this.zlib.push(message, zlib?.Z_SYNC_FLUSH);
 
     if (this.zlib.err) {
-      this.bot.debug(this.zlib.err);
+      this.bot.debug(this.zlib.err, 'Zlib Error');
       return;
     }
 
@@ -268,7 +268,7 @@ class BotSocketShard {
 
     const { op, t, d, s } = payload;
 
-    this.bot.debug(op, t);
+    this.bot.debug(op, t, 'op - t');
 
     switch (op) {
       case OPCodes.Dispatch:
