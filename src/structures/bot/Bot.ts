@@ -46,7 +46,6 @@ export interface BotOptions {
 /**
  * The bot is the main operator of the API.
  * It handles the events, and properties for all structures.
-
  */
 class Bot {
   /**
