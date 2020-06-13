@@ -6,7 +6,6 @@ import Guild from '../guild/Guild';
 
 /**
  * Represents a channel found in a guild of any type
- * @extends Channel
  */
 class GuildChannel extends Channel {
   /**
@@ -32,9 +31,9 @@ class GuildChannel extends Channel {
 
   /**
    * Parent {@link GuildCategoryChannel} of this channel.
-   * Possibly null if this channel does not have a parent category channel
+   * Possibly undefined if this channel does not have a parent category channel, or the category is not cached
    */
-  public category!: GuildCategoryChannel | null;
+  public category: GuildCategoryChannel | undefined;
 
   constructor(bot: Bot, guildChannel: GatewayStruct, guild: Guild) {
     super(bot, guildChannel);
@@ -53,7 +52,12 @@ class GuildChannel extends Channel {
     this.position = guildChannel.position;
     this.name = guildChannel.name;
     this.topic = guildChannel.topic;
-    this.category = guildChannel.parent;
+
+    // Retrieves the parent category channel from cache
+    const category = this.guild.channels.get(guildChannel.parent_id);
+    if (category && category instanceof GuildCategoryChannel) {
+      this.category = category;
+    }
 
     return this;
   }
