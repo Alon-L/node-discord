@@ -18,16 +18,23 @@ bot.connection.connect();
 
   if (channel instanceof GuildTextChannel) {
     console.log(
-      channel.sendMessage({
-        content: 'Message content!',
-        embed: {
-          description: 'Hello World!',
-          author: {
-            name: 'HELLO!',
-            iconURL: bot.users.get('237470577298898946')?.avatarURL(),
+      await channel
+        .sendMessage(
+          {
+            content: 'Message content!',
+            embed: {
+              description: 'Hello World!',
+              author: {
+                name: 'HELLO!',
+                iconURL: bot.users.get('237470577298898946')?.avatarURL(),
+              },
+            },
           },
-        },
-      }),
+          {
+            nonce: 'Hello',
+          },
+        )
+        .then(message => message.nonce),
     );
   }
 })();
