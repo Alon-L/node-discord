@@ -12,7 +12,7 @@ bot.connection.connect();
   bot.events.on(BotEvents.MessageCreate, (message: Message) => {
     console.log(
       message.id,
-      message.author.id,
+      message.author?.id,
       message.channel.type,
       message.mentions.channels,
       message.mentions.channels?.size,
