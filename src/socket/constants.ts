@@ -113,7 +113,7 @@ export const enum BotEvents {
  * All Discord permission flags
  * https://discord.com/developers/docs/topics/permissions#permissions-bitwise-permission-flags
  */
-export const enum Permissions {
+export const enum Permission {
   CreateInstantInvite = 0x00000001,
   KickMembers = 0x00000002,
   BanMembers = 0x00000004,
