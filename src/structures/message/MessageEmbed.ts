@@ -27,12 +27,12 @@ export interface MessageEmbedFooter {
   /**
    * URL of footer icon (only supports http(s) and attachments)
    */
-  iconURL: string | undefined;
+  iconURL?: string;
 
   /**
    * A proxied URL of footer icon
    */
-  proxyIconURL: string | undefined;
+  proxyIconURL?: string;
 }
 
 /**
@@ -42,12 +42,12 @@ export interface MessageEmbedImage {
   /**
    * Source URL of image (only supports http(s) and attachments)
    */
-  url: string | undefined;
+  url?: string;
 
   /**
    * A proxied URL of the image
    */
-  proxyURL: string | undefined;
+  proxyURL?: string;
 
   /**
    * {@link Dimensions} object containing the dimensions of the image
@@ -62,12 +62,12 @@ export interface MessageEmbedThumbnail {
   /**
    * Source URL of thumbnail (only supports http(s) and attachments)
    */
-  url: string | undefined;
+  url?: string;
 
   /**
    * A proxied URL of the thumbnail
    */
-  proxyURL: string | undefined;
+  proxyURL?: string;
 
   /**
    * {@link Dimensions} object containing the dimensions of the thumbnail image
@@ -82,7 +82,7 @@ export interface MessageEmbedVideo {
   /**
    * Source URL of the video
    */
-  url: string | undefined;
+  url?: string;
 
   /**
    * {@link Dimensions} object containing the dimensions of the video
@@ -97,12 +97,12 @@ export interface MessageEmbedProvider {
   /**
    * Name of the provider
    */
-  name: string | undefined;
+  name?: string;
 
   /**
    * URL of the provider
    */
-  url: string | undefined;
+  url?: string;
 }
 
 /**
@@ -112,22 +112,22 @@ export interface MessageEmbedAuthor {
   /**
    * Name of the author
    */
-  name: string | undefined;
+  name?: string;
 
   /**
    * URL of the author
    */
-  url: string | undefined;
+  url?: string;
 
   /**
    * URL of the author's icon (only supports http(s) and attachments)
    */
-  iconURL: string | undefined;
+  iconURL?: string;
 
   /**
    * A proxied URL of the author's icon
    */
-  proxyIconURL: string | undefined;
+  proxyIconURL?: string;
 }
 
 /**
@@ -147,14 +147,30 @@ export interface MessageEmbedField {
   /**
    * Whether or not this field should be displayed inline
    */
-  inline: boolean | undefined;
+  inline?: boolean;
+}
+
+export interface MessageEmbedData {
+  title: string;
+  type: string;
+  description: string;
+  url: string;
+  timestamp: number | Timestamp;
+  color: number;
+  footer: MessageEmbedFooter;
+  image: MessageEmbedImage;
+  thumbnail: MessageEmbedThumbnail;
+  video: MessageEmbedVideo;
+  provider: MessageEmbedProvider;
+  author: MessageEmbedAuthor;
+  fields: MessageEmbedField[];
 }
 
 // TODO: Link this description to a guide page about Discord message embeds
 /**
  * Represents an embed contained in a {@link Message}
  */
-class MessageEmbed extends BaseStruct {
+class MessageEmbed extends BaseStruct implements Partial<MessageEmbedData> {
   /**
    * The {@link Message} associated to this embed
    */
@@ -290,6 +306,70 @@ class MessageEmbed extends BaseStruct {
     return this;
   }
 
+  /**
+   * Returns the gateway structure of a given embed data
+   * @param {MessageEmbedData} embed The embed data
+   * @returns {GatewayStruct}
+   */
+  public static dataToStructure(embed: Partial<MessageEmbedData>): GatewayStruct {
+    return {
+      title: embed.title,
+      type: embed.type,
+      description: embed.description,
+      url: embed.url,
+      timestamp:
+        embed.timestamp &&
+        (embed.timestamp instanceof Timestamp
+          ? embed.timestamp.date
+          : new Date(embed.timestamp).toISOString()),
+      color: embed.color,
+      footer: embed.footer && {
+        text: embed.footer.text,
+        icon_url: embed.footer.iconURL,
+        proxy_icon_url: embed.footer.proxyIconURL,
+      },
+      image: embed.image && {
+        url: embed.image.url,
+        proxy_url: embed.image.proxyURL,
+        height: embed.image.dimensions.height,
+        width: embed.image.dimensions.width,
+      },
+      thumbnail: embed.thumbnail && {
+        url: embed.thumbnail.url,
+        proxy_url: embed.thumbnail.proxyURL,
+        height: embed.thumbnail.dimensions.height,
+        width: embed.thumbnail.dimensions.width,
+      },
+      video: embed.video && {
+        url: embed.video.url,
+        height: embed.video.dimensions.height,
+        width: embed.video.dimensions.width,
+      },
+      provider: embed.provider && {
+        name: embed.provider.name,
+        url: embed.provider.url,
+      },
+      author: embed.author && {
+        name: embed.author.name,
+        url: embed.author.url,
+        icon_url: embed.author.iconURL,
+        proxy_icon_url: embed.author.proxyIconURL,
+      },
+      fields:
+        embed.fields &&
+        embed.fields.map((field: MessageEmbedField) => ({
+          name: field.name,
+          value: field.content,
+          inline: field.inline,
+        })),
+    };
+  }
+
+  /**
+   * Returns the dimensions from a gateway structure
+   * @param {{height: number, width: number}} struct The gateway structure including the dimensions information
+   * @returns {Partial<Dimensions>}
+   */
   private static getDimensions(struct?: { height: number; width: number }): Partial<Dimensions> {
     return {
       height: struct?.height,
