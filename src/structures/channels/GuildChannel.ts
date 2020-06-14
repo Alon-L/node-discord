@@ -43,7 +43,7 @@ class GuildChannel extends Channel {
   /**
    * The ID of this channel's parent category
    */
-  private parentId!: Snowflake;
+  private parentId: Snowflake | undefined | null;
 
   constructor(bot: Bot, guildChannel: GatewayStruct, guild: Guild) {
     super(bot, guildChannel);
@@ -73,6 +73,8 @@ class GuildChannel extends Channel {
    * Possibly null if this channel does not have a parent category channel, or the category is not cached
    */
   public get parent(): GuildCategoryChannel | null {
+    if (!this.parentId) return null;
+
     const parent = this.guild.channels.get(this.parentId);
 
     return parent instanceof GuildCategoryChannel ? parent : null;
@@ -84,7 +86,7 @@ class GuildChannel extends Channel {
    * @returns {Promise<GuildChannel>}
    */
   public modify(options: Partial<GuildChannelOptions>): Promise<GuildChannel> {
-    return this.bot.api.modifyChannel(this.id, options);
+    return this.bot.api.modifyGuildChannel(this.id, options);
   }
 }
 
