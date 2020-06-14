@@ -1,5 +1,5 @@
 import MessageAttachment from './MessageAttachment';
-import MessageEmbed from './MessageEmbed';
+import MessageEmbed, { MessageEmbedData } from './MessageEmbed';
 import MessageMentions from './MessageMentions';
 import MessageReaction from './MessageReaction';
 import Cluster from '../../Cluster';
@@ -116,9 +116,37 @@ export interface MessageReference {
 }
 
 /**
- * Represents a message sent in a {@link TextChannel} within Discord
+ * The message data for when sending new messages
+ */
+export interface MessageData {
+  /**
+   * The message's raw content
+   */
+  content: string;
 
- * @extends BaseStruct
+  /**
+   * The message's embed data
+   */
+  embed: Partial<MessageEmbedData>;
+}
+
+/**
+ * The message options for when sending new messages
+ */
+export interface MessageOptions {
+  /**
+   * A nonce that can be used for identifying the sent message
+   */
+  nonce: number;
+
+  /**
+   * Whether this is a Text To Speech (TTS) message
+   */
+  tts: boolean;
+}
+
+/**
+ * Represents a message sent in a {@link TextChannel} within Discord
  */
 class Message extends BaseStruct {
   /**
