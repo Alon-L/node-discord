@@ -6,7 +6,8 @@ import { GatewayStruct } from '../BaseStruct';
 import Timestamp from '../Timestamp';
 import User from '../User';
 import Bot from '../bot/Bot';
-import Message from '../message/Message';
+import Message, { MessageData, MessageOptions } from '../message/Message';
+import MessageEmbed from '../message/MessageEmbed';
 
 /**
  * Represents a private channel between the Bot and a User
@@ -57,6 +58,29 @@ class DMChannel extends Channel implements TextChannel {
     this.lastPinTimestamp = new Timestamp(dmChannel.last_pin_timestamp);
 
     return this;
+  }
+
+  /**
+   * Post a message to a {@link GuildTextChannel} or {@link DMChannel}. If operating on a {@link GuildTextChannel}, this endpoint requires the {@link Permission.SendMessages} permission to be present on the current user. If the {@link MessageOptions.tts} field is set to true, the {@link Permission.SendTTSMessages} permission is required for the message to be spoken
+   * @param {string | Partial<MessageData> | MessageEmbed} data The message data.
+   * Can be:
+   * 1. Raw content to be sent as a message
+   * @example ```typescript
+   * channel.sendMessage('Hello World!');
+   * ```
+   * 2. A partial {@link MessageData} object, containing content and/or embed
+   * @example ```typescript
+   * channel.sendMessage({ content: 'Hello World!', embed: { title: 'My Embed!' } });
+   * ```
+   * 3. A {@link MessageEmbed} instance
+   * @param {Partial<MessageOptions>} options The message's options
+   * @returns {Promise<Message>}
+   */
+  public sendMessage(
+    data: string | Partial<MessageData> | MessageEmbed,
+    options?: Partial<MessageOptions>,
+  ): Promise<Message> {
+    return this.bot.api.sendMessage(this.id, data, options);
   }
 }
 

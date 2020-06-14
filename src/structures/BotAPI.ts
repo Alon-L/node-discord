@@ -1,8 +1,11 @@
 import Bot from './bot/Bot';
 import Channel from './channels/Channel';
 import GuildChannel, { GuildChannelOptions } from './channels/GuildChannel';
+import GuildTextChannel from './channels/GuildTextChannel';
+import Message, { MessageData, MessageOptions } from './message/Message';
+import MessageEmbed from './message/MessageEmbed';
 import { EndpointRoute, HttpMethod } from '../socket/endpoints';
-import Requests from '../socket/rateLimit/Requests';
+import Requests, { Params } from '../socket/rateLimit/Requests';
 import { Snowflake } from '../types/types';
 import ChannelUtils from '../utils/ChannelUtils';
 
@@ -33,7 +36,7 @@ class BotAPI {
   }
 
   /**
-   * Updates a guild channel's settings. Requires the `MANAGE_CHANNELS` permission for the guild
+   * Updates a {@link GuildChannel}'s settings. Requires the {@link Permission.ManageChannels} permission for the guild
    * @param {Snowflake} channelId The ID of the modified channel
    * @param {Partial<GuildChannelOptions>} options The modified channel's settings
    * @returns {Promise<GuildChannel>}
@@ -42,28 +45,90 @@ class BotAPI {
     channelId: Snowflake,
     options: Partial<GuildChannelOptions>,
   ): Promise<GuildChannel> {
-    const data = await this.requests.send(EndpointRoute.Channel, { channelId }, HttpMethod.Patch, {
-      name: options.name,
-      type: options.type,
-      topic: options.topic,
-      nsfw: options.nsfw,
-      rate_limit_per_user: options.slowModeTimeout,
-      bitrate: options.bitrate,
-      user_limit: options.userLimit,
-    });
+    const channelData = await this.requests.send(
+      EndpointRoute.Channel,
+      { channelId },
+      HttpMethod.Patch,
+      {
+        name: options.name,
+        type: options.type,
+        topic: options.topic,
+        nsfw: options.nsfw,
+        rate_limit_per_user: options.slowModeTimeout,
+        bitrate: options.bitrate,
+        user_limit: options.userLimit,
+      },
+    );
 
-    return ChannelUtils.create(this.bot, data) as GuildChannel;
+    return ChannelUtils.create(this.bot, channelData) as GuildChannel;
   }
 
   /**
-   * Deletes a channel, or closes a private message. Requires the MANAGE_CHANNELS permission for the guild
+   * Deletes a {@link GuildChannel}, or closes a {@link DMChannel}. Requires the {@link Permission.ManageChannels} permission for the guild
    * @param {Snowflake} channelId The ID of the channel
    * @returns {Promise<Channel>}
    */
   public async deleteChannel(channelId: Snowflake): Promise<Channel> {
-    const data = await this.requests.send(EndpointRoute.Channel, { channelId }, HttpMethod.Delete);
+    const channelData = await this.requests.send(
+      EndpointRoute.Channel,
+      { channelId },
+      HttpMethod.Delete,
+    );
 
-    return ChannelUtils.create(this.bot, data) as Channel;
+    return ChannelUtils.create(this.bot, channelData) as Channel;
+  }
+
+  /**
+   * Post a message to a {@link GuildTextChannel} or {@link DMChannel}. If operating on a {@link GuildTextChannel}, this endpoint requires the {@link Permission.SendMessages} permission to be present on the current user. If the {@link MessageOptions.tts} field is set to true, the {@link Permission.SendTTSMessages} permission is required for the message to be spoken
+   * @param {Snowflake} channelId The ID of the channel to send the message in
+   * @param {string | Partial<MessageData> | MessageEmbed} data The message data.
+   * Can be:
+   * 1. Raw content to be sent as a message
+   * @example ```typescript
+   * channel.sendMessage('Hello World!');
+   * ```
+   * 2. A partial {@link MessageData} object, containing content and/or embed
+   * @example ```typescript
+   * channel.sendMessage({ content: 'Hello World!', embed: { title: 'My Embed!' } });
+   * ```
+   * 3. A {@link MessageEmbed} instance
+   * @param {Partial<MessageOptions>} options The message's options
+   * @returns {Promise<Message>}
+   */
+  public async sendMessage(
+    channelId: Snowflake,
+    data: string | Partial<MessageData> | MessageEmbed,
+    options?: Partial<MessageOptions>,
+  ): Promise<Message> {
+    // Default params to be sent in the request
+    const params: Params = { ...options };
+
+    if (typeof data === 'string') {
+      // The params should only include the raw content
+      params['content'] = data;
+    } else if (data instanceof MessageEmbed) {
+      // The params should only include the given embed structure
+      params['embed'] = data.structure;
+    } else {
+      // The params should include all given data fields
+      params['content'] = data.content;
+
+      if (data.embed) {
+        params['embed'] = MessageEmbed.dataToStructure(data.embed);
+      }
+    }
+
+    const messageData = await this.requests.send(
+      EndpointRoute.ChannelMessages,
+      { channelId },
+      HttpMethod.Post,
+      params,
+    );
+
+    // TODO: Fetch channel if does not exist
+    const channel = this.bot.channels.get(channelId)! as GuildTextChannel;
+
+    return new Message(this.bot, messageData, channel!);
   }
 }
 
