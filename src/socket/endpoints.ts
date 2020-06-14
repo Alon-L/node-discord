@@ -42,9 +42,15 @@ export const enum RateLimitHeaders {
 }
 
 /**
- * All error status codes that might be returned in response to an API request
+ * All status codes that might be returned in response to an API request
  */
-export const enum ErrorStatusCodes {
+export const enum StatusCode {
+  /**
+   * The request was successful
+   * @type {number}
+   */
+  OK = 200,
+
   /**
    * The token is no longer valid
    * @type {number}

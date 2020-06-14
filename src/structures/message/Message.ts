@@ -15,7 +15,7 @@ import Member from '../member/Member';
 /**
  * The type of a message
  */
-enum MessageTypes {
+enum MessageType {
   Default,
   RecipientAdd,
   RecipientRemove,
@@ -42,7 +42,7 @@ export interface PartialMessage {
 /**
  * Message activity types
  */
-export enum MessageActivityTypes {
+export enum MessageActivityType {
   Join = 1,
   Spectate,
   Listen,
@@ -56,7 +56,7 @@ export interface MessageActivity {
   /**
    * The type of the message activity
    */
-  type: MessageActivityTypes;
+  type: MessageActivityType;
 
   /**
    * The party_id from a Rich Presence event
@@ -213,7 +213,7 @@ class Message extends BaseStruct {
   /**
    * The type of the message
    */
-  public type!: MessageTypes;
+  public type!: MessageType;
 
   /**
    * Sent with Rich Presence-related chat embeds

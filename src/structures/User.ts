@@ -6,7 +6,7 @@ import { Snowflake } from '../types/types';
 /**
  * User nitro types
  */
-enum NitroTypes {
+enum NitroType {
   None,
   NitroClassic,
   Nitro,
@@ -69,9 +69,9 @@ class User extends BaseStruct {
   public email: string | null | undefined;
 
   /**
-   * {@link NitroTypes} object containing the type of nitro subscription on a user's account
+   * {@link NitroType} object containing the type of nitro subscription on a user's account
    */
-  public nitroType: NitroTypes | undefined;
+  public nitroType: NitroType | undefined;
 
   /**
    * The flags on a user's account

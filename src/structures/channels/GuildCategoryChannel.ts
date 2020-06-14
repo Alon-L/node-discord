@@ -3,7 +3,7 @@ import Cluster from '../../Cluster';
 import { Snowflake } from '../../types/types';
 
 /**
- * Represents a channel found in a guild of type {@link ChannelTypes.GuildCategory}
+ * Represents a channel found in a guild of type {@link ChannelType.GuildCategory}
 
  * @extends GuildChannel
  */
@@ -13,7 +13,7 @@ class GuildCategoryChannel extends GuildChannel {
    * @type {Cluster<Snowflake, GuildChannel>}
    */
   public get children(): Cluster<Snowflake, GuildChannel> {
-    return this.guild.channels.filter(c => c.category?.id === this.id);
+    return this.guild.channels.filter(c => c.parent?.id === this.id);
   }
 }
 

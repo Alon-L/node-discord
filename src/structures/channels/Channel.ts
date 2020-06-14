@@ -5,7 +5,7 @@ import Bot from '../bot/Bot';
 /**
  * The type of a channel
  */
-export enum ChannelTypes {
+export enum ChannelType {
   GuildText,
   DM,
   GuildVoice,
@@ -27,7 +27,7 @@ class Channel extends BaseStruct {
   /**
    * The type of this channel
    */
-  public type!: ChannelTypes;
+  public type!: ChannelType;
 
   constructor(bot: Bot, channel: GatewayStruct) {
     super(bot, channel);

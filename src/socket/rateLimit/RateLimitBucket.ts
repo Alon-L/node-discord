@@ -3,7 +3,7 @@ import RateLimitQueue from './RateLimitQueue';
 import { Params, Data } from './Requests';
 import Bot from '../../structures/bot/Bot';
 import APIRequest from '../APIRequest';
-import { EndpointRoute, ErrorStatusCodes, HttpMethod, RateLimitHeaders } from '../endpoints';
+import { EndpointRoute, StatusCode, HttpMethod, RateLimitHeaders } from '../endpoints';
 
 class RateLimitBucket {
   /**
@@ -93,8 +93,10 @@ class RateLimitBucket {
 
     const response = await apiRequest.send();
 
+    const json = await response.json();
+
     // Validates the response before proceeding
-    this.validateResponse(response);
+    this.validateResponse(response, json);
 
     // Sets the rate limit information given from the response's headers
     this.setLimits(response.headers);
@@ -119,19 +121,24 @@ class RateLimitBucket {
   /**
    * Validates the response. Throws an error in case it is not valid
    * @param {Response} response The response received from sending an API request
+   * @param {Data} json The parsed response in JSON
    */
-  private validateResponse(response: Response): void {
+  private validateResponse(response: Response, json: Data): void {
     switch (response.status) {
-      case ErrorStatusCodes.UnAuthorized:
+      case StatusCode.UnAuthorized:
         // TODO: disconnect all connected shards
         this.bot.connection.disconnect();
         throw new Error('Your Bot token is invalid! This connection has been terminated');
-      case ErrorStatusCodes.Forbidden:
+      case StatusCode.Forbidden:
         throw new Error(
           `The request to ${response.url} was rejected to to insufficient bot permissions`,
         );
-      case ErrorStatusCodes.TooManyRequests:
+      case StatusCode.TooManyRequests:
         throw new Error("You have reached Discord's API rate limit. Please slow down");
+    }
+
+    if (response.status !== StatusCode.OK && json.message) {
+      throw new Error(json.message.toString());
     }
   }
 

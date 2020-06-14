@@ -5,9 +5,9 @@ import BotCommandsHandler from './handlers/BotCommandsHandler';
 import { BotEventsHandler } from './handlers/events/BotEventsHandler';
 import Cluster from '../../Cluster';
 import { BotEvents } from '../../socket/constants';
-import { WebsocketOptions, CacheOptions, botOptions } from '../../socket/properties';
-import Requests from '../../socket/rateLimit/Requests';
+import { botOptions, CacheOptions, WebsocketOptions } from '../../socket/properties';
 import { ShardId, Snowflake } from '../../types/types';
+import BotAPI from '../BotAPI';
 import User from '../User';
 import DMChannel from '../channels/DMChannel';
 import Guild from '../guild/Guild';
@@ -43,6 +43,7 @@ export interface BotOptions {
   cache: CacheOptions;
 }
 
+// TODO: BotFetch
 /**
  * The bot is the main operator of the API.
  * It handles the events, and properties for all structures.
@@ -64,9 +65,9 @@ class Bot {
   public readonly shardOptions: ShardOptions;
 
   /**
-   * Manages all outgoing API requests
+   * Creates all outgoing API requests
    */
-  public requests: Requests;
+  public readonly api: BotAPI;
 
   /**
    * Responsible for handling all of the Bot's commands
@@ -122,7 +123,7 @@ class Bot {
       ...options,
     };
 
-    this.requests = new Requests(this, this.token);
+    this.api = new BotAPI(this, this.token);
 
     // Sets bot sharding data
     const shardId = Number(process.env.SHARD_ID);
@@ -149,6 +150,15 @@ class Bot {
     this.users = new Cluster<Snowflake, User>();
   }
 
+  /**
+   * Sends debug messages to the {@link BotEvents.Debug} event
+   * @example ```typescript
+   * bot.on(BotEvents.Debug, console.log);
+   *
+   * bot.debug('Hello World!'); // 'Hello World'
+   * ```
+   * @param {...unknown[]} messages The debug messages
+   */
   public debug(...messages: unknown[]): void {
     this.events.emit(BotEvents.Debug, ...messages);
   }

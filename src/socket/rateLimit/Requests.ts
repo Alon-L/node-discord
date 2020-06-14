@@ -15,7 +15,7 @@ export type BucketIndex = string;
 /**
  * Dictionary type for request Params and Body
  */
-export type Data = Record<string, Serializable>;
+export type Data = Record<string, Serializable | undefined | null>;
 
 /**
  * The request's Body type
@@ -75,7 +75,7 @@ class Requests {
     route: T,
     routeArgs: RouteArgs,
     method: HttpMethod,
-    params: Params,
+    params?: Params,
   ): Promise<Data> {
     // Retrieve the major params of this request
     const majorParams = this.getMajorParams(routeArgs);

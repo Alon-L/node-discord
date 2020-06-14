@@ -1,6 +1,6 @@
 import { GatewayStruct } from '../structures/BaseStruct';
 import Bot from '../structures/bot/Bot';
-import Channel, { ChannelTypes } from '../structures/channels/Channel';
+import Channel, { ChannelType } from '../structures/channels/Channel';
 import DMChannel from '../structures/channels/DMChannel';
 import GuildCategoryChannel from '../structures/channels/GuildCategoryChannel';
 import GuildChannel from '../structures/channels/GuildChannel';
@@ -25,14 +25,14 @@ class ChannelUtils {
 
     const guild = guild_ || bot.guilds.get(data.guild_id)!;
 
-    switch (data.type as ChannelTypes) {
-      case ChannelTypes.GuildText:
+    switch (data.type as ChannelType) {
+      case ChannelType.GuildText:
         channel = new GuildTextChannel(bot, data, guild);
         break;
-      case ChannelTypes.DM:
+      case ChannelType.DM:
         channel = new DMChannel(bot, data);
         break;
-      case ChannelTypes.GuildCategory:
+      case ChannelType.GuildCategory:
         channel = new GuildCategoryChannel(bot, data, guild);
         break;
       default:

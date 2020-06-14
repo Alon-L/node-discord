@@ -6,7 +6,7 @@ import Timestamp from '../Timestamp';
 /**
  * Embed types are "loosely defined" and, for the most part, are not used by our clients for rendering. Embed attributes power what is rendered. Embed types should be considered deprecated and might be removed in a future API version.
  */
-export enum MessageEmbedTypes {
+export enum MessageEmbedType {
   Rich = 'rich',
   Image = 'image',
   Video = 'video',
@@ -168,7 +168,7 @@ class MessageEmbed extends BaseStruct {
   /**
    * Type of this embed (always "rich" for webhook embeds)
    */
-  public type: MessageEmbedTypes | undefined;
+  public type: MessageEmbedType | undefined;
 
   /**
    * Description of this embed
