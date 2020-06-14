@@ -155,6 +155,7 @@ class BotSocketShard {
       // Create new Inflate context
       this.zlib = new zlib.Inflate({
         chunkSize: 128 * 1024,
+        windowBits: 32,
       });
     } catch (err) {
       // Do not use data compressing
@@ -214,10 +215,10 @@ class BotSocketShard {
       return;
     }
 
-    this.zlib.push(message, zlib?.Z_SYNC_FLUSH);
+    this.zlib.push(message, zlib?.Z_SYNC_FLUSH || false);
 
     if (this.zlib.err) {
-      this.bot.debug(this.zlib.err, 'Zlib Error');
+      this.bot.debug(`Zlib error: ${this.zlib.err} - ${this.zlib.msg}`);
       return;
     }
 
