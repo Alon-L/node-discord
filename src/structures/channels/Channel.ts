@@ -46,6 +46,14 @@ class Channel extends BaseStruct {
 
     return this;
   }
+
+  /**
+   * Delete a channel, or close a private message. Requires the MANAGE_CHANNELS permission for the guild
+   * @returns {Promise<Channel>}
+   */
+  public delete(): Promise<Channel> {
+    return this.bot.api.deleteChannel(this.id);
+  }
 }
 
 export default Channel;

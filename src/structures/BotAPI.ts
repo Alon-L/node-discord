@@ -1,4 +1,5 @@
 import Bot from './bot/Bot';
+import Channel from './channels/Channel';
 import GuildChannel, { GuildChannelOptions } from './channels/GuildChannel';
 import { EndpointRoute, HttpMethod } from '../socket/endpoints';
 import Requests from '../socket/rateLimit/Requests';
@@ -32,12 +33,12 @@ class BotAPI {
   }
 
   /**
-   * Update a channel's settings. Requires the `MANAGE_CHANNELS` permission for the guild
+   * Updates a guild channel's settings. Requires the `MANAGE_CHANNELS` permission for the guild
    * @param {Snowflake} channelId The ID of the modified channel
    * @param {Partial<GuildChannelOptions>} options The modified channel's settings
    * @returns {Promise<GuildChannel>}
    */
-  public async modifyChannel(
+  public async modifyGuildChannel(
     channelId: Snowflake,
     options: Partial<GuildChannelOptions>,
   ): Promise<GuildChannel> {
@@ -52,6 +53,17 @@ class BotAPI {
     });
 
     return ChannelUtils.create(this.bot, data) as GuildChannel;
+  }
+
+  /**
+   * Deletes a channel, or closes a private message. Requires the MANAGE_CHANNELS permission for the guild
+   * @param {Snowflake} channelId The ID of the channel
+   * @returns {Promise<Channel>}
+   */
+  public async deleteChannel(channelId: Snowflake): Promise<Channel> {
+    const data = await this.requests.send(EndpointRoute.Channel, { channelId }, HttpMethod.Delete);
+
+    return ChannelUtils.create(this.bot, data) as Channel;
   }
 }
 
