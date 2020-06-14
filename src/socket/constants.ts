@@ -305,6 +305,18 @@ export const enum GuildFeatures {
 }
 
 /**
+ * All possible avatar image formats
+ * https://discord.com/developers/docs/reference#image-formatting-image-formats
+ */
+export const enum AvatarFormat {
+  JPEG = 'jpeg',
+  JPG = 'jpg',
+  PNG = 'png',
+  WebP = 'webp',
+  GIF = 'gif',
+}
+
+/**
  * https://discordapp.com/developers/docs/topics/opcodes-and-status-codes#gateway-gateway-close-event-codes
  */
 export const enum GatewayCloseCodes {

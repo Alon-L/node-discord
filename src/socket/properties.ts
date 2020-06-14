@@ -13,6 +13,13 @@ export const version = 6;
 export const baseURL = `https://discord.com/api/v${version}`;
 
 /**
+ * The base URL for Discord API images
+ * https://discord.com/developers/docs/reference#image-formatting-image-base-url
+ * @type {string}
+ */
+export const cdnBaseURL = 'https://cdn.discordapp.com';
+
+/**
  * Bot cache options
  */
 export interface CacheOptions {

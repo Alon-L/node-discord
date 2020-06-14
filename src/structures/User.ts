@@ -1,6 +1,8 @@
+import Avatar from './Avatar';
 import BaseStruct, { GatewayStruct } from './BaseStruct';
 import Bot from './bot/Bot';
 import UserFlags from './flags/UserFlags';
+import { AvatarFormat } from '../socket/constants';
 import { Snowflake } from '../types/types';
 
 /**
@@ -36,7 +38,7 @@ class User extends BaseStruct {
   /**
    * User's avatar image. Possibly null if user does not have an avatar image
    */
-  public avatar!: string | null;
+  public avatarHash!: string | null;
 
   /**
    * Whether the user is a bot
@@ -98,7 +100,7 @@ class User extends BaseStruct {
     this.id = user.id;
     this.username = user.username;
     this.hashtag = user.discriminator;
-    this.avatar = user.avatar;
+    this.avatarHash = user.avatar;
     this.isBot = user.bot;
     this.system = user.system;
     this.mfaEnabled = user.mfa_enabled;
@@ -116,6 +118,17 @@ class User extends BaseStruct {
     }
 
     return this;
+  }
+
+  /**
+   * Returns a user's avatar URL. Returns the default user avatar if the user does not have an avatar.
+   * *Note: the default user avatar only supports type {@link AvatarFormat.PNG}*
+   * @param {AvatarFormat} format The avatar image format
+   * @param {number} size The avatar image size
+   * @returns {string}
+   */
+  public avatarURL(format: AvatarFormat = AvatarFormat.PNG, size?: number): string {
+    return Avatar.userURL(this.avatarHash, this.id, this.hashtag, format, size);
   }
 
   /**
