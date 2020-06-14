@@ -98,6 +98,7 @@ class ChannelUtils {
    */
   public static cache(bot: Bot, channel: Channel, force = false): void {
     if (channel instanceof GuildChannel) {
+      bot.channels.set(channel.id, channel);
       channel.guild.channels.set(channel.id, channel);
     } else if (channel instanceof DMChannel) {
       if (force || !bot.dms.has(channel.id)) {
