@@ -4,8 +4,6 @@ import { Snowflake } from '../../types/types';
 
 /**
  * Represents a channel found in a guild of type {@link ChannelType.GuildCategory}
-
- * @extends GuildChannel
  */
 class GuildCategoryChannel extends GuildChannel {
   /**
