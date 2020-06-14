@@ -27,7 +27,7 @@ class BaseStruct {
    * The gateway structure that initialized this instance
    * @ignore
    */
-  private readonly structure: GatewayStruct;
+  public readonly structure: GatewayStruct;
 
   constructor(bot: Bot, structure: GatewayStruct) {
     this.bot = bot;
