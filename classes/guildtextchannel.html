@@ -67,13 +67,8 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Represents a channel found in a guild of type <a href="../enums/channeltypes.html#guildtext">ChannelTypes.GuildText</a></p>
+						<p>Represents a channel found in a guild of type <a href="../enums/channeltype.html#guildtext">ChannelType.GuildText</a></p>
 					</div>
-					<dl class="tsd-comment-tags">
-						<dt>implements</dt>
-						<dd><p>{TextChannel}</p>
-						</dd>
-					</dl>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -109,7 +104,6 @@
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="guildtextchannel.html#bot" class="tsd-kind-icon">bot</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="guildtextchannel.html#category" class="tsd-kind-icon">category</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="guildtextchannel.html#guild" class="tsd-kind-icon">guild</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="guildtextchannel.html#id" class="tsd-kind-icon">id</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="guildtextchannel.html#lastmessageid" class="tsd-kind-icon">last<wbr>Message<wbr>Id</a></li>
@@ -124,9 +118,18 @@
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-inherited">
+							<h3>Accessors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited"><a href="guildtextchannel.html#parent" class="tsd-kind-icon">parent</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="guildtextchannel.html#clone" class="tsd-kind-icon">clone</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="guildtextchannel.html#delete" class="tsd-kind-icon">delete</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="guildtextchannel.html#modify" class="tsd-kind-icon">modify</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="guildtextchannel.html#sendmessage" class="tsd-kind-icon">send<wbr>Message</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="guildtextchannel.html#update" class="tsd-kind-icon">update</a></li>
 							</ul>
 						</section>
@@ -146,7 +149,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="guildchannel.html">GuildChannel</a>.<a href="guildchannel.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f7bd013/src/structures/channels/GuildTextChannel.ts#L42">src/structures/channels/GuildTextChannel.ts:42</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/0568faf/src/structures/channels/GuildTextChannel.ts#L40">src/structures/channels/GuildTextChannel.ts:40</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -175,29 +178,12 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="guildunavailable.html">GuildUnavailable</a>.<a href="guildunavailable.html#bot">bot</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f7bd013/src/structures/BaseStruct.ts#L24">src/structures/BaseStruct.ts:24</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/0568faf/src/structures/BaseStruct.ts#L24">src/structures/BaseStruct.ts:24</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>The <a href="bot.html">Bot</a> operating this structure</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-					<a name="category" class="tsd-anchor"></a>
-					<h3>category</h3>
-					<div class="tsd-signature tsd-kind-icon">category<span class="tsd-signature-symbol">:</span> <a href="guildcategorychannel.html" class="tsd-signature-type">GuildCategoryChannel</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="guildtextchannel.html">GuildTextChannel</a>.<a href="guildtextchannel.html#category">category</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f7bd013/src/structures/channels/GuildChannel.ts#L36">src/structures/channels/GuildChannel.ts:36</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Parent <a href="guildcategorychannel.html">GuildCategoryChannel</a> of this channel.
-							Possibly undefined if this channel does not have a parent category channel, or the category is not cached</p>
 						</div>
 					</div>
 				</section>
@@ -208,7 +194,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="guildtextchannel.html">GuildTextChannel</a>.<a href="guildtextchannel.html#guild">guild</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f7bd013/src/structures/channels/GuildChannel.ts#L14">src/structures/channels/GuildChannel.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/0568faf/src/structures/channels/GuildChannel.ts#L25">src/structures/channels/GuildChannel.ts:25</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -224,7 +210,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="guildtextchannel.html">GuildTextChannel</a>.<a href="guildtextchannel.html#id">id</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f7bd013/src/structures/channels/Channel.ts#L25">src/structures/channels/Channel.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/0568faf/src/structures/channels/Channel.ts#L25">src/structures/channels/Channel.ts:25</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -239,7 +225,7 @@
 					<div class="tsd-signature tsd-kind-icon">last<wbr>Message<wbr>Id<span class="tsd-signature-symbol">:</span> <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f7bd013/src/structures/channels/GuildTextChannel.ts#L27">src/structures/channels/GuildTextChannel.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/0568faf/src/structures/channels/GuildTextChannel.ts#L25">src/structures/channels/GuildTextChannel.ts:25</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -255,7 +241,7 @@
 					<div class="tsd-signature tsd-kind-icon">last<wbr>Pin<wbr>Timestamp<span class="tsd-signature-symbol">:</span> <a href="timestamp.html" class="tsd-signature-type">Timestamp</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f7bd013/src/structures/channels/GuildTextChannel.ts#L37">src/structures/channels/GuildTextChannel.ts:37</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/0568faf/src/structures/channels/GuildTextChannel.ts#L35">src/structures/channels/GuildTextChannel.ts:35</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -270,7 +256,7 @@
 					<div class="tsd-signature tsd-kind-icon">messages<span class="tsd-signature-symbol">:</span> <a href="cluster.html" class="tsd-signature-type">Cluster</a><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol">, </span><a href="message.html" class="tsd-signature-type">Message</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f7bd013/src/structures/channels/GuildTextChannel.ts#L42">src/structures/channels/GuildTextChannel.ts:42</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/0568faf/src/structures/channels/GuildTextChannel.ts#L40">src/structures/channels/GuildTextChannel.ts:40</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -286,7 +272,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="guildtextchannel.html">GuildTextChannel</a>.<a href="guildtextchannel.html#name">name</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f7bd013/src/structures/channels/GuildChannel.ts#L24">src/structures/channels/GuildChannel.ts:24</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/0568faf/src/structures/channels/GuildChannel.ts#L35">src/structures/channels/GuildChannel.ts:35</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -301,7 +287,7 @@
 					<div class="tsd-signature tsd-kind-icon">nsfw<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f7bd013/src/structures/channels/GuildTextChannel.ts#L21">src/structures/channels/GuildTextChannel.ts:21</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/0568faf/src/structures/channels/GuildTextChannel.ts#L19">src/structures/channels/GuildTextChannel.ts:19</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -317,7 +303,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="guildtextchannel.html">GuildTextChannel</a>.<a href="guildtextchannel.html#position">position</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f7bd013/src/structures/channels/GuildChannel.ts#L19">src/structures/channels/GuildChannel.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/0568faf/src/structures/channels/GuildChannel.ts#L30">src/structures/channels/GuildChannel.ts:30</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -332,7 +318,7 @@
 					<div class="tsd-signature tsd-kind-icon">slow<wbr>Mode<wbr>Timeout<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f7bd013/src/structures/channels/GuildTextChannel.ts#L32">src/structures/channels/GuildTextChannel.ts:32</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/0568faf/src/structures/channels/GuildTextChannel.ts#L30">src/structures/channels/GuildTextChannel.ts:30</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -348,7 +334,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="guildtextchannel.html">GuildTextChannel</a>.<a href="guildtextchannel.html#topic">topic</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f7bd013/src/structures/channels/GuildChannel.ts#L30">src/structures/channels/GuildChannel.ts:30</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/0568faf/src/structures/channels/GuildChannel.ts#L41">src/structures/channels/GuildChannel.ts:41</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -361,11 +347,11 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="type" class="tsd-anchor"></a>
 					<h3>type</h3>
-					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <a href="../enums/channeltypes.html" class="tsd-signature-type">ChannelTypes</a></div>
+					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <a href="../enums/channeltype.html" class="tsd-signature-type">ChannelType</a></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="guildtextchannel.html">GuildTextChannel</a>.<a href="guildtextchannel.html#type">type</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f7bd013/src/structures/channels/Channel.ts#L30">src/structures/channels/Channel.ts:30</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/0568faf/src/structures/channels/Channel.ts#L30">src/structures/channels/Channel.ts:30</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -376,6 +362,33 @@
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
+				<h2>Accessors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
+					<a name="parent" class="tsd-anchor"></a>
+					<h3>parent</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> parent<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="guildcategorychannel.html" class="tsd-signature-type">GuildCategoryChannel</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="guildtextchannel.html">GuildTextChannel</a>.<a href="guildtextchannel.html#parent">parent</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/0568faf/src/structures/channels/GuildChannel.ts#L75">src/structures/channels/GuildChannel.ts:75</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Parent <a href="guildcategorychannel.html">GuildCategoryChannel</a> of this channel.
+									Possibly null if this channel does not have a parent category channel, or the category is not cached</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="guildcategorychannel.html" class="tsd-signature-type">GuildCategoryChannel</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="clone" class="tsd-anchor"></a>
@@ -388,7 +401,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="guildunavailable.html">GuildUnavailable</a>.<a href="guildunavailable.html#clone">clone</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f7bd013/src/structures/BaseStruct.ts#L51">src/structures/BaseStruct.ts:51</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/0568faf/src/structures/BaseStruct.ts#L51">src/structures/BaseStruct.ts:51</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -397,6 +410,113 @@
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="delete" class="tsd-anchor"></a>
+					<h3>delete</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">delete<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="channel.html" class="tsd-signature-type">Channel</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="guildtextchannel.html">GuildTextChannel</a>.<a href="guildtextchannel.html#delete">delete</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/0568faf/src/structures/channels/Channel.ts#L54">src/structures/channels/Channel.ts:54</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Delete a channel, or close a private message. Requires the MANAGE_CHANNELS permission for the guild</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="channel.html" class="tsd-signature-type">Channel</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="modify" class="tsd-anchor"></a>
+					<h3>modify</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">modify<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/guildchanneloptions.html" class="tsd-signature-type">GuildChannelOptions</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="guildtextchannel.html">GuildTextChannel</a>.<a href="guildtextchannel.html#modify">modify</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/0568faf/src/structures/channels/GuildChannel.ts#L88">src/structures/channels/GuildChannel.ts:88</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Update a channel&#39;s settings. Requires the <code>MANAGE_CHANNELS</code> permission for the guild.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>options: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/guildchanneloptions.html" class="tsd-signature-type">GuildChannelOptions</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The modified channel&#39;s settings</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="sendmessage" class="tsd-anchor"></a>
+					<h3>send<wbr>Message</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">send<wbr>Message<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/messagedata.html" class="tsd-signature-type">MessageData</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="messageembed.html" class="tsd-signature-type">MessageEmbed</a>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/messageoptions.html" class="tsd-signature-type">MessageOptions</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="message.html" class="tsd-signature-type">Message</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/0568faf/src/structures/channels/GuildTextChannel.ts#L81">src/structures/channels/GuildTextChannel.ts:81</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Post a message to a <a href="guildtextchannel.html">GuildTextChannel</a> or <a href="dmchannel.html">DMChannel</a>. If operating on a <a href="guildtextchannel.html">GuildTextChannel</a>, this endpoint requires the <a href="../enums/permission.html#sendmessages">Permission.SendMessages</a> permission to be present on the current user. If the <a href="../interfaces/messageoptions.html#tts">MessageOptions.tts</a> field is set to true, the <a href="../enums/permission.html#sendttsmessages">Permission.SendTTSMessages</a> permission is required for the message to be spoken</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-typescript">channel.sendMessage(<span class="hljs-string">'Hello World!'</span>);</code></pre>
+										<ol start="2">
+											<li>A partial <a href="../interfaces/messagedata.html">MessageData</a> object, containing content and/or embed
+												@example <code>typescript
+channel.sendMessage({ content: &#39;Hello World!&#39;, embed: { title: &#39;My Embed!&#39; } });</code></li>
+											<li>A <a href="messageembed.html">MessageEmbed</a> instance</li>
+										</ol>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>data: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/messagedata.html" class="tsd-signature-type">MessageData</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="messageembed.html" class="tsd-signature-type">MessageEmbed</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The message data.
+										Can be:</p>
+										<ol>
+											<li>Raw content to be sent as a message</li>
+										</ol>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/messageoptions.html" class="tsd-signature-type">MessageOptions</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The message&#39;s options</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="message.html" class="tsd-signature-type">Message</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -411,7 +531,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="guildunavailable.html">GuildUnavailable</a>.<a href="guildunavailable.html#update">update</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f7bd013/src/structures/BaseStruct.ts#L60">src/structures/BaseStruct.ts:60</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/0568faf/src/structures/BaseStruct.ts#L60">src/structures/BaseStruct.ts:60</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -456,9 +576,6 @@
 								<a href="guildtextchannel.html#bot" class="tsd-kind-icon">bot</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="guildtextchannel.html#category" class="tsd-kind-icon">category</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="guildtextchannel.html#guild" class="tsd-kind-icon">guild</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
@@ -491,8 +608,20 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="guildtextchannel.html#type" class="tsd-kind-icon">type</a>
 							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
+								<a href="guildtextchannel.html#parent" class="tsd-kind-icon">parent</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="guildtextchannel.html#clone" class="tsd-kind-icon">clone</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="guildtextchannel.html#delete" class="tsd-kind-icon">delete</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="guildtextchannel.html#modify" class="tsd-kind-icon">modify</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="guildtextchannel.html#sendmessage" class="tsd-kind-icon">send<wbr>Message</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="guildtextchannel.html#update" class="tsd-kind-icon">update</a>
