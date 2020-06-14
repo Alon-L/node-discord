@@ -101,7 +101,7 @@ class RateLimitBucket {
     // Sets the rate limit information given from the response's headers
     this.setLimits(response.headers);
 
-    return response.json();
+    return json;
   }
 
   /**
