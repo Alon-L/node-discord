@@ -2,7 +2,6 @@
  * Clusters serve as data holders throughout the library.
  * They are a combination of JavaScript Maps and Arrays with the
  * ability to hold large amount of data.
- * @extends Map
  * @template K, V
  */
 class Cluster<K, V> extends Map<K, V> {
