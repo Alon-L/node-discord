@@ -86,7 +86,8 @@ class Emoji extends BaseStruct {
   }
 
   public get identifier(): string | null {
-    return this.id || this.name;
+    if (this.id) return `${this.animated ? 'a:' : ''}${this.name}:${this.id}`;
+    return this.name;
   }
 }
 
