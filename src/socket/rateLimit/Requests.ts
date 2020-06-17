@@ -76,7 +76,7 @@ class Requests {
     routeArgs: RouteArgs,
     method: HttpMethod,
     params?: Params,
-  ): Promise<Data> {
+  ): Promise<Data | undefined> {
     // Retrieve the major params of this request
     const majorParams = this.getMajorParams(routeArgs);
 
