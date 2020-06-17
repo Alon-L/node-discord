@@ -3,7 +3,7 @@ import RateLimitQueue from './RateLimitQueue';
 import { Params, Data } from './Requests';
 import Bot from '../../structures/bot/Bot';
 import APIRequest from '../APIRequest';
-import { EndpointRoute, StatusCode, HttpMethod, RateLimitHeaders } from '../endpoints';
+import { EndpointRoute, StatusCode, HttpMethod, RateLimitHeaders, ValidCodes } from '../endpoints';
 
 class RateLimitBucket {
   /**
@@ -73,7 +73,7 @@ class RateLimitBucket {
    * @param {Params} params The request params / body
    * @returns {Promise<Data>}
    */
-  public async send(endpoint: string, params: Params): Promise<Data> {
+  public async send(endpoint: string, params: Params): Promise<Data | undefined> {
     // The rate limit is reached. Add request to the queue
     if (this.remaining !== undefined && this.remaining <= 0) {
       this.bot.debug(
@@ -93,7 +93,7 @@ class RateLimitBucket {
 
     const response = await apiRequest.send();
 
-    const json = await response.json();
+    const json = response.status !== StatusCode.NoContent && (await response.json());
 
     // Validates the response before proceeding
     this.validateResponse(response, json);
@@ -137,7 +137,7 @@ class RateLimitBucket {
         throw new Error("You have reached Discord's API rate limit. Please slow down");
     }
 
-    if (response.status !== StatusCode.OK && json.message) {
+    if (!ValidCodes.includes(response.status) && json.message) {
       throw new Error(json.message.toString());
     }
   }
