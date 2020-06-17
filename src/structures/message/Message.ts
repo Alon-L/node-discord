@@ -355,6 +355,15 @@ class Message extends BaseStruct {
 
     return this;
   }
+
+  /**
+   * Create a reaction for a message. This method requires the {@link Permission.ReadMessageHistory} permission to be present on the Bot. Additionally, if nobody else has reacted to the message using this emoji, this method requires the {@link Permission.AddReactions} permission to be present on the Bot.
+   * @param {string} emoji The emoji to react to this message with
+   * @returns {Promise<void>}
+   */
+  public react(emoji: string): Promise<void> {
+    return this.bot.api.reactMessage(this.channel.id, this.id, emoji);
+  }
 }
 
 export default Message;

@@ -60,7 +60,7 @@ class BotAPI {
       },
     );
 
-    return ChannelUtils.create(this.bot, channelData) as GuildChannel;
+    return ChannelUtils.create(this.bot, channelData!) as GuildChannel;
   }
 
   /**
@@ -75,11 +75,12 @@ class BotAPI {
       HttpMethod.Delete,
     );
 
-    return ChannelUtils.create(this.bot, channelData) as Channel;
+    return ChannelUtils.create(this.bot, channelData!) as Channel;
   }
 
+  // TODO: Add the ability to send files and attachments
   /**
-   * Post a message to a {@link GuildTextChannel} or {@link DMChannel}. If operating on a {@link GuildTextChannel}, this endpoint requires the {@link Permission.SendMessages} permission to be present on the current user. If the {@link MessageOptions.tts} field is set to true, the {@link Permission.SendTTSMessages} permission is required for the message to be spoken
+   * Post a message to a {@link GuildTextChannel} or {@link DMChannel}. If operating on a {@link GuildTextChannel}, this method requires the {@link Permission.SendMessages} permission to be present on the current user. If the {@link MessageOptions.tts} field is set to true, the {@link Permission.SendTTSMessages} permission is required for the message to be spoken
    * @param {Snowflake} channelId The ID of the channel to send the message in
    * @param {string | Partial<MessageData> | MessageEmbed} data The message data.
    * Can be:
@@ -128,7 +129,26 @@ class BotAPI {
     // TODO: Fetch channel if does not exist
     const channel = this.bot.channels.get(channelId)! as GuildTextChannel;
 
-    return new Message(this.bot, messageData, channel!);
+    return new Message(this.bot, messageData!, channel);
+  }
+
+  /**
+   * Create a reaction for a message. This method requires the {@link Permission.ReadMessageHistory} permission to be present on the Bot. Additionally, if nobody else has reacted to the message using this emoji, this method requires the {@link Permission.AddReactions} permission to be present on the Bot.
+   * @param {Snowflake} channelId The ID of the channel containing the message
+   * @param {Snowflake} messageId The ID of the message to react to
+   * @param {string} emoji The emoji to react with to the message
+   * @returns {Promise<void>}
+   */
+  public async reactMessage(
+    channelId: Snowflake,
+    messageId: Snowflake,
+    emoji: string,
+  ): Promise<void> {
+    await this.requests.send(
+      EndpointRoute.ChannelMessagesReactionsEmoji,
+      { channelId, messageId, emoji: encodeURI(emoji) },
+      HttpMethod.Put,
+    );
   }
 }
 
