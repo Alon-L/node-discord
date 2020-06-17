@@ -92,8 +92,10 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botapi.html#addmessagereaction" class="tsd-kind-icon">add<wbr>Message<wbr>Reaction</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botapi.html#deletechannel" class="tsd-kind-icon">delete<wbr>Channel</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botapi.html#modifyguildchannel" class="tsd-kind-icon">modify<wbr>Guild<wbr>Channel</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botapi.html#removemessagereaction" class="tsd-kind-icon">remove<wbr>Message<wbr>Reaction</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botapi.html#sendmessage" class="tsd-kind-icon">send<wbr>Message</a></li>
 							</ul>
 						</section>
@@ -112,7 +114,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/0568faf/src/structures/BotAPI.ts#L29">src/structures/BotAPI.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/dbbfe7f/src/structures/BotAPI.ts#L29">src/structures/BotAPI.ts:29</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -132,6 +134,49 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="addmessagereaction" class="tsd-anchor"></a>
+					<h3>add<wbr>Message<wbr>Reaction</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Message<wbr>Reaction<span class="tsd-signature-symbol">(</span>channelId<span class="tsd-signature-symbol">: </span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a>, messageId<span class="tsd-signature-symbol">: </span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a>, emoji<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/dbbfe7f/src/structures/BotAPI.ts#L142">src/structures/BotAPI.ts:142</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Create a reaction for a message. This method requires the <a href="../enums/permission.html#readmessagehistory">Permission.ReadMessageHistory</a> permission to be present on the Bot. Additionally, if nobody else has reacted to the message using this emoji, this method requires the <a href="../enums/permission.html#addreactions">Permission.AddReactions</a> permission to be present on the Bot.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>channelId: <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The ID of the channel containing the message</p>
+									</div>
+								</li>
+								<li>
+									<h5>messageId: <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The ID of the message to react to</p>
+									</div>
+								</li>
+								<li>
+									<h5>emoji: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The emoji to react with to the message</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="deletechannel" class="tsd-anchor"></a>
 					<h3>delete<wbr>Channel</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -141,7 +186,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/0568faf/src/structures/BotAPI.ts#L71">src/structures/BotAPI.ts:71</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/dbbfe7f/src/structures/BotAPI.ts#L71">src/structures/BotAPI.ts:71</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -172,7 +217,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/0568faf/src/structures/BotAPI.ts#L44">src/structures/BotAPI.ts:44</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/dbbfe7f/src/structures/BotAPI.ts#L44">src/structures/BotAPI.ts:44</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -200,6 +245,56 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="removemessagereaction" class="tsd-anchor"></a>
+					<h3>remove<wbr>Message<wbr>Reaction</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">remove<wbr>Message<wbr>Reaction<span class="tsd-signature-symbol">(</span>channelId<span class="tsd-signature-symbol">: </span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a>, messageId<span class="tsd-signature-symbol">: </span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a>, emoji<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, userId<span class="tsd-signature-symbol">?: </span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/dbbfe7f/src/structures/BotAPI.ts#L163">src/structures/BotAPI.ts:163</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Deletes a reaction this Bot has made for the message.
+									If no <code>userId</code> argument was provided, the Bot will remove its own reaction.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>channelId: <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The ID of the channel containing the message</p>
+									</div>
+								</li>
+								<li>
+									<h5>messageId: <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The ID of the message to react to</p>
+									</div>
+								</li>
+								<li>
+									<h5>emoji: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The emoji to delete from the message</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> userId: <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol"> = &quot;@me&quot;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The ID of the user of which reaction should be removed</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="sendmessage" class="tsd-anchor"></a>
 					<h3>send<wbr>Message</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -209,12 +304,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/0568faf/src/structures/BotAPI.ts#L98">src/structures/BotAPI.ts:98</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/dbbfe7f/src/structures/BotAPI.ts#L99">src/structures/BotAPI.ts:99</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Post a message to a <a href="guildtextchannel.html">GuildTextChannel</a> or <a href="dmchannel.html">DMChannel</a>. If operating on a <a href="guildtextchannel.html">GuildTextChannel</a>, this endpoint requires the <a href="../enums/permission.html#sendmessages">Permission.SendMessages</a> permission to be present on the current user. If the <a href="../interfaces/messageoptions.html#tts">MessageOptions.tts</a> field is set to true, the <a href="../enums/permission.html#sendttsmessages">Permission.SendTTSMessages</a> permission is required for the message to be spoken</p>
+									<p>Post a message to a <a href="guildtextchannel.html">GuildTextChannel</a> or <a href="dmchannel.html">DMChannel</a>. If operating on a <a href="guildtextchannel.html">GuildTextChannel</a>, this method requires the <a href="../enums/permission.html#sendmessages">Permission.SendMessages</a> permission to be present on the current user. If the <a href="../interfaces/messageoptions.html#tts">MessageOptions.tts</a> field is set to true, the <a href="../enums/permission.html#sendttsmessages">Permission.SendTTSMessages</a> permission is required for the message to be spoken</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
@@ -278,10 +373,16 @@ channel.sendMessage({ content: &#39;Hello World!&#39;, embed: { title: &#39;My E
 								<a href="botapi.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="botapi.html#addmessagereaction" class="tsd-kind-icon">add<wbr>Message<wbr>Reaction</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="botapi.html#deletechannel" class="tsd-kind-icon">delete<wbr>Channel</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="botapi.html#modifyguildchannel" class="tsd-kind-icon">modify<wbr>Guild<wbr>Channel</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="botapi.html#removemessagereaction" class="tsd-kind-icon">remove<wbr>Message<wbr>Reaction</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="botapi.html#sendmessage" class="tsd-kind-icon">send<wbr>Message</a>
