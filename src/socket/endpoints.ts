@@ -6,8 +6,9 @@ import { Snowflake } from '../types/types';
  */
 export const enum EndpointRoute {
   Channel = 'CHANNEL',
-  ChannelMessages = 'CHANNEL_MESSAGES',
-  ChannelMessagesReactionsEmoji = 'CHANNEL_MESSAGES_REACTIONS_EMOJI',
+  ChannelMessage = 'CHANNEL_MESSAGE',
+  ChannelMessageReaction = 'CHANNEL_MESSAGE_REACTION',
+  ChannelMessageReactionEmoji = 'CHANNEL_MESSAGE_REACTION_EMOJI',
 }
 
 /**
@@ -27,8 +28,10 @@ export const enum HttpMethod {
  */
 export const Endpoints: Record<EndpointRoute, (...args: string[]) => string> = {
   [EndpointRoute.Channel]: (channelId: Snowflake) => `/channels/${channelId}`,
-  [EndpointRoute.ChannelMessages]: (channelId: Snowflake) => `/channels/${channelId}/messages`,
-  [EndpointRoute.ChannelMessagesReactionsEmoji]: (
+  [EndpointRoute.ChannelMessage]: (channelId: Snowflake) => `/channels/${channelId}/messages`,
+  [EndpointRoute.ChannelMessageReaction]: (channelId: Snowflake, messageId: Snowflake) =>
+    `/channels/${channelId}/messages/${messageId}/reactions`,
+  [EndpointRoute.ChannelMessageReactionEmoji]: (
     channelId: Snowflake,
     messageId: Snowflake,
     emoji: string,

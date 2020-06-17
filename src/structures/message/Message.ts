@@ -375,6 +375,14 @@ class Message extends BaseStruct {
   public removeReaction(emoji: string, userId: Snowflake = '@me'): Promise<void> {
     return this.bot.api.removeMessageReaction(this.channel.id, this.id, emoji, userId);
   }
+
+  /**
+   * Removes all reactions on a message. This method requires the {@link Permission.ManageMessages} permission to be present on the Bot
+   * @returns {Promise<void>}
+   */
+  public removeReactions(): Promise<void> {
+    return this.bot.api.removeMessageReactions(this.channel.id, this.id);
+  }
 }
 
 export default Message;

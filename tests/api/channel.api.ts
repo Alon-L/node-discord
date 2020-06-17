@@ -35,8 +35,11 @@ bot.connection.connect();
     );
 
     await message.addReaction('✅');
+    await message.addReaction('706847974612795433');
 
-    await message.removeReaction('✅');
+    // await message.removeReaction('✅');
+
+    await message.removeReactions();
   }
 })();
 

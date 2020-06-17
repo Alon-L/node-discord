@@ -1,3 +1,4 @@
+import Emoji from './Emoji';
 import Bot from './bot/Bot';
 import Channel from './channels/Channel';
 import GuildChannel, { GuildChannelOptions } from './channels/GuildChannel';
@@ -120,7 +121,7 @@ class BotAPI {
     }
 
     const messageData = await this.requests.send(
-      EndpointRoute.ChannelMessages,
+      EndpointRoute.ChannelMessage,
       { channelId },
       HttpMethod.Post,
       params,
@@ -142,11 +143,24 @@ class BotAPI {
   public async addMessageReaction(
     channelId: Snowflake,
     messageId: Snowflake,
-    emoji: string,
+    emoji: string | Snowflake | Emoji,
   ): Promise<void> {
+    console.log(this.bot.emojis.toArrayKeys, emoji);
+
+    // Find the identifier of the given emoji.
+    // The emoji can be a Guild emoji, meaning we would have to search for it in the Bot's cached emojis Cluster
+    const identifier =
+      emoji instanceof Emoji ? emoji.identifier : this.bot.emojis.get(emoji)?.identifier || emoji;
+
+    if (!identifier) {
+      throw new Error(
+        `Invalid emoji for addMessageReaction request to channel (${channelId}) message (${messageId}) emoji (${emoji})`,
+      );
+    }
+
     await this.requests.send(
-      EndpointRoute.ChannelMessagesReactionsEmoji,
-      { channelId, messageId, emoji: encodeURI(emoji) },
+      EndpointRoute.ChannelMessageReactionEmoji,
+      { channelId, messageId, emoji: encodeURI(identifier) },
       HttpMethod.Put,
     );
   }
@@ -167,12 +181,29 @@ class BotAPI {
     userId: Snowflake = '@me',
   ): Promise<void> {
     await this.requests.send(
-      EndpointRoute.ChannelMessagesReactionsEmoji,
+      EndpointRoute.ChannelMessageReactionEmoji,
       {
         channelId,
         messageId,
         emoji: encodeURI(emoji),
         userId,
+      },
+      HttpMethod.Delete,
+    );
+  }
+
+  /**
+   * Removes all reactions on a message. This method requires the {@link Permission.ManageMessages} permission to be present on the Bot
+   * @param {Snowflake} channelId The ID of the channel containing the message
+   * @param {Snowflake} messageId The ID of the message of which to remove all reactions
+   * @returns {Promise<void>}
+   */
+  public async removeMessageReactions(channelId: Snowflake, messageId: Snowflake): Promise<void> {
+    await this.requests.send(
+      EndpointRoute.ChannelMessageReaction,
+      {
+        channelId,
+        messageId,
       },
       HttpMethod.Delete,
     );
