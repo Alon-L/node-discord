@@ -7,6 +7,7 @@ import { Snowflake } from '../types/types';
 export const enum EndpointRoute {
   Channel = 'CHANNEL',
   ChannelMessages = 'CHANNEL_MESSAGES',
+  ChannelMessagesReactionsEmoji = 'CHANNEL_MESSAGES_REACTIONS_EMOJI',
 }
 
 /**
@@ -27,6 +28,11 @@ export const enum HttpMethod {
 export const Endpoints: Record<EndpointRoute, (...args: string[]) => string> = {
   [EndpointRoute.Channel]: (channelId: Snowflake) => `/channels/${channelId}`,
   [EndpointRoute.ChannelMessages]: (channelId: Snowflake) => `/channels/${channelId}/messages`,
+  [EndpointRoute.ChannelMessagesReactionsEmoji]: (
+    channelId: Snowflake,
+    messageId: Snowflake,
+    emoji: string,
+  ) => `/channels/${channelId}/messages/${messageId}/reactions/${emoji}/@me`,
 };
 
 /**
@@ -52,6 +58,12 @@ export const enum StatusCode {
   OK = 200,
 
   /**
+   * The request succeeded with no content as response
+   * @type {number}
+   */
+  NoContent = 204,
+
+  /**
    * The token is no longer valid
    * @type {number}
    */
@@ -69,3 +81,5 @@ export const enum StatusCode {
    */
   TooManyRequests = 429,
 }
+
+export const ValidCodes: StatusCode[] = [StatusCode.OK, StatusCode.NoContent];
