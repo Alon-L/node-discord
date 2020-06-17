@@ -48,7 +48,7 @@ class Channel extends BaseStruct {
   }
 
   /**
-   * Delete a channel, or close a private message. Requires the MANAGE_CHANNELS permission for the guild
+   * Deletes a {@link GuildChannel}, or closes a {@link DMChannel}. Requires the {@link Permission.ManageChannels} permission for the guild
    * @returns {Promise<Channel>}
    */
   public delete(): Promise<Channel> {
