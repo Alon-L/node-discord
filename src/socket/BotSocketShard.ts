@@ -203,19 +203,19 @@ class BotSocketShard {
   }
 
   /**
-   * Decompresses a message if the compress option is sent to the gateway
-   * @param {Buffer} message The message received from the gateway
+   * Decompresses data from the WebSocket if the compress option is sent to the gateway
+   * @param {Buffer} data The message received from the gateway
    * @returns {Buffer | undefined}
    */
-  private decompressMessage(message: Buffer): Buffer | undefined {
-    if (!this.zlib) return;
+  private decompressData(data: Buffer): Buffer | undefined {
+    if (!this.zlib || !zlib) return;
 
-    if (message.length < 4 || message.readUInt32BE(message.length - 4) !== 0xffff) {
-      this.zlib.push(message, false);
+    if (data.length < 4 || data.readUInt32BE(data.length - 4) !== 0xffff) {
+      this.zlib.push(data, false);
       return;
     }
 
-    this.zlib.push(message, zlib?.Z_SYNC_FLUSH || false);
+    this.zlib.push(data, zlib.Z_SYNC_FLUSH);
 
     if (this.zlib.err) {
       this.bot.debug(`Zlib error: ${this.zlib.err} - ${this.zlib.msg}`);
@@ -227,13 +227,18 @@ class BotSocketShard {
 
   /**
    * Uses the right decoding and decompression to retrieve the payload object from the gateway message
-   * @param {WebSocket.Data} message The message received from the gateway
+   * @param {WebSocket.Data} messageData The data of the message received from the gateway
    * @returns {Payload | undefined}
    */
-  private retrievePayload(message: Data): Payload | undefined {
+  private retrievePayload(messageData: Data): Payload | undefined {
     let data: string | Buffer | undefined;
 
-    if (message instanceof Buffer) {
+    if (messageData instanceof ArrayBuffer) {
+      // eslint-disable-next-line no-param-reassign
+      messageData = new Uint8Array(messageData);
+    }
+
+    if (messageData instanceof Buffer) {
       /*
       Payloads are served inside Buffer when:
       1. The ETF encoding is used
@@ -242,14 +247,14 @@ class BotSocketShard {
       Decompress the message, and store it in the right format
        */
       const decompressed =
-        this.options.compress === 'zlib-stream' ? this.decompressMessage(message) : message;
+        this.options.compress === 'zlib-stream' ? this.decompressData(messageData) : messageData;
 
       if (!decompressed) return;
 
       data = this.options.encoding === 'etf' ? decompressed : decompressed.toString();
-    } else if (typeof message === 'string') {
+    } else if (typeof messageData === 'string') {
       // Payloads are served inside a string when the JSON encoding is used without compression
-      data = message;
+      data = messageData;
     }
 
     if (!data) return;
