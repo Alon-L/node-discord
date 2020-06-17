@@ -338,7 +338,7 @@ export const enum GatewayCloseCodes {
   DisallowedIntent,
 }
 
-export const unreconnectableGatewayCloseCodes: GatewayCloseCodes[] = [
+export const UnreconnectableGatewayCloseCodes: GatewayCloseCodes[] = [
   GatewayCloseCodes.ManualClosure,
   GatewayCloseCodes.AuthenticationFailed,
   GatewayCloseCodes.InvalidShard,
@@ -347,7 +347,7 @@ export const unreconnectableGatewayCloseCodes: GatewayCloseCodes[] = [
   GatewayCloseCodes.DisallowedIntent,
 ];
 
-export const unresumeableGatewayCloseCodes: GatewayCloseCodes[] = [
+export const UnresumeableGatewayCloseCodes: GatewayCloseCodes[] = [
   GatewayCloseCodes.NormalClosure,
   GatewayCloseCodes.InvalidSeq,
 ];

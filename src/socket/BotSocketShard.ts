@@ -8,8 +8,8 @@ import {
   GatewayCloseCodes,
   GatewayEvents,
   OPCodes,
-  unreconnectableGatewayCloseCodes,
-  unresumeableGatewayCloseCodes,
+  UnreconnectableGatewayCloseCodes,
+  UnresumeableGatewayCloseCodes,
 } from './constants';
 import * as events from './handlers';
 import { identify, version, WebsocketOptions } from './properties';
@@ -404,14 +404,14 @@ class BotSocketShard {
 
     this.heartbeats.stopHeartbeat();
 
-    if (!unreconnectableGatewayCloseCodes.includes(code)) {
+    if (!UnreconnectableGatewayCloseCodes.includes(code)) {
       if (this.retryTimeout) {
         await new Promise(resolve => setTimeout(resolve, this.retryTimeout));
       }
 
       this.retryTimeout += 1000;
 
-      await this.connect(!unresumeableGatewayCloseCodes.includes(code));
+      await this.connect(!UnresumeableGatewayCloseCodes.includes(code));
     }
   }
 
