@@ -160,7 +160,7 @@ class BotAPI {
    * @param {Snowflake} userId The ID of the user of which reaction should be removed
    * @returns {Promise<void>}
    */
-  public async removeReaction(
+  public async removeMessageReaction(
     channelId: Snowflake,
     messageId: Snowflake,
     emoji: string,

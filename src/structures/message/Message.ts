@@ -373,7 +373,7 @@ class Message extends BaseStruct {
    * @returns {Promise<void>}
    */
   public removeReaction(emoji: string, userId: Snowflake = '@me'): Promise<void> {
-    return this.bot.api.removeReaction(this.channel.id, this.id, emoji, userId);
+    return this.bot.api.removeMessageReaction(this.channel.id, this.id, emoji, userId);
   }
 }
 
