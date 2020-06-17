@@ -6,6 +6,11 @@ import Guild from './guild/Guild';
 import Cluster from '../Cluster';
 import { Snowflake } from '../types/types';
 
+/**
+ * Any kind of emoji. Could be its unicode name, ID or {@link Emoji} object
+ */
+export type EmojiResolvable = string | Snowflake | Emoji;
+
 class Emoji extends BaseStruct {
   /**
    * The ID of the emoji. Possibly null if the emoji class was generated from a reaction standard emoji
@@ -85,9 +90,25 @@ class Emoji extends BaseStruct {
     return this;
   }
 
+  /**
+   * Returns this emoji's identifier.
+   * An emoji identifier could be its name for built-in emojis, or a combination of its name and ID if it's a guild emoji.
+   * @returns {string | null}
+   */
   public get identifier(): string | null {
     if (this.id) return `${this.animated ? 'a:' : ''}${this.name}:${this.id}`;
     return this.name;
+  }
+
+  /**
+   * Finds the identifier of the given emoji.
+   * The emoji can be a Guild emoji, meaning we would have to search for it in the Bot's cached emojis Cluster
+   * @param {Cluster<Snowflake, Emoji>} emojis An emojis cache to search for the emoji in
+   * @param {EmojiResolvable} emoji The emoji to resolve
+   * @returns {string | null}
+   */
+  public static resolve(emojis: Cluster<Snowflake, Emoji>, emoji: EmojiResolvable): string | null {
+    return emoji instanceof Emoji ? emoji.identifier : emojis.get(emoji)?.identifier || emoji;
   }
 }
 
