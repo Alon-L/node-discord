@@ -114,7 +114,7 @@ class Cluster<K, V> extends Map<K, V> {
   }
 
   /**
-   * ֛Merges cluster(s) on top of this one. Replaces existing keys by newer clusters
+   * ֛Merges cluster(s) on top of this one. Replaces existing keys by newer Clusters
    * @param {...(Cluster<K, V> | [K, V][])[]} clusters The cluster(s) to be merged on top of this one
    */
   public merge(...clusters: (Cluster<K, V> | [K, V][])[]): void {
