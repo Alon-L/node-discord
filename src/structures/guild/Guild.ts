@@ -358,6 +358,8 @@ class Guild extends BaseStruct {
         ChannelUtils.create(this.bot, channel, this),
       ]),
     );
+    // Add all this guild's cached channels to the Bot's cached channels
+    this.bot.channels.merge(this.channels);
 
     this.roles = new Cluster<Snowflake, Role>(
       guild.roles.map((role: GatewayStruct) => [role.id, new Role(this.bot, role, this)]),
