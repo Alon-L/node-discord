@@ -93,10 +93,13 @@ class RateLimitBucket {
 
     const response = await apiRequest.send();
 
-    const json = response.status !== StatusCode.NoContent && (await response.json());
+    const json =
+      response.status !== StatusCode.NoContent ? ((await response.json()) as Data) : undefined;
 
-    // Validates the response before proceeding
-    this.validateResponse(response, json);
+    if (json) {
+      // Validates the response before proceeding
+      this.validateResponse(response, json);
+    }
 
     // Sets the rate limit information given from the response's headers
     this.setLimits(response.headers);
