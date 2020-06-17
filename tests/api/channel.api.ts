@@ -34,7 +34,9 @@ bot.connection.connect();
       },
     );
 
-    await message.react('✅');
+    await message.addReaction('✅');
+
+    await message.removeReaction('✅');
   }
 })();
 

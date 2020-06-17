@@ -32,7 +32,8 @@ export const Endpoints: Record<EndpointRoute, (...args: string[]) => string> = {
     channelId: Snowflake,
     messageId: Snowflake,
     emoji: string,
-  ) => `/channels/${channelId}/messages/${messageId}/reactions/${emoji}/@me`,
+    userId: Snowflake = '@me',
+  ) => `/channels/${channelId}/messages/${messageId}/reactions/${emoji}/${userId}`,
 };
 
 /**

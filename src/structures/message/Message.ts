@@ -361,8 +361,19 @@ class Message extends BaseStruct {
    * @param {string} emoji The emoji to react to this message with
    * @returns {Promise<void>}
    */
-  public react(emoji: string): Promise<void> {
-    return this.bot.api.reactMessage(this.channel.id, this.id, emoji);
+  public addReaction(emoji: string): Promise<void> {
+    return this.bot.api.addMessageReaction(this.channel.id, this.id, emoji);
+  }
+
+  /**
+   * Deletes a reaction this Bot has made for the message.
+   * If no `userId` argument was provided, the Bot will remove its own reaction.
+   * @param {string} emoji The emoji to remove from this message
+   * @param {Snowflake} userId The ID of the user of which reaction should be removed
+   * @returns {Promise<void>}
+   */
+  public removeReaction(emoji: string, userId: Snowflake = '@me'): Promise<void> {
+    return this.bot.api.removeReaction(this.channel.id, this.id, emoji, userId);
   }
 }
 

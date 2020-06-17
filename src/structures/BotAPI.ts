@@ -139,7 +139,7 @@ class BotAPI {
    * @param {string} emoji The emoji to react with to the message
    * @returns {Promise<void>}
    */
-  public async reactMessage(
+  public async addMessageReaction(
     channelId: Snowflake,
     messageId: Snowflake,
     emoji: string,
@@ -148,6 +148,33 @@ class BotAPI {
       EndpointRoute.ChannelMessagesReactionsEmoji,
       { channelId, messageId, emoji: encodeURI(emoji) },
       HttpMethod.Put,
+    );
+  }
+
+  /**
+   * Deletes a reaction this Bot has made for the message.
+   * If no `userId` argument was provided, the Bot will remove its own reaction.
+   * @param {Snowflake} channelId The ID of the channel containing the message
+   * @param {Snowflake} messageId The ID of the message to react to
+   * @param {string} emoji The emoji to delete from the message
+   * @param {Snowflake} userId The ID of the user of which reaction should be removed
+   * @returns {Promise<void>}
+   */
+  public async removeReaction(
+    channelId: Snowflake,
+    messageId: Snowflake,
+    emoji: string,
+    userId: Snowflake = '@me',
+  ): Promise<void> {
+    await this.requests.send(
+      EndpointRoute.ChannelMessagesReactionsEmoji,
+      {
+        channelId,
+        messageId,
+        emoji: encodeURI(emoji),
+        userId,
+      },
+      HttpMethod.Delete,
     );
   }
 }
