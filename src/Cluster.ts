@@ -114,6 +114,21 @@ class Cluster<K, V> extends Map<K, V> {
   }
 
   /**
+   * Returns the item if exists or creates a new one and caches it.
+   * @param {K} key The key of the item
+   * @param {V} value The value of the item
+   * @returns {V}
+   */
+  public getOrSet(key: K, value: V): V {
+    if (this.has(key)) {
+      return this.get(key)!;
+    } else {
+      this.set(key, value);
+      return value;
+    }
+  }
+
+  /**
    * ֛Merges cluster(s) on top of this one. Replaces existing keys by newer Clusters
    * @param {...(Cluster<K, V> | [K, V][])[]} clusters The cluster(s) to be merged on top of this one
    */
