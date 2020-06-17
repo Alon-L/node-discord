@@ -24,6 +24,9 @@ export default ({ d }: Payload, bot: Bot): void => {
   const user = reaction.users.get(userId);
   const member = reaction.members.get(userId);
 
+  // Change the reaction's botReacted state
+  reaction.botReacted = userId === bot.user?.id;
+
   // Decrements the count of the reaction
   reaction.count--;
 

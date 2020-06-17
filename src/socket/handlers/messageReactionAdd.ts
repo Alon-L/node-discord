@@ -32,6 +32,9 @@ export default ({ d }: Payload, bot: Bot): void => {
 
   const reaction = message.reactions.get(identifier)!;
 
+  // Change the reaction's botReacted state
+  reaction.botReacted = userId === bot.user?.id;
+
   // Increment the count of the reaction
   reaction.count++;
 
