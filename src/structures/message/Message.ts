@@ -127,7 +127,7 @@ export interface MessageData {
   /**
    * The message's embed data
    */
-  embed: Partial<MessageEmbedData>;
+  embed: Partial<Omit<MessageEmbedData, 'type' | 'provider' | 'video'>>;
 }
 
 /**
