@@ -358,7 +358,7 @@ class Guild extends BaseStruct {
         ChannelUtils.create(this.bot, channel, this),
       ]),
     );
-    // Add all this guild's cached channels to the Bot's cached channels
+    // Add all of this guild's cached channels to the Bot's cached channels
     this.bot.channels.merge(this.channels);
 
     this.roles = new Cluster<Snowflake, Role>(
@@ -405,6 +405,8 @@ class Guild extends BaseStruct {
     this.emojis = new Cluster<Snowflake, Emoji>(
       guild.emojis.map((emoji: GatewayStruct) => [emoji.id, new Emoji(this.bot, emoji, this)]),
     );
+    // Add all of this guild's cached channels to the Bot's cached channels
+    this.bot.emojis.merge(this.emojis);
 
     this.features = guild.features;
 

@@ -20,6 +20,7 @@ export default ({ d }: Payload, bot: Bot): void => {
   );
 
   guild.emojis = after;
+  bot.emojis.merge(guild.emojis);
 
   bot.events.emit(BotEvents.GuildEmojisUpdate, before, after);
 };
