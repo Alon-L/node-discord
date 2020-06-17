@@ -1,6 +1,7 @@
 'use strict';
 
 import { BotEvents } from '../../src/socket/constants';
+import Emoji from '../../src/structures/Emoji';
 import Bot from '../../src/structures/bot/Bot';
 import DMChannel from '../../src/structures/channels/DMChannel';
 import GuildTextChannel from '../../src/structures/channels/GuildTextChannel';
@@ -37,9 +38,13 @@ bot.connection.connect();
     await message.addReaction('✅');
     await message.addReaction('706847974612795433');
 
-    // await message.removeReaction('✅');
+    await message.removeReaction('✅');
+
+    await message.reactions.get(Emoji.resolve(bot.emojis, '706847974612795433')!)?.remove();
 
     await message.removeReactions();
+
+    console.log(message.reactions.toArrayKeys);
   }
 })();
 

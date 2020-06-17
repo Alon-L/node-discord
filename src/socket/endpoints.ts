@@ -9,6 +9,7 @@ export const enum EndpointRoute {
   ChannelMessage = 'CHANNEL_MESSAGE',
   ChannelMessageReaction = 'CHANNEL_MESSAGE_REACTION',
   ChannelMessageReactionEmoji = 'CHANNEL_MESSAGE_REACTION_EMOJI',
+  ChannelMessageReactionEmojiUser = 'CHANNEL_MESSAGE_REACTION_EMOJI_USER',
 }
 
 /**
@@ -32,6 +33,11 @@ export const Endpoints: Record<EndpointRoute, (...args: string[]) => string> = {
   [EndpointRoute.ChannelMessageReaction]: (channelId: Snowflake, messageId: Snowflake) =>
     `/channels/${channelId}/messages/${messageId}/reactions`,
   [EndpointRoute.ChannelMessageReactionEmoji]: (
+    channelId: Snowflake,
+    messageId: Snowflake,
+    emoji: string,
+  ) => `/channels/${channelId}/messages/${messageId}/reactions/${emoji}`,
+  [EndpointRoute.ChannelMessageReactionEmojiUser]: (
     channelId: Snowflake,
     messageId: Snowflake,
     emoji: string,

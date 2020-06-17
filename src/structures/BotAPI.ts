@@ -1,4 +1,4 @@
-import Emoji from './Emoji';
+import Emoji, { EmojiResolvable } from './Emoji';
 import Bot from './bot/Bot';
 import Channel from './channels/Channel';
 import GuildChannel, { GuildChannelOptions } from './channels/GuildChannel';
@@ -61,7 +61,7 @@ class BotAPI {
       },
     );
 
-    return ChannelUtils.create(this.bot, channelData!) as GuildChannel;
+    return ChannelUtils.findOrCreate(this.bot, channelData!) as GuildChannel;
   }
 
   /**
@@ -76,7 +76,7 @@ class BotAPI {
       HttpMethod.Delete,
     );
 
-    return ChannelUtils.create(this.bot, channelData!) as Channel;
+    return ChannelUtils.findOrCreate(this.bot, channelData!);
   }
 
   // TODO: Add the ability to send files and attachments
@@ -130,7 +130,8 @@ class BotAPI {
     // TODO: Fetch channel if does not exist
     const channel = this.bot.channels.get(channelId)! as GuildTextChannel;
 
-    return new Message(this.bot, messageData!, channel);
+    const message = new Message(this.bot, messageData!, channel);
+    return channel.messages.getOrSet(message.id, message);
   }
 
   /**
@@ -143,14 +144,9 @@ class BotAPI {
   public async addMessageReaction(
     channelId: Snowflake,
     messageId: Snowflake,
-    emoji: string | Snowflake | Emoji,
+    emoji: EmojiResolvable,
   ): Promise<void> {
-    console.log(this.bot.emojis.toArrayKeys, emoji);
-
-    // Find the identifier of the given emoji.
-    // The emoji can be a Guild emoji, meaning we would have to search for it in the Bot's cached emojis Cluster
-    const identifier =
-      emoji instanceof Emoji ? emoji.identifier : this.bot.emojis.get(emoji)?.identifier || emoji;
+    const identifier = Emoji.resolve(this.bot.emojis, emoji);
 
     if (!identifier) {
       throw new Error(
@@ -159,7 +155,7 @@ class BotAPI {
     }
 
     await this.requests.send(
-      EndpointRoute.ChannelMessageReactionEmoji,
+      EndpointRoute.ChannelMessageReactionEmojiUser,
       { channelId, messageId, emoji: encodeURI(identifier) },
       HttpMethod.Put,
     );
@@ -180,12 +176,20 @@ class BotAPI {
     emoji: string,
     userId: Snowflake = '@me',
   ): Promise<void> {
+    const identifier = Emoji.resolve(this.bot.emojis, emoji);
+
+    if (!identifier) {
+      throw new Error(
+        `Invalid emoji for removeMessageReaction request to channel (${channelId}) message (${messageId}) emoji (${emoji}) user ${userId}`,
+      );
+    }
+
     await this.requests.send(
-      EndpointRoute.ChannelMessageReactionEmoji,
+      EndpointRoute.ChannelMessageReactionEmojiUser,
       {
         channelId,
         messageId,
-        emoji: encodeURI(emoji),
+        emoji: encodeURI(identifier),
         userId,
       },
       HttpMethod.Delete,
@@ -204,6 +208,37 @@ class BotAPI {
       {
         channelId,
         messageId,
+      },
+      HttpMethod.Delete,
+    );
+  }
+
+  /**
+   * Deletes all reactions for this emoji. This method requires the {@link Permission.ManageMessages} permission ot be present on the Bot.
+   * @param {Snowflake} channelId The ID of the channel containing the message
+   * @param {Snowflake} messageId The ID of the message of which to remove all reactions for a given emoji
+   * @param {EmojiResolvable} emoji The emoji reactions to remove from the message
+   * @returns {Promise<void>}
+   */
+  public async removeMessageReactionsEmoji(
+    channelId: Snowflake,
+    messageId: Snowflake,
+    emoji: EmojiResolvable,
+  ): Promise<void> {
+    const identifier = Emoji.resolve(this.bot.emojis, emoji);
+
+    if (!identifier) {
+      throw new Error(
+        `Invalid emoji for removeMessageReactionsEmoji request to channel (${channelId}) message (${messageId}) emoji (${emoji})`,
+      );
+    }
+
+    await this.requests.send(
+      EndpointRoute.ChannelMessageReactionEmoji,
+      {
+        channelId,
+        messageId,
+        emoji: encodeURI(identifier),
       },
       HttpMethod.Delete,
     );
