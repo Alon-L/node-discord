@@ -56,6 +56,9 @@ class Member extends GuildBaseStruct {
    */
   public mute!: boolean;
 
+  /**
+   * The member's user presence data
+   */
   public presence: MemberPresence | undefined;
 
   constructor(bot: Bot, member: GatewayStruct, guild: Guild, presence?: GatewayStruct) {
