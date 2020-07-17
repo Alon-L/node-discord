@@ -6,6 +6,9 @@ import Emoji from '../Emoji';
 import User from '../User';
 import Member from '../member/Member';
 
+/**
+ * Holds all users that reacted to a {@link Message} with a specific {@link Emoji}
+ */
 class MessageReaction extends BaseStruct {
   /**
    * The message this reaction is attached to
