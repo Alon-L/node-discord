@@ -11,7 +11,6 @@ import MessageEmbed from '../message/MessageEmbed';
 
 /**
  * Represents a private channel between the Bot and a User
-
  * @extends Channel
  * @implements {TextChannel}
  */
