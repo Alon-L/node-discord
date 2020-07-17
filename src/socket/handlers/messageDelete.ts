@@ -20,6 +20,11 @@ export default ({ d }: Payload, bot: Bot): void => {
     channel,
   };
 
+  if (message instanceof Message) {
+    // Mark the message as deleted
+    message.deleted = true;
+  }
+
   channel.messages.delete(message.id);
 
   bot.events.emit(BotEvent.MessageDelete, message);

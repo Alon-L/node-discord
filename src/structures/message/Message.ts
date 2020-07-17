@@ -273,12 +273,19 @@ class Message extends BaseStruct {
    */
   public flags: MessageFlags | undefined;
 
+  /**
+   * Whether this message is deleted from its channel
+   */
+  public deleted: boolean;
+
   constructor(bot: Bot, message: GatewayStruct, channel: TextBasedChannel) {
     super(bot, message);
 
     this.channel = channel;
 
     this.reactions = new Cluster<Snowflake, MessageReaction>();
+
+    this.deleted = false;
 
     this.init(message);
   }
@@ -411,6 +418,15 @@ class Message extends BaseStruct {
    */
   public edit(data: string | MessageEditData): Promise<Message> {
     return this.bot.api.editMessage(this.channel.id, this.id, data);
+  }
+
+  /**
+   * Deletes a message.
+   * If operating on a {@link GuildChannel} and trying to delete a message that was not sent by the current user, this endpoint requires the {@link Permission.ManageMessages} permission
+   * @returns {Promise<void>}
+   */
+  public delete(): Promise<void> {
+    return this.bot.api.deleteMessage(this.channel.id, this.id);
   }
 }
 
