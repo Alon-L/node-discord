@@ -3,6 +3,7 @@ import GuildCategoryChannel from './GuildCategoryChannel';
 import { Snowflake } from '../../types/types';
 import { GatewayStruct } from '../BaseStruct';
 import Bot from '../bot/Bot';
+import { PermissionOverwrite, Permissible } from '../flags/PermissionFlags';
 import Guild from '../guild/Guild';
 
 /**
@@ -59,6 +60,8 @@ class GuildChannel extends Channel {
    * Sorting position of the channel
    */
   public position!: number;
+
+  // TODO: Permission overwrites field
 
   /**
    * The name of the channel
@@ -118,6 +121,20 @@ class GuildChannel extends Channel {
    */
   public modify(options: GuildChannelOptions): Promise<GuildChannel> {
     return this.bot.api.modifyGuildChannel(this.id, options);
+  }
+
+  /**
+   * Modify the channel permission overwrites for a member or a role.
+   * Requires the {@link Permission.ManageRoles} permission
+   * @param {Permissible} permissible Data for the member or role
+   * @param {PermissionOverwrite} permissions The permissions you wish to modify
+   * @returns {Promise<void>}
+   */
+  public modifyPermissions(
+    permissible: Permissible,
+    permissions: PermissionOverwrite,
+  ): Promise<void> {
+    return this.bot.api.modifyGuildChannelPermissions(this.id, permissible, permissions);
   }
 }
 
