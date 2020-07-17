@@ -14,11 +14,19 @@ class Flags<T extends number> {
 
   /**
    * Whether a specific flag is included in this instance's flags
-   * @param {PermissionFlagTypes} flag The flag to check if included
+   * @param {T} flag The flag to check if included
    * @returns {boolean}
    */
   public has(flag: T): boolean {
     return (this.flags & flag) === flag;
+  }
+
+  /**
+   * Returns the bits of the flags this instance contains
+   * @type {number}
+   */
+  public get bits(): number {
+    return this.flags;
   }
 }
 
