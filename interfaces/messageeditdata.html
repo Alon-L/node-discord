@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>PresenceActivityTimestamps | node-discord</title>
+	<title>MessageEditData | node-discord</title>
 	<meta name="description" content="Documentation for node-discord">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="presenceactivitytimestamps.html">PresenceActivityTimestamps</a>
+					<a href="messageeditdata.html">MessageEditData</a>
 				</li>
 			</ul>
-			<h1>Interface PresenceActivityTimestamps</h1>
+			<h1>Interface MessageEditData</h1>
 		</div>
 	</div>
 </header>
@@ -67,7 +67,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>The timestamps of the presence activity</p>
+						<p>The message data for when editing a message</p>
 					</div>
 				</div>
 			</section>
@@ -75,7 +75,12 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">PresenceActivityTimestamps</span>
+						<a href="messagedata.html" class="tsd-signature-type">MessageData</a>
+						<ul class="tsd-hierarchy">
+							<li>
+								<span class="target">MessageEditData</span>
+							</li>
+						</ul>
 					</li>
 				</ul>
 			</section>
@@ -86,8 +91,9 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="presenceactivitytimestamps.html#end" class="tsd-kind-icon">end</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="presenceactivitytimestamps.html#start" class="tsd-kind-icon">start</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="messageeditdata.html#content" class="tsd-kind-icon">content</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="messageeditdata.html#embed" class="tsd-kind-icon">embed</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="messageeditdata.html#flags" class="tsd-kind-icon">flags</a></li>
 							</ul>
 						</section>
 					</div>
@@ -95,33 +101,50 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="end" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> end</h3>
-					<div class="tsd-signature tsd-kind-icon">end<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a name="content" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> content</h3>
+					<div class="tsd-signature tsd-kind-icon">content<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
+						<p>Inherited from <a href="messagedata.html">MessageData</a>.<a href="messagedata.html#content">content</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/e3901ef/src/structures/member/MemberPresence.ts#L31">src/structures/member/MemberPresence.ts:31</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/e3901ef/src/structures/message/Message.ts#L125">src/structures/message/Message.ts:125</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Unix time (in milliseconds) of when the activity ends</p>
+							<p>The message&#39;s raw content</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a name="embed" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> embed</h3>
+					<div class="tsd-signature tsd-kind-icon">embed<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Omit</span><span class="tsd-signature-symbol">&lt;</span><a href="messageembeddata.html" class="tsd-signature-type">MessageEmbedData</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">"type"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"provider"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"video"</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="../classes/messageembed.html" class="tsd-signature-type">MessageEmbed</a></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="messagedata.html">MessageData</a>.<a href="messagedata.html#embed">embed</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/e3901ef/src/structures/message/Message.ts#L130">src/structures/message/Message.ts:130</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The message&#39;s embed data</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="start" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> start</h3>
-					<div class="tsd-signature tsd-kind-icon">start<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
+					<a name="flags" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> flags</h3>
+					<div class="tsd-signature tsd-kind-icon">flags<span class="tsd-signature-symbol">:</span> <a href="../classes/messageflags.html" class="tsd-signature-type">MessageFlags</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/e3901ef/src/structures/member/MemberPresence.ts#L26">src/structures/member/MemberPresence.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/e3901ef/src/structures/message/Message.ts#L155">src/structures/message/Message.ts:155</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Unix time in (milliseconds) of when the activity started</p>
+							<p>The new flags of the message</p>
 						</div>
 					</div>
 				</section>
@@ -140,13 +163,16 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="presenceactivitytimestamps.html" class="tsd-kind-icon">Presence<wbr>Activity<wbr>Timestamps</a>
+						<a href="messageeditdata.html" class="tsd-kind-icon">Message<wbr>Edit<wbr>Data</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="presenceactivitytimestamps.html#end" class="tsd-kind-icon">end</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="messageeditdata.html#content" class="tsd-kind-icon">content</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="messageeditdata.html#embed" class="tsd-kind-icon">embed</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="presenceactivitytimestamps.html#start" class="tsd-kind-icon">start</a>
+								<a href="messageeditdata.html#flags" class="tsd-kind-icon">flags</a>
 							</li>
 						</ul>
 					</li>
