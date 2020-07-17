@@ -84,6 +84,10 @@ class GuildTextChannel extends GuildChannel implements TextChannel {
   ): Promise<Message> {
     return this.bot.api.sendMessage(this.id, data, options);
   }
+
+  public bulkDeleteMessages(messages: Snowflake[]): Promise<void> {
+    return this.bot.api.bulkDeleteMessages(this.id, messages);
+  }
 }
 
 export default GuildTextChannel;

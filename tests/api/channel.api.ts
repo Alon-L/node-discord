@@ -44,6 +44,8 @@ bot.connection.connect();
 
     await message.removeReactions();
 
+    console.log(message.reactions.size); // expected: 0
+
     await message.edit('Edited message!');
     await message.edit({
       content: 'Edited message content again!',
@@ -54,11 +56,21 @@ bot.connection.connect();
 
     await message.delete();
 
-    bot.events
-      .wait(BotEvent.MessageDelete)
-      .then(() => console.log(message.deleted) /* expected: true */);
+    await bot.events.wait(BotEvent.MessageDelete);
+    console.log(message.deleted); // expected: true
 
-    console.log(message.reactions.toArrayKeys);
+    if (channel instanceof GuildTextChannel) {
+      // Send dummy messages for bulk delete
+      await channel.sendMessage('Message 1');
+      await channel.sendMessage('Message 2');
+      await channel.sendMessage('Message 3');
+
+      await channel.bulkDeleteMessages(channel.messages.map(message => message.id).toArray);
+
+      await bot.events.wait(BotEvent.MessageDeleteBulk);
+
+      console.log(channel.messages.filter(message => !message.deleted).size); // expected: 0
+    }
   }
 })();
 

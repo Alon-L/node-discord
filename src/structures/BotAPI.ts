@@ -317,6 +317,17 @@ class BotAPI {
       HttpMethod.Delete,
     );
   }
+
+  public async bulkDeleteMessages(channelId: Snowflake, messages: Snowflake[]): Promise<void> {
+    await this.requests.send(
+      EndpointRoute.ChannelMessagesBulkDelete,
+      { channelId },
+      HttpMethod.Post,
+      {
+        messages,
+      },
+    );
+  }
 }
 
 export default BotAPI;

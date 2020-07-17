@@ -11,6 +11,7 @@ export const enum EndpointRoute {
   ChannelMessageReaction = 'CHANNEL_MESSAGE_REACTION',
   ChannelMessageReactionEmoji = 'CHANNEL_MESSAGE_REACTION_EMOJI',
   ChannelMessageReactionEmojiUser = 'CHANNEL_MESSAGE_REACTION_EMOJI_USER',
+  ChannelMessagesBulkDelete = 'CHANNEL_MESSAGES_BULK_DELETE',
 }
 
 /**
@@ -46,6 +47,8 @@ export const Endpoints: Record<EndpointRoute, (...args: string[]) => string> = {
     emoji: string,
     userId: Snowflake = '@me',
   ) => `/channels/${channelId}/messages/${messageId}/reactions/${emoji}/${userId}`,
+  [EndpointRoute.ChannelMessagesBulkDelete]: (channelId: Snowflake) =>
+    `/channels/${channelId}/messages/bulk-delete`,
 };
 
 /**
