@@ -1,6 +1,6 @@
 'use strict';
 
-import { BotEvents } from '../../src/socket/constants';
+import { BotEvent } from '../../src/socket/constants';
 import Bot from '../../src/structures/bot/Bot';
 import MemberPresence from '../../src/structures/member/MemberPresence';
 import config from '../config.json';
@@ -10,13 +10,13 @@ bot.connection.connect();
 
 (async function (): Promise<void> {
   bot.events.on(
-    BotEvents.PresenceUpdate,
+    BotEvent.PresenceUpdate,
     (before: MemberPresence | undefined, after: MemberPresence) => {
       console.log(before?.status, after.status);
     },
   );
 
-  await bot.events.wait(BotEvents.Ready);
+  await bot.events.wait(BotEvent.Ready);
 })();
 
-bot.events.on(BotEvents.Debug, console.log);
+bot.events.on(BotEvent.Debug, console.log);

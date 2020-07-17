@@ -1,14 +1,14 @@
 'use strict';
 
 import config from './config.json';
-import { BotEvents } from '../src/socket/constants';
+import { BotEvent } from '../src/socket/constants';
 import Bot from '../src/structures/bot/Bot';
 
 const bot = new Bot(config.token);
 bot.connection.connect();
 
 (async function (): Promise<void> {
-  await bot.events.wait(BotEvents.Ready);
+  await bot.events.wait(BotEvent.Ready);
 
   const channelId = '707607008781795398' || bot.guilds.first?.channels.first?.id;
 
@@ -33,4 +33,4 @@ bot.connection.connect();
   }
 })();
 
-bot.events.on(BotEvents.Debug, console.log);
+bot.events.on(BotEvent.Debug, console.log);

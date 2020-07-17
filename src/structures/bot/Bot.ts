@@ -4,7 +4,7 @@ import BotConnection from './BotConnection';
 import BotCommandsHandler from './handlers/BotCommandsHandler';
 import { BotEventsHandler } from './handlers/events/BotEventsHandler';
 import Cluster from '../../Cluster';
-import { BotEvents } from '../../socket/constants';
+import { BotEvent } from '../../socket/constants';
 import { botOptions, CacheOptions, WebsocketOptions } from '../../socket/properties';
 import { ShardId, Snowflake } from '../../types/types';
 import BotAPI from '../BotAPI';
@@ -167,7 +167,7 @@ class Bot {
   }
 
   /**
-   * Sends debug messages to the {@link BotEvents.Debug} event
+   * Sends debug messages to the {@link BotEvent.Debug} event
    * @example ```typescript
    * bot.on(BotEvents.Debug, console.log);
    *
@@ -176,7 +176,7 @@ class Bot {
    * @param {...unknown[]} messages The debug messages
    */
   public debug(...messages: unknown[]): void {
-    this.events.emit(BotEvents.Debug, ...messages);
+    this.events.emit(BotEvent.Debug, ...messages);
   }
 
   /**

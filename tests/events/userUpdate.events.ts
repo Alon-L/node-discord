@@ -1,6 +1,6 @@
 'use strict';
 
-import { BotEvents } from '../../src/socket/constants';
+import { BotEvent } from '../../src/socket/constants';
 import User from '../../src/structures/User';
 import Bot from '../../src/structures/bot/Bot';
 import config from '../config.json';
@@ -9,7 +9,7 @@ const bot = new Bot(config.token);
 bot.connection.connect();
 
 (async function (): Promise<void> {
-  bot.events.on(BotEvents.UserUpdate, (before: User, after: User) => {
+  bot.events.on(BotEvent.UserUpdate, (before: User, after: User) => {
     console.log(
       before.username,
       after.username,
@@ -18,7 +18,7 @@ bot.connection.connect();
     );
   });
 
-  await bot.events.wait(BotEvents.Ready);
+  await bot.events.wait(BotEvent.Ready);
 })();
 
-bot.events.on(BotEvents.Debug, console.log);
+bot.events.on(BotEvent.Debug, console.log);

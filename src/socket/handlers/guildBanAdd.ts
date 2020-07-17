@@ -1,7 +1,7 @@
 import User from '../../structures/User';
 import Bot from '../../structures/bot/Bot';
 import { Payload } from '../BotSocketShard';
-import { BotEvents } from '../constants';
+import { BotEvent } from '../constants';
 
 export default ({ d }: Payload, bot: Bot): void => {
   const { guild_id: guildId } = d;
@@ -18,5 +18,5 @@ export default ({ d }: Payload, bot: Bot): void => {
   // Add the member to the Guild's bans Cluster
   guild.bans.set(member.id, member);
 
-  bot.events.emit(BotEvents.GuildBanAdd, guild, member);
+  bot.events.emit(BotEvent.GuildBanAdd, guild, member);
 };

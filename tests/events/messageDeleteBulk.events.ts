@@ -1,6 +1,6 @@
 'use strict';
 
-import { BotEvents } from '../../src/socket/constants';
+import { BotEvent } from '../../src/socket/constants';
 import Bot from '../../src/structures/bot/Bot';
 import Message from '../../src/structures/message/Message';
 import { Snowflake, TextBasedChannel } from '../../src/types/types';
@@ -11,7 +11,7 @@ bot.connection.connect();
 
 (async function (): Promise<void> {
   bot.events.on(
-    BotEvents.MessageDeleteBulk,
+    BotEvent.MessageDeleteBulk,
     (channel: TextBasedChannel, messages: (Message | Snowflake)[]) => {
       console.log(
         channel.id,
@@ -20,7 +20,7 @@ bot.connection.connect();
     },
   );
 
-  await bot.events.wait(BotEvents.Ready);
+  await bot.events.wait(BotEvent.Ready);
 })();
 
-bot.events.on(BotEvents.Debug, console.log);
+bot.events.on(BotEvent.Debug, console.log);

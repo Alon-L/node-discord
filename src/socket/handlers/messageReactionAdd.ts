@@ -3,7 +3,7 @@ import Member from '../../structures/member/Member';
 import MessageReaction from '../../structures/message/MessageReaction';
 import ReactionHandlersUtils from '../../utils/handlers/ReactionHandlersUtils';
 import { Payload } from '../BotSocketShard';
-import { BotEvents } from '../constants';
+import { BotEvent } from '../constants';
 
 export default ({ d }: Payload, bot: Bot): void => {
   const { user_id: userId } = d;
@@ -51,5 +51,5 @@ export default ({ d }: Payload, bot: Bot): void => {
     reaction.members.set(member.id, member);
   }
 
-  bot.events.emit(BotEvents.MessageReactionAdd, reaction, member || user);
+  bot.events.emit(BotEvent.MessageReactionAdd, reaction, member || user);
 };

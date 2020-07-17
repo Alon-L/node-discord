@@ -3,7 +3,7 @@ import Bot from '../../structures/bot/Bot';
 import Member from '../../structures/member/Member';
 import MemberPresence from '../../structures/member/MemberPresence';
 import { Payload } from '../BotSocketShard';
-import { BotEvents } from '../constants';
+import { BotEvent } from '../constants';
 
 /**
  * Contains information about the current Guild Members Chunk
@@ -66,10 +66,10 @@ export default ({ d }: Payload, bot: Bot): void => {
     count: chunkCount,
   };
 
-  bot.events.emit(BotEvents.GuildMembersChunk, guild, nonce, chunk);
+  bot.events.emit(BotEvent.GuildMembersChunk, guild, nonce, chunk);
 
   if (chunk.index === chunk.count - 1) {
     // This is the last chunk of the request, activate the GuildMembersChunkFinish event
-    bot.events.emit(BotEvents.GuildMembersChunkFinish, guild, nonce);
+    bot.events.emit(BotEvent.GuildMembersChunkFinish, guild, nonce);
   }
 };

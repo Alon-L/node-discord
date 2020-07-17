@@ -3,7 +3,7 @@ import Message from '../../structures/message/Message';
 import { Snowflake } from '../../types/types';
 import ChannelUtils from '../../utils/ChannelUtils';
 import { Payload } from '../BotSocketShard';
-import { BotEvents } from '../constants';
+import { BotEvent } from '../constants';
 
 export default ({ d }: Payload, bot: Bot): void => {
   const { ids, channel_id: channelId, guild_id: guildId } = d;
@@ -17,5 +17,5 @@ export default ({ d }: Payload, bot: Bot): void => {
     (id: Snowflake) => channel.messages.get(id) || id,
   );
 
-  bot.events.emit(BotEvents.MessageDeleteBulk, channel, messages);
+  bot.events.emit(BotEvent.MessageDeleteBulk, channel, messages);
 };

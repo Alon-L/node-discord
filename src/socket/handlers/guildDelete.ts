@@ -2,7 +2,7 @@ import Bot from '../../structures/bot/Bot';
 import Guild from '../../structures/guild/Guild';
 import GuildUnavailable from '../../structures/guild/GuildUnavailable';
 import { Payload } from '../BotSocketShard';
-import { BotEvents } from '../constants';
+import { BotEvent } from '../constants';
 
 export default ({ d }: Payload, bot: Bot): void => {
   const { unavailable, id } = d;
@@ -13,5 +13,5 @@ export default ({ d }: Payload, bot: Bot): void => {
 
   Guild.delete(bot, guild);
 
-  bot.events.emit(BotEvents.GuildDelete, guild);
+  bot.events.emit(BotEvent.GuildDelete, guild);
 };

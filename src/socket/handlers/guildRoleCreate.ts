@@ -1,7 +1,7 @@
 import Role from '../../structures/Role';
 import Bot from '../../structures/bot/Bot';
 import { Payload } from '../BotSocketShard';
-import { BotEvents } from '../constants';
+import { BotEvent } from '../constants';
 
 export default ({ d }: Payload, bot: Bot): void => {
   const { guild_id: guildId } = d;
@@ -15,5 +15,5 @@ export default ({ d }: Payload, bot: Bot): void => {
   // Add role to the guild's roles cluster
   guild.roles.set(role.id, role);
 
-  bot.events.emit(BotEvents.GuildRoleCreate, role);
+  bot.events.emit(BotEvent.GuildRoleCreate, role);
 };

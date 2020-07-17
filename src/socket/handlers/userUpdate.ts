@@ -1,6 +1,6 @@
 import Bot from '../../structures/bot/Bot';
 import { Payload } from '../BotSocketShard';
-import { BotEvents } from '../constants';
+import { BotEvent } from '../constants';
 
 export default ({ d }: Payload, bot: Bot): void => {
   const { id } = d;
@@ -11,5 +11,5 @@ export default ({ d }: Payload, bot: Bot): void => {
 
   const { before, after } = user.update(d);
 
-  bot.events.emit(BotEvents.UserUpdate, before, after);
+  bot.events.emit(BotEvent.UserUpdate, before, after);
 };

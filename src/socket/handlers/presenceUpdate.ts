@@ -1,7 +1,7 @@
 import Bot from '../../structures/bot/Bot';
 import MemberPresence from '../../structures/member/MemberPresence';
 import { Payload } from '../BotSocketShard';
-import { BotEvents } from '../constants';
+import { BotEvent } from '../constants';
 
 export default ({ d }: Payload, bot: Bot): void => {
   const {
@@ -23,5 +23,5 @@ export default ({ d }: Payload, bot: Bot): void => {
   const before = presence?.clone();
   const after = presence?.init(d) || (member.presence = new MemberPresence(bot, d, member));
 
-  bot.events.emit(BotEvents.PresenceUpdate, before, after);
+  bot.events.emit(BotEvent.PresenceUpdate, before, after);
 };

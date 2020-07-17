@@ -1,6 +1,6 @@
 import Cluster from '../../../../Cluster';
 import BotSocketShard from '../../../../socket/BotSocketShard';
-import { BotEvents } from '../../../../socket/constants';
+import { BotEvent } from '../../../../socket/constants';
 import { GuildMembersChunk } from '../../../../socket/handlers/guildMembersChunk';
 import { Snowflake, TextBasedChannel } from '../../../../types/types';
 import Emoji from '../../../Emoji';
@@ -356,48 +356,48 @@ declare function WEBHOOKS_UPDATE(channel: GuildChannel): void;
  * Events that are called when all Bot shards change their state.
  * These events take no arguments
  */
-export type BotStateEvents = BotEvents.Ready | BotEvents.Close;
+export type BotStateEvents = BotEvent.Ready | BotEvent.Close;
 
 /**
  * All possible events for the bot and their callback function
  */
 export interface Events {
-  [BotEvents.Debug]: typeof console.log;
-  [BotEvents.Ready]: typeof READY;
-  [BotEvents.Close]: () => void;
-  [BotEvents.ChannelCreate]: typeof CHANNEL_CREATE;
-  [BotEvents.ChannelUpdate]: typeof CHANNEL_UPDATE;
-  [BotEvents.ChannelDelete]: typeof CHANNEL_DELETE;
-  [BotEvents.ChannelPinsUpdate]: typeof CHANNEL_PINS_UPDATE;
-  [BotEvents.GuildCreate]: typeof GUILD_CREATE;
-  [BotEvents.GuildUpdate]: typeof GUILD_UPDATE;
-  [BotEvents.GuildDelete]: typeof GUILD_DELETE;
-  [BotEvents.GuildBanAdd]: typeof GUILD_BAN_ADD;
-  [BotEvents.GuildBanRemove]: typeof GUILD_BAN_REMOVE;
-  [BotEvents.GuildEmojisUpdate]: typeof GUILD_EMOJIS_UPDATE;
-  [BotEvents.GuildIntegrationsUpdate]: typeof GUILD_INTEGRATIONS_UPDATE;
-  [BotEvents.GuildMemberAdd]: typeof GUILD_MEMBER_ADD;
-  [BotEvents.GuildMemberRemove]: typeof GUILD_MEMBER_REMOVE;
-  [BotEvents.GuildMemberUpdate]: typeof GUILD_MEMBER_UPDATE;
-  [BotEvents.GuildMembersChunk]: typeof GUILD_MEMBERS_CHUNK;
-  [BotEvents.GuildMembersChunkFinish]: typeof GUILD_MEMBERS_CHUNK_FINISH;
-  [BotEvents.GuildRoleCreate]: typeof GUILD_ROLE_CREATE;
-  [BotEvents.GuildRoleUpdate]: typeof GUILD_ROLE_UPDATE;
-  [BotEvents.GuildRoleDelete]: typeof GUILD_ROLE_DELETE;
-  [BotEvents.InviteCreate]: typeof INVITE_CREATE;
-  [BotEvents.InviteDelete]: typeof INVITE_DELETE;
-  [BotEvents.MessageCreate]: typeof MESSAGE_CREATE;
-  [BotEvents.MessageUpdate]: typeof MESSAGE_UPDATE;
-  [BotEvents.MessageDelete]: typeof MESSAGE_DELETE;
-  [BotEvents.MessageDeleteBulk]: typeof MESSAGE_DELETE_BULK;
-  [BotEvents.MessageReactionAdd]: typeof MESSAGE_REACTION_ADD;
-  [BotEvents.MessageReactionRemove]: typeof MESSAGE_REACTION_REMOVE;
-  [BotEvents.MessageReactionRemoveAll]: typeof MESSAGE_REACTION_REMOVE_ALL;
-  [BotEvents.MessageReactionRemoveEmoji]: typeof MESSAGE_REACTION_REMOVE_EMOJI;
-  [BotEvents.PresenceUpdate]: typeof PRESENCE_UPDATE;
-  [BotEvents.ShardReady]: typeof SHARD_READY;
-  [BotEvents.ShardClose]: typeof SHARD_CLOSE;
-  [BotEvents.TypingStart]: typeof TYPING_START;
-  [BotEvents.UserUpdate]: typeof USER_UPDATE;
-  [BotEvents.WebhooksUpdate]: typeof WEBHOOKS_UPDATE;
+  [BotEvent.Debug]: typeof console.log;
+  [BotEvent.Ready]: typeof READY;
+  [BotEvent.Close]: () => void;
+  [BotEvent.ChannelCreate]: typeof CHANNEL_CREATE;
+  [BotEvent.ChannelUpdate]: typeof CHANNEL_UPDATE;
+  [BotEvent.ChannelDelete]: typeof CHANNEL_DELETE;
+  [BotEvent.ChannelPinsUpdate]: typeof CHANNEL_PINS_UPDATE;
+  [BotEvent.GuildCreate]: typeof GUILD_CREATE;
+  [BotEvent.GuildUpdate]: typeof GUILD_UPDATE;
+  [BotEvent.GuildDelete]: typeof GUILD_DELETE;
+  [BotEvent.GuildBanAdd]: typeof GUILD_BAN_ADD;
+  [BotEvent.GuildBanRemove]: typeof GUILD_BAN_REMOVE;
+  [BotEvent.GuildEmojisUpdate]: typeof GUILD_EMOJIS_UPDATE;
+  [BotEvent.GuildIntegrationsUpdate]: typeof GUILD_INTEGRATIONS_UPDATE;
+  [BotEvent.GuildMemberAdd]: typeof GUILD_MEMBER_ADD;
+  [BotEvent.GuildMemberRemove]: typeof GUILD_MEMBER_REMOVE;
+  [BotEvent.GuildMemberUpdate]: typeof GUILD_MEMBER_UPDATE;
+  [BotEvent.GuildMembersChunk]: typeof GUILD_MEMBERS_CHUNK;
+  [BotEvent.GuildMembersChunkFinish]: typeof GUILD_MEMBERS_CHUNK_FINISH;
+  [BotEvent.GuildRoleCreate]: typeof GUILD_ROLE_CREATE;
+  [BotEvent.GuildRoleUpdate]: typeof GUILD_ROLE_UPDATE;
+  [BotEvent.GuildRoleDelete]: typeof GUILD_ROLE_DELETE;
+  [BotEvent.InviteCreate]: typeof INVITE_CREATE;
+  [BotEvent.InviteDelete]: typeof INVITE_DELETE;
+  [BotEvent.MessageCreate]: typeof MESSAGE_CREATE;
+  [BotEvent.MessageUpdate]: typeof MESSAGE_UPDATE;
+  [BotEvent.MessageDelete]: typeof MESSAGE_DELETE;
+  [BotEvent.MessageDeleteBulk]: typeof MESSAGE_DELETE_BULK;
+  [BotEvent.MessageReactionAdd]: typeof MESSAGE_REACTION_ADD;
+  [BotEvent.MessageReactionRemove]: typeof MESSAGE_REACTION_REMOVE;
+  [BotEvent.MessageReactionRemoveAll]: typeof MESSAGE_REACTION_REMOVE_ALL;
+  [BotEvent.MessageReactionRemoveEmoji]: typeof MESSAGE_REACTION_REMOVE_EMOJI;
+  [BotEvent.PresenceUpdate]: typeof PRESENCE_UPDATE;
+  [BotEvent.ShardReady]: typeof SHARD_READY;
+  [BotEvent.ShardClose]: typeof SHARD_CLOSE;
+  [BotEvent.TypingStart]: typeof TYPING_START;
+  [BotEvent.UserUpdate]: typeof USER_UPDATE;
+  [BotEvent.WebhooksUpdate]: typeof WEBHOOKS_UPDATE;
 }

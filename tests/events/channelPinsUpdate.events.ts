@@ -1,6 +1,6 @@
 'use strict';
 
-import { BotEvents } from '../../src/socket/constants';
+import { BotEvent } from '../../src/socket/constants';
 import Timestamp from '../../src/structures/Timestamp';
 import Bot from '../../src/structures/bot/Bot';
 import GuildTextChannel from '../../src/structures/channels/GuildTextChannel';
@@ -12,7 +12,7 @@ bot.connection.connect();
 
 (async function (): Promise<void> {
   bot.events.on(
-    BotEvents.ChannelPinsUpdate,
+    BotEvent.ChannelPinsUpdate,
     (channel: TextBasedChannel, oldPinTimestamp: Timestamp | undefined) => {
       if (channel instanceof GuildTextChannel) {
         console.log(channel.name);
@@ -23,7 +23,7 @@ bot.connection.connect();
     },
   );
 
-  await bot.events.wait(BotEvents.Ready);
+  await bot.events.wait(BotEvent.Ready);
 })();
 
-bot.events.on(BotEvents.Debug, console.log);
+bot.events.on(BotEvent.Debug, console.log);

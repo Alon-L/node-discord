@@ -1,6 +1,6 @@
 'use strict';
 
-import { BotEvents } from '../../src/socket/constants';
+import { BotEvent } from '../../src/socket/constants';
 import User from '../../src/structures/User';
 import Bot from '../../src/structures/bot/Bot';
 import Guild from '../../src/structures/guild/Guild';
@@ -12,13 +12,13 @@ const bot = new Bot(config.token);
 bot.connection.connect();
 
 (async function (): Promise<void> {
-  bot.events.on(BotEvents.GuildBanAdd, (guild: Guild | GuildUnavailable, member: Member | User) => {
+  bot.events.on(BotEvent.GuildBanAdd, (guild: Guild | GuildUnavailable, member: Member | User) => {
     if (guild instanceof Guild && member instanceof Member) {
       console.log(guild.name, member.nick, member.user?.username);
     }
   });
 
-  await bot.events.wait(BotEvents.Ready);
+  await bot.events.wait(BotEvent.Ready);
 })();
 
-bot.events.on(BotEvents.Debug, console.log);
+bot.events.on(BotEvent.Debug, console.log);

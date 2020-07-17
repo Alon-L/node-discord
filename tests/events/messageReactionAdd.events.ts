@@ -1,6 +1,6 @@
 'use strict';
 
-import { BotEvents } from '../../src/socket/constants';
+import { BotEvent } from '../../src/socket/constants';
 import User from '../../src/structures/User';
 import Bot from '../../src/structures/bot/Bot';
 import Member from '../../src/structures/member/Member';
@@ -12,13 +12,13 @@ bot.connection.connect();
 
 (async function (): Promise<void> {
   bot.events.on(
-    BotEvents.MessageReactionAdd,
+    BotEvent.MessageReactionAdd,
     (reaction: MessageReaction, user: Member | User | undefined) => {
       console.log(reaction.emoji.name, user?.id, reaction.message.reactions.toArrayKeys);
     },
   );
 
-  await bot.events.wait(BotEvents.Ready);
+  await bot.events.wait(BotEvent.Ready);
 })();
 
-bot.events.on(BotEvents.Debug, console.log);
+bot.events.on(BotEvent.Debug, console.log);

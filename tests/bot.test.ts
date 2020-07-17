@@ -1,7 +1,7 @@
 'use strict';
 
 import config from './config.json';
-import { BotEvents } from '../src/socket/constants';
+import { BotEvent } from '../src/socket/constants';
 import Bot from '../src/structures/bot/Bot';
 
 const bot = new Bot(config.token);
@@ -17,13 +17,13 @@ afterEach(async () => {
 });
 
 test('Bot connection', async () => {
-  await bot.events.wait(BotEvents.Ready);
+  await bot.events.wait(BotEvent.Ready);
 
   expect(bot.guilds.size).toBeGreaterThan(0);
 });
 
 test('Bot wait remove listener', async () => {
-  await bot.events.wait(BotEvents.Ready);
+  await bot.events.wait(BotEvent.Ready);
 
   expect(bot.events.listeners('READY')).toHaveLength(0);
 });

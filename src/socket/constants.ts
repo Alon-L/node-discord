@@ -1,7 +1,7 @@
 /**
  * https://discordapp.com/developers/docs/topics/opcodes-and-status-codes#gateway-gateway-opcodes
  */
-export const enum OPCodes {
+export const enum OPCode {
   Dispatch,
   Heartbeat,
   Identify,
@@ -18,7 +18,7 @@ export const enum OPCodes {
 /**
  * https://discordapp.com/developers/docs/topics/gateway#commands-and-events-gateway-events
  */
-export const enum GatewayEvents {
+export const enum GatewayEvent {
   Ready = 'READY',
   Close = 'CLOSE',
   Resumed = 'RESUMED',
@@ -63,7 +63,7 @@ export const enum GatewayEvents {
 /**
  * All Bot events
  */
-export const enum BotEvents {
+export const enum BotEvent {
   Ready = 'READY',
   Close = 'CLOSE',
   Debug = 'DEBUG',

@@ -1,6 +1,6 @@
 'use strict';
 
-import { BotEvents } from '../../../src/socket/constants';
+import { BotEvent } from '../../../src/socket/constants';
 import Bot from '../../../src/structures/bot/Bot';
 import Guild from '../../../src/structures/guild/Guild';
 import config from '../../config.json';
@@ -8,7 +8,7 @@ import config from '../../config.json';
 const bot = new Bot(config.token);
 bot.connection.connect();
 
-bot.events.on(BotEvents.Ready, () => {
+bot.events.on(BotEvent.Ready, () => {
   const guild = bot.guilds.last;
 
   console.log(guild instanceof Guild);
@@ -19,4 +19,4 @@ bot.events.on(BotEvents.Ready, () => {
   console.log(guild?.emojis);
 });
 
-bot.events.on(BotEvents.Debug, console.log);
+bot.events.on(BotEvent.Debug, console.log);

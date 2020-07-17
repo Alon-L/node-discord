@@ -1,6 +1,6 @@
 'use strict';
 
-import { BotEvents } from '../../src/socket/constants';
+import { BotEvent } from '../../src/socket/constants';
 import { GuildMembersChunk } from '../../src/socket/handlers/guildMembersChunk';
 import Bot from '../../src/structures/bot/Bot';
 import Guild from '../../src/structures/guild/Guild';
@@ -11,13 +11,13 @@ bot.connection.connect();
 
 (async function (): Promise<void> {
   bot.events.on(
-    BotEvents.GuildMembersChunk,
+    BotEvent.GuildMembersChunk,
     (guild: Guild, nonce: string | undefined, chunk: GuildMembersChunk) => {
       console.log(guild.members.size, nonce, chunk);
     },
   );
 
-  await bot.events.wait(BotEvents.Ready);
+  await bot.events.wait(BotEvent.Ready);
 })();
 
-bot.events.on(BotEvents.Debug, console.log);
+bot.events.on(BotEvent.Debug, console.log);

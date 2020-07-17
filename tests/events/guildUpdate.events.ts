@@ -1,6 +1,6 @@
 'use strict';
 
-import { BotEvents } from '../../src/socket/constants';
+import { BotEvent } from '../../src/socket/constants';
 import Bot from '../../src/structures/bot/Bot';
 import Guild from '../../src/structures/guild/Guild';
 import GuildUnavailable from '../../src/structures/guild/GuildUnavailable';
@@ -11,7 +11,7 @@ bot.connection.connect();
 
 (async function (): Promise<void> {
   bot.events.on(
-    BotEvents.GuildUpdate,
+    BotEvent.GuildUpdate,
     (before: Guild | GuildUnavailable, after: Guild | GuildUnavailable) => {
       if (before instanceof Guild && after instanceof Guild) {
         console.log(before.name, after.name);
@@ -21,7 +21,7 @@ bot.connection.connect();
     },
   );
 
-  await bot.events.wait(BotEvents.Ready);
+  await bot.events.wait(BotEvent.Ready);
 })();
 
-bot.events.on(BotEvents.Debug, console.log);
+bot.events.on(BotEvent.Debug, console.log);

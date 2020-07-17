@@ -1,7 +1,7 @@
 import Bot from '../../structures/bot/Bot';
 import Member from '../../structures/member/Member';
 import { Payload } from '../BotSocketShard';
-import { BotEvents } from '../constants';
+import { BotEvent } from '../constants';
 
 export default ({ d }: Payload, bot: Bot): void => {
   const { guild_id: guildId } = d;
@@ -20,5 +20,5 @@ export default ({ d }: Payload, bot: Bot): void => {
     bot.users.set(member.id, member.user);
   }
 
-  bot.events.emit(BotEvents.GuildMemberAdd, member);
+  bot.events.emit(BotEvent.GuildMemberAdd, member);
 };

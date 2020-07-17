@@ -1,7 +1,7 @@
 import Invite, { PartialInvite } from '../../structures/Invite';
 import Bot from '../../structures/bot/Bot';
 import { Payload } from '../BotSocketShard';
-import { BotEvents } from '../constants';
+import { BotEvent } from '../constants';
 
 export default ({ d }: Payload, bot: Bot): void => {
   const { guild_id: guildId, channel_id: channelId, code } = d;
@@ -17,5 +17,5 @@ export default ({ d }: Payload, bot: Bot): void => {
   // Delete the invite from the guild invites cluster
   guild?.invites.delete(code);
 
-  bot.events.emit(BotEvents.InviteDelete, invite);
+  bot.events.emit(BotEvent.InviteDelete, invite);
 };

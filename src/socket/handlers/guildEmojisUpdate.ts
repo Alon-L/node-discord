@@ -4,7 +4,7 @@ import Emoji from '../../structures/Emoji';
 import Bot from '../../structures/bot/Bot';
 import { Snowflake } from '../../types/types';
 import { Payload } from '../BotSocketShard';
-import { BotEvents } from '../constants';
+import { BotEvent } from '../constants';
 
 export default ({ d }: Payload, bot: Bot): void => {
   const { guild_id: guildId, emojis } = d;
@@ -22,5 +22,5 @@ export default ({ d }: Payload, bot: Bot): void => {
   guild.emojis = after;
   bot.emojis.merge(guild.emojis);
 
-  bot.events.emit(BotEvents.GuildEmojisUpdate, before, after);
+  bot.events.emit(BotEvent.GuildEmojisUpdate, before, after);
 };

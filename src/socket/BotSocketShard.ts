@@ -4,10 +4,10 @@ import BotHeartbeats from './BotHeartbeats';
 import { BotShardState } from './BotShard';
 import BotSocket, { SessionStartLimit } from './BotSocket';
 import {
-  BotEvents,
+  BotEvent,
   GatewayCloseCodes,
-  GatewayEvents,
-  OPCodes,
+  GatewayEvent,
+  OPCode,
   UnreconnectableGatewayCloseCodes,
   UnresumeableGatewayCloseCodes,
 } from './constants';
@@ -28,14 +28,14 @@ export enum BotSocketShardState {
 export type PayloadData = any;
 
 export interface Payload {
-  op: OPCodes;
+  op: OPCode;
   d: PayloadData;
   s: number;
-  t: GatewayEvents;
+  t: GatewayEvent;
 }
 
 export type EventHandlers = Record<
-  GatewayEvents,
+  GatewayEvent,
   (payload: Payload, bot?: Bot, socketShard?: BotSocketShard) => void
 >;
 
@@ -277,18 +277,18 @@ class BotSocketShard {
     this.bot.debug(op, t, 'op - t');
 
     switch (op) {
-      case OPCodes.Dispatch:
+      case OPCode.Dispatch:
         this.sequence = s;
         this.handleDispatch(payload);
         break;
-      case OPCodes.Reconnect:
+      case OPCode.Reconnect:
         this.close(GatewayCloseCodes.UnknownError);
         break;
-      case OPCodes.InvalidSession:
+      case OPCode.InvalidSession:
         // Wait 5 seconds and re-identify
         setTimeout(this.identify.bind(this), 5000);
         break;
-      case OPCodes.Hello:
+      case OPCode.Hello:
         this.heartbeats.interval.timeout = d.heartbeat_interval;
         this.heartbeats.start();
 
@@ -296,7 +296,7 @@ class BotSocketShard {
 
         this.state = BotSocketShardState.Processing;
         break;
-      case OPCodes.HeartbeatACK:
+      case OPCode.HeartbeatACK:
         this.heartbeats.receivedAck();
         break;
     }
@@ -311,7 +311,7 @@ class BotSocketShard {
 
     this.ws.send(
       this.pack({
-        op: OPCodes.Identify,
+        op: OPCode.Identify,
         d: {
           ...identify,
           token: this.token,
@@ -329,7 +329,7 @@ class BotSocketShard {
     const { t } = payload;
 
     // Set session ID in case of a Ready event
-    if (t === GatewayEvents.Ready) {
+    if (t === GatewayEvent.Ready) {
       this.sessionId = payload.d.session_id;
     }
 
@@ -373,12 +373,12 @@ class BotSocketShard {
       this.bot.guilds.toArray.map(i => i.name),
     );
 
-    this.bot.events.emit(BotEvents.ShardReady, this);
+    this.bot.events.emit(BotEvent.ShardReady, this);
 
     this.botSocket.shardChangedState(
       BotSocketShardState.Ready,
       BotShardState.Ready,
-      BotEvents.Ready,
+      BotEvent.Ready,
     );
   }
 
@@ -393,13 +393,13 @@ class BotSocketShard {
     this.state = BotSocketShardState.Closed;
 
     // Emit the 'ShardClose' event to the Bot
-    this.bot.events.emit(BotEvents.ShardClose, this);
+    this.bot.events.emit(BotEvent.ShardClose, this);
 
     // Tell the BotSocket that the shard has been closed
     this.botSocket.shardChangedState(
       BotSocketShardState.Closed,
       BotShardState.Closed,
-      BotEvents.Close,
+      BotEvent.Close,
     );
 
     this.heartbeats.stopHeartbeat();
@@ -421,7 +421,7 @@ class BotSocketShard {
   private resume(): void {
     this.ws.send(
       this.pack({
-        op: OPCodes.Resume,
+        op: OPCode.Resume,
         d: {
           token: this.token,
           session_id: this.sessionId,

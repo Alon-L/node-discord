@@ -1,7 +1,7 @@
 import Bot from '../../structures/bot/Bot';
 import ChannelUtils from '../../utils/ChannelUtils';
 import { Payload } from '../BotSocketShard';
-import { BotEvents } from '../constants';
+import { BotEvent } from '../constants';
 
 export default ({ d }: Payload, bot: Bot): void => {
   const { guild_id: guildId, channel_id: channelId, id } = d;
@@ -16,5 +16,5 @@ export default ({ d }: Payload, bot: Bot): void => {
 
   const { before, after } = message.update(d);
 
-  bot.events.emit(BotEvents.MessageUpdate, before, after);
+  bot.events.emit(BotEvent.MessageUpdate, before, after);
 };

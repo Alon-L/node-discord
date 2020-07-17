@@ -1,7 +1,7 @@
 'use strict';
 
 import Cluster from '../../src/Cluster';
-import { BotEvents } from '../../src/socket/constants';
+import { BotEvent } from '../../src/socket/constants';
 import Emoji from '../../src/structures/Emoji';
 import Bot from '../../src/structures/bot/Bot';
 import { Snowflake } from '../../src/types/types';
@@ -12,13 +12,13 @@ bot.connection.connect();
 
 (async function (): Promise<void> {
   bot.events.on(
-    BotEvents.GuildEmojisUpdate,
+    BotEvent.GuildEmojisUpdate,
     (before: Cluster<Snowflake, Emoji>, after: Cluster<Snowflake, Emoji>) => {
       console.log(before.first?.name, after.first?.name);
     },
   );
 
-  await bot.events.wait(BotEvents.Ready);
+  await bot.events.wait(BotEvent.Ready);
 })();
 
-bot.events.on(BotEvents.Debug, console.log);
+bot.events.on(BotEvent.Debug, console.log);

@@ -1,7 +1,7 @@
 import Bot from '../../structures/bot/Bot';
 import ReactionHandlersUtils from '../../utils/handlers/ReactionHandlersUtils';
 import { Payload } from '../BotSocketShard';
-import { BotEvents } from '../constants';
+import { BotEvent } from '../constants';
 
 export default ({ d }: Payload, bot: Bot): void => {
   const handlersUtils = new ReactionHandlersUtils(bot, d);
@@ -12,5 +12,5 @@ export default ({ d }: Payload, bot: Bot): void => {
 
   message.reactions.clear();
 
-  bot.events.emit(BotEvents.MessageReactionRemoveAll, message);
+  bot.events.emit(BotEvent.MessageReactionRemoveAll, message);
 };

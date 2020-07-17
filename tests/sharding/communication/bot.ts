@@ -1,7 +1,7 @@
 'use strict';
 
 import BotSocketShard from '../../../src/socket/BotSocketShard';
-import { BotEvents } from '../../../src/socket/constants';
+import { BotEvent } from '../../../src/socket/constants';
 import Bot from '../../../src/structures/bot/Bot';
 import config from '../../config.json';
 
@@ -17,7 +17,7 @@ bot.communication.on('close', (bot: Bot) => {
   return 'Closed!';
 });
 
-bot.events.on(BotEvents.Ready, async () => {
+bot.events.on(BotEvent.Ready, async () => {
   console.log('All shards are ready!');
 
   const responses = await Promise.all([
@@ -33,15 +33,15 @@ bot.events.on(BotEvents.Ready, async () => {
   });
 });
 
-bot.events.on(BotEvents.Close, () => {
+bot.events.on(BotEvent.Close, () => {
   console.log('All shards are closed!');
 });
 
-bot.events.on(BotEvents.ShardReady, (shard: BotSocketShard) => {
+bot.events.on(BotEvent.ShardReady, (shard: BotSocketShard) => {
   console.log('Shard ready!', shard.shard.id);
 });
 
-bot.events.on(BotEvents.ShardClose, (shard: BotSocketShard) => {
+bot.events.on(BotEvent.ShardClose, (shard: BotSocketShard) => {
   console.log('Shard closed!', shard.shard.id);
 });
 

@@ -3,7 +3,7 @@ import GuildTextChannel from '../../structures/channels/GuildTextChannel';
 import Message, { PartialMessage } from '../../structures/message/Message';
 import ChannelUtils from '../../utils/ChannelUtils';
 import { Payload } from '../BotSocketShard';
-import { BotEvents } from '../constants';
+import { BotEvent } from '../constants';
 
 export default ({ d }: Payload, bot: Bot): void => {
   const { id, guild_id: guildId, channel_id: channelId } = d;
@@ -22,5 +22,5 @@ export default ({ d }: Payload, bot: Bot): void => {
 
   channel.messages.delete(message.id);
 
-  bot.events.emit(BotEvents.MessageDelete, message);
+  bot.events.emit(BotEvent.MessageDelete, message);
 };

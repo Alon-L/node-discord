@@ -1,6 +1,6 @@
 import Bot from '../../structures/bot/Bot';
 import { Payload } from '../BotSocketShard';
-import { BotEvents } from '../constants';
+import { BotEvent } from '../constants';
 
 export default ({ d }: Payload, bot: Bot): void => {
   const { guild_id: guildId } = d;
@@ -15,5 +15,5 @@ export default ({ d }: Payload, bot: Bot): void => {
 
   const { before, after } = role.update(d.role);
 
-  bot.events.emit(BotEvents.GuildRoleUpdate, before, after);
+  bot.events.emit(BotEvent.GuildRoleUpdate, before, after);
 };

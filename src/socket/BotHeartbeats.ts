@@ -1,9 +1,9 @@
 import WebSocket from 'ws';
 import BotSocketShard from './BotSocketShard';
-import { OPCodes } from './constants';
+import { OPCode } from './constants';
 
 interface HeartbeatData {
-  op: OPCodes.Heartbeat;
+  op: OPCode.Heartbeat;
   d: number;
 }
 
@@ -80,7 +80,7 @@ class BotHeartbeats {
    * @type {HeartbeatData}
    */
   private get heartbeatData(): HeartbeatData {
-    return { op: OPCodes.Heartbeat, d: this.sequence || -1 };
+    return { op: OPCode.Heartbeat, d: this.sequence || -1 };
   }
 
   /**

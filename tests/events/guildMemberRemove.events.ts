@@ -1,6 +1,6 @@
 'use strict';
 
-import { BotEvents } from '../../src/socket/constants';
+import { BotEvent } from '../../src/socket/constants';
 import User from '../../src/structures/User';
 import Bot from '../../src/structures/bot/Bot';
 import Member from '../../src/structures/member/Member';
@@ -10,7 +10,7 @@ const bot = new Bot(config.token);
 bot.connection.connect();
 
 (async function (): Promise<void> {
-  bot.events.on(BotEvents.GuildMemberRemove, (member: Member | User) => {
+  bot.events.on(BotEvent.GuildMemberRemove, (member: Member | User) => {
     if (member instanceof Member) {
       console.log(
         'member of type Member',
@@ -24,7 +24,7 @@ bot.connection.connect();
     }
   });
 
-  await bot.events.wait(BotEvents.Ready);
+  await bot.events.wait(BotEvent.Ready);
 })();
 
-bot.events.on(BotEvents.Debug, console.log);
+bot.events.on(BotEvent.Debug, console.log);

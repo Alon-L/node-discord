@@ -2,7 +2,7 @@ import Bot from '../../structures/bot/Bot';
 import Message from '../../structures/message/Message';
 import ChannelUtils from '../../utils/ChannelUtils';
 import { Payload } from '../BotSocketShard';
-import { BotEvents } from '../constants';
+import { BotEvent } from '../constants';
 
 export default ({ d }: Payload, bot: Bot): void => {
   const { guild_id: guildId, channel_id: channelId } = d;
@@ -19,5 +19,5 @@ export default ({ d }: Payload, bot: Bot): void => {
   // Set the last message ID of the channel to that message
   channel.lastMessageId = message.id;
 
-  bot.events.emit(BotEvents.MessageCreate, message);
+  bot.events.emit(BotEvent.MessageCreate, message);
 };

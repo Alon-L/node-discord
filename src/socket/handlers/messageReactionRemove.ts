@@ -1,7 +1,7 @@
 import Bot from '../../structures/bot/Bot';
 import ReactionHandlersUtils from '../../utils/handlers/ReactionHandlersUtils';
 import { Payload } from '../BotSocketShard';
-import { BotEvents } from '../constants';
+import { BotEvent } from '../constants';
 
 export default ({ d }: Payload, bot: Bot): void => {
   const { user_id: userId } = d;
@@ -45,5 +45,5 @@ export default ({ d }: Payload, bot: Bot): void => {
     message.reactions.delete(identifier);
   }
 
-  bot.events.emit(BotEvents.MessageReactionRemove, reaction, member || user);
+  bot.events.emit(BotEvent.MessageReactionRemove, reaction, member || user);
 };

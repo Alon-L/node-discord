@@ -1,7 +1,7 @@
 import User from '../../structures/User';
 import Bot from '../../structures/bot/Bot';
 import { Payload } from '../BotSocketShard';
-import { BotEvents } from '../constants';
+import { BotEvent } from '../constants';
 
 export default ({ d }: Payload, bot: Bot): void => {
   const { guild_id: guildId, user } = d;
@@ -15,5 +15,5 @@ export default ({ d }: Payload, bot: Bot): void => {
   // Remove the member from the guild's members cluster
   guild.members.delete(member.id);
 
-  bot.events.emit(BotEvents.GuildMemberRemove, member);
+  bot.events.emit(BotEvent.GuildMemberRemove, member);
 };

@@ -1,6 +1,6 @@
 import Bot from '../../structures/bot/Bot';
 import { Payload } from '../BotSocketShard';
-import { BotEvents } from '../constants';
+import { BotEvent } from '../constants';
 
 export default ({ d }: Payload, bot: Bot): void => {
   const { guild_id: guildId } = d;
@@ -9,5 +9,5 @@ export default ({ d }: Payload, bot: Bot): void => {
 
   if (!guild) return;
 
-  bot.events.emit(BotEvents.GuildIntegrationsUpdate, guild);
+  bot.events.emit(BotEvent.GuildIntegrationsUpdate, guild);
 };

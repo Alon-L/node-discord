@@ -1,6 +1,6 @@
 'use strict';
 
-import { BotEvents } from '../../src/socket/constants';
+import { BotEvent } from '../../src/socket/constants';
 import User from '../../src/structures/User';
 import Bot from '../../src/structures/bot/Bot';
 import Member from '../../src/structures/member/Member';
@@ -12,7 +12,7 @@ bot.connection.connect();
 
 (async function (): Promise<void> {
   bot.events.on(
-    BotEvents.TypingStart,
+    BotEvent.TypingStart,
     (channel: TextBasedChannel | undefined, user: Member | User | undefined, startedAt: number) => {
       console.log(channel?.id, user?.id, startedAt);
       if (user instanceof Member) {
@@ -23,7 +23,7 @@ bot.connection.connect();
     },
   );
 
-  await bot.events.wait(BotEvents.Ready);
+  await bot.events.wait(BotEvent.Ready);
 })();
 
-bot.events.on(BotEvents.Debug, console.log);
+bot.events.on(BotEvent.Debug, console.log);

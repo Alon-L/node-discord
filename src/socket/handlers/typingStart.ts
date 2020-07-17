@@ -4,7 +4,7 @@ import GuildTextChannel from '../../structures/channels/GuildTextChannel';
 import Member from '../../structures/member/Member';
 import ChannelUtils from '../../utils/ChannelUtils';
 import { Payload } from '../BotSocketShard';
-import { BotEvents } from '../constants';
+import { BotEvent } from '../constants';
 
 export default ({ d }: Payload, bot: Bot): void => {
   const { channel_id: channelId, guild_id: guildId, user_id: userId, timestamp, member } = d;
@@ -24,5 +24,5 @@ export default ({ d }: Payload, bot: Bot): void => {
     user = bot.users.get(userId);
   }
 
-  bot.events.emit(BotEvents.TypingStart, channel, user, timestamp as number);
+  bot.events.emit(BotEvent.TypingStart, channel, user, timestamp as number);
 };
