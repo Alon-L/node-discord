@@ -4,7 +4,7 @@ import Bot from './bot/Bot';
 import Channel from './channels/Channel';
 import GuildChannel, { GuildChannelOptions } from './channels/GuildChannel';
 import GuildTextChannel from './channels/GuildTextChannel';
-import { PermissionOverwrite, Permissible } from './flags/PermissionFlags';
+import { PermissionOverwriteFlags, Permissible } from './flags/PermissionFlags';
 import Message, { MessageData, MessageEditData, MessageOptions } from './message/Message';
 import MessageEmbed from './message/MessageEmbed';
 import { EndpointRoute, HttpMethod } from '../socket/endpoints';
@@ -342,13 +342,13 @@ class BotAPI {
    * Requires the {@link Permission.ManageRoles} permission
    * @param {Snowflake} channelId The ID of the channel for which to overwrite the permissions
    * @param {Permissible} permissible Data for the member or role
-   * @param {PermissionOverwrite} permissions The permissions you wish to modify
+   * @param {PermissionOverwriteFlags} permissions The permissions you wish to modify
    * @returns {Promise<void>}
    */
   public async modifyGuildChannelPermissions(
     channelId: Snowflake,
     permissible: Permissible,
-    permissions: PermissionOverwrite,
+    permissions: PermissionOverwriteFlags,
   ): Promise<void> {
     await this.requests.send(
       EndpointRoute.ChannelPermissionsOverwrite,

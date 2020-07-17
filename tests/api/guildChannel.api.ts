@@ -23,7 +23,7 @@ bot.connection.connect();
 
   await guildChannel.modifyPermissions(
     {
-      id: '454991555665592321',
+      id: bot.user!.id,
       type: PermissibleType.Member,
     },
     {
@@ -31,6 +31,10 @@ bot.connection.connect();
       deny: PermissionFlags.build(Permission.AttachFiles),
     },
   );
+
+  await bot.events.wait(BotEvent.ChannelUpdate);
+
+  console.log(guildChannel.permissions.get(bot.user!.id)?.allow.has(Permission.AttachFiles)); // expected: false
 
   console.log('Modified permissions');
 })();

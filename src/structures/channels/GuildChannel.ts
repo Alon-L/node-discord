@@ -1,9 +1,14 @@
 import Channel, { ChannelType } from './Channel';
 import GuildCategoryChannel from './GuildCategoryChannel';
+import Cluster from '../../Cluster';
 import { Snowflake } from '../../types/types';
 import { GatewayStruct } from '../BaseStruct';
 import Bot from '../bot/Bot';
-import { PermissionOverwrite, Permissible } from '../flags/PermissionFlags';
+import PermissionFlags, {
+  PermissionOverwriteFlags,
+  Permissible,
+  PermissionOverwrite,
+} from '../flags/PermissionFlags';
 import Guild from '../guild/Guild';
 
 /**
@@ -62,6 +67,7 @@ class GuildChannel extends Channel {
   public position!: number;
 
   // TODO: Permission overwrites field
+  public permissions!: Cluster<Snowflake, PermissionOverwrite>;
 
   /**
    * The name of the channel
@@ -94,6 +100,19 @@ class GuildChannel extends Channel {
     super.init(guildChannel);
 
     this.position = guildChannel.position;
+
+    // Serialize received permission overwrites
+    this.permissions = new Cluster<Snowflake, PermissionOverwrite>(
+      guildChannel.permission_overwrites?.map(({ id, type, allow, deny }: GatewayStruct) => [
+        id,
+        {
+          type,
+          allow: new PermissionFlags(allow),
+          deny: new PermissionFlags(deny),
+        },
+      ]),
+    );
+
     this.name = guildChannel.name;
     this.topic = guildChannel.topic;
 
@@ -127,12 +146,12 @@ class GuildChannel extends Channel {
    * Modify the channel permission overwrites for a member or a role.
    * Requires the {@link Permission.ManageRoles} permission
    * @param {Permissible} permissible Data for the member or role
-   * @param {PermissionOverwrite} permissions The permissions you wish to modify
+   * @param {PermissionOverwriteFlags} permissions The permissions you wish to modify
    * @returns {Promise<void>}
    */
   public modifyPermissions(
     permissible: Permissible,
-    permissions: PermissionOverwrite,
+    permissions: PermissionOverwriteFlags,
   ): Promise<void> {
     return this.bot.api.modifyGuildChannelPermissions(this.id, permissible, permissions);
   }

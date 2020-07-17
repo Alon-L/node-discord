@@ -36,7 +36,7 @@ export interface Permissible {
  * Used to overwrite permissions for a guild channel.
  * Contains the allowed and denied permission flags for a specific member or a role
  */
-export interface PermissionOverwrite {
+export interface PermissionOverwriteFlags {
   /**
    * The allowed permission flags for the member or role in a guild channel
    */
@@ -47,6 +47,12 @@ export interface PermissionOverwrite {
    */
   deny?: PermissionFlags;
 }
+
+/**
+ * A full permission overwrite entry.
+ * Contains full data about a guild channel's permission overwrite
+ */
+export type PermissionOverwrite = Pick<Permissible, 'type'> & Required<PermissionOverwriteFlags>;
 
 class PermissionFlags extends Flags<Permission> {}
 
