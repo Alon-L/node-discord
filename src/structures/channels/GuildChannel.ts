@@ -101,7 +101,7 @@ class GuildChannel extends Channel {
 
     this.position = guildChannel.position;
 
-    // Serialize received permission overwrites
+    // Serialize the received permission overwrites
     this.permissions = new Cluster<Snowflake, PermissionOverwrite>(
       guildChannel.permission_overwrites?.map(({ id, type, allow, deny }: GatewayStruct) => [
         id,
