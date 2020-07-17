@@ -97,6 +97,7 @@
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="userflags.html#has" class="tsd-kind-icon">has</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited tsd-is-static"><a href="userflags.html#build" class="tsd-kind-icon">build</a></li>
 							</ul>
 						</section>
 					</div>
@@ -108,20 +109,20 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>User<wbr>Flags<span class="tsd-signature-symbol">(</span>permissions<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="userflags.html" class="tsd-signature-type">UserFlags</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>User<wbr>Flags<span class="tsd-signature-symbol">(</span>flags<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="userflags.html" class="tsd-signature-type">UserFlags</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="flags.html">Flags</a>.<a href="flags.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/432628f/src/structures/flags/Flags.ts#L9">src/structures/flags/Flags.ts:9</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/5f1df03/src/structures/flags/Flags.ts#L9">src/structures/flags/Flags.ts:9</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>permissions: <span class="tsd-signature-type">number</span></h5>
+									<h5>flags: <span class="tsd-signature-type">number</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="userflags.html" class="tsd-signature-type">UserFlags</a></h4>
@@ -142,7 +143,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="flags.html">Flags</a>.<a href="flags.html#bits">bits</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/432628f/src/structures/flags/Flags.ts#L28">src/structures/flags/Flags.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/5f1df03/src/structures/flags/Flags.ts#L28">src/structures/flags/Flags.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -168,7 +169,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="flags.html">Flags</a>.<a href="flags.html#has">has</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/432628f/src/structures/flags/Flags.ts#L20">src/structures/flags/Flags.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/5f1df03/src/structures/flags/Flags.ts#L20">src/structures/flags/Flags.ts:20</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -186,6 +187,44 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited tsd-is-static">
+					<a name="build" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> build</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">build&lt;T&gt;<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>flags<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="flags.html" class="tsd-signature-type">Flags</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="flags.html">Flags</a>.<a href="flags.html#build">build</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/5f1df03/src/structures/flags/Flags.ts#L37">src/structures/flags/Flags.ts:37</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new instance of <a href="flags.html">Flags</a> based on given flags</p>
+								</div>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>flags: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An array of all flags the <a href="flags.html">Flags</a> instance should contain</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="flags.html" class="tsd-signature-type">Flags</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -214,6 +253,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="userflags.html#has" class="tsd-kind-icon">has</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited tsd-is-static">
+								<a href="userflags.html#build" class="tsd-kind-icon">build</a>
 							</li>
 						</ul>
 					</li>

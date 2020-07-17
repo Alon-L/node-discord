@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>NitroType | node-discord</title>
+	<title>PermissibleType | node-discord</title>
 	<meta name="description" content="Documentation for node-discord">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="nitrotype.html">NitroType</a>
+					<a href="permissibletype.html">PermissibleType</a>
 				</li>
 			</ul>
-			<h1>Enumeration NitroType</h1>
+			<h1>Enumeration PermissibleType</h1>
 		</div>
 	</div>
 </header>
@@ -67,7 +67,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>User nitro types</p>
+						<p>The type of the permission overwrite</p>
 					</div>
 				</div>
 			</section>
@@ -78,9 +78,8 @@
 						<section class="tsd-index-section ">
 							<h3>Enumeration members</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="nitrotype.html#nitro" class="tsd-kind-icon">Nitro</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="nitrotype.html#nitroclassic" class="tsd-kind-icon">Nitro<wbr>Classic</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="nitrotype.html#none" class="tsd-kind-icon">None</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="permissibletype.html#member" class="tsd-kind-icon">Member</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="permissibletype.html#role" class="tsd-kind-icon">Role</a></li>
 							</ul>
 						</section>
 					</div>
@@ -89,34 +88,34 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Enumeration members</h2>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="nitro" class="tsd-anchor"></a>
-					<h3>Nitro</h3>
-					<div class="tsd-signature tsd-kind-icon">Nitro<span class="tsd-signature-symbol">:</span></div>
+					<a name="member" class="tsd-anchor"></a>
+					<h3>Member</h3>
+					<div class="tsd-signature tsd-kind-icon">Member<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;member&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/5f1df03/src/structures/User.ts#L14">src/structures/User.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/5f1df03/src/structures/flags/PermissionFlags.ts#L12">src/structures/flags/PermissionFlags.ts:12</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The permission overwrite is for a member</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="nitroclassic" class="tsd-anchor"></a>
-					<h3>Nitro<wbr>Classic</h3>
-					<div class="tsd-signature tsd-kind-icon">Nitro<wbr>Classic<span class="tsd-signature-symbol">:</span></div>
+					<a name="role" class="tsd-anchor"></a>
+					<h3>Role</h3>
+					<div class="tsd-signature tsd-kind-icon">Role<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;role&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/5f1df03/src/structures/User.ts#L13">src/structures/User.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/5f1df03/src/structures/flags/PermissionFlags.ts#L17">src/structures/flags/PermissionFlags.ts:17</a></li>
 						</ul>
 					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="none" class="tsd-anchor"></a>
-					<h3>None</h3>
-					<div class="tsd-signature tsd-kind-icon">None<span class="tsd-signature-symbol">:</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/5f1df03/src/structures/User.ts#L12">src/structures/User.ts:12</a></li>
-						</ul>
-					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The permission overwrite is for a role</p>
+						</div>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -133,16 +132,13 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-enum">
-						<a href="nitrotype.html" class="tsd-kind-icon">Nitro<wbr>Type</a>
+						<a href="permissibletype.html" class="tsd-kind-icon">Permissible<wbr>Type</a>
 						<ul>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="nitrotype.html#nitro" class="tsd-kind-icon">Nitro</a>
+								<a href="permissibletype.html#member" class="tsd-kind-icon">Member</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="nitrotype.html#nitroclassic" class="tsd-kind-icon">Nitro<wbr>Classic</a>
-							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="nitrotype.html#none" class="tsd-kind-icon">None</a>
+								<a href="permissibletype.html#role" class="tsd-kind-icon">Role</a>
 							</li>
 						</ul>
 					</li>
