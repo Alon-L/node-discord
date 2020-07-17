@@ -17,5 +17,12 @@ export default ({ d }: Payload, bot: Bot): void => {
     (id: Snowflake) => channel.messages.get(id) || id,
   );
 
+  for (const message of messages) {
+    if (message instanceof Message) {
+      // Mark message as deleted
+      message.deleted = true;
+    }
+  }
+
   bot.events.emit(BotEvent.MessageDeleteBulk, channel, messages);
 };
