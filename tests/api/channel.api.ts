@@ -1,6 +1,6 @@
 'use strict';
 
-import { BotEvents } from '../../src/socket/constants';
+import { BotEvent } from '../../src/socket/constants';
 import Emoji from '../../src/structures/Emoji';
 import Bot from '../../src/structures/bot/Bot';
 import DMChannel from '../../src/structures/channels/DMChannel';
@@ -11,7 +11,7 @@ const bot = new Bot(config.token);
 bot.connection.connect();
 
 (async function (): Promise<void> {
-  await bot.events.wait(BotEvents.Ready);
+  await bot.events.wait(BotEvent.Ready);
 
   const channel = bot.guilds.get('702476896008405002')?.channels.get('721781755060813914');
   if (!channel) return;
@@ -44,8 +44,16 @@ bot.connection.connect();
 
     await message.removeReactions();
 
+    await message.edit('Edited message!');
+    await message.edit({
+      content: 'Edited message content again!',
+      embed: {
+        title: 'Edited title!',
+      },
+    });
+
     console.log(message.reactions.toArrayKeys);
   }
 })();
 
-bot.events.on(BotEvents.Debug, console.log);
+bot.events.on(BotEvent.Debug, console.log);

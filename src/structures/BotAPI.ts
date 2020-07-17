@@ -1,14 +1,20 @@
+import { GatewayStruct } from './BaseStruct';
 import Emoji, { EmojiResolvable } from './Emoji';
 import Bot from './bot/Bot';
 import Channel from './channels/Channel';
 import GuildChannel, { GuildChannelOptions } from './channels/GuildChannel';
 import GuildTextChannel from './channels/GuildTextChannel';
-import Message, { MessageData, MessageOptions } from './message/Message';
+import Message, { MessageData, MessageEditData, MessageOptions } from './message/Message';
 import MessageEmbed from './message/MessageEmbed';
 import { EndpointRoute, HttpMethod } from '../socket/endpoints';
 import Requests, { Params } from '../socket/rateLimit/Requests';
 import { Snowflake } from '../types/types';
 import ChannelUtils from '../utils/ChannelUtils';
+
+export interface SerializedMessageData {
+  content?: string;
+  embed?: GatewayStruct;
+}
 
 /**
  * Creates all outgoing API requests
@@ -34,6 +40,17 @@ class BotAPI {
     this.token = token;
 
     this.requests = new Requests(this.bot, this.token);
+  }
+
+  private static serializeMessageData(data: MessageData): SerializedMessageData {
+    const { embed } = data;
+
+    return {
+      ...data,
+      embed:
+        embed &&
+        (embed instanceof MessageEmbed ? embed.structure : MessageEmbed.dataToStructure(embed)),
+    };
   }
 
   /**
@@ -83,13 +100,13 @@ class BotAPI {
   /**
    * Post a message to a {@link GuildTextChannel} or {@link DMChannel}. If operating on a {@link GuildTextChannel}, this method requires the {@link Permission.SendMessages} permission to be present on the current user. If the {@link MessageOptions.tts} field is set to true, the {@link Permission.SendTTSMessages} permission is required for the message to be spoken
    * @param {Snowflake} channelId The ID of the channel to send the message in
-   * @param {string | Partial<MessageData> | MessageEmbed} data The message data.
+   * @param {string | MessageData | MessageEmbed} data The message data.
    * Can be:
    * 1. Raw content to be sent as a message
    * @example ```typescript
    * channel.sendMessage('Hello World!');
    * ```
-   * 2. A partial {@link MessageData} object, containing content and/or embed
+   * 2. A {@link MessageData} object, containing content and/or embed
    * @example ```typescript
    * channel.sendMessage({ content: 'Hello World!', embed: { title: 'My Embed!' } });
    * ```
@@ -99,7 +116,7 @@ class BotAPI {
    */
   public async sendMessage(
     channelId: Snowflake,
-    data: string | Partial<MessageData> | MessageEmbed,
+    data: string | MessageData | MessageEmbed,
     options?: Partial<MessageOptions>,
   ): Promise<Message> {
     // Default params to be sent in the request
@@ -113,15 +130,11 @@ class BotAPI {
       params['embed'] = data.structure;
     } else {
       // The params should include all given data fields
-      params['content'] = data.content;
-
-      if (data.embed) {
-        params['embed'] = MessageEmbed.dataToStructure(data.embed);
-      }
+      Object.assign(params, BotAPI.serializeMessageData(data));
     }
 
     const messageData = await this.requests.send(
-      EndpointRoute.ChannelMessage,
+      EndpointRoute.ChannelMessages,
       { channelId },
       HttpMethod.Post,
       params,
@@ -242,6 +255,52 @@ class BotAPI {
       },
       HttpMethod.Delete,
     );
+  }
+
+  /**
+   * Edit a previously sent message.
+   * The fields `content`, `embed` and `flags` can be edited by the original message author. Other users can only edit `flags` and only if they have the {@link Permission.ManageMessages} permission in the corresponding channel.
+   * @param {Snowflake} channelId The ID of the channel that contains the message you wish to edit
+   * @param {Snowflake} messageId The ID of the message you wish to edit
+   * @param {string | MessageEditData} data The updated message data.
+   * Can be:
+   * 1. Raw content to be edited to
+   * @example ```typescript
+   * message.edit('Updated content!');
+   * ```
+   * 2. A {@link MessageEditData} object, containing any of the fields
+   * @example ```typescript
+   * message.edit({ content: 'Updated content!', embed: { title: 'My Embed!' } });
+   * ```
+   * @returns {Promise<Message>}
+   */
+  public async editMessage(
+    channelId: Snowflake,
+    messageId: Snowflake,
+    data: string | MessageEditData,
+  ): Promise<Message> {
+    const params: Params = {};
+
+    if (typeof data === 'string') {
+      // The given data is the new message content
+      params['content'] = data;
+    } else {
+      // The given data should be passed to the endpoint
+      Object.assign(params, { ...BotAPI.serializeMessageData(data), flags: data.flags?.bits });
+    }
+
+    const messageData = await this.requests.send(
+      EndpointRoute.ChannelMessage,
+      { channelId, messageId },
+      HttpMethod.Patch,
+      params,
+    );
+
+    // TODO: Fetch channel if does not exist
+    const channel = this.bot.channels.get(channelId)! as GuildTextChannel;
+
+    const message = new Message(this.bot, messageData!, channel);
+    return channel.messages.getOrSet(message.id, message);
   }
 }
 

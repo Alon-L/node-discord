@@ -122,16 +122,16 @@ export interface MessageData {
   /**
    * The message's raw content
    */
-  content: string;
+  content?: string;
 
   /**
    * The message's embed data
    */
-  embed: Partial<Omit<MessageEmbedData, 'type' | 'provider' | 'video'>>;
+  embed?: Partial<Omit<MessageEmbedData, 'type' | 'provider' | 'video'>> | MessageEmbed;
 }
 
 /**
- * The message options for when sending new messages
+ * The message options for when sending a new message
  */
 export interface MessageOptions {
   /**
@@ -143,6 +143,16 @@ export interface MessageOptions {
    * Whether this is a Text To Speech (TTS) message
    */
   tts: boolean;
+}
+
+/**
+ * The message data for when editing a message
+ */
+export interface MessageEditData extends MessageData {
+  /**
+   * The new flags of the message
+   */
+  flags?: MessageFlags;
 }
 
 /**
@@ -382,6 +392,25 @@ class Message extends BaseStruct {
    */
   public removeReactions(): Promise<void> {
     return this.bot.api.removeMessageReactions(this.channel.id, this.id);
+  }
+
+  /**
+   * Edit a previously sent message.
+   * The fields `content`, `embed` and `flags` can be edited by the original message author. Other users can only edit `flags` and only if they have the {@link Permission.ManageMessages} permission in the corresponding channel.
+   * @param {string | MessageEditData} data The updated message data.
+   * Can be:
+   * 1. Raw content to be edited to
+   * @example ```typescript
+   * message.edit('Updated content!');
+   * ```
+   * 2. A {@link MessageEditData} object, containing any of the fields
+   * @example ```typescript
+   * message.edit({ content: 'Updated content!', embed: { title: 'My Embed!' } });
+   * ```
+   * @returns {Promise<Message>}
+   */
+  public edit(data: string | MessageEditData): Promise<Message> {
+    return this.bot.api.editMessage(this.channel.id, this.id, data);
   }
 }
 
