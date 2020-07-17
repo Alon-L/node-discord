@@ -110,7 +110,7 @@ class RateLimitBucket {
   /**
    * Refill this bucket
    */
-  private refillBucket(): void {
+  private async refillBucket(): Promise<void> {
     // Set the remaining number of requests in this bucket back to its limit
     this.remaining = this.limit;
 
@@ -118,7 +118,7 @@ class RateLimitBucket {
     this.timeout = undefined;
 
     // Empties the queue
-    this.queue.free();
+    await this.queue.free();
   }
 
   /**
