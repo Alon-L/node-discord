@@ -8,8 +8,8 @@ class Flags<T extends number> {
    */
   private readonly flags: number;
 
-  constructor(permissions: number) {
-    this.flags = permissions;
+  constructor(flags: number) {
+    this.flags = flags;
   }
 
   /**
@@ -27,6 +27,18 @@ class Flags<T extends number> {
    */
   public get bits(): number {
     return this.flags;
+  }
+
+  /**
+   * Creates a new instance of {@link Flags} based on given flags
+   * @param {T[]} flags An array of all flags the {@link Flags} instance should contain
+   * @returns {Flags<T>}
+   */
+  public static build<T extends number>(...flags: T[]): Flags<T> {
+    // Merge all the given flags
+    const bits = flags.reduce((totalBits: number, bit: number) => totalBits | bit, 0);
+
+    return new Flags<T>(bits);
   }
 }
 
