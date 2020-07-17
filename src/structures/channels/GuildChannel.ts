@@ -5,14 +5,45 @@ import { GatewayStruct } from '../BaseStruct';
 import Bot from '../bot/Bot';
 import Guild from '../guild/Guild';
 
+/**
+ * Options used when modifying a {@link GuildChannel}
+ */
 export interface GuildChannelOptions {
-  name: string;
-  type: ChannelType.GuildText | ChannelType.GuildNews;
-  topic: string | null;
-  nsfw: boolean | null;
-  slowModeTimeout: number | null;
-  bitrate: number | null;
-  userLimit: number | null;
+  /**
+   * The new guild channel's name
+   */
+  name?: string;
+
+  /**
+   * The new type of the guild channel.
+   * Can only change between {@link ChannelType.GuildText} and {@link ChannelType.GuildNews}
+   */
+  type?: ChannelType.GuildText | ChannelType.GuildNews;
+
+  /**
+   * The new topic of the guild channel
+   */
+  topic?: string | null;
+
+  /**
+   * Whether the guild channel should be marked as nsfw
+   */
+  nsfw?: boolean | null;
+
+  /**
+   * The guild channel's slow mode timeout (for {@link GuildTextChannel})
+   */
+  slowModeTimeout?: number | null;
+
+  /**
+   * The guild channel's audio bit rate (for {@link GuildVoiceChannel})
+   */
+  bitrate?: number | null;
+
+  /**
+   * The guild channel's user limit (for {@link GuildVoiceChannel})
+   */
+  userLimit?: number | null;
 }
 
 /**
@@ -81,11 +112,11 @@ class GuildChannel extends Channel {
   }
 
   /**
-   * Update a channel's settings. Requires the `MANAGE_CHANNELS` permission for the guild.
-   * @param {Partial<GuildChannelOptions>} options The modified channel's settings
+   * Update a channel's settings. Requires the {@link Permission.ManageChannels} permission for the guild.
+   * @param {GuildChannelOptions} options The modified channel's settings
    * @returns {Promise<GuildChannel>}
    */
-  public modify(options: Partial<GuildChannelOptions>): Promise<GuildChannel> {
+  public modify(options: GuildChannelOptions): Promise<GuildChannel> {
     return this.bot.api.modifyGuildChannel(this.id, options);
   }
 }

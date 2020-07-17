@@ -56,12 +56,12 @@ class BotAPI {
   /**
    * Updates a {@link GuildChannel}'s settings. Requires the {@link Permission.ManageChannels} permission for the guild
    * @param {Snowflake} channelId The ID of the modified channel
-   * @param {Partial<GuildChannelOptions>} options The modified channel's settings
+   * @param {GuildChannelOptions} options The modified channel's settings
    * @returns {Promise<GuildChannel>}
    */
   public async modifyGuildChannel(
     channelId: Snowflake,
-    options: Partial<GuildChannelOptions>,
+    options: GuildChannelOptions,
   ): Promise<GuildChannel> {
     const channelData = await this.requests.send(
       EndpointRoute.Channel,
