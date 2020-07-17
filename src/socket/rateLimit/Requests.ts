@@ -88,12 +88,12 @@ class Requests {
       this.buckets.set(identifier, new RateLimitBucket(this.bot, this.token, route, method));
     }
 
+    const bucket = this.buckets.get(identifier)!;
+
     // Retrieves this request's endpoint
     const endpoint = Endpoints[route](
       ...(Object.values(routeArgs) as Parameters<typeof Endpoints[T]>),
     );
-
-    const bucket = this.buckets.get(identifier)!;
 
     // Tells the bucket to send this request
     return bucket.send(endpoint, params);
