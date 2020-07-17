@@ -162,7 +162,7 @@ class BotAPI {
   }
 
   /**
-   * Deletes a reaction this Bot has made for the message.
+   * Deletes a reaction a user reacted with.
    * If no `userId` argument was provided, the Bot will remove its own reaction.
    * @param {Snowflake} channelId The ID of the channel containing the message
    * @param {Snowflake} messageId The ID of the message to react to
@@ -214,7 +214,7 @@ class BotAPI {
   }
 
   /**
-   * Deletes all reactions for this emoji. This method requires the {@link Permission.ManageMessages} permission ot be present on the Bot.
+   * Deletes all reactions for an emoji. This method requires the {@link Permission.ManageMessages} permission ot be present on the Bot.
    * @param {Snowflake} channelId The ID of the channel containing the message
    * @param {Snowflake} messageId The ID of the message of which to remove all reactions for a given emoji
    * @param {EmojiResolvable} emoji The emoji reactions to remove from the message

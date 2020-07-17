@@ -366,7 +366,7 @@ class Message extends BaseStruct {
   }
 
   /**
-   * Deletes a reaction this Bot has made for the message.
+   * Deletes a reaction a user reacted with.
    * If no `userId` argument was provided, the Bot will remove its own reaction.
    * @param {string} emoji The emoji to remove from this message
    * @param {Snowflake} userId The ID of the user of which reaction should be removed
