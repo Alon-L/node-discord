@@ -52,6 +52,12 @@ bot.connection.connect();
       },
     });
 
+    await message.delete();
+
+    bot.events
+      .wait(BotEvent.MessageDelete)
+      .then(() => console.log(message.deleted) /* expected: true */);
+
     console.log(message.reactions.toArrayKeys);
   }
 })();

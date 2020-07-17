@@ -302,6 +302,21 @@ class BotAPI {
     const message = new Message(this.bot, messageData!, channel);
     return channel.messages.getOrSet(message.id, message);
   }
+
+  /**
+   * Deletes a message.
+   * If operating on a {@link GuildChannel} and trying to delete a message that was not sent by the current user, this endpoint requires the {@link Permission.ManageMessages} permission
+   * @param {Snowflake} channelId The ID of the channel that contains the message you wish to delete
+   * @param {Snowflake} messageId The ID of the message you wish to delete
+   * @returns {Promise<void>}
+   */
+  public async deleteMessage(channelId: Snowflake, messageId: Snowflake): Promise<void> {
+    await this.requests.send(
+      EndpointRoute.ChannelMessage,
+      { channelId, messageId },
+      HttpMethod.Delete,
+    );
+  }
 }
 
 export default BotAPI;
