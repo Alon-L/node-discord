@@ -64,13 +64,13 @@ class GuildTextChannel extends GuildChannel implements TextChannel {
 
   /**
    * Post a message to a {@link GuildTextChannel} or {@link DMChannel}. If operating on a {@link GuildTextChannel}, this endpoint requires the {@link Permission.SendMessages} permission to be present on the current user. If the {@link MessageOptions.tts} field is set to true, the {@link Permission.SendTTSMessages} permission is required for the message to be spoken
-   * @param {string | Partial<MessageData> | MessageEmbed} data The message data.
+   * @param {string | MessageData | MessageEmbed} data The message data.
    * Can be:
    * 1. Raw content to be sent as a message
    * @example ```typescript
    * channel.sendMessage('Hello World!');
    * ```
-   * 2. A partial {@link MessageData} object, containing content and/or embed
+   * 2. A {@link MessageData} object, containing content and/or embed
    * @example ```typescript
    * channel.sendMessage({ content: 'Hello World!', embed: { title: 'My Embed!' } });
    * ```
@@ -79,7 +79,7 @@ class GuildTextChannel extends GuildChannel implements TextChannel {
    * @returns {Promise<Message>}
    */
   public sendMessage(
-    data: string | Partial<MessageData> | MessageEmbed,
+    data: string | MessageData | MessageEmbed,
     options?: Partial<MessageOptions>,
   ): Promise<Message> {
     return this.bot.api.sendMessage(this.id, data, options);
