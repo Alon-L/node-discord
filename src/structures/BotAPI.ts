@@ -318,6 +318,13 @@ class BotAPI {
     );
   }
 
+  /**
+   * Delete multiple messages in a single request.
+   * Requires the {@link Permission.ManageMessages} permission
+   * @param {Snowflake} channelId The channel ID that contains the messages you wish to delete
+   * @param {Snowflake[]} messages An array of the messages IDs you wish to delete
+   * @returns {Promise<void>}
+   */
   public async bulkDeleteMessages(channelId: Snowflake, messages: Snowflake[]): Promise<void> {
     await this.requests.send(
       EndpointRoute.ChannelMessagesBulkDelete,

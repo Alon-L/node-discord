@@ -85,6 +85,12 @@ class GuildTextChannel extends GuildChannel implements TextChannel {
     return this.bot.api.sendMessage(this.id, data, options);
   }
 
+  /**
+   * Delete multiple messages in a single request.
+   * Requires the {@link Permission.ManageMessages} permission
+   * @param {Snowflake[]} messages An array of the messages IDs you wish to delete
+   * @returns {Promise<void>}
+   */
   public bulkDeleteMessages(messages: Snowflake[]): Promise<void> {
     return this.bot.api.bulkDeleteMessages(this.id, messages);
   }
