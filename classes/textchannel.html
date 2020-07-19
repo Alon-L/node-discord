@@ -102,6 +102,7 @@
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="textchannel.html#sendmessage" class="tsd-kind-icon">send<wbr>Message</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="textchannel.html#triggertyping" class="tsd-kind-icon">trigger<wbr>Typing</a></li>
 							</ul>
 						</section>
 					</div>
@@ -115,7 +116,7 @@
 					<div class="tsd-signature tsd-kind-icon">last<wbr>Message<wbr>Id<span class="tsd-signature-symbol">:</span> <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7d8b3d4/src/structures/channels/TextChannel.ts#L15">src/structures/channels/TextChannel.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/728cd60/src/structures/channels/TextChannel.ts#L15">src/structures/channels/TextChannel.ts:15</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -131,7 +132,7 @@
 					<div class="tsd-signature tsd-kind-icon">last<wbr>Pin<wbr>Timestamp<span class="tsd-signature-symbol">:</span> <a href="timestamp.html" class="tsd-signature-type">Timestamp</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7d8b3d4/src/structures/channels/TextChannel.ts#L20">src/structures/channels/TextChannel.ts:20</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/728cd60/src/structures/channels/TextChannel.ts#L20">src/structures/channels/TextChannel.ts:20</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -146,7 +147,7 @@
 					<div class="tsd-signature tsd-kind-icon">messages<span class="tsd-signature-symbol">:</span> <a href="cluster.html" class="tsd-signature-type">Cluster</a><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol">, </span><a href="message.html" class="tsd-signature-type">Message</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7d8b3d4/src/structures/channels/TextChannel.ts#L25">src/structures/channels/TextChannel.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/728cd60/src/structures/channels/TextChannel.ts#L25">src/structures/channels/TextChannel.ts:25</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -168,7 +169,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7d8b3d4/src/structures/channels/TextChannel.ts#L44">src/structures/channels/TextChannel.ts:44</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/728cd60/src/structures/channels/TextChannel.ts#L44">src/structures/channels/TextChannel.ts:44</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -207,6 +208,30 @@ channel.sendMessage({ content: &#39;Hello World!&#39;, embed: { title: &#39;My E
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="triggertyping" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagAbstract">Abstract</span> trigger<wbr>Typing</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">trigger<wbr>Typing<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/728cd60/src/structures/channels/TextChannel.ts#L55">src/structures/channels/TextChannel.ts:55</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Post a typing indicator for a specified text channel.
+										Useful when the bot is responding to a command and expects the computation to take a few seconds.
+									This method may be called to let the user know that the bot is processing their message.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
 			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -235,6 +260,9 @@ channel.sendMessage({ content: &#39;Hello World!&#39;, embed: { title: &#39;My E
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="textchannel.html#sendmessage" class="tsd-kind-icon">send<wbr>Message</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="textchannel.html#triggertyping" class="tsd-kind-icon">trigger<wbr>Typing</a>
 							</li>
 						</ul>
 					</li>
