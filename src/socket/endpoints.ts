@@ -14,6 +14,7 @@ export const enum EndpointRoute {
   ChannelMessagesBulkDelete = 'CHANNEL_MESSAGES_BULK_DELETE',
   ChannelPermissionsOverwrite = 'CHANNEL_PERMISSIONS_OVERWRITE',
   ChannelInvites = 'CHANNEL_INVITES',
+  ChannelTyping = 'CHANNEL_TYPING',
 }
 
 /**
@@ -54,6 +55,7 @@ export const Endpoints: Record<EndpointRoute, (...args: string[]) => string> = {
   [EndpointRoute.ChannelPermissionsOverwrite]: (channelId: Snowflake, overwriteId: Snowflake) =>
     `/channels/${channelId}/permissions/${overwriteId}`,
   [EndpointRoute.ChannelInvites]: (channelId: Snowflake) => `/channels/${channelId}/invites`,
+  [EndpointRoute.ChannelTyping]: (channelId: Snowflake) => `/channels/${channelId}/typing`,
 };
 
 /**

@@ -94,6 +94,16 @@ class GuildTextChannel extends GuildChannel implements TextChannel {
   public bulkDeleteMessages(messages: Snowflake[]): Promise<void> {
     return this.bot.api.bulkDeleteMessages(this.id, messages);
   }
+
+  /**
+   * Post a typing indicator for a specified text channel.
+   * Useful when the bot is responding to a command and expects the computation to take a few seconds.
+   * This method may be called to let the user know that the bot is processing their message.
+   * @returns {Promise<void>}
+   */
+  public triggerTyping(): Promise<void> {
+    return this.bot.api.triggerTextChannelTyping(this.id);
+  }
 }
 
 export default GuildTextChannel;

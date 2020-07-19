@@ -45,6 +45,14 @@ abstract class TextChannel {
     data: string | MessageData | MessageEmbed,
     options?: Partial<MessageOptions>,
   ): Promise<Message>;
+
+  /**
+   * Post a typing indicator for a specified text channel.
+   * Useful when the bot is responding to a command and expects the computation to take a few seconds.
+   * This method may be called to let the user know that the bot is processing their message.
+   * @returns {Promise<void>}
+   */
+  abstract triggerTyping(): Promise<void>;
 }
 
 export default TextChannel;

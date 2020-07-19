@@ -14,6 +14,7 @@ bot.connection.connect();
   const guildChannel = bot.guilds.get('702476896008405002')?.channels.get('721781755060813914');
   if (!guildChannel) return;
 
+  // Modify the name and topic of the guild channel
   await guildChannel
     .modify({
       name: guildChannel.name + 'a',
@@ -21,6 +22,7 @@ bot.connection.connect();
     })
     .catch(() => console.log('Rate limit reached for channel modification'));
 
+  // Modify the permissions of the guild channel
   guildChannel.modifyPermissions(
     {
       id: bot.user!.id,
@@ -34,9 +36,11 @@ bot.connection.connect();
 
   await bot.events.wait(BotEvent.ChannelUpdate);
 
-  console.log(guildChannel.permissions.get(bot.user!.id)?.allow.has(Permission.AttachFiles)); // expected: false
-
-  console.log('Modified permissions');
+  console.log(
+    guildChannel.permissions.get(bot.user!.id)?.allow.has(Permission.AttachFiles),
+    'whether the bot use has the AttachFiles permission',
+    'expected: false',
+  ); // expected: false
 
   // Create a new invite in the guild channel
   const invite = await guildChannel.createInvite({
@@ -54,7 +58,11 @@ bot.connection.connect();
 
   await bot.events.wait(BotEvent.ChannelUpdate);
 
-  console.log(guildChannel.permissions.has(bot.user!.id)); // expected: false
+  console.log(
+    guildChannel.permissions.has(bot.user!.id),
+    'whether a permission overwrite for the bot user exists',
+    'expected: false',
+  ); // expected: false
 })();
 
 bot.events.on(BotEvent.Debug, console.log);

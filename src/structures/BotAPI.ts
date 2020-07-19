@@ -406,6 +406,17 @@ class BotAPI {
       HttpMethod.Delete,
     );
   }
+
+  /**
+   * Post a typing indicator for a specified text channel.
+   * Useful when the bot is responding to a command and expects the computation to take a few seconds.
+   * This method may be called to let the user know that the bot is processing their message.
+   * @param {Snowflake} channelId The ID of the text channel to trigger typing in
+   * @returns {Promise<void>}
+   */
+  public async triggerTextChannelTyping(channelId: Snowflake): Promise<void> {
+    await this.requests.send(EndpointRoute.ChannelTyping, { channelId }, HttpMethod.Post);
+  }
 }
 
 export default BotAPI;
