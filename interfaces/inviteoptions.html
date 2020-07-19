@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>MessageEmbedImage | node-discord</title>
+	<title>InviteOptions | node-discord</title>
 	<meta name="description" content="Documentation for node-discord">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="messageembedimage.html">MessageEmbedImage</a>
+					<a href="inviteoptions.html">InviteOptions</a>
 				</li>
 			</ul>
-			<h1>Interface MessageEmbedImage</h1>
+			<h1>Interface InviteOptions</h1>
 		</div>
 	</div>
 </header>
@@ -67,7 +67,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Message embed image data</p>
+						<p>Options used when creating new invites for channels</p>
 					</div>
 				</div>
 			</section>
@@ -75,7 +75,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">MessageEmbedImage</span>
+						<span class="target">InviteOptions</span>
 					</li>
 				</ul>
 			</section>
@@ -86,9 +86,9 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="messageembedimage.html#dimensions" class="tsd-kind-icon">dimensions</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="messageembedimage.html#proxyurl" class="tsd-kind-icon">proxyURL</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="messageembedimage.html#url" class="tsd-kind-icon">url</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="inviteoptions.html#max" class="tsd-kind-icon">max</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="inviteoptions.html#temporary" class="tsd-kind-icon">temporary</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="inviteoptions.html#unique" class="tsd-kind-icon">unique</a></li>
 							</ul>
 						</section>
 					</div>
@@ -97,47 +97,47 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="dimensions" class="tsd-anchor"></a>
-					<h3>dimensions</h3>
-					<div class="tsd-signature tsd-kind-icon">dimensions<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="dimensions.html" class="tsd-signature-type">Dimensions</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<a name="max" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> max</h3>
+					<div class="tsd-signature tsd-kind-icon">max<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="invitemax.html" class="tsd-signature-type">InviteMax</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7d8b3d4/src/structures/message/MessageEmbed.ts#L55">src/structures/message/MessageEmbed.ts:55</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7d8b3d4/src/structures/Invite.ts#L50">src/structures/Invite.ts:50</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p><a href="dimensions.html">Dimensions</a> object containing the dimensions of the image</p>
+							<p>The maximum data for the new invite</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="proxyurl" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> proxyURL</h3>
-					<div class="tsd-signature tsd-kind-icon">proxyURL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<a name="temporary" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> temporary</h3>
+					<div class="tsd-signature tsd-kind-icon">temporary<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7d8b3d4/src/structures/message/MessageEmbed.ts#L50">src/structures/message/MessageEmbed.ts:50</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7d8b3d4/src/structures/Invite.ts#L55">src/structures/Invite.ts:55</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>A proxied URL of the image</p>
+							<p>Whether this invite only grants temporary membership</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="url" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> url</h3>
-					<div class="tsd-signature tsd-kind-icon">url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<a name="unique" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> unique</h3>
+					<div class="tsd-signature tsd-kind-icon">unique<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7d8b3d4/src/structures/message/MessageEmbed.ts#L45">src/structures/message/MessageEmbed.ts:45</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7d8b3d4/src/structures/Invite.ts#L60">src/structures/Invite.ts:60</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Source URL of image (only supports http(s) and attachments)</p>
+							<p>If true, don&#39;t try to reuse a similar invite (useful for creating many unique one time use invites)</p>
 						</div>
 					</div>
 				</section>
@@ -156,16 +156,16 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="messageembedimage.html" class="tsd-kind-icon">Message<wbr>Embed<wbr>Image</a>
+						<a href="inviteoptions.html" class="tsd-kind-icon">Invite<wbr>Options</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="messageembedimage.html#dimensions" class="tsd-kind-icon">dimensions</a>
+								<a href="inviteoptions.html#max" class="tsd-kind-icon">max</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="messageembedimage.html#proxyurl" class="tsd-kind-icon">proxyURL</a>
+								<a href="inviteoptions.html#temporary" class="tsd-kind-icon">temporary</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="messageembedimage.html#url" class="tsd-kind-icon">url</a>
+								<a href="inviteoptions.html#unique" class="tsd-kind-icon">unique</a>
 							</li>
 						</ul>
 					</li>
