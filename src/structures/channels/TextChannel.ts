@@ -61,6 +61,14 @@ abstract class TextChannel {
    * @returns {Promise<void>}
    */
   abstract pinMessage(messageId: Snowflake): Promise<void>;
+
+  /**
+   * Unpins a message in a text channel.
+   * Requires the {@link Permission.ManageMessages} permission
+   * @param {Snowflake} messageId The ID of the message you wish to unpin
+   * @returns {Promise<void>}
+   */
+  abstract unpinMessage(messageId: Snowflake): Promise<void>;
 }
 
 export default TextChannel;

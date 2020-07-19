@@ -114,6 +114,16 @@ class GuildTextChannel extends GuildChannel implements TextChannel {
   public pinMessage(messageId: Snowflake): Promise<void> {
     return this.bot.api.pinMessage(this.id, messageId);
   }
+
+  /**
+   * Unpins a message in a text channel.
+   * Requires the {@link Permission.ManageMessages} permission
+   * @param {Snowflake} messageId The ID of the message you wish to unpin
+   * @returns {Promise<void>}
+   */
+  public unpinMessage(messageId: Snowflake): Promise<void> {
+    return this.bot.api.unpinMessage(this.id, messageId);
+  }
 }
 
 export default GuildTextChannel;

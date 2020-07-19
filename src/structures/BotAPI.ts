@@ -432,6 +432,21 @@ class BotAPI {
       HttpMethod.Put,
     );
   }
+
+  /**
+   * Unpins a message in a text channel.
+   * Requires the {@link Permission.ManageMessages} permission
+   * @param {Snowflake} channelId The ID of the channel that contains the message you wish to unpin
+   * @param {Snowflake} messageId The ID of the message you wish to unpin
+   * @returns {Promise<void>}
+   */
+  public async unpinMessage(channelId: Snowflake, messageId: Snowflake): Promise<void> {
+    await this.requests.send(
+      EndpointRoute.ChannelPinsMessage,
+      { channelId, messageId },
+      HttpMethod.Delete,
+    );
+  }
 }
 
 export default BotAPI;

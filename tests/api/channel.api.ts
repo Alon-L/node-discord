@@ -103,6 +103,13 @@ bot.connection.connect();
       await bot.events.wait(BotEvent.MessageUpdate);
 
       console.log(message.pinned, 'message.pinned', 'expected: true');
+
+      // Unpin the message
+      message.unpin();
+
+      await bot.events.wait(BotEvent.MessageUpdate);
+
+      console.log(message.pinned, 'message.pinned', 'expected: false');
     }
   }
 })();

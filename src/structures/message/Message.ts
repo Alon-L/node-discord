@@ -437,6 +437,15 @@ class Message extends BaseStruct {
   public pin(): Promise<void> {
     return this.bot.api.pinMessage(this.channel.id, this.id);
   }
+
+  /**
+   * Unpins this message.
+   * Requires the {@link Permission.ManageMessages} permission
+   * @returns {Promise<void>}
+   */
+  public unpin(): Promise<void> {
+    return this.bot.api.unpinMessage(this.channel.id, this.id);
+  }
 }
 
 export default Message;
