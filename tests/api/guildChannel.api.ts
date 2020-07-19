@@ -37,6 +37,16 @@ bot.connection.connect();
   console.log(guildChannel.permissions.get(bot.user!.id)?.allow.has(Permission.AttachFiles)); // expected: false
 
   console.log('Modified permissions');
+
+  const invite = await guildChannel.createInvite({
+    max: {
+      age: 15,
+      uses: 3,
+    },
+    unique: false,
+  });
+
+  console.log(invite.code);
 })();
 
 bot.events.on(BotEvent.Debug, console.log);

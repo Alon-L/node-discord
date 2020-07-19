@@ -3,6 +3,7 @@ import GuildCategoryChannel from './GuildCategoryChannel';
 import Cluster from '../../Cluster';
 import { Snowflake } from '../../types/types';
 import { GatewayStruct } from '../BaseStruct';
+import Invite, { InviteOptions } from '../Invite';
 import Bot from '../bot/Bot';
 import PermissionFlags, {
   PermissionOverwriteFlags,
@@ -154,6 +155,16 @@ class GuildChannel extends Channel {
     permissions: PermissionOverwriteFlags,
   ): Promise<void> {
     return this.bot.api.modifyGuildChannelPermissions(this.id, permissible, permissions);
+  }
+
+  /**
+   * Creates a new invite for a guild channel.
+   * Requires the {@link Permission.CreateInstantInvite} permission
+   * @param {InviteOptions} options The new invite options
+   * @returns {Promise<Invite>}
+   */
+  public createInvite(options: InviteOptions): Promise<Invite> {
+    return this.bot.api.createChannelInvite(this.id, options);
   }
 }
 

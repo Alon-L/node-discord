@@ -1,5 +1,6 @@
 import { GatewayStruct } from './BaseStruct';
 import Emoji, { EmojiResolvable } from './Emoji';
+import Invite, { InviteOptions } from './Invite';
 import Bot from './bot/Bot';
 import Channel from './channels/Channel';
 import GuildChannel, { GuildChannelOptions } from './channels/GuildChannel';
@@ -360,6 +361,32 @@ class BotAPI {
         deny: permissions.deny?.bits,
       },
     );
+  }
+
+  /**
+   * Creates a new invite for a guild channel.
+   * Requires the {@link Permission.CreateInstantInvite} permission
+   * @param {Snowflake} channelId The ID of the channel to create the invite for
+   * @param {InviteOptions} options The new invite options
+   * @returns {Promise<Invite>}
+   */
+  public async createChannelInvite(channelId: Snowflake, options: InviteOptions): Promise<Invite> {
+    // Serialize the params into the API format
+    const params: Params = {
+      max_age: options.max?.age,
+      max_uses: options.max?.uses,
+      temporary: options.temporary,
+      unique: options.unique,
+    };
+
+    const inviteData = await this.requests.send(
+      EndpointRoute.ChannelInvites,
+      { channelId },
+      HttpMethod.Post,
+      params,
+    );
+
+    return new Invite(this.bot, inviteData!);
   }
 }
 

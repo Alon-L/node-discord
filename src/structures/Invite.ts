@@ -40,6 +40,26 @@ export interface InviteMax {
   uses: number;
 }
 
+/**
+ * Options used when creating new invites for channels
+ */
+export interface InviteOptions {
+  /**
+   * The maximum data for the new invite
+   */
+  max?: Partial<InviteMax>;
+
+  /**
+   * Whether this invite only grants temporary membership
+   */
+  temporary?: boolean;
+
+  /**
+   * If true, don't try to reuse a similar invite (useful for creating many unique one time use invites)
+   */
+  unique?: boolean;
+}
+
 class Invite extends BaseStruct {
   /**
    * The channel this invite is for
@@ -67,7 +87,7 @@ class Invite extends BaseStruct {
   public inviter: User | undefined;
 
   /**
-   * {@link InviteMax} object containing maximum data
+   * {@link InviteMax} object containing the invite's maximum age and maximum uses
    */
   public max!: InviteMax;
 
