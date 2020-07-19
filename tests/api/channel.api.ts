@@ -5,6 +5,7 @@ import Emoji from '../../src/structures/Emoji';
 import Bot from '../../src/structures/bot/Bot';
 import DMChannel from '../../src/structures/channels/DMChannel';
 import GuildTextChannel from '../../src/structures/channels/GuildTextChannel';
+import Message from '../../src/structures/message/Message';
 import config from '../config.json';
 
 const bot = new Bot(config.token);
@@ -91,7 +92,17 @@ bot.connection.connect();
 
       // Trigger typing indicator
       await channel.triggerTyping();
-      setTimeout(() => channel.sendMessage('Hello!'), 2000); // Send a message once the timeout is over
+
+      const message = await new Promise<Message>(resolve => {
+        setTimeout(async () => resolve(await channel.sendMessage('Hello!')), 2000); // Send a message once the timeout is over
+      });
+
+      // Pin the message
+      channel.pinMessage(message.id);
+
+      await bot.events.wait(BotEvent.MessageUpdate);
+
+      console.log(message.pinned, 'message.pinned', 'expected: true');
     }
   }
 })();

@@ -26,7 +26,7 @@ abstract class TextChannel {
 
   // TODO: Add example to "3. A {@link MessageEmbed} instance"
   /**
-   * Post a message to a {@link GuildTextChannel} or {@link DMChannel}. If operating on a {@link GuildTextChannel}, this endpoint requires the {@link Permission.SendMessages} permission to be present on the current user. If the {@link MessageOptions.tts} field is set to true, the {@link Permission.SendTTSMessages} permission is required for the message to be spoken
+   * Posts a message to a {@link GuildTextChannel} or {@link DMChannel}. If operating on a {@link GuildTextChannel}, this endpoint requires the {@link Permission.SendMessages} permission to be present on the current user. If the {@link MessageOptions.tts} field is set to true, the {@link Permission.SendTTSMessages} permission is required for the message to be spoken
    * @param {string | MessageData | MessageEmbed} data The message data.
    * Can be:
    * 1. Raw content to be sent as a message
@@ -47,12 +47,20 @@ abstract class TextChannel {
   ): Promise<Message>;
 
   /**
-   * Post a typing indicator for a specified text channel.
+   * Posts a typing indicator for a specified text channel.
    * Useful when the bot is responding to a command and expects the computation to take a few seconds.
    * This method may be called to let the user know that the bot is processing their message.
    * @returns {Promise<void>}
    */
   abstract triggerTyping(): Promise<void>;
+
+  /**
+   * Pins a message in a text channel.
+   * Requires the {@link Permission.ManageMessages} permission
+   * @param {Snowflake} messageId The ID of the message you wish to pin
+   * @returns {Promise<void>}
+   */
+  abstract pinMessage(messageId: Snowflake): Promise<void>;
 }
 
 export default TextChannel;

@@ -374,7 +374,7 @@ class Message extends BaseStruct {
   }
 
   /**
-   * Create a reaction for a message. This method requires the {@link Permission.ReadMessageHistory} permission to be present on the Bot. Additionally, if nobody else has reacted to the message using this emoji, this method requires the {@link Permission.AddReactions} permission to be present on the Bot.
+   * Creates a reaction for a message. This method requires the {@link Permission.ReadMessageHistory} permission to be present on the Bot. Additionally, if nobody else has reacted to the message using this emoji, this method requires the {@link Permission.AddReactions} permission to be present on the Bot.
    * @param {string} emoji The emoji to react to this message with
    * @returns {Promise<void>}
    */
@@ -402,7 +402,7 @@ class Message extends BaseStruct {
   }
 
   /**
-   * Edit a previously sent message.
+   * Edits a previously sent message.
    * The fields `content`, `embed` and `flags` can be edited by the original message author. Other users can only edit `flags` and only if they have the {@link Permission.ManageMessages} permission in the corresponding channel.
    * @param {string | MessageEditData} data The updated message data.
    * Can be:
@@ -427,6 +427,15 @@ class Message extends BaseStruct {
    */
   public delete(): Promise<void> {
     return this.bot.api.deleteMessage(this.channel.id, this.id);
+  }
+
+  /**
+   * Pins this message.
+   * Requires the {@link Permission.ManageMessages} permission
+   * @returns {Promise<void>}
+   */
+  public pin(): Promise<void> {
+    return this.bot.api.pinMessage(this.channel.id, this.id);
   }
 }
 

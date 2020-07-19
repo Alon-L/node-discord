@@ -100,7 +100,7 @@ class BotAPI {
 
   // TODO: Add the ability to send files and attachments
   /**
-   * Post a message to a {@link GuildTextChannel} or {@link DMChannel}. If operating on a {@link GuildTextChannel}, this method requires the {@link Permission.SendMessages} permission to be present on the current user. If the {@link MessageOptions.tts} field is set to true, the {@link Permission.SendTTSMessages} permission is required for the message to be spoken
+   * Posts a message to a {@link GuildTextChannel} or {@link DMChannel}. If operating on a {@link GuildTextChannel}, this method requires the {@link Permission.SendMessages} permission to be present on the current user. If the {@link MessageOptions.tts} field is set to true, the {@link Permission.SendTTSMessages} permission is required for the message to be spoken
    * @param {Snowflake} channelId The ID of the channel to send the message in
    * @param {string | MessageData | MessageEmbed} data The message data.
    * Can be:
@@ -150,7 +150,7 @@ class BotAPI {
   }
 
   /**
-   * Create a reaction for a message. This method requires the {@link Permission.ReadMessageHistory} permission to be present on the Bot. Additionally, if nobody else has reacted to the message using this emoji, this method requires the {@link Permission.AddReactions} permission to be present on the Bot.
+   * Creates a reaction for a message. This method requires the {@link Permission.ReadMessageHistory} permission to be present on the Bot. Additionally, if nobody else has reacted to the message using this emoji, this method requires the {@link Permission.AddReactions} permission to be present on the Bot.
    * @param {Snowflake} channelId The ID of the channel containing the message
    * @param {Snowflake} messageId The ID of the message to react to
    * @param {string} emoji The emoji to react with to the message
@@ -260,7 +260,7 @@ class BotAPI {
   }
 
   /**
-   * Edit a previously sent message.
+   * Edits a previously sent message.
    * The fields `content`, `embed` and `flags` can be edited by the original message author. Other users can only edit `flags` and only if they have the {@link Permission.ManageMessages} permission in the corresponding channel.
    * @param {Snowflake} channelId The ID of the channel that contains the message you wish to edit
    * @param {Snowflake} messageId The ID of the message you wish to edit
@@ -321,7 +321,7 @@ class BotAPI {
   }
 
   /**
-   * Delete multiple messages in a single request.
+   * Deletes multiple messages in a single request.
    * Requires the {@link Permission.ManageMessages} permission
    * @param {Snowflake} channelId The channel ID that contains the messages you wish to delete
    * @param {Snowflake[]} messages An array of the messages IDs you wish to delete
@@ -339,7 +339,7 @@ class BotAPI {
   }
 
   /**
-   * Modify the channel permission overwrites for a member or a role.
+   * Modifies the channel permission overwrites for a member or a role.
    * Requires the {@link Permission.ManageRoles} permission
    * @param {Snowflake} channelId The ID of the channel for which to overwrite the permissions
    * @param {Permissible} permissible Data for the member or role
@@ -408,7 +408,7 @@ class BotAPI {
   }
 
   /**
-   * Post a typing indicator for a specified text channel.
+   * Posts a typing indicator for a specified text channel.
    * Useful when the bot is responding to a command and expects the computation to take a few seconds.
    * This method may be called to let the user know that the bot is processing their message.
    * @param {Snowflake} channelId The ID of the text channel to trigger typing in
@@ -416,6 +416,21 @@ class BotAPI {
    */
   public async triggerTextChannelTyping(channelId: Snowflake): Promise<void> {
     await this.requests.send(EndpointRoute.ChannelTyping, { channelId }, HttpMethod.Post);
+  }
+
+  /**
+   * Pins a message in a text channel.
+   * Requires the {@link Permission.ManageMessages} permission
+   * @param {Snowflake} channelId The ID of the channel that contains the message you wish to pin
+   * @param {Snowflake} messageId The ID of the message you wish to pin
+   * @returns {Promise<void>}
+   */
+  public async pinMessage(channelId: Snowflake, messageId: Snowflake): Promise<void> {
+    await this.requests.send(
+      EndpointRoute.ChannelPinsMessage,
+      { channelId, messageId },
+      HttpMethod.Put,
+    );
   }
 }
 

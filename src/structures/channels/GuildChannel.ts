@@ -144,7 +144,7 @@ class GuildChannel extends Channel {
   }
 
   /**
-   * Modify the channel permission overwrites for a member or a role.
+   * Modifies the channel permission overwrites for a member or a role.
    * Requires the {@link Permission.ManageRoles} permission
    * @param {Permissible} permissible Data for the member or role
    * @param {PermissionOverwriteFlags} permissions The permissions you wish to modify
