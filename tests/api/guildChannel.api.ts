@@ -21,7 +21,7 @@ bot.connection.connect();
     })
     .catch(() => console.log('Rate limit reached for channel modification'));
 
-  await guildChannel.modifyPermissions(
+  guildChannel.modifyPermissions(
     {
       id: bot.user!.id,
       type: PermissibleType.Member,
@@ -38,15 +38,23 @@ bot.connection.connect();
 
   console.log('Modified permissions');
 
+  // Create a new invite in the guild channel
   const invite = await guildChannel.createInvite({
     max: {
       age: 15,
       uses: 3,
     },
-    unique: false,
+    unique: true,
   });
 
-  console.log(invite.code);
+  console.log(invite.code, 'newly generated invite code');
+
+  // Delete the overwritten permissions of the bot's user
+  guildChannel.deletePermission(bot.user!.id);
+
+  await bot.events.wait(BotEvent.ChannelUpdate);
+
+  console.log(guildChannel.permissions.has(bot.user!.id)); // expected: false
 })();
 
 bot.events.on(BotEvent.Debug, console.log);

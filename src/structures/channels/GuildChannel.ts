@@ -166,6 +166,16 @@ class GuildChannel extends Channel {
   public createInvite(options: InviteOptions): Promise<Invite> {
     return this.bot.api.createChannelInvite(this.id, options);
   }
+
+  /**
+   * Deletes a channel permission overwrite for a user or role in a guild channel.
+   * Requires the {@link Permission.ManageRoles} permission
+   * @param {Snowflake} permissible The ID of the user or role you wish to delete from the channel's permission overwrites
+   * @returns {Promise<void>}
+   */
+  public deletePermission(permissible: Snowflake): Promise<void> {
+    return this.bot.api.deleteGuildChannelPermission(this.id, permissible);
+  }
 }
 
 export default GuildChannel;

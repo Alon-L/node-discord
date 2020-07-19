@@ -65,7 +65,7 @@ bot.connection.connect();
       await channel.sendMessage('Message 2');
       await channel.sendMessage('Message 3');
 
-      await channel.bulkDeleteMessages(channel.messages.map(message => message.id).toArray);
+      channel.bulkDeleteMessages(channel.messages.map(message => message.id).toArray);
 
       await bot.events.wait(BotEvent.MessageDeleteBulk);
 

@@ -5,7 +5,7 @@ import Bot from './bot/Bot';
 import Channel from './channels/Channel';
 import GuildChannel, { GuildChannelOptions } from './channels/GuildChannel';
 import GuildTextChannel from './channels/GuildTextChannel';
-import { PermissionOverwriteFlags, Permissible } from './flags/PermissionFlags';
+import { Permissible, PermissionOverwriteFlags } from './flags/PermissionFlags';
 import Message, { MessageData, MessageEditData, MessageOptions } from './message/Message';
 import MessageEmbed from './message/MessageEmbed';
 import { EndpointRoute, HttpMethod } from '../socket/endpoints';
@@ -387,6 +387,24 @@ class BotAPI {
     );
 
     return new Invite(this.bot, inviteData!);
+  }
+
+  /**
+   * Deletes a channel permission overwrite for a user or role in a guild channel.
+   * Requires the {@link Permission.ManageRoles} permission
+   * @param {Snowflake} channelId The ID of the channel that contains the permission overwrite you wish to delete
+   * @param {Snowflake} permissible The ID of the user or role you wish to delete from the channel's permission overwrites
+   * @returns {Promise<void>}
+   */
+  public async deleteGuildChannelPermission(
+    channelId: Snowflake,
+    permissible: Snowflake,
+  ): Promise<void> {
+    await this.requests.send(
+      EndpointRoute.ChannelPermissionsOverwrite,
+      { channelId, overwriteId: permissible },
+      HttpMethod.Delete,
+    );
   }
 }
 
