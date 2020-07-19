@@ -91,6 +91,7 @@
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="botcommunication.html#defaultmaxlisteners" class="tsd-kind-icon">default<wbr>Max<wbr>Listeners</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="botcommunication.html#errormonitor" class="tsd-kind-icon">error<wbr>Monitor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -138,7 +139,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides EventEmitter.__constructor</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/53168e7/src/structures/bot/BotCommunication.ts#L204">src/structures/bot/BotCommunication.ts:204</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cc32c07/src/structures/bot/BotCommunication.ts#L204">src/structures/bot/BotCommunication.ts:204</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -165,6 +166,27 @@
 						</ul>
 					</aside>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="errormonitor" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> error<wbr>Monitor</h3>
+					<div class="tsd-signature tsd-kind-icon">error<wbr>Monitor<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">keyof </span><span class="tsd-signature-type">symbol</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="botcommunication.html">BotCommunication</a>.<a href="botcommunication.html#errormonitor">errorMonitor</a></p>
+						<ul>
+							<li>Defined in node_modules/@types/node/events.d.ts:55</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>This symbol shall be used to install a listener for only monitoring <code>&#39;error&#39;</code>
+								events. Listeners installed using this symbol are called before the regular
+							<code>&#39;error&#39;</code> listeners are called.</p>
+						</div>
+						<p>Installing a listener using this symbol does not change the behavior once an
+							<code>&#39;error&#39;</code> event is emitted, therefore the process will still crash if no
+						regular <code>&#39;error&#39;</code> listener is installed.</p>
+					</div>
+				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Accessors</h2>
@@ -178,7 +200,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/53168e7/src/structures/bot/BotCommunication.ts#L352">src/structures/bot/BotCommunication.ts:352</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cc32c07/src/structures/bot/BotCommunication.ts#L352">src/structures/bot/BotCommunication.ts:352</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -204,7 +226,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="botcommunication.html">BotCommunication</a>.<a href="botcommunication.html#addlistener">addListener</a></p>
 								<ul>
-									<li>Defined in node_modules/@types/node/globals.d.ts:554</li>
+									<li>Defined in node_modules/@types/node/events.d.ts:62</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -248,7 +270,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/53168e7/src/structures/bot/BotCommunication.ts#L281">src/structures/bot/BotCommunication.ts:281</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cc32c07/src/structures/bot/BotCommunication.ts#L281">src/structures/bot/BotCommunication.ts:281</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -281,7 +303,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides EventEmitter.emit</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/53168e7/src/structures/bot/BotCommunication.ts#L268">src/structures/bot/BotCommunication.ts:268</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cc32c07/src/structures/bot/BotCommunication.ts#L268">src/structures/bot/BotCommunication.ts:268</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -304,7 +326,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides EventEmitter.emit</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/53168e7/src/structures/bot/BotCommunication.ts#L269">src/structures/bot/BotCommunication.ts:269</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cc32c07/src/structures/bot/BotCommunication.ts#L269">src/structures/bot/BotCommunication.ts:269</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -331,7 +353,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="botcommunication.html">BotCommunication</a>.<a href="botcommunication.html#eventnames">eventNames</a></p>
 								<ul>
-									<li>Defined in node_modules/@types/node/globals.d.ts:569</li>
+									<li>Defined in node_modules/@types/node/events.d.ts:77</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="ratelimitqueue.html#array" class="tsd-signature-type">Array</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -349,7 +371,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="botcommunication.html">BotCommunication</a>.<a href="botcommunication.html#getmaxlisteners">getMaxListeners</a></p>
 								<ul>
-									<li>Defined in node_modules/@types/node/globals.d.ts:561</li>
+									<li>Defined in node_modules/@types/node/events.d.ts:69</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -367,7 +389,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="botcommunication.html">BotCommunication</a>.<a href="botcommunication.html#listenercount">listenerCount</a></p>
 								<ul>
-									<li>Defined in node_modules/@types/node/globals.d.ts:565</li>
+									<li>Defined in node_modules/@types/node/events.d.ts:73</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -391,7 +413,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="botcommunication.html">BotCommunication</a>.<a href="botcommunication.html#listeners">listeners</a></p>
 								<ul>
-									<li>Defined in node_modules/@types/node/globals.d.ts:562</li>
+									<li>Defined in node_modules/@types/node/events.d.ts:70</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -415,7 +437,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="botcommunication.html">BotCommunication</a>.<a href="botcommunication.html#off">off</a></p>
 								<ul>
-									<li>Defined in node_modules/@types/node/globals.d.ts:558</li>
+									<li>Defined in node_modules/@types/node/events.d.ts:66</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -460,7 +482,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides EventEmitter.on</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/53168e7/src/structures/bot/BotCommunication.ts#L251">src/structures/bot/BotCommunication.ts:251</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cc32c07/src/structures/bot/BotCommunication.ts#L251">src/structures/bot/BotCommunication.ts:251</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -516,7 +538,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="botcommunication.html">BotCommunication</a>.<a href="botcommunication.html#once">once</a></p>
 								<ul>
-									<li>Defined in node_modules/@types/node/globals.d.ts:556</li>
+									<li>Defined in node_modules/@types/node/events.d.ts:64</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -561,7 +583,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="botcommunication.html">BotCommunication</a>.<a href="botcommunication.html#prependlistener">prependListener</a></p>
 								<ul>
-									<li>Defined in node_modules/@types/node/globals.d.ts:567</li>
+									<li>Defined in node_modules/@types/node/events.d.ts:75</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -606,7 +628,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="botcommunication.html">BotCommunication</a>.<a href="botcommunication.html#prependoncelistener">prependOnceListener</a></p>
 								<ul>
-									<li>Defined in node_modules/@types/node/globals.d.ts:568</li>
+									<li>Defined in node_modules/@types/node/events.d.ts:76</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -651,7 +673,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="botcommunication.html">BotCommunication</a>.<a href="botcommunication.html#rawlisteners">rawListeners</a></p>
 								<ul>
-									<li>Defined in node_modules/@types/node/globals.d.ts:563</li>
+									<li>Defined in node_modules/@types/node/events.d.ts:71</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -675,7 +697,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="botcommunication.html">BotCommunication</a>.<a href="botcommunication.html#removealllisteners">removeAllListeners</a></p>
 								<ul>
-									<li>Defined in node_modules/@types/node/globals.d.ts:559</li>
+									<li>Defined in node_modules/@types/node/events.d.ts:67</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -699,7 +721,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="botcommunication.html">BotCommunication</a>.<a href="botcommunication.html#removelistener">removeListener</a></p>
 								<ul>
-									<li>Defined in node_modules/@types/node/globals.d.ts:557</li>
+									<li>Defined in node_modules/@types/node/events.d.ts:65</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -743,7 +765,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/53168e7/src/structures/bot/BotCommunication.ts#L318">src/structures/bot/BotCommunication.ts:318</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cc32c07/src/structures/bot/BotCommunication.ts#L318">src/structures/bot/BotCommunication.ts:318</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -781,7 +803,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="botcommunication.html">BotCommunication</a>.<a href="botcommunication.html#setmaxlisteners">setMaxListeners</a></p>
 								<ul>
-									<li>Defined in node_modules/@types/node/globals.d.ts:560</li>
+									<li>Defined in node_modules/@types/node/events.d.ts:68</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -850,6 +872,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
 								<a href="botcommunication.html#defaultmaxlisteners" class="tsd-kind-icon">default<wbr>Max<wbr>Listeners</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="botcommunication.html#errormonitor" class="tsd-kind-icon">error<wbr>Monitor</a>
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-static">
 								<a href="botcommunication.html#identifier" class="tsd-kind-icon">identifier</a>
@@ -946,6 +971,5 @@
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>
