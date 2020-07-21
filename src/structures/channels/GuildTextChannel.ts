@@ -1,10 +1,10 @@
 import GuildChannel from './GuildChannel';
 import TextChannel from './TextChannel';
-import Cluster from '../../Cluster';
 import { Snowflake } from '../../types/types';
 import { GatewayStruct } from '../BaseStruct';
 import Timestamp from '../Timestamp';
 import Bot from '../bot/Bot';
+import ChannelMessagesController from '../controllers/ChannelMessagesController';
 import Guild from '../guild/Guild';
 import Message, { MessageOptions, MessageData } from '../message/Message';
 import MessageEmbed from '../message/MessageEmbed';
@@ -35,15 +35,15 @@ class GuildTextChannel extends GuildChannel implements TextChannel {
   public lastPinTimestamp: Timestamp | undefined;
 
   /**
-   * Limited Cluster containing all cached messages sent in this channel
+   * The text channel's messages controller
    */
-  public messages: Cluster<Snowflake, Message>;
+  public messages: ChannelMessagesController;
 
   // Guild parameter used when creating the channel from the Guild constructor
   constructor(bot: Bot, textChannel: GatewayStruct, guild: Guild) {
     super(bot, textChannel, guild);
 
-    this.messages = new Cluster<Snowflake, Message>(null, this.bot.options.cache.messagesLimit);
+    this.messages = new ChannelMessagesController(this);
   }
 
   /**

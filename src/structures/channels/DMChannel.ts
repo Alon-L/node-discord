@@ -1,11 +1,11 @@
 import Channel from './Channel';
 import TextChannel from './TextChannel';
-import Cluster from '../../Cluster';
 import { Snowflake } from '../../types/types';
 import { GatewayStruct } from '../BaseStruct';
 import Timestamp from '../Timestamp';
 import User from '../User';
 import Bot from '../bot/Bot';
+import ChannelMessagesController from '../controllers/ChannelMessagesController';
 import Message, { MessageData, MessageOptions } from '../message/Message';
 import MessageEmbed from '../message/MessageEmbed';
 
@@ -32,14 +32,14 @@ class DMChannel extends Channel implements TextChannel {
   public lastPinTimestamp: Timestamp | undefined;
 
   /**
-   * Limited Cluster containing all cached messages sent in this channel
+   * The text channel's messages controller
    */
-  public messages!: Cluster<Snowflake, Message>;
+  public messages: ChannelMessagesController;
 
   constructor(bot: Bot, dmChannel: GatewayStruct) {
     super(bot, dmChannel);
 
-    this.messages = new Cluster<Snowflake, Message>(null, this.bot.options.cache.messagesLimit);
+    this.messages = new ChannelMessagesController(this);
   }
 
   /**

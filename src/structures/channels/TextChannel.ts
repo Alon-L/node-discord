@@ -1,6 +1,6 @@
-import Cluster from '../../Cluster';
 import { Snowflake } from '../../types/types';
 import Timestamp from '../Timestamp';
+import ChannelMessagesController from '../controllers/ChannelMessagesController';
 import Message, { MessageData, MessageOptions } from '../message/Message';
 import MessageEmbed from '../message/MessageEmbed';
 
@@ -20,9 +20,9 @@ abstract class TextChannel {
   abstract lastPinTimestamp: Timestamp | undefined;
 
   /**
-   * Limited Cluster containing all cached messages sent in this channel
+   * The text channel's messages controller
    */
-  abstract messages: Cluster<Snowflake, Message>;
+  abstract messages: ChannelMessagesController;
 
   // TODO: Add example to "3. A {@link MessageEmbed} instance"
   /**
