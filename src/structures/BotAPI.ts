@@ -378,8 +378,11 @@ class BotAPI {
 
     const channel = this.bot.channels.getOrFetch(channelId);
 
-    const message = new Message(this.bot, messageData!, channel);
-    return channel.messages.getOrSet(message.id, message);
+    if (!(channel instanceof GuildTextChannel)) {
+      throw new TypeError('The channel is not a valid text channel');
+    }
+
+    return new Message(this.bot, messageData!, channel);
   }
 
   /**
