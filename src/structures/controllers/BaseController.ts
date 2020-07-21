@@ -16,17 +16,20 @@ abstract class BaseController<T extends BaseStruct> {
   /**
    * The bot instance
    */
-  protected bot: Bot;
-
+  public bot: Bot;
   /**
    * The cached data this controller contains
    */
   public cache: Cluster<Snowflake, T>;
 
-  constructor(struct: BaseStruct) {
-    this.bot = struct.bot;
+  constructor(struct: BaseStruct | Bot, limit?: number) {
+    if (struct instanceof Bot) {
+      this.bot = struct;
+    } else {
+      this.bot = struct.bot;
+    }
 
-    this.cache = new Cluster<Snowflake, T>();
+    this.cache = new Cluster<Snowflake, T>(null, limit);
   }
 
   /**
