@@ -10,8 +10,7 @@ import { ShardId, Snowflake } from '../../types/types';
 import BotAPI from '../BotAPI';
 import Emoji from '../Emoji';
 import User from '../User';
-import DMChannel from '../channels/DMChannel';
-import GuildChannel from '../channels/GuildChannel';
+import BotChannelsController from '../controllers/BotChannelsController';
 import Guild from '../guild/Guild';
 import GuildUnavailable from '../guild/GuildUnavailable';
 
@@ -108,14 +107,9 @@ class Bot {
   public unavailableGuilds: Cluster<Snowflake, GuildUnavailable>;
 
   /**
-   * {@link Cluster} of all {@link GuildChannel} the Bot caches
+   * The bot's channels controller
    */
-  public channels: Cluster<Snowflake, GuildChannel>;
-
-  /**
-   * {@link Cluster} of all {@link DMChannel}s the Bot is part of
-   */
-  public dms: Cluster<Snowflake, DMChannel>;
+  public channels: BotChannelsController;
 
   /**
    * {@link Cluster} of all {@link User}s found in all guilds the Bot is part of
@@ -157,9 +151,7 @@ class Bot {
 
     this.unavailableGuilds = new Cluster<Snowflake, GuildUnavailable>();
 
-    this.channels = new Cluster<Snowflake, GuildChannel>();
-
-    this.dms = new Cluster<Snowflake, DMChannel>();
+    this.channels = new BotChannelsController(this);
 
     this.users = new Cluster<Snowflake, User>();
 
