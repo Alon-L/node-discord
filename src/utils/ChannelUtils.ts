@@ -13,26 +13,6 @@ import { Snowflake, TextBasedChannel } from '../types/types';
  */
 class ChannelUtils {
   /**
-   * Similar in functionality to {@link Cluster.getOrSet}, this method will search if the channel is cached.
-   * If it is, it will return the cached version, otherwise it will cache it and return it.
-   * @param {Bot} bot The bot instance
-   * @param {GatewayStruct} data The channel data received from the gateway
-   * @param {Guild | undefined} guild_ The guild associated to the channel
-   * @returns {Channel}
-   */
-  public static findOrCreate(bot: Bot, data: GatewayStruct, guild_?: Guild): Channel {
-    const channel = ChannelUtils.create(bot, data, guild_);
-
-    if (channel instanceof GuildChannel) {
-      // The channel is a guild channel
-      return channel.guild.channels.getOrSet(channel.id, channel);
-    } else if (channel instanceof DMChannel) {
-      // The channel is a DM channel
-      return bot.dms.getOrSet(channel.id, channel);
-    } else return channel;
-  }
-
-  /**
    * Creates a new {@link Channel} instance, initialized relatively to its type
    * @param {Bot} bot The bot instance
    * @param {GatewayStruct} data The channel data received from the gateway
