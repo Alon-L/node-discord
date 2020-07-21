@@ -157,10 +157,10 @@ class ChannelUtils {
    */
   public static delete(bot: Bot, channel: Channel): void {
     if (channel instanceof GuildChannel) {
-      channel.guild.channels.delete(channel.id);
-    } else {
-      bot.dms.delete(channel.id);
+      channel.guild.channels.cache.delete(channel.id);
     }
+
+    bot.channels.cache.delete(channel.id);
   }
 }
 
