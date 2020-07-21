@@ -374,7 +374,9 @@ class Message extends BaseStruct {
   }
 
   /**
-   * Creates a reaction for a message. This method requires the {@link Permission.ReadMessageHistory} permission to be present on the Bot. Additionally, if nobody else has reacted to the message using this emoji, this method requires the {@link Permission.AddReactions} permission to be present on the Bot.
+   * Creates a reaction for this message.
+   * Requires the {@link Permission.ReadMessageHistory} permission.
+   * Additionally, if nobody else has reacted to the message using this emoji, this requires the {@link Permission.AddReactions} permission
    * @param {string} emoji The emoji to react to this message with
    * @returns {Promise<void>}
    */
@@ -394,7 +396,8 @@ class Message extends BaseStruct {
   }
 
   /**
-   * Removes all reactions on a message. This method requires the {@link Permission.ManageMessages} permission to be present on the Bot
+   * Removes all reactions on this message.
+   * Requires the {@link Permission.ManageMessages} permission to be present on the Bot
    * @returns {Promise<void>}
    */
   public removeReactions(): Promise<void> {
