@@ -376,8 +376,7 @@ class BotAPI {
       params,
     );
 
-    // TODO: Fetch channel if does not exist
-    const channel = this.bot.channels.get(channelId)! as GuildTextChannel;
+    const channel = this.bot.channels.getOrFetch(channelId);
 
     const message = new Message(this.bot, messageData!, channel);
     return channel.messages.getOrSet(message.id, message);
