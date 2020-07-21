@@ -1,6 +1,6 @@
 import GuildUnavailable from './GuildUnavailable';
 import Cluster from '../../Cluster';
-import { GuildFeatures } from '../../socket/constants';
+import { GuildFeature } from '../../socket/constants';
 import { Snowflake } from '../../types/types';
 import ChannelUtils from '../../utils/ChannelUtils';
 import BaseStruct, { GatewayStruct } from '../BaseStruct';
@@ -159,7 +159,7 @@ class Guild extends BaseStruct {
   public id!: Snowflake;
 
   /**
-   * {@link Cluster} of {@link GuildChannel}s associated to this Guild
+   * The guild's channels controller
    */
   public channels: GuildChannelsController;
 
@@ -232,7 +232,7 @@ class Guild extends BaseStruct {
   /**
    * Enabled guild features
    */
-  public features!: GuildFeatures[];
+  public features!: GuildFeature[];
 
   /**
    * Application ID of the guild creator if it is bot-created
@@ -360,7 +360,7 @@ class Guild extends BaseStruct {
     );
 
     // Add all of this guild's cached channels to the Bot's cached channels
-    this.bot.channels.merge(this.channels.cache);
+    this.bot.channels.cache.merge(this.channels.cache);
 
     this.roles = new Cluster<Snowflake, Role>(
       guild.roles.map((role: GatewayStruct) => [role.id, new Role(this.bot, role, this)]),
