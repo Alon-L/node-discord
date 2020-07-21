@@ -154,6 +154,28 @@ class BotAPI {
     return channel;
   }
 
+  /**
+   * Fetches a message in a text channel by their IDs
+   * @param {Snowflake} channelId The ID of the channel that contains the message
+   * @param {Snowflake} messageId The ID of the message you wish to fetch
+   * @returns {Promise<Message>}
+   */
+  public async fetchMessage(channelId: Snowflake, messageId: Snowflake): Promise<Message> {
+    const message = await this.requests.send(
+      EndpointRoute.ChannelMessage,
+      { channelId, messageId },
+      HttpMethod.Get,
+    );
+
+    const channel = await this.bot.channels.getOrFetch(channelId);
+
+    if (!(channel instanceof DMChannel || channel instanceof GuildTextChannel)) {
+      throw new TypeError('The channel is not a valid text channel');
+    }
+
+    return new Message(this.bot, message!, channel);
+  }
+
   // TODO: Add the ability to send files and attachments
   /**
    * Posts a message to a {@link GuildTextChannel} or {@link DMChannel}. If operating on a {@link GuildTextChannel}, this method requires the {@link Permission.SendMessages} permission to be present on the current user. If the {@link MessageOptions.tts} field is set to true, the {@link Permission.SendTTSMessages} permission is required for the message to be spoken
