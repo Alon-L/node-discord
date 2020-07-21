@@ -3,6 +3,7 @@ import Emoji, { EmojiResolvable } from './Emoji';
 import Invite, { InviteOptions } from './Invite';
 import Bot from './bot/Bot';
 import Channel from './channels/Channel';
+import DMChannel from './channels/DMChannel';
 import GuildChannel, { GuildChannelOptions } from './channels/GuildChannel';
 import GuildTextChannel from './channels/GuildTextChannel';
 import { Permissible, PermissionOverwriteFlags } from './flags/PermissionFlags';
@@ -44,6 +45,11 @@ class BotAPI {
     this.requests = new Requests(this.bot, this.token);
   }
 
+  /**
+   * Returns the data serialized in the API format for operations on messages
+   * @param {MessageData} data The {@link MessageData} object to serialize
+   * @returns {SerializedMessageData}
+   */
   private static serializeMessageData(data: MessageData): SerializedMessageData {
     const { embed } = data;
 
@@ -53,6 +59,39 @@ class BotAPI {
         embed &&
         (embed instanceof MessageEmbed ? embed.structure : MessageEmbed.dataToStructure(embed)),
     };
+  }
+
+  /**
+   * Fetches a channel by its ID
+   * @param {Snowflake} channelId The ID of the channel you wish to fetch
+   * @returns {Promise<Channel>}
+   */
+  public async fetchChannel(channelId: Snowflake): Promise<Channel> {
+    const channel = await this.requests.send(EndpointRoute.Channel, { channelId }, HttpMethod.Get);
+
+    return new Channel(this.bot, channel!);
+  }
+
+  /**
+   * Fetches a guild channel by its ID
+   * @param {Snowflake} channelId The ID of the guild channel you wish to fetch
+   * @returns {Promise<GuildChannel>}
+   */
+  public async fetchGuildChannel(channelId: Snowflake): Promise<GuildChannel> {
+    const channel = await this.fetchChannel(channelId);
+
+    return ChannelUtils.createGuildChannel(this.bot, channel.structure);
+  }
+
+  /**
+   * Fetches a DM channel by its ID
+   * @param {Snowflake} channelId The ID of the DM channel you wish to fetch
+   * @returns {Promise<DMChannel>}
+   */
+  public async fetchDMChannel(channelId: Snowflake): Promise<DMChannel> {
+    const channel = await this.fetchChannel(channelId);
+
+    return ChannelUtils.createDMChannel(this.bot, channel.structure);
   }
 
   /**
@@ -84,7 +123,8 @@ class BotAPI {
   }
 
   /**
-   * Deletes a {@link GuildChannel}, or closes a {@link DMChannel}. Requires the {@link Permission.ManageChannels} permission for the guild
+   * Deletes a {@link GuildChannel}, or closes a {@link DMChannel}.
+   * Requires the {@link Permission.ManageChannels} permission for the guild
    * @param {Snowflake} channelId The ID of the channel
    * @returns {Promise<Channel>}
    */
@@ -96,6 +136,22 @@ class BotAPI {
     );
 
     return ChannelUtils.findOrCreate(this.bot, channelData!);
+  }
+
+  /**
+   * Deletes a {@link GuildChannel}.
+   * Requires the {@link Permission.ManageChannels} permission for the guild
+   * @param {Snowflake} channelId The ID of the guild channel you wish to delete
+   * @returns {Promise<GuildChannel>}
+   */
+  public async deleteGuildChannel(channelId: Snowflake): Promise<GuildChannel> {
+    const channel = await this.deleteChannel(channelId);
+
+    if (!(channel instanceof GuildChannel)) {
+      throw new TypeError('The deleted channel is a DM channel');
+    }
+
+    return channel;
   }
 
   // TODO: Add the ability to send files and attachments
