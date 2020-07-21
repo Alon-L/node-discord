@@ -120,13 +120,15 @@ class ChannelUtils {
   }
 
   /**
-   * Searches for a DM channel in the Bot's {@link Bot.dms} cache
+   * Searches for a DM channel in the Bot's channels cache
    * @param {Bot} bot The bot instance
    * @param {string} channelId The ID of the DMChannel to be searched for
    * @returns {DMChannel | undefined}
    */
   public static findDM(bot: Bot, channelId: string): DMChannel | undefined {
-    return bot.dms.get(channelId);
+    const channel = bot.channels.get(channelId);
+
+    return channel instanceof DMChannel ? channel : undefined;
   }
 
   /**
