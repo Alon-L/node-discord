@@ -20,8 +20,13 @@ class GuildChannelsController extends BaseController<GuildChannel> {
    * @param {Snowflake} id The ID of the guild channel you wish to delete
    * @returns {Promise<GuildChannel>}
    */
-  public delete(id: Snowflake): Promise<GuildChannel> {
-    return this.bot.api.deleteGuildChannel(id);
+  public async delete(id: Snowflake): Promise<GuildChannel> {
+    const channel = await this.bot.api.deleteGuildChannel(id);
+
+    this.cache.delete(channel.id);
+    this.bot.channels.cache.delete(channel.id);
+
+    return channel;
   }
 
   /**
@@ -29,8 +34,13 @@ class GuildChannelsController extends BaseController<GuildChannel> {
    * @param {Snowflake} id The ID of the guild channel you wish to fetch
    * @returns {Promise<GuildChannel>}
    */
-  public fetch(id: Snowflake): Promise<GuildChannel> {
-    return this.bot.api.fetchGuildChannel(id);
+  public async fetch(id: Snowflake): Promise<GuildChannel> {
+    const channel = await this.bot.api.fetchGuildChannel(id);
+
+    this.add(channel);
+    this.bot.channels.add(channel);
+
+    return channel;
   }
 }
 
