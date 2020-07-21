@@ -119,7 +119,7 @@ class BotAPI {
       },
     );
 
-    return ChannelUtils.findOrCreate(this.bot, channelData!) as GuildChannel;
+    return ChannelUtils.createGuildChannel(this.bot, channelData!);
   }
 
   /**
