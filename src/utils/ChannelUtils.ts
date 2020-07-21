@@ -139,12 +139,14 @@ class ChannelUtils {
    */
   public static cache(bot: Bot, channel: Channel, force = false): void {
     if (channel instanceof GuildChannel) {
-      bot.channels.set(channel.id, channel);
-      channel.guild.channels.set(channel.id, channel);
-    } else if (channel instanceof DMChannel) {
-      if (force || !bot.dms.has(channel.id)) {
-        bot.dms.set(channel.id, channel);
-      }
+      channel.guild.channels.add(channel);
+    }
+
+    if (
+      channel instanceof GuildChannel ||
+      (channel instanceof DMChannel && (force || !bot.channels.has(channel.id)))
+    ) {
+      bot.channels.add(channel);
     }
   }
 
