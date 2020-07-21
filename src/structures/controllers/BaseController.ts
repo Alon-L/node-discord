@@ -44,7 +44,7 @@ abstract class BaseController<T extends BaseStruct> {
    * @param {Snowflake} id The ID of the item you wish to delete
    * @returns {Promise<T>}
    */
-  abstract async delete(id: Snowflake): Promise<T | void>;
+  abstract delete(id: Snowflake): Promise<T | void>;
 
   /**
    * Returns an already cached item or fetches it

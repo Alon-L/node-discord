@@ -23,7 +23,7 @@ bot.connection.connect();
 
   console.log(channel.name);
 
-  const message = await channel.messages.fetch('735235254356279358');
+  const message = await channel.messages.fetch('735248931403071520');
   console.log(message.content);
 
   // eslint-disable-next-line no-constant-condition

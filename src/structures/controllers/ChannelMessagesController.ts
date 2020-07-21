@@ -19,10 +19,8 @@ class ChannelMessagesController extends BaseController<Message> {
    * @param {Snowflake} id The ID of the message you wish to delete
    * @returns {Promise<Message>}
    */
-  public async delete(id: Snowflake): Promise<void> {
-    await this.bot.api.deleteMessage(this.channel.id, id);
-
-    this.cache.delete(id);
+  public delete(id: Snowflake): Promise<void> {
+    return this.bot.api.deleteMessage(this.channel.id, id);
   }
 
   /**
