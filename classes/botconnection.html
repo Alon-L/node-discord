@@ -94,6 +94,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botconnection.html#connect" class="tsd-kind-icon">connect</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botconnection.html#disconnect" class="tsd-kind-icon">disconnect</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botconnection.html#disconnectall" class="tsd-kind-icon">disconnect<wbr>All</a></li>
 							</ul>
 						</section>
 					</div>
@@ -111,7 +112,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/545d337/src/structures/bot/BotConnection.ts#L13">src/structures/bot/BotConnection.ts:13</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/998a8d1/src/structures/bot/BotConnection.ts#L14">src/structures/bot/BotConnection.ts:14</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -140,7 +141,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/545d337/src/structures/bot/BotConnection.ts#L23">src/structures/bot/BotConnection.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/998a8d1/src/structures/bot/BotConnection.ts#L24">src/structures/bot/BotConnection.ts:24</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -156,13 +157,13 @@
 					<a name="disconnect" class="tsd-anchor"></a>
 					<h3>disconnect</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">disconnect<span class="tsd-signature-symbol">(</span>code<span class="tsd-signature-symbol">?: </span><a href="../enums/gatewayclosecodes.html" class="tsd-signature-type">GatewayCloseCodes</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">disconnect<span class="tsd-signature-symbol">(</span>code<span class="tsd-signature-symbol">?: </span><a href="../enums/gatewayclosecode.html" class="tsd-signature-type">GatewayCloseCode</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/545d337/src/structures/bot/BotConnection.ts#L31">src/structures/bot/BotConnection.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/998a8d1/src/structures/bot/BotConnection.ts#L32">src/structures/bot/BotConnection.ts:32</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -173,7 +174,38 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> code: <a href="../enums/gatewayclosecodes.html" class="tsd-signature-type">GatewayCloseCodes</a><span class="tsd-signature-symbol"> = GatewayCloseCodes.ManualClosure</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> code: <a href="../enums/gatewayclosecode.html" class="tsd-signature-type">GatewayCloseCode</a><span class="tsd-signature-symbol"> = GatewayCloseCode.ManualClosure</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>WebSocket close code</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="disconnectall" class="tsd-anchor"></a>
+					<h3>disconnect<wbr>All</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">disconnect<wbr>All<span class="tsd-signature-symbol">(</span>code<span class="tsd-signature-symbol">?: </span><a href="../enums/gatewayclosecode.html" class="tsd-signature-type">GatewayCloseCode</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/998a8d1/src/structures/bot/BotConnection.ts#L40">src/structures/bot/BotConnection.ts:40</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Closes all currently running connections for all shards</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> code: <a href="../enums/gatewayclosecode.html" class="tsd-signature-type">GatewayCloseCode</a><span class="tsd-signature-symbol"> = GatewayCloseCode.ManualClosure</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>WebSocket close code</p>
 									</div>
@@ -208,6 +240,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="botconnection.html#disconnect" class="tsd-kind-icon">disconnect</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="botconnection.html#disconnectall" class="tsd-kind-icon">disconnect<wbr>All</a>
 							</li>
 						</ul>
 					</li>

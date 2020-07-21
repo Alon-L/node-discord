@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>StatusCode | node-discord</title>
+	<title>ShardCommunicationAction | node-discord</title>
 	<meta name="description" content="Documentation for node-discord">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="statuscode.html">StatusCode</a>
+					<a href="shardcommunicationaction.html">ShardCommunicationAction</a>
 				</li>
 			</ul>
-			<h1>Enumeration StatusCode</h1>
+			<h1>Enumeration ShardCommunicationAction</h1>
 		</div>
 	</div>
 </header>
@@ -67,7 +67,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>All status codes that might be returned in response to an API request</p>
+						<p>Actions that can be sent to the shard manager to be evaluated in specific / all shards</p>
 					</div>
 				</div>
 			</section>
@@ -78,11 +78,10 @@
 						<section class="tsd-index-section ">
 							<h3>Enumeration members</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="statuscode.html#forbidden" class="tsd-kind-icon">Forbidden</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="statuscode.html#nocontent" class="tsd-kind-icon">No<wbr>Content</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="statuscode.html#ok" class="tsd-kind-icon">OK</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="statuscode.html#toomanyrequests" class="tsd-kind-icon">Too<wbr>Many<wbr>Requests</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="statuscode.html#unauthorized" class="tsd-kind-icon">Un<wbr>Authorized</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="shardcommunicationaction.html#broadcast" class="tsd-kind-icon">Broadcast</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="shardcommunicationaction.html#disconnectall" class="tsd-kind-icon">Disconnect<wbr>All</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="shardcommunicationaction.html#send" class="tsd-kind-icon">Send</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="shardcommunicationaction.html#shardchangedstate" class="tsd-kind-icon">Shard<wbr>Changed<wbr>State</a></li>
 							</ul>
 						</section>
 					</div>
@@ -91,77 +90,62 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Enumeration members</h2>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="forbidden" class="tsd-anchor"></a>
-					<h3>Forbidden</h3>
-					<div class="tsd-signature tsd-kind-icon">Forbidden<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 403</span></div>
+					<a name="broadcast" class="tsd-anchor"></a>
+					<h3>Broadcast</h3>
+					<div class="tsd-signature tsd-kind-icon">Broadcast<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;broadcast&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/998a8d1/src/socket/endpoints.ts#L102">src/socket/endpoints.ts:102</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/998a8d1/src/structures/bot/BotCommunication.ts#L54">src/structures/bot/BotCommunication.ts:54</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The bot has insufficient permissions to send this request</p>
+							<p>Emits an event on all shards</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="nocontent" class="tsd-anchor"></a>
-					<h3>No<wbr>Content</h3>
-					<div class="tsd-signature tsd-kind-icon">No<wbr>Content<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 204</span></div>
+					<a name="disconnectall" class="tsd-anchor"></a>
+					<h3>Disconnect<wbr>All</h3>
+					<div class="tsd-signature tsd-kind-icon">Disconnect<wbr>All<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;disconnectAll&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/998a8d1/src/socket/endpoints.ts#L90">src/socket/endpoints.ts:90</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/998a8d1/src/structures/bot/BotCommunication.ts#L69">src/structures/bot/BotCommunication.ts:69</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The request succeeded with no content as response</p>
+							<p>A shard requested to disconnect all currently active shards</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="ok" class="tsd-anchor"></a>
-					<h3>OK</h3>
-					<div class="tsd-signature tsd-kind-icon">OK<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 200</span></div>
+					<a name="send" class="tsd-anchor"></a>
+					<h3>Send</h3>
+					<div class="tsd-signature tsd-kind-icon">Send<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;send&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/998a8d1/src/socket/endpoints.ts#L84">src/socket/endpoints.ts:84</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/998a8d1/src/structures/bot/BotCommunication.ts#L59">src/structures/bot/BotCommunication.ts:59</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The request was successful</p>
+							<p>Emits an event on a specific shard</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="toomanyrequests" class="tsd-anchor"></a>
-					<h3>Too<wbr>Many<wbr>Requests</h3>
-					<div class="tsd-signature tsd-kind-icon">Too<wbr>Many<wbr>Requests<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 429</span></div>
+					<a name="shardchangedstate" class="tsd-anchor"></a>
+					<h3>Shard<wbr>Changed<wbr>State</h3>
+					<div class="tsd-signature tsd-kind-icon">Shard<wbr>Changed<wbr>State<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;shardChangedState&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/998a8d1/src/socket/endpoints.ts#L108">src/socket/endpoints.ts:108</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/998a8d1/src/structures/bot/BotCommunication.ts#L64">src/structures/bot/BotCommunication.ts:64</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The rate limit has been reached</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="unauthorized" class="tsd-anchor"></a>
-					<h3>Un<wbr>Authorized</h3>
-					<div class="tsd-signature tsd-kind-icon">Un<wbr>Authorized<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 401</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/998a8d1/src/socket/endpoints.ts#L96">src/socket/endpoints.ts:96</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The token is no longer valid</p>
+							<p>A shard has changed its state</p>
 						</div>
 					</div>
 				</section>
@@ -180,22 +164,19 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-enum">
-						<a href="statuscode.html" class="tsd-kind-icon">Status<wbr>Code</a>
+						<a href="shardcommunicationaction.html" class="tsd-kind-icon">Shard<wbr>Communication<wbr>Action</a>
 						<ul>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="statuscode.html#forbidden" class="tsd-kind-icon">Forbidden</a>
+								<a href="shardcommunicationaction.html#broadcast" class="tsd-kind-icon">Broadcast</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="statuscode.html#nocontent" class="tsd-kind-icon">No<wbr>Content</a>
+								<a href="shardcommunicationaction.html#disconnectall" class="tsd-kind-icon">Disconnect<wbr>All</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="statuscode.html#ok" class="tsd-kind-icon">OK</a>
+								<a href="shardcommunicationaction.html#send" class="tsd-kind-icon">Send</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="statuscode.html#toomanyrequests" class="tsd-kind-icon">Too<wbr>Many<wbr>Requests</a>
-							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="statuscode.html#unauthorized" class="tsd-kind-icon">Un<wbr>Authorized</a>
+								<a href="shardcommunicationaction.html#shardchangedstate" class="tsd-kind-icon">Shard<wbr>Changed<wbr>State</a>
 							</li>
 						</ul>
 					</li>
