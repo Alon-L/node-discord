@@ -37,14 +37,14 @@ abstract class BaseController<T extends BaseStruct> {
    * @param {Snowflake} id The ID of the item you wish to fetch
    * @returns {Promise<T>}
    */
-  abstract fetch(id: Snowflake): Promise<T>;
+  abstract async fetch(id: Snowflake): Promise<T>;
 
   /**
    * Deletes a cached item
    * @param {Snowflake} id The ID of the item you wish to delete
    * @returns {Promise<T>}
    */
-  abstract delete(id: Snowflake): Promise<T>;
+  abstract async delete(id: Snowflake): Promise<T | void>;
 
   /**
    * Returns an already cached item or fetches it
@@ -92,6 +92,34 @@ abstract class BaseController<T extends BaseStruct> {
    */
   public getOrSet(id: Snowflake, item: T): T {
     return this.cache.getOrSet(id, item);
+  }
+
+  /**
+   * Returns whether a particular item is cached
+   * @param {Snowflake} id The ID of the item to check if cached
+   * @returns {boolean}
+   */
+  public has(id: Snowflake): boolean {
+    return this.cache.has(id);
+  }
+
+  /**
+   * Adds an item to the cache mapped by its ID
+   * @param {ItemWithId<T>} item The item you wish to add
+   * @returns {T}
+   */
+  public add(item: ItemWithId<T>): T {
+    this.set(item.id, item);
+
+    return item;
+  }
+
+  /**
+   * Returns the number of items cached
+   * @type {number}
+   */
+  public get size(): number {
+    return this.cache.size;
   }
 }
 
