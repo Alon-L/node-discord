@@ -25,7 +25,7 @@ export default ({ d }: Payload, bot: Bot): void => {
     message.deleted = true;
   }
 
-  channel.messages.delete(message.id);
+  channel.messages.cache.delete(message.id);
 
   bot.events.emit(BotEvent.MessageDelete, message);
 };
