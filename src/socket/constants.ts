@@ -232,7 +232,7 @@ export const enum SystemChannelType {
  * All guild features
  * https://discord.com/developers/docs/resources/guild#guild-object-guild-features
  */
-export const enum GuildFeatures {
+export const enum GuildFeature {
   /**
    * Guild has access to set an invite splash background
    */
@@ -319,7 +319,7 @@ export const enum AvatarFormat {
 /**
  * https://discordapp.com/developers/docs/topics/opcodes-and-status-codes#gateway-gateway-close-event-codes
  */
-export const enum GatewayCloseCodes {
+export const enum GatewayCloseCode {
   NormalClosure = 1000,
   ManualClosure = 3000,
   UnknownError = 4000,
@@ -338,18 +338,18 @@ export const enum GatewayCloseCodes {
   DisallowedIntent,
 }
 
-export const UnreconnectableGatewayCloseCodes: GatewayCloseCodes[] = [
-  GatewayCloseCodes.ManualClosure,
-  GatewayCloseCodes.AuthenticationFailed,
-  GatewayCloseCodes.InvalidShard,
-  GatewayCloseCodes.ShardingRequired,
-  GatewayCloseCodes.InvalidIntent,
-  GatewayCloseCodes.DisallowedIntent,
+export const UnreconnectableGatewayCloseCodes: GatewayCloseCode[] = [
+  GatewayCloseCode.ManualClosure,
+  GatewayCloseCode.AuthenticationFailed,
+  GatewayCloseCode.InvalidShard,
+  GatewayCloseCode.ShardingRequired,
+  GatewayCloseCode.InvalidIntent,
+  GatewayCloseCode.DisallowedIntent,
 ];
 
-export const UnresumeableGatewayCloseCodes: GatewayCloseCodes[] = [
-  GatewayCloseCodes.NormalClosure,
-  GatewayCloseCodes.InvalidSeq,
+export const UnresumeableGatewayCloseCodes: GatewayCloseCode[] = [
+  GatewayCloseCode.NormalClosure,
+  GatewayCloseCode.InvalidSeq,
 ];
 
 export const recommendedShardTimeout = 5500;
