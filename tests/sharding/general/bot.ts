@@ -14,7 +14,7 @@ bot.events.on(BotEvent.Ready, () => {
   console.log(guild instanceof Guild);
   console.log(guild?.id, 'GUILD ID');
 
-  console.log(guild?.channels.first?.id, 'GUILD FIRST CHANNEL ID');
+  console.log(guild?.channels.cache.first?.id, 'GUILD FIRST CHANNEL ID');
 
   console.log(guild?.emojis);
 });
