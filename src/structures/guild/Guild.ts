@@ -161,7 +161,7 @@ class Guild extends BaseStruct {
   /**
    * {@link Cluster} of {@link GuildChannel}s associated to this Guild
    */
-  public channels!: GuildChannelsController;
+  public channels: GuildChannelsController;
 
   /**
    * {@link Cluster} of all {@link Role}s associated to this guild
