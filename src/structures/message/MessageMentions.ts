@@ -93,7 +93,7 @@ class MessageMentions extends BaseStruct {
 
     if (mentions.crosspostedChannels && this.message.guild) {
       this.crosspostedChannels.merge(
-        this.message.guild.channels.filter(channel =>
+        this.message.guild.channels.cache.filter(channel =>
           (mentions.crosspostedChannels as GatewayStruct[]).some(
             mention => mention.guild_id === channel.guild.id && mention.id === channel.id,
           ),

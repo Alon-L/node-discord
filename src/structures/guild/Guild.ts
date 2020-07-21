@@ -11,6 +11,7 @@ import User from '../User';
 import Bot from '../bot/Bot';
 import GuildChannel from '../channels/GuildChannel';
 import GuildTextChannel from '../channels/GuildTextChannel';
+import GuildChannelsController from '../controllers/GuildChannelsController';
 import GuildSystemChannelFlags from '../flags/GuildSystemChannelFlags';
 import PermissionFlags from '../flags/PermissionFlags';
 import Member from '../member/Member';
@@ -160,7 +161,7 @@ class Guild extends BaseStruct {
   /**
    * {@link Cluster} of {@link GuildChannel}s associated to this Guild
    */
-  public channels!: Cluster<Snowflake, GuildChannel>;
+  public channels!: GuildChannelsController;
 
   /**
    * {@link Cluster} of all {@link Role}s associated to this guild
@@ -335,6 +336,8 @@ class Guild extends BaseStruct {
   constructor(bot: Bot, guild: GatewayStruct) {
     super(bot, guild);
 
+    this.channels = new GuildChannelsController(this);
+
     this.presences = new Cluster<Snowflake, MemberPresence>();
 
     this.invites = new Cluster<InviteCode, Invite>();
@@ -352,14 +355,12 @@ class Guild extends BaseStruct {
   public init(guild: GatewayStruct): this {
     this.id = guild.id;
 
-    this.channels = new Cluster<Snowflake, GuildChannel>(
-      guild.channels?.map((channel: GatewayStruct) => [
-        channel.id,
-        ChannelUtils.create(this.bot, channel, this),
-      ]),
+    this.channels.addMany(
+      guild.channels?.map((channel: GatewayStruct) => ChannelUtils.create(this.bot, channel, this)),
     );
+
     // Add all of this guild's cached channels to the Bot's cached channels
-    this.bot.channels.merge(this.channels);
+    this.bot.channels.merge(this.channels.cache);
 
     this.roles = new Cluster<Snowflake, Role>(
       guild.roles.map((role: GatewayStruct) => [role.id, new Role(this.bot, role, this)]),

@@ -11,7 +11,7 @@ class GuildCategoryChannel extends GuildChannel {
    * @type {Cluster<Snowflake, GuildChannel>}
    */
   public get children(): Cluster<Snowflake, GuildChannel> {
-    return this.guild.channels.filter(c => c.parent?.id === this.id);
+    return this.guild.channels.cache.filter(c => c.parent?.id === this.id);
   }
 }
 
