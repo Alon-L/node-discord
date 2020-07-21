@@ -33,7 +33,7 @@ class ChannelUtils {
   }
 
   /**
-   * Creates a new channel, initializes relatively to its type
+   * Creates a new {@link Channel} instance, initialized relatively to its type
    * @param {Bot} bot The bot instance
    * @param {GatewayStruct} data The channel data received from the gateway
    * @param {Guild | undefined} guild_ The guild associated to the channel
@@ -42,17 +42,24 @@ class ChannelUtils {
   public static create(bot: Bot, data: GatewayStruct, guild_?: Guild): Channel {
     let channel: Channel;
 
-    const guild = guild_ || bot.guilds.get(data.guild_id)!;
+    const { guild_id: guildId } = data;
+
+    // TODO: Fetch guild if does not exist
+    const guild = guild_ || bot.guilds.get(guildId);
+
+    if (!guild && guildId) {
+      throw new Error('Invalid guild was provided when creating channel');
+    }
 
     switch (data.type as ChannelType) {
       case ChannelType.GuildText:
-        channel = new GuildTextChannel(bot, data, guild);
+        channel = new GuildTextChannel(bot, data, guild!);
         break;
       case ChannelType.DM:
         channel = new DMChannel(bot, data);
         break;
       case ChannelType.GuildCategory:
-        channel = new GuildCategoryChannel(bot, data, guild);
+        channel = new GuildCategoryChannel(bot, data, guild!);
         break;
       default:
         channel = new Channel(bot, data);
@@ -60,6 +67,39 @@ class ChannelUtils {
     }
 
     return channel;
+  }
+
+  /**
+   * Creates a new {@link GuildChannel} instance, initialized relatively to its type
+   * @param {Bot} bot The bot instance
+   * @param {GatewayStruct} data The channel data received from the gateway
+   * @param {Guild | undefined} guild The guild associated to the channel
+   * @returns {GuildChannel}
+   */
+  public static createGuildChannel(bot: Bot, data: GatewayStruct, guild?: Guild): GuildChannel {
+    const guildChannel = ChannelUtils.create(bot, data, guild);
+
+    if (!(guildChannel instanceof GuildChannel)) {
+      throw new TypeError('The created channel is a DM channel');
+    }
+
+    return guildChannel;
+  }
+
+  /**
+   * Creates a new {@link DMChannel} instance
+   * @param {Bot} bot The bot instance
+   * @param {GatewayStruct} data The channel data received from the gateway
+   * @returns {DMChannel}
+   */
+  public static createDMChannel(bot: Bot, data: GatewayStruct): DMChannel {
+    const dmChannel = ChannelUtils.create(bot, data);
+
+    if (!(dmChannel instanceof DMChannel)) {
+      throw new TypeError('The created channel is a guild channel');
+    }
+
+    return dmChannel;
   }
 
   /**
