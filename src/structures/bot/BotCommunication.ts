@@ -3,6 +3,7 @@ import { EventEmitter } from 'events';
 import Bot from './Bot';
 import { Events, BotStateEvents } from './handlers/events/events';
 import { BotShardState } from '../../socket/BotShard';
+import { GatewayCloseCode } from '../../socket/constants';
 import { Args } from '../../types/EventEmitter';
 import { ShardId } from '../../types/types';
 
@@ -46,7 +47,7 @@ export interface ShardResponse {
 /**
  * Actions that can be sent to the shard manager to be evaluated in specific / all shards
  */
-export enum ShardCommunicationActions {
+export enum ShardCommunicationAction {
   /**
    * Emits an event on all shards
    */
@@ -56,19 +57,29 @@ export enum ShardCommunicationActions {
    * Emits an event on a specific shard
    */
   Send = 'send',
+
+  /**
+   * A shard has changed its state
+   */
+  ShardChangedState = 'shardChangedState',
+
+  /**
+   * A shard requested to disconnect all currently active shards
+   */
+  DisconnectAll = 'disconnectAll',
 }
 
 /**
- * The type of result sent in response to an action ({@link ShardCommunicationActions}) from the shard manager
+ * The type of result sent in response to an action ({@link ShardCommunicationAction}) from the shard manager
  */
 export enum ShardCommunicationActionResponses {
   /**
-   * Responses sent in response to a {@link ShardCommunicationActions.Broadcast} request
+   * Responses sent in response to a {@link ShardCommunicationAction.Broadcast} request
    */
   BroadcastResponses = 'broadcastResponses',
 
   /**
-   * Response sent in response to a {@link ShardCommunicationActions.Send} request
+   * Response sent in response to a {@link ShardCommunicationAction.Send} request
    */
   SendResponse = 'sendResponse',
 }
@@ -91,14 +102,19 @@ export enum ShardCommunicationEmitEvents {
    * Emit a specific Bot event (registered under {@link BotEventsHandler})
    */
   EmitBotEvent = 'emitBotEvent',
+
+  /**
+   * Tells the shard to disconnect from their gateway connection
+   */
+  EmitDisconnect = 'emitDisconnect',
 }
 
 /**
  * Format for the request to emit an event on all shards
- * {@link ShardCommunicationActions.Broadcast}
+ * {@link ShardCommunicationAction.Broadcast}
  */
 export interface ShardBroadcastRequest extends ShardRequest {
-  action: ShardCommunicationActions.Broadcast;
+  action: ShardCommunicationAction.Broadcast;
 
   /**
    * The name of the event to emit
@@ -108,10 +124,10 @@ export interface ShardBroadcastRequest extends ShardRequest {
 
 /**
  * Format for the request to emit an event to a specific shard
- * {@link ShardCommunicationActions.Send}
+ * {@link ShardCommunicationAction.Send}
  */
 export interface ShardSendRequest extends ShardRequest {
-  action: ShardCommunicationActions.Send;
+  action: ShardCommunicationAction.Send;
   payload: {
     /**
      * The name of the event to emit
@@ -129,7 +145,7 @@ export interface ShardSendRequest extends ShardRequest {
  * Request sent to the shard manager when a shard has changed its state
  */
 export interface ShardChangedStateRequest extends ShardRequest {
-  action: 'shardChangedState';
+  action: ShardCommunicationAction.ShardChangedState;
   payload: {
     /**
      * The new shard state
@@ -141,6 +157,15 @@ export interface ShardChangedStateRequest extends ShardRequest {
      */
     botEvent: BotStateEvents;
   };
+}
+
+export interface ShardDisconnectAllRequest extends ShardRequest {
+  action: ShardCommunicationAction.DisconnectAll;
+
+  /**
+   * The close code for all shards
+   */
+  payload: GatewayCloseCode;
 }
 
 /**
@@ -173,6 +198,15 @@ export interface ShardEmitCommunicationEventRequest extends ShardRequest {
      */
     event: string;
   };
+}
+
+export interface ShardEmitDisconnectRequest extends ShardRequest {
+  action: ShardCommunicationEmitEvents.EmitDisconnect;
+
+  /**
+   * The close code for the shard
+   */
+  payload: GatewayCloseCode;
 }
 
 /**
@@ -217,7 +251,10 @@ class BotCommunication extends EventEmitter {
    * @returns {Promise<void>}
    */
   private async onMessage<E extends keyof Events>(
-    message: ShardEmitCommunicationEventRequest | ShardEmitBotEventRequest<E>,
+    message:
+      | ShardEmitCommunicationEventRequest
+      | ShardEmitBotEventRequest<E>
+      | ShardEmitDisconnectRequest,
   ): Promise<void> {
     switch (message.action) {
       // Tells the Bot to dispatch an event and return its result
@@ -238,6 +275,10 @@ class BotCommunication extends EventEmitter {
       // Tells the Bot to emit an event to BotEvents
       case ShardCommunicationEmitEvents.EmitBotEvent:
         this.bot.events.emit(message.payload.event, ...message.payload.args);
+        break;
+      // Tells the Bot to disconnect from its current connection
+      case ShardCommunicationEmitEvents.EmitDisconnect:
+        this.bot.connection.disconnect(message.payload);
         break;
     }
   }
@@ -298,7 +339,7 @@ class BotCommunication extends EventEmitter {
       process.on('message', listener);
 
       const request: ShardBroadcastRequest = {
-        action: ShardCommunicationActions.Broadcast,
+        action: ShardCommunicationAction.Broadcast,
         payload: event,
         identifier,
       };
@@ -334,7 +375,7 @@ class BotCommunication extends EventEmitter {
       process.on('message', listener);
 
       const message: ShardSendRequest = {
-        action: ShardCommunicationActions.Send,
+        action: ShardCommunicationAction.Send,
         payload: { event, shardId },
         identifier,
       };

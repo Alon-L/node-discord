@@ -1,16 +1,19 @@
 import { ChildProcess, fork, Serializable } from 'child_process';
 import path from 'path';
 import BotShardManager from './BotShardManager';
+import { GatewayCloseCode } from './constants';
 import BotCommunication, {
-  ShardCommunicationActions,
-  ShardCommunicationActionResponses,
-  ShardEmitCommunicationEventRequest,
-  ShardEmitBotEventRequest,
-  ShardEmitCommunicationEventResponse,
-  ShardChangedStateRequest,
-  ShardCommunicationEmitEvents,
-  ShardCommunicationActionResponse,
   ShardBroadcastRequest,
+  ShardChangedStateRequest,
+  ShardCommunicationAction,
+  ShardCommunicationActionResponse,
+  ShardCommunicationActionResponses,
+  ShardCommunicationEmitEvents,
+  ShardDisconnectAllRequest,
+  ShardEmitBotEventRequest,
+  ShardEmitCommunicationEventRequest,
+  ShardEmitCommunicationEventResponse,
+  ShardEmitDisconnectRequest,
   ShardSendRequest,
 } from '../structures/bot/BotCommunication';
 import { Events } from '../structures/bot/handlers/events/events';
@@ -64,16 +67,20 @@ class BotShard {
    * @returns {Promise<void>}
    */
   public async onMessage(
-    request: ShardBroadcastRequest | ShardSendRequest | ShardChangedStateRequest,
+    request:
+      | ShardBroadcastRequest
+      | ShardSendRequest
+      | ShardChangedStateRequest
+      | ShardDisconnectAllRequest,
   ): Promise<void> {
     const { identifier } = request;
 
     switch (request.action) {
       // Broadcast requested by the shard
-      case ShardCommunicationActions.Broadcast: {
+      case ShardCommunicationAction.Broadcast: {
         const results = await this.manager.broadcast(request.payload);
 
-        const reply: ShardCommunicationActionResponse = {
+        const response: ShardCommunicationActionResponse = {
           payload: {
             event: ShardCommunicationActionResponses.BroadcastResponses,
             data: results,
@@ -81,16 +88,16 @@ class BotShard {
           identifier,
         };
 
-        this.process.send(reply);
+        this.process.send(response);
         break;
       }
       // Single shard send requested by the shard
-      case ShardCommunicationActions.Send: {
+      case ShardCommunicationAction.Send: {
         const { event, shardId } = request.payload;
 
         const result = await this.manager.send(event, shardId);
 
-        const reply: ShardCommunicationActionResponse = {
+        const response: ShardCommunicationActionResponse = {
           payload: {
             event: ShardCommunicationActionResponses.SendResponse,
             data: result,
@@ -98,15 +105,20 @@ class BotShard {
           identifier,
         };
 
-        this.process.send(reply);
+        this.process.send(response);
         break;
       }
       // The shard changed its state
-      case 'shardChangedState': {
+      case ShardCommunicationAction.ShardChangedState: {
         this.state = request.payload.state;
         if (this.manager.checkShardsState(request.payload.state)) {
           this.manager.emitEvent(request.payload.botEvent, []);
         }
+        break;
+      }
+      // The shard requests all connected shards to disconnect
+      case ShardCommunicationAction.DisconnectAll: {
+        await this.manager.disconnectAll(request.payload);
         break;
       }
     }
@@ -136,13 +148,13 @@ class BotShard {
 
       this.process.on('message', listener);
 
-      const message: ShardEmitCommunicationEventRequest = {
+      const request: ShardEmitCommunicationEventRequest = {
         action: ShardCommunicationEmitEvents.EmitCommunicationEvent,
         payload: { event },
         identifier,
       };
 
-      this.process.send(message, err => {
+      this.process.send(request, err => {
         if (err) reject(err);
       });
     });
@@ -154,7 +166,7 @@ class BotShard {
    * @param {Args<Events, E>} args The arguments of the events
    */
   public emitEvent<E extends keyof Events>(event: E, args: Args<Events, E>): void {
-    const message: ShardEmitBotEventRequest<E> = {
+    const request: ShardEmitBotEventRequest<E> = {
       action: ShardCommunicationEmitEvents.EmitBotEvent,
       payload: {
         event,
@@ -163,7 +175,21 @@ class BotShard {
       identifier: Date.now(),
     };
 
-    this.process.send(message);
+    this.process.send(request);
+  }
+
+  /**
+   * Disconnects this shard
+   * @param {GatewayCloseCode} code The shard close code
+   */
+  public disconnect(code: GatewayCloseCode): void {
+    const request: ShardEmitDisconnectRequest = {
+      action: ShardCommunicationEmitEvents.EmitDisconnect,
+      payload: code,
+      identifier: Date.now(),
+    };
+
+    this.process.send(request);
   }
 }
 

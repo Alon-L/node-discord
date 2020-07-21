@@ -1,9 +1,10 @@
 import { Headers, Response } from 'node-fetch';
 import RateLimitQueue from './RateLimitQueue';
-import { Params, Data } from './Requests';
+import { Data, Params } from './Requests';
 import Bot from '../../structures/bot/Bot';
 import APIRequest from '../APIRequest';
-import { EndpointRoute, StatusCode, HttpMethod, RateLimitHeaders, ValidCodes } from '../endpoints';
+import { GatewayCloseCode } from '../constants';
+import { EndpointRoute, HttpMethod, RateLimitHeaders, StatusCode, ValidCodes } from '../endpoints';
 
 class RateLimitBucket {
   /**
@@ -129,8 +130,7 @@ class RateLimitBucket {
   private validateResponse(response: Response, json: Data): void {
     switch (response.status) {
       case StatusCode.UnAuthorized:
-        // TODO: disconnect all connected shards
-        this.bot.connection.disconnect();
+        this.bot.connection.disconnectAll(GatewayCloseCode.AuthenticationFailed);
         throw new Error('Your Bot token is invalid! This connection has been terminated');
       case StatusCode.Forbidden:
         throw new Error(
@@ -141,7 +141,7 @@ class RateLimitBucket {
     }
 
     if (!ValidCodes.includes(response.status) && json.message) {
-      throw new Error(json.message.toString());
+      throw new Error(`${response.url} - ${json.message.toString()}`);
     }
   }
 

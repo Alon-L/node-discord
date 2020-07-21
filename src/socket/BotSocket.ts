@@ -1,11 +1,14 @@
 import fetch from 'node-fetch';
 import { BotShardState } from './BotShard';
 import BotSocketShard, { BotSocketShardState } from './BotSocketShard';
-import { GatewayCloseCodes, recommendedShardTimeout } from './constants';
+import { GatewayCloseCode, recommendedShardTimeout } from './constants';
 import { baseURL } from './properties';
 import Cluster from '../Cluster';
 import Bot from '../structures/bot/Bot';
-import { ShardChangedStateRequest } from '../structures/bot/BotCommunication';
+import {
+  ShardChangedStateRequest,
+  ShardCommunicationAction,
+} from '../structures/bot/BotCommunication';
 import { BotStateEvents } from '../structures/bot/handlers/events/events';
 import { ShardId } from '../types/types';
 
@@ -77,9 +80,9 @@ class BotSocket {
 
   /**
    * Stops and disconnects all active shards started by this process
-   * @param {GatewayCloseCodes} code Gateway closure code
+   * @param {GatewayCloseCode} code Gateway closure code
    */
-  public stopShards(code: GatewayCloseCodes): void {
+  public stopShards(code: GatewayCloseCode): void {
     for (const [, shard] of this.shards) {
       shard.close(code);
     }
@@ -118,7 +121,7 @@ class BotSocket {
 
     if (process.send) {
       const request: ShardChangedStateRequest = {
-        action: 'shardChangedState',
+        action: ShardCommunicationAction.ShardChangedState,
         payload: {
           state: shardState,
           botEvent,

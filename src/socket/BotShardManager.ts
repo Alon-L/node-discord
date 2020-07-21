@@ -1,6 +1,6 @@
 import { Serializable } from 'child_process';
 import BotShard, { BotShardState } from './BotShard';
-import { recommendedShardTimeout } from './constants';
+import { GatewayCloseCode, recommendedShardTimeout } from './constants';
 import Cluster from '../Cluster';
 import { Events } from '../structures/bot/handlers/events/events';
 import { Args } from '../types/EventEmitter';
@@ -90,6 +90,16 @@ class BotShardManager {
    */
   public checkShardsState(state: BotShardState): boolean {
     return this.shards.toArray.every(value => value.state === state);
+  }
+
+  /**
+   * Disconnects all active shards under this manager
+   * @param {GatewayCloseCode} code The shards' close code
+   */
+  public disconnectAll(code = GatewayCloseCode.ManualClosure): void {
+    for (const [, shard] of this.shards) {
+      shard.disconnect(code);
+    }
   }
 }
 

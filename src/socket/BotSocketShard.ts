@@ -5,7 +5,7 @@ import { BotShardState } from './BotShard';
 import BotSocket, { SessionStartLimit } from './BotSocket';
 import {
   BotEvent,
-  GatewayCloseCodes,
+  GatewayCloseCode,
   GatewayEvent,
   OPCode,
   UnreconnectableGatewayCloseCodes,
@@ -282,7 +282,7 @@ class BotSocketShard {
         this.handleDispatch(payload);
         break;
       case OPCode.Reconnect:
-        this.close(GatewayCloseCodes.UnknownError);
+        this.close(GatewayCloseCode.UnknownError);
         break;
       case OPCode.InvalidSession:
         // Wait 5 seconds and re-identify
@@ -343,9 +343,9 @@ class BotSocketShard {
 
   /**
    * Close the connection between the bot and the gateway
-   * @param {GatewayCloseCodes} code Socket close code https://discordapp.com/developers/docs/topics/opcodes-and-status-codes#gateway-gateway-close-event-codes
+   * @param {GatewayCloseCode} code Socket close code https://discordapp.com/developers/docs/topics/opcodes-and-status-codes#gateway-gateway-close-event-codes
    */
-  public close(code = GatewayCloseCodes.NormalClosure): void {
+  public close(code = GatewayCloseCode.NormalClosure): void {
     this.bot.debug('Closing connection!');
 
     this.state = BotSocketShardState.Terminated;
