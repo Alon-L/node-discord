@@ -96,9 +96,13 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botapi.html#bulkdeletemessages" class="tsd-kind-icon">bulk<wbr>Delete<wbr>Messages</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botapi.html#createchannelinvite" class="tsd-kind-icon">create<wbr>Channel<wbr>Invite</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botapi.html#deletechannel" class="tsd-kind-icon">delete<wbr>Channel</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botapi.html#deleteguildchannel" class="tsd-kind-icon">delete<wbr>Guild<wbr>Channel</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botapi.html#deleteguildchannelpermission" class="tsd-kind-icon">delete<wbr>Guild<wbr>Channel<wbr>Permission</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botapi.html#deletemessage" class="tsd-kind-icon">delete<wbr>Message</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botapi.html#editmessage" class="tsd-kind-icon">edit<wbr>Message</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botapi.html#fetchchannel" class="tsd-kind-icon">fetch<wbr>Channel</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botapi.html#fetchdmchannel" class="tsd-kind-icon">fetchDMChannel</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botapi.html#fetchguildchannel" class="tsd-kind-icon">fetch<wbr>Guild<wbr>Channel</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botapi.html#modifyguildchannel" class="tsd-kind-icon">modify<wbr>Guild<wbr>Channel</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botapi.html#modifyguildchannelpermissions" class="tsd-kind-icon">modify<wbr>Guild<wbr>Channel<wbr>Permissions</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botapi.html#pinmessage" class="tsd-kind-icon">pin<wbr>Message</a></li>
@@ -125,7 +129,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cc32c07/src/structures/BotAPI.ts#L38">src/structures/BotAPI.ts:38</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/545d337/src/structures/BotAPI.ts#L39">src/structures/BotAPI.ts:39</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -154,7 +158,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cc32c07/src/structures/BotAPI.ts#L159">src/structures/BotAPI.ts:159</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/545d337/src/structures/BotAPI.ts#L215">src/structures/BotAPI.ts:215</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -197,7 +201,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cc32c07/src/structures/BotAPI.ts#L330">src/structures/BotAPI.ts:330</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/545d337/src/structures/BotAPI.ts#L386">src/structures/BotAPI.ts:386</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -235,7 +239,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cc32c07/src/structures/BotAPI.ts#L373">src/structures/BotAPI.ts:373</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/545d337/src/structures/BotAPI.ts#L429">src/structures/BotAPI.ts:429</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -273,12 +277,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cc32c07/src/structures/BotAPI.ts#L91">src/structures/BotAPI.ts:91</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/545d337/src/structures/BotAPI.ts#L131">src/structures/BotAPI.ts:131</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Deletes a <a href="guildchannel.html">GuildChannel</a>, or closes a <a href="dmchannel.html">DMChannel</a>. Requires the <a href="../enums/permission.html#managechannels">Permission.ManageChannels</a> permission for the guild</p>
+									<p>Deletes a <a href="guildchannel.html">GuildChannel</a>, or closes a <a href="dmchannel.html">DMChannel</a>.
+									Requires the <a href="../enums/permission.html#managechannels">Permission.ManageChannels</a> permission for the guild</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -295,6 +300,38 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="deleteguildchannel" class="tsd-anchor"></a>
+					<h3>delete<wbr>Guild<wbr>Channel</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">delete<wbr>Guild<wbr>Channel<span class="tsd-signature-symbol">(</span>channelId<span class="tsd-signature-symbol">: </span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/545d337/src/structures/BotAPI.ts#L147">src/structures/BotAPI.ts:147</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Deletes a <a href="guildchannel.html">GuildChannel</a>.
+									Requires the <a href="../enums/permission.html#managechannels">Permission.ManageChannels</a> permission for the guild</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>channelId: <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The ID of the guild channel you wish to delete</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="deleteguildchannelpermission" class="tsd-anchor"></a>
 					<h3>delete<wbr>Guild<wbr>Channel<wbr>Permission</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -304,7 +341,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cc32c07/src/structures/BotAPI.ts#L399">src/structures/BotAPI.ts:399</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/545d337/src/structures/BotAPI.ts#L455">src/structures/BotAPI.ts:455</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -342,7 +379,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cc32c07/src/structures/BotAPI.ts#L315">src/structures/BotAPI.ts:315</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/545d337/src/structures/BotAPI.ts#L371">src/structures/BotAPI.ts:371</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -380,7 +417,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cc32c07/src/structures/BotAPI.ts#L279">src/structures/BotAPI.ts:279</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/545d337/src/structures/BotAPI.ts#L335">src/structures/BotAPI.ts:335</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -430,6 +467,99 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="fetchchannel" class="tsd-anchor"></a>
+					<h3>fetch<wbr>Channel</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">fetch<wbr>Channel<span class="tsd-signature-symbol">(</span>channelId<span class="tsd-signature-symbol">: </span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="channel.html" class="tsd-signature-type">Channel</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/545d337/src/structures/BotAPI.ts#L69">src/structures/BotAPI.ts:69</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Fetches a channel by its ID</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>channelId: <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The ID of the channel you wish to fetch</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="channel.html" class="tsd-signature-type">Channel</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="fetchdmchannel" class="tsd-anchor"></a>
+					<h3>fetchDMChannel</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">fetchDMChannel<span class="tsd-signature-symbol">(</span>channelId<span class="tsd-signature-symbol">: </span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="dmchannel.html" class="tsd-signature-type">DMChannel</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/545d337/src/structures/BotAPI.ts#L91">src/structures/BotAPI.ts:91</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Fetches a DM channel by its ID</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>channelId: <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The ID of the DM channel you wish to fetch</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="dmchannel.html" class="tsd-signature-type">DMChannel</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="fetchguildchannel" class="tsd-anchor"></a>
+					<h3>fetch<wbr>Guild<wbr>Channel</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">fetch<wbr>Guild<wbr>Channel<span class="tsd-signature-symbol">(</span>channelId<span class="tsd-signature-symbol">: </span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/545d337/src/structures/BotAPI.ts#L80">src/structures/BotAPI.ts:80</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Fetches a guild channel by its ID</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>channelId: <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The ID of the guild channel you wish to fetch</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="modifyguildchannel" class="tsd-anchor"></a>
 					<h3>modify<wbr>Guild<wbr>Channel</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -439,7 +569,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cc32c07/src/structures/BotAPI.ts#L64">src/structures/BotAPI.ts:64</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/545d337/src/structures/BotAPI.ts#L103">src/structures/BotAPI.ts:103</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -476,7 +606,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cc32c07/src/structures/BotAPI.ts#L349">src/structures/BotAPI.ts:349</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/545d337/src/structures/BotAPI.ts#L405">src/structures/BotAPI.ts:405</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -520,7 +650,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cc32c07/src/structures/BotAPI.ts#L428">src/structures/BotAPI.ts:428</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/545d337/src/structures/BotAPI.ts#L484">src/structures/BotAPI.ts:484</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -558,7 +688,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cc32c07/src/structures/BotAPI.ts#L188">src/structures/BotAPI.ts:188</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/545d337/src/structures/BotAPI.ts#L244">src/structures/BotAPI.ts:244</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -608,7 +738,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cc32c07/src/structures/BotAPI.ts#L220">src/structures/BotAPI.ts:220</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/545d337/src/structures/BotAPI.ts#L276">src/structures/BotAPI.ts:276</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -645,7 +775,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cc32c07/src/structures/BotAPI.ts#L238">src/structures/BotAPI.ts:238</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/545d337/src/structures/BotAPI.ts#L294">src/structures/BotAPI.ts:294</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -688,7 +818,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cc32c07/src/structures/BotAPI.ts#L119">src/structures/BotAPI.ts:119</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/545d337/src/structures/BotAPI.ts#L175">src/structures/BotAPI.ts:175</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -747,7 +877,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cc32c07/src/structures/BotAPI.ts#L417">src/structures/BotAPI.ts:417</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/545d337/src/structures/BotAPI.ts#L473">src/structures/BotAPI.ts:473</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -780,7 +910,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cc32c07/src/structures/BotAPI.ts#L443">src/structures/BotAPI.ts:443</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/545d337/src/structures/BotAPI.ts#L499">src/structures/BotAPI.ts:499</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -841,6 +971,9 @@
 								<a href="botapi.html#deletechannel" class="tsd-kind-icon">delete<wbr>Channel</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="botapi.html#deleteguildchannel" class="tsd-kind-icon">delete<wbr>Guild<wbr>Channel</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="botapi.html#deleteguildchannelpermission" class="tsd-kind-icon">delete<wbr>Guild<wbr>Channel<wbr>Permission</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -848,6 +981,15 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="botapi.html#editmessage" class="tsd-kind-icon">edit<wbr>Message</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="botapi.html#fetchchannel" class="tsd-kind-icon">fetch<wbr>Channel</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="botapi.html#fetchdmchannel" class="tsd-kind-icon">fetchDMChannel</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="botapi.html#fetchguildchannel" class="tsd-kind-icon">fetch<wbr>Guild<wbr>Channel</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="botapi.html#modifyguildchannel" class="tsd-kind-icon">modify<wbr>Guild<wbr>Channel</a>
