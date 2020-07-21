@@ -135,7 +135,7 @@ class BotAPI {
       HttpMethod.Delete,
     );
 
-    return ChannelUtils.findOrCreate(this.bot, channelData!);
+    return ChannelUtils.create(this.bot, channelData!);
   }
 
   /**
