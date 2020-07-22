@@ -14,8 +14,6 @@ export default ({ d }: Payload, bot: Bot): void => {
 
   const { identifier } = emoji;
 
-  if (!identifier) return;
-
   // Validates that the reaction is cached
   if (!message.reactions.has(identifier)) return;
 

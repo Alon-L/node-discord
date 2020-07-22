@@ -93,11 +93,11 @@ class Emoji extends BaseStruct {
   /**
    * Returns this emoji's identifier.
    * An emoji identifier could be its name for built-in emojis, or a combination of its name and ID if it's a guild emoji.
-   * @returns {string | null}
+   * @returns {string}
    */
-  public get identifier(): string | null {
+  public get identifier(): string {
     if (this.id) return `${this.animated ? 'a:' : ''}${this.name}:${this.id}`;
-    return this.name;
+    return this.name!;
   }
 
   /**

@@ -17,8 +17,6 @@ export default ({ d }: Payload, bot: Bot): void => {
   const { guild } = message;
   const { identifier } = emoji;
 
-  if (!identifier) return;
-
   // Set the reaction object for this Emoji if one hasn't been set before
   if (!message.reactions.has(identifier)) {
     message.reactions.set(

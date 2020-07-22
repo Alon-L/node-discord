@@ -12,8 +12,6 @@ export default ({ d }: Payload, bot: Bot): void => {
 
   const { identifier } = emoji;
 
-  if (!identifier) return;
-
   const reaction = message.reactions.get(identifier);
   message.reactions.delete(identifier);
 
