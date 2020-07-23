@@ -71,7 +71,7 @@ class MessageReaction extends BaseStruct {
    * Deletes all reactions for this emoji. This method requires the {@link Permission.ManageMessages} permission ot be present on the Bot.
    * @returns {Promise<void>}
    */
-  public remove(): Promise<void> {
+  public delete(): Promise<void> {
     return this.bot.api.removeMessageReactionsEmoji(
       this.message.channel.id,
       this.message.id,
