@@ -220,8 +220,11 @@ class BotAPI {
       params,
     );
 
-    // TODO: Fetch channel if does not exist
-    const channel = this.bot.channels.get(channelId)! as GuildTextChannel;
+    const channel = await this.bot.channels.getOrFetch(channelId);
+
+    if (!(channel instanceof DMChannel || channel instanceof GuildTextChannel)) {
+      throw new TypeError('The channel is not a valid text channel');
+    }
 
     const message = new Message(this.bot, messageData!, channel);
     return channel.messages.getOrSet(message.id, message);
@@ -376,7 +379,7 @@ class BotAPI {
       params,
     );
 
-    const channel = this.bot.channels.getOrFetch(channelId);
+    const channel = await this.bot.channels.getOrFetch(channelId);
 
     if (!(channel instanceof GuildTextChannel)) {
       throw new TypeError('The channel is not a valid text channel');
