@@ -5,6 +5,7 @@ import MessageReaction from './MessageReaction';
 import Cluster from '../../Cluster';
 import { Snowflake, TextBasedChannel } from '../../types/types';
 import BaseStruct, { GatewayStruct } from '../BaseStruct';
+import { EmojiResolvable } from '../Emoji';
 import Timestamp from '../Timestamp';
 import User from '../User';
 import Bot from '../bot/Bot';
@@ -374,22 +375,11 @@ class Message extends BaseStruct {
    * Creates a reaction for this message.
    * Requires the {@link Permission.ReadMessageHistory} permission.
    * Additionally, if nobody else has reacted to the message using this emoji, this requires the {@link Permission.AddReactions} permission
-   * @param {string} emoji The emoji to react to this message with
+   * @param {EmojiResolvable} emoji The emoji to react to this message with
    * @returns {Promise<void>}
    */
-  public react(emoji: string): Promise<void> {
+  public react(emoji: EmojiResolvable): Promise<void> {
     return this.bot.api.addMessageReaction(this.channel.id, this.id, emoji);
-  }
-
-  /**
-   * Deletes a reaction a user reacted with.
-   * If no `userId` argument was provided, the Bot will remove its own reaction.
-   * @param {string} emoji The emoji to remove from this message
-   * @param {Snowflake} userId The ID of the user of which reaction should be removed
-   * @returns {Promise<void>}
-   */
-  public removeReaction(emoji: string, userId: Snowflake = '@me'): Promise<void> {
-    return this.bot.api.removeMessageReaction(this.channel.id, this.id, emoji, userId);
   }
 
   /**
