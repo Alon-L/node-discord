@@ -377,7 +377,7 @@ class Message extends BaseStruct {
    * @param {string} emoji The emoji to react to this message with
    * @returns {Promise<void>}
    */
-  public addReaction(emoji: string): Promise<void> {
+  public react(emoji: string): Promise<void> {
     return this.bot.api.addMessageReaction(this.channel.id, this.id, emoji);
   }
 
