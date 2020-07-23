@@ -17,17 +17,13 @@ export default async ({ d }: Payload, bot: Bot): Promise<void> => {
   const { identifier } = emoji;
 
   // Set the reaction object for this Emoji if one hasn't been set before
-  if (!message.reactions.has(identifier)) {
-    message.reactions.set(
-      identifier,
-      new MessageReaction(message, {
-        emoji,
-        botReacted: userId === bot.user?.id,
-      }),
-    );
-  }
-
-  const reaction = message.reactions.get(identifier)!;
+  const reaction = message.reactions.getOrSet(
+    identifier,
+    new MessageReaction(message, {
+      emoji,
+      botReacted: userId === bot.user?.id,
+    }),
+  );
 
   // Change the reaction's botReacted state
   reaction.botReacted = userId === bot.user?.id;
