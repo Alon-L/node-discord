@@ -135,6 +135,15 @@ class Invite extends BaseStruct {
 
     return this;
   }
+
+  /**
+   * The code this invite stores.
+   * Servers as an identifier for this invite
+   * @type {string}
+   */
+  public get id(): string {
+    return this.code;
+  }
 }
 
 export default Invite;
