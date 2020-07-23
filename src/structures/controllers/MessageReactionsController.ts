@@ -6,26 +6,6 @@ import Message from '../message/Message';
 import MessageReaction from '../message/MessageReaction';
 
 /**
- * Options for when fetching the users that reacted with a particular emoji
- */
-export interface FetchReactionsOptions {
-  /**
-   * Get users before this user ID
-   */
-  before?: Snowflake;
-
-  /**
-   * Get users after this user ID
-   */
-  after?: Snowflake;
-
-  /**
-   * Max number of users to return (1-100)
-   */
-  limit?: number;
-}
-
-/**
  * Provides an interface for a message's reactions cache.
  * The reactions are mapped by the emoji name or emoji ID
  */
