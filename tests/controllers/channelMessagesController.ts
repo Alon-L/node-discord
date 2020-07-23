@@ -16,9 +16,9 @@ bot.connection.connect();
   const guild = bot.guilds.get('702476896008405002');
   if (!guild) throw new Error('No guilds found');
 
-  const channel = guild.channels.cache.filter(
+  const channel = guild.channels.cache.filter<GuildTextChannel>(
     (channel: GuildChannel) => channel.type === ChannelType.GuildText,
-  ).first as GuildTextChannel;
+  ).first;
   if (!channel) throw new Error('No channels found');
 
   console.log(channel.name);
