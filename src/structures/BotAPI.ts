@@ -480,6 +480,24 @@ class BotAPI {
   }
 
   /**
+   * Fetches a list of invites for a channel.
+   * Requires the {@link Permission.ManageChannels} permission
+   * @param {Snowflake} channelId The ID of the channel to fetch invites in
+   * @returns {Promise<Cluster<string, Invite>>}
+   */
+  public async fetchChannelInvites(channelId: Snowflake): Promise<Cluster<string, Invite>> {
+    const invites = (await this.requests.send(
+      EndpointRoute.ChannelInvites,
+      { channelId },
+      HttpMethod.Get,
+    )) as GatewayStruct[];
+
+    return new Cluster<string, Invite>(
+      invites.map(invite => [invite.code, new Invite(this.bot, invite)]),
+    );
+  }
+
+  /**
    * Creates a new invite for a guild channel.
    * Requires the {@link Permission.CreateInstantInvite} permission
    * @param {Snowflake} channelId The ID of the channel to create the invite for
