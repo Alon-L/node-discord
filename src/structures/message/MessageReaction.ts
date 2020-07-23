@@ -78,6 +78,14 @@ class MessageReaction extends BaseStruct {
       this.emoji,
     );
   }
+
+  /**
+   * The ID of the emoji this reaction stores
+   * @returns {string}
+   */
+  public get id(): string {
+    return this.emoji.identifier;
+  }
 }
 
 export default MessageReaction;
