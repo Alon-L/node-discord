@@ -393,15 +393,6 @@ class Message extends BaseStruct {
   }
 
   /**
-   * Removes all reactions on this message.
-   * Requires the {@link Permission.ManageMessages} permission to be present on the Bot
-   * @returns {Promise<void>}
-   */
-  public removeReactions(): Promise<void> {
-    return this.bot.api.removeMessageReactions(this.channel.id, this.id);
-  }
-
-  /**
    * Edits a previously sent message.
    * The fields `content`, `embed` and `flags` can be edited by the original message author. Other users can only edit `flags` and only if they have the {@link Permission.ManageMessages} permission in the corresponding channel.
    * @param {string | MessageEditData} data The updated message data.
