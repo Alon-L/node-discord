@@ -151,7 +151,7 @@ class ChannelUtils {
   }
 
   /**
-   * Deletes a channel from the correct Cluster
+   * Deletes a channel from the cache
    * @param {Bot} bot The bot instance
    * @param {Channel} channel The channel you wish to delete
    */
