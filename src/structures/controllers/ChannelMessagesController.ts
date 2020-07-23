@@ -1,8 +1,14 @@
-import BaseController from './BaseController';
+import BaseDeleteController from './BaseDeleteController';
+import BaseFetchController from './BaseFetchController';
 import { Snowflake, TextBasedChannel } from '../../types/types';
 import Message from '../message/Message';
 
-class ChannelMessagesController extends BaseController<Message> {
+/**
+ * Provides an interface for a text channel's messages cache.
+ * The messages are mapped by their IDs
+ */
+class ChannelMessagesController extends BaseFetchController<Message>
+  implements BaseDeleteController<Message> {
   /**
    * The guild this controller is associated to
    */
