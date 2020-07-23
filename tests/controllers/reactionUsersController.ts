@@ -33,7 +33,7 @@ bot.connection.connect();
   if (!reaction) throw new Error('Reaction not found!');
 
   await reaction.users.fetchAll();
-  console.log(reaction.users.size);
+  console.log(reaction.users.size, 'number of users that reacted', 'expected: 1'); // expected: 1
 
   // eslint-disable-next-line no-constant-condition
   while (1) {
@@ -44,6 +44,7 @@ bot.connection.connect();
       bot.events.wait(BotEvent.MessageReactionRemoveEmoji),
     ]);
 
+    // Expected the size to change based on the event
     console.log(typeof message.reactions.cache.first, message.reactions.cache.first?.users.size);
   }
 })();
