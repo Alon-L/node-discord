@@ -227,7 +227,7 @@ class BotAPI {
     }
 
     const message = new Message(this.bot, messageData!, channel);
-    return channel.messages.getOrSet(message.id, message);
+    return channel.messages.add(message);
   }
 
   /**
