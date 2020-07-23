@@ -8,9 +8,9 @@ export const enum EndpointRoute {
   Channel = 'CHANNEL',
   ChannelMessage = 'CHANNEL_MESSAGE',
   ChannelMessages = 'CHANNEL_MESSAGES',
-  ChannelMessageReaction = 'CHANNEL_MESSAGE_REACTION',
-  ChannelMessageReactionEmoji = 'CHANNEL_MESSAGE_REACTION_EMOJI',
-  ChannelMessageReactionEmojiUser = 'CHANNEL_MESSAGE_REACTION_EMOJI_USER',
+  ChannelMessagesReactions = 'CHANNEL_MESSAGES_REACTIONS',
+  ChannelMessagesReactionsEmoji = 'CHANNEL_MESSAGES_REACTIONS_EMOJI',
+  ChannelMessagesReactionsEmojiUser = 'CHANNEL_MESSAGES_REACTIONS_EMOJI_USER',
   ChannelMessagesBulkDelete = 'CHANNEL_MESSAGES_BULK_DELETE',
   ChannelPermissionsOverwrite = 'CHANNEL_PERMISSIONS_OVERWRITE',
   ChannelInvites = 'CHANNEL_INVITES',
@@ -38,14 +38,14 @@ export const Endpoints: Record<EndpointRoute, (...args: string[]) => string> = {
   [EndpointRoute.ChannelMessage]: (channelId: Snowflake, messageId: Snowflake) =>
     `/channels/${channelId}/messages/${messageId}`,
   [EndpointRoute.ChannelMessages]: (channelId: Snowflake) => `/channels/${channelId}/messages`,
-  [EndpointRoute.ChannelMessageReaction]: (channelId: Snowflake, messageId: Snowflake) =>
+  [EndpointRoute.ChannelMessagesReactions]: (channelId: Snowflake, messageId: Snowflake) =>
     `/channels/${channelId}/messages/${messageId}/reactions`,
-  [EndpointRoute.ChannelMessageReactionEmoji]: (
+  [EndpointRoute.ChannelMessagesReactionsEmoji]: (
     channelId: Snowflake,
     messageId: Snowflake,
     emoji: string,
   ) => `/channels/${channelId}/messages/${messageId}/reactions/${emoji}`,
-  [EndpointRoute.ChannelMessageReactionEmojiUser]: (
+  [EndpointRoute.ChannelMessagesReactionsEmojiUser]: (
     channelId: Snowflake,
     messageId: Snowflake,
     emoji: string,
