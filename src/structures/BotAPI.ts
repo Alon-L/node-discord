@@ -7,7 +7,7 @@ import Channel from './channels/Channel';
 import DMChannel from './channels/DMChannel';
 import GuildChannel, { GuildChannelOptions } from './channels/GuildChannel';
 import GuildTextChannel from './channels/GuildTextChannel';
-import { FetchReactionsOptions } from './controllers/MessageReactionsController';
+import { FetchReactionsOptions } from './controllers/ReactionUsersController';
 import { Permissible, PermissionOverwriteFlags } from './flags/PermissionFlags';
 import Message, { MessageData, MessageEditData, MessageOptions } from './message/Message';
 import MessageEmbed from './message/MessageEmbed';
@@ -267,14 +267,14 @@ class BotAPI {
    * If no `userId` argument was provided, the Bot will remove its own reaction.
    * @param {Snowflake} channelId The ID of the channel containing the message
    * @param {Snowflake} messageId The ID of the message to react to
-   * @param {string} emoji The emoji to delete from the message
+   * @param {EmojiResolvable} emoji The emoji to delete from the message
    * @param {Snowflake} userId The ID of the user of which reaction should be removed
    * @returns {Promise<void>}
    */
   public async removeMessageReaction(
     channelId: Snowflake,
     messageId: Snowflake,
-    emoji: string,
+    emoji: EmojiResolvable,
     userId: Snowflake = '@me',
   ): Promise<void> {
     const identifier = Emoji.resolve(this.bot.emojis, emoji);
@@ -346,7 +346,7 @@ class BotAPI {
    * Deletes all reactions for an emoji. This method requires the {@link Permission.ManageMessages} permission ot be present on the Bot.
    * @param {Snowflake} channelId The ID of the channel containing the message
    * @param {Snowflake} messageId The ID of the message of which to remove all reactions for a given emoji
-   * @param {EmojiResolvable} emoji The emoji reactions to remove from the message
+   * @param {EmojiResolvable} emoji The reaction emoji you wish to delete
    * @returns {Promise<void>}
    */
   public async removeMessageReactionsEmoji(
