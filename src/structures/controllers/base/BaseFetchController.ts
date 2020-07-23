@@ -9,17 +9,17 @@ import { BaseStructWithId } from '../../BaseStruct';
 abstract class BaseFetchController<T extends BaseStructWithId> extends BaseController<T> {
   /**
    * Fetches a new item and caches it
-   * @param {Snowflake} id The ID of the item you wish to fetch
+   * @param {Snowflake | string} id The ID of the item you wish to fetch
    * @returns {Promise<T>}
    */
-  abstract async fetch(id: Snowflake): Promise<T>;
+  abstract async fetch(id: Snowflake | string): Promise<T>;
 
   /**
    * Returns an already cached item or fetches it
-   * @param {Snowflake} id The ID of the item you wish to get or fetch
+   * @param {string} id The ID of the item you wish to get or fetch
    * @returns {Promise<T>}
    */
-  public async getOrFetch(id: Snowflake): Promise<T> {
+  public async getOrFetch(id: Snowflake | string): Promise<T> {
     return this.cache.get(id) || this.fetch(id);
   }
 }
