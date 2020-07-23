@@ -137,12 +137,12 @@ export interface MessageOptions {
   /**
    * A nonce that can be used for identifying the sent message
    */
-  nonce: number | string;
+  nonce?: number | string;
 
   /**
    * Whether this is a Text To Speech (TTS) message
    */
-  tts: boolean;
+  tts?: boolean;
 }
 
 /**

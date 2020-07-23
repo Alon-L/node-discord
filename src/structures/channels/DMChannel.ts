@@ -72,12 +72,12 @@ class DMChannel extends Channel implements TextChannel {
    * channel.sendMessage({ content: 'Hello World!', embed: { title: 'My Embed!' } });
    * ```
    * 3. A {@link MessageEmbed} instance
-   * @param {Partial<MessageOptions>} options The message's options
+   * @param {MessageOptions} options The message's options
    * @returns {Promise<Message>}
    */
   public sendMessage(
     data: string | MessageData | MessageEmbed,
-    options?: Partial<MessageOptions>,
+    options?: MessageOptions,
   ): Promise<Message> {
     return this.bot.api.sendMessage(this.id, data, options);
   }
