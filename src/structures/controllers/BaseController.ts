@@ -1,6 +1,6 @@
 import Cluster from '../../Cluster';
 import { Snowflake } from '../../types/types';
-import BaseStruct from '../BaseStruct';
+import BaseStruct, { BaseStructWithId, StructWithId } from '../BaseStruct';
 import Bot from '../bot/Bot';
 
 /**
@@ -12,7 +12,7 @@ export type ItemWithId<T extends BaseStruct> = T & { id: Snowflake };
  * Provides an interface for the Bot's cached data
  * @template T
  */
-abstract class BaseController<T extends BaseStruct> {
+abstract class BaseController<T extends BaseStructWithId> {
   /**
    * The bot instance
    */
@@ -33,33 +33,10 @@ abstract class BaseController<T extends BaseStruct> {
   }
 
   /**
-   * Fetch a new item to insert into the cache Cluster
-   * @param {Snowflake} id The ID of the item you wish to fetch
-   * @returns {Promise<T>}
-   */
-  abstract async fetch(id: Snowflake): Promise<T>;
-
-  /**
-   * Deletes a cached item
-   * @param {Snowflake} id The ID of the item you wish to delete
-   * @returns {Promise<T>}
-   */
-  abstract delete(id: Snowflake): Promise<T | void>;
-
-  /**
-   * Returns an already cached item or fetches it
-   * @param {Snowflake} id The ID of the item you wish to get or fetch
-   * @returns {Promise<T>}
-   */
-  public getOrFetch(id: Snowflake): T | Promise<T> {
-    return this.cache.get(id) || this.fetch(id);
-  }
-
-  /**
    * Adds multiple items to the cache
-   * @param {ItemWithId<T>[]} items The items you wish to add
+   * @param {StructWithId<T>[]} items The items you wish to add
    */
-  public addMany(items: ItemWithId<T>[]): void {
+  public addMany(items: StructWithId<T>[]): void {
     this.cache.merge(items.map(i => [i.id, i]));
   }
 
@@ -105,10 +82,10 @@ abstract class BaseController<T extends BaseStruct> {
 
   /**
    * Adds an item to the cache mapped by its ID
-   * @param {ItemWithId<T>} item The item you wish to add
+   * @param {StructWithId<T>} item The item you wish to add
    * @returns {T}
    */
-  public add(item: ItemWithId<T>): T {
+  public add(item: StructWithId<T>): T {
     this.set(item.id, item);
 
     return item;
