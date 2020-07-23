@@ -1,6 +1,7 @@
 import BaseController from './BaseController';
 import BaseDeleteController from './BaseDeleteController';
 import { Snowflake } from '../../types/types';
+import { EmojiResolvable } from '../Emoji';
 import Message from '../message/Message';
 import MessageReaction from '../message/MessageReaction';
 
@@ -44,11 +45,14 @@ class MessageReactionsController extends BaseController<MessageReaction>
   /**
    * Deletes a reaction a user reacted with.
    * If no `userId` argument was provided, the Bot will remove its own reaction.
-   * @param {string} emoji The emoji to remove from the message
+   * @param {EmojiResolvable} emoji The emoji to remove from the message
    * @param {Snowflake} userId The ID of the user of which reaction should be removed
    * @returns {Promise<void>}
    */
-  public delete(emoji: string, userId: Snowflake = '@me'): Promise<void | MessageReaction> {
+  public delete(
+    emoji: EmojiResolvable,
+    userId: Snowflake = '@me',
+  ): Promise<void | MessageReaction> {
     return this.bot.api.removeMessageReaction(
       this.message.channel.id,
       this.message.id,
@@ -60,10 +64,10 @@ class MessageReactionsController extends BaseController<MessageReaction>
   /**
    * Deletes all reactions for an emoji.
    * Requires the {@link Permission.ManageMessages} permission
-   * @param {string} emoji The reaction emoji you wish to delete
+   * @param {EmojiResolvable} emoji The reaction emoji you wish to delete
    * @returns {Promise<void>}
    */
-  public deleteEmoji(emoji: string): Promise<void> {
+  public deleteEmoji(emoji: EmojiResolvable): Promise<void> {
     return this.bot.api.removeMessageReactionsEmoji(
       this.message.channel.id,
       this.message.id,
