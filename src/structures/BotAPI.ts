@@ -251,7 +251,7 @@ class BotAPI {
     }
 
     await this.requests.send(
-      EndpointRoute.ChannelMessageReactionEmojiUser,
+      EndpointRoute.ChannelMessagesReactionsEmojiUser,
       { channelId, messageId, emoji: encodeURI(identifier) },
       HttpMethod.Put,
     );
@@ -281,7 +281,7 @@ class BotAPI {
     }
 
     await this.requests.send(
-      EndpointRoute.ChannelMessageReactionEmojiUser,
+      EndpointRoute.ChannelMessagesReactionsEmojiUser,
       {
         channelId,
         messageId,
@@ -300,7 +300,7 @@ class BotAPI {
    */
   public async removeMessageReactions(channelId: Snowflake, messageId: Snowflake): Promise<void> {
     await this.requests.send(
-      EndpointRoute.ChannelMessageReaction,
+      EndpointRoute.ChannelMessagesReactions,
       {
         channelId,
         messageId,
@@ -330,7 +330,7 @@ class BotAPI {
     }
 
     await this.requests.send(
-      EndpointRoute.ChannelMessageReactionEmoji,
+      EndpointRoute.ChannelMessagesReactionsEmoji,
       {
         channelId,
         messageId,
