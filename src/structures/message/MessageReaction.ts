@@ -3,7 +3,7 @@ import Cluster from '../../Cluster';
 import { Snowflake } from '../../types/types';
 import BaseStruct, { GatewayStruct } from '../BaseStruct';
 import Emoji from '../Emoji';
-import User from '../User';
+import ReactionUsersController from '../controllers/ReactionUsersController';
 import Member from '../member/Member';
 
 /**
@@ -26,9 +26,9 @@ class MessageReaction extends BaseStruct {
   public botReacted: boolean | undefined;
 
   /**
-   * The users that added this reaction
+   * The reaction's users controller
    */
-  public users: Cluster<Snowflake, User>;
+  public users: ReactionUsersController;
 
   /**
    * The members that added this reaction
@@ -45,7 +45,7 @@ class MessageReaction extends BaseStruct {
 
     this.message = message;
 
-    this.users = new Cluster<Snowflake, User>();
+    this.users = new ReactionUsersController(this);
     this.members = new Cluster<Snowflake, Member>();
 
     this.emoji = new Emoji(this.bot, reaction.emoji);
