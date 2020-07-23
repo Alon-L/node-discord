@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>BaseDeleteController | node-discord</title>
+	<title>GuildChannelInvitesController | node-discord</title>
 	<meta name="description" content="Documentation for node-discord">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="basedeletecontroller.html">BaseDeleteController</a>
+					<a href="guildchannelinvitescontroller.html">GuildChannelInvitesController</a>
 				</li>
 			</ul>
-			<h1>Class BaseDeleteController&lt;T&gt;</h1>
+			<h1>Class GuildChannelInvitesController</h1>
 		</div>
 	</div>
 </header>
@@ -67,114 +67,99 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Base controller with delete capabilities</p>
+						<p>Provides an interface for a guild channel&#39;s invites cache.
+						The invites are mapped by their invite codes</p>
 					</div>
 				</div>
-			</section>
-			<section class="tsd-panel tsd-type-parameters">
-				<h3>Type parameters</h3>
-				<ul class="tsd-type-parameters">
-					<li>
-						<h4>T<span class="tsd-signature-symbol">: </span><a href="../globals.html#basestructwithid" class="tsd-signature-type">BaseStructWithId</a></h4>
-						<div class="tsd-comment tsd-typography">
-							<div class="lead">
-							</div>
-						</div>
-					</li>
-				</ul>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="basecontroller.html" class="tsd-signature-type">BaseController</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>
+						<a href="basefetchallcontroller.html" class="tsd-signature-type">BaseFetchAllController</a><span class="tsd-signature-symbol">&lt;</span><a href="invite.html" class="tsd-signature-type">Invite</a><span class="tsd-signature-symbol">&gt;</span>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">BaseDeleteController</span>
+								<span class="target">GuildChannelInvitesController</span>
 							</li>
 						</ul>
 					</li>
 				</ul>
 			</section>
 			<section class="tsd-panel">
-				<h3>Implemented by</h3>
+				<h3>Implements</h3>
 				<ul class="tsd-hierarchy">
-					<li><a href="botchannelscontroller.html" class="tsd-signature-type">BotChannelsController</a></li>
-					<li><a href="channelmessagescontroller.html" class="tsd-signature-type">ChannelMessagesController</a></li>
-					<li><a href="guildchannelscontroller.html" class="tsd-signature-type">GuildChannelsController</a></li>
-					<li><a href="messagereactionscontroller.html" class="tsd-signature-type">MessageReactionsController</a></li>
+					<li><a href="basecreatecontroller.html" class="tsd-signature-type">BaseCreateController</a><span class="tsd-signature-symbol">&lt;</span><a href="invite.html" class="tsd-signature-type">Invite</a><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
-						<section class="tsd-index-section tsd-is-inherited">
+						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><a href="basedeletecontroller.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="guildchannelinvitescontroller.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section tsd-is-inherited">
+						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="basedeletecontroller.html#bot" class="tsd-kind-icon">bot</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="basedeletecontroller.html#cache" class="tsd-kind-icon">cache</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="guildchannelinvitescontroller.html#bot" class="tsd-kind-icon">bot</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="guildchannelinvitescontroller.html#cache" class="tsd-kind-icon">cache</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="guildchannelinvitescontroller.html#channel" class="tsd-kind-icon">channel</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Accessors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited"><a href="basedeletecontroller.html#size" class="tsd-kind-icon">size</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited"><a href="guildchannelinvitescontroller.html#size" class="tsd-kind-icon">size</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="basedeletecontroller.html#add" class="tsd-kind-icon">add</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="basedeletecontroller.html#addmany" class="tsd-kind-icon">add<wbr>Many</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="basedeletecontroller.html#clear" class="tsd-kind-icon">clear</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="basedeletecontroller.html#delete" class="tsd-kind-icon">delete</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="basedeletecontroller.html#get" class="tsd-kind-icon">get</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="basedeletecontroller.html#getorset" class="tsd-kind-icon">get<wbr>OrSet</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="basedeletecontroller.html#has" class="tsd-kind-icon">has</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="basedeletecontroller.html#set" class="tsd-kind-icon">set</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="guildchannelinvitescontroller.html#add" class="tsd-kind-icon">add</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="guildchannelinvitescontroller.html#addmany" class="tsd-kind-icon">add<wbr>Many</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="guildchannelinvitescontroller.html#clear" class="tsd-kind-icon">clear</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="guildchannelinvitescontroller.html#create" class="tsd-kind-icon">create</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="guildchannelinvitescontroller.html#fetchall" class="tsd-kind-icon">fetch<wbr>All</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="guildchannelinvitescontroller.html#get" class="tsd-kind-icon">get</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="guildchannelinvitescontroller.html#getorset" class="tsd-kind-icon">get<wbr>OrSet</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="guildchannelinvitescontroller.html#has" class="tsd-kind-icon">has</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="guildchannelinvitescontroller.html#set" class="tsd-kind-icon">set</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Constructors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
-					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Base<wbr>Delete<wbr>Controller<span class="tsd-signature-symbol">(</span>struct<span class="tsd-signature-symbol">: </span><a href="basestruct.html" class="tsd-signature-type">BaseStruct</a><span class="tsd-signature-symbol"> | </span><a href="bot.html" class="tsd-signature-type">Bot</a>, limit<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="basedeletecontroller.html" class="tsd-signature-type">BaseDeleteController</a></li>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Guild<wbr>Channel<wbr>Invites<wbr>Controller<span class="tsd-signature-symbol">(</span>channel<span class="tsd-signature-symbol">: </span><a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="guildchannelinvitescontroller.html" class="tsd-signature-type">GuildChannelInvitesController</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="basecontroller.html">BaseController</a>.<a href="basecontroller.html#constructor">constructor</a></p>
+								<p>Overrides <a href="basecontroller.html">BaseController</a>.<a href="basecontroller.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/5ee3b73/src/structures/controllers/base/BaseController.ts#L18">src/structures/controllers/base/BaseController.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/5ee3b73/src/structures/controllers/GuildChannelInvitesController.ts#L16">src/structures/controllers/GuildChannelInvitesController.ts:16</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>struct: <a href="basestruct.html" class="tsd-signature-type">BaseStruct</a><span class="tsd-signature-symbol"> | </span><a href="bot.html" class="tsd-signature-type">Bot</a></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> limit: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+									<h5>channel: <a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="basedeletecontroller.html" class="tsd-signature-type">BaseDeleteController</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="guildchannelinvitescontroller.html" class="tsd-signature-type">GuildChannelInvitesController</a></h4>
 						</li>
 					</ul>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="bot" class="tsd-anchor"></a>
@@ -195,7 +180,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="cache" class="tsd-anchor"></a>
 					<h3>cache</h3>
-					<div class="tsd-signature tsd-kind-icon">cache<span class="tsd-signature-symbol">:</span> <a href="cluster.html" class="tsd-signature-type">Cluster</a><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<div class="tsd-signature tsd-kind-icon">cache<span class="tsd-signature-symbol">:</span> <a href="cluster.html" class="tsd-signature-type">Cluster</a><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol">, </span><a href="invite.html" class="tsd-signature-type">Invite</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="basecontroller.html">BaseController</a>.<a href="basecontroller.html#cache">cache</a></p>
 						<ul>
@@ -205,6 +190,21 @@
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>The cached data this controller contains</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="channel" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> channel</h3>
+					<div class="tsd-signature tsd-kind-icon">channel<span class="tsd-signature-symbol">:</span> <a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/5ee3b73/src/structures/controllers/GuildChannelInvitesController.ts#L16">src/structures/controllers/GuildChannelInvitesController.ts:16</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The channel this controller is associated to</p>
 						</div>
 					</div>
 				</section>
@@ -241,7 +241,7 @@
 					<a name="add" class="tsd-anchor"></a>
 					<h3>add</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">add<span class="tsd-signature-symbol">(</span>item<span class="tsd-signature-symbol">: </span><a href="../globals.html#structwithid" class="tsd-signature-type">StructWithId</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
+						<li class="tsd-signature tsd-kind-icon">add<span class="tsd-signature-symbol">(</span>item<span class="tsd-signature-symbol">: </span><a href="../globals.html#structwithid" class="tsd-signature-type">StructWithId</a><span class="tsd-signature-symbol">&lt;</span><a href="invite.html" class="tsd-signature-type">Invite</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="invite.html" class="tsd-signature-type">Invite</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -259,13 +259,13 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>item: <a href="../globals.html#structwithid" class="tsd-signature-type">StructWithId</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>item: <a href="../globals.html#structwithid" class="tsd-signature-type">StructWithId</a><span class="tsd-signature-symbol">&lt;</span><a href="invite.html" class="tsd-signature-type">Invite</a><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The item you wish to add</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="invite.html" class="tsd-signature-type">Invite</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -273,7 +273,7 @@
 					<a name="addmany" class="tsd-anchor"></a>
 					<h3>add<wbr>Many</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">add<wbr>Many<span class="tsd-signature-symbol">(</span>items<span class="tsd-signature-symbol">: </span><a href="../globals.html#structwithid" class="tsd-signature-type">StructWithId</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Many<span class="tsd-signature-symbol">(</span>items<span class="tsd-signature-symbol">: </span><a href="../globals.html#structwithid" class="tsd-signature-type">StructWithId</a><span class="tsd-signature-symbol">&lt;</span><a href="invite.html" class="tsd-signature-type">Invite</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -291,7 +291,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>items: <a href="../globals.html#structwithid" class="tsd-signature-type">StructWithId</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5>items: <a href="../globals.html#structwithid" class="tsd-signature-type">StructWithId</a><span class="tsd-signature-symbol">&lt;</span><a href="invite.html" class="tsd-signature-type">Invite</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The items you wish to add</p>
 									</div>
@@ -325,33 +325,58 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="delete" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagAbstract">Abstract</span> delete</h3>
+					<a name="create" class="tsd-anchor"></a>
+					<h3>create</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">delete<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">create<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/inviteoptions.html" class="tsd-signature-type">InviteOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="invite.html" class="tsd-signature-type">Invite</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/5ee3b73/src/structures/controllers/base/BaseDeleteController.ts#L15">src/structures/controllers/base/BaseDeleteController.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/5ee3b73/src/structures/controllers/GuildChannelInvitesController.ts#L43">src/structures/controllers/GuildChannelInvitesController.ts:43</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Deletes a cached item</p>
+									<p>Creates a new invite for a guild channel.
+									Requires the <a href="../enums/permission.html#createinstantinvite">Permission.CreateInstantInvite</a> permission</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>id: <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="../interfaces/inviteoptions.html" class="tsd-signature-type">InviteOptions</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The ID of the item you wish to delete</p>
+										<p>The new invite options</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="invite.html" class="tsd-signature-type">Invite</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a name="fetchall" class="tsd-anchor"></a>
+					<h3>fetch<wbr>All</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">fetch<wbr>All<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="cluster.html" class="tsd-signature-type">Cluster</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="invite.html" class="tsd-signature-type">Invite</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="basefetchallcontroller.html">BaseFetchAllController</a>.<a href="basefetchallcontroller.html#fetchall">fetchAll</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/5ee3b73/src/structures/controllers/GuildChannelInvitesController.ts#L29">src/structures/controllers/GuildChannelInvitesController.ts:29</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Fetches all invites for this channel.
+									Requires the <a href="../enums/permission.html#managechannels">Permission.ManageChannels</a> permission</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="cluster.html" class="tsd-signature-type">Cluster</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="invite.html" class="tsd-signature-type">Invite</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -359,7 +384,7 @@
 					<a name="get" class="tsd-anchor"></a>
 					<h3>get</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">get<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="invite.html" class="tsd-signature-type">Invite</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -383,7 +408,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="invite.html" class="tsd-signature-type">Invite</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -391,7 +416,7 @@
 					<a name="getorset" class="tsd-anchor"></a>
 					<h3>get<wbr>OrSet</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>OrSet<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a>, item<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>OrSet<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a>, item<span class="tsd-signature-symbol">: </span><a href="invite.html" class="tsd-signature-type">Invite</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="invite.html" class="tsd-signature-type">Invite</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -415,13 +440,13 @@
 									</div>
 								</li>
 								<li>
-									<h5>item: <span class="tsd-signature-type">T</span></h5>
+									<h5>item: <a href="invite.html" class="tsd-signature-type">Invite</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The item you wish to create if not exists</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="invite.html" class="tsd-signature-type">Invite</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -461,7 +486,7 @@
 					<a name="set" class="tsd-anchor"></a>
 					<h3>set</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">set<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a>, item<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
+						<li class="tsd-signature tsd-kind-icon">set<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a>, item<span class="tsd-signature-symbol">: </span><a href="invite.html" class="tsd-signature-type">Invite</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="invite.html" class="tsd-signature-type">Invite</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -485,13 +510,13 @@
 									</div>
 								</li>
 								<li>
-									<h5>item: <span class="tsd-signature-type">T</span></h5>
+									<h5>item: <a href="invite.html" class="tsd-signature-type">Invite</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The item you wish to cache</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="invite.html" class="tsd-signature-type">Invite</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -509,44 +534,50 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class tsd-has-type-parameter">
-						<a href="basedeletecontroller.html" class="tsd-kind-icon">Base<wbr>Delete<wbr>Controller</a>
+					<li class="current tsd-kind-class">
+						<a href="guildchannelinvitescontroller.html" class="tsd-kind-icon">Guild<wbr>Channel<wbr>Invites<wbr>Controller</a>
 						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
-								<a href="basedeletecontroller.html#constructor" class="tsd-kind-icon">constructor</a>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+								<a href="guildchannelinvitescontroller.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="basedeletecontroller.html#bot" class="tsd-kind-icon">bot</a>
+								<a href="guildchannelinvitescontroller.html#bot" class="tsd-kind-icon">bot</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="basedeletecontroller.html#cache" class="tsd-kind-icon">cache</a>
+								<a href="guildchannelinvitescontroller.html#cache" class="tsd-kind-icon">cache</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="guildchannelinvitescontroller.html#channel" class="tsd-kind-icon">channel</a>
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
-								<a href="basedeletecontroller.html#size" class="tsd-kind-icon">size</a>
+								<a href="guildchannelinvitescontroller.html#size" class="tsd-kind-icon">size</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="basedeletecontroller.html#add" class="tsd-kind-icon">add</a>
+								<a href="guildchannelinvitescontroller.html#add" class="tsd-kind-icon">add</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="basedeletecontroller.html#addmany" class="tsd-kind-icon">add<wbr>Many</a>
+								<a href="guildchannelinvitescontroller.html#addmany" class="tsd-kind-icon">add<wbr>Many</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="basedeletecontroller.html#clear" class="tsd-kind-icon">clear</a>
+								<a href="guildchannelinvitescontroller.html#clear" class="tsd-kind-icon">clear</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="basedeletecontroller.html#delete" class="tsd-kind-icon">delete</a>
+								<a href="guildchannelinvitescontroller.html#create" class="tsd-kind-icon">create</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="guildchannelinvitescontroller.html#fetchall" class="tsd-kind-icon">fetch<wbr>All</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="basedeletecontroller.html#get" class="tsd-kind-icon">get</a>
+								<a href="guildchannelinvitescontroller.html#get" class="tsd-kind-icon">get</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="basedeletecontroller.html#getorset" class="tsd-kind-icon">get<wbr>OrSet</a>
+								<a href="guildchannelinvitescontroller.html#getorset" class="tsd-kind-icon">get<wbr>OrSet</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="basedeletecontroller.html#has" class="tsd-kind-icon">has</a>
+								<a href="guildchannelinvitescontroller.html#has" class="tsd-kind-icon">has</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="basedeletecontroller.html#set" class="tsd-kind-icon">set</a>
+								<a href="guildchannelinvitescontroller.html#set" class="tsd-kind-icon">set</a>
 							</li>
 						</ul>
 					</li>
