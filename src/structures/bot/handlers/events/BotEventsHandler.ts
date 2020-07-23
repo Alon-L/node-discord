@@ -18,8 +18,9 @@ export class BotEventsHandler
    * const [ message ] = await bot.events.wait(BotEvents.MessageCreate);
    * // You can now use 'message'...
    * ```
-   * @param {BotEvents} name The name of the event
+   * @param {E} name The name of the event
    * @returns {Promise<Args<Events, E>>}
+   * @template E - the event name
    */
   public wait<E extends keyof Events>(name: E): Promise<Args<Events, E>> {
     return new Promise(resolve => {
