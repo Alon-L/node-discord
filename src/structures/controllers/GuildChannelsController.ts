@@ -1,9 +1,15 @@
-import BaseController from './BaseController';
+import BaseDeleteController from './BaseDeleteController';
+import BaseFetchController from './BaseFetchController';
 import { Snowflake } from '../../types/types';
 import GuildChannel from '../channels/GuildChannel';
 import Guild from '../guild/Guild';
 
-class GuildChannelsController extends BaseController<GuildChannel> {
+/**
+ * Provides an interface for a guild's channels cache.
+ * The guild channels a mapped by their IDs
+ */
+class GuildChannelsController extends BaseFetchController<GuildChannel>
+  implements BaseDeleteController<GuildChannel> {
   /**
    * The guild this controller is associated to
    */
