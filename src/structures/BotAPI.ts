@@ -7,6 +7,7 @@ import Channel from './channels/Channel';
 import DMChannel from './channels/DMChannel';
 import GuildChannel, { GuildChannelOptions } from './channels/GuildChannel';
 import GuildTextChannel from './channels/GuildTextChannel';
+import { FetchInviteOptions } from './controllers/GuildInvitesController';
 import { FetchReactionsOptions } from './controllers/ReactionUsersController';
 import { Permissible, PermissionOverwriteFlags } from './flags/PermissionFlags';
 import Message, { MessageData, MessageEditData, MessageOptions } from './message/Message';
@@ -580,6 +581,44 @@ class BotAPI {
       { channelId, messageId },
       HttpMethod.Delete,
     );
+  }
+
+  /**
+   * Fetches an invite by its invite code
+   * @param {string} inviteCode The invite code
+   * @param {FetchInviteOptions} options An additional set of options for the invite
+   * @returns {Promise<Invite>}
+   */
+  public async fetchInvite(inviteCode: string, options?: FetchInviteOptions): Promise<Invite> {
+    // Serialize the params into the API format
+    const params: Params = {
+      with_counts: options?.withCounts,
+    };
+
+    const invite = await this.requests.send(
+      EndpointRoute.Invite,
+      { inviteCode },
+      HttpMethod.Get,
+      params,
+    );
+
+    return new Invite(this.bot, invite!);
+  }
+
+  /**
+   * Deletes an invite by its invite code.
+   * Requires the {@link Permission.ManageChannels} permission on the channel this invite belongs to, or {@link Permission.ManageGuild} to remove any invite across the guild
+   * @param {string} inviteCode The invite code
+   * @returns {Promise<Invite>}
+   */
+  public async deleteInvite(inviteCode: string): Promise<Invite> {
+    const invite = await this.requests.send(
+      EndpointRoute.Invite,
+      { inviteCode },
+      HttpMethod.Delete,
+    );
+
+    return new Invite(this.bot, invite!);
   }
 }
 
