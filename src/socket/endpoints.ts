@@ -5,18 +5,18 @@ import { Snowflake } from '../types/types';
  * Every route is appropriate for all HTTP methods that the API supports
  */
 export const enum EndpointRoute {
-  Channel = 'CHANNEL',
-  ChannelMessage = 'CHANNEL_MESSAGE',
-  ChannelMessages = 'CHANNEL_MESSAGES',
-  ChannelMessagesReactions = 'CHANNEL_MESSAGES_REACTIONS',
-  ChannelMessagesReactionsEmoji = 'CHANNEL_MESSAGES_REACTIONS_EMOJI',
-  ChannelMessagesReactionsEmojiUser = 'CHANNEL_MESSAGES_REACTIONS_EMOJI_USER',
-  ChannelMessagesBulkDelete = 'CHANNEL_MESSAGES_BULK_DELETE',
-  ChannelPermissionsOverwrite = 'CHANNEL_PERMISSIONS_OVERWRITE',
-  ChannelInvites = 'CHANNEL_INVITES',
-  ChannelTyping = 'CHANNEL_TYPING',
-  ChannelPinsMessage = 'CHANNEL_PINS_MESSAGE',
-  Invite = 'INVITE',
+  Channel = '/channels/{channel.id}',
+  ChannelMessage = '/channels/{channel.id}/messages/{message.id}',
+  ChannelMessages = '/channels/{channel.id}/messages',
+  ChannelMessagesReactions = '/channels/{channel.id}/messages/{message.id}/reactions',
+  ChannelMessagesReactionsEmoji = '/channels/{channel.id}/messages/{message.id}/reactions/{emoji}',
+  ChannelMessagesReactionsEmojiUser = '/channels/{channel.id}/messages/{message.id}/reactions/{emoji}/{user.id}',
+  ChannelMessagesBulkDelete = '/channels/{channel.id}/messages/bulk-delete',
+  ChannelPermissionsOverwrite = '/channels/{channel.id}/permissions/{overwrite.id}',
+  ChannelInvites = '/channels/{channel.id}/invites',
+  ChannelTyping = '/channels/{channel.id}/typing',
+  ChannelPinsMessage = '/channels/{channel.id}/pins/{message.id}',
+  Invite = '/invites/{invite.code}',
 }
 
 /**
