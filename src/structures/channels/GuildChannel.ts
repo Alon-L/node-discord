@@ -3,8 +3,8 @@ import GuildCategoryChannel from './GuildCategoryChannel';
 import Cluster from '../../Cluster';
 import { Snowflake } from '../../types/types';
 import { GatewayStruct } from '../BaseStruct';
-import Invite, { InviteOptions } from '../Invite';
 import Bot from '../bot/Bot';
+import GuildChannelInvitesController from '../controllers/GuildChannelInvitesController';
 import PermissionFlags, {
   PermissionOverwriteFlags,
   Permissible,
@@ -82,14 +82,21 @@ class GuildChannel extends Channel {
   public topic!: string | null;
 
   /**
+   * The guild channel's invites controller
+   */
+  public invites: GuildChannelInvitesController;
+
+  /**
    * The ID of this channel's parent category
    */
-  private parentId: Snowflake | undefined | null;
+  public parentId: Snowflake | undefined | null;
 
   constructor(bot: Bot, guildChannel: GatewayStruct, guild: Guild) {
     super(bot, guildChannel);
 
     this.guild = guild;
+
+    this.invites = new GuildChannelInvitesController(this);
   }
 
   /**
@@ -155,16 +162,6 @@ class GuildChannel extends Channel {
     permissions: PermissionOverwriteFlags,
   ): Promise<void> {
     return this.bot.api.modifyGuildChannelPermissions(this.id, permissible, permissions);
-  }
-
-  /**
-   * Creates a new invite for a guild channel.
-   * Requires the {@link Permission.CreateInstantInvite} permission
-   * @param {InviteOptions} options The new invite options
-   * @returns {Promise<Invite>}
-   */
-  public createInvite(options: InviteOptions): Promise<Invite> {
-    return this.bot.api.createChannelInvite(this.id, options);
   }
 
   /**
