@@ -3,12 +3,11 @@ import ReactionHandlersUtils from '../../utils/handlers/ReactionHandlersUtils';
 import { Payload } from '../BotSocketShard';
 import { BotEvent } from '../constants';
 
-export default ({ d }: Payload, bot: Bot): void => {
+export default async ({ d }: Payload, bot: Bot): Promise<void> => {
   const handlersUtils = new ReactionHandlersUtils(bot, d);
 
-  const { emoji, message } = handlersUtils;
-
-  if (!message) return;
+  const { emoji } = handlersUtils;
+  const message = await handlersUtils.getMessage();
 
   const { identifier } = emoji;
 

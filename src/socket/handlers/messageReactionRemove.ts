@@ -3,14 +3,13 @@ import ReactionHandlersUtils from '../../utils/handlers/ReactionHandlersUtils';
 import { Payload } from '../BotSocketShard';
 import { BotEvent } from '../constants';
 
-export default ({ d }: Payload, bot: Bot): void => {
+export default async ({ d }: Payload, bot: Bot): Promise<void> => {
   const { user_id: userId } = d;
 
   const handlersUtils = new ReactionHandlersUtils(bot, d);
 
-  const { emoji, message } = handlersUtils;
-
-  if (!message) return;
+  const { emoji } = handlersUtils;
+  const message = await handlersUtils.getMessage();
 
   const { identifier } = emoji;
 
@@ -40,7 +39,7 @@ export default ({ d }: Payload, bot: Bot): void => {
     }
   } else {
     // Terminate the reaction completely from the message cached reactions
-    message.reactions.delete(identifier);
+    message.reactions.cache.delete(identifier);
   }
 
   bot.events.emit(BotEvent.MessageReactionRemove, reaction, member || user);

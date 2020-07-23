@@ -5,14 +5,13 @@ import ReactionHandlersUtils from '../../utils/handlers/ReactionHandlersUtils';
 import { Payload } from '../BotSocketShard';
 import { BotEvent } from '../constants';
 
-export default ({ d }: Payload, bot: Bot): void => {
+export default async ({ d }: Payload, bot: Bot): Promise<void> => {
   const { user_id: userId } = d;
 
   const handlersUtils = new ReactionHandlersUtils(bot, d);
 
-  const { emoji, message } = handlersUtils;
-
-  if (!message) return;
+  const { emoji } = handlersUtils;
+  const message = await handlersUtils.getMessage();
 
   const { guild } = message;
   const { identifier } = emoji;
@@ -36,6 +35,7 @@ export default ({ d }: Payload, bot: Bot): void => {
   // Increment the count of the reaction
   reaction.count++;
 
+  // TODO: getOrFetch
   const user = bot.users.get(userId);
   const member = d.member && guild ? new Member(bot, d.member, guild) : undefined;
 
