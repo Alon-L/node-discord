@@ -59,14 +59,15 @@ class Cluster<K, V> extends Map<K, V> {
    * Creates a new Cluster with all elements that pass the test implemented by the provided callback.
    * Identical to {@link Array.prototype.filter}
    * @param {function(value: V, key: K, cluster: this): boolean} cb Callback function. Return true to keep the element, false otherwise
-   * @returns {Cluster<K, V>}
+   * @returns {Cluster<K, T>}
+   * @template T - the type of the returned cluster's values
    */
-  public filter(cb: (value: V, key?: K, cluster?: this) => boolean): Cluster<K, V> {
-    const cluster = new Cluster<K, V>();
+  public filter<T>(cb: (value: V, key?: K, cluster?: this) => boolean): Cluster<K, T> {
+    const cluster = new Cluster<K, T>();
 
     for (const [key, value] of this) {
       if (cb(value, key, this)) {
-        cluster.set(key, value);
+        cluster.set(key, (value as unknown) as T);
       }
     }
 
