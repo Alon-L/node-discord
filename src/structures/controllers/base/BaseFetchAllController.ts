@@ -1,7 +1,7 @@
 import BaseController from './BaseController';
-import Cluster from '../../Cluster';
-import { Snowflake } from '../../types/types';
-import { BaseStructWithId } from '../BaseStruct';
+import Cluster from '../../../Cluster';
+import { Snowflake } from '../../../types/types';
+import { BaseStructWithId } from '../../BaseStruct';
 
 /**
  * Base controller with fetch all capabilities

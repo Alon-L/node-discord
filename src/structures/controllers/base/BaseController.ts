@@ -1,7 +1,7 @@
-import Cluster from '../../Cluster';
-import { Snowflake } from '../../types/types';
-import BaseStruct, { BaseStructWithId, StructWithId } from '../BaseStruct';
-import Bot from '../bot/Bot';
+import Cluster from '../../../Cluster';
+import { Snowflake } from '../../../types/types';
+import BaseStruct, { BaseStructWithId, StructWithId } from '../../BaseStruct';
+import Bot from '../../bot/Bot';
 
 /**
  * Provides a base interface for the bot's cached data

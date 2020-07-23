@@ -1,5 +1,5 @@
-import BaseController from './BaseController';
-import BaseFetchAllController from './BaseFetchAllController';
+import BaseController from './base/BaseController';
+import BaseFetchAllController from './base/BaseFetchAllController';
 import Cluster from '../../Cluster';
 import { Snowflake } from '../../types/types';
 import User from '../User';

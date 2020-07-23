@@ -1,5 +1,5 @@
-import BaseController from './BaseController';
-import BaseDeleteController from './BaseDeleteController';
+import BaseController from './base/BaseController';
+import BaseDeleteController from './base/BaseDeleteController';
 import { Snowflake } from '../../types/types';
 import { EmojiResolvable } from '../Emoji';
 import Message from '../message/Message';

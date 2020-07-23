@@ -1,5 +1,5 @@
-import BaseDeleteController from './BaseDeleteController';
-import BaseFetchController from './BaseFetchController';
+import BaseDeleteController from './base/BaseDeleteController';
+import BaseFetchController from './base/BaseFetchController';
 import { Snowflake } from '../../types/types';
 import Channel from '../channels/Channel';
 

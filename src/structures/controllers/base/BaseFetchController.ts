@@ -1,6 +1,6 @@
 import BaseController from './BaseController';
-import { Snowflake } from '../../types/types';
-import { BaseStructWithId } from '../BaseStruct';
+import { Snowflake } from '../../../types/types';
+import { BaseStructWithId } from '../../BaseStruct';
 
 /**
  * Base controller with fetch capabilities
