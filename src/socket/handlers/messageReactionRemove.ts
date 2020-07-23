@@ -30,7 +30,7 @@ export default async ({ d }: Payload, bot: Bot): Promise<void> => {
   if (reaction.count > 0) {
     // Removes the user from the Cluster of users who reacted with this reaction
     if (user) {
-      reaction.users.delete(user.id);
+      reaction.users.cache.delete(user.id);
     }
 
     // Removes the member from the Cluster of members who reacted with this reaction

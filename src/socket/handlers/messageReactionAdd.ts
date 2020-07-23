@@ -37,7 +37,7 @@ export default async ({ d }: Payload, bot: Bot): Promise<void> => {
 
   // Add the user to the Cluster of users who reacted with this reaction
   if (user) {
-    reaction.users.set(user.id, user);
+    reaction.users.add(user);
   }
 
   // Add the member to the Cluster of members who reacted with this reaction
