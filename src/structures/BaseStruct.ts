@@ -1,5 +1,6 @@
 import Bot from './bot/Bot';
 
+import { Snowflake } from '../types/types';
 import Dict = NodeJS.Dict;
 
 /**
@@ -12,6 +13,16 @@ interface UpdateReturn<T extends BaseStruct> {
   before: T;
   after: T;
 }
+
+/**
+ * A structure with the ID field
+ */
+export type StructWithId<T extends BaseStruct> = T & { id: Snowflake | string };
+
+/**
+ * A base structure with the ID field
+ */
+export type BaseStructWithId = BaseStruct & { id: Snowflake | string };
 
 /**
  * Basic structure that all other API-related structures extend
