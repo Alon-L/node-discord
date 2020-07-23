@@ -87,6 +87,14 @@ abstract class BaseController<T extends BaseStructWithId> {
   }
 
   /**
+   * Clears the cache
+   * @returns {void}
+   */
+  public clear(): void {
+    return this.cache.clear();
+  }
+
+  /**
    * Returns the number of items cached
    * @type {number}
    */
