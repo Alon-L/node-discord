@@ -1,12 +1,15 @@
 import Invite, { PartialInvite } from '../../structures/Invite';
 import Bot from '../../structures/bot/Bot';
+import GuildChannel from '../../structures/channels/GuildChannel';
 import { Payload } from '../BotSocketShard';
 import { BotEvent } from '../constants';
 
-export default ({ d }: Payload, bot: Bot): void => {
+export default async ({ d }: Payload, bot: Bot): Promise<void> => {
   const { guild_id: guildId, channel_id: channelId, code } = d;
 
   const guild = bot.guilds.get(guildId);
+
+  const channel = await bot.channels.getOrFetch(channelId);
 
   const invite: Invite | PartialInvite = guild?.invites.get(code) || {
     channelId: channelId,
@@ -16,6 +19,11 @@ export default ({ d }: Payload, bot: Bot): void => {
 
   // Delete the invite from the guild invites cluster
   guild?.invites.delete(code);
+
+  if (channel instanceof GuildChannel) {
+    // Delete the invite from the guild channel's invites cache
+    channel.invites.cache.delete(invite.code);
+  }
 
   bot.events.emit(BotEvent.InviteDelete, invite);
 };
