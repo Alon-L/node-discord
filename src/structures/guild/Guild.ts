@@ -12,6 +12,7 @@ import Bot from '../bot/Bot';
 import GuildChannel from '../channels/GuildChannel';
 import GuildTextChannel from '../channels/GuildTextChannel';
 import GuildChannelsController from '../controllers/GuildChannelsController';
+import GuildInvitesController from '../controllers/GuildInvitesController';
 import GuildSystemChannelFlags from '../flags/GuildSystemChannelFlags';
 import PermissionFlags from '../flags/PermissionFlags';
 import Member from '../member/Member';
@@ -324,9 +325,9 @@ class Guild extends BaseStruct {
   public updatesChannel: GuildTextChannel | undefined;
 
   /**
-   * All cached invites created in this Guild
+   * The guild's invites controller
    */
-  public invites: Cluster<InviteCode, Invite>;
+  public invites: GuildInvitesController;
 
   /**
    * All cached guild bans
@@ -340,7 +341,7 @@ class Guild extends BaseStruct {
 
     this.presences = new Cluster<Snowflake, MemberPresence>();
 
-    this.invites = new Cluster<InviteCode, Invite>();
+    this.invites = new GuildInvitesController(this);
 
     this.bans = new Cluster<Snowflake, Member>();
 
