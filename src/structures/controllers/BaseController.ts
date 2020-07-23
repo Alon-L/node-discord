@@ -4,12 +4,7 @@ import BaseStruct, { BaseStructWithId, StructWithId } from '../BaseStruct';
 import Bot from '../bot/Bot';
 
 /**
- * A structure with the ID field
- */
-export type ItemWithId<T extends BaseStruct> = T & { id: Snowflake };
-
-/**
- * Provides an interface for the Bot's cached data
+ * Provides a base interface for the bot's cached data
  * @template T
  */
 abstract class BaseController<T extends BaseStructWithId> {
