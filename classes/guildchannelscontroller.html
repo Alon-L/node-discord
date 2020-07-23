@@ -64,17 +64,31 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Provides an interface for a guild&#39;s channels cache.
+						The guild channels a mapped by their IDs</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="basecontroller.html" class="tsd-signature-type">BaseController</a><span class="tsd-signature-symbol">&lt;</span><a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a><span class="tsd-signature-symbol">&gt;</span>
+						<a href="basefetchcontroller.html" class="tsd-signature-type">BaseFetchController</a><span class="tsd-signature-symbol">&lt;</span><a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a><span class="tsd-signature-symbol">&gt;</span>
 						<ul class="tsd-hierarchy">
 							<li>
 								<span class="target">GuildChannelsController</span>
 							</li>
 						</ul>
 					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3>Implements</h3>
+				<ul class="tsd-hierarchy">
+					<li><a href="basedeletecontroller.html" class="tsd-signature-type">BaseDeleteController</a><span class="tsd-signature-symbol">&lt;</span><a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -106,7 +120,8 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="guildchannelscontroller.html#add" class="tsd-kind-icon">add</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="guildchannelscontroller.html#addmany" class="tsd-kind-icon">add<wbr>Many</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="guildchannelscontroller.html#delete" class="tsd-kind-icon">delete</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="guildchannelscontroller.html#clear" class="tsd-kind-icon">clear</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="guildchannelscontroller.html#delete" class="tsd-kind-icon">delete</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="guildchannelscontroller.html#fetch" class="tsd-kind-icon">fetch</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="guildchannelscontroller.html#get" class="tsd-kind-icon">get</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="guildchannelscontroller.html#getorfetch" class="tsd-kind-icon">get<wbr>OrFetch</a></li>
@@ -131,7 +146,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="basecontroller.html">BaseController</a>.<a href="basecontroller.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/998a8d1/src/structures/controllers/GuildChannelsController.ts#L10">src/structures/controllers/GuildChannelsController.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f451035/src/structures/controllers/GuildChannelsController.ts#L16">src/structures/controllers/GuildChannelsController.ts:16</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -154,7 +169,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="basecontroller.html">BaseController</a>.<a href="basecontroller.html#bot">bot</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/998a8d1/src/structures/controllers/BaseController.ts#L19">src/structures/controllers/BaseController.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f451035/src/structures/controllers/BaseController.ts#L14">src/structures/controllers/BaseController.ts:14</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -170,7 +185,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="basecontroller.html">BaseController</a>.<a href="basecontroller.html#cache">cache</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/998a8d1/src/structures/controllers/BaseController.ts#L23">src/structures/controllers/BaseController.ts:23</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f451035/src/structures/controllers/BaseController.ts#L18">src/structures/controllers/BaseController.ts:18</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -185,7 +200,7 @@
 					<div class="tsd-signature tsd-kind-icon">guild<span class="tsd-signature-symbol">:</span> <a href="guild.html" class="tsd-signature-type">Guild</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/998a8d1/src/structures/controllers/GuildChannelsController.ts#L10">src/structures/controllers/GuildChannelsController.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f451035/src/structures/controllers/GuildChannelsController.ts#L16">src/structures/controllers/GuildChannelsController.ts:16</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -208,7 +223,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="basecontroller.html">BaseController</a>.<a href="basecontroller.html#size">size</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/998a8d1/src/structures/controllers/BaseController.ts#L121">src/structures/controllers/BaseController.ts:121</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f451035/src/structures/controllers/BaseController.ts#L101">src/structures/controllers/BaseController.ts:101</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -227,14 +242,14 @@
 					<a name="add" class="tsd-anchor"></a>
 					<h3>add</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">add<span class="tsd-signature-symbol">(</span>item<span class="tsd-signature-symbol">: </span><a href="../globals.html#itemwithid" class="tsd-signature-type">ItemWithId</a><span class="tsd-signature-symbol">&lt;</span><a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a></li>
+						<li class="tsd-signature tsd-kind-icon">add<span class="tsd-signature-symbol">(</span>item<span class="tsd-signature-symbol">: </span><a href="../globals.html#structwithid" class="tsd-signature-type">StructWithId</a><span class="tsd-signature-symbol">&lt;</span><a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="basecontroller.html">BaseController</a>.<a href="basecontroller.html#add">add</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/998a8d1/src/structures/controllers/BaseController.ts#L111">src/structures/controllers/BaseController.ts:111</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f451035/src/structures/controllers/BaseController.ts#L83">src/structures/controllers/BaseController.ts:83</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -245,7 +260,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>item: <a href="../globals.html#itemwithid" class="tsd-signature-type">ItemWithId</a><span class="tsd-signature-symbol">&lt;</span><a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>item: <a href="../globals.html#structwithid" class="tsd-signature-type">StructWithId</a><span class="tsd-signature-symbol">&lt;</span><a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The item you wish to add</p>
 									</div>
@@ -259,14 +274,14 @@
 					<a name="addmany" class="tsd-anchor"></a>
 					<h3>add<wbr>Many</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">add<wbr>Many<span class="tsd-signature-symbol">(</span>items<span class="tsd-signature-symbol">: </span><a href="../globals.html#itemwithid" class="tsd-signature-type">ItemWithId</a><span class="tsd-signature-symbol">&lt;</span><a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Many<span class="tsd-signature-symbol">(</span>items<span class="tsd-signature-symbol">: </span><a href="../globals.html#structwithid" class="tsd-signature-type">StructWithId</a><span class="tsd-signature-symbol">&lt;</span><a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="basecontroller.html">BaseController</a>.<a href="basecontroller.html#addmany">addMany</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/998a8d1/src/structures/controllers/BaseController.ts#L62">src/structures/controllers/BaseController.ts:62</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f451035/src/structures/controllers/BaseController.ts#L34">src/structures/controllers/BaseController.ts:34</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -277,7 +292,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>items: <a href="../globals.html#itemwithid" class="tsd-signature-type">ItemWithId</a><span class="tsd-signature-symbol">&lt;</span><a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5>items: <a href="../globals.html#structwithid" class="tsd-signature-type">StructWithId</a><span class="tsd-signature-symbol">&lt;</span><a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The items you wish to add</p>
 									</div>
@@ -287,18 +302,40 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="clear" class="tsd-anchor"></a>
+					<h3>clear</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">clear<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="basecontroller.html">BaseController</a>.<a href="basecontroller.html#clear">clear</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f451035/src/structures/controllers/BaseController.ts#L93">src/structures/controllers/BaseController.ts:93</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Clears the cache</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="delete" class="tsd-anchor"></a>
 					<h3>delete</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">delete<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="basecontroller.html">BaseController</a>.<a href="basecontroller.html#delete">delete</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/998a8d1/src/structures/controllers/GuildChannelsController.ts#L23">src/structures/controllers/GuildChannelsController.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f451035/src/structures/controllers/GuildChannelsController.ts#L29">src/structures/controllers/GuildChannelsController.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -328,9 +365,9 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="basecontroller.html">BaseController</a>.<a href="basecontroller.html#fetch">fetch</a></p>
+								<p>Overrides <a href="basefetchcontroller.html">BaseFetchController</a>.<a href="basefetchcontroller.html#fetch">fetch</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/998a8d1/src/structures/controllers/GuildChannelsController.ts#L32">src/structures/controllers/GuildChannelsController.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f451035/src/structures/controllers/GuildChannelsController.ts#L38">src/structures/controllers/GuildChannelsController.ts:38</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -362,7 +399,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="basecontroller.html">BaseController</a>.<a href="basecontroller.html#get">get</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/998a8d1/src/structures/controllers/BaseController.ts#L71">src/structures/controllers/BaseController.ts:71</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f451035/src/structures/controllers/BaseController.ts#L43">src/structures/controllers/BaseController.ts:43</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -387,14 +424,14 @@
 					<a name="getorfetch" class="tsd-anchor"></a>
 					<h3>get<wbr>OrFetch</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>OrFetch<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>OrFetch<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="basecontroller.html">BaseController</a>.<a href="basecontroller.html#getorfetch">getOrFetch</a></p>
+								<p>Inherited from <a href="basefetchcontroller.html">BaseFetchController</a>.<a href="basefetchcontroller.html#getorfetch">getOrFetch</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/998a8d1/src/structures/controllers/BaseController.ts#L54">src/structures/controllers/BaseController.ts:54</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f451035/src/structures/controllers/BaseFetchController.ts#L22">src/structures/controllers/BaseFetchController.ts:22</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -411,7 +448,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -426,7 +463,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="basecontroller.html">BaseController</a>.<a href="basecontroller.html#getorset">getOrSet</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/998a8d1/src/structures/controllers/BaseController.ts#L93">src/structures/controllers/BaseController.ts:93</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f451035/src/structures/controllers/BaseController.ts#L65">src/structures/controllers/BaseController.ts:65</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -464,7 +501,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="basecontroller.html">BaseController</a>.<a href="basecontroller.html#has">has</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/998a8d1/src/structures/controllers/BaseController.ts#L102">src/structures/controllers/BaseController.ts:102</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f451035/src/structures/controllers/BaseController.ts#L74">src/structures/controllers/BaseController.ts:74</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -496,7 +533,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="basecontroller.html">BaseController</a>.<a href="basecontroller.html#set">set</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/998a8d1/src/structures/controllers/BaseController.ts#L81">src/structures/controllers/BaseController.ts:81</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f451035/src/structures/controllers/BaseController.ts#L53">src/structures/controllers/BaseController.ts:53</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -561,7 +598,10 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="guildchannelscontroller.html#addmany" class="tsd-kind-icon">add<wbr>Many</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="guildchannelscontroller.html#clear" class="tsd-kind-icon">clear</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="guildchannelscontroller.html#delete" class="tsd-kind-icon">delete</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">

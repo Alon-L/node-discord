@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>MessageEditData | node-discord</title>
+	<title>FetchReactionsOptions | node-discord</title>
 	<meta name="description" content="Documentation for node-discord">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="messageeditdata.html">MessageEditData</a>
+					<a href="fetchreactionsoptions.html">FetchReactionsOptions</a>
 				</li>
 			</ul>
-			<h1>Interface MessageEditData</h1>
+			<h1>Interface FetchReactionsOptions</h1>
 		</div>
 	</div>
 </header>
@@ -67,7 +67,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>The message data for when editing a message</p>
+						<p>Options for when fetching the users that reacted with a particular emoji</p>
 					</div>
 				</div>
 			</section>
@@ -75,12 +75,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="messagedata.html" class="tsd-signature-type">MessageData</a>
-						<ul class="tsd-hierarchy">
-							<li>
-								<span class="target">MessageEditData</span>
-							</li>
-						</ul>
+						<span class="target">FetchReactionsOptions</span>
 					</li>
 				</ul>
 			</section>
@@ -91,9 +86,9 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="messageeditdata.html#content" class="tsd-kind-icon">content</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="messageeditdata.html#embed" class="tsd-kind-icon">embed</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="messageeditdata.html#flags" class="tsd-kind-icon">flags</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="fetchreactionsoptions.html#after" class="tsd-kind-icon">after</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="fetchreactionsoptions.html#before" class="tsd-kind-icon">before</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="fetchreactionsoptions.html#limit" class="tsd-kind-icon">limit</a></li>
 							</ul>
 						</section>
 					</div>
@@ -101,50 +96,48 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-					<a name="content" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> content</h3>
-					<div class="tsd-signature tsd-kind-icon">content<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="after" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> after</h3>
+					<div class="tsd-signature tsd-kind-icon">after<span class="tsd-signature-symbol">:</span> <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="messagedata.html">MessageData</a>.<a href="messagedata.html#content">content</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f451035/src/structures/message/Message.ts#L126">src/structures/message/Message.ts:126</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f451035/src/structures/controllers/MessageReactionsController.ts#L19">src/structures/controllers/MessageReactionsController.ts:19</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The message&#39;s raw content</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-					<a name="embed" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> embed</h3>
-					<div class="tsd-signature tsd-kind-icon">embed<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Omit</span><span class="tsd-signature-symbol">&lt;</span><a href="messageembeddata.html" class="tsd-signature-type">MessageEmbedData</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">"type"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"provider"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"video"</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="../classes/messageembed.html" class="tsd-signature-type">MessageEmbed</a></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="messagedata.html">MessageData</a>.<a href="messagedata.html#embed">embed</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f451035/src/structures/message/Message.ts#L131">src/structures/message/Message.ts:131</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The message&#39;s embed data</p>
+							<p>Get users after this user ID</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="flags" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> flags</h3>
-					<div class="tsd-signature tsd-kind-icon">flags<span class="tsd-signature-symbol">:</span> <a href="../classes/messageflags.html" class="tsd-signature-type">MessageFlags</a></div>
+					<a name="before" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> before</h3>
+					<div class="tsd-signature tsd-kind-icon">before<span class="tsd-signature-symbol">:</span> <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f451035/src/structures/message/Message.ts#L156">src/structures/message/Message.ts:156</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f451035/src/structures/controllers/MessageReactionsController.ts#L14">src/structures/controllers/MessageReactionsController.ts:14</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The new flags of the message</p>
+							<p>Get users before this user ID</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="limit" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> limit</h3>
+					<div class="tsd-signature tsd-kind-icon">limit<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f451035/src/structures/controllers/MessageReactionsController.ts#L24">src/structures/controllers/MessageReactionsController.ts:24</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Max number of users to return (1-100)</p>
 						</div>
 					</div>
 				</section>
@@ -163,16 +156,16 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="messageeditdata.html" class="tsd-kind-icon">Message<wbr>Edit<wbr>Data</a>
+						<a href="fetchreactionsoptions.html" class="tsd-kind-icon">Fetch<wbr>Reactions<wbr>Options</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="messageeditdata.html#content" class="tsd-kind-icon">content</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="messageeditdata.html#embed" class="tsd-kind-icon">embed</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="fetchreactionsoptions.html#after" class="tsd-kind-icon">after</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="messageeditdata.html#flags" class="tsd-kind-icon">flags</a>
+								<a href="fetchreactionsoptions.html#before" class="tsd-kind-icon">before</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="fetchreactionsoptions.html#limit" class="tsd-kind-icon">limit</a>
 							</li>
 						</ul>
 					</li>

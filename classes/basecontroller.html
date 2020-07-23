@@ -67,7 +67,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Provides an interface for the Bot&#39;s cached data</p>
+						<p>Provides a base interface for the bot&#39;s cached data</p>
 					</div>
 				</div>
 			</section>
@@ -75,7 +75,7 @@
 				<h3>Type parameters</h3>
 				<ul class="tsd-type-parameters">
 					<li>
-						<h4>T<span class="tsd-signature-symbol">: </span><a href="basestruct.html" class="tsd-signature-type">BaseStruct</a></h4>
+						<h4>T<span class="tsd-signature-symbol">: </span><a href="../globals.html#basestructwithid" class="tsd-signature-type">BaseStructWithId</a></h4>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
 							</div>
@@ -90,13 +90,13 @@
 						<span class="target">BaseController</span>
 						<ul class="tsd-hierarchy">
 							<li>
-								<a href="channelmessagescontroller.html" class="tsd-signature-type">ChannelMessagesController</a>
+								<a href="basedeletecontroller.html" class="tsd-signature-type">BaseDeleteController</a>
 							</li>
 							<li>
-								<a href="guildchannelscontroller.html" class="tsd-signature-type">GuildChannelsController</a>
+								<a href="basefetchcontroller.html" class="tsd-signature-type">BaseFetchController</a>
 							</li>
 							<li>
-								<a href="botchannelscontroller.html" class="tsd-signature-type">BotChannelsController</a>
+								<a href="messagereactionscontroller.html" class="tsd-signature-type">MessageReactionsController</a>
 							</li>
 						</ul>
 					</li>
@@ -130,10 +130,8 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="basecontroller.html#add" class="tsd-kind-icon">add</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="basecontroller.html#addmany" class="tsd-kind-icon">add<wbr>Many</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="basecontroller.html#delete" class="tsd-kind-icon">delete</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="basecontroller.html#fetch" class="tsd-kind-icon">fetch</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="basecontroller.html#clear" class="tsd-kind-icon">clear</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="basecontroller.html#get" class="tsd-kind-icon">get</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="basecontroller.html#getorfetch" class="tsd-kind-icon">get<wbr>OrFetch</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="basecontroller.html#getorset" class="tsd-kind-icon">get<wbr>OrSet</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="basecontroller.html#has" class="tsd-kind-icon">has</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="basecontroller.html#set" class="tsd-kind-icon">set</a></li>
@@ -154,7 +152,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/998a8d1/src/structures/controllers/BaseController.ts#L23">src/structures/controllers/BaseController.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f451035/src/structures/controllers/BaseController.ts#L18">src/structures/controllers/BaseController.ts:18</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -179,7 +177,7 @@
 					<div class="tsd-signature tsd-kind-icon">bot<span class="tsd-signature-symbol">:</span> <a href="bot.html" class="tsd-signature-type">Bot</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/998a8d1/src/structures/controllers/BaseController.ts#L19">src/structures/controllers/BaseController.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f451035/src/structures/controllers/BaseController.ts#L14">src/structures/controllers/BaseController.ts:14</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -194,7 +192,7 @@
 					<div class="tsd-signature tsd-kind-icon">cache<span class="tsd-signature-symbol">:</span> <a href="cluster.html" class="tsd-signature-type">Cluster</a><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/998a8d1/src/structures/controllers/BaseController.ts#L23">src/structures/controllers/BaseController.ts:23</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f451035/src/structures/controllers/BaseController.ts#L18">src/structures/controllers/BaseController.ts:18</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -216,7 +214,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/998a8d1/src/structures/controllers/BaseController.ts#L121">src/structures/controllers/BaseController.ts:121</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f451035/src/structures/controllers/BaseController.ts#L101">src/structures/controllers/BaseController.ts:101</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -235,13 +233,13 @@
 					<a name="add" class="tsd-anchor"></a>
 					<h3>add</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">add<span class="tsd-signature-symbol">(</span>item<span class="tsd-signature-symbol">: </span><a href="../globals.html#itemwithid" class="tsd-signature-type">ItemWithId</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
+						<li class="tsd-signature tsd-kind-icon">add<span class="tsd-signature-symbol">(</span>item<span class="tsd-signature-symbol">: </span><a href="../globals.html#structwithid" class="tsd-signature-type">StructWithId</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/998a8d1/src/structures/controllers/BaseController.ts#L111">src/structures/controllers/BaseController.ts:111</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f451035/src/structures/controllers/BaseController.ts#L83">src/structures/controllers/BaseController.ts:83</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -252,7 +250,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>item: <a href="../globals.html#itemwithid" class="tsd-signature-type">ItemWithId</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>item: <a href="../globals.html#structwithid" class="tsd-signature-type">StructWithId</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The item you wish to add</p>
 									</div>
@@ -266,13 +264,13 @@
 					<a name="addmany" class="tsd-anchor"></a>
 					<h3>add<wbr>Many</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">add<wbr>Many<span class="tsd-signature-symbol">(</span>items<span class="tsd-signature-symbol">: </span><a href="../globals.html#itemwithid" class="tsd-signature-type">ItemWithId</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Many<span class="tsd-signature-symbol">(</span>items<span class="tsd-signature-symbol">: </span><a href="../globals.html#structwithid" class="tsd-signature-type">StructWithId</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/998a8d1/src/structures/controllers/BaseController.ts#L62">src/structures/controllers/BaseController.ts:62</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f451035/src/structures/controllers/BaseController.ts#L34">src/structures/controllers/BaseController.ts:34</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -283,7 +281,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>items: <a href="../globals.html#itemwithid" class="tsd-signature-type">ItemWithId</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5>items: <a href="../globals.html#structwithid" class="tsd-signature-type">StructWithId</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The items you wish to add</p>
 									</div>
@@ -294,64 +292,24 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="delete" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagAbstract">Abstract</span> delete</h3>
+					<a name="clear" class="tsd-anchor"></a>
+					<h3>clear</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">delete<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">clear<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/998a8d1/src/structures/controllers/BaseController.ts#L47">src/structures/controllers/BaseController.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f451035/src/structures/controllers/BaseController.ts#L93">src/structures/controllers/BaseController.ts:93</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Deletes a cached item</p>
+									<p>Clears the cache</p>
 								</div>
 							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>id: <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The ID of the item you wish to delete</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="fetch" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagAbstract">Abstract</span> fetch</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">fetch<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/998a8d1/src/structures/controllers/BaseController.ts#L40">src/structures/controllers/BaseController.ts:40</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Fetch a new item to insert into the cache Cluster</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>id: <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The ID of the item you wish to fetch</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -365,7 +323,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/998a8d1/src/structures/controllers/BaseController.ts#L71">src/structures/controllers/BaseController.ts:71</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f451035/src/structures/controllers/BaseController.ts#L43">src/structures/controllers/BaseController.ts:43</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -387,37 +345,6 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getorfetch" class="tsd-anchor"></a>
-					<h3>get<wbr>OrFetch</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>OrFetch<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/998a8d1/src/structures/controllers/BaseController.ts#L54">src/structures/controllers/BaseController.ts:54</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Returns an already cached item or fetches it</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>id: <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The ID of the item you wish to get or fetch</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="getorset" class="tsd-anchor"></a>
 					<h3>get<wbr>OrSet</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -427,7 +354,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/998a8d1/src/structures/controllers/BaseController.ts#L93">src/structures/controllers/BaseController.ts:93</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f451035/src/structures/controllers/BaseController.ts#L65">src/structures/controllers/BaseController.ts:65</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -464,7 +391,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/998a8d1/src/structures/controllers/BaseController.ts#L102">src/structures/controllers/BaseController.ts:102</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f451035/src/structures/controllers/BaseController.ts#L74">src/structures/controllers/BaseController.ts:74</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -495,7 +422,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/998a8d1/src/structures/controllers/BaseController.ts#L81">src/structures/controllers/BaseController.ts:81</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f451035/src/structures/controllers/BaseController.ts#L53">src/structures/controllers/BaseController.ts:53</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -558,16 +485,10 @@
 								<a href="basecontroller.html#addmany" class="tsd-kind-icon">add<wbr>Many</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="basecontroller.html#delete" class="tsd-kind-icon">delete</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="basecontroller.html#fetch" class="tsd-kind-icon">fetch</a>
+								<a href="basecontroller.html#clear" class="tsd-kind-icon">clear</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="basecontroller.html#get" class="tsd-kind-icon">get</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="basecontroller.html#getorfetch" class="tsd-kind-icon">get<wbr>OrFetch</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="basecontroller.html#getorset" class="tsd-kind-icon">get<wbr>OrSet</a>
