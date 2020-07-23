@@ -5,7 +5,6 @@ import { Snowflake } from '../../types/types';
 import ChannelUtils from '../../utils/ChannelUtils';
 import BaseStruct, { GatewayStruct } from '../BaseStruct';
 import Emoji from '../Emoji';
-import Invite, { InviteCode } from '../Invite';
 import Role from '../Role';
 import User from '../User';
 import Bot from '../bot/Bot';
