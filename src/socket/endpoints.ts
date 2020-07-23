@@ -16,6 +16,7 @@ export const enum EndpointRoute {
   ChannelInvites = 'CHANNEL_INVITES',
   ChannelTyping = 'CHANNEL_TYPING',
   ChannelPinsMessage = 'CHANNEL_PINS_MESSAGE',
+  Invite = 'INVITE',
 }
 
 /**
@@ -59,6 +60,7 @@ export const Endpoints: Record<EndpointRoute, (...args: string[]) => string> = {
   [EndpointRoute.ChannelTyping]: (channelId: Snowflake) => `/channels/${channelId}/typing`,
   [EndpointRoute.ChannelPinsMessage]: (channelId: Snowflake, messageId: Snowflake) =>
     `/channels/${channelId}/pins/${messageId}`,
+  [EndpointRoute.Invite]: (inviteCode: string) => `/invites/${inviteCode}`,
 };
 
 /**
