@@ -178,7 +178,9 @@ class BotAPI {
 
   // TODO: Add the ability to send files and attachments
   /**
-   * Posts a message to a {@link GuildTextChannel} or {@link DMChannel}. If operating on a {@link GuildTextChannel}, this method requires the {@link Permission.SendMessages} permission to be present on the current user. If the {@link MessageOptions.tts} field is set to true, the {@link Permission.SendTTSMessages} permission is required for the message to be spoken
+   * Posts a message to a {@link GuildTextChannel} or {@link DMChannel}.
+   * If operating on a {@link GuildTextChannel}, this requires the {@link Permission.SendMessages} permission.
+   * If the {@link MessageOptions.tts} field is set to true, the {@link Permission.SendTTSMessages} permission is required
    * @param {Snowflake} channelId The ID of the channel to send the message in
    * @param {string | MessageData | MessageEmbed} data The message data.
    * Can be:
