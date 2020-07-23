@@ -7,22 +7,22 @@ import MessageEmbed from '../message/MessageEmbed';
 /**
  * Abstract class that all text-based channels implement
  */
-abstract class TextChannel {
+interface TextChannel {
   /**
    * The ID of the last message sent in this channel.
    * May not point to an existing or valid message
    */
-  abstract lastMessageId: Snowflake | null | undefined;
+  lastMessageId: Snowflake | null | undefined;
 
   /**
    * Timestamp of when the last pinned message was pinned
    */
-  abstract lastPinTimestamp: Timestamp | undefined;
+  lastPinTimestamp: Timestamp | undefined;
 
   /**
    * The text channel's messages controller
    */
-  abstract messages: ChannelMessagesController;
+  messages: ChannelMessagesController;
 
   // TODO: Add example to "3. A {@link MessageEmbed} instance"
   /**
@@ -41,7 +41,7 @@ abstract class TextChannel {
    * @param {MessageOptions} options
    * @returns {Promise<Message>}
    */
-  abstract sendMessage(
+  sendMessage(
     data: string | MessageData | MessageEmbed,
     options?: MessageOptions,
   ): Promise<Message>;
@@ -52,7 +52,7 @@ abstract class TextChannel {
    * This method may be called to let the user know that the bot is processing their message.
    * @returns {Promise<void>}
    */
-  abstract triggerTyping(): Promise<void>;
+  triggerTyping(): Promise<void>;
 
   /**
    * Pins a message in a text channel.
@@ -60,7 +60,7 @@ abstract class TextChannel {
    * @param {Snowflake} messageId The ID of the message you wish to pin
    * @returns {Promise<void>}
    */
-  abstract pinMessage(messageId: Snowflake): Promise<void>;
+  pinMessage(messageId: Snowflake): Promise<void>;
 
   /**
    * Unpins a message in a text channel.
@@ -68,7 +68,7 @@ abstract class TextChannel {
    * @param {Snowflake} messageId The ID of the message you wish to unpin
    * @returns {Promise<void>}
    */
-  abstract unpinMessage(messageId: Snowflake): Promise<void>;
+  unpinMessage(messageId: Snowflake): Promise<void>;
 }
 
 export default TextChannel;

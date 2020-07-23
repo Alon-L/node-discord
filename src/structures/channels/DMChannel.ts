@@ -11,30 +11,21 @@ import MessageEmbed from '../message/MessageEmbed';
 
 /**
  * Represents a private channel between the Bot and a User
- * @extends Channel
- * @implements {TextChannel}
  */
 class DMChannel extends Channel implements TextChannel {
-  /**
-   * The ID of the last message sent in this channel.
-   * May not point to an existing or valid message
-   */
+  /** @inheritDoc */
   public lastMessageId: Snowflake | null | undefined;
+
+  /** @inheritDoc */
+  public lastPinTimestamp: Timestamp | undefined;
+
+  /** @inheritDoc */
+  public messages: ChannelMessagesController;
 
   /**
    * The recipient of the DM
    */
   public recipient!: User;
-
-  /**
-   * Timestamp of when the last pinned message was pinned
-   */
-  public lastPinTimestamp: Timestamp | undefined;
-
-  /**
-   * The text channel's messages controller
-   */
-  public messages: ChannelMessagesController;
 
   constructor(bot: Bot, dmChannel: GatewayStruct) {
     super(bot, dmChannel);
@@ -59,22 +50,7 @@ class DMChannel extends Channel implements TextChannel {
     return this;
   }
 
-  /**
-   * Posts a message to a {@link GuildTextChannel} or {@link DMChannel}. If operating on a {@link GuildTextChannel}, this endpoint requires the {@link Permission.SendMessages} permission to be present on the current user. If the {@link MessageOptions.tts} field is set to true, the {@link Permission.SendTTSMessages} permission is required for the message to be spoken
-   * @param {string | MessageData | MessageEmbed} data The message data.
-   * Can be:
-   * 1. Raw content to be sent as a message
-   * @example ```typescript
-   * channel.sendMessage('Hello World!');
-   * ```
-   * 2. A {@link MessageData} object, containing content and/or embed
-   * @example ```typescript
-   * channel.sendMessage({ content: 'Hello World!', embed: { title: 'My Embed!' } });
-   * ```
-   * 3. A {@link MessageEmbed} instance
-   * @param {MessageOptions} options The message's options
-   * @returns {Promise<Message>}
-   */
+  /** @inheritDoc */
   public sendMessage(
     data: string | MessageData | MessageEmbed,
     options?: MessageOptions,
@@ -82,32 +58,17 @@ class DMChannel extends Channel implements TextChannel {
     return this.bot.api.sendMessage(this.id, data, options);
   }
 
-  /**
-   * Posts a typing indicator for a specified text channel.
-   * Useful when the bot is responding to a command and expects the computation to take a few seconds.
-   * This method may be called to let the user know that the bot is processing their message.
-   * @returns {Promise<void>}
-   */
+  /** @inheritDoc */
   public triggerTyping(): Promise<void> {
     return this.bot.api.triggerTextChannelTyping(this.id);
   }
 
-  /**
-   * Pins a message in a text channel.
-   * Requires the {@link Permission.ManageMessages} permission
-   * @param {Snowflake} messageId The ID of the message you wish to pin
-   * @returns {Promise<void>}
-   */
+  /** @inheritDoc */
   public pinMessage(messageId: Snowflake): Promise<void> {
     return this.bot.api.pinMessage(this.id, messageId);
   }
 
-  /**
-   * Unpins a message in a text channel.
-   * Requires the {@link Permission.ManageMessages} permission
-   * @param {Snowflake} messageId The ID of the message you wish to unpin
-   * @returns {Promise<void>}
-   */
+  /** @inheritDoc */
   public unpinMessage(messageId: Snowflake): Promise<void> {
     return this.bot.api.unpinMessage(this.id, messageId);
   }
