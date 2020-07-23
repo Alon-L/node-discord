@@ -1,6 +1,6 @@
 import { Headers, Response } from 'node-fetch';
 import RateLimitQueue from './RateLimitQueue';
-import { Data, Params } from './Requests';
+import { Params, ReturnedData } from './Requests';
 import Bot from '../../structures/bot/Bot';
 import APIRequest from '../APIRequest';
 import { GatewayCloseCode } from '../constants';
@@ -72,9 +72,9 @@ class RateLimitBucket {
    * Creates a new API request and sends it if the bucket is capable of doing so
    * @param {string} endpoint The request endpoint
    * @param {Params} params The request params / body
-   * @returns {Promise<Data>}
+   * @returns {Promise<ReturnedData | undefined>}
    */
-  public async send(endpoint: string, params: Params): Promise<Data | undefined> {
+  public async send(endpoint: string, params: Params): Promise<ReturnedData | undefined> {
     // The rate limit is reached. Add request to the queue
     if (this.remaining !== undefined && this.remaining <= 0) {
       this.bot.debug(
@@ -95,7 +95,9 @@ class RateLimitBucket {
     const response = await apiRequest.send();
 
     const json =
-      response.status !== StatusCode.NoContent ? ((await response.json()) as Data) : undefined;
+      response.status !== StatusCode.NoContent
+        ? ((await response.json()) as ReturnedData)
+        : undefined;
 
     if (json) {
       // Validates the response before proceeding
@@ -125,9 +127,9 @@ class RateLimitBucket {
   /**
    * Validates the response. Throws an error in case it is not valid
    * @param {Response} response The response received from sending an API request
-   * @param {Data} json The parsed response in JSON
+   * @param {ReturnedData} json The parsed response in JSON
    */
-  private validateResponse(response: Response, json: Data): void {
+  private validateResponse(response: Response, json: ReturnedData): void {
     switch (response.status) {
       case StatusCode.UnAuthorized:
         this.bot.connection.disconnectAll(GatewayCloseCode.AuthenticationFailed);
@@ -140,8 +142,12 @@ class RateLimitBucket {
         throw new Error("You have reached Discord's API rate limit. Please slow down");
     }
 
-    if (!ValidCodes.includes(response.status) && json.message) {
-      throw new Error(`${response.url} - ${json.message.toString()}`);
+    if (!ValidCodes.includes(response.status)) {
+      if (Array.isArray(json)) {
+        throw new TypeError(`${response.url} - an error has occurred with an array response type`);
+      } else {
+        throw new Error(`${response.url} - ${json.message?.toString()}`);
+      }
     }
   }
 

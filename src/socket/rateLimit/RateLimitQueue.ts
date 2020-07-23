@@ -1,5 +1,5 @@
 import RateLimitBucket from './RateLimitBucket';
-import { Data, Params } from './Requests';
+import { Params, ReturnedData } from './Requests';
 
 /**
  * The items that the rate limit queue stores
@@ -17,9 +17,9 @@ export interface RateLimitQueueItem {
 
   /**
    * Callback function to be called whenever the request is made
-   * @param {Data | undefined} data
+   * @param {ReturnedData | undefined} data
    */
-  callback: (data: Data | undefined) => void;
+  callback: (data: ReturnedData | undefined) => void;
 }
 
 /**
@@ -42,14 +42,14 @@ class RateLimitQueue extends Array<RateLimitQueueItem> {
    * Adds a new API request to the queue and waits until it executes
    * @param {string} endpoint The endpoint for the added API request
    * @param {Params} params The params / body for the added API request
-   * @returns {Promise<Data>}
+   * @returns {Promise<ReturnedData>}
    */
-  add(endpoint: string, params: Params): Promise<Data | undefined> {
-    return new Promise<Data>(resolve => {
+  add(endpoint: string, params: Params): Promise<ReturnedData | undefined> {
+    return new Promise<ReturnedData>(resolve => {
       this.push({
         endpoint,
         params,
-        callback: (data: Data | undefined) => {
+        callback: (data: ReturnedData | undefined) => {
           resolve(data);
         },
       });

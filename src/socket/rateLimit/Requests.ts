@@ -18,6 +18,11 @@ export type BucketIndex = string;
 export type Data = Record<string, Serializable | undefined | null>;
 
 /**
+ * The type of data returned from the API
+ */
+export type ReturnedData = Data | Array<Serializable | undefined | null>;
+
+/**
  * The request's Body type
  */
 export type Body = Data;
@@ -76,7 +81,7 @@ class Requests {
     routeArgs: RouteArgs,
     method: HttpMethod,
     params?: Params,
-  ): Promise<Data | undefined> {
+  ): Promise<ReturnedData | undefined> {
     // Retrieve the major params of this request
     const majorParams = this.getMajorParams(routeArgs);
 
