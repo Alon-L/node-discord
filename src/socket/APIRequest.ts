@@ -19,8 +19,20 @@ class APIRequest {
   constructor(token: string, endpoint: string, params: Params, method: HttpMethod) {
     this.token = token;
     this.endpoint = endpoint;
-    this.params = params;
     this.method = method;
+
+    if (params) {
+      // Clear all nullish params
+      this.params = Object.entries(params)
+        .filter(([, value]) => value === undefined || value === null)
+        .reduce(
+          (params, param) => ({
+            ...params,
+            param,
+          }),
+          {},
+        );
+    }
   }
 
   /**
