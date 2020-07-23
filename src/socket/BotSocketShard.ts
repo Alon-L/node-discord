@@ -36,7 +36,7 @@ export interface Payload {
 
 export type EventHandlers = Record<
   GatewayEvent,
-  (payload: Payload, bot?: Bot, socketShard?: BotSocketShard) => void
+  (payload: Payload, bot?: Bot, socketShard?: BotSocketShard) => void | Promise<void>
 >;
 
 // Initializes variables for optional libraries
