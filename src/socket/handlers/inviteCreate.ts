@@ -6,8 +6,8 @@ import { BotEvent } from '../constants';
 export default ({ d }: Payload, bot: Bot): void => {
   const invite = new Invite(bot, d);
 
-  // Add the invite to the guild invites cluster
-  invite.guild?.invites.set(invite.code, invite);
+  // Add the invite to the guild's invites cache
+  invite.guild?.invites.add(invite);
 
   // Add the invite to the guild channel's invites cache
   invite.channel?.invites.add(invite);

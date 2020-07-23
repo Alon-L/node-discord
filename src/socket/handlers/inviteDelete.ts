@@ -17,8 +17,8 @@ export default async ({ d }: Payload, bot: Bot): Promise<void> => {
     code,
   };
 
-  // Delete the invite from the guild invites cluster
-  guild?.invites.delete(code);
+  // Delete the invite from the guild's invites cache
+  guild?.invites.cache.delete(code);
 
   if (channel instanceof GuildChannel) {
     // Delete the invite from the guild channel's invites cache
