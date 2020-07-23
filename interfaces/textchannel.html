@@ -1,0 +1,380 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>TextChannel | node-discord</title>
+	<meta name="description" content="Documentation for node-discord">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">node-discord</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="textchannel.html">TextChannel</a>
+				</li>
+			</ul>
+			<h1>Interface TextChannel</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Abstract class that all text-based channels implement</p>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">TextChannel</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3>Implemented by</h3>
+				<ul class="tsd-hierarchy">
+					<li><a href="../classes/dmchannel.html" class="tsd-signature-type">DMChannel</a></li>
+					<li><a href="../classes/guildtextchannel.html" class="tsd-signature-type">GuildTextChannel</a></li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="textchannel.html#lastmessageid" class="tsd-kind-icon">last<wbr>Message<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="textchannel.html#lastpintimestamp" class="tsd-kind-icon">last<wbr>Pin<wbr>Timestamp</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="textchannel.html#messages" class="tsd-kind-icon">messages</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="textchannel.html#pinmessage" class="tsd-kind-icon">pin<wbr>Message</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="textchannel.html#sendmessage" class="tsd-kind-icon">send<wbr>Message</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="textchannel.html#triggertyping" class="tsd-kind-icon">trigger<wbr>Typing</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="textchannel.html#unpinmessage" class="tsd-kind-icon">unpin<wbr>Message</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="lastmessageid" class="tsd-anchor"></a>
+					<h3>last<wbr>Message<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">last<wbr>Message<wbr>Id<span class="tsd-signature-symbol">:</span> <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/38c6b12/src/structures/channels/TextChannel.ts#L15">src/structures/channels/TextChannel.ts:15</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The ID of the last message sent in this channel.
+							May not point to an existing or valid message</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="lastpintimestamp" class="tsd-anchor"></a>
+					<h3>last<wbr>Pin<wbr>Timestamp</h3>
+					<div class="tsd-signature tsd-kind-icon">last<wbr>Pin<wbr>Timestamp<span class="tsd-signature-symbol">:</span> <a href="../classes/timestamp.html" class="tsd-signature-type">Timestamp</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/38c6b12/src/structures/channels/TextChannel.ts#L20">src/structures/channels/TextChannel.ts:20</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Timestamp of when the last pinned message was pinned</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="messages" class="tsd-anchor"></a>
+					<h3>messages</h3>
+					<div class="tsd-signature tsd-kind-icon">messages<span class="tsd-signature-symbol">:</span> <a href="../classes/channelmessagescontroller.html" class="tsd-signature-type">ChannelMessagesController</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/38c6b12/src/structures/channels/TextChannel.ts#L25">src/structures/channels/TextChannel.ts:25</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The text channel&#39;s messages controller</p>
+						</div>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="pinmessage" class="tsd-anchor"></a>
+					<h3>pin<wbr>Message</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">pin<wbr>Message<span class="tsd-signature-symbol">(</span>messageId<span class="tsd-signature-symbol">: </span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/38c6b12/src/structures/channels/TextChannel.ts#L63">src/structures/channels/TextChannel.ts:63</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Pins a message in a text channel.
+									Requires the <a href="../enums/permission.html#managemessages">Permission.ManageMessages</a> permission</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>messageId: <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The ID of the message you wish to pin</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="sendmessage" class="tsd-anchor"></a>
+					<h3>send<wbr>Message</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">send<wbr>Message<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="messagedata.html" class="tsd-signature-type">MessageData</a><span class="tsd-signature-symbol"> | </span><a href="../classes/messageembed.html" class="tsd-signature-type">MessageEmbed</a>, options<span class="tsd-signature-symbol">?: </span><a href="messageoptions.html" class="tsd-signature-type">MessageOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../classes/message.html" class="tsd-signature-type">Message</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/38c6b12/src/structures/channels/TextChannel.ts#L44">src/structures/channels/TextChannel.ts:44</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Posts a message to a <a href="../classes/guildtextchannel.html">GuildTextChannel</a> or <a href="../classes/dmchannel.html">DMChannel</a>. If operating on a <a href="../classes/guildtextchannel.html">GuildTextChannel</a>, this endpoint requires the <a href="../enums/permission.html#sendmessages">Permission.SendMessages</a> permission to be present on the current user. If the <a href="messageoptions.html#tts">MessageOptions.tts</a> field is set to true, the <a href="../enums/permission.html#sendttsmessages">Permission.SendTTSMessages</a> permission is required for the message to be spoken</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-typescript">channel.sendMessage(<span class="hljs-string">&#x27;Hello World!&#x27;</span>);</code></pre>
+										<ol start="2">
+											<li>A <a href="messagedata.html">MessageData</a> object, containing content and/or embed
+												@example ```typescript
+												channel.sendMessage({ content: &#39;Hello World!&#39;, embed: { title: &#39;My Embed!&#39; } });
+											```</li>
+											<li>A <a href="../classes/messageembed.html">MessageEmbed</a> instance</li>
+										</ol>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>data: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="messagedata.html" class="tsd-signature-type">MessageData</a><span class="tsd-signature-symbol"> | </span><a href="../classes/messageembed.html" class="tsd-signature-type">MessageEmbed</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The message data.
+										Can be:</p>
+										<ol>
+											<li>Raw content to be sent as a message</li>
+										</ol>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="messageoptions.html" class="tsd-signature-type">MessageOptions</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../classes/message.html" class="tsd-signature-type">Message</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="triggertyping" class="tsd-anchor"></a>
+					<h3>trigger<wbr>Typing</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">trigger<wbr>Typing<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/38c6b12/src/structures/channels/TextChannel.ts#L55">src/structures/channels/TextChannel.ts:55</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Posts a typing indicator for a specified text channel.
+										Useful when the bot is responding to a command and expects the computation to take a few seconds.
+									This method may be called to let the user know that the bot is processing their message.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="unpinmessage" class="tsd-anchor"></a>
+					<h3>unpin<wbr>Message</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">unpin<wbr>Message<span class="tsd-signature-symbol">(</span>messageId<span class="tsd-signature-symbol">: </span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/38c6b12/src/structures/channels/TextChannel.ts#L71">src/structures/channels/TextChannel.ts:71</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Unpins a message in a text channel.
+									Requires the <a href="../enums/permission.html#managemessages">Permission.ManageMessages</a> permission</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>messageId: <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The ID of the message you wish to unpin</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface">
+						<a href="textchannel.html" class="tsd-kind-icon">Text<wbr>Channel</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="textchannel.html#lastmessageid" class="tsd-kind-icon">last<wbr>Message<wbr>Id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="textchannel.html#lastpintimestamp" class="tsd-kind-icon">last<wbr>Pin<wbr>Timestamp</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="textchannel.html#messages" class="tsd-kind-icon">messages</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="textchannel.html#pinmessage" class="tsd-kind-icon">pin<wbr>Message</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="textchannel.html#sendmessage" class="tsd-kind-icon">send<wbr>Message</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="textchannel.html#triggertyping" class="tsd-kind-icon">trigger<wbr>Typing</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="textchannel.html#unpinmessage" class="tsd-kind-icon">unpin<wbr>Message</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

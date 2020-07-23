@@ -90,6 +90,7 @@
 								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="endpointroute.html#channelpermissionsoverwrite" class="tsd-kind-icon">Channel<wbr>Permissions<wbr>Overwrite</a></li>
 								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="endpointroute.html#channelpinsmessage" class="tsd-kind-icon">Channel<wbr>Pins<wbr>Message</a></li>
 								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="endpointroute.html#channeltyping" class="tsd-kind-icon">Channel<wbr>Typing</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="endpointroute.html#invite" class="tsd-kind-icon">Invite</a></li>
 							</ul>
 						</section>
 					</div>
@@ -100,110 +101,120 @@
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
 					<a name="channel" class="tsd-anchor"></a>
 					<h3>Channel</h3>
-					<div class="tsd-signature tsd-kind-icon">Channel<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;CHANNEL&quot;</span></div>
+					<div class="tsd-signature tsd-kind-icon">Channel<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;/channels/{channel.id}&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/5ee3b73/src/socket/endpoints.ts#L8">src/socket/endpoints.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/38c6b12/src/socket/endpoints.ts#L8">src/socket/endpoints.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
 					<a name="channelinvites" class="tsd-anchor"></a>
 					<h3>Channel<wbr>Invites</h3>
-					<div class="tsd-signature tsd-kind-icon">Channel<wbr>Invites<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;CHANNEL_INVITES&quot;</span></div>
+					<div class="tsd-signature tsd-kind-icon">Channel<wbr>Invites<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;/channels/{channel.id}/invites&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/5ee3b73/src/socket/endpoints.ts#L16">src/socket/endpoints.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/38c6b12/src/socket/endpoints.ts#L16">src/socket/endpoints.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
 					<a name="channelmessage" class="tsd-anchor"></a>
 					<h3>Channel<wbr>Message</h3>
-					<div class="tsd-signature tsd-kind-icon">Channel<wbr>Message<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;CHANNEL_MESSAGE&quot;</span></div>
+					<div class="tsd-signature tsd-kind-icon">Channel<wbr>Message<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;/channels/{channel.id}/messages/{message.id}&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/5ee3b73/src/socket/endpoints.ts#L9">src/socket/endpoints.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/38c6b12/src/socket/endpoints.ts#L9">src/socket/endpoints.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
 					<a name="channelmessages" class="tsd-anchor"></a>
 					<h3>Channel<wbr>Messages</h3>
-					<div class="tsd-signature tsd-kind-icon">Channel<wbr>Messages<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;CHANNEL_MESSAGES&quot;</span></div>
+					<div class="tsd-signature tsd-kind-icon">Channel<wbr>Messages<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;/channels/{channel.id}/messages&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/5ee3b73/src/socket/endpoints.ts#L10">src/socket/endpoints.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/38c6b12/src/socket/endpoints.ts#L10">src/socket/endpoints.ts:10</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
 					<a name="channelmessagesbulkdelete" class="tsd-anchor"></a>
 					<h3>Channel<wbr>Messages<wbr>Bulk<wbr>Delete</h3>
-					<div class="tsd-signature tsd-kind-icon">Channel<wbr>Messages<wbr>Bulk<wbr>Delete<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;CHANNEL_MESSAGES_BULK_DELETE&quot;</span></div>
+					<div class="tsd-signature tsd-kind-icon">Channel<wbr>Messages<wbr>Bulk<wbr>Delete<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;/channels/{channel.id}/messages/bulk-delete&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/5ee3b73/src/socket/endpoints.ts#L14">src/socket/endpoints.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/38c6b12/src/socket/endpoints.ts#L14">src/socket/endpoints.ts:14</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
 					<a name="channelmessagesreactions" class="tsd-anchor"></a>
 					<h3>Channel<wbr>Messages<wbr>Reactions</h3>
-					<div class="tsd-signature tsd-kind-icon">Channel<wbr>Messages<wbr>Reactions<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;CHANNEL_MESSAGES_REACTIONS&quot;</span></div>
+					<div class="tsd-signature tsd-kind-icon">Channel<wbr>Messages<wbr>Reactions<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;/channels/{channel.id}/messages/{message.id}/reactions&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/5ee3b73/src/socket/endpoints.ts#L11">src/socket/endpoints.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/38c6b12/src/socket/endpoints.ts#L11">src/socket/endpoints.ts:11</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
 					<a name="channelmessagesreactionsemoji" class="tsd-anchor"></a>
 					<h3>Channel<wbr>Messages<wbr>Reactions<wbr>Emoji</h3>
-					<div class="tsd-signature tsd-kind-icon">Channel<wbr>Messages<wbr>Reactions<wbr>Emoji<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;CHANNEL_MESSAGES_REACTIONS_EMOJI&quot;</span></div>
+					<div class="tsd-signature tsd-kind-icon">Channel<wbr>Messages<wbr>Reactions<wbr>Emoji<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;/channels/{channel.id}/messages/{message.id}/reactions/{emoji}&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/5ee3b73/src/socket/endpoints.ts#L12">src/socket/endpoints.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/38c6b12/src/socket/endpoints.ts#L12">src/socket/endpoints.ts:12</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
 					<a name="channelmessagesreactionsemojiuser" class="tsd-anchor"></a>
 					<h3>Channel<wbr>Messages<wbr>Reactions<wbr>Emoji<wbr>User</h3>
-					<div class="tsd-signature tsd-kind-icon">Channel<wbr>Messages<wbr>Reactions<wbr>Emoji<wbr>User<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;CHANNEL_MESSAGES_REACTIONS_EMOJI_USER&quot;</span></div>
+					<div class="tsd-signature tsd-kind-icon">Channel<wbr>Messages<wbr>Reactions<wbr>Emoji<wbr>User<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;/channels/{channel.id}/messages/{message.id}/reactions/{emoji}/{user.id}&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/5ee3b73/src/socket/endpoints.ts#L13">src/socket/endpoints.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/38c6b12/src/socket/endpoints.ts#L13">src/socket/endpoints.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
 					<a name="channelpermissionsoverwrite" class="tsd-anchor"></a>
 					<h3>Channel<wbr>Permissions<wbr>Overwrite</h3>
-					<div class="tsd-signature tsd-kind-icon">Channel<wbr>Permissions<wbr>Overwrite<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;CHANNEL_PERMISSIONS_OVERWRITE&quot;</span></div>
+					<div class="tsd-signature tsd-kind-icon">Channel<wbr>Permissions<wbr>Overwrite<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;/channels/{channel.id}/permissions/{overwrite.id}&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/5ee3b73/src/socket/endpoints.ts#L15">src/socket/endpoints.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/38c6b12/src/socket/endpoints.ts#L15">src/socket/endpoints.ts:15</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
 					<a name="channelpinsmessage" class="tsd-anchor"></a>
 					<h3>Channel<wbr>Pins<wbr>Message</h3>
-					<div class="tsd-signature tsd-kind-icon">Channel<wbr>Pins<wbr>Message<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;CHANNEL_PINS_MESSAGE&quot;</span></div>
+					<div class="tsd-signature tsd-kind-icon">Channel<wbr>Pins<wbr>Message<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;/channels/{channel.id}/pins/{message.id}&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/5ee3b73/src/socket/endpoints.ts#L18">src/socket/endpoints.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/38c6b12/src/socket/endpoints.ts#L18">src/socket/endpoints.ts:18</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
 					<a name="channeltyping" class="tsd-anchor"></a>
 					<h3>Channel<wbr>Typing</h3>
-					<div class="tsd-signature tsd-kind-icon">Channel<wbr>Typing<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;CHANNEL_TYPING&quot;</span></div>
+					<div class="tsd-signature tsd-kind-icon">Channel<wbr>Typing<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;/channels/{channel.id}/typing&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/5ee3b73/src/socket/endpoints.ts#L17">src/socket/endpoints.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/38c6b12/src/socket/endpoints.ts#L17">src/socket/endpoints.ts:17</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="invite" class="tsd-anchor"></a>
+					<h3>Invite</h3>
+					<div class="tsd-signature tsd-kind-icon">Invite<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;/invites/{invite.code}&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/38c6b12/src/socket/endpoints.ts#L19">src/socket/endpoints.ts:19</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -257,6 +268,9 @@
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
 								<a href="endpointroute.html#channeltyping" class="tsd-kind-icon">Channel<wbr>Typing</a>
 							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="endpointroute.html#invite" class="tsd-kind-icon">Invite</a>
+							</li>
 						</ul>
 					</li>
 				</ul>
@@ -281,11 +295,12 @@
 				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
 			</ul>
 		</div>
 	</div>
