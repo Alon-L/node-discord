@@ -504,13 +504,13 @@ class BotAPI {
    * @param {InviteOptions} options The new invite options
    * @returns {Promise<Invite>}
    */
-  public async createChannelInvite(channelId: Snowflake, options: InviteOptions): Promise<Invite> {
+  public async createChannelInvite(channelId: Snowflake, options?: InviteOptions): Promise<Invite> {
     // Serialize the params into the API format
     const params: Params = {
-      max_age: options.max?.age,
-      max_uses: options.max?.uses,
-      temporary: options.temporary,
-      unique: options.unique,
+      max_age: options?.max?.age,
+      max_uses: options?.max?.uses,
+      temporary: options?.temporary,
+      unique: options?.unique,
     };
 
     const inviteData = await this.requests.send(
