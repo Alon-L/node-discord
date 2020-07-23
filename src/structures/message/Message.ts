@@ -8,6 +8,7 @@ import BaseStruct, { GatewayStruct } from '../BaseStruct';
 import Timestamp from '../Timestamp';
 import User from '../User';
 import Bot from '../bot/Bot';
+import MessageReactionsController from '../controllers/MessageReactionsController';
 import MessageFlags from '../flags/MessageFlags';
 import Guild from '../guild/Guild';
 import Member from '../member/Member';
@@ -228,10 +229,9 @@ class Message extends BaseStruct {
   public embeds!: MessageEmbed[];
 
   /**
-   * {@link Cluster} of all {@link MessageReaction} added to this message.
-   * The reactions are mapped by the emoji name or emoji ID.
+   * The message's reactions controller
    */
-  public reactions: Cluster<string, MessageReaction>;
+  public reactions: MessageReactionsController;
 
   /**
    * Used for validating a message was sent
@@ -283,7 +283,7 @@ class Message extends BaseStruct {
 
     this.channel = channel;
 
-    this.reactions = new Cluster<Snowflake, MessageReaction>();
+    this.reactions = new MessageReactionsController(this);
 
     this.deleted = false;
 
@@ -329,11 +329,8 @@ class Message extends BaseStruct {
     this.embeds = message.embeds.map((embed: GatewayStruct) => new MessageEmbed(this, embed));
 
     if (message.reactions) {
-      this.reactions.merge(
-        message.reactions.map((reaction: GatewayStruct) => [
-          reaction.emoji.id,
-          new MessageReaction(this, reaction),
-        ]),
+      this.reactions.addMany(
+        message.reactions.map((reaction: GatewayStruct) => new MessageReaction(this, reaction)),
       );
     }
 
