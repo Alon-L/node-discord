@@ -8,7 +8,7 @@ import { BaseStructWithId } from '../BaseStruct';
  */
 abstract class BaseFetchController<T extends BaseStructWithId> extends BaseController<T> {
   /**
-   * Fetch a new item to insert into the cache Cluster
+   * Fetches a new item and caches it
    * @param {Snowflake} id The ID of the item you wish to fetch
    * @returns {Promise<T>}
    */
