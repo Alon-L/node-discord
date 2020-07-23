@@ -1,14 +1,17 @@
 import { GatewayStruct } from './BaseStruct';
 import Emoji, { EmojiResolvable } from './Emoji';
 import Invite, { InviteOptions } from './Invite';
+import User from './User';
 import Bot from './bot/Bot';
 import Channel from './channels/Channel';
 import DMChannel from './channels/DMChannel';
 import GuildChannel, { GuildChannelOptions } from './channels/GuildChannel';
 import GuildTextChannel from './channels/GuildTextChannel';
+import { FetchReactionsOptions } from './controllers/MessageReactionsController';
 import { Permissible, PermissionOverwriteFlags } from './flags/PermissionFlags';
 import Message, { MessageData, MessageEditData, MessageOptions } from './message/Message';
 import MessageEmbed from './message/MessageEmbed';
+import Cluster from '../Cluster';
 import { EndpointRoute, HttpMethod } from '../socket/endpoints';
 import Requests, { Params } from '../socket/rateLimit/Requests';
 import { Snowflake } from '../types/types';
@@ -292,6 +295,34 @@ class BotAPI {
       },
       HttpMethod.Delete,
     );
+  }
+
+  /**
+   * Fetches a list of users that reacted with a particular emoji on a message
+   * @param {Snowflake} channelId The ID of the channel that contains the message
+   * @param {Snowflake} messageId The ID of the message
+   * @param {string} emoji The emoji the users reacted with
+   * @param {FetchReactionsOptions} options A set of options for this operation
+   * @returns {Promise<Cluster<Snowflake, User>>}
+   */
+  public async fetchReactionUsers(
+    channelId: Snowflake,
+    messageId: Snowflake,
+    emoji: string,
+    options?: FetchReactionsOptions,
+  ): Promise<Cluster<Snowflake, User>> {
+    const users = (await this.requests.send(
+      EndpointRoute.ChannelMessagesReactionsEmoji,
+      {
+        channelId,
+        messageId,
+        emoji,
+      },
+      HttpMethod.Get,
+      options as Params,
+    )) as GatewayStruct[];
+
+    return new Cluster<Snowflake, User>(users.map(user => [user.id, new User(this.bot, user)]));
   }
 
   /**
