@@ -1,8 +1,14 @@
-import BaseController from './BaseController';
+import BaseDeleteController from './BaseDeleteController';
+import BaseFetchController from './BaseFetchController';
 import { Snowflake } from '../../types/types';
 import Channel from '../channels/Channel';
 
-class BotChannelsController extends BaseController<Channel> {
+/**
+ * Provides an interface for the bot's channels cache.
+ * The channels are mapped by their IDs
+ */
+class BotChannelsController extends BaseFetchController<Channel>
+  implements BaseDeleteController<Channel> {
   /**
    * Deletes a channel
    * @param {Snowflake} id The ID of the channel you wish to delete
