@@ -38,10 +38,10 @@ bot.connection.connect();
     );
 
     // React with the white check mark emoji
-    await message.addReaction('✅');
+    await message.react('✅');
 
     // React with a custom emoji
-    await message.addReaction(message.guild!.emojis.first!.id!);
+    await message.react(message.guild!.emojis.first!.id!);
 
     // Remove the white check mark emoji reaction
     await message.removeReaction('✅');
@@ -49,10 +49,10 @@ bot.connection.connect();
     // Remove the custom emoji reaction from the message
     await message.reactions
       .get(Emoji.resolve(bot.emojis, message.guild!.emojis.first!.id!)!)
-      ?.remove();
+      ?.delete();
 
     // Remove all reactions from the message
-    await message.removeReactions();
+    await message.reactions.deleteAll();
 
     console.log(message.reactions.size, 'message.reactions.size', 'expected: 0'); // expected: 0
 
