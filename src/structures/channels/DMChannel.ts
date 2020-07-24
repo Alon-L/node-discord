@@ -6,6 +6,7 @@ import Timestamp from '../Timestamp';
 import User from '../User';
 import Bot from '../bot/Bot';
 import ChannelMessagesController from '../controllers/ChannelMessagesController';
+import ChannelPinsController from '../controllers/ChannelPinsController';
 import Message, { MessageData, MessageOptions } from '../message/Message';
 import MessageEmbed from '../message/MessageEmbed';
 
@@ -17,10 +18,10 @@ class DMChannel extends Channel implements TextChannel {
   public lastMessageId: Snowflake | null | undefined;
 
   /** @inheritDoc */
-  public lastPinTimestamp: Timestamp | undefined;
+  public messages: ChannelMessagesController;
 
   /** @inheritDoc */
-  public messages: ChannelMessagesController;
+  public pins: ChannelPinsController;
 
   /**
    * The recipient of the DM
@@ -31,6 +32,7 @@ class DMChannel extends Channel implements TextChannel {
     super(bot, dmChannel);
 
     this.messages = new ChannelMessagesController(this);
+    this.pins = new ChannelPinsController(this);
   }
 
   /**
@@ -43,9 +45,9 @@ class DMChannel extends Channel implements TextChannel {
 
     this.lastMessageId = dmChannel.last_message_id;
 
-    this.recipient = new User(this.bot, dmChannel.recipients[0]);
+    this.pins.lastPinTimestamp = new Timestamp(dmChannel.last_pin_timestamp);
 
-    this.lastPinTimestamp = new Timestamp(dmChannel.last_pin_timestamp);
+    this.recipient = new User(this.bot, dmChannel.recipients[0]);
 
     return this;
   }
@@ -61,16 +63,6 @@ class DMChannel extends Channel implements TextChannel {
   /** @inheritDoc */
   public triggerTyping(): Promise<void> {
     return this.bot.api.triggerTextChannelTyping(this.id);
-  }
-
-  /** @inheritDoc */
-  public pinMessage(messageId: Snowflake): Promise<void> {
-    return this.bot.api.pinMessage(this.id, messageId);
-  }
-
-  /** @inheritDoc */
-  public unpinMessage(messageId: Snowflake): Promise<void> {
-    return this.bot.api.unpinMessage(this.id, messageId);
   }
 }
 

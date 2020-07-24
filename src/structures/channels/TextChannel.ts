@@ -1,6 +1,6 @@
 import { Snowflake } from '../../types/types';
-import Timestamp from '../Timestamp';
 import ChannelMessagesController from '../controllers/ChannelMessagesController';
+import ChannelPinsController from '../controllers/ChannelPinsController';
 import Message, { MessageData, MessageOptions } from '../message/Message';
 import MessageEmbed from '../message/MessageEmbed';
 
@@ -15,14 +15,14 @@ interface TextChannel {
   lastMessageId: Snowflake | null | undefined;
 
   /**
-   * Timestamp of when the last pinned message was pinned
-   */
-  lastPinTimestamp: Timestamp | undefined;
-
-  /**
    * The text channel's messages controller
    */
   messages: ChannelMessagesController;
+
+  /**
+   * The text channel's pinned messages controller
+   */
+  pins: ChannelPinsController;
 
   // TODO: Add example to "3. A {@link MessageEmbed} instance"
   /**
@@ -53,22 +53,6 @@ interface TextChannel {
    * @returns {Promise<void>}
    */
   triggerTyping(): Promise<void>;
-
-  /**
-   * Pins a message in a text channel.
-   * Requires the {@link Permission.ManageMessages} permission
-   * @param {Snowflake} messageId The ID of the message you wish to pin
-   * @returns {Promise<void>}
-   */
-  pinMessage(messageId: Snowflake): Promise<void>;
-
-  /**
-   * Unpins a message in a text channel.
-   * Requires the {@link Permission.ManageMessages} permission
-   * @param {Snowflake} messageId The ID of the message you wish to unpin
-   * @returns {Promise<void>}
-   */
-  unpinMessage(messageId: Snowflake): Promise<void>;
 }
 
 export default TextChannel;

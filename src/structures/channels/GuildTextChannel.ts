@@ -5,6 +5,7 @@ import { GatewayStruct } from '../BaseStruct';
 import Timestamp from '../Timestamp';
 import Bot from '../bot/Bot';
 import ChannelMessagesController from '../controllers/ChannelMessagesController';
+import ChannelPinsController from '../controllers/ChannelPinsController';
 import Guild from '../guild/Guild';
 import Message, { MessageOptions, MessageData } from '../message/Message';
 import MessageEmbed from '../message/MessageEmbed';
@@ -23,16 +24,17 @@ class GuildTextChannel extends GuildChannel implements TextChannel {
   public slowModeTimeout!: number;
 
   /** @inheritDoc */
-  public lastPinTimestamp: Timestamp | undefined;
+  public messages: ChannelMessagesController;
 
   /** @inheritDoc */
-  public messages: ChannelMessagesController;
+  public pins: ChannelPinsController;
 
   // Guild parameter used when creating the channel from the Guild constructor
   constructor(bot: Bot, textChannel: GatewayStruct, guild: Guild) {
     super(bot, textChannel, guild);
 
     this.messages = new ChannelMessagesController(this);
+    this.pins = new ChannelPinsController(this);
   }
 
   /**
@@ -46,7 +48,8 @@ class GuildTextChannel extends GuildChannel implements TextChannel {
     this.nsfw = textChannel.nsfw;
     this.lastMessageId = textChannel.last_message_id;
     this.slowModeTimeout = textChannel.rate_limit_per_user;
-    this.lastPinTimestamp = new Timestamp(textChannel.last_pin_timestamp);
+
+    this.pins.lastPinTimestamp = new Timestamp(textChannel.last_pin_timestamp);
 
     return this;
   }
@@ -72,16 +75,6 @@ class GuildTextChannel extends GuildChannel implements TextChannel {
   /** @inheritDoc */
   public triggerTyping(): Promise<void> {
     return this.bot.api.triggerTextChannelTyping(this.id);
-  }
-
-  /** @inheritDoc */
-  public pinMessage(messageId: Snowflake): Promise<void> {
-    return this.bot.api.pinMessage(this.id, messageId);
-  }
-
-  /** @inheritDoc */
-  public unpinMessage(messageId: Snowflake): Promise<void> {
-    return this.bot.api.unpinMessage(this.id, messageId);
   }
 }
 
