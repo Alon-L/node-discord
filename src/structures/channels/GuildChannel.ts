@@ -1,15 +1,11 @@
 import Channel, { ChannelType } from './Channel';
 import GuildCategoryChannel from './GuildCategoryChannel';
-import Cluster from '../../Cluster';
 import { Snowflake } from '../../types/types';
 import { GatewayStruct } from '../BaseStruct';
+import PermissionOverwrite from '../PermissionOverwrite';
 import Bot from '../bot/Bot';
+import ChannelPermissionsController from '../controllers/ChannelPermissionsController';
 import GuildChannelInvitesController from '../controllers/GuildChannelInvitesController';
-import PermissionFlags, {
-  PermissionOverwriteFlags,
-  Permissible,
-  PermissionOverwrite,
-} from '../flags/PermissionFlags';
 import Guild from '../guild/Guild';
 
 /**
@@ -67,8 +63,10 @@ class GuildChannel extends Channel {
    */
   public position!: number;
 
-  // TODO: Permission overwrites field
-  public permissions!: Cluster<Snowflake, PermissionOverwrite>;
+  /**
+   * This guild channel's permission overwrites controller
+   */
+  public permissions!: ChannelPermissionsController;
 
   /**
    * The name of the channel
@@ -109,17 +107,15 @@ class GuildChannel extends Channel {
 
     this.position = guildChannel.position;
 
-    // Serialize the received permission overwrites
-    this.permissions = new Cluster<Snowflake, PermissionOverwrite>(
-      guildChannel.permission_overwrites?.map(({ id, type, allow, deny }: GatewayStruct) => [
-        id,
-        {
-          type,
-          allow: new PermissionFlags(allow),
-          deny: new PermissionFlags(deny),
-        },
-      ]),
-    );
+    this.permissions = new ChannelPermissionsController(this);
+
+    if (guildChannel.permission_overwrites) {
+      this.permissions.cache.addMany(
+        guildChannel.permission_overwrites.map(
+          (permission: GatewayStruct) => new PermissionOverwrite(this.bot, permission, this),
+        ),
+      );
+    }
 
     this.name = guildChannel.name;
     this.topic = guildChannel.topic;
@@ -136,7 +132,7 @@ class GuildChannel extends Channel {
   public get parent(): GuildCategoryChannel | null {
     if (!this.parentId) return null;
 
-    const parent = this.guild.channels.get(this.parentId);
+    const parent = this.guild.channels.cache.get(this.parentId);
 
     return parent instanceof GuildCategoryChannel ? parent : null;
   }
@@ -148,30 +144,6 @@ class GuildChannel extends Channel {
    */
   public modify(options: GuildChannelOptions): Promise<GuildChannel> {
     return this.bot.api.modifyGuildChannel(this.id, options);
-  }
-
-  /**
-   * Modifies the channel permission overwrites for a member or a role.
-   * Requires the {@link Permission.ManageRoles} permission
-   * @param {Permissible} permissible Data for the member or role
-   * @param {PermissionOverwriteFlags} permissions The permissions you wish to modify
-   * @returns {Promise<void>}
-   */
-  public modifyPermissions(
-    permissible: Permissible,
-    permissions: PermissionOverwriteFlags,
-  ): Promise<void> {
-    return this.bot.api.modifyGuildChannelPermissions(this.id, permissible, permissions);
-  }
-
-  /**
-   * Deletes a channel permission overwrite for a user or role in a guild channel.
-   * Requires the {@link Permission.ManageRoles} permission
-   * @param {Snowflake} permissible The ID of the user or role you wish to delete from the channel's permission overwrites
-   * @returns {Promise<void>}
-   */
-  public deletePermission(permissible: Snowflake): Promise<void> {
-    return this.bot.api.deleteGuildChannelPermission(this.id, permissible);
   }
 }
 
