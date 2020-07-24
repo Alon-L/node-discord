@@ -43,8 +43,8 @@ class ChannelPinsController extends BaseFetchAllController<Message> {
    * @param {Snowflake} id The ID of the message
    * @returns {Promise<void>}
    */
-  public async pin(messageId: Snowflake): Promise<void> {
-    await this.bot.api.pinMessage(this.channel.id, messageId);
+  public async pin(id: Snowflake): Promise<void> {
+    await this.bot.api.pinMessage(this.channel.id, id);
 
     // Cache the pinned message
     const message = await this.channel.messages.get(id);
