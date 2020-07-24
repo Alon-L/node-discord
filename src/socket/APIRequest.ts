@@ -24,11 +24,11 @@ class APIRequest {
     if (params) {
       // Clear all nullish params
       this.params = Object.entries(params)
-        .filter(([, value]) => value === undefined || value === null)
+        .filter(([, value]) => value !== undefined && value !== null)
         .reduce(
-          (params, param) => ({
+          (params, [key, value]) => ({
             ...params,
-            param,
+            [key]: value,
           }),
           {},
         );
