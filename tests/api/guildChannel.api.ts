@@ -11,7 +11,9 @@ bot.connection.connect();
 (async function (): Promise<void> {
   await bot.events.wait(BotEvent.Ready);
 
-  const guildChannel = bot.guilds.get('702476896008405002')?.channels.get('721781755060813914');
+  const guildChannel = bot.guilds
+    .get('702476896008405002')
+    ?.channels.cache.get('721781755060813914');
   if (!guildChannel) return;
 
   // Modify the name and topic of the guild channel
@@ -23,7 +25,7 @@ bot.connection.connect();
     .catch(() => console.log('Rate limit reached for channel modification'));
 
   // Modify the permissions of the guild channel
-  guildChannel.modifyPermissions(
+  guildChannel.permissions.modify(
     {
       id: bot.user!.id,
       type: PermissibleType.Member,
@@ -37,13 +39,13 @@ bot.connection.connect();
   await bot.events.wait(BotEvent.ChannelUpdate);
 
   console.log(
-    guildChannel.permissions.get(bot.user!.id)?.allow.has(Permission.AttachFiles),
+    guildChannel.permissions.cache.get(bot.user!.id)?.flags.allow.has(Permission.AttachFiles),
     'whether the bot use has the AttachFiles permission',
     'expected: false',
   ); // expected: false
 
   // Create a new invite in the guild channel
-  const invite = await guildChannel.createInvite({
+  const invite = await guildChannel.invites.create({
     max: {
       age: 15,
       uses: 3,
@@ -54,12 +56,12 @@ bot.connection.connect();
   console.log(invite.code, 'newly generated invite code');
 
   // Delete the overwritten permissions of the bot's user
-  guildChannel.deletePermission(bot.user!.id);
+  guildChannel.permissions.delete(bot.user!.id);
 
   await bot.events.wait(BotEvent.ChannelUpdate);
 
   console.log(
-    guildChannel.permissions.has(bot.user!.id),
+    guildChannel.permissions.cache.has(bot.user!.id),
     'whether a permission overwrite for the bot user exists',
     'expected: false',
   ); // expected: false
