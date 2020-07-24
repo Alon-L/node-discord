@@ -98,7 +98,7 @@ bot.connection.connect();
       });
 
       // Pin the message
-      channel.pinMessage(message.id);
+      channel.pins.pin(message.id);
 
       await bot.events.wait(BotEvent.MessageUpdate);
 
