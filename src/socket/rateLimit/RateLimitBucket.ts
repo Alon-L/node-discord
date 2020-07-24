@@ -143,10 +143,13 @@ class RateLimitBucket {
     }
 
     if (!ValidCodes.includes(response.status)) {
+      // Debug the json response
+      this.bot.debug(json);
+
       if (Array.isArray(json)) {
         throw new TypeError(`${response.url} - an error has occurred with an array response type`);
       } else {
-        throw new Error(`${response.url} - ${json.message?.toString()}`);
+        throw new Error(`${response.url} (${response.status} code) - ${json.message?.toString()}`);
       }
     }
   }
