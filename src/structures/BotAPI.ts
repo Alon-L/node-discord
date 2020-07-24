@@ -232,8 +232,7 @@ class BotAPI {
       throw new TypeError('The channel is not a valid text channel');
     }
 
-    const message = new Message(this.bot, messageData!, channel);
-    return channel.messages.add(message);
+    return new Message(this.bot, messageData!, channel);
   }
 
   /**
