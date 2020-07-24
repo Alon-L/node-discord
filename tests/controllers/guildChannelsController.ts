@@ -19,7 +19,7 @@ bot.connection.connect();
 
   console.log(channel.id);
   console.log((await guild.channels.fetch(channel.id)).id);
-  console.log((await guild.channels.getOrFetch(channel.id)).id);
+  console.log((await guild.channels.get(channel.id)).id);
 
   // eslint-disable-next-line no-constant-condition
   while (1) {
