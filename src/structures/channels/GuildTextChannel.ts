@@ -27,14 +27,13 @@ class GuildTextChannel extends GuildChannel implements TextChannel {
   public messages: ChannelMessagesController;
 
   /** @inheritDoc */
-  public pins: ChannelPinsController;
+  public pins!: ChannelPinsController;
 
   // Guild parameter used when creating the channel from the Guild constructor
   constructor(bot: Bot, textChannel: GatewayStruct, guild: Guild) {
     super(bot, textChannel, guild);
 
     this.messages = new ChannelMessagesController(this);
-    this.pins = new ChannelPinsController(this);
   }
 
   /**
@@ -44,6 +43,8 @@ class GuildTextChannel extends GuildChannel implements TextChannel {
    */
   public init(textChannel: GatewayStruct): this {
     super.init(textChannel);
+
+    this.pins = new ChannelPinsController(this);
 
     this.nsfw = textChannel.nsfw;
     this.lastMessageId = textChannel.last_message_id;
