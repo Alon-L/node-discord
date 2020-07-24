@@ -171,7 +171,7 @@ class BotAPI {
       HttpMethod.Get,
     );
 
-    const channel = await this.bot.channels.getOrFetch(channelId);
+    const channel = await this.bot.channels.get(channelId);
 
     if (!(channel instanceof DMChannel || channel instanceof GuildTextChannel)) {
       throw new TypeError('The channel is not a valid text channel');
@@ -226,7 +226,7 @@ class BotAPI {
       params,
     );
 
-    const channel = await this.bot.channels.getOrFetch(channelId);
+    const channel = await this.bot.channels.get(channelId);
 
     if (!(channel instanceof DMChannel || channel instanceof GuildTextChannel)) {
       throw new TypeError('The channel is not a valid text channel');
@@ -413,7 +413,7 @@ class BotAPI {
       params,
     );
 
-    const channel = await this.bot.channels.getOrFetch(channelId);
+    const channel = await this.bot.channels.get(channelId);
 
     if (!(channel instanceof GuildTextChannel)) {
       throw new TypeError('The channel is not a valid text channel');
