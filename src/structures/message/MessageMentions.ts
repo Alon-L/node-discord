@@ -116,7 +116,7 @@ class MessageMentions extends BaseStruct {
 
       let matches;
       while ((matches = mentionsRegexp.channels.exec(this.message.content))) {
-        const channel = this.message.guild.channels.get(matches[1]);
+        const channel = this.message.guild.channels.cache.get(matches[1]);
         if (channel) {
           this._channels.set(channel.id, channel);
         }

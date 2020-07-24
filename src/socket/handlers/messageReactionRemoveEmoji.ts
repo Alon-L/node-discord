@@ -11,7 +11,7 @@ export default async ({ d }: Payload, bot: Bot): Promise<void> => {
 
   const { identifier } = emoji;
 
-  const reaction = message.reactions.get(identifier);
+  const reaction = message.reactions.cache.get(identifier);
 
   message.reactions.cache.delete(identifier);
 

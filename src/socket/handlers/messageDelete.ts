@@ -14,7 +14,7 @@ export default ({ d }: Payload, bot: Bot): void => {
 
   const guild = channel instanceof GuildTextChannel ? channel.guild : undefined;
 
-  const message: Message | PartialMessage = channel.messages.get(id) || {
+  const message: Message | PartialMessage = channel.messages.cache.get(id) || {
     id,
     guild,
     channel,

@@ -40,28 +40,28 @@ class ChannelPinsController extends BaseFetchAllController<Message> {
   /**
    * Pins a message in a text channel.
    * Requires the {@link Permission.ManageMessages} permission
-   * @param {Snowflake} messageId The ID of the message
+   * @param {Snowflake} id The ID of the message
    * @returns {Promise<void>}
    */
   public async pin(messageId: Snowflake): Promise<void> {
     await this.bot.api.pinMessage(this.channel.id, messageId);
 
     // Cache the pinned message
-    const message = await this.channel.messages.getOrFetch(messageId);
-    this.add(message);
+    const message = await this.channel.messages.get(id);
+    this.cache.add(message);
   }
 
   /**
    * Unpins a message in a text channel.
    * Requires the {@link Permission.ManageMessages} permission
-   * @param {Snowflake} messageId The ID of the message
+   * @param {Snowflake} id The ID of the message
    * @returns {Promise<void>}
    */
-  public async unpin(messageId: Snowflake): Promise<void> {
-    await this.bot.api.unpinMessage(this.channel.id, messageId);
+  public async unpin(id: Snowflake): Promise<void> {
+    await this.bot.api.unpinMessage(this.channel.id, id);
 
     // Remove the unpinned message from the cache
-    this.cache.delete(messageId);
+    this.cache.delete(id);
   }
 }
 

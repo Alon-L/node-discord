@@ -9,7 +9,7 @@ export default ({ d }: Payload, bot: Bot): void => {
 
   if (!guild) return;
 
-  const channel = guild.channels.get(channelId);
+  const channel = guild.channels.cache.get(channelId);
 
   if (!channel) return;
 

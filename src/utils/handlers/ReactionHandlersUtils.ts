@@ -24,13 +24,13 @@ class ReactionHandlersUtils extends HandlersUtils {
   public async getMessage(): Promise<Message> {
     const { channel_id: channelId, message_id: messageId } = this.data;
 
-    const channel = await this.bot.channels.getOrFetch(channelId);
+    const channel = await this.bot.channels.get(channelId);
 
     if (!(channel instanceof DMChannel || channel instanceof GuildTextChannel)) {
       throw new TypeError('The channel is not a valid text channel');
     }
 
-    return channel.messages.getOrFetch(messageId);
+    return channel.messages.get(messageId);
   }
 }
 

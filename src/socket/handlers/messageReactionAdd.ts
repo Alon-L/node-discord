@@ -17,7 +17,7 @@ export default async ({ d }: Payload, bot: Bot): Promise<void> => {
   const { identifier } = emoji;
 
   // Set the reaction object for this Emoji if one hasn't been set before
-  const reaction = message.reactions.getOrSet(
+  const reaction = message.reactions.cache.getOrSet(
     identifier,
     new MessageReaction(message, {
       emoji,
@@ -37,7 +37,7 @@ export default async ({ d }: Payload, bot: Bot): Promise<void> => {
 
   // Add the user to the Cluster of users who reacted with this reaction
   if (user) {
-    reaction.users.add(user);
+    reaction.users.cache.add(user);
   }
 
   // Add the member to the Cluster of members who reacted with this reaction

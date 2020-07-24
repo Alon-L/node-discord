@@ -19,7 +19,7 @@ abstract class BaseFetchController<T extends BaseStructWithId> extends BaseContr
    * @param {string} id The ID of the item you wish to get or fetch
    * @returns {Promise<T>}
    */
-  public async getOrFetch(id: Snowflake | string): Promise<T> {
+  public async get(id: Snowflake | string): Promise<T> {
     return this.cache.get(id) || this.fetch(id);
   }
 }

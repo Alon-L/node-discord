@@ -49,7 +49,7 @@ class GuildInvitesController extends BaseFetchController<Invite>
   public async fetch(code: string, options?: FetchInviteOptions): Promise<Invite> {
     const invite = await this.bot.api.fetchInvite(code, options);
 
-    this.add(invite);
+    this.cache.add(invite);
 
     return invite;
   }

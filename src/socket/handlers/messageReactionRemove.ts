@@ -14,11 +14,11 @@ export default async ({ d }: Payload, bot: Bot): Promise<void> => {
   const { identifier } = emoji;
 
   // Validates that the reaction is cached
-  if (!message.reactions.has(identifier)) return;
+  if (!message.reactions.cache.has(identifier)) return;
 
-  const reaction = message.reactions.get(identifier)!;
+  const reaction = message.reactions.cache.get(identifier)!;
 
-  const user = reaction.users.get(userId);
+  const user = reaction.users.cache.get(userId);
   const member = reaction.members.get(userId);
 
   // Change the reaction's botReacted state

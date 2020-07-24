@@ -10,7 +10,7 @@ export default ({ d }: Payload, bot: Bot): void => {
 
   if (!channel) return;
 
-  const message = channel.messages.get(id);
+  const message = channel.messages.cache.get(id);
 
   if (!message) return;
 

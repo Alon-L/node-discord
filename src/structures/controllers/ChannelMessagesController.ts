@@ -37,7 +37,7 @@ class ChannelMessagesController extends BaseFetchController<Message>
   public async fetch(id: Snowflake): Promise<Message> {
     const message = await this.bot.api.fetchMessage(this.channel.id, id);
 
-    this.add(message);
+    this.cache.add(message);
 
     return message;
   }

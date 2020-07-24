@@ -8,7 +8,7 @@ export default async ({ d }: Payload, bot: Bot): Promise<void> => {
 
   const message = await handlersUtils.getMessage();
 
-  message.reactions.clear();
+  message.reactions.cache.clear();
 
   bot.events.emit(BotEvent.MessageReactionRemoveAll, message);
 };

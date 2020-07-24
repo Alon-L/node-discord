@@ -38,8 +38,8 @@ class GuildChannelsController extends BaseFetchController<GuildChannel>
   public async fetch(id: Snowflake): Promise<GuildChannel> {
     const channel = await this.bot.api.fetchGuildChannel(id);
 
-    this.add(channel);
-    this.bot.channels.add(channel);
+    this.cache.add(channel);
+    this.bot.channels.cache.add(channel);
 
     return channel;
   }

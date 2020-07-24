@@ -355,7 +355,7 @@ class Guild extends BaseStruct {
   public init(guild: GatewayStruct): this {
     this.id = guild.id;
 
-    this.channels.addMany(
+    this.channels.cache.addMany(
       guild.channels?.map((channel: GatewayStruct) => ChannelUtils.create(this.bot, channel, this)),
     );
 
@@ -392,7 +392,7 @@ class Guild extends BaseStruct {
     this.region = guild.region;
 
     this.afk = {
-      channel: guild.afk_channel_id && this.channels.get(guild.afk_channel_id),
+      channel: guild.afk_channel_id && this.channels.cache.get(guild.afk_channel_id),
       timeout: guild.afk_timeout,
     };
 
@@ -415,15 +415,15 @@ class Guild extends BaseStruct {
 
     this.widget = {
       enabled: guild.widget_enabled,
-      channel: this.channels.get(guild.widget_channel_id),
+      channel: this.channels.cache.get(guild.widget_channel_id),
     };
 
     this.systemChannel = {
-      channel: this.channels.get(guild.system_channel_id) as GuildTextChannel,
+      channel: this.channels.cache.get(guild.system_channel_id) as GuildTextChannel,
       flags: new GuildSystemChannelFlags(guild.system_channel_flags),
     };
 
-    this.rulesChannel = this.channels.get(guild.rules_channel_id) as GuildTextChannel;
+    this.rulesChannel = this.channels.cache.get(guild.rules_channel_id) as GuildTextChannel;
 
     this.createdAt = guild.joined_at;
     this.large = guild.large;
@@ -442,7 +442,9 @@ class Guild extends BaseStruct {
 
     this.locale = guild.locale;
 
-    this.updatesChannel = this.channels.get(guild.public_updates_channel_id) as GuildTextChannel;
+    this.updatesChannel = this.channels.cache.get(
+      guild.public_updates_channel_id,
+    ) as GuildTextChannel;
 
     return this;
   }

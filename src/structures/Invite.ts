@@ -118,7 +118,7 @@ class Invite extends BaseStruct {
 
     if (invite.guild_id) {
       this.guild = this.bot.guilds.get(invite.guild_id);
-      this.channel = this.guild?.channels.get(invite.channel_id);
+      this.channel = this.guild?.channels.cache.get(invite.channel_id);
     }
 
     if (invite.inviter) {

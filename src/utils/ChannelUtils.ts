@@ -97,7 +97,7 @@ class ChannelUtils {
     const guild = guildId ? bot.guilds.get(guildId) : undefined;
     if (!guild) return ChannelUtils.findDM(bot, channelId);
 
-    return guild.channels.get(channelId);
+    return guild.channels.cache.get(channelId);
   }
 
   /**
@@ -126,7 +126,7 @@ class ChannelUtils {
    * @returns {DMChannel | undefined}
    */
   public static findDM(bot: Bot, channelId: string): DMChannel | undefined {
-    const channel = bot.channels.get(channelId);
+    const channel = bot.channels.cache.get(channelId);
 
     return channel instanceof DMChannel ? channel : undefined;
   }
@@ -139,14 +139,14 @@ class ChannelUtils {
    */
   public static cache(bot: Bot, channel: Channel, force = false): void {
     if (channel instanceof GuildChannel) {
-      channel.guild.channels.add(channel);
+      channel.guild.channels.cache.add(channel);
     }
 
     if (
       channel instanceof GuildChannel ||
-      (channel instanceof DMChannel && (force || !bot.channels.has(channel.id)))
+      (channel instanceof DMChannel && (force || !bot.channels.cache.has(channel.id)))
     ) {
-      bot.channels.add(channel);
+      bot.channels.cache.add(channel);
     }
   }
 

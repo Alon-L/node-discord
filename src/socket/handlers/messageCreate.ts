@@ -14,7 +14,7 @@ export default ({ d }: Payload, bot: Bot): void => {
   const message = new Message(bot, d, channel);
 
   // Add the message to the cache
-  channel.messages.add(message);
+  channel.messages.cache.add(message);
 
   // Set the last message ID of the channel to that message
   channel.lastMessageId = message.id;

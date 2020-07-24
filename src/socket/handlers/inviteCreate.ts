@@ -7,10 +7,10 @@ export default ({ d }: Payload, bot: Bot): void => {
   const invite = new Invite(bot, d);
 
   // Add the invite to the guild's invites cache
-  invite.guild?.invites.add(invite);
+  invite.guild?.invites.cache.add(invite);
 
   // Add the invite to the guild channel's invites cache
-  invite.channel?.invites.add(invite);
+  invite.channel?.invites.cache.add(invite);
 
   bot.events.emit(BotEvent.InviteCreate, invite);
 };

@@ -9,9 +9,9 @@ export default async ({ d }: Payload, bot: Bot): Promise<void> => {
 
   const guild = bot.guilds.get(guildId);
 
-  const channel = await bot.channels.getOrFetch(channelId);
+  const channel = await bot.channels.get(channelId);
 
-  const invite: Invite | PartialInvite = guild?.invites.get(code) || {
+  const invite: Invite | PartialInvite = guild?.invites.cache.get(code) || {
     channelId: channelId,
     guild,
     code,
