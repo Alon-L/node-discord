@@ -1,6 +1,7 @@
 import { GatewayStruct } from './BaseStruct';
 import Emoji, { EmojiResolvable } from './Emoji';
 import Invite, { InviteOptions } from './Invite';
+import PermissionOverwrite from './PermissionOverwrite';
 import User from './User';
 import Bot from './bot/Bot';
 import Channel from './channels/Channel';
@@ -459,24 +460,34 @@ class BotAPI {
    * Requires the {@link Permission.ManageRoles} permission
    * @param {Snowflake} channelId The ID of the channel for which to overwrite the permissions
    * @param {Permissible} permissible Data for the member or role
-   * @param {PermissionOverwriteFlags} permissions The permissions you wish to modify
+   * @param {PermissionOverwriteFlags} flags The permissions you wish to modify
    * @returns {Promise<void>}
    */
   public async modifyGuildChannelPermissions(
     channelId: Snowflake,
     permissible: Permissible,
-    permissions: PermissionOverwriteFlags,
-  ): Promise<void> {
+    flags: PermissionOverwriteFlags,
+  ): Promise<PermissionOverwrite> {
+    const params: Params = {
+      type: permissible.type,
+      allow: flags.allow?.bits,
+      deny: flags.deny?.bits,
+    };
+
     await this.requests.send(
       EndpointRoute.ChannelPermissionsOverwrite,
       { channelId, overwriteId: permissible.id },
       HttpMethod.Put,
-      {
-        type: permissible.type,
-        allow: permissions.allow?.bits,
-        deny: permissions.deny?.bits,
-      },
+      params,
     );
+
+    const channel = await this.bot.channels.get(channelId);
+
+    if (!(channel instanceof GuildChannel)) {
+      throw new TypeError('The channel is not a guild channel');
+    }
+
+    return new PermissionOverwrite(this.bot, { ...params, id: permissible.id }, channel);
   }
 
   /**
