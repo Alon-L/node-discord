@@ -27,7 +27,7 @@ export interface Permissible {
   id: Snowflake;
 
   /**
-   * Whether this is a 'user' or a 'role'
+   * Whether this is a 'member' or a 'role'
    */
   type: PermissibleType;
 }
@@ -47,12 +47,6 @@ export interface PermissionOverwriteFlags {
    */
   deny?: PermissionFlags;
 }
-
-/**
- * A full permission overwrite entry.
- * Contains full data about a guild channel's permission overwrite
- */
-export type PermissionOverwrite = Pick<Permissible, 'type'> & Required<PermissionOverwriteFlags>;
 
 class PermissionFlags extends Flags<Permission> {}
 
