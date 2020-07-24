@@ -11,9 +11,9 @@ export default ({ d }: Payload, bot: Bot): void => {
 
   if (!channel) return;
 
-  const oldPinTimestamp = channel.lastPinTimestamp;
+  const oldPinTimestamp = channel.pins.lastPinTimestamp;
 
-  channel.lastPinTimestamp = new Timestamp(lastPinTimestamp);
+  channel.pins.lastPinTimestamp = new Timestamp(lastPinTimestamp);
 
   bot.events.emit(BotEvent.ChannelPinsUpdate, channel, oldPinTimestamp);
 };
