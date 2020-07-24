@@ -4,7 +4,7 @@ import { BaseStructWithId, StructWithId } from '../BaseStruct';
 
 /**
  * Cache holder for controllers.
- * @template T - the cache item type
+ * @template T
  */
 class ControllerCache<T extends BaseStructWithId> extends Cluster<Snowflake | string, T> {
   /**
