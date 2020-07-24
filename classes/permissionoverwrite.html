@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>MessageAttachment | node-discord</title>
+	<title>PermissionOverwrite | node-discord</title>
 	<meta name="description" content="Documentation for node-discord">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="messageattachment.html">MessageAttachment</a>
+					<a href="permissionoverwrite.html">PermissionOverwrite</a>
 				</li>
 			</ul>
-			<h1>Class MessageAttachment</h1>
+			<h1>Class PermissionOverwrite</h1>
 		</div>
 	</div>
 </header>
@@ -67,7 +67,8 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Represents an attachment added to a <a href="message.html">Message</a></p>
+						<p>A full permission overwrite entry.
+						Contains full data about a guild channel&#39;s permission overwrite for a user or a role</p>
 					</div>
 				</div>
 			</section>
@@ -78,7 +79,7 @@
 						<a href="basestruct.html" class="tsd-signature-type">BaseStruct</a>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">MessageAttachment</span>
+								<span class="target">PermissionOverwrite</span>
 							</li>
 						</ul>
 					</li>
@@ -91,27 +92,30 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="messageattachment.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="permissionoverwrite.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="messageattachment.html#bot" class="tsd-kind-icon">bot</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="messageattachment.html#dimensions" class="tsd-kind-icon">dimensions</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="messageattachment.html#filename" class="tsd-kind-icon">filename</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="messageattachment.html#id" class="tsd-kind-icon">id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="messageattachment.html#message" class="tsd-kind-icon">message</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="messageattachment.html#proxyurl" class="tsd-kind-icon">proxyURL</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="messageattachment.html#size" class="tsd-kind-icon">size</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="messageattachment.html#url" class="tsd-kind-icon">url</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="permissionoverwrite.html#bot" class="tsd-kind-icon">bot</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="permissionoverwrite.html#channel" class="tsd-kind-icon">channel</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="permissionoverwrite.html#flags" class="tsd-kind-icon">flags</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="permissionoverwrite.html#permissible" class="tsd-kind-icon">permissible</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section tsd-is-inherited">
+						<section class="tsd-index-section ">
+							<h3>Accessors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="permissionoverwrite.html#id" class="tsd-kind-icon">id</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="messageattachment.html#clone" class="tsd-kind-icon">clone</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="messageattachment.html#update" class="tsd-kind-icon">update</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="permissionoverwrite.html#clone" class="tsd-kind-icon">clone</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="permissionoverwrite.html#init" class="tsd-kind-icon">init</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="permissionoverwrite.html#update" class="tsd-kind-icon">update</a></li>
 							</ul>
 						</section>
 					</div>
@@ -123,26 +127,29 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Message<wbr>Attachment<span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><a href="message.html" class="tsd-signature-type">Message</a>, attachment<span class="tsd-signature-symbol">: </span><a href="../globals.html#gatewaystruct" class="tsd-signature-type">GatewayStruct</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="messageattachment.html" class="tsd-signature-type">MessageAttachment</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Permission<wbr>Overwrite<span class="tsd-signature-symbol">(</span>bot<span class="tsd-signature-symbol">: </span><a href="bot.html" class="tsd-signature-type">Bot</a>, permission<span class="tsd-signature-symbol">: </span><a href="../globals.html#gatewaystruct" class="tsd-signature-type">GatewayStruct</a>, channel<span class="tsd-signature-symbol">: </span><a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="permissionoverwrite.html" class="tsd-signature-type">PermissionOverwrite</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="basestruct.html">BaseStruct</a>.<a href="basestruct.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c325a3e/src/structures/message/MessageAttachment.ts#L45">src/structures/message/MessageAttachment.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c325a3e/src/structures/PermissionOverwrite.ts#L24">src/structures/PermissionOverwrite.ts:24</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>message: <a href="message.html" class="tsd-signature-type">Message</a></h5>
+									<h5>bot: <a href="bot.html" class="tsd-signature-type">Bot</a></h5>
 								</li>
 								<li>
-									<h5>attachment: <a href="../globals.html#gatewaystruct" class="tsd-signature-type">GatewayStruct</a></h5>
+									<h5>permission: <a href="../globals.html#gatewaystruct" class="tsd-signature-type">GatewayStruct</a></h5>
+								</li>
+								<li>
+									<h5>channel: <a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="messageattachment.html" class="tsd-signature-type">MessageAttachment</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="permissionoverwrite.html" class="tsd-signature-type">PermissionOverwrite</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -166,113 +173,78 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="dimensions" class="tsd-anchor"></a>
-					<h3>dimensions</h3>
-					<div class="tsd-signature tsd-kind-icon">dimensions<span class="tsd-signature-symbol">:</span> <a href="../globals.html#nullable" class="tsd-signature-type">Nullable</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/dimensions.html" class="tsd-signature-type">Dimensions</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<a name="channel" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> channel</h3>
+					<div class="tsd-signature tsd-kind-icon">channel<span class="tsd-signature-symbol">:</span> <a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c325a3e/src/structures/message/MessageAttachment.ts#L45">src/structures/message/MessageAttachment.ts:45</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c325a3e/src/structures/PermissionOverwrite.ts#L14">src/structures/PermissionOverwrite.ts:14</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The width and height of the file.
-							Possibly null if the attached file is not an image</p>
+							<p>The channel this overwrite is associated to</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="filename" class="tsd-anchor"></a>
-					<h3>filename</h3>
-					<div class="tsd-signature tsd-kind-icon">filename<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="flags" class="tsd-anchor"></a>
+					<h3>flags</h3>
+					<div class="tsd-signature tsd-kind-icon">flags<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Required</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/permissionoverwriteflags.html" class="tsd-signature-type">PermissionOverwriteFlags</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c325a3e/src/structures/message/MessageAttachment.ts#L24">src/structures/message/MessageAttachment.ts:24</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c325a3e/src/structures/PermissionOverwrite.ts#L19">src/structures/PermissionOverwrite.ts:19</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Name of the attached file</p>
+							<p>The permission flags of this permission overwrite</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="id" class="tsd-anchor"></a>
-					<h3>id</h3>
-					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></div>
+					<a name="permissible" class="tsd-anchor"></a>
+					<h3>permissible</h3>
+					<div class="tsd-signature tsd-kind-icon">permissible<span class="tsd-signature-symbol">:</span> <a href="../interfaces/permissible.html" class="tsd-signature-type">Permissible</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c325a3e/src/structures/message/MessageAttachment.ts#L19">src/structures/message/MessageAttachment.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c325a3e/src/structures/PermissionOverwrite.ts#L24">src/structures/PermissionOverwrite.ts:24</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The attachment&#39;s ID</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="message" class="tsd-anchor"></a>
-					<h3>message</h3>
-					<div class="tsd-signature tsd-kind-icon">message<span class="tsd-signature-symbol">:</span> <a href="message.html" class="tsd-signature-type">Message</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c325a3e/src/structures/message/MessageAttachment.ts#L14">src/structures/message/MessageAttachment.ts:14</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The <a href="message.html">Message</a> associated to this attachment</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="proxyurl" class="tsd-anchor"></a>
-					<h3>proxyURL</h3>
-					<div class="tsd-signature tsd-kind-icon">proxyURL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c325a3e/src/structures/message/MessageAttachment.ts#L39">src/structures/message/MessageAttachment.ts:39</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>A proxies URL of the attached file</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="size" class="tsd-anchor"></a>
-					<h3>size</h3>
-					<div class="tsd-signature tsd-kind-icon">size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c325a3e/src/structures/message/MessageAttachment.ts#L29">src/structures/message/MessageAttachment.ts:29</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Size of the attached file in bytes</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="url" class="tsd-anchor"></a>
-					<h3>url</h3>
-					<div class="tsd-signature tsd-kind-icon">url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c325a3e/src/structures/message/MessageAttachment.ts#L34">src/structures/message/MessageAttachment.ts:34</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Source URL of the attached file</p>
+							<p>The user or role this permission overwrite is for</p>
 						</div>
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Accessors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+					<a name="id" class="tsd-anchor"></a>
+					<h3>id</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> id<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c325a3e/src/structures/PermissionOverwrite.ts#L53">src/structures/PermissionOverwrite.ts:53</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The permissible&#39;s ID.
+									Servers as an identifier for this permission overwrite</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="clone" class="tsd-anchor"></a>
@@ -293,6 +265,30 @@
 									<p>Clone a structure</p>
 								</div>
 							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a name="init" class="tsd-anchor"></a>
+					<h3>init</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">init<span class="tsd-signature-symbol">(</span>permission<span class="tsd-signature-symbol">: </span><a href="../globals.html#gatewaystruct" class="tsd-signature-type">GatewayStruct</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="guildbasestruct.html">GuildBaseStruct</a>.<a href="guildbasestruct.html#init">init</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c325a3e/src/structures/PermissionOverwrite.ts#L34">src/structures/PermissionOverwrite.ts:34</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>permission: <a href="../globals.html#gatewaystruct" class="tsd-signature-type">GatewayStruct</a></h5>
+								</li>
+							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
 						</li>
 					</ul>
@@ -344,40 +340,34 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="messageattachment.html" class="tsd-kind-icon">Message<wbr>Attachment</a>
+						<a href="permissionoverwrite.html" class="tsd-kind-icon">Permission<wbr>Overwrite</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-								<a href="messageattachment.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="permissionoverwrite.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="messageattachment.html#bot" class="tsd-kind-icon">bot</a>
+								<a href="permissionoverwrite.html#bot" class="tsd-kind-icon">bot</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="messageattachment.html#dimensions" class="tsd-kind-icon">dimensions</a>
+								<a href="permissionoverwrite.html#channel" class="tsd-kind-icon">channel</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="messageattachment.html#filename" class="tsd-kind-icon">filename</a>
+								<a href="permissionoverwrite.html#flags" class="tsd-kind-icon">flags</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="messageattachment.html#id" class="tsd-kind-icon">id</a>
+								<a href="permissionoverwrite.html#permissible" class="tsd-kind-icon">permissible</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="messageattachment.html#message" class="tsd-kind-icon">message</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="messageattachment.html#proxyurl" class="tsd-kind-icon">proxyURL</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="messageattachment.html#size" class="tsd-kind-icon">size</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="messageattachment.html#url" class="tsd-kind-icon">url</a>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+								<a href="permissionoverwrite.html#id" class="tsd-kind-icon">id</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="messageattachment.html#clone" class="tsd-kind-icon">clone</a>
+								<a href="permissionoverwrite.html#clone" class="tsd-kind-icon">clone</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="permissionoverwrite.html#init" class="tsd-kind-icon">init</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="messageattachment.html#update" class="tsd-kind-icon">update</a>
+								<a href="permissionoverwrite.html#update" class="tsd-kind-icon">update</a>
 							</li>
 						</ul>
 					</li>

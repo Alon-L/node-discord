@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>MessageReactionsController | node-discord</title>
+	<title>ChannelPermissionsController | node-discord</title>
 	<meta name="description" content="Documentation for node-discord">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="messagereactionscontroller.html">MessageReactionsController</a>
+					<a href="channelpermissionscontroller.html">ChannelPermissionsController</a>
 				</li>
 			</ul>
-			<h1>Class MessageReactionsController</h1>
+			<h1>Class ChannelPermissionsController</h1>
 		</div>
 	</div>
 </header>
@@ -67,8 +67,8 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Provides an interface for a message&#39;s reactions cache.
-						The reactions are mapped by the emoji name or emoji ID</p>
+						<p>Interface for a guild channel&#39;s permission overwrites cache.
+						The permission overwrites are mapped by their Permissible&#39;s ID</p>
 					</div>
 				</div>
 			</section>
@@ -76,19 +76,13 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="basecontroller.html" class="tsd-signature-type">BaseController</a><span class="tsd-signature-symbol">&lt;</span><a href="messagereaction.html" class="tsd-signature-type">MessageReaction</a><span class="tsd-signature-symbol">&gt;</span>
+						<a href="basedeletecontroller.html" class="tsd-signature-type">BaseDeleteController</a><span class="tsd-signature-symbol">&lt;</span><a href="permissionoverwrite.html" class="tsd-signature-type">PermissionOverwrite</a><span class="tsd-signature-symbol">&gt;</span>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">MessageReactionsController</span>
+								<span class="target">ChannelPermissionsController</span>
 							</li>
 						</ul>
 					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel">
-				<h3>Implements</h3>
-				<ul class="tsd-hierarchy">
-					<li><a href="basedeletecontroller.html" class="tsd-signature-type">BaseDeleteController</a><span class="tsd-signature-symbol">&lt;</span><a href="messagereaction.html" class="tsd-signature-type">MessageReaction</a><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -98,23 +92,22 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="messagereactionscontroller.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="channelpermissionscontroller.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="messagereactionscontroller.html#bot" class="tsd-kind-icon">bot</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="messagereactionscontroller.html#cache" class="tsd-kind-icon">cache</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="messagereactionscontroller.html#message" class="tsd-kind-icon">message</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="channelpermissionscontroller.html#bot" class="tsd-kind-icon">bot</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="channelpermissionscontroller.html#cache" class="tsd-kind-icon">cache</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="channelpermissionscontroller.html#channel" class="tsd-kind-icon">channel</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="messagereactionscontroller.html#delete" class="tsd-kind-icon">delete</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="messagereactionscontroller.html#deleteall" class="tsd-kind-icon">delete<wbr>All</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="messagereactionscontroller.html#deleteemoji" class="tsd-kind-icon">delete<wbr>Emoji</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="channelpermissionscontroller.html#delete" class="tsd-kind-icon">delete</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="channelpermissionscontroller.html#modify" class="tsd-kind-icon">modify</a></li>
 							</ul>
 						</section>
 					</div>
@@ -126,23 +119,23 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Message<wbr>Reactions<wbr>Controller<span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><a href="message.html" class="tsd-signature-type">Message</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="messagereactionscontroller.html" class="tsd-signature-type">MessageReactionsController</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Channel<wbr>Permissions<wbr>Controller<span class="tsd-signature-symbol">(</span>channel<span class="tsd-signature-symbol">: </span><a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="channelpermissionscontroller.html" class="tsd-signature-type">ChannelPermissionsController</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="basecontroller.html">BaseController</a>.<a href="basecontroller.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c325a3e/src/structures/controllers/MessageReactionsController.ts#L17">src/structures/controllers/MessageReactionsController.ts:17</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c325a3e/src/structures/controllers/ChannelPermissionsController.ts#L15">src/structures/controllers/ChannelPermissionsController.ts:15</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>message: <a href="message.html" class="tsd-signature-type">Message</a></h5>
+									<h5>channel: <a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="messagereactionscontroller.html" class="tsd-signature-type">MessageReactionsController</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="channelpermissionscontroller.html" class="tsd-signature-type">ChannelPermissionsController</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -168,7 +161,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="cache" class="tsd-anchor"></a>
 					<h3>cache</h3>
-					<div class="tsd-signature tsd-kind-icon">cache<span class="tsd-signature-symbol">:</span> <a href="controllercache.html" class="tsd-signature-type">ControllerCache</a><span class="tsd-signature-symbol">&lt;</span><a href="messagereaction.html" class="tsd-signature-type">MessageReaction</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<div class="tsd-signature tsd-kind-icon">cache<span class="tsd-signature-symbol">:</span> <a href="controllercache.html" class="tsd-signature-type">ControllerCache</a><span class="tsd-signature-symbol">&lt;</span><a href="permissionoverwrite.html" class="tsd-signature-type">PermissionOverwrite</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="basecontroller.html">BaseController</a>.<a href="basecontroller.html#cache">cache</a></p>
 						<ul>
@@ -182,113 +175,91 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="message" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> message</h3>
-					<div class="tsd-signature tsd-kind-icon">message<span class="tsd-signature-symbol">:</span> <a href="message.html" class="tsd-signature-type">Message</a></div>
+					<a name="channel" class="tsd-anchor"></a>
+					<h3>channel</h3>
+					<div class="tsd-signature tsd-kind-icon">channel<span class="tsd-signature-symbol">:</span> <a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c325a3e/src/structures/controllers/MessageReactionsController.ts#L17">src/structures/controllers/MessageReactionsController.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c325a3e/src/structures/controllers/ChannelPermissionsController.ts#L15">src/structures/controllers/ChannelPermissionsController.ts:15</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The message this controller is associated to</p>
+							<p>The guild channel this controller is associated to</p>
 						</div>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 					<a name="delete" class="tsd-anchor"></a>
 					<h3>delete</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">delete<span class="tsd-signature-symbol">(</span>emoji<span class="tsd-signature-symbol">: </span><a href="../globals.html#emojiresolvable" class="tsd-signature-type">EmojiResolvable</a>, userId<span class="tsd-signature-symbol">?: </span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><a href="messagereaction.html" class="tsd-signature-type">MessageReaction</a><span class="tsd-signature-symbol">&gt;</span></li>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">delete<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Overrides <a href="basedeletecontroller.html">BaseDeleteController</a>.<a href="basedeletecontroller.html#delete">delete</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c325a3e/src/structures/controllers/MessageReactionsController.ts#L32">src/structures/controllers/MessageReactionsController.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c325a3e/src/structures/controllers/ChannelPermissionsController.ts#L43">src/structures/controllers/ChannelPermissionsController.ts:43</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Deletes a reaction a user reacted with.
-									If no <code>userId</code> argument was provided, the Bot will remove its own reaction.</p>
+									<p>Deletes a channel permission overwrite for a user or role in a guild channel.
+									Requires the <a href="../enums/permission.html#manageroles">Permission.ManageRoles</a> permission</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>emoji: <a href="../globals.html#emojiresolvable" class="tsd-signature-type">EmojiResolvable</a></h5>
+									<h5>id: <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The emoji to remove from the message</p>
-									</div>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> userId: <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol"> = &quot;@me&quot;</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The ID of the user of which reaction should be removed</p>
+										<p>The ID of the user or role you wish to delete from the channel&#39;s permission overwrites</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><a href="messagereaction.html" class="tsd-signature-type">MessageReaction</a><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="deleteall" class="tsd-anchor"></a>
-					<h3>delete<wbr>All</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">delete<wbr>All<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c325a3e/src/structures/controllers/MessageReactionsController.ts#L63">src/structures/controllers/MessageReactionsController.ts:63</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Removes all reactions on the message associated to this controller.
-									Requires the <a href="../enums/permission.html#managemessages">Permission.ManageMessages</a> permission to be present on the Bot</p>
-								</div>
-							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="deleteemoji" class="tsd-anchor"></a>
-					<h3>delete<wbr>Emoji</h3>
+					<a name="modify" class="tsd-anchor"></a>
+					<h3>modify</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">delete<wbr>Emoji<span class="tsd-signature-symbol">(</span>emoji<span class="tsd-signature-symbol">: </span><a href="../globals.html#emojiresolvable" class="tsd-signature-type">EmojiResolvable</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">modify<span class="tsd-signature-symbol">(</span>permissible<span class="tsd-signature-symbol">: </span><a href="../interfaces/permissible.html" class="tsd-signature-type">Permissible</a>, flags<span class="tsd-signature-symbol">: </span><a href="../interfaces/permissionoverwriteflags.html" class="tsd-signature-type">PermissionOverwriteFlags</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="permissionoverwrite.html" class="tsd-signature-type">PermissionOverwrite</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c325a3e/src/structures/controllers/MessageReactionsController.ts#L50">src/structures/controllers/MessageReactionsController.ts:50</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c325a3e/src/structures/controllers/ChannelPermissionsController.ts#L30">src/structures/controllers/ChannelPermissionsController.ts:30</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Deletes all reactions for an emoji.
-									Requires the <a href="../enums/permission.html#managemessages">Permission.ManageMessages</a> permission</p>
+									<p>Modifies the channel permission overwrites for a member or a role.
+									Requires the <a href="../enums/permission.html#manageroles">Permission.ManageRoles</a> permission</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>emoji: <a href="../globals.html#emojiresolvable" class="tsd-signature-type">EmojiResolvable</a></h5>
+									<h5>permissible: <a href="../interfaces/permissible.html" class="tsd-signature-type">Permissible</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The reaction emoji you wish to delete</p>
+										<p>Data for the member or role</p>
+									</div>
+								</li>
+								<li>
+									<h5>flags: <a href="../interfaces/permissionoverwriteflags.html" class="tsd-signature-type">PermissionOverwriteFlags</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The permissions flags you wish to modify</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="permissionoverwrite.html" class="tsd-signature-type">PermissionOverwrite</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -307,28 +278,25 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="messagereactionscontroller.html" class="tsd-kind-icon">Message<wbr>Reactions<wbr>Controller</a>
+						<a href="channelpermissionscontroller.html" class="tsd-kind-icon">Channel<wbr>Permissions<wbr>Controller</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-								<a href="messagereactionscontroller.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="channelpermissionscontroller.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="messagereactionscontroller.html#bot" class="tsd-kind-icon">bot</a>
+								<a href="channelpermissionscontroller.html#bot" class="tsd-kind-icon">bot</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="messagereactionscontroller.html#cache" class="tsd-kind-icon">cache</a>
+								<a href="channelpermissionscontroller.html#cache" class="tsd-kind-icon">cache</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="messagereactionscontroller.html#message" class="tsd-kind-icon">message</a>
+								<a href="channelpermissionscontroller.html#channel" class="tsd-kind-icon">channel</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="channelpermissionscontroller.html#delete" class="tsd-kind-icon">delete</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="messagereactionscontroller.html#delete" class="tsd-kind-icon">delete</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="messagereactionscontroller.html#deleteall" class="tsd-kind-icon">delete<wbr>All</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="messagereactionscontroller.html#deleteemoji" class="tsd-kind-icon">delete<wbr>Emoji</a>
+								<a href="channelpermissionscontroller.html#modify" class="tsd-kind-icon">modify</a>
 							</li>
 						</ul>
 					</li>
