@@ -554,6 +554,29 @@ class BotAPI {
   }
 
   /**
+   * Fetches all pinned messages in a text channel
+   * @param {Snowflake} channelId The ID of the channel
+   * @returns {Promise<Cluster<Snowflake, Message>>}
+   */
+  public async fetchChannelPins(channelId: Snowflake): Promise<Cluster<Snowflake, Message>> {
+    const pins = (await this.requests.send(
+      EndpointRoute.ChannelPins,
+      { channelId },
+      HttpMethod.Get,
+    )) as GatewayStruct[];
+
+    const channel = await this.bot.channels.getOrFetch(channelId);
+
+    if (!(channel instanceof DMChannel || channel instanceof GuildTextChannel)) {
+      throw new TypeError('The channel is not a valid text channel');
+    }
+
+    return new Cluster<Snowflake, Message>(
+      pins.map(pin => [pin.id, new Message(this.bot, pin, channel)]),
+    );
+  }
+
+  /**
    * Pins a message in a text channel.
    * Requires the {@link Permission.ManageMessages} permission
    * @param {Snowflake} channelId The ID of the channel that contains the message you wish to pin
