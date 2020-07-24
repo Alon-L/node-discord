@@ -44,7 +44,7 @@ bot.connection.connect();
     await message.react(message.guild!.emojis.first!.id!);
 
     // Remove the white check mark emoji reaction
-    await message.removeReaction('✅');
+    await message.reactions.delete('✅');
 
     // Remove the custom emoji reaction from the message
     await message.reactions
@@ -80,12 +80,12 @@ bot.connection.connect();
       await channel.sendMessage('Message 3');
 
       // Bulk delete the sent messages
-      channel.bulkDeleteMessages(channel.messages.map(message => message.id).toArray);
+      channel.bulkDeleteMessages(channel.messages.cache.map(message => message.id).toArray);
 
       await bot.events.wait(BotEvent.MessageDeleteBulk);
 
       console.log(
-        channel.messages.filter(message => !message.deleted).size,
+        channel.messages.cache.filter(message => !message.deleted).size,
         'number of cached not deleted messages in the channel',
         'expected: 0',
       ); // expected: 0
