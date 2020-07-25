@@ -13,9 +13,9 @@ export type EmojiResolvable = string | Snowflake | Emoji;
 
 class Emoji extends BaseStruct {
   /**
-   * The ID of the emoji. Possibly null if the emoji class was generated from a reaction standard emoji
+   * The ID of the emoji. Possibly null if the emoji class was generated from a standard emoji
    */
-  public id!: Snowflake | null;
+  public emojiId!: Snowflake | null;
 
   /**
    * The guild this emoji was created. Possibly undefined if this is a standard emoji
@@ -71,7 +71,7 @@ class Emoji extends BaseStruct {
    * @returns {this}
    */
   public init(emoji: GatewayStruct): this {
-    this.id = emoji.id;
+    this.emojiId = emoji.id;
     this.name = emoji.name;
 
     this.roles = new Cluster<Snowflake, Role>(
@@ -95,8 +95,8 @@ class Emoji extends BaseStruct {
    * An emoji identifier could be its name for built-in emojis, or a combination of its name and ID if it's a guild emoji.
    * @returns {string}
    */
-  public get identifier(): string {
-    if (this.id) return `${this.animated ? 'a:' : ''}${this.name}:${this.id}`;
+  public get id(): string {
+    if (this.emojiId) return `${this.animated ? 'a:' : ''}${this.name}:${this.emojiId}`;
     return this.name!;
   }
 
@@ -107,8 +107,9 @@ class Emoji extends BaseStruct {
    * @param {EmojiResolvable} emoji The emoji to resolve
    * @returns {string | null}
    */
+  // TODO: Replace Cluster<Snowflake, Emoji> with GuildEmojisController
   public static resolve(emojis: Cluster<Snowflake, Emoji>, emoji: EmojiResolvable): string | null {
-    return emoji instanceof Emoji ? emoji.identifier : emojis.get(emoji)?.identifier || emoji;
+    return emoji instanceof Emoji ? emoji.id : emojis.get(emoji)?.id || emoji;
   }
 }
 
