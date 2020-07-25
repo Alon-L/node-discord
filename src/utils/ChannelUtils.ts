@@ -17,19 +17,14 @@ class ChannelUtils {
    * @param {Bot} bot The bot instance
    * @param {GatewayStruct} data The channel data received from the gateway
    * @param {Guild | undefined} guild_ The guild associated to the channel
-   * @returns {Channel}
+   * @returns {Promise<Channel>}
    */
-  public static create(bot: Bot, data: GatewayStruct, guild_?: Guild): Channel {
-    let channel: Channel;
-
+  public static async create(bot: Bot, data: GatewayStruct, guild_?: Guild): Promise<Channel> {
     const { guild_id: guildId } = data;
 
-    // TODO: Fetch guild if does not exist
-    const guild = guild_ || bot.guilds.get(guildId);
+    let channel: Channel;
 
-    if (!guild && guildId) {
-      throw new Error('Invalid guild was provided when creating channel');
-    }
+    const guild = guild_ || (await bot.guilds.get(guildId));
 
     switch (data.type as ChannelType) {
       case ChannelType.GuildText:
@@ -54,10 +49,14 @@ class ChannelUtils {
    * @param {Bot} bot The bot instance
    * @param {GatewayStruct} data The channel data received from the gateway
    * @param {Guild | undefined} guild The guild associated to the channel
-   * @returns {GuildChannel}
+   * @returns {Promise<GuildChannel>}
    */
-  public static createGuildChannel(bot: Bot, data: GatewayStruct, guild?: Guild): GuildChannel {
-    const guildChannel = ChannelUtils.create(bot, data, guild);
+  public static async createGuildChannel(
+    bot: Bot,
+    data: GatewayStruct,
+    guild?: Guild,
+  ): Promise<GuildChannel> {
+    const guildChannel = await ChannelUtils.create(bot, data, guild);
 
     if (!(guildChannel instanceof GuildChannel)) {
       throw new TypeError('The created channel is a DM channel');
@@ -70,10 +69,10 @@ class ChannelUtils {
    * Creates a new {@link DMChannel} instance
    * @param {Bot} bot The bot instance
    * @param {GatewayStruct} data The channel data received from the gateway
-   * @returns {DMChannel}
+   * @returns {Promise<DMChannel>}
    */
-  public static createDMChannel(bot: Bot, data: GatewayStruct): DMChannel {
-    const dmChannel = ChannelUtils.create(bot, data);
+  public static async createDMChannel(bot: Bot, data: GatewayStruct): Promise<DMChannel> {
+    const dmChannel = await ChannelUtils.create(bot, data);
 
     if (!(dmChannel instanceof DMChannel)) {
       throw new TypeError('The created channel is a guild channel');
@@ -83,52 +82,57 @@ class ChannelUtils {
   }
 
   /**
-   * Searches for a channel in the Bot's cache
+   * Finds or fetches a channel by its ID
    * @param {Bot} bot The bot instance
    * @param {Snowflake | undefined} guildId The guild ID associated to this channel (if none was specified, a DM channel will be searched for)
    * @param {Snowflake} channelId The ID of the searched channel
-   * @returns {Channel | undefined}
+   * @returns {Promise<Channel>}
    */
-  public static find(
+  public static async find(
     bot: Bot,
     guildId: Snowflake | undefined,
     channelId: Snowflake,
-  ): Channel | undefined {
-    const guild = guildId ? bot.guilds.get(guildId) : undefined;
-    if (!guild) return ChannelUtils.findDM(bot, channelId);
+  ): Promise<Channel> {
+    const guild = guildId && (await bot.guilds.get(guildId));
 
-    return guild.channels.cache.get(channelId);
+    return guild ? guild.channels.get(channelId) : ChannelUtils.findDM(bot, channelId);
   }
 
   /**
-   * Searches for a text channel in the Bot's cache
+   * Returns a text channel by its ID
    * @param {Bot} bot The bot instance
    * @param {Snowflake | undefined} guildId The guild ID associated to this channel (if none was specified, a DM channel will be searched for)
    * @param {Snowflake} channelId The ID of the searched channel
-   * @returns {TextBasedChannel | undefined}
+   * @returns {Promise<TextBasedChannel>}
    */
-  public static findText(
+  public static async findText(
     bot: Bot,
     guildId: Snowflake | undefined,
     channelId: Snowflake,
-  ): TextBasedChannel | undefined {
-    const channel = ChannelUtils.find(bot, guildId, channelId);
+  ): Promise<TextBasedChannel> {
+    const channel = await ChannelUtils.find(bot, guildId, channelId);
 
-    return channel instanceof GuildTextChannel || channel instanceof DMChannel
-      ? channel
-      : undefined;
+    if (!(channel instanceof GuildTextChannel || channel instanceof DMChannel)) {
+      throw new TypeError('The channel is not a valid text channel');
+    }
+
+    return channel;
   }
 
   /**
-   * Searches for a DM channel in the Bot's channels cache
+   * Returns a DM channel by its ID
    * @param {Bot} bot The bot instance
    * @param {string} channelId The ID of the DMChannel to be searched for
-   * @returns {DMChannel | undefined}
+   * @returns {DMChannel}
    */
-  public static findDM(bot: Bot, channelId: string): DMChannel | undefined {
-    const channel = bot.channels.cache.get(channelId);
+  public static async findDM(bot: Bot, channelId: string): Promise<DMChannel> {
+    const channel = await bot.channels.get(channelId);
 
-    return channel instanceof DMChannel ? channel : undefined;
+    if (!(channel instanceof DMChannel)) {
+      throw new TypeError('The channel is not a valid DM channel');
+    }
+
+    return channel;
   }
 
   /**
