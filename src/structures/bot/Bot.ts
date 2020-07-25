@@ -11,7 +11,7 @@ import Emoji from '../Emoji';
 import User from '../User';
 import BotAPI from '../api/BotAPI';
 import BotChannelsController from '../controllers/BotChannelsController';
-import Guild from '../guild/Guild';
+import BotGuildsController from '../controllers/BotGuildsController';
 import GuildUnavailable from '../guild/GuildUnavailable';
 
 /**
@@ -97,9 +97,9 @@ class Bot {
   public user: User | undefined;
 
   /**
-   * {@link Cluster} of all {@link Guild}s after fetching their unavailable version
+   * The bot's guilds controller
    */
-  public guilds: Cluster<Snowflake, Guild>;
+  public guilds: BotGuildsController;
 
   /**
    * {@link Cluster} of all {@link GuildUnavailable}s associated to the Bot
@@ -147,7 +147,7 @@ class Bot {
 
     this.communication = new BotCommunication(this);
 
-    this.guilds = new Cluster<Snowflake, Guild>();
+    this.guilds = new BotGuildsController(this);
 
     this.unavailableGuilds = new Cluster<Snowflake, GuildUnavailable>();
 
