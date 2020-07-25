@@ -1,26 +1,24 @@
-import Cluster from '../../Cluster';
 import { GatewayStruct } from '../../structures/BaseStruct';
-import Emoji from '../../structures/Emoji';
 import Bot from '../../structures/bot/Bot';
-import { Snowflake } from '../../types/types';
+import ControllerCache from '../../structures/controllers/ControllerCache';
+import GuildEmoji from '../../structures/guild/GuildEmoji';
 import { Payload } from '../BotSocketShard';
 import { BotEvent } from '../constants';
 
-export default ({ d }: Payload, bot: Bot): void => {
+export default async ({ d }: Payload, bot: Bot): Promise<void> => {
   const { guild_id: guildId, emojis } = d;
 
-  const guild = bot.guilds.get(guildId);
+  // TODO: Remove null assertion when introducing BotGuildsController
+  const guild = await bot.guilds.get(guildId)!;
 
-  if (!guild) return;
+  const before = guild.emojis.cache;
 
-  const before = guild.emojis;
-
-  const after = new Cluster<Snowflake, Emoji>(
-    emojis.map((emoji: GatewayStruct) => [emoji.id, new Emoji(bot, emoji, guild)]),
+  const after = new ControllerCache<GuildEmoji>(
+    emojis.map((emoji: GatewayStruct) => [emoji.id, new GuildEmoji(bot, emoji, guild)]),
   );
 
-  guild.emojis = after;
-  bot.emojis.merge(guild.emojis);
+  guild.emojis.cache = after;
+  bot.emojis.merge(guild.emojis.cache);
 
   bot.events.emit(BotEvent.GuildEmojisUpdate, before, after);
 };
