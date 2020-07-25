@@ -17,6 +17,8 @@ export const enum EndpointRoute {
   ChannelTyping = '/channels/{channel.id}/typing',
   ChannelPins = '/channels/{channel.id}/pins',
   ChannelPinsMessage = '/channels/{channel.id}/pins/{message.id}',
+  GuildEmojis = '/guilds/{guild.id}/emojis',
+  GuildEmoji = '/guilds/{guild.id}/emojis/{emoji.id}',
   Invite = '/invites/{invite.code}',
 }
 
@@ -62,6 +64,9 @@ export const Endpoints: Record<EndpointRoute, (...args: string[]) => string> = {
   [EndpointRoute.ChannelPins]: (channelId: Snowflake) => `/channels/${channelId}/pins`,
   [EndpointRoute.ChannelPinsMessage]: (channelId: Snowflake, messageId: Snowflake) =>
     `/channels/${channelId}/pins/${messageId}`,
+  [EndpointRoute.GuildEmojis]: (guildId: Snowflake) => `/guilds/${guildId}/emojis`,
+  [EndpointRoute.GuildEmoji]: (guildId: Snowflake, emojiId: Snowflake) =>
+    `/guilds/${guildId}/emojis/${emojiId}`,
   [EndpointRoute.Invite]: (inviteCode: string) => `/invites/${inviteCode}`,
 };
 
