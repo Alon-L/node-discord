@@ -1,5 +1,6 @@
 import Guild from './Guild';
 import { Snowflake } from '../../types/types';
+import Avatar, { GuildEmojiFormat } from '../Avatar';
 import { GatewayStruct } from '../BaseStruct';
 import Emoji from '../Emoji';
 import Role from '../Role';
@@ -57,6 +58,16 @@ class GuildEmoji extends Emoji {
 
   constructor(bot: Bot, emoji: GatewayStruct, guild: Guild) {
     super(bot, emoji, guild);
+  }
+
+  /**
+   * Returns the guild emoji's URL
+   * @param {IconFormat} format The format of the returned emoji image
+   * @param {number} size The size of the returned emoji image
+   * @returns {string}
+   */
+  public URL(format: GuildEmojiFormat = GuildEmojiFormat.PNG, size?: number): string {
+    return Avatar.emojiURL(this.id, format, size);
   }
 }
 
