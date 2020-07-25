@@ -11,7 +11,7 @@ bot.connection.connect();
 (async function (): Promise<void> {
   await bot.events.wait(BotEvent.Ready);
 
-  const guild = bot.guilds.first;
+  const guild = bot.guilds.cache.first;
   if (!guild) throw new Error('No guilds found');
 
   const channel = guild.channels.cache.first;
@@ -31,7 +31,7 @@ bot.connection.connect();
     // Compare all the guild's cached channels to all the bot's cached channels
     // Both should be equal on guild channel modifications
     console.log(
-      bot.guilds.toArray.reduce(
+      bot.guilds.cache.toArray.reduce(
         (channels: number, guilds: Guild) => channels + guilds.channels.cache.size,
         0,
       ),

@@ -10,11 +10,9 @@ bot.connection.connect();
 (async function (): Promise<void> {
   await bot.events.wait(BotEvent.Ready);
 
-  const guild = bot.guilds.get('702476896008405002');
-  if (!guild) throw new Error('No guilds found');
+  const guild = await bot.guilds.get('702476896008405002');
 
-  const channel = guild.channels.get('702476896008405005');
-  if (!channel) throw new Error('No channels found');
+  const channel = await guild.channels.get('702476896008405005');
 
   const invites = await channel.invites.fetchAll();
 
@@ -34,10 +32,10 @@ bot.connection.connect();
   await bot.events.wait(BotEvent.InviteDelete);
 
   console.log(
-    channel.invites.size === guild.invites.size,
+    channel.invites.cache.size === guild.invites.cache.size,
     "the channel's fetched invites should be same as the guild's",
     'expected: true',
   ); // expected: true
 
-  console.log(guild.invites.size === size - 1, 'one less cached invite', 'expected: true'); // expected: true
+  console.log(guild.invites.cache.size === size - 1, 'one less cached invite', 'expected: true'); // expected: true
 })();

@@ -13,8 +13,7 @@ bot.connection.connect();
 (async function (): Promise<void> {
   await bot.events.wait(BotEvent.Ready);
 
-  const guild = bot.guilds.get('702476896008405002');
-  if (!guild) throw new Error('No guilds found');
+  const guild = await bot.guilds.get('702476896008405002');
 
   const channel = guild.channels.cache.filter<GuildTextChannel>(
     (channel: GuildChannel) => channel.type === ChannelType.GuildText,
@@ -24,7 +23,7 @@ bot.connection.connect();
   const message = await channel.sendMessage('Test message');
 
   // Validate fetchAll's functionality
-  message.react(guild.emojis.first!);
+  message.react(guild.emojis.cache.first!);
 
   await bot.events.wait(BotEvent.MessageReactionAdd);
 
@@ -33,7 +32,7 @@ bot.connection.connect();
   if (!reaction) throw new Error('Reaction not found!');
 
   await reaction.users.fetchAll();
-  console.log(reaction.users.size, 'number of users that reacted', 'expected: 1'); // expected: 1
+  console.log(reaction.users.cache.size, 'number of users that reacted', 'expected: 1'); // expected: 1
 
   // eslint-disable-next-line no-constant-condition
   while (1) {
@@ -45,6 +44,9 @@ bot.connection.connect();
     ]);
 
     // Expected the size to change based on the event
-    console.log(typeof message.reactions.cache.first, message.reactions.cache.first?.users.size);
+    console.log(
+      typeof message.reactions.cache.first,
+      message.reactions.cache.first?.users.cache.size,
+    );
   }
 })();

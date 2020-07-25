@@ -13,8 +13,7 @@ bot.connection.connect();
 (async function (): Promise<void> {
   await bot.events.wait(BotEvent.Ready);
 
-  const guild = bot.guilds.get('702476896008405002');
-  if (!guild) throw new Error('No guilds found');
+  const guild = await bot.guilds.get('702476896008405002');
 
   const channel = guild.channels.cache.filter<GuildTextChannel>(
     (channel: GuildChannel) => channel.type === ChannelType.GuildText,
@@ -33,6 +32,6 @@ bot.connection.connect();
       bot.events.wait(BotEvent.MessageDelete),
     ]);
 
-    console.log(channel.messages.size);
+    console.log(channel.messages.cache.size);
   }
 })();

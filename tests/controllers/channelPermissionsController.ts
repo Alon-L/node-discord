@@ -10,11 +10,9 @@ bot.connection.connect();
 (async function (): Promise<void> {
   await bot.events.wait(BotEvent.Ready);
 
-  const guild = bot.guilds.get('702476896008405002');
-  if (!guild) throw new Error('No guilds found');
+  const guild = await bot.guilds.get('702476896008405002');
 
-  const channel = guild.channels.cache.get('721781755060813914');
-  if (!channel) throw new Error('No channels found');
+  const channel = await guild.channels.get('721781755060813914');
 
   console.log(channel.permissions.cache.toArrayKeys);
 
