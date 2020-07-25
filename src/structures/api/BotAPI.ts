@@ -592,8 +592,7 @@ class BotAPI {
       HttpMethod.Get,
     )) as GatewayStruct[];
 
-    // TODO: Remove null assertion when introducing BotGuildsController
-    const guild = await this.bot.guilds.get(guildId)!;
+    const guild = await this.bot.guilds.get(guildId);
 
     return new Cluster<Snowflake, GuildEmoji>(
       emojis.map(emoji => [emoji.id, new GuildEmoji(this.bot, emoji, guild)]),
@@ -613,8 +612,7 @@ class BotAPI {
       HttpMethod.Get,
     );
 
-    // TODO: Remove null assertion when introducing BotGuildsController
-    const guild = await this.bot.guilds.get(guildId)!;
+    const guild = await this.bot.guilds.get(guildId);
 
     return new GuildEmoji(this.bot, emoji!, guild);
   }
@@ -637,8 +635,7 @@ class BotAPI {
       APISerializer.emojiOptions(options),
     );
 
-    // TODO: Remove null assertion when introducing BotGuildsController
-    const guild = await this.bot.guilds.get(guildId)!;
+    const guild = await this.bot.guilds.get(guildId);
 
     return new GuildEmoji(this.bot, emoji!, guild);
   }
@@ -663,8 +660,7 @@ class BotAPI {
       APISerializer.emojiOptions(options),
     );
 
-    // TODO: Remove null assertion when introducing BotGuildsController
-    const guild = await this.bot.guilds.get(guildId)!;
+    const guild = await this.bot.guilds.get(guildId);
 
     return new GuildEmoji(this.bot, emoji!, guild);
   }
