@@ -11,6 +11,7 @@ import GuildTextChannel from './channels/GuildTextChannel';
 import { FetchInviteOptions } from './controllers/GuildInvitesController';
 import { FetchReactionsOptions } from './controllers/ReactionUsersController';
 import { Permissible, PermissionOverwriteFlags } from './flags/PermissionFlags';
+import GuildEmoji from './guild/GuildEmoji';
 import Message, { MessageData, MessageEditData, MessageOptions } from './message/Message';
 import MessageEmbed from './message/MessageEmbed';
 import Cluster from '../Cluster';
@@ -613,6 +614,25 @@ class BotAPI {
       EndpointRoute.ChannelPinsMessage,
       { channelId, messageId },
       HttpMethod.Delete,
+    );
+  }
+
+  /**
+   * Fetches all emojis in a guild
+   * @param {Snowflake} guildId The ID of the guild
+   * @returns {Promise<Cluster<Snowflake, GuildEmoji>>}
+   */
+  public async fetchGuildEmojis(guildId: Snowflake): Promise<Cluster<Snowflake, GuildEmoji>> {
+    const emojis = (await this.requests.send(
+      EndpointRoute.GuildEmojis,
+      { guildId },
+      HttpMethod.Get,
+    )) as GatewayStruct[];
+
+    const guild = this.bot.guilds.get(guildId);
+
+    return new Cluster<Snowflake, GuildEmoji>(
+      emojis.map(emoji => [emoji.id, new GuildEmoji(this.bot, emoji, guild)]),
     );
   }
 
