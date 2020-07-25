@@ -117,7 +117,7 @@ class Invite extends BaseStruct {
     this.createdAt = new Timestamp(invite.created_at);
 
     if (invite.guild_id) {
-      this.guild = this.bot.guilds.get(invite.guild_id);
+      this.guild = this.bot.guilds.cache.get(invite.guild_id);
       this.channel = this.guild?.channels.cache.get(invite.channel_id);
     }
 

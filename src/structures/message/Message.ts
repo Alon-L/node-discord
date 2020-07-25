@@ -298,7 +298,7 @@ class Message extends BaseStruct {
    */
   public init(message: GatewayStruct): this {
     if (message.guild_id) {
-      this.guild = this.bot.guilds.get(message.guild_id);
+      this.guild = this.bot.guilds.cache.get(message.guild_id);
     }
 
     this.id = message.id;
