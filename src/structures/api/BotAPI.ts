@@ -20,6 +20,7 @@ import { FetchReactionUsersOptions } from '../controllers/ReactionUsersControlle
 import { Permissible, PermissionOverwriteFlags } from '../flags/PermissionFlags';
 import Guild from '../guild/Guild';
 import GuildEmoji, { CreateEmojiOptions, ModifyEmojiOptions } from '../guild/GuildEmoji';
+import GuildPreview from '../guild/GuildPreview';
 import Message, { MessageData, MessageEditData, MessageOptions } from '../message/Message';
 import MessageEmbed from '../message/MessageEmbed';
 
@@ -683,6 +684,22 @@ class BotAPI {
     );
 
     return new Guild(this.bot, guild!);
+  }
+
+  /**
+   * Fetches a guild preview by its guild ID.
+   * This is only available for public guilds
+   * @param {Snowflake} guildId The ID of the guild
+   * @returns {Promise<GuildPreview>}
+   */
+  public async fetchGuildPreview(guildId: Snowflake): Promise<GuildPreview> {
+    const preview = await this.requests.send(
+      EndpointRoute.GuildPreview,
+      { guildId },
+      HttpMethod.Get,
+    );
+
+    return new GuildPreview(this.bot, preview!);
   }
 
   /**
