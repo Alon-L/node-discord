@@ -2,6 +2,7 @@ import { GatewayStruct } from './BaseStruct';
 import Emoji, { EmojiResolvable } from './Emoji';
 import Invite, { InviteOptions } from './Invite';
 import PermissionOverwrite from './PermissionOverwrite';
+import Role from './Role';
 import User from './User';
 import Bot from './bot/Bot';
 import Channel from './channels/Channel';
@@ -11,7 +12,7 @@ import GuildTextChannel from './channels/GuildTextChannel';
 import { FetchInviteOptions } from './controllers/GuildInvitesController';
 import { FetchReactionsOptions } from './controllers/ReactionUsersController';
 import { Permissible, PermissionOverwriteFlags } from './flags/PermissionFlags';
-import GuildEmoji from './guild/GuildEmoji';
+import GuildEmoji, { CreateEmojiOptions } from './guild/GuildEmoji';
 import Message, { MessageData, MessageEditData, MessageOptions } from './message/Message';
 import MessageEmbed from './message/MessageEmbed';
 import Cluster from '../Cluster';
@@ -648,6 +649,36 @@ class BotAPI {
       EndpointRoute.GuildEmoji,
       { guildId, emojiId },
       HttpMethod.Get,
+    );
+
+    // TODO: Remove null assertion when introducing BotGuildsController
+    const guild = await this.bot.guilds.get(guildId)!;
+
+    return new GuildEmoji(this.bot, emoji!, guild);
+  }
+
+  /**
+   * Creates a new emoji for a guild.
+   * Requires the {@link Permission.ManageEmojis} permission
+   * @param {Snowflake} guildId The ID of the guild
+   * @param {CreateEmojiOptions} options The options for the new emoji
+   * @returns {Promise<GuildEmoji>}
+   */
+  public async createGuildEmoji(
+    guildId: Snowflake,
+    options: CreateEmojiOptions,
+  ): Promise<GuildEmoji> {
+    const params: Params = {
+      ...options,
+      // Serialize the role IDs
+      roles: options.roles.map((role: Role | Snowflake) => (role instanceof Role ? role.id : role)),
+    };
+
+    const emoji = await this.requests.send(
+      EndpointRoute.GuildEmojis,
+      { guildId },
+      HttpMethod.Post,
+      params,
     );
 
     // TODO: Remove null assertion when introducing BotGuildsController
