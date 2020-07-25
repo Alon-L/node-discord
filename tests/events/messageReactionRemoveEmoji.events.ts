@@ -13,7 +13,7 @@ bot.connection.connect();
     console.log(
       reaction?.message.content,
       reaction?.count,
-      reaction?.message.reactions.toArrayKeys,
+      reaction?.message.reactions.cache.toArrayKeys,
     );
   });
 

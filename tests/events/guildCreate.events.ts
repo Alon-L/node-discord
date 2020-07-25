@@ -13,7 +13,7 @@ bot.connection.connect();
   bot.events.on(BotEvent.GuildCreate, (guild: Guild | GuildUnavailable) => {
     if (guild instanceof Guild) {
       console.log(guild.name, guild.id);
-      console.log(bot.guilds.get(guild.id)?.name === guild.name);
+      console.log(bot.guilds.cache.get(guild.id)?.name === guild.name);
     }
   });
 

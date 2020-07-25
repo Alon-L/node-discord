@@ -19,7 +19,7 @@ bot.connection.connect();
       }
       console.log(channel.type, Date.now());
       console.log('old', oldPinTimestamp?.unix());
-      console.log('new', channel.lastPinTimestamp?.unix());
+      console.log('new', channel.pins.lastPinTimestamp?.unix());
     },
   );
 

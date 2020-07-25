@@ -24,7 +24,7 @@ bot.connection.connect();
       message.embeds,
       message.type,
       message.channel.lastMessageId === message.id,
-      message.channel.messages.lastKey === message.id,
+      message.channel.messages.cache.lastKey === message.id,
     );
   });
 

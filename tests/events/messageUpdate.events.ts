@@ -14,7 +14,7 @@ bot.connection.connect();
       before?.content,
       after.content,
       before?.id === after.id,
-      after.channel.messages.toArrayKeys,
+      after.channel.messages.cache.toArrayKeys,
     );
   });
 

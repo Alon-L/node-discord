@@ -14,7 +14,7 @@ bot.connection.connect();
   bot.events.on(
     BotEvent.MessageReactionAdd,
     (reaction: MessageReaction, user: Member | User | undefined) => {
-      console.log(reaction.emoji.name, user?.id, reaction.message.reactions.toArrayKeys);
+      console.log(reaction.emoji.name, user?.id, reaction.message.reactions.cache.toArrayKeys);
     },
   );
 

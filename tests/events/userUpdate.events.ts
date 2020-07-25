@@ -13,7 +13,7 @@ bot.connection.connect();
     console.log(
       before.username,
       after.username,
-      bot.guilds.first?.members.get(after.id)?.user?.username,
+      bot.guilds.cache.first?.members.get(after.id)?.user?.username,
       bot.user?.username,
     );
   });

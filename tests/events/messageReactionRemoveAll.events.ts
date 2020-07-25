@@ -10,7 +10,7 @@ bot.connection.connect();
 
 (async function (): Promise<void> {
   bot.events.on(BotEvent.MessageReactionRemoveAll, (message: Message) => {
-    console.log(message.reactions.size, message.id, message.content);
+    console.log(message.reactions.cache.size, message.id, message.content);
   });
 
   await bot.events.wait(BotEvent.Ready);
