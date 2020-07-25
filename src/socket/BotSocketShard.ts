@@ -373,7 +373,7 @@ class BotSocketShard {
 
     this.bot.debug(
       'Ready!',
-      this.bot.guilds.toArray.map(i => i.name),
+      this.bot.guilds.cache.map(i => i.name),
     );
 
     this.bot.events.emit(BotEvent.ShardReady, this);
