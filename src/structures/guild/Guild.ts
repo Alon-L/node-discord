@@ -1,9 +1,10 @@
+import GuildPreview from './GuildPreview';
 import GuildUnavailable from './GuildUnavailable';
 import Cluster from '../../Cluster';
-import { GuildFeature } from '../../socket/constants';
 import { Snowflake } from '../../types/types';
 import ChannelUtils from '../../utils/ChannelUtils';
-import BaseStruct, { GatewayStruct } from '../BaseStruct';
+import Avatar, { GuildBannerFormat } from '../Avatar';
+import { GatewayStruct } from '../BaseStruct';
 import Emoji from '../Emoji';
 import Role from '../Role';
 import User from '../User';
@@ -168,16 +169,11 @@ export interface GuildApproximates {
 
  * @extends BaseStruct
  */
-class Guild extends BaseStruct {
-  /**
-   * Guild ID
-   */
-  public id!: Snowflake;
-
+class Guild extends GuildPreview {
   /**
    * The guild's channels controller
    */
-  public channels: GuildChannelsController;
+  public channels!: GuildChannelsController;
 
   /**
    * {@link Cluster} of all {@link Role}s associated to this guild
@@ -190,29 +186,10 @@ class Guild extends BaseStruct {
   public members!: Cluster<Snowflake, Member>;
 
   /**
-   * Guild name
-   */
-  public name!: string;
-
-  /**
-   * Guild icon URL. Possibly null if guild does not have an icon
-   */
-  public icon!: string | null;
-
-  /**
-   * Guild splash image URL. Possibly null if guild does not have a splash image
-   */
-  public splash!: string | null;
-
-  /**
-   * Guild discovery splash image URL. Possibly null if guild does not have a discovery splash image
-   */
-  public discoverySplash!: string | null;
-
-  /**
    * Guild owner {@link Member}.
    * Possibly undefined if the bot is yet to cache that member
    */
+  // TODO: fetch the owner if isn't cached yet
   public owner: Member | undefined;
 
   /**
@@ -244,11 +221,6 @@ class Guild extends BaseStruct {
    * This guild's emojis controller
    */
   public emojis: GuildEmojisController;
-
-  /**
-   * Enabled guild features
-   */
-  public features!: GuildFeature[];
 
   /**
    * Application ID of the guild creator if it is bot-created
@@ -319,9 +291,9 @@ class Guild extends BaseStruct {
   public description!: string | null;
 
   /**
-   * Guild banner image. Possibly null if guild does not have a banner image
+   * Guild banner image hash. Possibly null if guild does not have a banner image
    */
-  public banner!: string | null;
+  public bannerHash!: string | null;
 
   /**
    * {@link GuildBoosts} object containing guild boosts data
@@ -349,15 +321,8 @@ class Guild extends BaseStruct {
    */
   public bans: Cluster<Snowflake, Member | User>;
 
-  /**
-   * Information about approximated data for this guild
-   */
-  public approximates!: GuildApproximates;
-
   constructor(bot: Bot, guild: GatewayStruct) {
     super(bot, guild);
-
-    this.channels = new GuildChannelsController(this);
 
     this.emojis = new GuildEmojisController(this);
 
@@ -366,8 +331,6 @@ class Guild extends BaseStruct {
     this.invites = new GuildInvitesController(this);
 
     this.bans = new Cluster<Snowflake, Member>();
-
-    this.init(guild);
   }
 
   /**
@@ -375,11 +338,17 @@ class Guild extends BaseStruct {
    * @param {GatewayStruct} guild The guild data
    * @returns {this}
    */
-  public init(guild: GatewayStruct): this {
-    this.id = guild.id;
+  public async init(guild: GatewayStruct): Promise<this> {
+    super.init(guild);
+
+    this.channels = new GuildChannelsController(this);
 
     this.channels.cache.addMany(
-      guild.channels?.map((channel: GatewayStruct) => ChannelUtils.create(this.bot, channel, this)),
+      await Promise.all(
+        guild.channels?.map(
+          async (channel: GatewayStruct) => await ChannelUtils.create(this.bot, channel, this),
+        ),
+      ),
     );
 
     // Add all of this guild's cached channels to the Bot's cached channels
@@ -401,10 +370,6 @@ class Guild extends BaseStruct {
       ]),
     );
 
-    this.name = guild.name;
-    this.icon = guild.icon;
-    this.splash = guild.splash;
-    this.discoverySplash = guild.discoverySplash;
     this.owner = this.members.get(guild.owner_id);
     this.ownerId = guild.owner_id;
 
@@ -433,8 +398,6 @@ class Guild extends BaseStruct {
     // Add all of this guild's cached emojis to the Bot's cached emojis
     this.bot.emojis.merge(this.emojis.cache);
 
-    this.features = guild.features;
-
     this.applicationId = guild.application_id;
 
     this.widget = {
@@ -457,7 +420,7 @@ class Guild extends BaseStruct {
     this.maxMembers = guild.max_members;
     this.vanityURLCode = guild.vanity_url_code;
     this.description = guild.description;
-    this.banner = guild.banner;
+    this.bannerHash = guild.banner;
 
     this.boosts = {
       tier: guild.premium_tier,
@@ -466,16 +429,27 @@ class Guild extends BaseStruct {
 
     this.locale = guild.locale;
 
-    this.updatesChannel = this.channels.cache.get(
-      guild.public_updates_channel_id,
-    ) as GuildTextChannel;
-
-    this.approximates = {
-      memberCount: guild.approximate_member_count,
-      presenceCount: guild.approximate_presence_count,
-    };
+    if (guild.public_updates_channel_id) {
+      this.updatesChannel = (await this.channels.get(
+        guild.public_updates_channel_id,
+      )) as GuildTextChannel;
+    }
 
     return this;
+  }
+
+  /**
+   * Returns the URL of the guild's banner image.
+   * Possibly returns null if the guild does not have a banner image
+   * @param {GuildBannerFormat} format The format of the returned guild banner image
+   * @param {number} size The size of the returned guild banner image
+   * @returns {string | null}
+   */
+  public bannerURL(
+    format: GuildBannerFormat = GuildBannerFormat.PNG,
+    size?: number,
+  ): string | null {
+    return this.bannerHash && Avatar.bannerURL(this.bannerHash, this.id, format, size);
   }
 
   /**
@@ -489,7 +463,7 @@ class Guild extends BaseStruct {
   }
 
   /**
-   * Finds a {@link Guild} or {@link GuildUnavailable} from the relevant Cluster
+   * Finds a {@link Guild} or {@link GuildUnavailable} from the correct cache
    * @param {Bot} bot The bot instance
    * @param {Snowflake} guildId The ID of the guild
    * @returns {Guild | GuildUnavailable | undefined}
@@ -500,27 +474,32 @@ class Guild extends BaseStruct {
       return bot.unavailableGuilds.get(guildId);
     } else {
       // Guild is part of the guilds cluster
-      return bot.guilds.get(guildId);
+      return bot.guilds.cache.get(guildId);
     }
   }
 
   /**
-   * Cache a guild in the correct cluster
+   * Caches a guild in the correct cluster
    * @param {Bot} bot The bot instance
    * @param {Guild | GuildUnavailable} guild The guild you wish to cache
    */
   public static cache(bot: Bot, guild: Guild | GuildUnavailable): void {
     if (guild instanceof Guild) {
-      bot.guilds.set(guild.id, guild);
+      bot.guilds.cache.add(guild);
     } else {
       bot.unavailableGuilds.set(guild.id, guild);
     }
   }
 
+  /**
+   * Deletes a guild from the correct cache
+   * @param {Bot} bot The bot instance
+   * @param {Guild | GuildUnavailable} guild The available / unavailable guild
+   */
   public static delete(bot: Bot, guild: Guild | GuildUnavailable): void {
     if (guild instanceof Guild) {
       // The bot left the guild or it has become unavailable.
-      bot.guilds.delete(guild.id);
+      bot.guilds.cache.delete(guild.id);
     } else {
       bot.unavailableGuilds.set(guild.id, guild);
     }
