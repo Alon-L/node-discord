@@ -11,12 +11,12 @@ export default async ({ d }: Payload, bot: Bot): Promise<void> => {
   const { emoji } = handlersUtils;
   const message = await handlersUtils.getMessage();
 
-  const { identifier } = emoji;
+  const { id } = emoji;
 
   // Validates that the reaction is cached
-  if (!message.reactions.cache.has(identifier)) return;
+  if (!message.reactions.cache.has(id)) return;
 
-  const reaction = message.reactions.cache.get(identifier)!;
+  const reaction = message.reactions.cache.get(id)!;
 
   const user = reaction.users.cache.get(userId);
   const member = reaction.members.get(userId);
@@ -39,7 +39,7 @@ export default async ({ d }: Payload, bot: Bot): Promise<void> => {
     }
   } else {
     // Terminate the reaction completely from the message cached reactions
-    message.reactions.cache.delete(identifier);
+    message.reactions.cache.delete(id);
   }
 
   bot.events.emit(BotEvent.MessageReactionRemove, reaction, member || user);

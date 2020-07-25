@@ -9,11 +9,11 @@ export default async ({ d }: Payload, bot: Bot): Promise<void> => {
   const { emoji } = handlersUtils;
   const message = await handlersUtils.getMessage();
 
-  const { identifier } = emoji;
+  const { id } = emoji;
 
-  const reaction = message.reactions.cache.get(identifier);
+  const reaction = message.reactions.cache.get(id);
 
-  message.reactions.cache.delete(identifier);
+  message.reactions.cache.delete(id);
 
   bot.events.emit(BotEvent.MessageReactionRemoveEmoji, reaction);
 };

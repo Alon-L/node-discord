@@ -14,11 +14,11 @@ export default async ({ d }: Payload, bot: Bot): Promise<void> => {
   const message = await handlersUtils.getMessage();
 
   const { guild } = message;
-  const { identifier } = emoji;
+  const { id } = emoji;
 
   // Set the reaction object for this Emoji if one hasn't been set before
   const reaction = message.reactions.cache.getOrSet(
-    identifier,
+    id,
     new MessageReaction(message, {
       emoji,
       botReacted: userId === bot.user?.id,
