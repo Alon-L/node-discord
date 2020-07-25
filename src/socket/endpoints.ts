@@ -20,6 +20,7 @@ export const enum EndpointRoute {
   GuildEmojis = '/guilds/{guild.id}/emojis',
   GuildEmoji = '/guilds/{guild.id}/emojis/{emoji.id}',
   Guild = '/guilds/{guild.id}',
+  GuildPreview = '/guilds/{guild.id}/preview',
   Invite = '/invites/{invite.code}',
 }
 
@@ -69,6 +70,7 @@ export const Endpoints: Record<EndpointRoute, (...args: string[]) => string> = {
   [EndpointRoute.GuildEmoji]: (guildId: Snowflake, emojiId: Snowflake) =>
     `/guilds/${guildId}/emojis/${emojiId}`,
   [EndpointRoute.Guild]: (guildId: Snowflake) => `/guilds/${guildId}`,
+  [EndpointRoute.GuildPreview]: (guildId: Snowflake) => `/guilds/${guildId}/preview`,
   [EndpointRoute.Invite]: (inviteCode: string) => `/invites/${inviteCode}`,
 };
 
