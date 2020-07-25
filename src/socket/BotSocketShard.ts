@@ -27,6 +27,9 @@ export enum BotSocketShardState {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type PayloadData = any;
 
+/**
+ * A payload received from the Discord API gateway
+ */
 export interface Payload {
   op: OPCode;
   d: PayloadData;
