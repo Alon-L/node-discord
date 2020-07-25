@@ -12,7 +12,7 @@ abstract class BaseDeleteController<T extends BaseStructWithId> extends BaseCont
    * @param {Snowflake} id The ID of the item you wish to delete
    * @returns {Promise<T>}
    */
-  abstract delete(id: Snowflake): Promise<T | void>;
+  abstract delete(id: Snowflake | string): Promise<T | void>;
 }
 
 export default BaseDeleteController;
