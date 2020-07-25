@@ -149,6 +149,21 @@ export interface GuildBoosts {
 }
 
 /**
+ * Information for approximated data about a guild
+ */
+export interface GuildApproximates {
+  /**
+   * Approximate number of members in a guild
+   */
+  memberCount?: number;
+
+  /**
+   * Approximate number of non-offline members in a guild
+   */
+  presenceCount?: number;
+}
+
+/**
  * Guilds in Discord represent an isolated collection of users and channels, and are often referred to as "servers" in the UI.
 
  * @extends BaseStruct
@@ -334,6 +349,11 @@ class Guild extends BaseStruct {
    */
   public bans: Cluster<Snowflake, Member | User>;
 
+  /**
+   * Information about approximated data for this guild
+   */
+  public approximates!: GuildApproximates;
+
   constructor(bot: Bot, guild: GatewayStruct) {
     super(bot, guild);
 
@@ -449,6 +469,11 @@ class Guild extends BaseStruct {
     this.updatesChannel = this.channels.cache.get(
       guild.public_updates_channel_id,
     ) as GuildTextChannel;
+
+    this.approximates = {
+      memberCount: guild.approximate_member_count,
+      presenceCount: guild.approximate_presence_count,
+    };
 
     return this;
   }
