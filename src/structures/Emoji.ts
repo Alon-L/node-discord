@@ -107,7 +107,6 @@ class Emoji extends BaseStruct {
    * @param {EmojiResolvable} emoji The emoji to resolve
    * @returns {string | null}
    */
-  // TODO: Replace Cluster<Snowflake, Emoji> with GuildEmojisController
   public static resolve(emojis: Cluster<Snowflake, Emoji>, emoji: EmojiResolvable): string | null {
     return emoji instanceof Emoji ? emoji.id : emojis.get(emoji)?.id || emoji;
   }
