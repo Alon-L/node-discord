@@ -3,20 +3,18 @@ import Member from '../../structures/member/Member';
 import { Payload } from '../BotSocketShard';
 import { BotEvent } from '../constants';
 
-export default ({ d }: Payload, bot: Bot): void => {
+export default async ({ d }: Payload, bot: Bot): Promise<void> => {
   const { guild_id: guildId } = d;
 
-  const guild = bot.guilds.get(guildId);
-
-  if (!guild) return;
+  const guild = await bot.guilds.get(guildId);
 
   const member = new Member(bot, d, guild);
 
-  // Cache the member in the Guild's members cluster
+  // Cache the member in the guild's members cache
   guild.members.set(member.id, member);
 
   if (member.user) {
-    // Cache the user in the Bot's users cluster
+    // Cache the user in the Bot's users cache
     bot.users.set(member.id, member.user);
   }
 

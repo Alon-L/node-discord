@@ -7,7 +7,7 @@ import { BotEvent } from '../constants';
 export default async ({ d }: Payload, bot: Bot): Promise<void> => {
   const { guild_id: guildId, channel_id: channelId, code } = d;
 
-  const guild = bot.guilds.get(guildId);
+  const guild = await bot.guilds.get(guildId);
 
   const channel = await bot.channels.get(channelId);
 

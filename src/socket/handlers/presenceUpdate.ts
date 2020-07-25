@@ -3,15 +3,13 @@ import MemberPresence from '../../structures/member/MemberPresence';
 import { Payload } from '../BotSocketShard';
 import { BotEvent } from '../constants';
 
-export default ({ d }: Payload, bot: Bot): void => {
+export default async ({ d }: Payload, bot: Bot): Promise<void> => {
   const {
     user: { id: memberId },
     guild_id: guildId,
   } = d;
 
-  const guild = bot.guilds.get(guildId);
-
-  if (!guild) return;
+  const guild = await bot.guilds.get(guildId);
 
   const member = guild.members.get(memberId);
 

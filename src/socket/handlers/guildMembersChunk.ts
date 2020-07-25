@@ -20,7 +20,7 @@ export interface GuildMembersChunk {
   count: number;
 }
 
-export default ({ d }: Payload, bot: Bot): void => {
+export default async ({ d }: Payload, bot: Bot): Promise<void> => {
   const {
     not_found: notFound,
     guild_id: guildId,
@@ -31,11 +31,11 @@ export default ({ d }: Payload, bot: Bot): void => {
     chunk_count: chunkCount,
   } = d;
 
-  if (notFound) throw new Error('An invalid ID was passed to the Guild Members request');
+  if (notFound) {
+    throw new Error('An invalid ID was passed to the Guild Members request');
+  }
 
-  const guild = bot.guilds.get(guildId);
-
-  if (!guild) return;
+  const guild = await bot.guilds.get(guildId);
 
   // Add the new members to the guild's members cache
   guild.members.merge(

@@ -3,18 +3,14 @@ import ChannelUtils from '../../utils/ChannelUtils';
 import { Payload } from '../BotSocketShard';
 import { BotEvent } from '../constants';
 
-export default ({ d }: Payload, bot: Bot): void => {
+export default async ({ d }: Payload, bot: Bot): Promise<void> => {
   const { guild_id: guildId, channel_id: channelId, id } = d;
 
-  const channel = ChannelUtils.findText(bot, guildId, channelId);
+  const channel = await ChannelUtils.findText(bot, guildId, channelId);
 
-  if (!channel) return;
+  const message = await channel.messages.get(id);
 
-  const message = channel.messages.cache.get(id);
-
-  if (!message) return;
-
-  const { before, after } = message.update(d);
+  const { before, after } = await message.update(d);
 
   bot.events.emit(BotEvent.MessageUpdate, before, after);
 };

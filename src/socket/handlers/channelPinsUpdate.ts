@@ -4,12 +4,10 @@ import ChannelUtils from '../../utils/ChannelUtils';
 import { Payload } from '../BotSocketShard';
 import { BotEvent } from '../constants';
 
-export default ({ d }: Payload, bot: Bot): void => {
+export default async ({ d }: Payload, bot: Bot): Promise<void> => {
   const { guild_id: guildId, channel_id: channelId, last_pin_timestamp: lastPinTimestamp } = d;
 
-  const channel = ChannelUtils.findText(bot, guildId, channelId);
-
-  if (!channel) return;
+  const channel = await ChannelUtils.findText(bot, guildId, channelId);
 
   const oldPinTimestamp = channel.pins.lastPinTimestamp;
 

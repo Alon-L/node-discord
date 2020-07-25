@@ -16,15 +16,18 @@ export default ({ d }: Payload, bot: Bot, socket: BotSocketShard): void => {
       bot.unavailableGuilds.delete(guild.id);
     }
 
-    bot.guilds.set(guild.id, guild);
+    bot.guilds.cache.add(guild);
   } else {
     bot.unavailableGuilds.set(guild.id, guild);
   }
 
+  // The socket is still processing incoming GuildCreate events
   if (socket.state === BotSocketShardState.Processing) {
+    // Remove this guild from the pending guilds cache
     socket.pendingGuilds.delete(guild.id);
 
     if (!socket.pendingGuilds.size) {
+      // Fire the ready event if no guilds are pending
       socket.ready();
     }
   } else {

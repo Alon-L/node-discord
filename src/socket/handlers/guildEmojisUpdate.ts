@@ -8,8 +8,7 @@ import { BotEvent } from '../constants';
 export default async ({ d }: Payload, bot: Bot): Promise<void> => {
   const { guild_id: guildId, emojis } = d;
 
-  // TODO: Remove null assertion when introducing BotGuildsController
-  const guild = await bot.guilds.get(guildId)!;
+  const guild = await bot.guilds.get(guildId);
 
   const before = guild.emojis.cache;
 

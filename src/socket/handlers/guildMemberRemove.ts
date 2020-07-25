@@ -3,16 +3,14 @@ import Bot from '../../structures/bot/Bot';
 import { Payload } from '../BotSocketShard';
 import { BotEvent } from '../constants';
 
-export default ({ d }: Payload, bot: Bot): void => {
+export default async ({ d }: Payload, bot: Bot): Promise<void> => {
   const { guild_id: guildId, user } = d;
 
-  const guild = bot.guilds.get(guildId);
-
-  if (!guild) return;
+  const guild = await bot.guilds.get(guildId);
 
   const member = guild.members.get(user.id) || new User(bot, user);
 
-  // Remove the member from the guild's members cluster
+  // Remove the member from the guild's members cache
   guild.members.delete(member.id);
 
   bot.events.emit(BotEvent.GuildMemberRemove, member);

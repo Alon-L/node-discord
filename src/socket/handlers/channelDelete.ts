@@ -3,8 +3,8 @@ import ChannelUtils from '../../utils/ChannelUtils';
 import { Payload } from '../BotSocketShard';
 import { BotEvent } from '../constants';
 
-export default ({ d }: Payload, bot: Bot): void => {
-  const channel = ChannelUtils.create(bot, d);
+export default async ({ d }: Payload, bot: Bot): Promise<void> => {
+  const channel = await ChannelUtils.create(bot, d);
 
   ChannelUtils.delete(bot, channel);
 

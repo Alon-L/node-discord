@@ -2,16 +2,12 @@ import Bot from '../../structures/bot/Bot';
 import { Payload } from '../BotSocketShard';
 import { BotEvent } from '../constants';
 
-export default ({ d }: Payload, bot: Bot): void => {
+export default async ({ d }: Payload, bot: Bot): Promise<void> => {
   const { guild_id: guildId, channel_id: channelId } = d;
 
-  const guild = bot.guilds.get(guildId);
+  const guild = await bot.guilds.get(guildId);
 
-  if (!guild) return;
-
-  const channel = guild.channels.cache.get(channelId);
-
-  if (!channel) return;
+  const channel = await guild.channels.get(channelId);
 
   bot.events.emit(BotEvent.WebhooksUpdate, channel);
 };
