@@ -9,7 +9,7 @@ import GuildChannel from '../channels/GuildChannel';
  * The invites are mapped by their invite codes
  */
 class GuildChannelInvitesController extends BaseFetchAllController<Invite>
-  implements BaseCreateController<Invite> {
+  implements BaseCreateController<Invite, InviteOptions> {
   /**
    * The channel this controller is associated to
    */
