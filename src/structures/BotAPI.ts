@@ -12,7 +12,7 @@ import GuildTextChannel from './channels/GuildTextChannel';
 import { FetchInviteOptions } from './controllers/GuildInvitesController';
 import { FetchReactionsOptions } from './controllers/ReactionUsersController';
 import { Permissible, PermissionOverwriteFlags } from './flags/PermissionFlags';
-import GuildEmoji, { CreateEmojiOptions } from './guild/GuildEmoji';
+import GuildEmoji, { CreateEmojiOptions, ModifyEmojiOptions } from './guild/GuildEmoji';
 import Message, { MessageData, MessageEditData, MessageOptions } from './message/Message';
 import MessageEmbed from './message/MessageEmbed';
 import Cluster from '../Cluster';
@@ -65,6 +65,21 @@ class BotAPI {
       embed:
         embed &&
         (embed instanceof MessageEmbed ? embed.structure : MessageEmbed.dataToStructure(embed)),
+    };
+  }
+
+  /**
+   * Returns the serialized options for when creating or modifying emojis
+   * @param {ModifyEmojiOptions} options The emoji options
+   * @returns {Params}
+   */
+  private static serializeEmojiOptions(options: ModifyEmojiOptions): Params {
+    return {
+      ...options,
+      // Serialize the role IDs
+      roles: options.roles?.map((role: Role | Snowflake) =>
+        role instanceof Role ? role.id : role,
+      ),
     };
   }
 
@@ -668,17 +683,37 @@ class BotAPI {
     guildId: Snowflake,
     options: CreateEmojiOptions,
   ): Promise<GuildEmoji> {
-    const params: Params = {
-      ...options,
-      // Serialize the role IDs
-      roles: options.roles.map((role: Role | Snowflake) => (role instanceof Role ? role.id : role)),
-    };
-
     const emoji = await this.requests.send(
       EndpointRoute.GuildEmojis,
       { guildId },
       HttpMethod.Post,
-      params,
+      BotAPI.serializeEmojiOptions(options),
+    );
+
+    // TODO: Remove null assertion when introducing BotGuildsController
+    const guild = await this.bot.guilds.get(guildId)!;
+
+    return new GuildEmoji(this.bot, emoji!, guild);
+  }
+
+  /**
+   * Modifies a given guild emoji.
+   * Requires the {@link Permission.ManageEmojis} permission
+   * @param {Snowflake} guildId The ID of the guild
+   * @param {Snowflake} emojiId The ID of the emoji
+   * @param {ModifyEmojiOptions} options The options for the updated emoji
+   * @returns {Promise<GuildEmoji>} The updated emoji
+   */
+  public async modifyGuildEmoji(
+    guildId: Snowflake,
+    emojiId: Snowflake,
+    options: ModifyEmojiOptions,
+  ): Promise<GuildEmoji> {
+    const emoji = await this.requests.send(
+      EndpointRoute.GuildEmoji,
+      { guildId, emojiId },
+      HttpMethod.Patch,
+      BotAPI.serializeEmojiOptions(options),
     );
 
     // TODO: Remove null assertion when introducing BotGuildsController

@@ -8,22 +8,27 @@ import Bot from '../bot/Bot';
 /**
  * Options for when creating new guild emojis
  */
-export interface CreateEmojiOptions {
-  /**
-   * The name of the emoji
-   */
-  name: string;
-
+export interface CreateEmojiOptions extends Required<ModifyEmojiOptions> {
   /**
    * The 128x128 emoji image
    */
   // TODO: image data https://discord.com/developers/docs/resources/emoji#create-guild-emoji
   image: undefined;
+}
+
+/**
+ * Options for when modifying guild emojis
+ */
+export interface ModifyEmojiOptions {
+  /**
+   * The name of the emoji
+   */
+  name?: string;
 
   /**
    * Roles for which this emoji will be whitelisted
    */
-  roles: (Snowflake | Role)[];
+  roles?: (Snowflake | Role)[];
 }
 
 /**
