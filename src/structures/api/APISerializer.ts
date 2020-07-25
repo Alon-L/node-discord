@@ -3,6 +3,7 @@ import { Snowflake } from '../../types/types';
 import { InviteOptions } from '../Invite';
 import Role from '../Role';
 import { GuildChannelOptions } from '../channels/GuildChannel';
+import { FetchGuildOptions } from '../controllers/BotGuildsController';
 import { FetchInviteOptions } from '../controllers/GuildInvitesController';
 import { FetchReactionUsersOptions } from '../controllers/ReactionUsersController';
 import { Permissible, PermissionOverwriteFlags } from '../flags/PermissionFlags';
@@ -102,6 +103,19 @@ class APISerializer {
         role instanceof Role ? role.id : role,
       ),
     };
+  }
+
+  /**
+   * Returns the serialized fetch guild options for when fetching a guild
+   * @param {FetchGuildOptions} options The fetch guild options
+   * @returns {Params}
+   */
+  public static fetchGuildOptions(options?: FetchGuildOptions): Params {
+    return (
+      options && {
+        with_counts: options.withCounts,
+      }
+    );
   }
 
   /**
