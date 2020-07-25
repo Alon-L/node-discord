@@ -11,6 +11,7 @@ import Bot from '../bot/Bot';
 import GuildChannel from '../channels/GuildChannel';
 import GuildTextChannel from '../channels/GuildTextChannel';
 import GuildChannelsController from '../controllers/GuildChannelsController';
+import GuildEmojisController from '../controllers/GuildEmojisController';
 import GuildInvitesController from '../controllers/GuildInvitesController';
 import GuildSystemChannelFlags from '../flags/GuildSystemChannelFlags';
 import PermissionFlags from '../flags/PermissionFlags';
@@ -225,9 +226,9 @@ class Guild extends BaseStruct {
   public levels!: GuildLevels;
 
   /**
-   * {@link Cluster} of all custom guild {@link Emoji}s
+   * This guild's emojis controller
    */
-  public emojis!: Cluster<Snowflake, Emoji>;
+  public emojis: GuildEmojisController;
 
   /**
    * Enabled guild features
@@ -338,6 +339,8 @@ class Guild extends BaseStruct {
 
     this.channels = new GuildChannelsController(this);
 
+    this.emojis = new GuildEmojisController(this);
+
     this.presences = new Cluster<Snowflake, MemberPresence>();
 
     this.invites = new GuildInvitesController(this);
@@ -403,11 +406,12 @@ class Guild extends BaseStruct {
       mfa: guild.mfa_level,
     };
 
-    this.emojis = new Cluster<Snowflake, Emoji>(
-      guild.emojis.map((emoji: GatewayStruct) => [emoji.id, new Emoji(this.bot, emoji, this)]),
+    this.emojis.cache.addMany(
+      guild.emojis.map((emoji: GatewayStruct) => new Emoji(this.bot, emoji, this)),
     );
-    // Add all of this guild's cached channels to the Bot's cached channels
-    this.bot.emojis.merge(this.emojis);
+
+    // Add all of this guild's cached emojis to the Bot's cached emojis
+    this.bot.emojis.merge(this.emojis.cache);
 
     this.features = guild.features;
 
