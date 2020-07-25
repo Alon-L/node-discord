@@ -9,7 +9,7 @@ import MessageReaction from '../message/MessageReaction';
 /**
  * Options for when fetching the users that reacted with a particular emoji
  */
-export interface FetchReactionsOptions {
+export interface FetchReactionUsersOptions {
   /**
    * Get users before this user ID
    */
@@ -50,10 +50,10 @@ class ReactionUsersController extends BaseController<User> implements BaseFetchA
 
   /**
    * Fetches all users that reacted with the reaction emoji associated to this controller
-   * @param {FetchReactionsOptions} options A set of options for this operation
+   * @param {FetchReactionUsersOptions} options A set of options for this operation
    * @returns {Promise<User[]>}
    */
-  public async fetchAll(options?: FetchReactionsOptions): Promise<Cluster<Snowflake, User>> {
+  public async fetchAll(options?: FetchReactionUsersOptions): Promise<Cluster<Snowflake, User>> {
     const users = await this.bot.api.fetchReactionUsers(
       this.message.channel.id,
       this.message.id,
