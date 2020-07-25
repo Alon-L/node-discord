@@ -629,11 +629,31 @@ class BotAPI {
       HttpMethod.Get,
     )) as GatewayStruct[];
 
-    const guild = this.bot.guilds.get(guildId);
+    // TODO: Remove null assertion when introducing BotGuildsController
+    const guild = await this.bot.guilds.get(guildId)!;
 
     return new Cluster<Snowflake, GuildEmoji>(
       emojis.map(emoji => [emoji.id, new GuildEmoji(this.bot, emoji, guild)]),
     );
+  }
+
+  /**
+   * Fetches an emoji in a given guild
+   * @param {Snowflake} guildId The ID of the guild
+   * @param {Snowflake} emojiId The ID of the emoji
+   * @returns {Promise<GuildEmoji>}
+   */
+  public async fetchGuildEmoji(guildId: Snowflake, emojiId: Snowflake): Promise<GuildEmoji> {
+    const emoji = await this.requests.send(
+      EndpointRoute.GuildEmoji,
+      { guildId, emojiId },
+      HttpMethod.Get,
+    );
+
+    // TODO: Remove null assertion when introducing BotGuildsController
+    const guild = await this.bot.guilds.get(guildId)!;
+
+    return new GuildEmoji(this.bot, emoji!, guild);
   }
 
   /**
