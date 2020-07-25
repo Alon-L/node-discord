@@ -68,7 +68,7 @@ class ReactionUsersController extends BaseController<User> implements BaseFetchA
       this.reaction.botReacted = true;
     }
 
-    // TODO: uncomment this:
+    // TODO: uncomment this after introducing GuildMembersController:
     /*
     if (this.message.guild) {
       // The message was sent in a guild
