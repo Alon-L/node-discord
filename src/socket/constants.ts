@@ -308,7 +308,7 @@ export const enum GuildFeature {
  * All possible avatar image formats
  * https://discord.com/developers/docs/reference#image-formatting-image-formats
  */
-export const enum AvatarFormat {
+export const enum IconFormat {
   JPEG = 'jpeg',
   JPG = 'jpg',
   PNG = 'png',
