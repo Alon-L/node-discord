@@ -14,9 +14,11 @@ import Channel from '../channels/Channel';
 import DMChannel from '../channels/DMChannel';
 import GuildChannel, { GuildChannelOptions } from '../channels/GuildChannel';
 import GuildTextChannel from '../channels/GuildTextChannel';
+import { FetchGuildOptions } from '../controllers/BotGuildsController';
 import { FetchInviteOptions } from '../controllers/GuildInvitesController';
 import { FetchReactionUsersOptions } from '../controllers/ReactionUsersController';
 import { Permissible, PermissionOverwriteFlags } from '../flags/PermissionFlags';
+import Guild from '../guild/Guild';
 import GuildEmoji, { CreateEmojiOptions, ModifyEmojiOptions } from '../guild/GuildEmoji';
 import Message, { MessageData, MessageEditData, MessageOptions } from '../message/Message';
 import MessageEmbed from '../message/MessageEmbed';
@@ -664,6 +666,23 @@ class BotAPI {
     const guild = await this.bot.guilds.get(guildId)!;
 
     return new GuildEmoji(this.bot, emoji!, guild);
+  }
+
+  /**
+   * Fetches a guild by its ID and additional options
+   * @param {Snowflake} guildId The ID of the guild
+   * @param {FetchGuildOptions} options The additional options for the fetch operation
+   * @returns {Promise<Guild>}
+   */
+  public async fetchGuild(guildId: Snowflake, options?: FetchGuildOptions): Promise<Guild> {
+    const guild = await this.requests.send(
+      EndpointRoute.Guild,
+      { guildId },
+      HttpMethod.Get,
+      APISerializer.fetchGuildOptions(options),
+    );
+
+    return new Guild(this.bot, guild!);
   }
 
   /**
