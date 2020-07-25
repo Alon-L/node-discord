@@ -86,8 +86,12 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="avatar.html#enhanceurl" class="tsd-kind-icon">enhanceURL</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="avatar.html#userurl" class="tsd-kind-icon">userURL</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="avatar.html#bannerurl" class="tsd-kind-icon">bannerURL</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="avatar.html#discoverysplashurl" class="tsd-kind-icon">discovery<wbr>SplashURL</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="avatar.html#emojiurl" class="tsd-kind-icon">emojiURL</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="avatar.html#guildurl" class="tsd-kind-icon">guildURL</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="avatar.html#splashurl" class="tsd-kind-icon">splashURL</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="avatar.html#useravatarurl" class="tsd-kind-icon">user<wbr>AvatarURL</a></li>
 							</ul>
 						</section>
 					</div>
@@ -96,41 +100,47 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<a name="enhanceurl" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> enhanceURL</h3>
+					<a name="bannerurl" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> bannerURL</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">enhanceURL<span class="tsd-signature-symbol">(</span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, format<span class="tsd-signature-symbol">: </span><a href="../enums/avatarformat.html" class="tsd-signature-type">AvatarFormat</a>, size<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">bannerURL<span class="tsd-signature-symbol">(</span>hash<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, id<span class="tsd-signature-symbol">: </span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a>, format<span class="tsd-signature-symbol">?: </span><a href="../enums/guildbannerformat.html" class="tsd-signature-type">GuildBannerFormat</a>, size<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/9f08866/src/structures/Avatar.ts#L16">src/structures/Avatar.ts:16</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/316930b/src/structures/Avatar.ts#L188">src/structures/Avatar.ts:188</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Adds the given modifiers to an avatar URL</p>
+									<p>Returns a guild&#39;s banner image URL</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>url: <span class="tsd-signature-type">string</span></h5>
+									<h5>hash: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The original avatar URL</p>
+										<p>The banner hash</p>
 									</div>
 								</li>
 								<li>
-									<h5>format: <a href="../enums/avatarformat.html" class="tsd-signature-type">AvatarFormat</a></h5>
+									<h5>id: <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The required avatar image format</p>
+										<p>The ID of the guild</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> format: <a href="../enums/guildbannerformat.html" class="tsd-signature-type">GuildBannerFormat</a><span class="tsd-signature-symbol"> = GuildBannerFormat.PNG</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The format of the returned banner image</p>
 									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> size: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The required avatar image size</p>
+										<p>The size of the returned banner image</p>
 									</div>
 								</li>
 							</ul>
@@ -139,22 +149,212 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<a name="userurl" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> userURL</h3>
+					<a name="discoverysplashurl" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> discovery<wbr>SplashURL</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">userURL<span class="tsd-signature-symbol">(</span>hash<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, id<span class="tsd-signature-symbol">: </span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a>, hashtag<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, format<span class="tsd-signature-symbol">?: </span><a href="../enums/avatarformat.html" class="tsd-signature-type">AvatarFormat</a>, size<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">discovery<wbr>SplashURL<span class="tsd-signature-symbol">(</span>hash<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, id<span class="tsd-signature-symbol">: </span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a>, format<span class="tsd-signature-symbol">?: </span><a href="../enums/guilddiscoverysplashformat.html" class="tsd-signature-type">GuildDiscoverySplashFormat</a>, size<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/9f08866/src/structures/Avatar.ts#L37">src/structures/Avatar.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/316930b/src/structures/Avatar.ts#L171">src/structures/Avatar.ts:171</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns a guild&#39;s discovery splash image URL</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>hash: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The discovery splash hash</p>
+									</div>
+								</li>
+								<li>
+									<h5>id: <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The ID of the guild</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> format: <a href="../enums/guilddiscoverysplashformat.html" class="tsd-signature-type">GuildDiscoverySplashFormat</a><span class="tsd-signature-symbol"> = GuildDiscoverySplashFormat.PNG</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The format of the returned discovery splash image</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> size: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The size of the returned discovery splash image</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="emojiurl" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> emojiURL</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">emojiURL<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a>, format<span class="tsd-signature-symbol">?: </span><a href="../enums/guildemojiformat.html" class="tsd-signature-type">GuildEmojiFormat</a>, size<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/316930b/src/structures/Avatar.ts#L115">src/structures/Avatar.ts:115</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns a guild emoji&#39;s image</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>id: <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The ID of the emoji</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> format: <a href="../enums/guildemojiformat.html" class="tsd-signature-type">GuildEmojiFormat</a><span class="tsd-signature-symbol"> = GuildEmojiFormat.PNG</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The format of the returned emoji image</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> size: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The size of the returned emoji image</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="guildurl" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> guildURL</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">guildURL<span class="tsd-signature-symbol">(</span>hash<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, id<span class="tsd-signature-symbol">: </span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a>, format<span class="tsd-signature-symbol">?: </span><a href="../enums/guildiconformat.html" class="tsd-signature-type">GuildIconFormat</a>, size<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/316930b/src/structures/Avatar.ts#L131">src/structures/Avatar.ts:131</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns a guild&#39;s icon</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>hash: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The guild&#39;s icon hash</p>
+									</div>
+								</li>
+								<li>
+									<h5>id: <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The ID of the guild</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> format: <a href="../enums/guildiconformat.html" class="tsd-signature-type">GuildIconFormat</a><span class="tsd-signature-symbol"> = GuildIconFormat.PNG</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The format of the returned icon image</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> size: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The size of the returned icon image</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="splashurl" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> splashURL</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">splashURL<span class="tsd-signature-symbol">(</span>hash<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, id<span class="tsd-signature-symbol">: </span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a>, format<span class="tsd-signature-symbol">?: </span><a href="../enums/guildsplashformat.html" class="tsd-signature-type">GuildSplashFormat</a>, size<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/316930b/src/structures/Avatar.ts#L154">src/structures/Avatar.ts:154</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns a guild&#39;s splash image URL</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>hash: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The splash hash</p>
+									</div>
+								</li>
+								<li>
+									<h5>id: <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The ID of the guild</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> format: <a href="../enums/guildsplashformat.html" class="tsd-signature-type">GuildSplashFormat</a><span class="tsd-signature-symbol"> = GuildSplashFormat.PNG</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The format of the returned splash image</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> size: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The size of the returned splash image</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="useravatarurl" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> user<wbr>AvatarURL</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">user<wbr>AvatarURL<span class="tsd-signature-symbol">(</span>hash<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, id<span class="tsd-signature-symbol">: </span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a>, hashtag<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, format<span class="tsd-signature-symbol">?: </span><a href="../enums/useravatarformat.html" class="tsd-signature-type">UserAvatarFormat</a>, size<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/316930b/src/structures/Avatar.ts#L207">src/structures/Avatar.ts:207</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Returns a user&#39;s avatar URL. Returns the default user avatar if the user does not have an avatar.
-									<em>Note: the default user avatar only supports type <a href="../enums/avatarformat.html#png">AvatarFormat.PNG</a></em></p>
+									<em>Note: the default user avatar only supports type <a href="../enums/format.html#png">Format.PNG</a></em></p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -178,7 +378,7 @@
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> format: <a href="../enums/avatarformat.html" class="tsd-signature-type">AvatarFormat</a><span class="tsd-signature-symbol"> = AvatarFormat.PNG</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> format: <a href="../enums/useravatarformat.html" class="tsd-signature-type">UserAvatarFormat</a><span class="tsd-signature-symbol"> = UserAvatarFormat.PNG</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The avatar image format</p>
 									</div>
@@ -212,10 +412,22 @@
 						<a href="avatar.html" class="tsd-kind-icon">Avatar</a>
 						<ul>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-								<a href="avatar.html#enhanceurl" class="tsd-kind-icon">enhanceURL</a>
+								<a href="avatar.html#bannerurl" class="tsd-kind-icon">bannerURL</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-								<a href="avatar.html#userurl" class="tsd-kind-icon">userURL</a>
+								<a href="avatar.html#discoverysplashurl" class="tsd-kind-icon">discovery<wbr>SplashURL</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="avatar.html#emojiurl" class="tsd-kind-icon">emojiURL</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="avatar.html#guildurl" class="tsd-kind-icon">guildURL</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="avatar.html#splashurl" class="tsd-kind-icon">splashURL</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="avatar.html#useravatarurl" class="tsd-kind-icon">user<wbr>AvatarURL</a>
 							</li>
 						</ul>
 					</li>
