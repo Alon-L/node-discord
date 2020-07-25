@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>BotOptions | node-discord</title>
+	<title>EmojiOptions | node-discord</title>
 	<meta name="description" content="Documentation for node-discord">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="botoptions.html">BotOptions</a>
+					<a href="emojioptions.html">EmojiOptions</a>
 				</li>
 			</ul>
-			<h1>Interface BotOptions</h1>
+			<h1>Interface EmojiOptions</h1>
 		</div>
 	</div>
 </header>
@@ -67,7 +67,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>The options used to initialize the Bot</p>
+						<p>Options for new emojis</p>
 					</div>
 				</div>
 			</section>
@@ -75,7 +75,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">BotOptions</span>
+						<span class="target">EmojiOptions</span>
 					</li>
 				</ul>
 			</section>
@@ -86,8 +86,8 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="botoptions.html#cache" class="tsd-kind-icon">cache</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="botoptions.html#websocket" class="tsd-kind-icon">websocket</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="emojioptions.html#name" class="tsd-kind-icon">name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="emojioptions.html#roles" class="tsd-kind-icon">roles</a></li>
 							</ul>
 						</section>
 					</div>
@@ -96,32 +96,32 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="cache" class="tsd-anchor"></a>
-					<h3>cache</h3>
-					<div class="tsd-signature tsd-kind-icon">cache<span class="tsd-signature-symbol">:</span> <a href="cacheoptions.html" class="tsd-signature-type">CacheOptions</a></div>
+					<a name="name" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> name</h3>
+					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/9f08866/src/structures/bot/Bot.ts#L44">src/structures/bot/Bot.ts:44</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/9f08866/src/structures/guild/GuildEmoji.ts#L31">src/structures/guild/GuildEmoji.ts:31</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Bot cache options</p>
+							<p>The name of the emoji</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="websocket" class="tsd-anchor"></a>
-					<h3>websocket</h3>
-					<div class="tsd-signature tsd-kind-icon">websocket<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="websocketoptions.html" class="tsd-signature-type">WebsocketOptions</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<a name="roles" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> roles</h3>
+					<div class="tsd-signature tsd-kind-icon">roles<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../classes/role.html" class="tsd-signature-type">Role</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/9f08866/src/structures/bot/Bot.ts#L39">src/structures/bot/Bot.ts:39</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/9f08866/src/structures/guild/GuildEmoji.ts#L36">src/structures/guild/GuildEmoji.ts:36</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Websocket connection options</p>
+							<p>Roles for which this emoji will be whitelisted</p>
 						</div>
 					</div>
 				</section>
@@ -140,13 +140,13 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="botoptions.html" class="tsd-kind-icon">Bot<wbr>Options</a>
+						<a href="emojioptions.html" class="tsd-kind-icon">Emoji<wbr>Options</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="botoptions.html#cache" class="tsd-kind-icon">cache</a>
+								<a href="emojioptions.html#name" class="tsd-kind-icon">name</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="botoptions.html#websocket" class="tsd-kind-icon">websocket</a>
+								<a href="emojioptions.html#roles" class="tsd-kind-icon">roles</a>
 							</li>
 						</ul>
 					</li>
