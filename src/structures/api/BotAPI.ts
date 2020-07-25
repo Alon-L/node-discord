@@ -1,30 +1,25 @@
-import { GatewayStruct } from './BaseStruct';
-import Emoji, { EmojiResolvable } from './Emoji';
-import Invite, { InviteOptions } from './Invite';
-import PermissionOverwrite from './PermissionOverwrite';
-import Role from './Role';
-import User from './User';
-import Bot from './bot/Bot';
-import Channel from './channels/Channel';
-import DMChannel from './channels/DMChannel';
-import GuildChannel, { GuildChannelOptions } from './channels/GuildChannel';
-import GuildTextChannel from './channels/GuildTextChannel';
-import { FetchInviteOptions } from './controllers/GuildInvitesController';
-import { FetchReactionsOptions } from './controllers/ReactionUsersController';
-import { Permissible, PermissionOverwriteFlags } from './flags/PermissionFlags';
-import GuildEmoji, { CreateEmojiOptions, ModifyEmojiOptions } from './guild/GuildEmoji';
-import Message, { MessageData, MessageEditData, MessageOptions } from './message/Message';
-import MessageEmbed from './message/MessageEmbed';
-import Cluster from '../Cluster';
-import { EndpointRoute, HttpMethod } from '../socket/endpoints';
-import Requests, { Params } from '../socket/rateLimit/Requests';
-import { Snowflake } from '../types/types';
-import ChannelUtils from '../utils/ChannelUtils';
-
-export interface SerializedMessageData {
-  content?: string;
-  embed?: GatewayStruct;
-}
+import APISerializer from './APISerializer';
+import Cluster from '../../Cluster';
+import { EndpointRoute, HttpMethod } from '../../socket/endpoints';
+import Requests, { Params } from '../../socket/rateLimit/Requests';
+import { Snowflake } from '../../types/types';
+import ChannelUtils from '../../utils/ChannelUtils';
+import { GatewayStruct } from '../BaseStruct';
+import Emoji, { EmojiResolvable } from '../Emoji';
+import Invite, { InviteOptions } from '../Invite';
+import PermissionOverwrite from '../PermissionOverwrite';
+import User from '../User';
+import Bot from '../bot/Bot';
+import Channel from '../channels/Channel';
+import DMChannel from '../channels/DMChannel';
+import GuildChannel, { GuildChannelOptions } from '../channels/GuildChannel';
+import GuildTextChannel from '../channels/GuildTextChannel';
+import { FetchInviteOptions } from '../controllers/GuildInvitesController';
+import { FetchReactionUsersOptions } from '../controllers/ReactionUsersController';
+import { Permissible, PermissionOverwriteFlags } from '../flags/PermissionFlags';
+import GuildEmoji, { CreateEmojiOptions, ModifyEmojiOptions } from '../guild/GuildEmoji';
+import Message, { MessageData, MessageEditData, MessageOptions } from '../message/Message';
+import MessageEmbed from '../message/MessageEmbed';
 
 /**
  * Creates all outgoing API requests
@@ -50,37 +45,6 @@ class BotAPI {
     this.token = token;
 
     this.requests = new Requests(this.bot, this.token);
-  }
-
-  /**
-   * Returns the data serialized in the API format for operations on messages
-   * @param {MessageData} data The {@link MessageData} object to serialize
-   * @returns {SerializedMessageData}
-   */
-  private static serializeMessageData(data: MessageData): SerializedMessageData {
-    const { embed } = data;
-
-    return {
-      ...data,
-      embed:
-        embed &&
-        (embed instanceof MessageEmbed ? embed.structure : MessageEmbed.dataToStructure(embed)),
-    };
-  }
-
-  /**
-   * Returns the serialized options for when creating or modifying emojis
-   * @param {ModifyEmojiOptions} options The emoji options
-   * @returns {Params}
-   */
-  private static serializeEmojiOptions(options: ModifyEmojiOptions): Params {
-    return {
-      ...options,
-      // Serialize the role IDs
-      roles: options.roles?.map((role: Role | Snowflake) =>
-        role instanceof Role ? role.id : role,
-      ),
-    };
   }
 
   /**
@@ -130,15 +94,7 @@ class BotAPI {
       EndpointRoute.Channel,
       { channelId },
       HttpMethod.Patch,
-      {
-        name: options.name,
-        type: options.type,
-        topic: options.topic,
-        nsfw: options.nsfw,
-        rate_limit_per_user: options.slowModeTimeout,
-        bitrate: options.bitrate,
-        user_limit: options.userLimit,
-      },
+      APISerializer.guildChannelOptions(options),
     );
 
     return ChannelUtils.createGuildChannel(this.bot, channelData!);
@@ -234,7 +190,7 @@ class BotAPI {
       params['embed'] = data.structure;
     } else {
       // The params should include all given data fields
-      Object.assign(params, BotAPI.serializeMessageData(data));
+      Object.assign(params, APISerializer.messageData(data));
     }
 
     const messageData = await this.requests.send(
@@ -320,14 +276,14 @@ class BotAPI {
    * @param {Snowflake} channelId The ID of the channel that contains the message
    * @param {Snowflake} messageId The ID of the message
    * @param {string} emoji The emoji the users reacted with
-   * @param {FetchReactionsOptions} options A set of options for this operation
+   * @param {FetchReactionUsersOptions} options A set of options for this operation
    * @returns {Promise<Cluster<Snowflake, User>>}
    */
   public async fetchReactionUsers(
     channelId: Snowflake,
     messageId: Snowflake,
     emoji: string,
-    options?: FetchReactionsOptions,
+    options?: FetchReactionUsersOptions,
   ): Promise<Cluster<Snowflake, User>> {
     const users = (await this.requests.send(
       EndpointRoute.ChannelMessagesReactionsEmoji,
@@ -337,7 +293,7 @@ class BotAPI {
         emoji,
       },
       HttpMethod.Get,
-      options as Params,
+      APISerializer.fetchReactionUsersOptions(options),
     )) as GatewayStruct[];
 
     return new Cluster<Snowflake, User>(users.map(user => [user.id, new User(this.bot, user)]));
@@ -420,7 +376,7 @@ class BotAPI {
       params['content'] = data;
     } else {
       // The given data should be passed to the endpoint
-      Object.assign(params, { ...BotAPI.serializeMessageData(data), flags: data.flags?.bits });
+      Object.assign(params, { ...APISerializer.messageData(data), flags: data.flags?.bits });
     }
 
     const messageData = await this.requests.send(
@@ -485,11 +441,7 @@ class BotAPI {
     permissible: Permissible,
     flags: PermissionOverwriteFlags,
   ): Promise<PermissionOverwrite> {
-    const params: Params = {
-      type: permissible.type,
-      allow: flags.allow?.bits,
-      deny: flags.deny?.bits,
-    };
+    const params = APISerializer.guildChannelPermissions(permissible, flags);
 
     await this.requests.send(
       EndpointRoute.ChannelPermissionsOverwrite,
@@ -533,22 +485,14 @@ class BotAPI {
    * @returns {Promise<Invite>}
    */
   public async createChannelInvite(channelId: Snowflake, options?: InviteOptions): Promise<Invite> {
-    // Serialize the params into the API format
-    const params: Params = {
-      max_age: options?.max?.age,
-      max_uses: options?.max?.uses,
-      temporary: options?.temporary,
-      unique: options?.unique,
-    };
-
-    const inviteData = await this.requests.send(
+    const invite = await this.requests.send(
       EndpointRoute.ChannelInvites,
       { channelId },
       HttpMethod.Post,
-      params,
+      APISerializer.inviteOptions(options),
     );
 
-    return new Invite(this.bot, inviteData!);
+    return new Invite(this.bot, invite!);
   }
 
   /**
@@ -687,7 +631,7 @@ class BotAPI {
       EndpointRoute.GuildEmojis,
       { guildId },
       HttpMethod.Post,
-      BotAPI.serializeEmojiOptions(options),
+      APISerializer.emojiOptions(options),
     );
 
     // TODO: Remove null assertion when introducing BotGuildsController
@@ -713,7 +657,7 @@ class BotAPI {
       EndpointRoute.GuildEmoji,
       { guildId, emojiId },
       HttpMethod.Patch,
-      BotAPI.serializeEmojiOptions(options),
+      APISerializer.emojiOptions(options),
     );
 
     // TODO: Remove null assertion when introducing BotGuildsController
@@ -729,16 +673,11 @@ class BotAPI {
    * @returns {Promise<Invite>}
    */
   public async fetchInvite(inviteCode: string, options?: FetchInviteOptions): Promise<Invite> {
-    // Serialize the params into the API format
-    const params: Params = {
-      with_counts: options?.withCounts,
-    };
-
     const invite = await this.requests.send(
       EndpointRoute.Invite,
       { inviteCode },
       HttpMethod.Get,
-      params,
+      APISerializer.fetchInviteOptions(options),
     );
 
     return new Invite(this.bot, invite!);
