@@ -22,26 +22,11 @@ class ChannelUtils {
   public static async create(bot: Bot, data: GatewayStruct, guild_?: Guild): Promise<Channel> {
     const { guild_id: guildId } = data;
 
-    let channel: Channel;
+    const guild = guild_ || (guildId && (await bot.guilds.get(guildId)));
 
-    const guild = guild_ || (await bot.guilds.get(guildId));
-
-    switch (data.type as ChannelType) {
-      case ChannelType.GuildText:
-        channel = new GuildTextChannel(bot, data, guild!);
-        break;
-      case ChannelType.DM:
-        channel = new DMChannel(bot, data);
-        break;
-      case ChannelType.GuildCategory:
-        channel = new GuildCategoryChannel(bot, data, guild!);
-        break;
-      default:
-        channel = new Channel(bot, data);
-        break;
-    }
-
-    return channel;
+    return guild
+      ? ChannelUtils.createGuildChannel(bot, data, guild)
+      : ChannelUtils.createDMChannel(bot, data);
   }
 
   /**
@@ -51,18 +36,23 @@ class ChannelUtils {
    * @param {Guild | undefined} guild The guild associated to the channel
    * @returns {Promise<GuildChannel>}
    */
-  public static async createGuildChannel(
-    bot: Bot,
-    data: GatewayStruct,
-    guild?: Guild,
-  ): Promise<GuildChannel> {
-    const guildChannel = await ChannelUtils.create(bot, data, guild);
+  public static createGuildChannel(bot: Bot, data: GatewayStruct, guild?: Guild): GuildChannel {
+    let channel: GuildChannel | undefined;
 
-    if (!(guildChannel instanceof GuildChannel)) {
-      throw new TypeError('The created channel is a DM channel');
+    switch (data.type as ChannelType) {
+      case ChannelType.GuildText:
+        channel = new GuildTextChannel(bot, data, guild!);
+        break;
+      case ChannelType.GuildCategory:
+        channel = new GuildCategoryChannel(bot, data, guild!);
+        break;
     }
 
-    return guildChannel;
+    if (!channel) {
+      throw new TypeError('Invalid guild channel type!');
+    }
+
+    return channel;
   }
 
   /**
@@ -71,14 +61,14 @@ class ChannelUtils {
    * @param {GatewayStruct} data The channel data received from the gateway
    * @returns {Promise<DMChannel>}
    */
-  public static async createDMChannel(bot: Bot, data: GatewayStruct): Promise<DMChannel> {
-    const dmChannel = await ChannelUtils.create(bot, data);
+  public static createDMChannel(bot: Bot, data: GatewayStruct): DMChannel {
+    const { guild_id: guildId } = data;
 
-    if (!(dmChannel instanceof DMChannel)) {
-      throw new TypeError('The created channel is a guild channel');
+    if (guildId) {
+      throw new TypeError('DM channels cannot have a guild ID!');
     }
 
-    return dmChannel;
+    return new DMChannel(bot, data);
   }
 
   /**
