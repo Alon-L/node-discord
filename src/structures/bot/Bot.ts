@@ -7,11 +7,11 @@ import Cluster from '../../Cluster';
 import { BotEvent } from '../../socket/constants';
 import { botOptions, CacheOptions, WebsocketOptions } from '../../socket/properties';
 import { ShardId, Snowflake } from '../../types/types';
-import Emoji from '../Emoji';
 import User from '../User';
 import BotAPI from '../api/BotAPI';
 import BotChannelsController from '../controllers/BotChannelsController';
 import BotGuildsController from '../controllers/BotGuildsController';
+import GuildEmoji from '../guild/GuildEmoji';
 import GuildUnavailable from '../guild/GuildUnavailable';
 
 /**
@@ -117,9 +117,9 @@ class Bot {
   public users: Cluster<Snowflake, User>;
 
   /**
-   * {@link Cluster} of all {@link Emoji}s found in all guilds the Bot is part of
+   * {@link Cluster} of all {@link GuildEmoji}s found in all guilds the Bot is part of
    */
-  public emojis: Cluster<Snowflake, Emoji>;
+  public emojis: Cluster<Snowflake, GuildEmoji>;
 
   constructor(token: string, options?: Partial<BotOptions>) {
     this.token = token;
@@ -155,7 +155,7 @@ class Bot {
 
     this.users = new Cluster<Snowflake, User>();
 
-    this.emojis = new Cluster<Snowflake, Emoji>();
+    this.emojis = new Cluster<Snowflake, GuildEmoji>();
   }
 
   /**
