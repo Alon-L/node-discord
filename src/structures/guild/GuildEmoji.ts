@@ -69,6 +69,16 @@ class GuildEmoji extends Emoji {
   public URL(format: GuildEmojiFormat = GuildEmojiFormat.PNG, size?: number): string {
     return Avatar.emojiURL(this.id, format, size);
   }
+
+  /**
+   * Modifies this emoji.
+   * Requires the {@link Permission.ManageEmojis} permission
+   * @param {ModifyEmojiOptions} options The options for the updated emoji
+   * @returns {Promise<GuildEmoji>}
+   */
+  public modify(options: ModifyEmojiOptions): Promise<GuildEmoji> {
+    return this.bot.api.modifyGuildEmoji(this.guild.id, this.id, options);
+  }
 }
 
 export default GuildEmoji;
