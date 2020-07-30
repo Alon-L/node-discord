@@ -47,17 +47,19 @@ class GuildEmoji extends Emoji {
   public guild!: Guild;
 
   /**
-   * Every guild emoji has an identifier
-   */
-  public id!: Snowflake;
-
-  /**
    * Every guild emoji has a name
    */
   public name!: string;
 
   constructor(bot: Bot, emoji: GatewayStruct, guild: Guild) {
     super(bot, emoji, guild);
+  }
+
+  /**
+   * Every guild emoji has an identifier
+   */
+  public get id(): string {
+    return this.emojiId!;
   }
 
   /**
