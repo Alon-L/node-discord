@@ -44,7 +44,6 @@ export interface BotOptions {
   cache: CacheOptions;
 }
 
-// TODO: BotFetch
 /**
  * The bot is the main operator of the API.
  * It handles the events, and properties for all structures.
