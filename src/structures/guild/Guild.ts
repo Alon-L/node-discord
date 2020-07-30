@@ -220,7 +220,7 @@ class Guild extends GuildPreview {
   /**
    * This guild's emojis controller
    */
-  public emojis: GuildEmojisController;
+  public emojis!: GuildEmojisController;
 
   /**
    * Application ID of the guild creator if it is bot-created
@@ -324,8 +324,6 @@ class Guild extends GuildPreview {
   constructor(bot: Bot, guild: GatewayStruct) {
     super(bot, guild);
 
-    this.emojis = new GuildEmojisController(this);
-
     this.presences = new Cluster<Snowflake, MemberPresence>();
 
     this.invites = new GuildInvitesController(this);
@@ -340,6 +338,8 @@ class Guild extends GuildPreview {
    */
   public async init(guild: GatewayStruct): Promise<this> {
     super.init(guild);
+
+    this.emojis = new GuildEmojisController(this);
 
     this.channels = new GuildChannelsController(this);
 
