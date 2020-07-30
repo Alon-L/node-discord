@@ -1,12 +1,13 @@
 /**
  * Manager class responsible for retrieving data off of bit-wise flags
  * @template T
+ * @template TFlags
  */
-class Flags<T extends number> {
+class Flags<T extends number, TFlags extends number | string = number> {
   /**
    * Integer of the flags
    */
-  private readonly flags: number;
+  protected readonly flags: number;
 
   constructor(flags: number) {
     this.flags = flags;
@@ -25,8 +26,8 @@ class Flags<T extends number> {
    * Returns the bits of the flags this instance contains
    * @type {number}
    */
-  public get bits(): number {
-    return this.flags;
+  public get bits(): TFlags {
+    return this.flags as TFlags;
   }
 
   /**

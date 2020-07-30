@@ -443,7 +443,7 @@ class Guild extends GuildPreview {
     this.ownerId = guild.owner_id;
 
     if (guild.permissions) {
-      this.permissions = new PermissionFlags(guild.permissions);
+      this.permissions = new PermissionFlags(guild.permissions.toString());
     }
 
     this.region = guild.region;

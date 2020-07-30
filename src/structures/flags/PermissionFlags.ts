@@ -48,6 +48,15 @@ export interface PermissionOverwriteFlags {
   deny?: PermissionFlags;
 }
 
-class PermissionFlags extends Flags<Permission> {}
+class PermissionFlags extends Flags<Permission, string> {
+  // Permission flags in Discord are now received in serialized strings
+  constructor(flags: string) {
+    super(parseInt(flags));
+  }
+
+  public get bits(): string {
+    return this.flags.toString();
+  }
+}
 
 export default PermissionFlags;

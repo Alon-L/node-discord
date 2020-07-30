@@ -33,8 +33,8 @@ class PermissionOverwrite extends BaseStruct {
 
   public init(permission: GatewayStruct): this {
     this.flags = {
-      allow: new PermissionFlags(permission.allow),
-      deny: new PermissionFlags(permission.deny),
+      allow: new PermissionFlags(permission.allow_new),
+      deny: new PermissionFlags(permission.deny_new),
     };
 
     this.permissible = {

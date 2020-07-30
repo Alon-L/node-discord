@@ -68,7 +68,7 @@ class Role extends GuildBaseStruct {
     this.color = role.color;
     this.listedSeparately = role.hoist;
     this.position = role.position;
-    this.permissions = new PermissionFlags(role.permissions);
+    this.permissions = new PermissionFlags(role.permissions_new);
     this.managed = role.managed;
     this.mentionable = role.mentionable;
 
