@@ -9,7 +9,7 @@ const bot = new Bot(config.token);
 bot.connection.connect();
 
 bot.events.on(BotEvent.Ready, () => {
-  const guild = bot.guilds.last;
+  const guild = bot.guilds.cache.last;
 
   console.log(guild instanceof Guild);
   console.log(guild?.id, 'GUILD ID');
