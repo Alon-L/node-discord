@@ -1,5 +1,7 @@
 import BaseDeleteController from './base/BaseDeleteController';
+import BaseFetchAllController from './base/BaseFetchAllController';
 import BaseFetchController from './base/BaseFetchController';
+import Cluster from '../../Cluster';
 import { Snowflake } from '../../types/types';
 import GuildChannel from '../channels/GuildChannel';
 import Guild from '../guild/Guild';
@@ -9,7 +11,7 @@ import Guild from '../guild/Guild';
  * The guild channels a mapped by their IDs
  */
 class GuildChannelsController extends BaseFetchController<GuildChannel>
-  implements BaseDeleteController<GuildChannel> {
+  implements BaseDeleteController<GuildChannel>, BaseFetchAllController<GuildChannel> {
   /**
    * The guild this controller is associated to
    */
@@ -42,6 +44,18 @@ class GuildChannelsController extends BaseFetchController<GuildChannel>
     this.bot.channels.cache.add(channel);
 
     return channel;
+  }
+
+  /**
+   * Fetches and caches all channels the guild associated to this controller
+   * @returns {Promise<Cluster<Snowflake, GuildChannel>>}
+   */
+  public async fetchAll(): Promise<Cluster<Snowflake, GuildChannel>> {
+    const channels = await this.bot.api.fetchGuildChannels(this.guild.id);
+
+    this.cache.merge(channels);
+
+    return channels;
   }
 }
 

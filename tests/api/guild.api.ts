@@ -1,5 +1,6 @@
 'use strict';
 
+import assert from 'assert';
 import { BotEvent } from '../../src/socket/constants';
 import Bot from '../../src/structures/bot/Bot';
 import config from '../config.json';
@@ -12,8 +13,6 @@ bot.connection.connect();
 
   const guild = await bot.guilds.get('702476896008405002');
 
-  console.log(guild);
-
   const oldSystemChannelId = guild.systemChannel.channel?.id;
 
   guild.modify({
@@ -23,15 +22,18 @@ bot.connection.connect();
   await bot.events.wait(BotEvent.GuildUpdate);
 
   console.log(
-    guild.systemChannel.channel?.id === '721781755060813914',
+    guild.systemChannel.channel?.id === oldSystemChannelId,
     'systemChannel updated',
     'expected: true',
   ); // expected: true
 
-  // Revert the change
-  await guild.modify({
-    systemChannelId: oldSystemChannelId,
-  });
+  const channels = await guild.channels.fetchAll();
+
+  console.log(
+    assert.deepStrictEqual(channels.toArrayKeys, guild.channels.cache.toArrayKeys),
+    'whether no new guild channels were fetched',
+    'expected: undefined',
+  ); // expected: undefined
 })();
 
 bot.events.on(BotEvent.Debug, console.log);

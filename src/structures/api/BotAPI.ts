@@ -735,6 +735,28 @@ class BotAPI {
   }
 
   /**
+   * Fetches all guild channels in a given guild
+   * @param {Snowflake} guildId The ID of the guild
+   * @returns {Promise<Cluster<Snowflake, GuildChannel>>}
+   */
+  public async fetchGuildChannels(guildId: Snowflake): Promise<Cluster<Snowflake, GuildChannel>> {
+    const channels = (await this.requests.send(
+      EndpointRoute.GuildChannels,
+      { guildId },
+      HttpMethod.Get,
+    )) as GatewayStruct[];
+
+    const guild = await this.bot.guilds.get(guildId);
+
+    return new Cluster<Snowflake, GuildChannel>(
+      channels.map(channel => [
+        channel.id,
+        ChannelUtils.createGuildChannel(this.bot, channel, guild),
+      ]),
+    );
+  }
+
+  /**
    * Fetches an invite by its invite code
    * @param {string} inviteCode The invite code
    * @param {FetchInviteOptions} options An additional set of options for the invite
