@@ -337,7 +337,7 @@ class Guild extends GuildPreview {
   /**
    * Presences of the members in the guild, will only include non-offline members if the size is greater than {@link identify.large_threshold}
    */
-  public presences: Cluster<Snowflake, MemberPresence>;
+  public presences!: Cluster<Snowflake, MemberPresence>;
 
   /**
    * The maximum number of presences for the guild (the default value, currently 25000, is in effect when `null` is returned)
@@ -393,8 +393,6 @@ class Guild extends GuildPreview {
   constructor(bot: Bot, guild: GatewayStruct) {
     super(bot, guild);
 
-    this.presences = new Cluster<Snowflake, MemberPresence>();
-
     this.bans = new Cluster<Snowflake, Member>();
   }
 
@@ -405,6 +403,8 @@ class Guild extends GuildPreview {
    */
   public init(guild: GatewayStruct): this {
     super.init(guild);
+
+    this.presences = new Cluster<Snowflake, MemberPresence>();
 
     this.emojis = new GuildEmojisController(this);
 
