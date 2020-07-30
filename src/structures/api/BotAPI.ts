@@ -666,6 +666,16 @@ class BotAPI {
   }
 
   /**
+   * Deletes a given guild emoji
+   * @param {Snowflake} guildId The ID of the guild
+   * @param {Snowflake} emojiId The ID of the emoji to delete
+   * @returns {Promise<void>}
+   */
+  public async deleteGuildEmoji(guildId: Snowflake, emojiId: Snowflake): Promise<void> {
+    await this.requests.send(EndpointRoute.GuildEmoji, { guildId, emojiId }, HttpMethod.Delete);
+  }
+
+  /**
    * Fetches a guild by its ID and additional options
    * @param {Snowflake} guildId The ID of the guild
    * @param {FetchGuildOptions} options The additional options for the fetch operation

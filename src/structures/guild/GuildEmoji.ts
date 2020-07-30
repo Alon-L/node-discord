@@ -79,6 +79,15 @@ class GuildEmoji extends Emoji {
   public modify(options: ModifyEmojiOptions): Promise<GuildEmoji> {
     return this.bot.api.modifyGuildEmoji(this.guild.id, this.id, options);
   }
+
+  /**
+   * Deletes this emoji.
+   * Requires the {@link Permission.ManageEmojis} permission
+   * @returns {Promise<void>}
+   */
+  public delete(): Promise<void> {
+    return this.bot.api.deleteGuildEmoji(this.guild.id, this.id);
+  }
 }
 
 export default GuildEmoji;
