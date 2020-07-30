@@ -11,21 +11,19 @@ bot.connection.connect();
 (async function (): Promise<void> {
   await bot.events.wait(BotEvent.Ready);
 
-  const guildChannel = bot.guilds
-    .get('702476896008405002')
-    ?.channels.cache.get('721781755060813914');
-  if (!guildChannel) return;
+  const guild = await bot.guilds.get('702476896008405002');
+  const channel = await guild.channels.get('721781755060813914');
 
   // Modify the name and topic of the guild channel
-  await guildChannel
+  await channel
     .modify({
-      name: guildChannel.name + 'a',
-      topic: guildChannel.topic ? guildChannel.topic + 'a' : 'a',
+      name: channel.name + 'a',
+      topic: channel.topic ? channel.topic + 'a' : 'a',
     })
     .catch(() => console.log('Rate limit reached for channel modification'));
 
   // Modify the permissions of the guild channel
-  guildChannel.permissions.modify(
+  channel.permissions.modify(
     {
       id: bot.user!.id,
       type: PermissibleType.Member,
@@ -39,13 +37,13 @@ bot.connection.connect();
   await bot.events.wait(BotEvent.ChannelUpdate);
 
   console.log(
-    guildChannel.permissions.cache.get(bot.user!.id)?.flags.allow.has(Permission.AttachFiles),
+    channel.permissions.cache.get(bot.user!.id)?.flags.allow.has(Permission.AttachFiles),
     'whether the bot use has the AttachFiles permission',
     'expected: false',
   ); // expected: false
 
   // Create a new invite in the guild channel
-  const invite = await guildChannel.invites.create({
+  const invite = await channel.invites.create({
     max: {
       age: 15,
       uses: 3,
@@ -56,12 +54,12 @@ bot.connection.connect();
   console.log(invite.code, 'newly generated invite code');
 
   // Delete the overwritten permissions of the bot's user
-  guildChannel.permissions.delete(bot.user!.id);
+  channel.permissions.delete(bot.user!.id);
 
   await bot.events.wait(BotEvent.ChannelUpdate);
 
   console.log(
-    guildChannel.permissions.cache.has(bot.user!.id),
+    channel.permissions.cache.has(bot.user!.id),
     'whether a permission overwrite for the bot user exists',
     'expected: false',
   ); // expected: false

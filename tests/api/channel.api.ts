@@ -14,8 +14,8 @@ bot.connection.connect();
 (async function (): Promise<void> {
   await bot.events.wait(BotEvent.Ready);
 
-  const channel = bot.guilds.get('702476896008405002')?.channels.get('721781755060813914');
-  if (!channel) return;
+  const guild = await bot.guilds.get('702476896008405002');
+  const channel = await guild.channels.get('721781755060813914');
 
   // console.log(await channel.delete());
 
@@ -41,14 +41,14 @@ bot.connection.connect();
     await message.react('✅');
 
     // React with a custom emoji
-    await message.react(message.guild!.emojis.first!.emojiId!);
+    await message.react(message.guild!.emojis.cache.first!.emojiId!);
 
     // Remove the white check mark emoji reaction
     await message.reactions.delete('✅');
 
     // Remove the custom emoji reaction from the message
     await message.reactions.cache
-      .get(Emoji.resolve(bot.emojis, message.guild!.emojis.first!.emojiId!)!)
+      .get(Emoji.resolve(bot.emojis, message.guild!.emojis.cache.first!.emojiId!)!)
       ?.delete();
 
     // Remove all reactions from the message
