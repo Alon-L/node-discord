@@ -1,3 +1,4 @@
+import GuildEmoji from './GuildEmoji';
 import GuildPreview from './GuildPreview';
 import GuildUnavailable from './GuildUnavailable';
 import Cluster from '../../Cluster';
@@ -165,6 +166,74 @@ export interface GuildApproximates {
 }
 
 /**
+ * The new data of the guild after modifying it
+ */
+export interface ModifyGuildOptions {
+  /**
+   * The new name of the guild
+   */
+  name?: string;
+
+  /**
+   * The new guild's voice region ID
+   */
+  region?: string;
+
+  /**
+   * New level data for the guild. Includes verification level, message notification level and explicit content filter level
+   */
+  levels?: Partial<Pick<GuildLevels, 'verification' | 'notifications' | 'explicitContent'>>;
+
+  /**
+   * Data for the guild's AFK channel and timeout
+   */
+  afk?: Partial<GuildAFK>;
+
+  // TODO: modify guild icon https://discord.com/developers/docs/resources/guild#modify-guild
+  /**
+   * The new icon of the guild
+   */
+  icon?: undefined;
+
+  /**
+   * The user ID to transfer guild ownership to (bot must be the owner of the guild)
+   */
+  ownerId?: Snowflake;
+
+  // TODO: modify guild splash https://discord.com/developers/docs/resources/guild#modify-guild
+  /**
+   * The new splash image of the guild
+   */
+  splash?: undefined;
+
+  // TODO: modify guild banner https://discord.com/developers/docs/resources/guild#modify-guild
+  /**
+   * The new banner image of the guild
+   */
+  banner?: undefined;
+
+  /**
+   * The ID of the channel where guid notices such as welcome messages and boost events are posted
+   */
+  systemChannelId?: Snowflake;
+
+  /**
+   * The ID of the channel where public guilds display rules and/or guidelines
+   */
+  rulesChannelId?: Snowflake;
+
+  /**
+   * The ID of the channel where admins and moderators of public guilds receive notices from Discord
+   */
+  updatesChannelId?: Snowflake;
+
+  /**
+   * The preferred locale of a public guild used in server discovery and notices from Discord; defaults to "en-US"
+   */
+  locale?: string;
+}
+
+/**
  * Guilds in Discord represent an isolated collection of users and channels, and are often referred to as "servers" in the UI.
 
  * @extends BaseStruct
@@ -314,7 +383,7 @@ class Guild extends GuildPreview {
   /**
    * The guild's invites controller
    */
-  public invites: GuildInvitesController;
+  public invites!: GuildInvitesController;
 
   /**
    * All cached guild bans
@@ -325,8 +394,6 @@ class Guild extends GuildPreview {
     super(bot, guild);
 
     this.presences = new Cluster<Snowflake, MemberPresence>();
-
-    this.invites = new GuildInvitesController(this);
 
     this.bans = new Cluster<Snowflake, Member>();
   }
@@ -343,13 +410,17 @@ class Guild extends GuildPreview {
 
     this.channels = new GuildChannelsController(this);
 
-    this.channels.cache.addMany(
-      await Promise.all(
-        guild.channels?.map(
-          async (channel: GatewayStruct) => await ChannelUtils.create(this.bot, channel, this),
+    this.invites = new GuildInvitesController(this);
+
+    if (guild.channels) {
+      this.channels.cache.addMany(
+        await Promise.all(
+          guild.channels.map(
+            async (channel: GatewayStruct) => await ChannelUtils.create(this.bot, channel, this),
+          ),
         ),
-      ),
-    );
+      );
+    }
 
     // Add all of this guild's cached channels to the Bot's cached channels
     this.bot.channels.cache.merge(this.channels.cache);
@@ -392,7 +463,7 @@ class Guild extends GuildPreview {
     };
 
     this.emojis.cache.addMany(
-      guild.emojis.map((emoji: GatewayStruct) => new Emoji(this.bot, emoji, this)),
+      guild.emojis.map((emoji: GatewayStruct) => new GuildEmoji(this.bot, emoji, this)),
     );
 
     // Add all of this guild's cached emojis to the Bot's cached emojis
@@ -450,6 +521,16 @@ class Guild extends GuildPreview {
     size?: number,
   ): string | null {
     return this.bannerHash && Avatar.bannerURL(this.bannerHash, this.id, format, size);
+  }
+
+  /**
+   * Modifies this guild's settings.
+   * Requires the {@link Permission.ManageGuild} permission
+   * @param {ModifyGuildOptions} options The new options for the updated guild
+   * @returns {Promise<Guild>}
+   */
+  public modify(options: ModifyGuildOptions): Promise<Guild> {
+    return this.bot.api.modifyGuild(this.id, options);
   }
 
   /**
