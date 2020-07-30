@@ -7,6 +7,7 @@ import { FetchGuildOptions } from '../controllers/BotGuildsController';
 import { FetchInviteOptions } from '../controllers/GuildInvitesController';
 import { FetchReactionUsersOptions } from '../controllers/ReactionUsersController';
 import { Permissible, PermissionOverwriteFlags } from '../flags/PermissionFlags';
+import { ModifyGuildOptions } from '../guild/Guild';
 import { EmojiOptions } from '../guild/GuildEmoji';
 import { MessageData } from '../message/Message';
 import MessageEmbed from '../message/MessageEmbed';
@@ -116,6 +117,31 @@ class APISerializer {
         with_counts: options.withCounts,
       }
     );
+  }
+
+  /**
+   * Returns the serialized modify guild options for when modifying a guild
+   * @param {ModifyGuildOptions} options The modify guild options
+   * @returns {Params}
+   */
+  public static modifyGuildOptions(options: ModifyGuildOptions): Params {
+    return {
+      name: options.name,
+      region: options.region,
+      verification_level: options.levels?.verification,
+      default_message_notifications: options.levels?.notifications,
+      explicit_content_filter: options.levels?.explicitContent,
+      afk_channel_id: options.afk?.channel?.id,
+      afk_timeout: options.afk?.timeout,
+      icon: options.icon,
+      owner_id: options.ownerId,
+      splash: options.splash,
+      banner: options.banner,
+      system_channel_id: options.systemChannelId,
+      rules_channel_id: options.rulesChannelId,
+      public_updates_channel_id: options.updatesChannelId,
+      preferred_locale: options.locale,
+    };
   }
 
   /**

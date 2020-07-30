@@ -33,19 +33,23 @@ class ChannelUtils {
    * Creates a new {@link GuildChannel} instance, initialized relatively to its type
    * @param {Bot} bot The bot instance
    * @param {GatewayStruct} data The channel data received from the gateway
-   * @param {Guild | undefined} guild The guild associated to the channel
+   * @param {Guild} guild The guild associated to the channel
    * @returns {Promise<GuildChannel>}
    */
-  public static createGuildChannel(bot: Bot, data: GatewayStruct, guild?: Guild): GuildChannel {
+  public static createGuildChannel(bot: Bot, data: GatewayStruct, guild: Guild): GuildChannel {
     let channel: GuildChannel | undefined;
 
     switch (data.type as ChannelType) {
       case ChannelType.GuildText:
-        channel = new GuildTextChannel(bot, data, guild!);
+        channel = new GuildTextChannel(bot, data, guild);
         break;
       case ChannelType.GuildCategory:
-        channel = new GuildCategoryChannel(bot, data, guild!);
+        channel = new GuildCategoryChannel(bot, data, guild);
         break;
+      case ChannelType.GuildVoice:
+      case ChannelType.GuildNews:
+      case ChannelType.GuildStore:
+        channel = new GuildChannel(bot, data, guild);
     }
 
     if (!channel) {
@@ -69,6 +73,22 @@ class ChannelUtils {
     }
 
     return new DMChannel(bot, data);
+  }
+
+  /**
+   * Retrieves the guild hidden in a channel instance's structure
+   * @param {Bot} bot The bot instance
+   * @param {Channel} channel The channel instance
+   * @returns {Promise<Guild>}
+   */
+  public static getChannelGuild(bot: Bot, channel: Channel | GatewayStruct): Promise<Guild> {
+    const { guild_id: guildId } = channel instanceof Channel ? channel.structure : channel;
+
+    if (!guildId) {
+      throw new TypeError('No guild ID specified for channel!');
+    }
+
+    return bot.guilds.get(guildId);
   }
 
   /**

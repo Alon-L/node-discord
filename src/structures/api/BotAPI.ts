@@ -18,7 +18,7 @@ import { FetchGuildOptions } from '../controllers/BotGuildsController';
 import { FetchInviteOptions } from '../controllers/GuildInvitesController';
 import { FetchReactionUsersOptions } from '../controllers/ReactionUsersController';
 import { Permissible, PermissionOverwriteFlags } from '../flags/PermissionFlags';
-import Guild from '../guild/Guild';
+import Guild, { ModifyGuildOptions } from '../guild/Guild';
 import GuildEmoji, { CreateEmojiOptions, ModifyEmojiOptions } from '../guild/GuildEmoji';
 import GuildPreview from '../guild/GuildPreview';
 import Message, { MessageData, MessageEditData, MessageOptions } from '../message/Message';
@@ -69,7 +69,11 @@ class BotAPI {
   public async fetchGuildChannel(channelId: Snowflake): Promise<GuildChannel> {
     const channel = await this.fetchChannel(channelId);
 
-    return ChannelUtils.createGuildChannel(this.bot, channel.structure);
+    return ChannelUtils.createGuildChannel(
+      this.bot,
+      channel.structure,
+      await ChannelUtils.getChannelGuild(this.bot, channel),
+    );
   }
 
   /**
@@ -100,7 +104,11 @@ class BotAPI {
       APISerializer.guildChannelOptions(options),
     );
 
-    return ChannelUtils.createGuildChannel(this.bot, channelData!);
+    return ChannelUtils.createGuildChannel(
+      this.bot,
+      channelData!,
+      await ChannelUtils.getChannelGuild(this.bot, channelData!),
+    );
   }
 
   /**
@@ -706,6 +714,24 @@ class BotAPI {
     );
 
     return new GuildPreview(this.bot, preview!);
+  }
+
+  /**
+   * Modifies a guild's settings.
+   * Requires the {@link Permission.ManageGuild} permission
+   * @param {Snowflake} guildId The ID of the guild
+   * @param {ModifyGuildOptions} options The new options for the updated guild
+   * @returns {Promise<Guild>}
+   */
+  public async modifyGuild(guildId: Snowflake, options: ModifyGuildOptions): Promise<Guild> {
+    const guild = await this.requests.send(
+      EndpointRoute.Guild,
+      { guildId },
+      HttpMethod.Patch,
+      APISerializer.modifyGuildOptions(options),
+    );
+
+    return new Guild(this.bot, guild!);
   }
 
   /**
