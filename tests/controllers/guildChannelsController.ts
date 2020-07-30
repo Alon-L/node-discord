@@ -1,7 +1,9 @@
 'use strict';
 
-import { BotEvent } from '../../src/socket/constants';
+import { BotEvent, Permission } from '../../src/socket/constants';
 import Bot from '../../src/structures/bot/Bot';
+import { ChannelType } from '../../src/structures/channels/Channel';
+import PermissionFlags, { PermissibleType } from '../../src/structures/flags/PermissionFlags';
 import Guild from '../../src/structures/guild/Guild';
 import config from '../config.json';
 
@@ -14,8 +16,22 @@ bot.connection.connect();
   const guild = bot.guilds.cache.first;
   if (!guild) throw new Error('No guilds found');
 
-  const channel = guild.channels.cache.first;
-  if (!channel) throw new Error('No channels found');
+  // Create a new channel
+  const channel = await guild.channels.create({
+    name: 'hello',
+    type: ChannelType.GuildText,
+    position: 1,
+    permissions: {
+      [guild.members.first!.id]: {
+        type: PermissibleType.Member,
+        allow: PermissionFlags.build(Permission.ViewChannel),
+      },
+      [guild.id]: {
+        type: PermissibleType.Role,
+        deny: PermissionFlags.build(Permission.ViewChannel),
+      },
+    },
+  });
 
   console.log(channel.id);
   console.log((await guild.channels.fetch(channel.id)).id);

@@ -6,6 +6,7 @@ import PermissionOverwrite from '../PermissionOverwrite';
 import Bot from '../bot/Bot';
 import ChannelPermissionsController from '../controllers/ChannelPermissionsController';
 import GuildChannelInvitesController from '../controllers/GuildChannelInvitesController';
+import { PermissibleType, PermissionOverwriteFlags } from '../flags/PermissionFlags';
 import Guild from '../guild/Guild';
 
 /**
@@ -47,6 +48,32 @@ export interface GuildChannelOptions {
    * The guild channel's user limit (for {@link GuildVoiceChannel})
    */
   userLimit?: number | null;
+}
+
+/**
+ * Options for when creating new guild channels
+ */
+export interface CreateGuildChannelOptions extends GuildChannelOptions {
+  /**
+   * The name of the new channel
+   */
+  name: string;
+
+  /**
+   * The position of the new channel
+   */
+  position?: number;
+
+  /**
+   * The permissions of the new channel.
+   * Object of user / roles IDs and their permissions for the new channel
+   */
+  permissions?: Record<Snowflake, PermissionOverwriteFlags & { type: PermissibleType }>;
+
+  /**
+   * The ID of the parent category for the channel
+   */
+  parentId?: Snowflake;
 }
 
 /**

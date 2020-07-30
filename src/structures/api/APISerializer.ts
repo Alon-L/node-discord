@@ -2,7 +2,7 @@ import { Params } from '../../socket/rateLimit/Requests';
 import { Snowflake } from '../../types/types';
 import { InviteOptions } from '../Invite';
 import Role from '../Role';
-import { GuildChannelOptions } from '../channels/GuildChannel';
+import { CreateGuildChannelOptions, GuildChannelOptions } from '../channels/GuildChannel';
 import { FetchGuildOptions } from '../controllers/BotGuildsController';
 import { FetchInviteOptions } from '../controllers/GuildInvitesController';
 import { FetchReactionUsersOptions } from '../controllers/ReactionUsersController';
@@ -72,6 +72,28 @@ class APISerializer {
       type: permissible.type,
       allow: flags.allow?.bits,
       deny: flags.deny?.bits,
+    };
+  }
+
+  /**
+   * Returns the serialized create guild channel options for creating new guild channels
+   * @param {CreateGuildChannelOptions} options The create guild channel options
+   * @returns {Params}
+   */
+  public static createGuildChannelOptions(options: CreateGuildChannelOptions): Params {
+    return {
+      name: options.name,
+      type: options.type,
+      topic: options.topic,
+      bitrate: options.bitrate,
+      user_limit: options.userLimit,
+      rate_limit_per_user: options.slowModeTimeout,
+      position: options.position,
+      permission_overwrites:
+        options.permissions &&
+        Object.entries(options.permissions).map(([id, overwrite]) => ({ id, ...overwrite })),
+      parent_id: options.parentId,
+      nsfw: options.nsfw,
     };
   }
 

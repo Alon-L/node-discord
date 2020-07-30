@@ -1,9 +1,10 @@
+import BaseCreateController from './base/BaseCreateController';
 import BaseDeleteController from './base/BaseDeleteController';
 import BaseFetchAllController from './base/BaseFetchAllController';
 import BaseFetchController from './base/BaseFetchController';
 import Cluster from '../../Cluster';
 import { Snowflake } from '../../types/types';
-import GuildChannel from '../channels/GuildChannel';
+import GuildChannel, { CreateGuildChannelOptions } from '../channels/GuildChannel';
 import Guild from '../guild/Guild';
 
 /**
@@ -11,7 +12,10 @@ import Guild from '../guild/Guild';
  * The guild channels a mapped by their IDs
  */
 class GuildChannelsController extends BaseFetchController<GuildChannel>
-  implements BaseDeleteController<GuildChannel>, BaseFetchAllController<GuildChannel> {
+  implements
+    BaseCreateController<GuildChannel, CreateGuildChannelOptions>,
+    BaseDeleteController<GuildChannel>,
+    BaseFetchAllController<GuildChannel> {
   /**
    * The guild this controller is associated to
    */
@@ -21,6 +25,16 @@ class GuildChannelsController extends BaseFetchController<GuildChannel>
     super(guild);
 
     this.guild = guild;
+  }
+
+  /**
+   * Creates a new guild channel in the guild associated to this controller.
+   * Requires the {@link Permission.ManageChannels}
+   * @param {CreateGuildChannelOptions} options The options for the new guild channel
+   * @returns {Promise<GuildChannel>}
+   */
+  public create(options: CreateGuildChannelOptions): Promise<GuildChannel> {
+    return this.bot.api.createGuildChannel(this.guild.id, options);
   }
 
   /**

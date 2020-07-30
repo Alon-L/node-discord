@@ -12,7 +12,10 @@ import User from '../User';
 import Bot from '../bot/Bot';
 import Channel from '../channels/Channel';
 import DMChannel from '../channels/DMChannel';
-import GuildChannel, { GuildChannelOptions } from '../channels/GuildChannel';
+import GuildChannel, {
+  CreateGuildChannelOptions,
+  GuildChannelOptions,
+} from '../channels/GuildChannel';
 import GuildTextChannel from '../channels/GuildTextChannel';
 import { FetchGuildOptions } from '../controllers/BotGuildsController';
 import { FetchInviteOptions } from '../controllers/GuildInvitesController';
@@ -754,6 +757,29 @@ class BotAPI {
         ChannelUtils.createGuildChannel(this.bot, channel, guild),
       ]),
     );
+  }
+
+  /**
+   * Creates a new guild channel in a guild.
+   * Requires the {@link Permission.ManageChannels}
+   * @param {Snowflake} guildId The ID of the guild to create the channel in
+   * @param {CreateGuildChannelOptions} options The options for the new guild channel
+   * @returns {Promise<GuildChannel>}
+   */
+  public async createGuildChannel(
+    guildId: Snowflake,
+    options: CreateGuildChannelOptions,
+  ): Promise<GuildChannel> {
+    const channel = await this.requests.send(
+      EndpointRoute.GuildChannels,
+      { guildId },
+      HttpMethod.Post,
+      APISerializer.createGuildChannelOptions(options),
+    );
+
+    const guild = await this.bot.guilds.get(guildId);
+
+    return ChannelUtils.createGuildChannel(this.bot, channel!, guild);
   }
 
   /**
