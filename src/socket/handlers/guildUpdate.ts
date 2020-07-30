@@ -10,7 +10,7 @@ export default async ({ d }: Payload, bot: Bot): Promise<void> => {
 
   if (!guild) return;
 
-  const { before, after } = await guild.update(d);
+  const { before, after } = guild.update(d);
 
   bot.events.emit(BotEvent.GuildUpdate, before, after);
 };

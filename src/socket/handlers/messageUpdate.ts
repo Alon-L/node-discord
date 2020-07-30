@@ -10,7 +10,7 @@ export default async ({ d }: Payload, bot: Bot): Promise<void> => {
 
   const message = await channel.messages.get(id);
 
-  const { before, after } = await message.update(d);
+  const { before, after } = message.update(d);
 
   bot.events.emit(BotEvent.MessageUpdate, before, after);
 };

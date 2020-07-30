@@ -8,7 +8,7 @@ export default async ({ d }: Payload, bot: Bot): Promise<void> => {
 
   const channel = await ChannelUtils.find(bot, guildId, id);
 
-  const { before, after } = await channel.update(d);
+  const { before, after } = channel.update(d);
 
   bot.events.emit(BotEvent.ChannelUpdate, before, after);
 };

@@ -9,7 +9,7 @@ export default async ({ d }: Payload, bot: Bot): Promise<void> => {
 
   if (!user) return;
 
-  const { before, after } = await user.update(d);
+  const { before, after } = user.update(d);
 
   bot.events.emit(BotEvent.UserUpdate, before, after);
 };

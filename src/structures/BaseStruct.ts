@@ -51,7 +51,7 @@ class BaseStruct {
    * @returns {this}
    */
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  public init(_: GatewayStruct): this | Promise<this> {
+  public init(_: GatewayStruct): this {
     return this;
   }
 
@@ -68,9 +68,9 @@ class BaseStruct {
    * @param {GatewayStruct} data The updated data
    * @returns {UpdateReturn}
    */
-  public async update(data: GatewayStruct): Promise<UpdateReturn<this>> {
+  public update(data: GatewayStruct): UpdateReturn<this> {
     const clone = this.clone();
-    return { before: clone, after: await this.init({ ...this.structure, ...data }) };
+    return { before: clone, after: this.init({ ...this.structure, ...data }) };
   }
 }
 

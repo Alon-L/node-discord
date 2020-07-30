@@ -11,7 +11,7 @@ export default async ({ d }: Payload, bot: Bot): Promise<void> => {
 
   if (!role) return;
 
-  const { before, after } = await role.update(d.role);
+  const { before, after } = role.update(d.role);
 
   bot.events.emit(BotEvent.GuildRoleUpdate, before, after);
 };

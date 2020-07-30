@@ -11,7 +11,7 @@ export default async ({ d }: Payload, bot: Bot): Promise<void> => {
 
   if (!member) return;
 
-  const { before, after } = await member.update({
+  const { before, after } = member.update({
     nick: member.nick,
     joined_at: member.joinedAt.date,
     deaf: member.deaf,

@@ -403,7 +403,7 @@ class Guild extends GuildPreview {
    * @param {GatewayStruct} guild The guild data
    * @returns {this}
    */
-  public async init(guild: GatewayStruct): Promise<this> {
+  public init(guild: GatewayStruct): this {
     super.init(guild);
 
     this.emojis = new GuildEmojisController(this);
@@ -414,10 +414,8 @@ class Guild extends GuildPreview {
 
     if (guild.channels) {
       this.channels.cache.addMany(
-        await Promise.all(
-          guild.channels.map(
-            async (channel: GatewayStruct) => await ChannelUtils.create(this.bot, channel, this),
-          ),
+        guild.channels.map((channel: GatewayStruct) =>
+          ChannelUtils.createGuildChannel(this.bot, channel, this),
         ),
       );
     }
@@ -501,9 +499,9 @@ class Guild extends GuildPreview {
     this.locale = guild.locale;
 
     if (guild.public_updates_channel_id) {
-      this.updatesChannel = (await this.channels.get(
+      this.updatesChannel = this.channels.cache.get(
         guild.public_updates_channel_id,
-      )) as GuildTextChannel;
+      ) as GuildTextChannel;
     }
 
     return this;

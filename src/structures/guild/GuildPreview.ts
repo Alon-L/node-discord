@@ -47,7 +47,7 @@ class GuildPreview extends BaseStruct {
     this.init(preview);
   }
 
-  public init(preview: GatewayStruct): this | Promise<this> {
+  public init(preview: GatewayStruct): this {
     this.id = preview.id;
     this.name = preview.name;
     this.iconHash = preview.icon;
