@@ -1,10 +1,8 @@
 'use strict';
 
-import { BotEvent } from '../../src/socket/constants';
-import Bot from '../../src/structures/bot/Bot';
-import { ChannelType } from '../../src/structures/channels/Channel';
-import GuildChannel from '../../src/structures/channels/GuildChannel';
-import GuildTextChannel from '../../src/structures/channels/GuildTextChannel';
+import { BotEvent } from '../../src/socket';
+import { Bot } from '../../src/structures';
+import { ChannelType, GuildChannel, GuildTextChannel } from '../../src/structures/channels';
 import config from '../config.json';
 
 const bot = new Bot(config.token);

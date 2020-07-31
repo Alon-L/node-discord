@@ -1,8 +1,8 @@
 'use strict';
 
 import config from './config.json';
-import { BotEvent } from '../src/socket/constants';
-import Bot from '../src/structures/bot/Bot';
+import { BotEvent } from '../src/socket';
+import { Bot } from '../src/structures';
 
 const bot = new Bot(config.token);
 bot.connection.connect();
@@ -10,7 +10,7 @@ bot.connection.connect();
 (async function (): Promise<void> {
   await bot.events.wait(BotEvent.Ready);
 
-  const channelId = '707607008781795398' || bot.guilds.first?.channels.first?.id;
+  const channelId = '707607008781795398' || bot.guilds.cache.first?.channels.cache.first?.id;
 
   if (!channelId) {
     throw new Error('No channel ID');

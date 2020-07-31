@@ -1,10 +1,9 @@
 'use strict';
 
-import { BotEvent, Permission } from '../../src/socket/constants';
-import Bot from '../../src/structures/bot/Bot';
-import { ChannelType } from '../../src/structures/channels/Channel';
-import PermissionFlags, { PermissibleType } from '../../src/structures/flags/PermissionFlags';
-import Guild from '../../src/structures/guild/Guild';
+import { BotEvent, Permission } from '../../src/socket';
+import { Bot, Guild } from '../../src/structures';
+import { ChannelType } from '../../src/structures/channels';
+import { PermissionFlags, PermissibleType } from '../../src/structures/flags';
 import config from '../config.json';
 
 const bot = new Bot(config.token);

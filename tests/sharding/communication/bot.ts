@@ -1,15 +1,14 @@
 'use strict';
 
-import BotSocketShard from '../../../src/socket/BotSocketShard';
-import { BotEvent } from '../../../src/socket/constants';
-import Bot from '../../../src/structures/bot/Bot';
+import { BotEvent, BotSocketShard } from '../../../src/socket';
+import { Bot } from '../../../src/structures';
 import config from '../../config.json';
 
 const bot = new Bot(config.token);
 bot.connection.connect();
 
 bot.communication.on('test', (bot: Bot) => {
-  return bot.guilds.first?.name;
+  return bot.guilds.cache.first?.name;
 });
 
 bot.communication.on('close', (bot: Bot) => {

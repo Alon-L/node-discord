@@ -1,8 +1,7 @@
 'use strict';
 
-import { BotEvent } from '../../src/socket/constants';
-import Role from '../../src/structures/Role';
-import Bot from '../../src/structures/bot/Bot';
+import { BotEvent } from '../../src/socket';
+import { Bot, Role } from '../../src/structures';
 import config from '../config.json';
 
 const bot = new Bot(config.token);

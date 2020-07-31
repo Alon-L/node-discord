@@ -1,9 +1,8 @@
 'use strict';
 
-import { BotEvent } from '../../src/socket/constants';
-import Bot from '../../src/structures/bot/Bot';
-import Message from '../../src/structures/message/Message';
-import { Snowflake, TextBasedChannel } from '../../src/types/types';
+import { BotEvent } from '../../src/socket';
+import { Bot, Message } from '../../src/structures';
+import { Snowflake, TextBasedChannel } from '../../src/types';
 import config from '../config.json';
 
 const bot = new Bot(config.token);

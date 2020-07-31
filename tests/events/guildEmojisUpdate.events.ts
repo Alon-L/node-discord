@@ -1,10 +1,9 @@
 'use strict';
 
-import Cluster from '../../src/Cluster';
-import { BotEvent } from '../../src/socket/constants';
-import Emoji from '../../src/structures/Emoji';
-import Bot from '../../src/structures/bot/Bot';
-import { Snowflake } from '../../src/types/types';
+import Collection from '../../src/Collection';
+import { BotEvent } from '../../src/socket';
+import { Bot, Emoji } from '../../src/structures';
+import { Snowflake } from '../../src/types';
 import config from '../config.json';
 
 const bot = new Bot(config.token);
@@ -13,7 +12,7 @@ bot.connection.connect();
 (async function (): Promise<void> {
   bot.events.on(
     BotEvent.GuildEmojisUpdate,
-    (before: Cluster<Snowflake, Emoji>, after: Cluster<Snowflake, Emoji>) => {
+    (before: Collection<Snowflake, Emoji>, after: Collection<Snowflake, Emoji>) => {
       console.log(before.first?.name, after.first?.name);
     },
   );

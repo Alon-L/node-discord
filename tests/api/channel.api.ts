@@ -1,11 +1,8 @@
 'use strict';
 
-import { BotEvent } from '../../src/socket/constants';
-import Emoji from '../../src/structures/Emoji';
-import Bot from '../../src/structures/bot/Bot';
-import DMChannel from '../../src/structures/channels/DMChannel';
-import GuildTextChannel from '../../src/structures/channels/GuildTextChannel';
-import Message from '../../src/structures/message/Message';
+import { BotEvent } from '../../src/socket';
+import { Bot, Emoji, Message } from '../../src/structures';
+import { DMChannel, GuildTextChannel } from '../../src/structures/channels';
 import config from '../config.json';
 
 const bot = new Bot(config.token);
