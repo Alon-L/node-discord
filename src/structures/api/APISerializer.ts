@@ -4,6 +4,7 @@ import { InviteOptions } from '../Invite';
 import Role from '../Role';
 import { CreateGuildChannelOptions, GuildChannelOptions } from '../channels/GuildChannel';
 import { FetchGuildOptions } from '../controllers/BotGuildsController';
+import { GuildChannelPositions } from '../controllers/GuildChannelsController';
 import { FetchInviteOptions } from '../controllers/GuildInvitesController';
 import { FetchReactionUsersOptions } from '../controllers/ReactionUsersController';
 import { Permissible, PermissionOverwriteFlags } from '../flags/PermissionFlags';
@@ -100,6 +101,15 @@ class APISerializer {
       parent_id: options.parentId,
       nsfw: options.nsfw,
     };
+  }
+
+  /**
+   * Returns the serialized guild channel positions for when modifying guild channel positions
+   * @param {GuildChannelPositions} positions The guild channel positions
+   * @returns {Params}
+   */
+  public static guildChannelPositions(positions: GuildChannelPositions): Params {
+    return Object.entries(positions).map(([id, position]) => ({ id, position }));
   }
 
   /**

@@ -18,6 +18,7 @@ import GuildChannel, {
 } from '../channels/GuildChannel';
 import GuildTextChannel from '../channels/GuildTextChannel';
 import { FetchGuildOptions } from '../controllers/BotGuildsController';
+import { GuildChannelPositions } from '../controllers/GuildChannelsController';
 import { FetchInviteOptions } from '../controllers/GuildInvitesController';
 import { FetchReactionUsersOptions } from '../controllers/ReactionUsersController';
 import { Permissible, PermissionOverwriteFlags } from '../flags/PermissionFlags';
@@ -780,6 +781,27 @@ class BotAPI {
     const guild = await this.bot.guilds.get(guildId);
 
     return ChannelUtils.createGuildChannel(this.bot, channel!, guild);
+  }
+
+  /**
+   * Modifies the positions of a set of channels for the guild.
+   * Requires the {@Link Permission.ManageChannels} permission
+   * @param {Snowflake} guildId The ID of the guild
+   * @param {GuildChannelPositions} positions The new positions for the guild channels
+   * @returns {Promise<void>}
+   */
+  public async modifyGuildChannelPositions(
+    guildId: Snowflake,
+    positions: GuildChannelPositions,
+  ): Promise<void> {
+    console.log(APISerializer.guildChannelPositions(positions));
+
+    await this.requests.send(
+      EndpointRoute.GuildChannels,
+      { guildId },
+      HttpMethod.Patch,
+      APISerializer.guildChannelPositions(positions),
+    );
   }
 
   /**

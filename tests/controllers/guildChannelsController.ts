@@ -15,9 +15,11 @@ bot.connection.connect();
 
   const guild = await bot.guilds.get('702476896008405002');
 
+  const firstChannel = guild.channels.cache.first!;
+
   // Create a new channel
   const channel = await guild.channels.create({
-    name: 'hello',
+    name: `hello-${guild.channels.cache.size}`,
     type: ChannelType.GuildText,
     position: 1,
     permissions: {
@@ -40,6 +42,22 @@ bot.connection.connect();
   console.log((await guild.channels.fetch(channel.id)).id);
   console.log((await guild.channels.get(channel.id)).id);
 
+  guild.channels.modifyPositions({ [channel.id]: 3, [firstChannel.id]: 1 });
+
+  await bot.events.wait(BotEvent.ChannelUpdate);
+
+  console.log(
+    guild.channels.cache.get(channel.id)?.position === 3,
+    "whether the created channel's position has been updated",
+    'expected: true',
+  ); // expected: true
+
+  console.log(
+    guild.channels.cache.get(firstChannel.id)?.position === 1,
+    "whether the first channel's position has been updated",
+    'expected: true',
+  ); //expected: true
+
   // eslint-disable-next-line no-constant-condition
   while (1) {
     await Promise.race([
@@ -58,3 +76,5 @@ bot.connection.connect();
     );
   }
 })();
+
+bot.events.on(BotEvent.Debug, console.log);
