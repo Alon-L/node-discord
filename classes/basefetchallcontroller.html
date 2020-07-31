@@ -98,6 +98,9 @@
 									<li>
 										<a href="guildchannelinvitescontroller.html" class="tsd-signature-type">GuildChannelInvitesController</a>
 									</li>
+									<li>
+										<a href="reactionuserscontroller.html" class="tsd-signature-type">ReactionUsersController</a>
+									</li>
 								</ul>
 							</li>
 						</ul>
@@ -109,7 +112,6 @@
 				<ul class="tsd-hierarchy">
 					<li><a href="guildchannelscontroller.html" class="tsd-signature-type">GuildChannelsController</a></li>
 					<li><a href="guildemojiscontroller.html" class="tsd-signature-type">GuildEmojisController</a></li>
-					<li><a href="reactionuserscontroller.html" class="tsd-signature-type">ReactionUsersController</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -151,7 +153,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="basecontroller.html">BaseController</a>.<a href="basecontroller.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7888408/src/structures/controllers/base/BaseController.ts#L18">src/structures/controllers/base/BaseController.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/01bae7d/src/structures/controllers/base/BaseController.ts#L18">src/structures/controllers/base/BaseController.ts:18</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -177,7 +179,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="basecontroller.html">BaseController</a>.<a href="basecontroller.html#bot">bot</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7888408/src/structures/controllers/base/BaseController.ts#L13">src/structures/controllers/base/BaseController.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/01bae7d/src/structures/controllers/base/BaseController.ts#L13">src/structures/controllers/base/BaseController.ts:13</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -193,7 +195,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="basecontroller.html">BaseController</a>.<a href="basecontroller.html#cache">cache</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7888408/src/structures/controllers/base/BaseController.ts#L18">src/structures/controllers/base/BaseController.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/01bae7d/src/structures/controllers/base/BaseController.ts#L18">src/structures/controllers/base/BaseController.ts:18</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -209,13 +211,13 @@
 					<a name="fetchall" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagAbstract">Abstract</span> fetch<wbr>All</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">fetch<wbr>All<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="cluster.html" class="tsd-signature-type">Cluster</a><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">fetch<wbr>All<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="collection.html" class="tsd-signature-type">Collection</a><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/7888408/src/structures/controllers/base/BaseFetchAllController.ts#L15">src/structures/controllers/base/BaseFetchAllController.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/01bae7d/src/structures/controllers/base/BaseFetchAllController.ts#L15">src/structures/controllers/base/BaseFetchAllController.ts:15</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -223,7 +225,7 @@
 									<p>Fetches all items associated to the controller and caches them</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="cluster.html" class="tsd-signature-type">Cluster</a><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="collection.html" class="tsd-signature-type">Collection</a><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
