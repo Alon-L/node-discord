@@ -58,6 +58,8 @@ bot.connection.connect();
     'expected: true',
   ); //expected: true
 
+  await guild.channels.swap(channel, firstChannel);
+
   // eslint-disable-next-line no-constant-condition
   while (1) {
     await Promise.race([

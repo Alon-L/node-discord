@@ -80,6 +80,18 @@ class GuildChannelsController extends BaseFetchController<GuildChannel>
   }
 
   /**
+   * Swaps the positions of 2 guild channels with one another
+   * @param {GuildChannel} channel1 The first guild channel
+   * @param {GuildChannel} channel2 The second guild channel
+   * @returns {Promise<void>}
+   */
+  public async swap(channel1: GuildChannel, channel2: GuildChannel): Promise<void> {
+    const positions = { [channel1.id]: channel2.position, [channel2.id]: channel1.position };
+
+    return this.bot.api.modifyGuildChannelPositions(this.guild.id, positions);
+  }
+
+  /**
    * Modifies the positions of a set of channels for the guild.
    * Requires the {@Link Permission.ManageChannels} permission
    * @param {GuildChannelPositions} positions The new positions for the guild channels
