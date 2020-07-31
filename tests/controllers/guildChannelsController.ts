@@ -26,6 +26,10 @@ bot.connection.connect();
         type: PermissibleType.Member,
         allow: PermissionFlags.build(Permission.ViewChannel),
       },
+      [bot.user!.id]: {
+        type: PermissibleType.Member,
+        allow: PermissionFlags.build(Permission.ViewChannel),
+      },
       [guild.id]: {
         type: PermissibleType.Role,
         deny: PermissionFlags.build(Permission.ViewChannel),
