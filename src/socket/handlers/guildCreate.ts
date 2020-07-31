@@ -1,6 +1,5 @@
-import Bot from '../../structures/bot/Bot';
-import Guild from '../../structures/guild/Guild';
-import BotSocketShard, { BotSocketShardState, Payload } from '../BotSocketShard';
+import { Bot, Guild } from '../../structures';
+import { BotSocketShard, BotSocketShardState, Payload } from '../BotSocketShard';
 import { BotEvent } from '../constants';
 
 export default ({ d }: Payload, bot: Bot, socket: BotSocketShard): void => {

@@ -1,6 +1,6 @@
-import Flags from './Flags';
-import { Permission } from '../../socket/constants';
-import { Snowflake } from '../../types/types';
+import { Flags } from './Flags';
+import { Permission } from '../../socket';
+import { Snowflake } from '../../types';
 
 /**
  * The type of the permission overwrite
@@ -48,11 +48,9 @@ export interface PermissionOverwriteFlags {
   deny?: PermissionFlags;
 }
 
-class PermissionFlags extends Flags<Permission> {
+export class PermissionFlags extends Flags<Permission> {
   // Permission flags in Discord are now received in serialized strings
   constructor(flags: string) {
     super(parseInt(flags));
   }
 }
-
-export default PermissionFlags;

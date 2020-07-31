@@ -4,6 +4,4 @@
   }
 }*/
 
-class BotCommandsHandler {}
-
-export default BotCommandsHandler;
+export class BotCommandsHandler {}

@@ -1,15 +1,15 @@
-import Message from './Message';
+import { Message } from './Message';
 import Cluster from '../../Cluster';
-import { Snowflake } from '../../types/types';
-import BaseStruct, { GatewayStruct } from '../BaseStruct';
-import Emoji from '../Emoji';
-import ReactionUsersController from '../controllers/ReactionUsersController';
-import Member from '../member/Member';
+import { Snowflake } from '../../types';
+import { BaseStruct, GatewayStruct } from '../BaseStruct';
+import { Emoji } from '../Emoji';
+import { ReactionUsersController } from '../controllers';
+import { Member } from '../member';
 
 /**
  * Holds all users that reacted to a {@link Message} with a specific {@link Emoji}
  */
-class MessageReaction extends BaseStruct {
+export class MessageReaction extends BaseStruct {
   /**
    * The message this reaction is attached to
    */
@@ -89,5 +89,3 @@ class MessageReaction extends BaseStruct {
     return this.emoji.id;
   }
 }
-
-export default MessageReaction;

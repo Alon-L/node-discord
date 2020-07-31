@@ -1,37 +1,44 @@
-import APISerializer from './APISerializer';
+import { APISerializer } from './APISerializer';
 import Cluster from '../../Cluster';
-import { EndpointRoute, HttpMethod } from '../../socket/endpoints';
-import Requests, { Params } from '../../socket/rateLimit/Requests';
-import { Snowflake } from '../../types/types';
-import ChannelUtils from '../../utils/ChannelUtils';
+import { EndpointRoute, HttpMethod } from '../../socket';
+import { Requests, Params } from '../../socket/rateLimit';
+import { Snowflake } from '../../types';
+import { ChannelUtils } from '../../utils';
 import { GatewayStruct } from '../BaseStruct';
-import Emoji, { EmojiResolvable } from '../Emoji';
-import Invite, { InviteOptions } from '../Invite';
-import PermissionOverwrite from '../PermissionOverwrite';
-import User from '../User';
-import Bot from '../bot/Bot';
-import Channel from '../channels/Channel';
-import DMChannel from '../channels/DMChannel';
-import GuildChannel, {
+import { Emoji, EmojiResolvable } from '../Emoji';
+import { Invite, InviteOptions } from '../Invite';
+import { PermissionOverwrite } from '../PermissionOverwrite';
+import { User } from '../User';
+import { Bot } from '../bot';
+import {
+  Channel,
+  DMChannel,
+  GuildChannel,
   CreateGuildChannelOptions,
   GuildChannelOptions,
-} from '../channels/GuildChannel';
-import GuildTextChannel from '../channels/GuildTextChannel';
-import { FetchGuildOptions } from '../controllers/BotGuildsController';
-import { GuildChannelPositions } from '../controllers/GuildChannelsController';
-import { FetchInviteOptions } from '../controllers/GuildInvitesController';
-import { FetchReactionUsersOptions } from '../controllers/ReactionUsersController';
-import { Permissible, PermissionOverwriteFlags } from '../flags/PermissionFlags';
-import Guild, { ModifyGuildOptions } from '../guild/Guild';
-import GuildEmoji, { CreateEmojiOptions, ModifyEmojiOptions } from '../guild/GuildEmoji';
-import GuildPreview from '../guild/GuildPreview';
-import Message, { MessageData, MessageEditData, MessageOptions } from '../message/Message';
-import MessageEmbed from '../message/MessageEmbed';
+  GuildTextChannel,
+} from '../channels';
+import {
+  FetchGuildOptions,
+  GuildChannelPositions,
+  FetchInviteOptions,
+  FetchReactionUsersOptions,
+} from '../controllers';
+import { Permissible, PermissionOverwriteFlags } from '../flags';
+import {
+  Guild,
+  ModifyGuildOptions,
+  GuildEmoji,
+  CreateEmojiOptions,
+  ModifyEmojiOptions,
+  GuildPreview,
+} from '../guild';
+import { Message, MessageData, MessageEditData, MessageOptions, MessageEmbed } from '../message';
 
 /**
  * Creates all outgoing API requests
  */
-class BotAPI {
+export class BotAPI {
   /**
    * The bot instance
    */
@@ -837,5 +844,3 @@ class BotAPI {
     return new Invite(this.bot, invite!);
   }
 }
-
-export default BotAPI;

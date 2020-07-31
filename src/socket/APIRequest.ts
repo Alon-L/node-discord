@@ -2,7 +2,7 @@ import querystring, { ParsedUrlQueryInput } from 'querystring';
 import fetch, { Response } from 'node-fetch';
 import { HttpMethod } from './endpoints';
 import { baseURL } from './properties';
-import { Body, Params } from './rateLimit/Requests';
+import { Body, Params } from './rateLimit';
 
 const paramsMethods: HttpMethod[] = [HttpMethod.Get];
 const bodyMethods: HttpMethod[] = [HttpMethod.Post, HttpMethod.Patch, HttpMethod.Put];
@@ -10,7 +10,7 @@ const bodyMethods: HttpMethod[] = [HttpMethod.Post, HttpMethod.Patch, HttpMethod
 /**
  * Creates and sends an HTTP request to Discord's API
  */
-class APIRequest {
+export class APIRequest {
   private readonly token: string;
   private readonly endpoint: string;
   private readonly params: Params;
@@ -98,5 +98,3 @@ class APIRequest {
     return headers;
   }
 }
-
-export default APIRequest;

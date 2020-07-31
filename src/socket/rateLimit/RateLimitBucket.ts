@@ -1,12 +1,12 @@
 import { Headers, Response } from 'node-fetch';
-import RateLimitQueue from './RateLimitQueue';
+import { RateLimitQueue } from './RateLimitQueue';
 import { Params, ReturnedData } from './Requests';
-import Bot from '../../structures/bot/Bot';
-import APIRequest from '../APIRequest';
+import { Bot } from '../../structures';
+import { APIRequest } from '../APIRequest';
 import { GatewayCloseCode } from '../constants';
 import { EndpointRoute, HttpMethod, RateLimitHeaders, StatusCode, ValidCodes } from '../endpoints';
 
-class RateLimitBucket {
+export class RateLimitBucket {
   /**
    * The bot instance
    */
@@ -183,5 +183,3 @@ class RateLimitBucket {
     }
   }
 }
-
-export default RateLimitBucket;

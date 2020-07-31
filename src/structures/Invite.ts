@@ -1,10 +1,10 @@
-import BaseStruct, { GatewayStruct } from './BaseStruct';
-import Timestamp from './Timestamp';
-import User from './User';
-import Bot from './bot/Bot';
-import GuildChannel from './channels/GuildChannel';
-import Guild from './guild/Guild';
-import { Snowflake } from '../types/types';
+import { BaseStruct, GatewayStruct } from './BaseStruct';
+import { Timestamp } from './Timestamp';
+import { User } from './User';
+import { Bot } from './bot';
+import { GuildChannel } from './channels';
+import { Guild } from './guild';
+import { Snowflake } from '../types';
 
 export type InviteCode = string;
 
@@ -60,7 +60,7 @@ export interface InviteOptions {
   unique?: boolean;
 }
 
-class Invite extends BaseStruct {
+export class Invite extends BaseStruct {
   /**
    * The channel this invite is for
    */
@@ -145,5 +145,3 @@ class Invite extends BaseStruct {
     return this.code;
   }
 }
-
-export default Invite;

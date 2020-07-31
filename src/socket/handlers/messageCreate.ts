@@ -1,6 +1,5 @@
-import Bot from '../../structures/bot/Bot';
-import Message from '../../structures/message/Message';
-import ChannelUtils from '../../utils/ChannelUtils';
+import { Bot, Message } from '../../structures';
+import { ChannelUtils } from '../../utils';
 import { Payload } from '../BotSocketShard';
 import { BotEvent } from '../constants';
 

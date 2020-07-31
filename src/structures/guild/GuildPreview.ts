@@ -1,11 +1,11 @@
 import { GuildApproximates } from './Guild';
-import { GuildFeature } from '../../socket/constants';
-import { Snowflake } from '../../types/types';
-import Avatar, { GuildDiscoverySplashFormat, GuildIconFormat, GuildSplashFormat } from '../Avatar';
-import BaseStruct, { GatewayStruct } from '../BaseStruct';
-import Bot from '../bot/Bot';
+import { GuildFeature } from '../../socket';
+import { Snowflake } from '../../types';
+import { Avatar, GuildDiscoverySplashFormat, GuildIconFormat, GuildSplashFormat } from '../Avatar';
+import { BaseStruct, GatewayStruct } from '../BaseStruct';
+import { Bot } from '../bot';
 
-class GuildPreview extends BaseStruct {
+export class GuildPreview extends BaseStruct {
   /**
    * Guild ID
    */
@@ -105,5 +105,3 @@ class GuildPreview extends BaseStruct {
     );
   }
 }
-
-export default GuildPreview;

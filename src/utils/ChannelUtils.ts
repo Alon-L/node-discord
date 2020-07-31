@@ -1,17 +1,18 @@
-import { GatewayStruct } from '../structures/BaseStruct';
-import Bot from '../structures/bot/Bot';
-import Channel, { ChannelType } from '../structures/channels/Channel';
-import DMChannel from '../structures/channels/DMChannel';
-import GuildCategoryChannel from '../structures/channels/GuildCategoryChannel';
-import GuildChannel from '../structures/channels/GuildChannel';
-import GuildTextChannel from '../structures/channels/GuildTextChannel';
-import Guild from '../structures/guild/Guild';
-import { Snowflake, TextBasedChannel } from '../types/types';
+import { Bot, GatewayStruct, Guild } from '../structures';
+import {
+  Channel,
+  ChannelType,
+  DMChannel,
+  GuildCategoryChannel,
+  GuildChannel,
+  GuildTextChannel,
+} from '../structures/channels';
+import { Snowflake, TextBasedChannel } from '../types';
 
 /**
  * Handles channel-related util methods
  */
-class ChannelUtils {
+export class ChannelUtils {
   /**
    * Creates a new {@link Channel} instance, initialized relatively to its type
    * @param {Bot} bot The bot instance
@@ -177,5 +178,3 @@ class ChannelUtils {
     bot.channels.cache.delete(channel.id);
   }
 }
-
-export default ChannelUtils;

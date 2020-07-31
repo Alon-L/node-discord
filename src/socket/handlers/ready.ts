@@ -1,6 +1,5 @@
-import User from '../../structures/User';
-import Bot from '../../structures/bot/Bot';
-import BotSocketShard, { Payload } from '../BotSocketShard';
+import { Bot, User } from '../../structures';
+import { BotSocketShard, Payload } from '../BotSocketShard';
 
 export default ({ d }: Payload, bot: Bot, socket: BotSocketShard): void => {
   const { session_id: sessionId, user, guilds } = d;

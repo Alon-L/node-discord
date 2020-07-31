@@ -1,5 +1,4 @@
-import Role from '../../structures/Role';
-import Bot from '../../structures/bot/Bot';
+import { Bot, Role } from '../../structures';
 import { Payload } from '../BotSocketShard';
 import { BotEvent } from '../constants';
 

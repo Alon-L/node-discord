@@ -1,14 +1,14 @@
-import BaseFetchAllController from './base/BaseFetchAllController';
+import { BaseFetchAllController } from './base';
 import Cluster from '../../Cluster';
-import { Snowflake, TextBasedChannel } from '../../types/types';
-import Timestamp from '../Timestamp';
-import Message from '../message/Message';
+import { Snowflake, TextBasedChannel } from '../../types';
+import { Timestamp } from '../Timestamp';
+import { Message } from '../message';
 
 /**
  * Interface for a text channel's pinned messages cache.
  * The pinned messages are mapped by their IDs
  */
-class ChannelPinsController extends BaseFetchAllController<Message> {
+export class ChannelPinsController extends BaseFetchAllController<Message> {
   /**
    * The channel associated to this controller
    */
@@ -64,5 +64,3 @@ class ChannelPinsController extends BaseFetchAllController<Message> {
     this.cache.delete(id);
   }
 }
-
-export default ChannelPinsController;

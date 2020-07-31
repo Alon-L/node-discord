@@ -1,11 +1,10 @@
 import { Serializable } from 'child_process';
 import { EventEmitter } from 'events';
-import Bot from './Bot';
+import { Bot } from './Bot';
 import { Events, BotStateEvents } from './handlers/events/events';
-import { BotShardState } from '../../socket/BotShard';
-import { GatewayCloseCode } from '../../socket/constants';
+import { BotShardState, GatewayCloseCode } from '../../socket';
+import { ShardId } from '../../types';
 import { Args } from '../../types/EventEmitter';
-import { ShardId } from '../../types/types';
 
 /**
  * Abstract typing for all shard requests
@@ -231,7 +230,7 @@ export interface ShardEmitCommunicationEventResponse extends ShardResponse {
   };
 }
 
-class BotCommunication extends EventEmitter {
+export class BotCommunication extends EventEmitter {
   /**
    * The Bot instance
    */
@@ -394,5 +393,3 @@ class BotCommunication extends EventEmitter {
     return Math.random();
   }
 }
-
-export default BotCommunication;

@@ -1,7 +1,5 @@
-import Bot from '../../structures/bot/Bot';
-import Member from '../../structures/member/Member';
-import MessageReaction from '../../structures/message/MessageReaction';
-import ReactionHandlersUtils from '../../utils/handlers/ReactionHandlersUtils';
+import { Bot, Member, MessageReaction } from '../../structures';
+import { ReactionHandlersUtils } from '../../utils/handlers';
 import { Payload } from '../BotSocketShard';
 import { BotEvent } from '../constants';
 

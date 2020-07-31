@@ -1,13 +1,12 @@
-import BaseDeleteController from './base/BaseDeleteController';
-import BaseFetchController from './base/BaseFetchController';
-import { Snowflake } from '../../types/types';
-import Channel from '../channels/Channel';
+import { BaseDeleteController, BaseFetchController } from './base';
+import { Snowflake } from '../../types';
+import { Channel } from '../channels';
 
 /**
  * Provides an interface for the bot's channels cache.
  * The channels are mapped by their IDs
  */
-class BotChannelsController extends BaseFetchController<Channel>
+export class BotChannelsController extends BaseFetchController<Channel>
   implements BaseDeleteController<Channel> {
   /**
    * Deletes a channel
@@ -27,5 +26,3 @@ class BotChannelsController extends BaseFetchController<Channel>
     return this.bot.api.fetchChannel(id);
   }
 }
-
-export default BotChannelsController;

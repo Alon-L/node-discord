@@ -1,6 +1,4 @@
-import Flags from './Flags';
-import { MessageType } from '../../socket/constants';
+import { Flags } from './Flags';
+import { MessageType } from '../../socket';
 
-class MessageFlags extends Flags<MessageType> {}
-
-export default MessageFlags;
+export class MessageFlags extends Flags<MessageType> {}

@@ -1,13 +1,13 @@
-import Message from './Message';
-import { Snowflake, Dimensions, Nullable } from '../../types/types';
-import BaseStruct, { GatewayStruct } from '../BaseStruct';
+import { Message } from './Message';
+import { Snowflake, Dimensions, Nullable } from '../../types';
+import { BaseStruct, GatewayStruct } from '../BaseStruct';
 
 /**
  * Represents an attachment added to a {@link Message}
 
  * @extends BaseStruct
  */
-class MessageAttachment extends BaseStruct {
+export class MessageAttachment extends BaseStruct {
   /**
    * The {@link Message} associated to this attachment
    */
@@ -71,5 +71,3 @@ class MessageAttachment extends BaseStruct {
     return this;
   }
 }
-
-export default MessageAttachment;

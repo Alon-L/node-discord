@@ -1,10 +1,10 @@
-import Guild from './Guild';
-import { Snowflake } from '../../types/types';
-import Avatar, { GuildEmojiFormat } from '../Avatar';
+import { Guild } from './Guild';
+import { Snowflake } from '../../types';
+import { Avatar, GuildEmojiFormat } from '../Avatar';
 import { GatewayStruct } from '../BaseStruct';
-import Emoji from '../Emoji';
-import Role from '../Role';
-import Bot from '../bot/Bot';
+import { Emoji } from '../Emoji';
+import { Role } from '../Role';
+import { Bot } from '../bot';
 
 /**
  * Options for when creating new guild emojis
@@ -40,7 +40,7 @@ export interface EmojiOptions {
 /**
  * Structure for Emojis that were created in a Guild
  */
-class GuildEmoji extends Emoji {
+export class GuildEmoji extends Emoji {
   /**
    * Every guild emoji is associated to a guild
    */
@@ -91,5 +91,3 @@ class GuildEmoji extends Emoji {
     return this.bot.api.deleteGuildEmoji(this.guild.id, this.id);
   }
 }
-
-export default GuildEmoji;

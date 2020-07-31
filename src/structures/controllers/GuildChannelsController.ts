@@ -1,11 +1,13 @@
-import BaseCreateController from './base/BaseCreateController';
-import BaseDeleteController from './base/BaseDeleteController';
-import BaseFetchAllController from './base/BaseFetchAllController';
-import BaseFetchController from './base/BaseFetchController';
+import {
+  BaseCreateController,
+  BaseDeleteController,
+  BaseFetchAllController,
+  BaseFetchController,
+} from './base';
 import Cluster from '../../Cluster';
-import { Snowflake } from '../../types/types';
-import GuildChannel, { CreateGuildChannelOptions } from '../channels/GuildChannel';
-import Guild from '../guild/Guild';
+import { Snowflake } from '../../types';
+import { GuildChannel, CreateGuildChannelOptions } from '../channels';
+import { Guild } from '../guild';
 
 /**
  * New positions for the guild channels.
@@ -18,7 +20,7 @@ export type GuildChannelPositions = Record<Snowflake, number>;
  * Provides an interface for a guild's channels cache.
  * The guild channels a mapped by their IDs
  */
-class GuildChannelsController extends BaseFetchController<GuildChannel>
+export class GuildChannelsController extends BaseFetchController<GuildChannel>
   implements
     BaseCreateController<GuildChannel, CreateGuildChannelOptions>,
     BaseDeleteController<GuildChannel>,
@@ -101,5 +103,3 @@ class GuildChannelsController extends BaseFetchController<GuildChannel>
     return this.bot.api.modifyGuildChannelPositions(this.guild.id, positions);
   }
 }
-
-export default GuildChannelsController;

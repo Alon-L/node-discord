@@ -1,7 +1,7 @@
 import { Serializable } from 'child_process';
-import RateLimitBucket from './RateLimitBucket';
+import { RateLimitBucket } from './RateLimitBucket';
 import Cluster from '../../Cluster';
-import Bot from '../../structures/bot/Bot';
+import { Bot } from '../../structures';
 import { HttpMethod, Endpoints } from '../endpoints';
 
 /**
@@ -46,7 +46,7 @@ const majorKeys: string[] = ['channelId', 'guildId', 'webhookId'];
 /**
  * Manager for sending requests according to the Discord API rate limit
  */
-class Requests {
+export class Requests {
   /**
    * The bot instance
    */
@@ -115,5 +115,3 @@ class Requests {
     }, [] as string[]);
   }
 }
-
-export default Requests;

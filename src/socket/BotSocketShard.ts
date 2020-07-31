@@ -1,8 +1,8 @@
 import querystring from 'querystring';
 import WebSocket, { Data } from 'ws';
-import BotHeartbeats from './BotHeartbeats';
+import { BotHeartbeats } from './BotHeartbeats';
 import { BotShardState } from './BotShard';
-import BotSocket, { SessionStartLimit } from './BotSocket';
+import { BotSocket, SessionStartLimit } from './BotSocket';
 import {
   BotEvent,
   GatewayCloseCode,
@@ -13,8 +13,8 @@ import {
 } from './constants';
 import * as events from './handlers';
 import { identify, version, WebsocketOptions } from './properties';
-import Bot, { ShardOptions } from '../structures/bot/Bot';
-import { Snowflake } from '../types/types';
+import { Bot, ShardOptions } from '../structures/bot';
+import { Snowflake } from '../types';
 
 export enum BotSocketShardState {
   Connecting,
@@ -50,7 +50,7 @@ let zlib: typeof import('zlib-sync') | undefined;
  * Connects every bot shard to a {@link WebSocket} with the Discord Gateway.
  * Handles gateway events and messages
  */
-class BotSocketShard {
+export class BotSocketShard {
   /**
    * The bot socket connection that initialized this shard
    */
@@ -484,5 +484,3 @@ class BotSocketShard {
     return `${url}/?${querystring.stringify(this.options)}`;
   }
 }
-
-export default BotSocketShard;

@@ -1,24 +1,22 @@
-import GuildEmoji from './GuildEmoji';
-import GuildPreview from './GuildPreview';
-import GuildUnavailable from './GuildUnavailable';
+import { GuildEmoji } from './GuildEmoji';
+import { GuildPreview } from './GuildPreview';
+import { GuildUnavailable } from './GuildUnavailable';
 import Cluster from '../../Cluster';
-import { Snowflake } from '../../types/types';
-import ChannelUtils from '../../utils/ChannelUtils';
-import Avatar, { GuildBannerFormat } from '../Avatar';
+import { Snowflake } from '../../types';
+import { ChannelUtils } from '../../utils';
+import { Avatar, GuildBannerFormat } from '../Avatar';
 import { GatewayStruct } from '../BaseStruct';
-import Emoji from '../Emoji';
-import Role from '../Role';
-import User from '../User';
-import Bot from '../bot/Bot';
-import GuildChannel from '../channels/GuildChannel';
-import GuildTextChannel from '../channels/GuildTextChannel';
-import GuildChannelsController from '../controllers/GuildChannelsController';
-import GuildEmojisController from '../controllers/GuildEmojisController';
-import GuildInvitesController from '../controllers/GuildInvitesController';
-import GuildSystemChannelFlags from '../flags/GuildSystemChannelFlags';
-import PermissionFlags from '../flags/PermissionFlags';
-import Member from '../member/Member';
-import MemberPresence from '../member/MemberPresence';
+import { Role } from '../Role';
+import { User } from '../User';
+import { Bot } from '../bot';
+import { GuildChannel, GuildTextChannel } from '../channels';
+import {
+  GuildChannelsController,
+  GuildEmojisController,
+  GuildInvitesController,
+} from '../controllers';
+import { GuildSystemChannelFlags, PermissionFlags } from '../flags';
+import { Member, MemberPresence } from '../member';
 
 /**
  * Guild verification levels
@@ -235,10 +233,9 @@ export interface ModifyGuildOptions {
 
 /**
  * Guilds in Discord represent an isolated collection of users and channels, and are often referred to as "servers" in the UI.
-
  * @extends BaseStruct
  */
-class Guild extends GuildPreview {
+export class Guild extends GuildPreview {
   /**
    * The guild's channels controller
    */
@@ -584,5 +581,3 @@ class Guild extends GuildPreview {
     }
   }
 }
-
-export default Guild;

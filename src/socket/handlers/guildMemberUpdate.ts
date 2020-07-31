@@ -1,4 +1,4 @@
-import Bot from '../../structures/bot/Bot';
+import { Bot } from '../../structures';
 import { Payload } from '../BotSocketShard';
 import { BotEvent } from '../constants';
 

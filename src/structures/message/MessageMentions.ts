@@ -1,11 +1,11 @@
-import Message from './Message';
+import { Message } from './Message';
 import Cluster from '../../Cluster';
-import { Snowflake } from '../../types/types';
-import BaseStruct, { GatewayStruct } from '../BaseStruct';
-import Role from '../Role';
-import User from '../User';
-import GuildChannel from '../channels/GuildChannel';
-import Member from '../member/Member';
+import { Snowflake } from '../../types';
+import { BaseStruct, GatewayStruct } from '../BaseStruct';
+import { Role } from '../Role';
+import { User } from '../User';
+import { GuildChannel } from '../channels';
+import { Member } from '../member';
 
 interface MentionTypes {
   users: GatewayStruct[];
@@ -22,7 +22,7 @@ const mentionsRegexp = {
 
  * @extends BaseStruct
  */
-class MessageMentions extends BaseStruct {
+export class MessageMentions extends BaseStruct {
   /**
    * The {@link Message} associated to these mentions
    */
@@ -126,5 +126,3 @@ class MessageMentions extends BaseStruct {
     }
   }
 }
-
-export default MessageMentions;

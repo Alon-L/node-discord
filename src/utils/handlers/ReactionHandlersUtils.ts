@@ -1,14 +1,12 @@
-import HandlersUtils from './HandlersUtils';
-import Emoji from '../../structures/Emoji';
-import DMChannel from '../../structures/channels/DMChannel';
-import GuildTextChannel from '../../structures/channels/GuildTextChannel';
-import Message from '../../structures/message/Message';
+import { HandlersUtils } from './HandlersUtils';
+import { Message, Emoji } from '../../structures';
+import { DMChannel, GuildTextChannel } from '../../structures/channels';
 
 /**
  * Provides util methods for all reactions-related handlers
 
  */
-class ReactionHandlersUtils extends HandlersUtils {
+export class ReactionHandlersUtils extends HandlersUtils {
   /**
    * Returns the {@link Emoji} received from the event data
    * @type {Emoji}
@@ -33,5 +31,3 @@ class ReactionHandlersUtils extends HandlersUtils {
     return channel.messages.get(messageId);
   }
 }
-
-export default ReactionHandlersUtils;

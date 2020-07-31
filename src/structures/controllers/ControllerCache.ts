@@ -1,12 +1,12 @@
 import Cluster from '../../Cluster';
-import { Snowflake } from '../../types/types';
+import { Snowflake } from '../../types';
 import { BaseStructWithId, StructWithId } from '../BaseStruct';
 
 /**
  * Cache holder for controllers.
  * @template T
  */
-class ControllerCache<T extends BaseStructWithId> extends Cluster<Snowflake | string, T> {
+export class ControllerCache<T extends BaseStructWithId> extends Cluster<Snowflake | string, T> {
   /**
    * Adds an item to the cache mapped by its ID
    * @param {StructWithId<T>} item The item you wish to add
@@ -26,5 +26,3 @@ class ControllerCache<T extends BaseStructWithId> extends Cluster<Snowflake | st
     this.merge(items.map(i => [i.id, i]));
   }
 }
-
-export default ControllerCache;

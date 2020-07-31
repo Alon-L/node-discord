@@ -1,16 +1,15 @@
 import { GatewayStruct } from './BaseStruct';
-import Bot from './bot/Bot';
-import PermissionFlags from './flags/PermissionFlags';
-import Guild from './guild/Guild';
-import GuildBaseStruct from './guild/GuildBaseStruct';
-import { Snowflake } from '../types/types';
+import { Bot } from './bot';
+import { PermissionFlags } from './flags';
+import { Guild, GuildBaseStruct } from './guild';
+import { Snowflake } from '../types';
 
 /**
  * Represents a role in a guild
 
  * @extends GuildBaseStruct
  */
-class Role extends GuildBaseStruct {
+export class Role extends GuildBaseStruct {
   /**
    * The role's ID
    */
@@ -75,5 +74,3 @@ class Role extends GuildBaseStruct {
     return this;
   }
 }
-
-export default Role;

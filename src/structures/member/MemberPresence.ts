@@ -1,10 +1,10 @@
-import Member from './Member';
-import { Snowflake } from '../../types/types';
+import { Member } from './Member';
+import { Snowflake } from '../../types';
 import { GatewayStruct } from '../BaseStruct';
-import Timestamp from '../Timestamp';
-import Bot from '../bot/Bot';
-import PresenceActivityFlags from '../flags/PresenceActivityFlags';
-import GuildBaseStruct from '../guild/GuildBaseStruct';
+import { Timestamp } from '../Timestamp';
+import { Bot } from '../bot';
+import { PresenceActivityFlags } from '../flags';
+import { GuildBaseStruct } from '../guild';
 
 /**
  * The type of the presence activity
@@ -117,7 +117,7 @@ export interface PresenceActivitySecrets {
 /**
  * Object presenting the member's current activity
  */
-export interface PresenceActivity {
+export interface PresenceGame {
   /**
    * The activity's name
    */
@@ -206,7 +206,7 @@ export interface PresenceClientStatus {
 /**
  * A member's presence is their current state on a guild
  */
-class MemberPresence extends GuildBaseStruct {
+export class MemberPresence extends GuildBaseStruct {
   /**
    * The member associated to this presence
    */
@@ -215,7 +215,7 @@ class MemberPresence extends GuildBaseStruct {
   /**
    * The member's current activity
    */
-  public game: PresenceActivity | undefined;
+  public game: PresenceGame | undefined;
 
   /**
    * The member's current status
@@ -225,7 +225,7 @@ class MemberPresence extends GuildBaseStruct {
   /**
    * The member's current activities
    */
-  public activities: PresenceActivity[] | undefined;
+  public activities: PresenceGame[] | undefined;
 
   /**
    * The member's platform-dependent status
@@ -280,11 +280,11 @@ class MemberPresence extends GuildBaseStruct {
   }
 
   /**
-   * Builds a {@link PresenceActivity} object from a received gateway activity object
+   * Builds a {@link PresenceGame} object from a received gateway activity object
    * @param {GatewayStruct} activity The gateway activity object
-   * @returns {PresenceActivity}
+   * @returns {PresenceGame}
    */
-  private static createActivity(activity: GatewayStruct): PresenceActivity {
+  private static createActivity(activity: GatewayStruct): PresenceGame {
     return {
       name: activity.name,
       type: activity.type,
@@ -308,5 +308,3 @@ class MemberPresence extends GuildBaseStruct {
     };
   }
 }
-
-export default MemberPresence;

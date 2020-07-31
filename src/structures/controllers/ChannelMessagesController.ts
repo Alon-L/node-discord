@@ -1,13 +1,12 @@
-import BaseDeleteController from './base/BaseDeleteController';
-import BaseFetchController from './base/BaseFetchController';
-import { Snowflake, TextBasedChannel } from '../../types/types';
-import Message from '../message/Message';
+import { BaseDeleteController, BaseFetchController } from './base';
+import { Snowflake, TextBasedChannel } from '../../types';
+import { Message } from '../message';
 
 /**
  * Provides an interface for a text channel's messages cache.
  * The messages are mapped by their IDs
  */
-class ChannelMessagesController extends BaseFetchController<Message>
+export class ChannelMessagesController extends BaseFetchController<Message>
   implements BaseDeleteController<Message> {
   /**
    * The guild this controller is associated to
@@ -42,5 +41,3 @@ class ChannelMessagesController extends BaseFetchController<Message>
     return message;
   }
 }
-
-export default ChannelMessagesController;

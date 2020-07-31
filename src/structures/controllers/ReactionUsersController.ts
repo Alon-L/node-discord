@@ -1,10 +1,8 @@
-import BaseController from './base/BaseController';
-import BaseFetchAllController from './base/BaseFetchAllController';
+import { BaseFetchAllController } from './base';
 import Cluster from '../../Cluster';
-import { Snowflake } from '../../types/types';
-import User from '../User';
-import Message from '../message/Message';
-import MessageReaction from '../message/MessageReaction';
+import { Snowflake } from '../../types';
+import { User } from '../User';
+import { Message, MessageReaction } from '../message';
 
 /**
  * Options for when fetching the users that reacted with a particular emoji
@@ -30,7 +28,7 @@ export interface FetchReactionUsersOptions {
  * Interface for the users that added a reaction identified by its emoji.
  * The users are mapped by their IDs
  */
-class ReactionUsersController extends BaseController<User> implements BaseFetchAllController<User> {
+export class ReactionUsersController extends BaseFetchAllController<User> {
   /**
    * The reaction this controller is associated to
    */
@@ -82,5 +80,3 @@ class ReactionUsersController extends BaseController<User> implements BaseFetchA
     return users;
   }
 }
-
-export default ReactionUsersController;

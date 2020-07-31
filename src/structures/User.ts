@@ -1,8 +1,8 @@
-import Avatar, { UserAvatarFormat } from './Avatar';
-import BaseStruct, { GatewayStruct } from './BaseStruct';
-import Bot from './bot/Bot';
-import UserFlags from './flags/UserFlags';
-import { Snowflake } from '../types/types';
+import { Avatar, UserAvatarFormat } from './Avatar';
+import { BaseStruct, GatewayStruct } from './BaseStruct';
+import { Bot } from './bot';
+import { UserFlags } from './flags';
+import { Snowflake } from '../types';
 
 /**
  * User nitro types
@@ -18,7 +18,7 @@ enum NitroType {
 
  * @extends BaseStruct
  */
-class User extends BaseStruct {
+export class User extends BaseStruct {
   /**
    * The user's ID
    */
@@ -139,5 +139,3 @@ class User extends BaseStruct {
     return `${this.username}#${this.hashtag}`;
   }
 }
-
-export default User;

@@ -1,7 +1,6 @@
-import BaseFetchController from './base/BaseFetchController';
-import { Snowflake } from '../../types/types';
-import Guild from '../guild/Guild';
-import GuildPreview from '../guild/GuildPreview';
+import { BaseFetchController } from './base';
+import { Snowflake } from '../../types';
+import { Guild, GuildPreview } from '../guild';
 
 // TODO: implement BaseCreateController https://discord.com/developers/docs/resources/guild#create-guild
 // TODO: implement BaseDeleteController https://discord.com/developers/docs/resources/guild#delete-guild
@@ -20,7 +19,7 @@ export interface FetchGuildOptions {
  * Interface for the bot's guilds cache.
  * The guilds are mapped by their IDs
  */
-class BotGuildsController extends BaseFetchController<Guild> {
+export class BotGuildsController extends BaseFetchController<Guild> {
   /**
    * Fetches a guild by its ID and caches it
    * @param {Snowflake} id The ID of the guild
@@ -44,5 +43,3 @@ class BotGuildsController extends BaseFetchController<Guild> {
     return this.bot.api.fetchGuildPreview(id);
   }
 }
-
-export default BotGuildsController;

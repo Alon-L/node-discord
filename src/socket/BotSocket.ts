@@ -1,16 +1,12 @@
 import fetch from 'node-fetch';
 import { BotShardState } from './BotShard';
-import BotSocketShard, { BotSocketShardState } from './BotSocketShard';
+import { BotSocketShard, BotSocketShardState } from './BotSocketShard';
 import { GatewayCloseCode, recommendedShardTimeout } from './constants';
 import { baseURL } from './properties';
 import Cluster from '../Cluster';
-import Bot from '../structures/bot/Bot';
-import {
-  ShardChangedStateRequest,
-  ShardCommunicationAction,
-} from '../structures/bot/BotCommunication';
+import { Bot, ShardChangedStateRequest, ShardCommunicationAction } from '../structures/bot';
 import { BotStateEvents } from '../structures/bot/handlers/events/events';
-import { ShardId } from '../types/types';
+import { ShardId } from '../types';
 
 export interface SessionStartLimit {
   total: number;
@@ -27,7 +23,7 @@ interface GatewayBot {
 /**
  * Creates and manages socket shards
  */
-class BotSocket {
+export class BotSocket {
   private readonly token: string;
   private readonly shards: Cluster<ShardId, BotSocketShard>;
   public readonly bot: Bot;
@@ -145,5 +141,3 @@ class BotSocket {
     }).then(res => res.json());
   }
 }
-
-export default BotSocket;

@@ -1,18 +1,14 @@
 import { Serializable } from 'child_process';
-import BotCommunication from './BotCommunication';
-import BotConnection from './BotConnection';
-import BotCommandsHandler from './handlers/BotCommandsHandler';
-import { BotEventsHandler } from './handlers/events/BotEventsHandler';
+import { BotCommunication } from './BotCommunication';
+import { BotConnection } from './BotConnection';
+import { BotCommandsHandler, BotEventsHandler } from './handlers';
 import Cluster from '../../Cluster';
-import { BotEvent } from '../../socket/constants';
-import { botOptions, CacheOptions, WebsocketOptions } from '../../socket/properties';
-import { ShardId, Snowflake } from '../../types/types';
-import User from '../User';
-import BotAPI from '../api/BotAPI';
-import BotChannelsController from '../controllers/BotChannelsController';
-import BotGuildsController from '../controllers/BotGuildsController';
-import GuildEmoji from '../guild/GuildEmoji';
-import GuildUnavailable from '../guild/GuildUnavailable';
+import { BotEvent, botOptions, CacheOptions, WebsocketOptions } from '../../socket';
+import { ShardId, Snowflake } from '../../types';
+import { User } from '../User';
+import { BotAPI } from '../api';
+import { BotChannelsController, BotGuildsController } from '../controllers';
+import { GuildEmoji, GuildUnavailable } from '../guild';
 
 /**
  * The options given to every Bot shard
@@ -48,7 +44,7 @@ export interface BotOptions {
  * The bot is the main operator of the API.
  * It handles the events, and properties for all structures.
  */
-class Bot {
+export class Bot {
   /**
    * Bot token
    */
@@ -183,5 +179,3 @@ class Bot {
     };
   }
 }
-
-export default Bot;

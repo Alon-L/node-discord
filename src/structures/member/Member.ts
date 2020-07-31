@@ -1,20 +1,18 @@
-import MemberPresence from './MemberPresence';
+import { MemberPresence } from './MemberPresence';
 import Cluster from '../../Cluster';
-import { Snowflake } from '../../types/types';
+import { Snowflake } from '../../types';
 import { GatewayStruct } from '../BaseStruct';
-import Role from '../Role';
-import Timestamp from '../Timestamp';
-import User from '../User';
-import Bot from '../bot/Bot';
-import Guild from '../guild/Guild';
-import GuildBaseStruct from '../guild/GuildBaseStruct';
+import { Role } from '../Role';
+import { Timestamp } from '../Timestamp';
+import { User } from '../User';
+import { Bot } from '../bot';
+import { Guild, GuildBaseStruct } from '../guild';
 
 /**
  * Representation of a Discord {@link User} in a guild
-
  * @extends GuildBaseStruct
  */
-class Member extends GuildBaseStruct {
+export class Member extends GuildBaseStruct {
   /**
    * The member's user ID
    */
@@ -109,5 +107,3 @@ class Member extends GuildBaseStruct {
     return this;
   }
 }
-
-export default Member;

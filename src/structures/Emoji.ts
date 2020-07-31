@@ -1,17 +1,17 @@
-import BaseStruct, { GatewayStruct } from './BaseStruct';
-import Role from './Role';
-import User from './User';
-import Bot from './bot/Bot';
-import Guild from './guild/Guild';
+import { BaseStruct, GatewayStruct } from './BaseStruct';
+import { Role } from './Role';
+import { User } from './User';
+import { Bot } from './bot';
+import { Guild } from './guild';
 import Cluster from '../Cluster';
-import { Snowflake } from '../types/types';
+import { Snowflake } from '../types';
 
 /**
  * Any kind of emoji. Could be its unicode name, ID or {@link Emoji} object
  */
 export type EmojiResolvable = string | Snowflake | Emoji;
 
-class Emoji extends BaseStruct {
+export class Emoji extends BaseStruct {
   /**
    * The ID of the emoji. Possibly null if the emoji class was generated from a standard emoji
    */
@@ -111,5 +111,3 @@ class Emoji extends BaseStruct {
     return emoji instanceof Emoji ? emoji.id : emojis.get(emoji)?.id || emoji;
   }
 }
-
-export default Emoji;

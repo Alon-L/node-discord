@@ -2,7 +2,7 @@
  * Manager class responsible for retrieving data off of bit-wise flags
  * @template T
  */
-class Flags<T extends number> {
+export class Flags<T extends number> {
   /**
    * Integer of the flags
    */
@@ -40,5 +40,3 @@ class Flags<T extends number> {
     return new Flags<T>(bits);
   }
 }
-
-export default Flags;

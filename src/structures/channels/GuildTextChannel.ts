@@ -1,19 +1,17 @@
-import GuildChannel from './GuildChannel';
-import TextChannel from './TextChannel';
-import { Snowflake } from '../../types/types';
+import { GuildChannel } from './GuildChannel';
+import { TextChannel } from './TextChannel';
+import { Snowflake } from '../../types';
 import { GatewayStruct } from '../BaseStruct';
-import Timestamp from '../Timestamp';
-import Bot from '../bot/Bot';
-import ChannelMessagesController from '../controllers/ChannelMessagesController';
-import ChannelPinsController from '../controllers/ChannelPinsController';
-import Guild from '../guild/Guild';
-import Message, { MessageOptions, MessageData } from '../message/Message';
-import MessageEmbed from '../message/MessageEmbed';
+import { Timestamp } from '../Timestamp';
+import { Bot } from '../bot';
+import { ChannelMessagesController, ChannelPinsController } from '../controllers';
+import { Guild } from '../guild';
+import { Message, MessageOptions, MessageData, MessageEmbed } from '../message';
 
 /**
  * Represents a channel found in a guild of type {@link ChannelType.GuildText}
  */
-class GuildTextChannel extends GuildChannel implements TextChannel {
+export class GuildTextChannel extends GuildChannel implements TextChannel {
   /** @inheritDoc */
   public nsfw: boolean | undefined;
 
@@ -78,5 +76,3 @@ class GuildTextChannel extends GuildChannel implements TextChannel {
     return this.bot.api.triggerTextChannelTyping(this.id);
   }
 }
-
-export default GuildTextChannel;

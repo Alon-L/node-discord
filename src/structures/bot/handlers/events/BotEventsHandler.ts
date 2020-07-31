@@ -1,7 +1,7 @@
 import { EventEmitter } from 'events';
 import { Events } from './events';
 import StrictEventEmitter, { Args } from '../../../../types/EventEmitter';
-import BotHandler from '../BotHandler';
+import { BotHandler } from '../BotHandler';
 
 /**
  * Responsible for handling all of the Bot's events

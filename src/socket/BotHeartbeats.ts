@@ -1,5 +1,5 @@
 import WebSocket from 'ws';
-import BotSocketShard from './BotSocketShard';
+import { BotSocketShard } from './BotSocketShard';
 import { OPCode } from './constants';
 
 interface HeartbeatData {
@@ -15,7 +15,7 @@ interface HeartbeatInterval {
 /**
  * Handles the sending and receiving of Discord heartbeats
  */
-class BotHeartbeats {
+export class BotHeartbeats {
   private botSocketShard: BotSocketShard;
   private readonly ws: WebSocket;
   private readonly sequence: number | null;
@@ -90,5 +90,3 @@ class BotHeartbeats {
     this.acked = true;
   }
 }
-
-export default BotHeartbeats;

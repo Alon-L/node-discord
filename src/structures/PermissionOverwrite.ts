@@ -1,13 +1,13 @@
-import BaseStruct, { GatewayStruct } from './BaseStruct';
-import Bot from './bot/Bot';
-import GuildChannel from './channels/GuildChannel';
-import PermissionFlags, { Permissible, PermissionOverwriteFlags } from './flags/PermissionFlags';
+import { BaseStruct, GatewayStruct } from './BaseStruct';
+import { Bot } from './bot';
+import { GuildChannel } from './channels';
+import { PermissionFlags, Permissible, PermissionOverwriteFlags } from './flags';
 
 /**
  * A full permission overwrite entry.
  * Contains full data about a guild channel's permission overwrite for a user or a role
  */
-class PermissionOverwrite extends BaseStruct {
+export class PermissionOverwrite extends BaseStruct {
   /**
    * The channel this overwrite is associated to
    */
@@ -54,5 +54,3 @@ class PermissionOverwrite extends BaseStruct {
     return this.permissible.id;
   }
 }
-
-export default PermissionOverwrite;

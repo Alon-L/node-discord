@@ -1,14 +1,14 @@
-import BaseDeleteController from './base/BaseDeleteController';
-import { Snowflake } from '../../types/types';
-import PermissionOverwrite from '../PermissionOverwrite';
-import GuildChannel from '../channels/GuildChannel';
-import { Permissible, PermissionOverwriteFlags } from '../flags/PermissionFlags';
+import { BaseDeleteController } from './base';
+import { Snowflake } from '../../types';
+import { PermissionOverwrite } from '../PermissionOverwrite';
+import { GuildChannel } from '../channels';
+import { Permissible, PermissionOverwriteFlags } from '../flags';
 
 /**
  * Interface for a guild channel's permission overwrites cache.
  * The permission overwrites are mapped by their Permissible's ID
  */
-class ChannelPermissionsController extends BaseDeleteController<PermissionOverwrite> {
+export class ChannelPermissionsController extends BaseDeleteController<PermissionOverwrite> {
   /**
    * The guild channel this controller is associated to
    */
@@ -44,5 +44,3 @@ class ChannelPermissionsController extends BaseDeleteController<PermissionOverwr
     return this.bot.api.deleteGuildChannelPermission(this.channel.id, id);
   }
 }
-
-export default ChannelPermissionsController;

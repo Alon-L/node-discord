@@ -1,21 +1,16 @@
 import Cluster from '../../../../Cluster';
-import BotSocketShard from '../../../../socket/BotSocketShard';
-import { BotEvent } from '../../../../socket/constants';
+import { BotSocketShard, BotEvent } from '../../../../socket';
 import { GuildMembersChunk } from '../../../../socket/handlers/guildMembersChunk';
-import { Snowflake, TextBasedChannel } from '../../../../types/types';
-import Emoji from '../../../Emoji';
-import Invite, { PartialInvite } from '../../../Invite';
-import Role from '../../../Role';
-import Timestamp from '../../../Timestamp';
-import User from '../../../User';
-import Channel from '../../../channels/Channel';
-import GuildChannel from '../../../channels/GuildChannel';
-import Guild from '../../../guild/Guild';
-import GuildUnavailable from '../../../guild/GuildUnavailable';
-import Member from '../../../member/Member';
-import MemberPresence from '../../../member/MemberPresence';
-import Message, { PartialMessage } from '../../../message/Message';
-import MessageReaction from '../../../message/MessageReaction';
+import { Snowflake, TextBasedChannel } from '../../../../types';
+import { Emoji } from '../../../Emoji';
+import { Invite, PartialInvite } from '../../../Invite';
+import { Role } from '../../../Role';
+import { Timestamp } from '../../../Timestamp';
+import { User } from '../../../User';
+import { Channel, GuildChannel } from '../../../channels';
+import { Guild, GuildUnavailable } from '../../../guild';
+import { Member, MemberPresence } from '../../../member';
+import { Message, PartialMessage, MessageReaction } from '../../../message';
 
 /**
  * Sent when all shards become ready

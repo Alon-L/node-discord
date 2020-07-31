@@ -1,13 +1,11 @@
-import { Snowflake } from '../../types/types';
-import ChannelMessagesController from '../controllers/ChannelMessagesController';
-import ChannelPinsController from '../controllers/ChannelPinsController';
-import Message, { MessageData, MessageOptions } from '../message/Message';
-import MessageEmbed from '../message/MessageEmbed';
+import { Snowflake } from '../../types';
+import { ChannelMessagesController, ChannelPinsController } from '../controllers';
+import { Message, MessageData, MessageOptions, MessageEmbed } from '../message';
 
 /**
  * Abstract class that all text-based channels implement
  */
-interface TextChannel {
+export interface TextChannel {
   /**
    * The ID of the last message sent in this channel.
    * May not point to an existing or valid message
@@ -54,5 +52,3 @@ interface TextChannel {
    */
   triggerTyping(): Promise<void>;
 }
-
-export default TextChannel;

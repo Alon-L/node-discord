@@ -1,22 +1,22 @@
-import { Params } from '../../socket/rateLimit/Requests';
-import { Snowflake } from '../../types/types';
+import { Params } from '../../socket/rateLimit';
+import { Snowflake } from '../../types';
 import { InviteOptions } from '../Invite';
-import Role from '../Role';
-import { CreateGuildChannelOptions, GuildChannelOptions } from '../channels/GuildChannel';
-import { FetchGuildOptions } from '../controllers/BotGuildsController';
-import { GuildChannelPositions } from '../controllers/GuildChannelsController';
-import { FetchInviteOptions } from '../controllers/GuildInvitesController';
-import { FetchReactionUsersOptions } from '../controllers/ReactionUsersController';
-import { Permissible, PermissionOverwriteFlags } from '../flags/PermissionFlags';
-import { ModifyGuildOptions } from '../guild/Guild';
-import { EmojiOptions } from '../guild/GuildEmoji';
-import { MessageData } from '../message/Message';
-import MessageEmbed from '../message/MessageEmbed';
+import { Role } from '../Role';
+import { CreateGuildChannelOptions, GuildChannelOptions } from '../channels';
+import {
+  FetchGuildOptions,
+  GuildChannelPositions,
+  FetchInviteOptions,
+  FetchReactionUsersOptions,
+} from '../controllers';
+import { Permissible, PermissionOverwriteFlags } from '../flags';
+import { ModifyGuildOptions, EmojiOptions } from '../guild';
+import { MessageData, MessageEmbed } from '../message';
 
 /**
  * Serializes API options and data into the API format
  */
-class APISerializer {
+export class APISerializer {
   /**
    * Returns the serialized guild channel options for when modifying a guild channel
    * @param {GuildChannelOptions} options The guild channel options
@@ -194,5 +194,3 @@ class APISerializer {
     );
   }
 }
-
-export default APISerializer;

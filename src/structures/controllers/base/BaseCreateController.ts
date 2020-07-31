@@ -1,4 +1,4 @@
-import BaseController from './BaseController';
+import { BaseController } from './BaseController';
 import { BaseStructWithId } from '../../BaseStruct';
 
 /**
@@ -6,7 +6,7 @@ import { BaseStructWithId } from '../../BaseStruct';
  * @template TStruct
  * @template TOptions
  */
-abstract class BaseCreateController<
+export abstract class BaseCreateController<
   TStruct extends BaseStructWithId,
   TOptions
 > extends BaseController<TStruct> {
@@ -16,5 +16,3 @@ abstract class BaseCreateController<
    */
   abstract create(options?: TOptions): Promise<TStruct>;
 }
-
-export default BaseCreateController;

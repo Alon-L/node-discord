@@ -1,12 +1,12 @@
-import BaseController from './BaseController';
-import { Snowflake } from '../../../types/types';
+import { BaseController } from './BaseController';
+import { Snowflake } from '../../../types';
 import { BaseStructWithId } from '../../BaseStruct';
 
 /**
  * Base controller with fetch capabilities
  * @template T
  */
-abstract class BaseFetchController<T extends BaseStructWithId> extends BaseController<T> {
+export abstract class BaseFetchController<T extends BaseStructWithId> extends BaseController<T> {
   /**
    * Fetches a new item and caches it
    * @param {Snowflake | string} id The ID of the item you wish to fetch
@@ -23,5 +23,3 @@ abstract class BaseFetchController<T extends BaseStructWithId> extends BaseContr
     return this.cache.get(id) || this.fetch(id);
   }
 }
-
-export default BaseFetchController;

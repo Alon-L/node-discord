@@ -1,14 +1,13 @@
-import BaseCreateController from './base/BaseCreateController';
-import BaseFetchAllController from './base/BaseFetchAllController';
+import { BaseCreateController, BaseFetchAllController } from './base';
 import Cluster from '../../Cluster';
-import Invite, { InviteOptions } from '../Invite';
-import GuildChannel from '../channels/GuildChannel';
+import { Invite, InviteOptions } from '../Invite';
+import { GuildChannel } from '../channels';
 
 /**
  * Provides an interface for a guild channel's invites cache.
  * The invites are mapped by their invite codes
  */
-class GuildChannelInvitesController extends BaseFetchAllController<Invite>
+export class GuildChannelInvitesController extends BaseFetchAllController<Invite>
   implements BaseCreateController<Invite, InviteOptions> {
   /**
    * The channel this controller is associated to
@@ -44,5 +43,3 @@ class GuildChannelInvitesController extends BaseFetchAllController<Invite>
     return this.bot.api.createChannelInvite(this.channel.id, options);
   }
 }
-
-export default GuildChannelInvitesController;

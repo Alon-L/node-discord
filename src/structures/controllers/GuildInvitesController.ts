@@ -1,8 +1,7 @@
-import BaseDeleteController from './base/BaseDeleteController';
-import BaseFetchController from './base/BaseFetchController';
-import { Snowflake } from '../../types/types';
-import Invite from '../Invite';
-import Guild from '../guild/Guild';
+import { BaseDeleteController, BaseFetchController } from './base';
+import { Snowflake } from '../../types';
+import { Invite } from '../Invite';
+import { Guild } from '../guild';
 
 /**
  * Options for when fetching an invite
@@ -18,7 +17,7 @@ export interface FetchInviteOptions {
  * Provides an interface for a guild's invites cache
  * The invites are mapped by their invite codes
  */
-class GuildInvitesController extends BaseFetchController<Invite>
+export class GuildInvitesController extends BaseFetchController<Invite>
   implements BaseDeleteController<Invite> {
   /**
    * The guild this controller is associated to
@@ -54,5 +53,3 @@ class GuildInvitesController extends BaseFetchController<Invite>
     return invite;
   }
 }
-
-export default GuildInvitesController;

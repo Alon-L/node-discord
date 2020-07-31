@@ -1,12 +1,12 @@
-import BaseStruct, { BaseStructWithId } from '../../BaseStruct';
-import Bot from '../../bot/Bot';
-import ControllerCache from '../ControllerCache';
+import { BaseStruct, BaseStructWithId } from '../../BaseStruct';
+import { Bot } from '../../bot';
+import { ControllerCache } from '../ControllerCache';
 
 /**
  * Provides a base interface for the bot's cached data
  * @template T
  */
-abstract class BaseController<T extends BaseStructWithId> {
+export abstract class BaseController<T extends BaseStructWithId> {
   /**
    * The bot instance
    */
@@ -27,5 +27,3 @@ abstract class BaseController<T extends BaseStructWithId> {
     this.cache = new ControllerCache<T>(null, limit);
   }
 }
-
-export default BaseController;

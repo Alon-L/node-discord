@@ -1,6 +1,4 @@
-import Invite, { PartialInvite } from '../../structures/Invite';
-import Bot from '../../structures/bot/Bot';
-import GuildChannel from '../../structures/channels/GuildChannel';
+import { Bot, GuildChannel, Invite, PartialInvite } from '../../structures';
 import { Payload } from '../BotSocketShard';
 import { BotEvent } from '../constants';
 

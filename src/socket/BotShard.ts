@@ -1,8 +1,9 @@
 import { ChildProcess, fork, Serializable } from 'child_process';
 import path from 'path';
-import BotShardManager from './BotShardManager';
+import { BotShardManager } from './BotShardManager';
 import { GatewayCloseCode } from './constants';
-import BotCommunication, {
+import {
+  BotCommunication,
   ShardBroadcastRequest,
   ShardChangedStateRequest,
   ShardCommunicationAction,
@@ -15,10 +16,10 @@ import BotCommunication, {
   ShardEmitCommunicationEventResponse,
   ShardEmitDisconnectRequest,
   ShardSendRequest,
-} from '../structures/bot/BotCommunication';
+} from '../structures/bot';
 import { Events } from '../structures/bot/handlers/events/events';
+import { ShardId } from '../types';
 import { Args } from '../types/EventEmitter';
-import { ShardId } from '../types/types';
 
 /**
  * The shard state
@@ -32,7 +33,7 @@ export enum BotShardState {
  * Creates and handles the communication of a shard
 
  */
-class BotShard {
+export class BotShard {
   private readonly manager: BotShardManager;
   private process!: ChildProcess;
   public readonly id: ShardId;
@@ -192,5 +193,3 @@ class BotShard {
     this.process.send(request);
   }
 }
-
-export default BotShard;

@@ -1,6 +1,6 @@
-import { Snowflake } from '../../types/types';
-import BaseStruct, { GatewayStruct } from '../BaseStruct';
-import Bot from '../bot/Bot';
+import { Snowflake } from '../../types';
+import { BaseStruct, GatewayStruct } from '../BaseStruct';
+import { Bot } from '../bot';
 
 /**
  * Used instead of {@link Guild} when the guild is unavailable
@@ -8,7 +8,7 @@ import Bot from '../bot/Bot';
 
  * @extends BaseStruct
  */
-class GuildUnavailable extends BaseStruct {
+export class GuildUnavailable extends BaseStruct {
   /**
    * Guild ID
    */
@@ -37,5 +37,3 @@ class GuildUnavailable extends BaseStruct {
     return this;
   }
 }
-
-export default GuildUnavailable;

@@ -1,10 +1,10 @@
-import { PayloadData } from '../../socket/BotSocketShard';
-import Bot from '../../structures/bot/Bot';
+import { PayloadData } from '../../socket';
+import { Bot } from '../../structures';
 
 /**
  * Main class for all util methods for socket event handlers.
  */
-class HandlersUtils {
+export class HandlersUtils {
   /**
    * The bot associated to this socket event
    */
@@ -20,5 +20,3 @@ class HandlersUtils {
     this.data = data;
   }
 }
-
-export default HandlersUtils;

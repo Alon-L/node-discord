@@ -1,16 +1,13 @@
-import BaseCreateController from './base/BaseCreateController';
-import BaseFetchAllController from './base/BaseFetchAllController';
-import BaseFetchController from './base/BaseFetchController';
+import { BaseCreateController, BaseFetchAllController, BaseFetchController } from './base';
 import Cluster from '../../Cluster';
-import { Snowflake } from '../../types/types';
-import Guild from '../guild/Guild';
-import GuildEmoji, { CreateEmojiOptions } from '../guild/GuildEmoji';
+import { Snowflake } from '../../types';
+import { Guild, GuildEmoji, CreateEmojiOptions } from '../guild';
 
 /**
  * Provides an interface for a guild's emojis cache.
  * The emojis are mapped by their IDs
  */
-class GuildEmojisController extends BaseFetchController<GuildEmoji>
+export class GuildEmojisController extends BaseFetchController<GuildEmoji>
   implements
     BaseFetchAllController<GuildEmoji>,
     BaseCreateController<GuildEmoji, CreateEmojiOptions> {
@@ -59,5 +56,3 @@ class GuildEmojisController extends BaseFetchController<GuildEmoji>
     return emojis;
   }
 }
-
-export default GuildEmojisController;

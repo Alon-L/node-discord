@@ -1,7 +1,7 @@
-import Message from './Message';
-import { Dimensions } from '../../types/types';
-import BaseStruct, { GatewayStruct } from '../BaseStruct';
-import Timestamp from '../Timestamp';
+import { Message } from './Message';
+import { Dimensions } from '../../types';
+import { BaseStruct, GatewayStruct } from '../BaseStruct';
+import { Timestamp } from '../Timestamp';
 
 /**
  * Embed types are "loosely defined" and, for the most part, are not used by our clients for rendering. Embed attributes power what is rendered. Embed types should be considered deprecated and might be removed in a future API version.
@@ -170,7 +170,7 @@ export interface MessageEmbedData {
 /**
  * Represents an embed contained in a {@link Message}
  */
-class MessageEmbed extends BaseStruct implements Partial<MessageEmbedData> {
+export class MessageEmbed extends BaseStruct implements Partial<MessageEmbedData> {
   /**
    * The {@link Message} associated to this embed
    */
@@ -377,5 +377,3 @@ class MessageEmbed extends BaseStruct implements Partial<MessageEmbedData> {
     };
   }
 }
-
-export default MessageEmbed;

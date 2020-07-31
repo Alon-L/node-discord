@@ -1,5 +1,5 @@
-import { cdnBaseURL } from '../socket/properties';
-import { Snowflake } from '../types/types';
+import { cdnBaseURL } from '../socket';
+import { Snowflake } from '../types';
 
 /**
  * All image formats
@@ -86,7 +86,7 @@ export type AvatarFormat =
 /**
  * Generates and modifies avatar URLs according to the given arguments
  */
-class Avatar {
+export class Avatar {
   /**
    * Adds the given modifiers to an avatar URL
    * @param {string} url The original avatar URL
@@ -222,5 +222,3 @@ class Avatar {
       : Avatar.enhanceURL(`${cdnBaseURL}/embed/avatars/${parseInt(hashtag) % 5}`, format, size);
   }
 }
-
-export default Avatar;

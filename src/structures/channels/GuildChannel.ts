@@ -1,13 +1,12 @@
-import Channel, { ChannelType } from './Channel';
-import GuildCategoryChannel from './GuildCategoryChannel';
-import { Snowflake } from '../../types/types';
+import { Channel, ChannelType } from './Channel';
+import { GuildCategoryChannel } from './GuildCategoryChannel';
+import { Snowflake } from '../../types';
 import { GatewayStruct } from '../BaseStruct';
-import PermissionOverwrite from '../PermissionOverwrite';
-import Bot from '../bot/Bot';
-import ChannelPermissionsController from '../controllers/ChannelPermissionsController';
-import GuildChannelInvitesController from '../controllers/GuildChannelInvitesController';
-import { PermissibleType, PermissionOverwriteFlags } from '../flags/PermissionFlags';
-import Guild from '../guild/Guild';
+import { PermissionOverwrite } from '../PermissionOverwrite';
+import { Bot } from '../bot';
+import { ChannelPermissionsController, GuildChannelInvitesController } from '../controllers';
+import { PermissibleType, PermissionOverwriteFlags } from '../flags';
+import { Guild } from '../guild';
 
 /**
  * Options used when modifying a {@link GuildChannel}
@@ -79,7 +78,7 @@ export interface CreateGuildChannelOptions extends GuildChannelOptions {
 /**
  * Represents a channel found in a guild of any type
  */
-class GuildChannel extends Channel {
+export class GuildChannel extends Channel {
   /**
    * The guild this channel is associated to
    */
@@ -173,5 +172,3 @@ class GuildChannel extends Channel {
     return this.bot.api.modifyGuildChannel(this.id, options);
   }
 }
-
-export default GuildChannel;

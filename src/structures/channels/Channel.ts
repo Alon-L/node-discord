@@ -1,6 +1,6 @@
-import { Snowflake } from '../../types/types';
-import BaseStruct, { GatewayStruct } from '../BaseStruct';
-import Bot from '../bot/Bot';
+import { Snowflake } from '../../types';
+import { BaseStruct, GatewayStruct } from '../BaseStruct';
+import { Bot } from '../bot';
 
 /**
  * The type of a channel
@@ -18,7 +18,7 @@ export enum ChannelType {
 /**
  * Represents a guild or DM channel within Discord.
  */
-class Channel extends BaseStruct {
+export class Channel extends BaseStruct {
   /**
    * The ID of this channel
    */
@@ -55,5 +55,3 @@ class Channel extends BaseStruct {
     return this.bot.api.deleteChannel(this.id);
   }
 }
-
-export default Channel;

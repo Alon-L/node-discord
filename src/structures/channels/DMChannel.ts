@@ -1,19 +1,17 @@
-import Channel from './Channel';
-import TextChannel from './TextChannel';
-import { Snowflake } from '../../types/types';
+import { Channel } from './Channel';
+import { TextChannel } from './TextChannel';
+import { Snowflake } from '../../types';
 import { GatewayStruct } from '../BaseStruct';
-import Timestamp from '../Timestamp';
-import User from '../User';
-import Bot from '../bot/Bot';
-import ChannelMessagesController from '../controllers/ChannelMessagesController';
-import ChannelPinsController from '../controllers/ChannelPinsController';
-import Message, { MessageData, MessageOptions } from '../message/Message';
-import MessageEmbed from '../message/MessageEmbed';
+import { Timestamp } from '../Timestamp';
+import { User } from '../User';
+import { Bot } from '../bot';
+import { ChannelMessagesController, ChannelPinsController } from '../controllers';
+import { Message, MessageData, MessageOptions, MessageEmbed } from '../message';
 
 /**
  * Represents a private channel between the Bot and a User
  */
-class DMChannel extends Channel implements TextChannel {
+export class DMChannel extends Channel implements TextChannel {
   /** @inheritDoc */
   public lastMessageId: Snowflake | null | undefined;
 
@@ -65,5 +63,3 @@ class DMChannel extends Channel implements TextChannel {
     return this.bot.api.triggerTextChannelTyping(this.id);
   }
 }
-
-export default DMChannel;

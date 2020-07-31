@@ -1,4 +1,4 @@
-import RateLimitBucket from './RateLimitBucket';
+import { RateLimitBucket } from './RateLimitBucket';
 import { Params, ReturnedData } from './Requests';
 
 /**
@@ -26,7 +26,7 @@ export interface RateLimitQueueItem {
  * The rate limit queue
  * Receives all overlapping API requests and ultimately sends them after the the bucket refills
  */
-class RateLimitQueue extends Array<RateLimitQueueItem> {
+export class RateLimitQueue extends Array<RateLimitQueueItem> {
   /**
    * The bucket instance that initialized this queue
    */
@@ -76,5 +76,3 @@ class RateLimitQueue extends Array<RateLimitQueueItem> {
     }
   }
 }
-
-export default RateLimitQueue;

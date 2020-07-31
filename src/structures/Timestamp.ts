@@ -1,7 +1,7 @@
 /**
  * Handles the conversion of timestamps received from the Discord API into UNIX timestamps
  */
-class Timestamp {
+export class Timestamp {
   public date: string | undefined;
 
   constructor(date: string | undefined) {
@@ -12,5 +12,3 @@ class Timestamp {
     return this.date ? Date.parse(this.date) : undefined;
   }
 }
-
-export default Timestamp;

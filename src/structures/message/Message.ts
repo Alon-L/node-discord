@@ -1,18 +1,18 @@
-import MessageAttachment from './MessageAttachment';
-import MessageEmbed, { MessageEmbedData } from './MessageEmbed';
-import MessageMentions from './MessageMentions';
-import MessageReaction from './MessageReaction';
+import { MessageAttachment } from './MessageAttachment';
+import { MessageEmbed, MessageEmbedData } from './MessageEmbed';
+import { MessageMentions } from './MessageMentions';
+import { MessageReaction } from './MessageReaction';
 import Cluster from '../../Cluster';
-import { Snowflake, TextBasedChannel } from '../../types/types';
-import BaseStruct, { GatewayStruct } from '../BaseStruct';
+import { Snowflake, TextBasedChannel } from '../../types';
+import { BaseStruct, GatewayStruct } from '../BaseStruct';
 import { EmojiResolvable } from '../Emoji';
-import Timestamp from '../Timestamp';
-import User from '../User';
-import Bot from '../bot/Bot';
-import MessageReactionsController from '../controllers/MessageReactionsController';
-import MessageFlags from '../flags/MessageFlags';
-import Guild from '../guild/Guild';
-import Member from '../member/Member';
+import { Timestamp } from '../Timestamp';
+import { User } from '../User';
+import { Bot } from '../bot';
+import { MessageReactionsController } from '../controllers';
+import { MessageFlags } from '../flags';
+import { Guild } from '../guild';
+import { Member } from '../member';
 
 /**
  * The type of a message
@@ -160,7 +160,7 @@ export interface MessageEditData extends MessageData {
 /**
  * Represents a message sent in a {@link TextChannel} within Discord
  */
-class Message extends BaseStruct {
+export class Message extends BaseStruct {
   /**
    * The message's ID
    */
@@ -428,5 +428,3 @@ class Message extends BaseStruct {
     return this.bot.api.unpinMessage(this.channel.id, this.id);
   }
 }
-
-export default Message;

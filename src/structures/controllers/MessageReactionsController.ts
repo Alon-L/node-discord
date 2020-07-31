@@ -1,16 +1,13 @@
-import BaseController from './base/BaseController';
-import BaseDeleteController from './base/BaseDeleteController';
-import { Snowflake } from '../../types/types';
+import { BaseDeleteController } from './base';
+import { Snowflake } from '../../types';
 import { EmojiResolvable } from '../Emoji';
-import Message from '../message/Message';
-import MessageReaction from '../message/MessageReaction';
+import { Message, MessageReaction } from '../message';
 
 /**
  * Provides an interface for a message's reactions cache.
  * The reactions are mapped by the emoji name or emoji ID
  */
-class MessageReactionsController extends BaseController<MessageReaction>
-  implements BaseDeleteController<MessageReaction> {
+export class MessageReactionsController extends BaseDeleteController<MessageReaction> {
   /**
    * The message this controller is associated to
    */
@@ -64,5 +61,3 @@ class MessageReactionsController extends BaseController<MessageReaction>
     return this.bot.api.removeMessageReactions(this.message.channel.id, this.message.id);
   }
 }
-
-export default MessageReactionsController;

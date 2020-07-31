@@ -1,6 +1,6 @@
-import Bot from './bot/Bot';
+import { Bot } from './bot';
 
-import { Snowflake } from '../types/types';
+import { Snowflake } from '../types';
 import Dict = NodeJS.Dict;
 
 /**
@@ -28,7 +28,7 @@ export type BaseStructWithId = BaseStruct & { id: Snowflake | string };
  * Basic structure that all other API-related structures extend
  * Includes the bot property which every structure must have
  */
-class BaseStruct {
+export class BaseStruct {
   /**
    * The {@link Bot} operating this structure
    */
@@ -73,5 +73,3 @@ class BaseStruct {
     return { before: clone, after: this.init({ ...this.structure, ...data }) };
   }
 }
-
-export default BaseStruct;

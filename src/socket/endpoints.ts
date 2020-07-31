@@ -1,4 +1,4 @@
-import { Snowflake } from '../types/types';
+import { Snowflake } from '../types';
 
 /**
  * All Endpoint routes for the Discord API.
