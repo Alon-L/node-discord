@@ -1,9 +1,8 @@
 /**
  * Manager class responsible for retrieving data off of bit-wise flags
  * @template T
- * @template TFlags
  */
-class Flags<T extends number, TFlags extends number | string = number> {
+class Flags<T extends number> {
   /**
    * Integer of the flags
    */
@@ -26,8 +25,8 @@ class Flags<T extends number, TFlags extends number | string = number> {
    * Returns the bits of the flags this instance contains
    * @type {number}
    */
-  public get bits(): TFlags {
-    return this.flags as TFlags;
+  public get bits(): number {
+    return this.flags;
   }
 
   /**
@@ -36,7 +35,6 @@ class Flags<T extends number, TFlags extends number | string = number> {
    * @returns {Flags<T>}
    */
   public static build<T extends number>(...flags: T[]): Flags<T> {
-    // Merge all the given flags
     const bits = flags.reduce((totalBits: number, bit: number) => totalBits | bit, 0);
 
     return new Flags<T>(bits);

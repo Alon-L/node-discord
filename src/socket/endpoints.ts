@@ -94,9 +94,13 @@ export const enum RateLimitHeaders {
 export const enum StatusCode {
   /**
    * The request was successful
-   * @type {number}
    */
   OK = 200,
+
+  /**
+   * The request was successful and led to the creation of a resource
+   */
+  Created = 201,
 
   /**
    * The request succeeded with no content as response
@@ -106,21 +110,18 @@ export const enum StatusCode {
 
   /**
    * The token is no longer valid
-   * @type {number}
    */
   UnAuthorized = 401,
 
   /**
    * The bot has insufficient permissions to send this request
-   * @type {number}
    */
   Forbidden = 403,
 
   /**
    * The rate limit has been reached
-   * @type {number}
    */
   TooManyRequests = 429,
 }
 
-export const ValidCodes: StatusCode[] = [StatusCode.OK, StatusCode.NoContent];
+export const ValidCodes: StatusCode[] = [StatusCode.OK, StatusCode.Created, StatusCode.NoContent];
