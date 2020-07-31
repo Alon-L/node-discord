@@ -21,17 +21,23 @@ class APIRequest {
     this.endpoint = endpoint;
     this.method = method;
 
+    // Clear all nullish params
     if (params) {
-      // Clear all nullish params
-      this.params = Object.entries(params)
-        .filter(([, value]) => value !== undefined && value !== null)
-        .reduce(
-          (params, [key, value]) => ({
-            ...params,
-            [key]: value,
-          }),
-          {},
+      if (Array.isArray(params)) {
+        this.params = params.filter(param =>
+          Object.entries(param).every(([, value]) => value !== undefined && value !== null),
         );
+      } else {
+        this.params = Object.entries(params)
+          .filter(([, value]) => value !== undefined && value !== null)
+          .reduce(
+            (params, [key, value]) => ({
+              ...params,
+              [key]: value,
+            }),
+            {},
+          );
+      }
     }
   }
 

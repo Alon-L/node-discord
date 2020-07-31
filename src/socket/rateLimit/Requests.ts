@@ -25,12 +25,12 @@ export type ReturnedData = Data | Array<Serializable | undefined | null>;
 /**
  * The request's Body type
  */
-export type Body = Data;
+export type Body = Data | Data[];
 
 /**
  * The request's Params type
  */
-export type Params = Data | undefined;
+export type Params = Data | Data[] | undefined;
 
 /**
  * The route's arguments type (as a parameter)
