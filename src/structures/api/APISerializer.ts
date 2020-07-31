@@ -91,7 +91,12 @@ class APISerializer {
       position: options.position,
       permission_overwrites:
         options.permissions &&
-        Object.entries(options.permissions).map(([id, overwrite]) => ({ id, ...overwrite })),
+        Object.entries(options.permissions).map(([id, overwrite]) => ({
+          id,
+          type: overwrite.type,
+          allow: overwrite.allow?.bits,
+          deny: overwrite.deny?.bits,
+        })),
       parent_id: options.parentId,
       nsfw: options.nsfw,
     };
