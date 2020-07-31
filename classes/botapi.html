@@ -95,6 +95,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botapi.html#addmessagereaction" class="tsd-kind-icon">add<wbr>Message<wbr>Reaction</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botapi.html#bulkdeletemessages" class="tsd-kind-icon">bulk<wbr>Delete<wbr>Messages</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botapi.html#createchannelinvite" class="tsd-kind-icon">create<wbr>Channel<wbr>Invite</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botapi.html#createguildchannel" class="tsd-kind-icon">create<wbr>Guild<wbr>Channel</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botapi.html#createguildemoji" class="tsd-kind-icon">create<wbr>Guild<wbr>Emoji</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botapi.html#deletechannel" class="tsd-kind-icon">delete<wbr>Channel</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botapi.html#deleteguildchannel" class="tsd-kind-icon">delete<wbr>Guild<wbr>Channel</a></li>
@@ -144,7 +145,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/4ea785c/src/structures/api/BotAPI.ts#L44">src/structures/api/BotAPI.ts:44</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/864d0af/src/structures/api/BotAPI.ts#L47">src/structures/api/BotAPI.ts:47</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -173,7 +174,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/4ea785c/src/structures/api/BotAPI.ts#L230">src/structures/api/BotAPI.ts:230</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/864d0af/src/structures/api/BotAPI.ts#L233">src/structures/api/BotAPI.ts:233</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -216,7 +217,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/4ea785c/src/structures/api/BotAPI.ts#L431">src/structures/api/BotAPI.ts:431</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/864d0af/src/structures/api/BotAPI.ts#L434">src/structures/api/BotAPI.ts:434</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -254,7 +255,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/4ea785c/src/structures/api/BotAPI.ts#L498">src/structures/api/BotAPI.ts:498</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/864d0af/src/structures/api/BotAPI.ts#L501">src/structures/api/BotAPI.ts:501</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -283,6 +284,44 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="createguildchannel" class="tsd-anchor"></a>
+					<h3>create<wbr>Guild<wbr>Channel</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Guild<wbr>Channel<span class="tsd-signature-symbol">(</span>guildId<span class="tsd-signature-symbol">: </span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a>, options<span class="tsd-signature-symbol">: </span><a href="../interfaces/createguildchanneloptions.html" class="tsd-signature-type">CreateGuildChannelOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/864d0af/src/structures/api/BotAPI.ts#L769">src/structures/api/BotAPI.ts:769</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new guild channel in a guild.
+									Requires the <a href="../enums/permission.html#managechannels">Permission.ManageChannels</a></p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>guildId: <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The ID of the guild to create the channel in</p>
+									</div>
+								</li>
+								<li>
+									<h5>options: <a href="../interfaces/createguildchanneloptions.html" class="tsd-signature-type">CreateGuildChannelOptions</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The options for the new guild channel</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="createguildemoji" class="tsd-anchor"></a>
 					<h3>create<wbr>Guild<wbr>Emoji</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -292,7 +331,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/4ea785c/src/structures/api/BotAPI.ts#L635">src/structures/api/BotAPI.ts:635</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/864d0af/src/structures/api/BotAPI.ts#L638">src/structures/api/BotAPI.ts:638</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -330,7 +369,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/4ea785c/src/structures/api/BotAPI.ts#L120">src/structures/api/BotAPI.ts:120</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/864d0af/src/structures/api/BotAPI.ts#L123">src/structures/api/BotAPI.ts:123</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -362,7 +401,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/4ea785c/src/structures/api/BotAPI.ts#L136">src/structures/api/BotAPI.ts:136</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/864d0af/src/structures/api/BotAPI.ts#L139">src/structures/api/BotAPI.ts:139</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -394,7 +433,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/4ea785c/src/structures/api/BotAPI.ts#L516">src/structures/api/BotAPI.ts:516</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/864d0af/src/structures/api/BotAPI.ts#L519">src/structures/api/BotAPI.ts:519</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -432,7 +471,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/4ea785c/src/structures/api/BotAPI.ts#L682">src/structures/api/BotAPI.ts:682</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/864d0af/src/structures/api/BotAPI.ts#L685">src/structures/api/BotAPI.ts:685</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -469,7 +508,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/4ea785c/src/structures/api/BotAPI.ts#L782">src/structures/api/BotAPI.ts:782</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/864d0af/src/structures/api/BotAPI.ts#L808">src/structures/api/BotAPI.ts:808</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -501,7 +540,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/4ea785c/src/structures/api/BotAPI.ts#L416">src/structures/api/BotAPI.ts:416</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/864d0af/src/structures/api/BotAPI.ts#L419">src/structures/api/BotAPI.ts:419</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -539,7 +578,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/4ea785c/src/structures/api/BotAPI.ts#L378">src/structures/api/BotAPI.ts:378</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/864d0af/src/structures/api/BotAPI.ts#L381">src/structures/api/BotAPI.ts:381</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -598,7 +637,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/4ea785c/src/structures/api/BotAPI.ts#L58">src/structures/api/BotAPI.ts:58</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/864d0af/src/structures/api/BotAPI.ts#L61">src/structures/api/BotAPI.ts:61</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -629,7 +668,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/4ea785c/src/structures/api/BotAPI.ts#L479">src/structures/api/BotAPI.ts:479</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/864d0af/src/structures/api/BotAPI.ts#L482">src/structures/api/BotAPI.ts:482</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -661,7 +700,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/4ea785c/src/structures/api/BotAPI.ts#L543">src/structures/api/BotAPI.ts:543</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/864d0af/src/structures/api/BotAPI.ts#L546">src/structures/api/BotAPI.ts:546</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -692,7 +731,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/4ea785c/src/structures/api/BotAPI.ts#L84">src/structures/api/BotAPI.ts:84</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/864d0af/src/structures/api/BotAPI.ts#L87">src/structures/api/BotAPI.ts:87</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -723,7 +762,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/4ea785c/src/structures/api/BotAPI.ts#L692">src/structures/api/BotAPI.ts:692</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/864d0af/src/structures/api/BotAPI.ts#L695">src/structures/api/BotAPI.ts:695</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -760,7 +799,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/4ea785c/src/structures/api/BotAPI.ts#L69">src/structures/api/BotAPI.ts:69</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/864d0af/src/structures/api/BotAPI.ts#L72">src/structures/api/BotAPI.ts:72</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -791,7 +830,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/4ea785c/src/structures/api/BotAPI.ts#L742">src/structures/api/BotAPI.ts:742</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/864d0af/src/structures/api/BotAPI.ts#L745">src/structures/api/BotAPI.ts:745</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -822,7 +861,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/4ea785c/src/structures/api/BotAPI.ts#L616">src/structures/api/BotAPI.ts:616</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/864d0af/src/structures/api/BotAPI.ts#L619">src/structures/api/BotAPI.ts:619</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -859,7 +898,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/4ea785c/src/structures/api/BotAPI.ts#L596">src/structures/api/BotAPI.ts:596</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/864d0af/src/structures/api/BotAPI.ts#L599">src/structures/api/BotAPI.ts:599</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -890,7 +929,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/4ea785c/src/structures/api/BotAPI.ts#L709">src/structures/api/BotAPI.ts:709</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/864d0af/src/structures/api/BotAPI.ts#L712">src/structures/api/BotAPI.ts:712</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -922,7 +961,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/4ea785c/src/structures/api/BotAPI.ts#L765">src/structures/api/BotAPI.ts:765</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/864d0af/src/structures/api/BotAPI.ts#L791">src/structures/api/BotAPI.ts:791</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -959,7 +998,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/4ea785c/src/structures/api/BotAPI.ts#L152">src/structures/api/BotAPI.ts:152</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/864d0af/src/structures/api/BotAPI.ts#L155">src/structures/api/BotAPI.ts:155</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -996,7 +1035,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/4ea785c/src/structures/api/BotAPI.ts#L293">src/structures/api/BotAPI.ts:293</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/864d0af/src/structures/api/BotAPI.ts#L296">src/structures/api/BotAPI.ts:296</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1045,7 +1084,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/4ea785c/src/structures/api/BotAPI.ts#L726">src/structures/api/BotAPI.ts:726</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/864d0af/src/structures/api/BotAPI.ts#L729">src/structures/api/BotAPI.ts:729</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1083,7 +1122,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/4ea785c/src/structures/api/BotAPI.ts#L96">src/structures/api/BotAPI.ts:96</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/864d0af/src/structures/api/BotAPI.ts#L99">src/structures/api/BotAPI.ts:99</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1120,7 +1159,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/4ea785c/src/structures/api/BotAPI.ts#L450">src/structures/api/BotAPI.ts:450</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/864d0af/src/structures/api/BotAPI.ts#L453">src/structures/api/BotAPI.ts:453</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1164,7 +1203,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/4ea785c/src/structures/api/BotAPI.ts#L659">src/structures/api/BotAPI.ts:659</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/864d0af/src/structures/api/BotAPI.ts#L662">src/structures/api/BotAPI.ts:662</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1209,7 +1248,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/4ea785c/src/structures/api/BotAPI.ts#L568">src/structures/api/BotAPI.ts:568</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/864d0af/src/structures/api/BotAPI.ts#L571">src/structures/api/BotAPI.ts:571</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1247,7 +1286,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/4ea785c/src/structures/api/BotAPI.ts#L259">src/structures/api/BotAPI.ts:259</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/864d0af/src/structures/api/BotAPI.ts#L262">src/structures/api/BotAPI.ts:262</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1297,7 +1336,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/4ea785c/src/structures/api/BotAPI.ts#L319">src/structures/api/BotAPI.ts:319</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/864d0af/src/structures/api/BotAPI.ts#L322">src/structures/api/BotAPI.ts:322</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1334,7 +1373,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/4ea785c/src/structures/api/BotAPI.ts#L337">src/structures/api/BotAPI.ts:337</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/864d0af/src/structures/api/BotAPI.ts#L340">src/structures/api/BotAPI.ts:340</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1377,7 +1416,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/4ea785c/src/structures/api/BotAPI.ts#L188">src/structures/api/BotAPI.ts:188</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/864d0af/src/structures/api/BotAPI.ts#L191">src/structures/api/BotAPI.ts:191</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1438,7 +1477,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/4ea785c/src/structures/api/BotAPI.ts#L534">src/structures/api/BotAPI.ts:534</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/864d0af/src/structures/api/BotAPI.ts#L537">src/structures/api/BotAPI.ts:537</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1471,7 +1510,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/4ea785c/src/structures/api/BotAPI.ts#L583">src/structures/api/BotAPI.ts:583</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/864d0af/src/structures/api/BotAPI.ts#L586">src/structures/api/BotAPI.ts:586</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1527,6 +1566,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="botapi.html#createchannelinvite" class="tsd-kind-icon">create<wbr>Channel<wbr>Invite</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="botapi.html#createguildchannel" class="tsd-kind-icon">create<wbr>Guild<wbr>Channel</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="botapi.html#createguildemoji" class="tsd-kind-icon">create<wbr>Guild<wbr>Emoji</a>
