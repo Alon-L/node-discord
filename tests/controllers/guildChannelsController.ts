@@ -13,8 +13,7 @@ bot.connection.connect();
 (async function (): Promise<void> {
   await bot.events.wait(BotEvent.Ready);
 
-  const guild = bot.guilds.cache.first;
-  if (!guild) throw new Error('No guilds found');
+  const guild = await bot.guilds.get('702476896008405002');
 
   // Create a new channel
   const channel = await guild.channels.create({
