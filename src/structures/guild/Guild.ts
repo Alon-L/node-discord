@@ -1,7 +1,7 @@
 import { GuildEmoji } from './GuildEmoji';
 import { GuildPreview } from './GuildPreview';
 import { GuildUnavailable } from './GuildUnavailable';
-import Cluster from '../../Cluster';
+import Collection from '../../Collection';
 import { Snowflake } from '../../types';
 import { ChannelUtils } from '../../utils';
 import { Avatar, GuildBannerFormat } from '../Avatar';
@@ -242,14 +242,14 @@ export class Guild extends GuildPreview {
   public channels!: GuildChannelsController;
 
   /**
-   * {@link Cluster} of all {@link Role}s associated to this guild
+   * {@link Collection} of all {@link Role}s associated to this guild
    */
-  public roles!: Cluster<Snowflake, Role>;
+  public roles!: Collection<Snowflake, Role>;
 
   /**
-   * {@link Cluster} of all {@link Member}s in this guild
+   * {@link Collection} of all {@link Member}s in this guild
    */
-  public members!: Cluster<Snowflake, Member>;
+  public members!: Collection<Snowflake, Member>;
 
   /**
    * Guild owner {@link Member}.
@@ -334,7 +334,7 @@ export class Guild extends GuildPreview {
   /**
    * Presences of the members in the guild, will only include non-offline members if the size is greater than {@link identify.large_threshold}
    */
-  public presences!: Cluster<Snowflake, MemberPresence>;
+  public presences!: Collection<Snowflake, MemberPresence>;
 
   /**
    * The maximum number of presences for the guild (the default value, currently 25000, is in effect when `null` is returned)
@@ -385,12 +385,12 @@ export class Guild extends GuildPreview {
   /**
    * All cached guild bans
    */
-  public bans: Cluster<Snowflake, Member | User>;
+  public bans: Collection<Snowflake, Member | User>;
 
   constructor(bot: Bot, guild: GatewayStruct) {
     super(bot, guild);
 
-    this.bans = new Cluster<Snowflake, Member>();
+    this.bans = new Collection<Snowflake, Member>();
   }
 
   /**
@@ -401,7 +401,7 @@ export class Guild extends GuildPreview {
   public init(guild: GatewayStruct): this {
     super.init(guild);
 
-    this.presences = new Cluster<Snowflake, MemberPresence>();
+    this.presences = new Collection<Snowflake, MemberPresence>();
 
     this.emojis = new GuildEmojisController(this);
 
@@ -420,11 +420,11 @@ export class Guild extends GuildPreview {
     // Add all of this guild's cached channels to the Bot's cached channels
     this.bot.channels.cache.merge(this.channels.cache);
 
-    this.roles = new Cluster<Snowflake, Role>(
+    this.roles = new Collection<Snowflake, Role>(
       guild.roles.map((role: GatewayStruct) => [role.id, new Role(this.bot, role, this)]),
     );
 
-    this.members = new Cluster<Snowflake, Member>(
+    this.members = new Collection<Snowflake, Member>(
       guild.members?.map((member: GatewayStruct) => [
         member.user.id,
         new Member(
@@ -546,16 +546,16 @@ export class Guild extends GuildPreview {
    */
   public static find(bot: Bot, guildId: Snowflake): Guild | GuildUnavailable | undefined {
     if (bot.unavailableGuilds.has(guildId)) {
-      // Guild is part of the unavailable guilds cluster
+      // Guild is part of the unavailable guilds collection
       return bot.unavailableGuilds.get(guildId);
     } else {
-      // Guild is part of the guilds cluster
+      // Guild is part of the guilds collection
       return bot.guilds.cache.get(guildId);
     }
   }
 
   /**
-   * Caches a guild in the correct cluster
+   * Caches a guild in the correct collection
    * @param {Bot} bot The bot instance
    * @param {Guild | GuildUnavailable} guild The guild you wish to cache
    */

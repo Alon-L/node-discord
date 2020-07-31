@@ -28,12 +28,12 @@ export default async ({ d }: Payload, bot: Bot): Promise<void> => {
   reaction.count--;
 
   if (reaction.count > 0) {
-    // Removes the user from the Cluster of users who reacted with this reaction
+    // Removes the user from the Collection of users who reacted with this reaction
     if (user) {
       reaction.users.cache.delete(user.id);
     }
 
-    // Removes the member from the Cluster of members who reacted with this reaction
+    // Removes the member from the Collection of members who reacted with this reaction
     if (member) {
       reaction.members.delete(member.id);
     }

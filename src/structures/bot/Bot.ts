@@ -2,7 +2,7 @@ import { Serializable } from 'child_process';
 import { BotCommunication } from './BotCommunication';
 import { BotConnection } from './BotConnection';
 import { BotCommandsHandler, BotEventsHandler } from './handlers';
-import Cluster from '../../Cluster';
+import Collection from '../../Collection';
 import { BotEvent, botOptions, CacheOptions, WebsocketOptions } from '../../socket';
 import { ShardId, Snowflake } from '../../types';
 import { User } from '../User';
@@ -97,9 +97,9 @@ export class Bot {
   public guilds: BotGuildsController;
 
   /**
-   * {@link Cluster} of all {@link GuildUnavailable}s associated to the Bot
+   * {@link Collection} of all {@link GuildUnavailable}s associated to the Bot
    */
-  public unavailableGuilds: Cluster<Snowflake, GuildUnavailable>;
+  public unavailableGuilds: Collection<Snowflake, GuildUnavailable>;
 
   /**
    * The bot's channels controller
@@ -107,14 +107,14 @@ export class Bot {
   public channels: BotChannelsController;
 
   /**
-   * {@link Cluster} of all {@link User}s found in all guilds the Bot is part of
+   * {@link Collection} of all {@link User}s found in all guilds the Bot is part of
    */
-  public users: Cluster<Snowflake, User>;
+  public users: Collection<Snowflake, User>;
 
   /**
-   * {@link Cluster} of all {@link GuildEmoji}s found in all guilds the Bot is part of
+   * {@link Collection} of all {@link GuildEmoji}s found in all guilds the Bot is part of
    */
-  public emojis: Cluster<Snowflake, GuildEmoji>;
+  public emojis: Collection<Snowflake, GuildEmoji>;
 
   constructor(token: string, options?: Partial<BotOptions>) {
     this.token = token;
@@ -144,13 +144,13 @@ export class Bot {
 
     this.guilds = new BotGuildsController(this);
 
-    this.unavailableGuilds = new Cluster<Snowflake, GuildUnavailable>();
+    this.unavailableGuilds = new Collection<Snowflake, GuildUnavailable>();
 
     this.channels = new BotChannelsController(this);
 
-    this.users = new Cluster<Snowflake, User>();
+    this.users = new Collection<Snowflake, User>();
 
-    this.emojis = new Cluster<Snowflake, GuildEmoji>();
+    this.emojis = new Collection<Snowflake, GuildEmoji>();
   }
 
   /**

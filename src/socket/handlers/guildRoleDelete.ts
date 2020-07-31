@@ -11,7 +11,7 @@ export default async ({ d }: Payload, bot: Bot): Promise<void> => {
 
   if (!role) return;
 
-  // Remove the role from the guild's roles cluster
+  // Remove the role from the guild's roles collection
   guild.roles.delete(role.id);
 
   bot.events.emit(BotEvent.GuildRoleDelete, role);

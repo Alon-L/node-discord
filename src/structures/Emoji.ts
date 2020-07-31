@@ -3,7 +3,7 @@ import { Role } from './Role';
 import { User } from './User';
 import { Bot } from './bot';
 import { Guild } from './guild';
-import Cluster from '../Cluster';
+import Collection from '../Collection';
 import { Snowflake } from '../types';
 
 /**
@@ -28,9 +28,9 @@ export class Emoji extends BaseStruct {
   public name!: string | null;
 
   /**
-   * {@link Cluster} of {@link Role}s this emoji is whitelisted to
+   * {@link Collection} of {@link Role}s this emoji is whitelisted to
    */
-  public roles: Cluster<Snowflake, Role> | undefined;
+  public roles: Collection<Snowflake, Role> | undefined;
 
   /**
    * The user that created this emoji
@@ -74,7 +74,7 @@ export class Emoji extends BaseStruct {
     this.emojiId = emoji.id;
     this.name = emoji.name;
 
-    this.roles = new Cluster<Snowflake, Role>(
+    this.roles = new Collection<Snowflake, Role>(
       this.guild?.roles.filter((_r, id) => emoji.roles.includes(id)),
     );
 
@@ -102,12 +102,15 @@ export class Emoji extends BaseStruct {
 
   /**
    * Finds the identifier of the given emoji.
-   * The emoji can be a Guild emoji, meaning we would have to search for it in the Bot's cached emojis Cluster
-   * @param {Cluster<Snowflake, Emoji>} emojis An emojis cache to search for the emoji in
+   * The emoji can be a Guild emoji, meaning we would have to search for it in the Bot's cached emojis Collection
+   * @param {Collection<Snowflake, Emoji>} emojis An emojis cache to search for the emoji in
    * @param {EmojiResolvable} emoji The emoji to resolve
    * @returns {string | null}
    */
-  public static resolve(emojis: Cluster<Snowflake, Emoji>, emoji: EmojiResolvable): string | null {
+  public static resolve(
+    emojis: Collection<Snowflake, Emoji>,
+    emoji: EmojiResolvable,
+  ): string | null {
     return emoji instanceof Emoji ? emoji.id : emojis.get(emoji)?.id || emoji;
   }
 }

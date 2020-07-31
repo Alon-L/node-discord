@@ -1,5 +1,5 @@
 import { MemberPresence } from './MemberPresence';
-import Cluster from '../../Cluster';
+import Collection from '../../Collection';
 import { Snowflake } from '../../types';
 import { GatewayStruct } from '../BaseStruct';
 import { Role } from '../Role';
@@ -29,9 +29,9 @@ export class Member extends GuildBaseStruct {
   public nick!: string | null;
 
   /**
-   * {@link Cluster} of all {@link Role}s associated to this member
+   * {@link Collection} of all {@link Role}s associated to this member
    */
-  public roles!: Cluster<Snowflake, Role>;
+  public roles!: Collection<Snowflake, Role>;
 
   /**
    * Timestamp of when the member joined the guild
@@ -93,7 +93,7 @@ export class Member extends GuildBaseStruct {
       }
     }
 
-    this.roles = new Cluster<Snowflake, Role>(
+    this.roles = new Collection<Snowflake, Role>(
       this.guild.roles.filter((_r, id) => member.roles?.includes(id)),
     );
 

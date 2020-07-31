@@ -10,7 +10,7 @@ export default ({ d }: Payload, bot: Bot, socket: BotSocketShard): void => {
   const guild = Guild.create(bot, d);
 
   if (guild instanceof Guild) {
-    // Delete the guild from the unavailable guilds cluster if exists
+    // Delete the guild from the unavailable guilds collection if exists
     if (bot.unavailableGuilds.has(guild.id)) {
       bot.unavailableGuilds.delete(guild.id);
     }

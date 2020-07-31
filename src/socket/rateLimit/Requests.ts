@@ -1,6 +1,6 @@
 import { Serializable } from 'child_process';
 import { RateLimitBucket } from './RateLimitBucket';
-import Cluster from '../../Cluster';
+import Collection from '../../Collection';
 import { Bot } from '../../structures';
 import { HttpMethod, Endpoints } from '../endpoints';
 
@@ -60,12 +60,12 @@ export class Requests {
   /**
    * Rate limit buckets are unique identifiers for every API route
    */
-  private readonly buckets: Cluster<BucketIndex, RateLimitBucket>;
+  private readonly buckets: Collection<BucketIndex, RateLimitBucket>;
 
   constructor(bot: Bot, token: string) {
     this.bot = bot;
     this.token = token;
-    this.buckets = new Cluster<BucketIndex, RateLimitBucket>();
+    this.buckets = new Collection<BucketIndex, RateLimitBucket>();
   }
 
   /**

@@ -3,7 +3,7 @@ import { BotShardState } from './BotShard';
 import { BotSocketShard, BotSocketShardState } from './BotSocketShard';
 import { GatewayCloseCode, recommendedShardTimeout } from './constants';
 import { baseURL } from './properties';
-import Cluster from '../Cluster';
+import Collection from '../Collection';
 import { Bot, ShardChangedStateRequest, ShardCommunicationAction } from '../structures/bot';
 import { BotStateEvents } from '../structures/bot/handlers/events/events';
 import { ShardId } from '../types';
@@ -25,7 +25,7 @@ interface GatewayBot {
  */
 export class BotSocket {
   private readonly token: string;
-  private readonly shards: Cluster<ShardId, BotSocketShard>;
+  private readonly shards: Collection<ShardId, BotSocketShard>;
   public readonly bot: Bot;
   public gatewayURL!: string;
   public sessionStartLimit!: SessionStartLimit;
@@ -35,7 +35,7 @@ export class BotSocket {
 
     this.token = token;
 
-    this.shards = new Cluster<ShardId, BotSocketShard>();
+    this.shards = new Collection<ShardId, BotSocketShard>();
   }
 
   /**

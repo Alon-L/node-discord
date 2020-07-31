@@ -4,7 +4,7 @@ import {
   BaseFetchAllController,
   BaseFetchController,
 } from './base';
-import Cluster from '../../Cluster';
+import Collection from '../../Collection';
 import { Snowflake } from '../../types';
 import { GuildChannel, CreateGuildChannelOptions } from '../channels';
 import { Guild } from '../guild';
@@ -71,9 +71,9 @@ export class GuildChannelsController extends BaseFetchController<GuildChannel>
 
   /**
    * Fetches and caches all channels the guild associated to this controller
-   * @returns {Promise<Cluster<Snowflake, GuildChannel>>}
+   * @returns {Promise<Collection<Snowflake, GuildChannel>>}
    */
-  public async fetchAll(): Promise<Cluster<Snowflake, GuildChannel>> {
+  public async fetchAll(): Promise<Collection<Snowflake, GuildChannel>> {
     const channels = await this.bot.api.fetchGuildChannels(this.guild.id);
 
     this.cache.merge(channels);

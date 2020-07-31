@@ -33,12 +33,12 @@ export default async ({ d }: Payload, bot: Bot): Promise<void> => {
   const user = bot.users.get(userId);
   const member = d.member && guild ? new Member(bot, d.member, guild) : undefined;
 
-  // Add the user to the Cluster of users who reacted with this reaction
+  // Add the user to the Collection of users who reacted with this reaction
   if (user) {
     reaction.users.cache.add(user);
   }
 
-  // Add the member to the Cluster of members who reacted with this reaction
+  // Add the member to the Collection of members who reacted with this reaction
   if (member) {
     reaction.members.set(member.id, member);
   }

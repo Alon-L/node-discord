@@ -1,4 +1,4 @@
-import Cluster from '../../../../Cluster';
+import Collection from '../../../../Collection';
 import { BotSocketShard, BotEvent } from '../../../../socket';
 import { GuildMembersChunk } from '../../../../socket/handlers/guildMembersChunk';
 import { Snowflake, TextBasedChannel } from '../../../../types';
@@ -122,14 +122,14 @@ declare function GUILD_BAN_REMOVE(guild: Guild, user: User): void;
 
 /**
  * Sent when a guild's emojis have been updated.
- * @param {Cluster<Snowflake, Emoji>} before {@link Cluster} of {@link Emoji}s before the update
- * @param {Cluster<Snowflake, Emoji>} after {@link Cluster} of {@link Emoji}s after the update
+ * @param {Collection<Snowflake, Emoji>} before {@link Collection} of {@link Emoji}s before the update
+ * @param {Collection<Snowflake, Emoji>} after {@link Collection} of {@link Emoji}s after the update
  * @asMemberOf BotEventsHandler
  * @event BotEventsHandler#GUILD_EMOJIS_UPDATE
  */
 declare function GUILD_EMOJIS_UPDATE(
-  before: Cluster<Snowflake, Emoji>,
-  after: Cluster<Snowflake, Emoji>,
+  before: Collection<Snowflake, Emoji>,
+  after: Collection<Snowflake, Emoji>,
 ): void;
 
 /**

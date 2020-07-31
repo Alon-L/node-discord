@@ -1,5 +1,5 @@
 import { GuildChannel } from './GuildChannel';
-import Cluster from '../../Cluster';
+import Collection from '../../Collection';
 import { Snowflake } from '../../types';
 
 /**
@@ -8,9 +8,9 @@ import { Snowflake } from '../../types';
 export class GuildCategoryChannel extends GuildChannel {
   /**
    * Returns all {@link GuildChannel}s under this category channel
-   * @type {Cluster<Snowflake, GuildChannel>}
+   * @type {Collection<Snowflake, GuildChannel>}
    */
-  public get children(): Cluster<Snowflake, GuildChannel> {
+  public get children(): Collection<Snowflake, GuildChannel> {
     return this.guild.channels.cache.filter(c => c.parent?.id === this.id);
   }
 }

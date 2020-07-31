@@ -1,5 +1,5 @@
 import { APISerializer } from './APISerializer';
-import Cluster from '../../Cluster';
+import Collection from '../../Collection';
 import { EndpointRoute, HttpMethod } from '../../socket';
 import { Requests, Params } from '../../socket/rateLimit';
 import { Snowflake } from '../../types';
@@ -299,14 +299,14 @@ export class BotAPI {
    * @param {Snowflake} messageId The ID of the message
    * @param {string} emoji The emoji the users reacted with
    * @param {FetchReactionUsersOptions} options A set of options for this operation
-   * @returns {Promise<Cluster<Snowflake, User>>}
+   * @returns {Promise<Collection<Snowflake, User>>}
    */
   public async fetchReactionUsers(
     channelId: Snowflake,
     messageId: Snowflake,
     emoji: string,
     options?: FetchReactionUsersOptions,
-  ): Promise<Cluster<Snowflake, User>> {
+  ): Promise<Collection<Snowflake, User>> {
     const users = (await this.requests.send(
       EndpointRoute.ChannelMessagesReactionsEmoji,
       {
@@ -318,7 +318,7 @@ export class BotAPI {
       APISerializer.fetchReactionUsersOptions(options),
     )) as GatewayStruct[];
 
-    return new Cluster<Snowflake, User>(users.map(user => [user.id, new User(this.bot, user)]));
+    return new Collection<Snowflake, User>(users.map(user => [user.id, new User(this.bot, user)]));
   }
 
   /**
@@ -485,16 +485,16 @@ export class BotAPI {
    * Fetches a list of invites for a channel.
    * Requires the {@link Permission.ManageChannels} permission
    * @param {Snowflake} channelId The ID of the channel to fetch invites in
-   * @returns {Promise<Cluster<string, Invite>>}
+   * @returns {Promise<Collection<string, Invite>>}
    */
-  public async fetchChannelInvites(channelId: Snowflake): Promise<Cluster<string, Invite>> {
+  public async fetchChannelInvites(channelId: Snowflake): Promise<Collection<string, Invite>> {
     const invites = (await this.requests.send(
       EndpointRoute.ChannelInvites,
       { channelId },
       HttpMethod.Get,
     )) as GatewayStruct[];
 
-    return new Cluster<string, Invite>(
+    return new Collection<string, Invite>(
       invites.map(invite => [invite.code, new Invite(this.bot, invite)]),
     );
   }
@@ -549,9 +549,9 @@ export class BotAPI {
   /**
    * Fetches all pinned messages in a text channel
    * @param {Snowflake} channelId The ID of the channel
-   * @returns {Promise<Cluster<Snowflake, Message>>}
+   * @returns {Promise<Collection<Snowflake, Message>>}
    */
-  public async fetchChannelPins(channelId: Snowflake): Promise<Cluster<Snowflake, Message>> {
+  public async fetchChannelPins(channelId: Snowflake): Promise<Collection<Snowflake, Message>> {
     const pins = (await this.requests.send(
       EndpointRoute.ChannelPins,
       { channelId },
@@ -564,7 +564,7 @@ export class BotAPI {
       throw new TypeError('The channel is not a valid text channel');
     }
 
-    return new Cluster<Snowflake, Message>(
+    return new Collection<Snowflake, Message>(
       pins.map(pin => [pin.id, new Message(this.bot, pin, channel)]),
     );
   }
@@ -602,9 +602,9 @@ export class BotAPI {
   /**
    * Fetches all emojis in a guild
    * @param {Snowflake} guildId The ID of the guild
-   * @returns {Promise<Cluster<Snowflake, GuildEmoji>>}
+   * @returns {Promise<Collection<Snowflake, GuildEmoji>>}
    */
-  public async fetchGuildEmojis(guildId: Snowflake): Promise<Cluster<Snowflake, GuildEmoji>> {
+  public async fetchGuildEmojis(guildId: Snowflake): Promise<Collection<Snowflake, GuildEmoji>> {
     const emojis = (await this.requests.send(
       EndpointRoute.GuildEmojis,
       { guildId },
@@ -613,7 +613,7 @@ export class BotAPI {
 
     const guild = await this.bot.guilds.get(guildId);
 
-    return new Cluster<Snowflake, GuildEmoji>(
+    return new Collection<Snowflake, GuildEmoji>(
       emojis.map(emoji => [emoji.id, new GuildEmoji(this.bot, emoji, guild)]),
     );
   }
@@ -748,9 +748,11 @@ export class BotAPI {
   /**
    * Fetches all guild channels in a given guild
    * @param {Snowflake} guildId The ID of the guild
-   * @returns {Promise<Cluster<Snowflake, GuildChannel>>}
+   * @returns {Promise<Collection<Snowflake, GuildChannel>>}
    */
-  public async fetchGuildChannels(guildId: Snowflake): Promise<Cluster<Snowflake, GuildChannel>> {
+  public async fetchGuildChannels(
+    guildId: Snowflake,
+  ): Promise<Collection<Snowflake, GuildChannel>> {
     const channels = (await this.requests.send(
       EndpointRoute.GuildChannels,
       { guildId },
@@ -759,7 +761,7 @@ export class BotAPI {
 
     const guild = await this.bot.guilds.get(guildId);
 
-    return new Cluster<Snowflake, GuildChannel>(
+    return new Collection<Snowflake, GuildChannel>(
       channels.map(channel => [
         channel.id,
         ChannelUtils.createGuildChannel(this.bot, channel, guild),

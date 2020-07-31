@@ -9,7 +9,7 @@ export default async ({ d }: Payload, bot: Bot): Promise<void> => {
 
   const user = new User(bot, d.user);
 
-  // Remove the member from the Guild's bans Cluster
+  // Remove the member from the Guild's bans Collection
   guild.bans.delete(user.id);
 
   bot.events.emit(BotEvent.GuildBanRemove, guild, user);

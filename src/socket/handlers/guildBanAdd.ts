@@ -12,7 +12,7 @@ export default async ({ d }: Payload, bot: Bot): Promise<void> => {
   // Member of the guild or the previously defined user
   const member = guild.members.get(user.id) || user;
 
-  // Add the member to the Guild's bans Cluster
+  // Add the member to the Guild's bans Collection
   guild.bans.set(member.id, member);
 
   bot.events.emit(BotEvent.GuildBanAdd, guild, member);

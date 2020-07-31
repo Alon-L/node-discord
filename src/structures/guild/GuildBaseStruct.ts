@@ -5,7 +5,6 @@ import { Bot } from '../bot';
 /**
  * Basic structure every guild-related structure extends
  * Handles the creation of a guild property and guild-related methods
- * @extends BaseStruct
  */
 export class GuildBaseStruct extends BaseStruct {
   /**

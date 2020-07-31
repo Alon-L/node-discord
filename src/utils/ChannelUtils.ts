@@ -147,7 +147,7 @@ export class ChannelUtils {
   }
 
   /**
-   * Caches a channel in the correct Cluster
+   * Caches a channel in the correct Collection
    * @param {Bot} bot The bot instance
    * @param {Channel} channel The channel you wish to cache
    * @param {boolean} force Whether or not to force cache DM channels if already cached

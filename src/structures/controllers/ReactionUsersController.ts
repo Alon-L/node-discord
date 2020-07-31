@@ -1,5 +1,5 @@
 import { BaseFetchAllController } from './base';
-import Cluster from '../../Cluster';
+import Collection from '../../Collection';
 import { Snowflake } from '../../types';
 import { User } from '../User';
 import { Message, MessageReaction } from '../message';
@@ -51,7 +51,7 @@ export class ReactionUsersController extends BaseFetchAllController<User> {
    * @param {FetchReactionUsersOptions} options A set of options for this operation
    * @returns {Promise<User[]>}
    */
-  public async fetchAll(options?: FetchReactionUsersOptions): Promise<Cluster<Snowflake, User>> {
+  public async fetchAll(options?: FetchReactionUsersOptions): Promise<Collection<Snowflake, User>> {
     const users = await this.bot.api.fetchReactionUsers(
       this.message.channel.id,
       this.message.id,

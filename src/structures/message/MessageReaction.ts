@@ -1,5 +1,5 @@
 import { Message } from './Message';
-import Cluster from '../../Cluster';
+import Collection from '../../Collection';
 import { Snowflake } from '../../types';
 import { BaseStruct, GatewayStruct } from '../BaseStruct';
 import { Emoji } from '../Emoji';
@@ -33,7 +33,7 @@ export class MessageReaction extends BaseStruct {
   /**
    * The members that added this reaction
    */
-  public members: Cluster<Snowflake, Member>;
+  public members: Collection<Snowflake, Member>;
 
   /**
    * The emoji this reaction used. This emoji is partial
@@ -46,7 +46,7 @@ export class MessageReaction extends BaseStruct {
     this.message = message;
 
     this.users = new ReactionUsersController(this);
-    this.members = new Cluster<Snowflake, Member>();
+    this.members = new Collection<Snowflake, Member>();
 
     this.emoji = new Emoji(this.bot, reaction.emoji);
 

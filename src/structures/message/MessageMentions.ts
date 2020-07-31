@@ -1,5 +1,5 @@
 import { Message } from './Message';
-import Cluster from '../../Cluster';
+import Collection from '../../Collection';
 import { Snowflake } from '../../types';
 import { BaseStruct, GatewayStruct } from '../BaseStruct';
 import { Role } from '../Role';
@@ -29,36 +29,36 @@ export class MessageMentions extends BaseStruct {
   public message: Message;
 
   /**
-   * {@link Cluster} of all {@link User}s mentioned in this message
+   * {@link Collection} of all {@link User}s mentioned in this message
    */
-  public users: Cluster<Snowflake, User>;
+  public users: Collection<Snowflake, User>;
 
   /**
-   * {@link Cluster} of all {@link Member}s mentioned in this message
+   * {@link Collection} of all {@link Member}s mentioned in this message
    */
-  public members: Cluster<Snowflake, Member>;
+  public members: Collection<Snowflake, Member>;
 
   /**
-   * {@link Cluster} of all {@link Role}s mentioned in this message
+   * {@link Collection} of all {@link Role}s mentioned in this message
    */
-  public roles: Cluster<Snowflake, Role>;
+  public roles: Collection<Snowflake, Role>;
 
-  public crosspostedChannels: Cluster<Snowflake, GuildChannel>;
+  public crosspostedChannels: Collection<Snowflake, GuildChannel>;
 
   /**
    * Cache for all channel mentions found in the message
    */
-  private _channels: Cluster<Snowflake, GuildChannel> | undefined;
+  private _channels: Collection<Snowflake, GuildChannel> | undefined;
 
   constructor(message: Message, mentions: Partial<MentionTypes>) {
     super(message.bot, mentions);
 
     this.message = message;
 
-    this.users = new Cluster<Snowflake, User>();
-    this.members = new Cluster<Snowflake, Member>();
-    this.roles = new Cluster<Snowflake, Role>();
-    this.crosspostedChannels = new Cluster<Snowflake, GuildChannel>();
+    this.users = new Collection<Snowflake, User>();
+    this.members = new Collection<Snowflake, Member>();
+    this.roles = new Collection<Snowflake, Role>();
+    this.crosspostedChannels = new Collection<Snowflake, GuildChannel>();
 
     this.init(mentions);
   }
@@ -106,13 +106,13 @@ export class MessageMentions extends BaseStruct {
 
   /**
    * Fetches or retrieves from cache all channels mentioned in the message
-   * @type {Cluster<Snowflake, GuildChannel> | undefined}
+   * @type {Collection<Snowflake, GuildChannel> | undefined}
    */
-  get channels(): Cluster<Snowflake, GuildChannel> | undefined {
+  get channels(): Collection<Snowflake, GuildChannel> | undefined {
     if (this._channels) return this._channels;
 
     if (this.message.guild) {
-      this._channels = new Cluster<Snowflake, GuildChannel>();
+      this._channels = new Collection<Snowflake, GuildChannel>();
 
       let matches;
       while ((matches = mentionsRegexp.channels.exec(this.message.content))) {

@@ -1,5 +1,5 @@
 import { BaseFetchAllController } from './base';
-import Cluster from '../../Cluster';
+import Collection from '../../Collection';
 import { Snowflake, TextBasedChannel } from '../../types';
 import { Timestamp } from '../Timestamp';
 import { Message } from '../message';
@@ -27,9 +27,9 @@ export class ChannelPinsController extends BaseFetchAllController<Message> {
 
   /**
    * Fetches all messages in the text channel and caches them
-   * @returns {Promise<Cluster<Snowflake, Message>>}
+   * @returns {Promise<Collection<Snowflake, Message>>}
    */
-  public async fetchAll(): Promise<Cluster<Snowflake, Message>> {
+  public async fetchAll(): Promise<Collection<Snowflake, Message>> {
     const pins = await this.bot.api.fetchChannelPins(this.channel.id);
 
     this.cache.merge(pins);

@@ -9,7 +9,7 @@ export default async ({ d }: Payload, bot: Bot): Promise<void> => {
 
   const role = new Role(bot, d.role, guild);
 
-  // Add role to the guild's roles cluster
+  // Add role to the guild's roles collection
   guild.roles.set(role.id, role);
 
   bot.events.emit(BotEvent.GuildRoleCreate, role);

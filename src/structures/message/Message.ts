@@ -2,7 +2,7 @@ import { MessageAttachment } from './MessageAttachment';
 import { MessageEmbed, MessageEmbedData } from './MessageEmbed';
 import { MessageMentions } from './MessageMentions';
 import { MessageReaction } from './MessageReaction';
-import Cluster from '../../Cluster';
+import Collection from '../../Collection';
 import { Snowflake, TextBasedChannel } from '../../types';
 import { BaseStruct, GatewayStruct } from '../BaseStruct';
 import { EmojiResolvable } from '../Emoji';
@@ -220,9 +220,9 @@ export class Message extends BaseStruct {
   public mentions!: MessageMentions;
 
   /**
-   * {@link Cluster} of all {@link MessageAttachment}s attached to this message
+   * {@link Collection} of all {@link MessageAttachment}s attached to this message
    */
-  public attachments!: Cluster<Snowflake, MessageAttachment>;
+  public attachments!: Collection<Snowflake, MessageAttachment>;
 
   /**
    * All embedded content associated to this message
@@ -320,7 +320,7 @@ export class Message extends BaseStruct {
       crosspostedChannels: message.mention_channels,
     });
 
-    this.attachments = new Cluster<Snowflake, MessageAttachment>(
+    this.attachments = new Collection<Snowflake, MessageAttachment>(
       message.attachments.map((attachment: GatewayStruct) => [
         attachment.id,
         new MessageAttachment(this, attachment),

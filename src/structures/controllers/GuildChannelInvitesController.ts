@@ -1,5 +1,5 @@
 import { BaseCreateController, BaseFetchAllController } from './base';
-import Cluster from '../../Cluster';
+import Collection from '../../Collection';
 import { Invite, InviteOptions } from '../Invite';
 import { GuildChannel } from '../channels';
 
@@ -23,9 +23,9 @@ export class GuildChannelInvitesController extends BaseFetchAllController<Invite
   /**
    * Fetches all invites for this channel.
    * Requires the {@link Permission.ManageChannels} permission
-   * @returns {Promise<Cluster<string, Invite>>}
+   * @returns {Promise<Collection<string, Invite>>}
    */
-  public async fetchAll(): Promise<Cluster<string, Invite>> {
+  public async fetchAll(): Promise<Collection<string, Invite>> {
     const invites = await this.bot.api.fetchChannelInvites(this.channel.id);
 
     this.cache.merge(invites);

@@ -1,7 +1,7 @@
 import { Serializable } from 'child_process';
 import { BotShard, BotShardState } from './BotShard';
 import { GatewayCloseCode, recommendedShardTimeout } from './constants';
-import Cluster from '../Cluster';
+import Collection from '../Collection';
 import { Events } from '../structures/bot/handlers/events/events';
 import { ShardId } from '../types';
 import { Args } from '../types/EventEmitter';
@@ -11,7 +11,7 @@ import { Args } from '../types/EventEmitter';
  */
 export class BotShardManager {
   private readonly token: string;
-  private readonly shards: Cluster<ShardId, BotShard>;
+  private readonly shards: Collection<ShardId, BotShard>;
   public readonly file: string;
   public readonly shardsAmount: number;
 
@@ -20,11 +20,11 @@ export class BotShardManager {
     this.token = token;
     this.shardsAmount = shardsAmount;
 
-    this.shards = new Cluster<ShardId, BotShard>();
+    this.shards = new Collection<ShardId, BotShard>();
   }
 
   /**
-   * Starts the shards and stores them inside a {@link Cluster}
+   * Starts the shards and stores them inside a {@link Collection}
    * @param {number} [timeout=5500] Time in milliseconds to wait for after creating each shard
    * @returns {Promise<void>}
    */

@@ -1,4 +1,4 @@
-import Cluster from '../../Cluster';
+import Collection from '../../Collection';
 import { Snowflake } from '../../types';
 import { BaseStructWithId, StructWithId } from '../BaseStruct';
 
@@ -6,7 +6,7 @@ import { BaseStructWithId, StructWithId } from '../BaseStruct';
  * Cache holder for controllers.
  * @template T
  */
-export class ControllerCache<T extends BaseStructWithId> extends Cluster<Snowflake | string, T> {
+export class ControllerCache<T extends BaseStructWithId> extends Collection<Snowflake | string, T> {
   /**
    * Adds an item to the cache mapped by its ID
    * @param {StructWithId<T>} item The item you wish to add

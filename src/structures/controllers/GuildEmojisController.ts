@@ -1,5 +1,5 @@
 import { BaseCreateController, BaseFetchAllController, BaseFetchController } from './base';
-import Cluster from '../../Cluster';
+import Collection from '../../Collection';
 import { Snowflake } from '../../types';
 import { Guild, GuildEmoji, CreateEmojiOptions } from '../guild';
 
@@ -46,9 +46,9 @@ export class GuildEmojisController extends BaseFetchController<GuildEmoji>
 
   /**
    * Fetches all emojis in a guild
-   * @returns {Promise<Cluster<Snowflake, GuildEmoji>>}
+   * @returns {Promise<Collection<Snowflake, GuildEmoji>>}
    */
-  public async fetchAll(): Promise<Cluster<Snowflake, GuildEmoji>> {
+  public async fetchAll(): Promise<Collection<Snowflake, GuildEmoji>> {
     const emojis = await this.bot.api.fetchGuildEmojis(this.guild.id);
 
     this.cache.merge(emojis);
