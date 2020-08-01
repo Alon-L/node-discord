@@ -9,6 +9,41 @@ import { Bot } from '../bot';
 import { Guild, GuildBaseStruct } from '../guild';
 
 /**
+ * Options used when modifying a guild member
+ */
+export interface ModifyMemberOptions {
+  /**
+   * The value to set the member's nickname to.
+   * Requires the {@link Permission.ManageNicknames} permission
+   */
+  nick?: string;
+
+  /**
+   * Array of roles / role IDs to assign to the member.
+   * Requires the {@link Permission.ManageRoles} permission
+   */
+  roles?: (Snowflake | Role)[];
+
+  /**
+   * Whether the member should be muted in voice channels.
+   * Requires the {@link Permission.MuteMembers} permission
+   */
+  mute?: boolean;
+
+  /**
+   * Whether the member should be deafened in voice channel.
+   * Requires the {@link Permission.DeafenMembers} permission
+   */
+  deaf?: boolean;
+
+  /**
+   * The ID of the voice channel to move the member to (if they are connected to another voice channel already).
+   * Requires the {@link Permission.MoveMembers} permission
+   */
+  channelId?: Snowflake;
+}
+
+/**
  * Representation of a Discord {@link User} in a guild
  * @extends GuildBaseStruct
  */
@@ -105,5 +140,14 @@ export class Member extends GuildBaseStruct {
     this.mute = member.mute;
 
     return this;
+  }
+
+  /**
+   * Modifies attributes of this member
+   * @param {ModifyMemberOptions} options The options to modify for the member
+   * @returns {Promise<void>}
+   */
+  public async modify(options: ModifyMemberOptions): Promise<void> {
+    return this.bot.api.modifyGuildMember(this.guild.id, this.id, options);
   }
 }

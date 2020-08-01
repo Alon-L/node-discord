@@ -34,7 +34,7 @@ import {
   ModifyEmojiOptions,
   ModifyGuildOptions,
 } from '../guild';
-import { Member } from '../member';
+import { Member, ModifyMemberOptions } from '../member';
 import { Message, MessageData, MessageEditData, MessageEmbed, MessageOptions } from '../message';
 
 /**
@@ -862,6 +862,26 @@ export class BotAPI {
 
     return new Collection<Snowflake, Member>(
       members.map(member => [member.user.id, new Member(this.bot, member, guild)]),
+    );
+  }
+
+  /**
+   * Modifies attributes of a guild member
+   * @param {Snowflake} guildId The ID of the guild that contains this member
+   * @param {Snowflake} userId The ID of the member user
+   * @param {ModifyMemberOptions} options The options to modify for the member
+   * @returns {Promise<void>}
+   */
+  public async modifyGuildMember(
+    guildId: Snowflake,
+    userId: Snowflake,
+    options: ModifyMemberOptions,
+  ): Promise<void> {
+    await this.requests.send(
+      EndpointRoute.GuildMember,
+      { guildId, userId },
+      HttpMethod.Patch,
+      APISerializer.modifyMemberOptions(options),
     );
   }
 

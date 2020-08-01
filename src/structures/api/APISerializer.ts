@@ -13,12 +13,22 @@ import {
 } from '../controllers';
 import { Permissible, PermissionOverwriteFlags } from '../flags';
 import { ModifyGuildOptions, EmojiOptions } from '../guild';
+import { ModifyMemberOptions } from '../member';
 import { MessageData, MessageEmbed } from '../message';
 
 /**
  * Serializes API options and data into the API format
  */
 export class APISerializer {
+  /**
+   * Serializes an array of role IDs and role instances into an array of role IDs
+   * @param {(Role | Snowflake)[]} roles The roles array
+   * @returns {Snowflake[]}
+   */
+  private static roleIds(roles: (Role | Snowflake)[]): Snowflake[] {
+    return roles.map((role: Role | Snowflake) => (role instanceof Role ? role.id : role));
+  }
+
   /**
    * Returns the serialized guild channel options for when modifying a guild channel
    * @param {GuildChannelOptions} options The guild channel options
@@ -155,9 +165,7 @@ export class APISerializer {
     return {
       ...options,
       // Serialize the role IDs
-      roles: options.roles?.map((role: Role | Snowflake) =>
-        role instanceof Role ? role.id : role,
-      ),
+      roles: options.roles && APISerializer.roleIds(options.roles),
     };
   }
 
@@ -211,6 +219,22 @@ export class APISerializer {
         after: options.after,
       }
     );
+  }
+
+  /**
+   * Returns the serialized modify member options for when modifying guild members
+   * @param {ModifyMemberOptions} options The modify member options
+   * @returns {Params}
+   */
+  public static modifyMemberOptions(options: ModifyMemberOptions): Params {
+    return {
+      nick: options.nick,
+      // Serialize the role IDs
+      roles: options.roles && APISerializer.roleIds(options.roles),
+      mute: options.mute,
+      deaf: options.deaf,
+      channel_id: options.channelId,
+    };
   }
 
   /**
