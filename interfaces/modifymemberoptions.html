@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>GuildLevels | node-discord</title>
+	<title>ModifyMemberOptions | node-discord</title>
 	<meta name="description" content="Documentation for node-discord">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="guildlevels.html">GuildLevels</a>
+					<a href="modifymemberoptions.html">ModifyMemberOptions</a>
 				</li>
 			</ul>
-			<h1>Interface GuildLevels</h1>
+			<h1>Interface ModifyMemberOptions</h1>
 		</div>
 	</div>
 </header>
@@ -67,7 +67,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Information about guild option levels</p>
+						<p>Options used when modifying a guild member</p>
 					</div>
 				</div>
 			</section>
@@ -75,7 +75,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">GuildLevels</span>
+						<span class="target">ModifyMemberOptions</span>
 					</li>
 				</ul>
 			</section>
@@ -86,10 +86,11 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="guildlevels.html#explicitcontent" class="tsd-kind-icon">explicit<wbr>Content</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="guildlevels.html#mfa" class="tsd-kind-icon">mfa</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="guildlevels.html#notifications" class="tsd-kind-icon">notifications</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="guildlevels.html#verification" class="tsd-kind-icon">verification</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="modifymemberoptions.html#channelid" class="tsd-kind-icon">channel<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="modifymemberoptions.html#deaf" class="tsd-kind-icon">deaf</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="modifymemberoptions.html#mute" class="tsd-kind-icon">mute</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="modifymemberoptions.html#nick" class="tsd-kind-icon">nick</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="modifymemberoptions.html#roles" class="tsd-kind-icon">roles</a></li>
 							</ul>
 						</section>
 					</div>
@@ -98,62 +99,82 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="explicitcontent" class="tsd-anchor"></a>
-					<h3>explicit<wbr>Content</h3>
-					<div class="tsd-signature tsd-kind-icon">explicit<wbr>Content<span class="tsd-signature-symbol">:</span> <a href="../enums/explicitcontentlevels.html" class="tsd-signature-type">ExplicitContentLevels</a></div>
+					<a name="channelid" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> channel<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">channel<wbr>Id<span class="tsd-signature-symbol">:</span> <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/0167b64/src/structures/guild/Guild.ts#L100">src/structures/guild/Guild.ts:100</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/0167b64/src/structures/member/Member.ts#L43">src/structures/member/Member.ts:43</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Explicit content filter level</p>
+							<p>The ID of the voice channel to move the member to (if they are connected to another voice channel already).
+							Requires the <a href="../enums/permission.html#movemembers">Permission.MoveMembers</a> permission</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="mfa" class="tsd-anchor"></a>
-					<h3>mfa</h3>
-					<div class="tsd-signature tsd-kind-icon">mfa<span class="tsd-signature-symbol">:</span> <a href="../enums/mfalevel.html" class="tsd-signature-type">MFALevel</a></div>
+					<a name="deaf" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> deaf</h3>
+					<div class="tsd-signature tsd-kind-icon">deaf<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/0167b64/src/structures/guild/Guild.ts#L105">src/structures/guild/Guild.ts:105</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/0167b64/src/structures/member/Member.ts#L37">src/structures/member/Member.ts:37</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Required MFA level for the guild</p>
+							<p>Whether the member should be deafened in voice channel.
+							Requires the <a href="../enums/permission.html#deafenmembers">Permission.DeafenMembers</a> permission</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="notifications" class="tsd-anchor"></a>
-					<h3>notifications</h3>
-					<div class="tsd-signature tsd-kind-icon">notifications<span class="tsd-signature-symbol">:</span> <a href="../enums/notificationlevels.html" class="tsd-signature-type">NotificationLevels</a></div>
+					<a name="mute" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> mute</h3>
+					<div class="tsd-signature tsd-kind-icon">mute<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/0167b64/src/structures/guild/Guild.ts#L95">src/structures/guild/Guild.ts:95</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/0167b64/src/structures/member/Member.ts#L31">src/structures/member/Member.ts:31</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Default notifications level</p>
+							<p>Whether the member should be muted in voice channels.
+							Requires the <a href="../enums/permission.html#mutemembers">Permission.MuteMembers</a> permission</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="verification" class="tsd-anchor"></a>
-					<h3>verification</h3>
-					<div class="tsd-signature tsd-kind-icon">verification<span class="tsd-signature-symbol">:</span> <a href="../enums/verificationlevel.html" class="tsd-signature-type">VerificationLevel</a></div>
+					<a name="nick" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> nick</h3>
+					<div class="tsd-signature tsd-kind-icon">nick<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/0167b64/src/structures/guild/Guild.ts#L90">src/structures/guild/Guild.ts:90</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/0167b64/src/structures/member/Member.ts#L19">src/structures/member/Member.ts:19</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Verification level required for the guild</p>
+							<p>The value to set the member&#39;s nickname to.
+							Requires the <a href="../enums/permission.html#managenicknames">Permission.ManageNicknames</a> permission</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="roles" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> roles</h3>
+					<div class="tsd-signature tsd-kind-icon">roles<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../classes/role.html" class="tsd-signature-type">Role</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/0167b64/src/structures/member/Member.ts#L25">src/structures/member/Member.ts:25</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Array of roles / role IDs to assign to the member.
+							Requires the <a href="../enums/permission.html#manageroles">Permission.ManageRoles</a> permission</p>
 						</div>
 					</div>
 				</section>
@@ -172,19 +193,22 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="guildlevels.html" class="tsd-kind-icon">Guild<wbr>Levels</a>
+						<a href="modifymemberoptions.html" class="tsd-kind-icon">Modify<wbr>Member<wbr>Options</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="guildlevels.html#explicitcontent" class="tsd-kind-icon">explicit<wbr>Content</a>
+								<a href="modifymemberoptions.html#channelid" class="tsd-kind-icon">channel<wbr>Id</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="guildlevels.html#mfa" class="tsd-kind-icon">mfa</a>
+								<a href="modifymemberoptions.html#deaf" class="tsd-kind-icon">deaf</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="guildlevels.html#notifications" class="tsd-kind-icon">notifications</a>
+								<a href="modifymemberoptions.html#mute" class="tsd-kind-icon">mute</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="guildlevels.html#verification" class="tsd-kind-icon">verification</a>
+								<a href="modifymemberoptions.html#nick" class="tsd-kind-icon">nick</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="modifymemberoptions.html#roles" class="tsd-kind-icon">roles</a>
 							</li>
 						</ul>
 					</li>
