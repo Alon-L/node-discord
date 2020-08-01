@@ -1,6 +1,6 @@
 import { BaseDeleteController, BaseFetchController } from './base';
-import { Snowflake } from '../../types';
-import { Channel } from '../channels';
+import { Snowflake, TextBasedChannel } from '../../types';
+import { Channel, DMChannel, GuildTextChannel } from '../channels';
 
 /**
  * Provides an interface for the bot's channels cache.
@@ -13,7 +13,7 @@ export class BotChannelsController extends BaseFetchController<Channel>
    * @param {Snowflake} id The ID of the channel you wish to delete
    * @returns {Promise<void | Channel>}
    */
-  delete(id: Snowflake): Promise<void | Channel> {
+  public delete(id: Snowflake): Promise<void | Channel> {
     return this.bot.api.deleteChannel(id);
   }
 
@@ -22,7 +22,22 @@ export class BotChannelsController extends BaseFetchController<Channel>
    * @param {Snowflake} id The ID of the channel you wish to fetch
    * @returns {Promise<Channel>}
    */
-  fetch(id: Snowflake): Promise<Channel> {
+  public fetch(id: Snowflake): Promise<Channel> {
     return this.bot.api.fetchChannel(id);
+  }
+
+  /**
+   * Gets or fetches a text channel by its ID
+   * @param {Snowflake} id The ID of the text channel
+   * @returns {Promise<TextBasedChannel>}
+   */
+  public async getText(id: Snowflake): Promise<TextBasedChannel> {
+    const channel = await this.get(id);
+
+    if (!(channel instanceof GuildTextChannel || channel instanceof DMChannel)) {
+      throw new TypeError('The channel is not a valid text channel');
+    }
+
+    return channel;
   }
 }

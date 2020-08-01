@@ -1,7 +1,7 @@
 import { APISerializer } from './APISerializer';
 import Collection from '../../Collection';
 import { EndpointRoute, HttpMethod } from '../../socket';
-import { Requests, Params } from '../../socket/rateLimit';
+import { Params, Requests } from '../../socket/rateLimit';
 import { Snowflake } from '../../types';
 import { ChannelUtils } from '../../utils';
 import { GatewayStruct } from '../BaseStruct';
@@ -193,11 +193,7 @@ export class BotAPI {
       HttpMethod.Get,
     );
 
-    const channel = await this.bot.channels.get(channelId);
-
-    if (!(channel instanceof DMChannel || channel instanceof GuildTextChannel)) {
-      throw new TypeError('The channel is not a valid text channel');
-    }
+    const channel = await this.bot.channels.getText(channelId);
 
     return new Message(this.bot, message!, channel);
   }
@@ -248,11 +244,7 @@ export class BotAPI {
       params,
     );
 
-    const channel = await this.bot.channels.get(channelId);
-
-    if (!(channel instanceof DMChannel || channel instanceof GuildTextChannel)) {
-      throw new TypeError('The channel is not a valid text channel');
-    }
+    const channel = await this.bot.channels.getText(channelId);
 
     return new Message(this.bot, messageData!, channel);
   }
@@ -434,11 +426,7 @@ export class BotAPI {
       params,
     );
 
-    const channel = await this.bot.channels.get(channelId);
-
-    if (!(channel instanceof GuildTextChannel)) {
-      throw new TypeError('The channel is not a valid text channel');
-    }
+    const channel = await this.bot.channels.getText(channelId);
 
     return new Message(this.bot, messageData!, channel);
   }
@@ -584,11 +572,7 @@ export class BotAPI {
       HttpMethod.Get,
     )) as GatewayStruct[];
 
-    const channel = await this.bot.channels.get(channelId);
-
-    if (!(channel instanceof DMChannel || channel instanceof GuildTextChannel)) {
-      throw new TypeError('The channel is not a valid text channel');
-    }
+    const channel = await this.bot.channels.getText(channelId);
 
     return new Collection<Snowflake, Message>(
       pins.map(pin => [pin.id, new Message(this.bot, pin, channel)]),
