@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>BoostTiers | node-discord</title>
+	<title>FetchSomeMessagesOptions | node-discord</title>
 	<meta name="description" content="Documentation for node-discord">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="boosttiers.html">BoostTiers</a>
+					<a href="fetchsomemessagesoptions.html">FetchSomeMessagesOptions</a>
 				</li>
 			</ul>
-			<h1>Enumeration BoostTiers</h1>
+			<h1>Interface FetchSomeMessagesOptions</h1>
 		</div>
 	</div>
 </header>
@@ -67,67 +67,95 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Guild premium (boost) tiers</p>
+						<p>Options for when fetching some messages in a text channel</p>
 					</div>
 				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">FetchSomeMessagesOptions</span>
+					</li>
+				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Enumeration members</h3>
+							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="boosttiers.html#none" class="tsd-kind-icon">None</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="boosttiers.html#tier1" class="tsd-kind-icon">Tier1</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="boosttiers.html#tier2" class="tsd-kind-icon">Tier2</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="boosttiers.html#tier3" class="tsd-kind-icon">Tier3</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="fetchsomemessagesoptions.html#after" class="tsd-kind-icon">after</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="fetchsomemessagesoptions.html#around" class="tsd-kind-icon">around</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="fetchsomemessagesoptions.html#before" class="tsd-kind-icon">before</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="fetchsomemessagesoptions.html#limit" class="tsd-kind-icon">limit</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Enumeration members</h2>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="none" class="tsd-anchor"></a>
-					<h3>None</h3>
-					<div class="tsd-signature tsd-kind-icon">None<span class="tsd-signature-symbol">:</span></div>
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="after" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> after</h3>
+					<div class="tsd-signature tsd-kind-icon">after<span class="tsd-signature-symbol">:</span> <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/3ed3ab5/src/structures/guild/Guild.ts#L62">src/structures/guild/Guild.ts:62</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/3ed3ab5/src/structures/controllers/ChannelMessagesController.ts#L23">src/structures/controllers/ChannelMessagesController.ts:23</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Get messages after this message ID</p>
+						</div>
+					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="tier1" class="tsd-anchor"></a>
-					<h3>Tier1</h3>
-					<div class="tsd-signature tsd-kind-icon">Tier1<span class="tsd-signature-symbol">:</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="around" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> around</h3>
+					<div class="tsd-signature tsd-kind-icon">around<span class="tsd-signature-symbol">:</span> <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/3ed3ab5/src/structures/guild/Guild.ts#L63">src/structures/guild/Guild.ts:63</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/3ed3ab5/src/structures/controllers/ChannelMessagesController.ts#L13">src/structures/controllers/ChannelMessagesController.ts:13</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Get messages around this message ID</p>
+						</div>
+					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="tier2" class="tsd-anchor"></a>
-					<h3>Tier2</h3>
-					<div class="tsd-signature tsd-kind-icon">Tier2<span class="tsd-signature-symbol">:</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="before" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> before</h3>
+					<div class="tsd-signature tsd-kind-icon">before<span class="tsd-signature-symbol">:</span> <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/3ed3ab5/src/structures/guild/Guild.ts#L64">src/structures/guild/Guild.ts:64</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/3ed3ab5/src/structures/controllers/ChannelMessagesController.ts#L18">src/structures/controllers/ChannelMessagesController.ts:18</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Get messages before this message ID</p>
+						</div>
+					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="tier3" class="tsd-anchor"></a>
-					<h3>Tier3</h3>
-					<div class="tsd-signature tsd-kind-icon">Tier3<span class="tsd-signature-symbol">:</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="limit" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> limit</h3>
+					<div class="tsd-signature tsd-kind-icon">limit<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/3ed3ab5/src/structures/guild/Guild.ts#L65">src/structures/guild/Guild.ts:65</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/3ed3ab5/src/structures/controllers/ChannelMessagesController.ts#L28">src/structures/controllers/ChannelMessagesController.ts:28</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The max number of messages to return (1-100)</p>
+						</div>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -143,20 +171,20 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-enum">
-						<a href="boosttiers.html" class="tsd-kind-icon">Boost<wbr>Tiers</a>
+					<li class="current tsd-kind-interface">
+						<a href="fetchsomemessagesoptions.html" class="tsd-kind-icon">Fetch<wbr>Some<wbr>Messages<wbr>Options</a>
 						<ul>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="boosttiers.html#none" class="tsd-kind-icon">None</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="fetchsomemessagesoptions.html#after" class="tsd-kind-icon">after</a>
 							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="boosttiers.html#tier1" class="tsd-kind-icon">Tier1</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="fetchsomemessagesoptions.html#around" class="tsd-kind-icon">around</a>
 							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="boosttiers.html#tier2" class="tsd-kind-icon">Tier2</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="fetchsomemessagesoptions.html#before" class="tsd-kind-icon">before</a>
 							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="boosttiers.html#tier3" class="tsd-kind-icon">Tier3</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="fetchsomemessagesoptions.html#limit" class="tsd-kind-icon">limit</a>
 							</li>
 						</ul>
 					</li>
