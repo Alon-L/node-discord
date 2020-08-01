@@ -20,6 +20,13 @@ bot.connection.connect();
 
   console.log(channel.name);
 
+  const messages = await channel.messages.fetchSome({ limit: 25 });
+  console.log(
+    messages.size === 25,
+    'whether the fetched messages quantity matches the requested',
+    'expected: true',
+  ); // expected: true
+
   const message = await channel.messages.fetch('735248931403071520');
   console.log(message.content);
 

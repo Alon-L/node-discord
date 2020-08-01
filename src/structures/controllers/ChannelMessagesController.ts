@@ -1,13 +1,39 @@
-import { BaseDeleteController, BaseFetchController } from './base';
+import { BaseDeleteController, BaseFetchController, BaseFetchSomeController } from './base';
+import Collection from '../../Collection';
 import { Snowflake, TextBasedChannel } from '../../types';
 import { Message } from '../message';
+
+/**
+ * Options for when fetching some messages in a text channel
+ */
+export interface FetchSomeMessagesOptions {
+  /**
+   * Get messages around this message ID
+   */
+  around?: Snowflake;
+
+  /**
+   * Get messages before this message ID
+   */
+  before?: Snowflake;
+
+  /**
+   * Get messages after this message ID
+   */
+  after?: Snowflake;
+
+  /**
+   * The max number of messages to return (1-100)
+   */
+  limit?: number;
+}
 
 /**
  * Provides an interface for a text channel's messages cache.
  * The messages are mapped by their IDs
  */
 export class ChannelMessagesController extends BaseFetchController<Message>
-  implements BaseDeleteController<Message> {
+  implements BaseDeleteController<Message>, BaseFetchSomeController<Message> {
   /**
    * The guild this controller is associated to
    */
@@ -29,7 +55,7 @@ export class ChannelMessagesController extends BaseFetchController<Message>
   }
 
   /**
-   * Fetches a message in the channel
+   * Fetches and caches a message in the channel
    * @param {Snowflake} id The ID of the message you wish to fetch
    * @returns {Promise<Message>}
    */
@@ -39,5 +65,20 @@ export class ChannelMessagesController extends BaseFetchController<Message>
     this.cache.add(message);
 
     return message;
+  }
+
+  /**
+   * Fetches and caches some messages in the channel
+   * @param {FetchSomeMessagesOptions} options The options for the fetch operation
+   * @returns {Promise<Collection<Snowflake, Message>>}
+   */
+  public async fetchSome(
+    options?: FetchSomeMessagesOptions,
+  ): Promise<Collection<Snowflake, Message>> {
+    const messages = await this.bot.api.fetchSomeMessages(this.channel.id, options);
+
+    this.cache.merge(messages);
+
+    return messages;
   }
 }

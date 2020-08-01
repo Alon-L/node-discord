@@ -12,28 +12,30 @@ import { User } from '../User';
 import { Bot } from '../bot';
 import {
   Channel,
+  CreateGuildChannelOptions,
   DMChannel,
   GuildChannel,
-  CreateGuildChannelOptions,
   GuildChannelOptions,
-  GuildTextChannel,
 } from '../channels';
 import {
+  FetchSomeMembersOptions,
   FetchGuildOptions,
-  GuildChannelPositions,
   FetchInviteOptions,
   FetchReactionUsersOptions,
+  GuildChannelPositions,
+  FetchSomeMessagesOptions,
 } from '../controllers';
 import { Permissible, PermissionOverwriteFlags } from '../flags';
 import {
-  Guild,
-  ModifyGuildOptions,
-  GuildEmoji,
   CreateEmojiOptions,
-  ModifyEmojiOptions,
+  Guild,
+  GuildEmoji,
   GuildPreview,
+  ModifyEmojiOptions,
+  ModifyGuildOptions,
 } from '../guild';
-import { Message, MessageData, MessageEditData, MessageOptions, MessageEmbed } from '../message';
+import { Member } from '../member';
+import { Message, MessageData, MessageEditData, MessageEmbed, MessageOptions } from '../message';
 
 /**
  * Creates all outgoing API requests
@@ -152,6 +154,30 @@ export class BotAPI {
     }
 
     return channel;
+  }
+
+  /**
+   * Fetches some messages in a text channel
+   * @param {Snowflake} channelId The ID of the channel
+   * @param {FetchSomeMessagesOptions} options The options for the fetch operation
+   * @returns {Promise<Collection<Snowflake, Message>>}
+   */
+  public async fetchSomeMessages(
+    channelId: Snowflake,
+    options?: FetchSomeMessagesOptions,
+  ): Promise<Collection<Snowflake, Message>> {
+    const messages = (await this.requests.send(
+      EndpointRoute.ChannelMessages,
+      { channelId },
+      HttpMethod.Get,
+      APISerializer.fetchSomeMessagesOptions(options),
+    )) as GatewayStruct[];
+
+    const channel = await this.bot.channels.getText(channelId);
+
+    return new Collection<Snowflake, Message>(
+      messages.map(message => [message.id, new Message(this.bot, message, channel)]),
+    );
   }
 
   /**

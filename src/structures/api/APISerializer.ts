@@ -8,6 +8,8 @@ import {
   GuildChannelPositions,
   FetchInviteOptions,
   FetchReactionUsersOptions,
+  FetchSomeMembersOptions,
+  FetchSomeMessagesOptions,
 } from '../controllers';
 import { Permissible, PermissionOverwriteFlags } from '../flags';
 import { ModifyGuildOptions, EmojiOptions } from '../guild';
@@ -32,6 +34,22 @@ export class APISerializer {
       bitrate: options.bitrate,
       user_limit: options.userLimit,
     };
+  }
+
+  /**
+   * Returns the serialized fetch some messages options for when fetching some messages in a text channel
+   * @param {FetchSomeMessagesOptions} options The fetch some messages options
+   * @returns {Params}
+   */
+  public static fetchSomeMessagesOptions(options?: FetchSomeMessagesOptions): Params {
+    return (
+      options && {
+        around: options.around,
+        before: options.before,
+        after: options.after,
+        limit: options.limit,
+      }
+    );
   }
 
   /**
