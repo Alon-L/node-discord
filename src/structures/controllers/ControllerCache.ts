@@ -1,6 +1,6 @@
 import Collection from '../../Collection';
 import { Snowflake } from '../../types';
-import { BaseStructWithId, StructWithId } from '../BaseStruct';
+import { BaseStructWithId } from '../BaseStruct';
 
 /**
  * Cache holder for controllers.
@@ -9,10 +9,10 @@ import { BaseStructWithId, StructWithId } from '../BaseStruct';
 export class ControllerCache<T extends BaseStructWithId> extends Collection<Snowflake | string, T> {
   /**
    * Adds an item to the cache mapped by its ID
-   * @param {StructWithId<T>} item The item you wish to add
+   * @param {T} item The item you wish to add
    * @returns {T}
    */
-  public add(item: StructWithId<T>): T {
+  public add(item: T): T {
     this.set(item.id, item);
 
     return item;
@@ -20,9 +20,9 @@ export class ControllerCache<T extends BaseStructWithId> extends Collection<Snow
 
   /**
    * Adds multiple items to the cache
-   * @param {StructWithId<T>[]} items The items you wish to add
+   * @param {T[]} items The items you wish to add
    */
-  public addMany(items: StructWithId<T>[]): void {
+  public addMany(items: T[]): void {
     this.merge(items.map(i => [i.id, i]));
   }
 }
