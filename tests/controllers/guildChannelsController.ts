@@ -22,7 +22,7 @@ bot.connection.connect();
     type: ChannelType.GuildText,
     position: 1,
     permissions: {
-      [guild.members.first!.id]: {
+      [guild.members.cache.first!.id]: {
         type: PermissibleType.Member,
         allow: PermissionFlags.build(Permission.ViewChannel),
       },

@@ -9,7 +9,7 @@ bot.connection.connect();
 
 (async function (): Promise<void> {
   bot.events.on(BotEvent.GuildMembersChunkFinish, (guild: Guild, nonce: string | undefined) => {
-    console.log(guild.members.size, nonce);
+    console.log(guild.members.cache.size, nonce);
   });
 
   await bot.events.wait(BotEvent.Ready);

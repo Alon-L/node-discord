@@ -12,7 +12,7 @@ bot.connection.connect();
   bot.events.on(
     BotEvent.GuildMembersChunk,
     (guild: Guild, nonce: string | undefined, chunk: GuildMembersChunk) => {
-      console.log(guild.members.size, nonce, chunk);
+      console.log(guild.members.cache.size, nonce, chunk);
     },
   );
 
