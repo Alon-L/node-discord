@@ -14,6 +14,7 @@ import {
   GuildChannelsController,
   GuildEmojisController,
   GuildInvitesController,
+  GuildMembersController,
 } from '../controllers';
 import { GuildSystemChannelFlags, PermissionFlags } from '../flags';
 import { Member, MemberPresence } from '../member';
@@ -247,9 +248,9 @@ export class Guild extends GuildPreview {
   public roles!: Collection<Snowflake, Role>;
 
   /**
-   * {@link Collection} of all {@link Member}s in this guild
+   * The guild's members controller
    */
-  public members!: Collection<Snowflake, Member>;
+  public members!: GuildMembersController;
 
   /**
    * Guild owner {@link Member}.
@@ -403,6 +404,8 @@ export class Guild extends GuildPreview {
 
     this.presences = new Collection<Snowflake, MemberPresence>();
 
+    this.members = new GuildMembersController(this);
+
     this.emojis = new GuildEmojisController(this);
 
     this.channels = new GuildChannelsController(this);
@@ -424,19 +427,23 @@ export class Guild extends GuildPreview {
       guild.roles.map((role: GatewayStruct) => [role.id, new Role(this.bot, role, this)]),
     );
 
-    this.members = new Collection<Snowflake, Member>(
-      guild.members?.map((member: GatewayStruct) => [
-        member.user.id,
-        new Member(
-          this.bot,
-          member,
-          this,
-          guild.presences?.find((presence: GatewayStruct) => presence.user.id === member.user.id),
+    if (guild.members) {
+      this.members.cache.addMany(
+        guild.members.map(
+          (member: GatewayStruct) =>
+            new Member(
+              this.bot,
+              member,
+              this,
+              guild.presences?.find(
+                (presence: GatewayStruct) => presence.user.id === member.user.id,
+              ),
+            ),
         ),
-      ]),
-    );
+      );
+    }
 
-    this.owner = this.members.get(guild.owner_id);
+    this.owner = this.members.cache.get(guild.owner_id);
     this.ownerId = guild.owner_id;
 
     if (guild.permissions) {

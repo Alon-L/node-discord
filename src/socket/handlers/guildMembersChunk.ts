@@ -36,17 +36,15 @@ export default async ({ d }: Payload, bot: Bot): Promise<void> => {
   const guild = await bot.guilds.get(guildId);
 
   // Add the new members to the guild's members cache
-  guild.members.merge(
-    members.map((member: GatewayStruct) => [member.user.id, new Member(bot, member, guild)]),
+  guild.members.cache.addMany(
+    members.map((member: GatewayStruct) => new Member(bot, member, guild)),
   );
 
   // Assign the presences returned from the event
   if (presences) {
     for (const presence of presences) {
-      const id = presence.user.id;
-      const member = guild.members.get(id);
-
-      if (!member) continue;
+      const { id } = presence.user;
+      const member = await guild.members.get(id);
 
       if (member.presence) {
         // Re-initialize the member presence class with the updated presence

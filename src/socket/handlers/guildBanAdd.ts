@@ -10,7 +10,7 @@ export default async ({ d }: Payload, bot: Bot): Promise<void> => {
   const user = new User(bot, d.user);
 
   // Member of the guild or the previously defined user
-  const member = guild.members.get(user.id) || user;
+  const member = guild.members.cache.get(user.id) || user;
 
   // Add the member to the Guild's bans Collection
   guild.bans.set(member.id, member);

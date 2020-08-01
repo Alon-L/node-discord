@@ -15,11 +15,6 @@ interface UpdateReturn<T extends BaseStruct> {
 }
 
 /**
- * A structure with the ID field
- */
-export type StructWithId<T extends BaseStruct> = T & { id: Snowflake | string };
-
-/**
  * A base structure with the ID field
  */
 export type BaseStructWithId = BaseStruct & { id: Snowflake | string };

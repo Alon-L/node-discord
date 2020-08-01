@@ -7,10 +7,10 @@ export default async ({ d }: Payload, bot: Bot): Promise<void> => {
 
   const guild = await bot.guilds.get(guildId);
 
-  const member = guild.members.get(user.id) || new User(bot, user);
+  const member = guild.members.cache.get(user.id) || new User(bot, user);
 
   // Remove the member from the guild's members cache
-  guild.members.delete(member.id);
+  guild.members.cache.delete(member.id);
 
   bot.events.emit(BotEvent.GuildMemberRemove, member);
 };

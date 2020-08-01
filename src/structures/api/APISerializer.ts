@@ -200,6 +200,20 @@ export class APISerializer {
   }
 
   /**
+   * Returns the serialized fetch all members options for when fetching all members in a guild
+   * @param {ModifyGuildOptions} options The fetch all members options
+   * @returns {Params}
+   */
+  public static fetchSomeMembersOptions(options?: FetchSomeMembersOptions): Params {
+    return (
+      options && {
+        limit: options.limit,
+        after: options.after,
+      }
+    );
+  }
+
+  /**
    * Returns the serialized fetch invite options for when fetching an invite
    * @param {FetchInviteOptions} options The fetch invite options
    * @returns {Params}

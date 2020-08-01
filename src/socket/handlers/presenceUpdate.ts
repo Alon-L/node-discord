@@ -10,9 +10,7 @@ export default async ({ d }: Payload, bot: Bot): Promise<void> => {
 
   const guild = await bot.guilds.get(guildId);
 
-  const member = guild.members.get(memberId);
-
-  if (!member) return;
+  const member = await guild.members.get(memberId);
 
   const { presence } = member;
 

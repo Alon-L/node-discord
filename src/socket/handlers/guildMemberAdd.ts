@@ -10,7 +10,7 @@ export default async ({ d }: Payload, bot: Bot): Promise<void> => {
   const member = new Member(bot, d, guild);
 
   // Cache the member in the guild's members cache
-  guild.members.set(member.id, member);
+  guild.members.cache.add(member);
 
   if (member.user) {
     // Cache the user in the Bot's users cache

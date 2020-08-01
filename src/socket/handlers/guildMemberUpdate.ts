@@ -7,9 +7,7 @@ export default async ({ d }: Payload, bot: Bot): Promise<void> => {
 
   const guild = await bot.guilds.get(guildId);
 
-  const member = guild.members.get(user.id);
-
-  if (!member) return;
+  const member = await guild.members.get(user.id);
 
   const { before, after } = member.update({
     nick: member.nick,

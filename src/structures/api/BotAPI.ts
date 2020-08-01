@@ -824,6 +824,48 @@ export class BotAPI {
   }
 
   /**
+   * Fetches a guild member by its user ID
+   * @param {Snowflake} guildId The ID of the guild this member is in
+   * @param {Snowflake} userId The ID of the member user
+   * @returns {Promise<Member>}
+   */
+  public async fetchGuildMember(guildId: Snowflake, userId: Snowflake): Promise<Member> {
+    const member = await this.requests.send(
+      EndpointRoute.GuildMember,
+      { guildId, userId },
+      HttpMethod.Get,
+    );
+
+    const guild = await this.bot.guilds.get(guildId);
+
+    return new Member(this.bot, member!, guild);
+  }
+
+  /**
+   * Fetches all members in a guild
+   * @param {Snowflake} guildId The ID of the guild
+   * @param {FetchSomeMembersOptions} options The options for the fetch operation
+   * @returns {Promise<Collection<Snowflake, Member>>}
+   */
+  public async fetchSomeGuildMembers(
+    guildId: Snowflake,
+    options?: FetchSomeMembersOptions,
+  ): Promise<Collection<Snowflake, Member>> {
+    const members = (await this.requests.send(
+      EndpointRoute.GuildMembers,
+      { guildId },
+      HttpMethod.Get,
+      APISerializer.fetchSomeMembersOptions(options),
+    )) as GatewayStruct[];
+
+    const guild = await this.bot.guilds.get(guildId);
+
+    return new Collection<Snowflake, Member>(
+      members.map(member => [member.user.id, new Member(this.bot, member, guild)]),
+    );
+  }
+
+  /**
    * Fetches an invite by its invite code
    * @param {string} inviteCode The invite code
    * @param {FetchInviteOptions} options An additional set of options for the invite
