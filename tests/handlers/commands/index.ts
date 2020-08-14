@@ -2,9 +2,9 @@
 
 import { Help } from './Help';
 import { Ping } from './Ping';
-import { BotEvent } from '../../src/socket';
-import { Bot, Message } from '../../src/structures';
-import config from '../config.json';
+import { BotEvent } from '../../../src/socket';
+import { Bot, Message } from '../../../src/structures';
+import config from '../../config.json';
 
 const bot = new Bot(config.token);
 bot.connection.connect();
