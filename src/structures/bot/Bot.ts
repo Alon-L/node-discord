@@ -1,7 +1,8 @@
 import { Serializable } from 'child_process';
 import { BotCommunication } from './BotCommunication';
 import { BotConnection } from './BotConnection';
-import { BotCommandsHandler, BotEventsHandler } from './handlers';
+import { CommandsHandler } from './command';
+import { BotEventsHandler } from './events';
 import Collection from '../../Collection';
 import { BotEvent, botOptions, CacheOptions, WebsocketOptions } from '../../socket';
 import { ShardId, Snowflake } from '../../types';
@@ -68,7 +69,7 @@ export class Bot {
   /**
    * Responsible for handling all of the Bot's commands
    */
-  public commands: BotCommandsHandler;
+  public commands: CommandsHandler;
 
   /**
    * Responsible for handling all of the Bot's events
@@ -135,7 +136,7 @@ export class Bot {
       amount: Number.isNaN(shardAmount) ? undefined : shardAmount,
     };
 
-    this.commands = new BotCommandsHandler();
+    this.commands = new CommandsHandler();
     this.events = new BotEventsHandler();
 
     this.connection = new BotConnection(this, token);
