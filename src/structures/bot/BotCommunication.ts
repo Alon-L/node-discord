@@ -1,7 +1,7 @@
 import { Serializable } from 'child_process';
 import { EventEmitter } from 'events';
 import { Bot } from './Bot';
-import { Events, BotStateEvents } from './handlers/events/events';
+import { Events, BotStateEvents } from './events/events';
 import { BotShardState, GatewayCloseCode } from '../../socket';
 import { ShardId } from '../../types';
 import { Args } from '../../types/EventEmitter';

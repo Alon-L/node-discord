@@ -2,7 +2,7 @@ import { Serializable } from 'child_process';
 import { BotShard, BotShardState } from './BotShard';
 import { GatewayCloseCode, recommendedShardTimeout } from './constants';
 import Collection from '../Collection';
-import { Events } from '../structures/bot/handlers/events/events';
+import { Events } from '../structures/bot/events/events';
 import { ShardId } from '../types';
 import { Args } from '../types/EventEmitter';
 

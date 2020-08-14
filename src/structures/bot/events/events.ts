@@ -1,16 +1,16 @@
-import Collection from '../../../../Collection';
-import { BotSocketShard, BotEvent } from '../../../../socket';
-import { GuildMembersChunk } from '../../../../socket/handlers/guildMembersChunk';
-import { Snowflake, TextBasedChannel } from '../../../../types';
-import { Emoji } from '../../../Emoji';
-import { Invite, PartialInvite } from '../../../Invite';
-import { Role } from '../../../Role';
-import { Timestamp } from '../../../Timestamp';
-import { User } from '../../../User';
-import { Channel, GuildChannel } from '../../../channels';
-import { Guild, GuildUnavailable } from '../../../guild';
-import { Member, MemberPresence } from '../../../member';
-import { Message, PartialMessage, MessageReaction } from '../../../message';
+import Collection from '../../../Collection';
+import { BotSocketShard, BotEvent } from '../../../socket';
+import { GuildMembersChunk } from '../../../socket/handlers/guildMembersChunk';
+import { Snowflake, TextBasedChannel } from '../../../types';
+import { Emoji } from '../../Emoji';
+import { Invite, PartialInvite } from '../../Invite';
+import { Role } from '../../Role';
+import { Timestamp } from '../../Timestamp';
+import { User } from '../../User';
+import { Channel, GuildChannel } from '../../channels';
+import { Guild, GuildUnavailable } from '../../guild';
+import { Member, MemberPresence } from '../../member';
+import { Message, PartialMessage, MessageReaction } from '../../message';
 
 /**
  * Sent when all shards become ready

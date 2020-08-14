@@ -5,7 +5,7 @@ import { GatewayCloseCode, recommendedShardTimeout } from './constants';
 import { baseURL } from './properties';
 import Collection from '../Collection';
 import { Bot, ShardChangedStateRequest, ShardCommunicationAction } from '../structures/bot';
-import { BotStateEvents } from '../structures/bot/handlers/events/events';
+import { BotStateEvents } from '../structures/bot/events/events';
 import { ShardId } from '../types';
 
 export interface SessionStartLimit {

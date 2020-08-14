@@ -1,16 +1,13 @@
 import { EventEmitter } from 'events';
 import { Events } from './events';
-import StrictEventEmitter, { Args } from '../../../../types/EventEmitter';
-import { BotHandler } from '../BotHandler';
+import StrictEventEmitter, { Args } from '../../../types/EventEmitter';
 
 /**
  * Responsible for handling all of the Bot's events
  */
-export class BotEventsHandler
-  extends ((EventEmitter as unknown) as {
-    new (): StrictEventEmitter<EventEmitter, Events>;
-  })
-  implements BotHandler<Events> {
+export class BotEventsHandler extends ((EventEmitter as unknown) as {
+  new (): StrictEventEmitter<EventEmitter, Events>;
+}) {
   /**
    * Asynchronously waits until an event is executed, and returns its arguments in an array
    * @example ```typescript
