@@ -1,5 +1,6 @@
 import { ChildProcess, fork, Serializable } from 'child_process';
 import path from 'path';
+import { Arguments } from 'typed-emitter';
 import { BotShardManager } from './BotShardManager';
 import { GatewayCloseCode } from './constants';
 import {
@@ -17,9 +18,8 @@ import {
   ShardEmitDisconnectRequest,
   ShardSendRequest,
 } from '../structures/bot';
-import { Events } from '../structures/bot/events/events';
+import { Events } from '../structures/bot/handlers/events/events';
 import { ShardId } from '../types';
-import { Args } from '../types/EventEmitter';
 
 /**
  * The shard state
@@ -162,11 +162,11 @@ export class BotShard {
   }
 
   /**
-   * Sends the child process a message to emit the given event to {@link BotEventsHandler}
+   * Sends the child process a message to emit the given event to {@link EventsHandler}
    * @param {E} event The event to be emitted
-   * @param {Args<Events, E>} args The arguments of the events
+   * @param {Array} args The arguments of the events
    */
-  public emitEvent<E extends keyof Events>(event: E, args: Args<Events, E>): void {
+  public emitEvent<E extends keyof Events>(event: E, args: Arguments<Events[E]>): void {
     const request: ShardEmitBotEventRequest<E> = {
       action: ShardCommunicationEmitEvents.EmitBotEvent,
       payload: {

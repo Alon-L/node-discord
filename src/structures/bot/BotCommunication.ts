@@ -1,10 +1,10 @@
 import { Serializable } from 'child_process';
 import { EventEmitter } from 'events';
+import { Arguments } from 'typed-emitter';
 import { Bot } from './Bot';
-import { Events, BotStateEvents } from './events/events';
+import { Events, BotStateEvents } from './handlers/events/events';
 import { BotShardState, GatewayCloseCode } from '../../socket';
 import { ShardId } from '../../types';
-import { Args } from '../../types/EventEmitter';
 
 /**
  * Abstract typing for all shard requests
@@ -98,7 +98,7 @@ export enum ShardCommunicationEmitEvents {
   EmitCommunicationEventResponse = 'emitCommunicationEventResponse',
 
   /**
-   * Emit a specific Bot event (registered under {@link BotEventsHandler})
+   * Emit a specific Bot event (registered under {@link EventsHandler})
    */
   EmitBotEvent = 'emitBotEvent',
 
@@ -152,7 +152,7 @@ export interface ShardChangedStateRequest extends ShardRequest {
     state: BotShardState;
 
     /**
-     * The Bot event ({@link BotEventsHandler}) to emit if all remaining shards share the same state
+     * The Bot event ({@link EventsHandler}) to emit if all remaining shards share the same state
      */
     botEvent: BotStateEvents;
   };
@@ -182,7 +182,7 @@ export interface ShardEmitBotEventRequest<E extends keyof Events> extends ShardR
     /**
      * The arguments this event requires
      */
-    args: Args<Events, E>;
+    args: Arguments<Events[E]>;
   };
 }
 
