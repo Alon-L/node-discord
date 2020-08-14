@@ -1,8 +1,8 @@
 import { Serializable } from 'child_process';
 import { BotCommunication } from './BotCommunication';
 import { BotConnection } from './BotConnection';
-import { CommandsHandler } from './command';
-import { BotEventsHandler } from './events';
+import { CommandsHandler } from './handlers/command';
+import { EventsHandler } from './handlers/events';
 import Collection from '../../Collection';
 import { BotEvent, botOptions, CacheOptions, WebsocketOptions } from '../../socket';
 import { ShardId, Snowflake } from '../../types';
@@ -74,7 +74,7 @@ export class Bot {
   /**
    * Responsible for handling all of the Bot's events
    */
-  public events: BotEventsHandler;
+  public events: EventsHandler;
 
   /**
    * Responsible for managing the bot connection to the Discord gateway
@@ -137,7 +137,7 @@ export class Bot {
     };
 
     this.commands = new CommandsHandler();
-    this.events = new BotEventsHandler();
+    this.events = new EventsHandler();
 
     this.connection = new BotConnection(this, token);
 

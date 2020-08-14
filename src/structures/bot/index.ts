@@ -1,5 +1,5 @@
-export * from './command';
-export * from './events';
+export * from './handlers/command';
+export * from './handlers/events';
 
 export * from './Bot';
 export * from './BotCommunication';
