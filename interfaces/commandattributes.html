@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>NotificationLevels | node-discord</title>
+	<title>CommandAttributes | node-discord</title>
 	<meta name="description" content="Documentation for node-discord">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="notificationlevels.html">NotificationLevels</a>
+					<a href="commandattributes.html">CommandAttributes</a>
 				</li>
 			</ul>
-			<h1>Enumeration NotificationLevels</h1>
+			<h1>Interface CommandAttributes</h1>
 		</div>
 	</div>
 </header>
@@ -67,45 +67,48 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Guild default notification levels</p>
+						<p>The attributes for a command</p>
 					</div>
 				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">CommandAttributes</span>
+					</li>
+				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Enumeration members</h3>
+							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="notificationlevels.html#allmessages" class="tsd-kind-icon">All<wbr>Messages</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="notificationlevels.html#onlymentions" class="tsd-kind-icon">Only<wbr>Mentions</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="commandattributes.html#name" class="tsd-kind-icon">name</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Enumeration members</h2>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="allmessages" class="tsd-anchor"></a>
-					<h3>All<wbr>Messages</h3>
-					<div class="tsd-signature tsd-kind-icon">All<wbr>Messages<span class="tsd-signature-symbol">:</span></div>
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="name" class="tsd-anchor"></a>
+					<h3>name</h3>
+					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cb2f0ac/src/structures/guild/Guild.ts#L37">src/structures/guild/Guild.ts:37</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cb2f0ac/src/structures/bot/command/Command.ts#L45">src/structures/bot/command/Command.ts:45</a></li>
 						</ul>
 					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="onlymentions" class="tsd-anchor"></a>
-					<h3>Only<wbr>Mentions</h3>
-					<div class="tsd-signature tsd-kind-icon">Only<wbr>Mentions<span class="tsd-signature-symbol">:</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cb2f0ac/src/structures/guild/Guild.ts#L38">src/structures/guild/Guild.ts:38</a></li>
-						</ul>
-					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The name of the command.
+							This is used for mapping the commands in the Bot&#39;s commands Collection <a href="../classes/commandshandler.html#commands">CommandsHandler.commands</a></p>
+						</div>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -121,14 +124,11 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-enum">
-						<a href="notificationlevels.html" class="tsd-kind-icon">Notification<wbr>Levels</a>
+					<li class="current tsd-kind-interface">
+						<a href="commandattributes.html" class="tsd-kind-icon">Command<wbr>Attributes</a>
 						<ul>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="notificationlevels.html#allmessages" class="tsd-kind-icon">All<wbr>Messages</a>
-							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="notificationlevels.html#onlymentions" class="tsd-kind-icon">Only<wbr>Mentions</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="commandattributes.html#name" class="tsd-kind-icon">name</a>
 							</li>
 						</ul>
 					</li>

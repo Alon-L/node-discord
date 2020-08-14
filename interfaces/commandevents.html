@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ShardChangedStateRequest | node-discord</title>
+	<title>CommandEvents | node-discord</title>
 	<meta name="description" content="Documentation for node-discord">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,31 +54,24 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="shardchangedstaterequest.html">ShardChangedStateRequest</a>
+					<a href="commandevents.html">CommandEvents</a>
 				</li>
 			</ul>
-			<h1>Interface ShardChangedStateRequest</h1>
+			<h1>Interface CommandEvents</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Request sent to the shard manager when a shard has changed its state</p>
-					</div>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="shardrequest.html" class="tsd-signature-type">ShardRequest</a>
+						<span class="tsd-signature-symbol">{}</span>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">ShardChangedStateRequest</span>
+								<span class="target">CommandEvents</span>
 							</li>
 						</ul>
 					</li>
@@ -91,9 +84,9 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite"><a href="shardchangedstaterequest.html#action" class="tsd-kind-icon">action</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="shardchangedstaterequest.html#identifier" class="tsd-kind-icon">identifier</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite"><a href="shardchangedstaterequest.html#payload" class="tsd-kind-icon">payload</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="commandevents.html#_commandevent_after_" class="tsd-kind-icon">[<wbr>Command<wbr>Event.<wbr>After]</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="commandevents.html#_commandevent_before_" class="tsd-kind-icon">[<wbr>Command<wbr>Event.<wbr>Before]</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="commandevents.html#_commandevent_execute_" class="tsd-kind-icon">[<wbr>Command<wbr>Event.<wbr>Execute]</a></li>
 							</ul>
 						</section>
 					</div>
@@ -101,65 +94,65 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite">
-					<a name="action" class="tsd-anchor"></a>
-					<h3>action</h3>
-					<div class="tsd-signature tsd-kind-icon">action<span class="tsd-signature-symbol">:</span> <a href="../enums/shardcommunicationaction.html#shardchangedstate" class="tsd-signature-type">ShardChangedState</a></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="_commandevent_after_" class="tsd-anchor"></a>
+					<h3>[<wbr>Command<wbr>Event.<wbr>After]</h3>
+					<div class="tsd-signature tsd-kind-icon">[<wbr>Command<wbr>Event.<wbr>After]<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
 					<aside class="tsd-sources">
-						<p>Overrides <a href="shardrequest.html">ShardRequest</a>.<a href="shardrequest.html#action">action</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cb2f0ac/src/structures/bot/BotCommunication.ts#L147">src/structures/bot/BotCommunication.ts:147</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-					<a name="identifier" class="tsd-anchor"></a>
-					<h3>identifier</h3>
-					<div class="tsd-signature tsd-kind-icon">identifier<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="shardrequest.html">ShardRequest</a>.<a href="shardrequest.html#identifier">identifier</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cb2f0ac/src/structures/bot/BotCommunication.ts#L27">src/structures/bot/BotCommunication.ts:27</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The Unix date of when this request was sent.
-							Used to identify the response of this request</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite">
-					<a name="payload" class="tsd-anchor"></a>
-					<h3>payload</h3>
-					<div class="tsd-signature tsd-kind-icon">payload<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>botEvent<span class="tsd-signature-symbol">: </span><a href="../globals.html#botstateevents" class="tsd-signature-type">BotStateEvents</a><span class="tsd-signature-symbol">; </span>state<span class="tsd-signature-symbol">: </span><a href="../enums/botshardstate.html" class="tsd-signature-type">BotShardState</a><span class="tsd-signature-symbol"> }</span></div>
-					<aside class="tsd-sources">
-						<p>Overrides <a href="shardrequest.html">ShardRequest</a>.<a href="shardrequest.html#payload">payload</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cb2f0ac/src/structures/bot/BotCommunication.ts#L148">src/structures/bot/BotCommunication.ts:148</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cb2f0ac/src/structures/bot/command/Command.ts#L33">src/structures/bot/command/Command.ts:33</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
 						<h4>Type declaration</h4>
 						<ul class="tsd-parameters">
-							<li class="tsd-parameter">
-								<h5>bot<wbr>Event<span class="tsd-signature-symbol">: </span><a href="../globals.html#botstateevents" class="tsd-signature-type">BotStateEvents</a></h5>
-								<div class="tsd-comment tsd-typography">
-									<div class="lead">
-										<p>The Bot event (<a href="../classes/boteventshandler.html">BotEventsHandler</a>) to emit if all remaining shards share the same state</p>
-									</div>
-								</div>
-							</li>
-							<li class="tsd-parameter">
-								<h5>state<span class="tsd-signature-symbol">: </span><a href="../enums/botshardstate.html" class="tsd-signature-type">BotShardState</a></h5>
-								<div class="tsd-comment tsd-typography">
-									<div class="lead">
-										<p>The new shard state</p>
-									</div>
-								</div>
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+									</li>
+								</ul>
 							</li>
 						</ul>
 					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="_commandevent_before_" class="tsd-anchor"></a>
+					<h3>[<wbr>Command<wbr>Event.<wbr>Before]</h3>
+					<div class="tsd-signature tsd-kind-icon">[<wbr>Command<wbr>Event.<wbr>Before]<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cb2f0ac/src/structures/bot/command/Command.ts#L32">src/structures/bot/command/Command.ts:32</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="_commandevent_execute_" class="tsd-anchor"></a>
+					<h3>[<wbr>Command<wbr>Event.<wbr>Execute]</h3>
+					<div class="tsd-signature tsd-kind-icon">[<wbr>Command<wbr>Event.<wbr>Execute]<span class="tsd-signature-symbol">:</span> <a href="../globals.html#commandexecutefunction" class="tsd-signature-type">CommandExecuteFunction</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cb2f0ac/src/structures/bot/command/Command.ts#L31">src/structures/bot/command/Command.ts:31</a></li>
+						</ul>
+					</aside>
 				</section>
 			</section>
 		</div>
@@ -176,16 +169,16 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="shardchangedstaterequest.html" class="tsd-kind-icon">Shard<wbr>Changed<wbr>State<wbr>Request</a>
+						<a href="commandevents.html" class="tsd-kind-icon">Command<wbr>Events</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite">
-								<a href="shardchangedstaterequest.html#action" class="tsd-kind-icon">action</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="commandevents.html#_commandevent_after_" class="tsd-kind-icon">[<wbr>Command<wbr>Event.<wbr>After]</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="shardchangedstaterequest.html#identifier" class="tsd-kind-icon">identifier</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="commandevents.html#_commandevent_before_" class="tsd-kind-icon">[<wbr>Command<wbr>Event.<wbr>Before]</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite">
-								<a href="shardchangedstaterequest.html#payload" class="tsd-kind-icon">payload</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="commandevents.html#_commandevent_execute_" class="tsd-kind-icon">[<wbr>Command<wbr>Event.<wbr>Execute]</a>
 							</li>
 						</ul>
 					</li>

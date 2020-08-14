@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>NotificationLevels | node-discord</title>
+	<title>CommandEvent | node-discord</title>
 	<meta name="description" content="Documentation for node-discord">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="notificationlevels.html">NotificationLevels</a>
+					<a href="commandevent.html">CommandEvent</a>
 				</li>
 			</ul>
-			<h1>Enumeration NotificationLevels</h1>
+			<h1>Enumeration CommandEvent</h1>
 		</div>
 	</div>
 </header>
@@ -67,7 +67,8 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Guild default notification levels</p>
+						<p>All possible events for a command to listen to.
+						You can register a listener method for any of these events by using the <a href="../globals.html#registerevent">RegisterEvent</a> decorator or by using the {@link Command.registerEvent} method</p>
 					</div>
 				</div>
 			</section>
@@ -78,8 +79,9 @@
 						<section class="tsd-index-section ">
 							<h3>Enumeration members</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="notificationlevels.html#allmessages" class="tsd-kind-icon">All<wbr>Messages</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="notificationlevels.html#onlymentions" class="tsd-kind-icon">Only<wbr>Mentions</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="commandevent.html#after" class="tsd-kind-icon">After</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="commandevent.html#before" class="tsd-kind-icon">Before</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="commandevent.html#execute" class="tsd-kind-icon">Execute</a></li>
 							</ul>
 						</section>
 					</div>
@@ -88,24 +90,49 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Enumeration members</h2>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="allmessages" class="tsd-anchor"></a>
-					<h3>All<wbr>Messages</h3>
-					<div class="tsd-signature tsd-kind-icon">All<wbr>Messages<span class="tsd-signature-symbol">:</span></div>
+					<a name="after" class="tsd-anchor"></a>
+					<h3>After</h3>
+					<div class="tsd-signature tsd-kind-icon">After<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;after&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cb2f0ac/src/structures/guild/Guild.ts#L37">src/structures/guild/Guild.ts:37</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cb2f0ac/src/structures/bot/command/Command.ts#L24">src/structures/bot/command/Command.ts:24</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>This will fire right after the command is executed</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="onlymentions" class="tsd-anchor"></a>
-					<h3>Only<wbr>Mentions</h3>
-					<div class="tsd-signature tsd-kind-icon">Only<wbr>Mentions<span class="tsd-signature-symbol">:</span></div>
+					<a name="before" class="tsd-anchor"></a>
+					<h3>Before</h3>
+					<div class="tsd-signature tsd-kind-icon">Before<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;before&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cb2f0ac/src/structures/guild/Guild.ts#L38">src/structures/guild/Guild.ts:38</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cb2f0ac/src/structures/bot/command/Command.ts#L14">src/structures/bot/command/Command.ts:14</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>This will fire right before the command is executed</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="execute" class="tsd-anchor"></a>
+					<h3>Execute</h3>
+					<div class="tsd-signature tsd-kind-icon">Execute<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;execute&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cb2f0ac/src/structures/bot/command/Command.ts#L19">src/structures/bot/command/Command.ts:19</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>This will fire when the command is executed</p>
+						</div>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -122,13 +149,16 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-enum">
-						<a href="notificationlevels.html" class="tsd-kind-icon">Notification<wbr>Levels</a>
+						<a href="commandevent.html" class="tsd-kind-icon">Command<wbr>Event</a>
 						<ul>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="notificationlevels.html#allmessages" class="tsd-kind-icon">All<wbr>Messages</a>
+								<a href="commandevent.html#after" class="tsd-kind-icon">After</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="notificationlevels.html#onlymentions" class="tsd-kind-icon">Only<wbr>Mentions</a>
+								<a href="commandevent.html#before" class="tsd-kind-icon">Before</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="commandevent.html#execute" class="tsd-kind-icon">Execute</a>
 							</li>
 						</ul>
 					</li>
