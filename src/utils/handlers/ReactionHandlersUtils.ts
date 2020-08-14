@@ -1,10 +1,8 @@
 import { HandlersUtils } from './HandlersUtils';
 import { Message, Emoji } from '../../structures';
-import { DMChannel, GuildTextChannel } from '../../structures/channels';
 
 /**
  * Provides util methods for all reactions-related handlers
-
  */
 export class ReactionHandlersUtils extends HandlersUtils {
   /**
