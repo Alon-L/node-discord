@@ -1,6 +1,7 @@
 'use strict';
 
 import { MessageCreate } from './MessageCreate';
+import { MessageDelete } from './MessageDelete';
 import { BotEvent } from '../../../src/socket';
 import { Bot } from '../../../src/structures';
 import config from '../../config.json';
@@ -12,6 +13,7 @@ bot.connection.connect();
   await bot.events.wait(BotEvent.Ready);
 
   new MessageCreate(bot);
+  new MessageDelete(bot);
 })();
 
 bot.events.on(BotEvent.Debug, console.log);

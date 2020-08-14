@@ -11,16 +11,16 @@ import {
 export class MessageCreate extends Event<BotEvent.MessageCreate> {
   @RegisterEventHandler(HandlerEvent.Execute)
   public a(message: Message): void {
-    console.log('On Message!', message.content);
+    console.log('On Message create!', message.content);
   }
 
   @RegisterEventHandler(HandlerEvent.Before)
   public b(): void {
-    console.log('On before Message!');
+    console.log('On before Message create!');
   }
 
   @RegisterEventHandler(HandlerEvent.After)
   public c(): void {
-    console.log('On after Message!');
+    console.log('On after Message create!');
   }
 }
