@@ -25,6 +25,10 @@ export class GuildRolesController extends BaseFetchAllController<Role> {
    * @returns {Promise<Collection<Snowflake, Role>>}
    */
   public async fetchAll(): Promise<Collection<Snowflake, Role>> {
-    return this.bot.api.fetchRoles(this.guild.id);
+    const roles = await this.bot.api.fetchRoles(this.guild.id);
+
+    this.cache.merge(roles);
+
+    return roles;
   }
 }
