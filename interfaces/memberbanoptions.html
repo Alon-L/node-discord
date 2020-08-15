@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>PermissibleType | node-discord</title>
+	<title>MemberBanOptions | node-discord</title>
 	<meta name="description" content="Documentation for node-discord">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="permissibletype.html">PermissibleType</a>
+					<a href="memberbanoptions.html">MemberBanOptions</a>
 				</li>
 			</ul>
-			<h1>Enumeration PermissibleType</h1>
+			<h1>Interface MemberBanOptions</h1>
 		</div>
 	</div>
 </header>
@@ -67,53 +67,61 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>The type of the permission overwrite</p>
+						<p>Options used when banning a member</p>
 					</div>
 				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">MemberBanOptions</span>
+					</li>
+				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Enumeration members</h3>
+							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="permissibletype.html#member" class="tsd-kind-icon">Member</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="permissibletype.html#role" class="tsd-kind-icon">Role</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="memberbanoptions.html#deletemessagedays" class="tsd-kind-icon">delete<wbr>Message<wbr>Days</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="memberbanoptions.html#reason" class="tsd-kind-icon">reason</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Enumeration members</h2>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="member" class="tsd-anchor"></a>
-					<h3>Member</h3>
-					<div class="tsd-signature tsd-kind-icon">Member<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;member&quot;</span></div>
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="deletemessagedays" class="tsd-anchor"></a>
+					<h3>delete<wbr>Message<wbr>Days</h3>
+					<div class="tsd-signature tsd-kind-icon">delete<wbr>Message<wbr>Days<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/863fb38/src/structures/flags/PermissionFlags.ts#L12">src/structures/flags/PermissionFlags.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/863fb38/src/structures/member/Member.ts#L58">src/structures/member/Member.ts:58</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The permission overwrite is for a member</p>
+							<p>Number of days to delete messages for (0-7)</p>
 						</div>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="role" class="tsd-anchor"></a>
-					<h3>Role</h3>
-					<div class="tsd-signature tsd-kind-icon">Role<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;role&quot;</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="reason" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> reason</h3>
+					<div class="tsd-signature tsd-kind-icon">reason<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/863fb38/src/structures/flags/PermissionFlags.ts#L17">src/structures/flags/PermissionFlags.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/863fb38/src/structures/member/Member.ts#L53">src/structures/member/Member.ts:53</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The permission overwrite is for a role</p>
+							<p>Reason for the ban</p>
 						</div>
 					</div>
 				</section>
@@ -131,14 +139,14 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-enum">
-						<a href="permissibletype.html" class="tsd-kind-icon">Permissible<wbr>Type</a>
+					<li class="current tsd-kind-interface">
+						<a href="memberbanoptions.html" class="tsd-kind-icon">Member<wbr>Ban<wbr>Options</a>
 						<ul>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="permissibletype.html#member" class="tsd-kind-icon">Member</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="memberbanoptions.html#deletemessagedays" class="tsd-kind-icon">delete<wbr>Message<wbr>Days</a>
 							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="permissibletype.html#role" class="tsd-kind-icon">Role</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="memberbanoptions.html#reason" class="tsd-kind-icon">reason</a>
 							</li>
 						</ul>
 					</li>
