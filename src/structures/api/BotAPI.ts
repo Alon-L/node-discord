@@ -69,9 +69,13 @@ export class BotAPI {
    * @returns {Promise<Channel>}
    */
   public async fetchChannel(channelId: Snowflake): Promise<Channel> {
-    const channel = await this.requests.send(EndpointRoute.Channel, { channelId }, HttpMethod.Get);
+    const channel = await this.requests.send<GatewayStruct>(
+      EndpointRoute.Channel,
+      { channelId },
+      HttpMethod.Get,
+    );
 
-    return new Channel(this.bot, channel!);
+    return new Channel(this.bot, channel);
   }
 
   /**
@@ -110,7 +114,7 @@ export class BotAPI {
     channelId: Snowflake,
     options: GuildChannelOptions,
   ): Promise<GuildChannel> {
-    const channelData = await this.requests.send(
+    const channelData = await this.requests.send<GatewayStruct>(
       EndpointRoute.Channel,
       { channelId },
       HttpMethod.Patch,
@@ -119,8 +123,8 @@ export class BotAPI {
 
     return ChannelUtils.createGuildChannel(
       this.bot,
-      channelData!,
-      await ChannelUtils.getChannelGuild(this.bot, channelData!),
+      channelData,
+      await ChannelUtils.getChannelGuild(this.bot, channelData),
     );
   }
 
@@ -131,13 +135,13 @@ export class BotAPI {
    * @returns {Promise<Channel>}
    */
   public async deleteChannel(channelId: Snowflake): Promise<Channel> {
-    const channelData = await this.requests.send(
+    const channelData = await this.requests.send<GatewayStruct>(
       EndpointRoute.Channel,
       { channelId },
       HttpMethod.Delete,
     );
 
-    return ChannelUtils.create(this.bot, channelData!);
+    return ChannelUtils.create(this.bot, channelData);
   }
 
   /**
@@ -187,7 +191,7 @@ export class BotAPI {
    * @returns {Promise<Message>}
    */
   public async fetchMessage(channelId: Snowflake, messageId: Snowflake): Promise<Message> {
-    const message = await this.requests.send(
+    const message = await this.requests.send<GatewayStruct>(
       EndpointRoute.ChannelMessage,
       { channelId, messageId },
       HttpMethod.Get,
@@ -195,7 +199,7 @@ export class BotAPI {
 
     const channel = await this.bot.channels.getText(channelId);
 
-    return new Message(this.bot, message!, channel);
+    return new Message(this.bot, message, channel);
   }
 
   // TODO: Add the ability to send files and attachments
@@ -237,7 +241,7 @@ export class BotAPI {
       Object.assign(params, APISerializer.messageData(data));
     }
 
-    const messageData = await this.requests.send(
+    const messageData = await this.requests.send<GatewayStruct>(
       EndpointRoute.ChannelMessages,
       { channelId },
       HttpMethod.Post,
@@ -246,7 +250,7 @@ export class BotAPI {
 
     const channel = await this.bot.channels.getText(channelId);
 
-    return new Message(this.bot, messageData!, channel);
+    return new Message(this.bot, messageData, channel);
   }
 
   /**
@@ -419,7 +423,7 @@ export class BotAPI {
       Object.assign(params, { ...APISerializer.messageData(data), flags: data.flags?.bits });
     }
 
-    const messageData = await this.requests.send(
+    const messageData = await this.requests.send<GatewayStruct>(
       EndpointRoute.ChannelMessage,
       { channelId, messageId },
       HttpMethod.Patch,
@@ -428,7 +432,7 @@ export class BotAPI {
 
     const channel = await this.bot.channels.getText(channelId);
 
-    return new Message(this.bot, messageData!, channel);
+    return new Message(this.bot, messageData, channel);
   }
 
   /**
@@ -521,14 +525,14 @@ export class BotAPI {
    * @returns {Promise<Invite>}
    */
   public async createChannelInvite(channelId: Snowflake, options?: InviteOptions): Promise<Invite> {
-    const invite = await this.requests.send(
+    const invite = await this.requests.send<GatewayStruct>(
       EndpointRoute.ChannelInvites,
       { channelId },
       HttpMethod.Post,
       APISerializer.inviteOptions(options),
     );
 
-    return new Invite(this.bot, invite!);
+    return new Invite(this.bot, invite);
   }
 
   /**
@@ -635,7 +639,7 @@ export class BotAPI {
    * @returns {Promise<GuildEmoji>}
    */
   public async fetchGuildEmoji(guildId: Snowflake, emojiId: Snowflake): Promise<GuildEmoji> {
-    const emoji = await this.requests.send(
+    const emoji = await this.requests.send<GatewayStruct>(
       EndpointRoute.GuildEmoji,
       { guildId, emojiId },
       HttpMethod.Get,
@@ -643,7 +647,7 @@ export class BotAPI {
 
     const guild = await this.bot.guilds.get(guildId);
 
-    return new GuildEmoji(this.bot, emoji!, guild);
+    return new GuildEmoji(this.bot, emoji, guild);
   }
 
   /**
@@ -657,7 +661,7 @@ export class BotAPI {
     guildId: Snowflake,
     options: CreateEmojiOptions,
   ): Promise<GuildEmoji> {
-    const emoji = await this.requests.send(
+    const emoji = await this.requests.send<GatewayStruct>(
       EndpointRoute.GuildEmojis,
       { guildId },
       HttpMethod.Post,
@@ -666,7 +670,7 @@ export class BotAPI {
 
     const guild = await this.bot.guilds.get(guildId);
 
-    return new GuildEmoji(this.bot, emoji!, guild);
+    return new GuildEmoji(this.bot, emoji, guild);
   }
 
   /**
@@ -682,7 +686,7 @@ export class BotAPI {
     emojiId: Snowflake,
     options: ModifyEmojiOptions,
   ): Promise<GuildEmoji> {
-    const emoji = await this.requests.send(
+    const emoji = await this.requests.send<GatewayStruct>(
       EndpointRoute.GuildEmoji,
       { guildId, emojiId },
       HttpMethod.Patch,
@@ -691,7 +695,7 @@ export class BotAPI {
 
     const guild = await this.bot.guilds.get(guildId);
 
-    return new GuildEmoji(this.bot, emoji!, guild);
+    return new GuildEmoji(this.bot, emoji, guild);
   }
 
   /**
@@ -711,14 +715,14 @@ export class BotAPI {
    * @returns {Promise<Guild>}
    */
   public async fetchGuild(guildId: Snowflake, options?: FetchGuildOptions): Promise<Guild> {
-    const guild = await this.requests.send(
+    const guild = await this.requests.send<GatewayStruct>(
       EndpointRoute.Guild,
       { guildId },
       HttpMethod.Get,
       APISerializer.fetchGuildOptions(options),
     );
 
-    return new Guild(this.bot, guild!);
+    return new Guild(this.bot, guild);
   }
 
   /**
@@ -728,13 +732,13 @@ export class BotAPI {
    * @returns {Promise<GuildPreview>}
    */
   public async fetchGuildPreview(guildId: Snowflake): Promise<GuildPreview> {
-    const preview = await this.requests.send(
+    const preview = await this.requests.send<GatewayStruct>(
       EndpointRoute.GuildPreview,
       { guildId },
       HttpMethod.Get,
     );
 
-    return new GuildPreview(this.bot, preview!);
+    return new GuildPreview(this.bot, preview);
   }
 
   /**
@@ -745,14 +749,14 @@ export class BotAPI {
    * @returns {Promise<Guild>}
    */
   public async modifyGuild(guildId: Snowflake, options: ModifyGuildOptions): Promise<Guild> {
-    const guild = await this.requests.send(
+    const guild = await this.requests.send<GatewayStruct>(
       EndpointRoute.Guild,
       { guildId },
       HttpMethod.Patch,
       APISerializer.modifyGuildOptions(options),
     );
 
-    return new Guild(this.bot, guild!);
+    return new Guild(this.bot, guild);
   }
 
   /**
@@ -790,7 +794,7 @@ export class BotAPI {
     guildId: Snowflake,
     options: CreateGuildChannelOptions,
   ): Promise<GuildChannel> {
-    const channel = await this.requests.send(
+    const channel = await this.requests.send<GatewayStruct>(
       EndpointRoute.GuildChannels,
       { guildId },
       HttpMethod.Post,
@@ -799,7 +803,7 @@ export class BotAPI {
 
     const guild = await this.bot.guilds.get(guildId);
 
-    return ChannelUtils.createGuildChannel(this.bot, channel!, guild);
+    return ChannelUtils.createGuildChannel(this.bot, channel, guild);
   }
 
   /**
@@ -830,7 +834,7 @@ export class BotAPI {
    * @returns {Promise<Member>}
    */
   public async fetchMember(guildId: Snowflake, userId: Snowflake): Promise<Member> {
-    const member = await this.requests.send(
+    const member = await this.requests.send<GatewayStruct>(
       EndpointRoute.GuildMember,
       { guildId, userId },
       HttpMethod.Get,
@@ -838,7 +842,7 @@ export class BotAPI {
 
     const guild = await this.bot.guilds.get(guildId);
 
-    return new Member(this.bot, member!, guild);
+    return new Member(this.bot, member, guild);
   }
 
   /**
@@ -981,14 +985,14 @@ export class BotAPI {
    * @returns {Promise<Invite>}
    */
   public async fetchInvite(inviteCode: string, options?: FetchInviteOptions): Promise<Invite> {
-    const invite = await this.requests.send(
+    const invite = await this.requests.send<GatewayStruct>(
       EndpointRoute.Invite,
       { inviteCode },
       HttpMethod.Get,
       APISerializer.fetchInviteOptions(options),
     );
 
-    return new Invite(this.bot, invite!);
+    return new Invite(this.bot, invite);
   }
 
   /**
@@ -998,12 +1002,12 @@ export class BotAPI {
    * @returns {Promise<Invite>}
    */
   public async deleteInvite(inviteCode: string): Promise<Invite> {
-    const invite = await this.requests.send(
+    const invite = await this.requests.send<GatewayStruct>(
       EndpointRoute.Invite,
       { inviteCode },
       HttpMethod.Delete,
     );
 
-    return new Invite(this.bot, invite!);
+    return new Invite(this.bot, invite);
   }
 }
