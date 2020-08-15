@@ -886,6 +886,44 @@ export class BotAPI {
   }
 
   /**
+   * Modify a guild member's nickname.
+   * Returns the modified nickname when changing this bot's nickname or void when changing another member's nickname
+   * @param {Snowflake} guildId The ID of the guild
+   * @param {Snowflake} userId The ID of the member user
+   * @param {string} nick The new nickname
+   * @returns {Promise<string | void>}
+   */
+  public modifyGuildMemberNickname(
+    guildId: Snowflake,
+    userId: Snowflake,
+    nick?: string,
+  ): Promise<string | void> {
+    if (userId === this.bot.user?.id) {
+      return this.modifyBotNickname(guildId, nick);
+    } else {
+      return this.modifyGuildMember(guildId, userId, { nick });
+    }
+  }
+
+  /**
+   * Modifies the nickname of the bot user in a guild.
+   * Returns the modified nickname
+   * @param {Snowflake} guildId The ID of the guild
+   * @param {string} nick The new nickname for the bot
+   * @returns {Promise<string>}
+   */
+  public async modifyBotNickname(guildId: Snowflake, nick?: string): Promise<string> {
+    return await this.requests.send<string>(
+      EndpointRoute.GuildMemberBotNick,
+      { guildId },
+      HttpMethod.Patch,
+      {
+        nick,
+      },
+    );
+  }
+
+  /**
    * Fetches an invite by its invite code
    * @param {string} inviteCode The invite code
    * @param {FetchInviteOptions} options An additional set of options for the invite

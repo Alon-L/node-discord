@@ -150,4 +150,13 @@ export class Member extends GuildBaseStruct {
   public async modify(options: ModifyMemberOptions): Promise<void> {
     return this.bot.api.modifyGuildMember(this.guild.id, this.id, options);
   }
+
+  /**
+   * Modifies the nickname of this member
+   * @param {string} nick The new nickname
+   * @returns {Promise<string | void>}
+   */
+  public async modifyNickname(nick: string): Promise<string | void> {
+    return this.bot.api.modifyGuildMemberNickname(this.guild.id, this.id, nick);
+  }
 }
