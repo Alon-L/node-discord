@@ -71,7 +71,7 @@ export class HandlerItem<
     ...args: Parameters<TEvents[T]>
   ): Promise<void> {
     for (const handler of this.handlers[event]) {
-      await handler(...args);
+      await handler.bind(this)(...args);
     }
   }
 
