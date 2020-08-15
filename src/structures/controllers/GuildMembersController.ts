@@ -67,6 +67,15 @@ export class GuildMembersController extends BaseFetchController<Member>
   }
 
   /**
+   * Removes a user from this guild by its user ID
+   * @param {Snowflake} userId The ID of the user
+   * @returns {Promise<void>}
+   */
+  public async remove(userId: Snowflake): Promise<void> {
+    return this.bot.api.removeMember(this.guild.id, userId);
+  }
+
+  /**
    * Returns the bot member in the guild
    * @type {Member | undefined}
    */

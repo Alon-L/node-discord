@@ -25,11 +25,7 @@ bot.connection.connect();
   member.roles.remove(roleId);
   await bot.events.wait(BotEvent.GuildMemberUpdate);
 
-  console.log(
-    !member.roles.cache.has(roleId),
-    'whether the member has the role',
-    'expected: false',
-  ); // expected: false
+  console.log(member.roles.cache.has(roleId), 'whether the member has the role', 'expected: false'); // expected: false
 })();
 
 bot.events.on(BotEvent.Debug, console.log);

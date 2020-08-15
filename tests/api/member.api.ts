@@ -37,6 +37,17 @@ bot.connection.connect();
     "whether the bot member's nickname was correctly updated",
     'expected: true',
   ); // expected: true
+
+  const memberToRemove = await guild.members.get('383614643664584716');
+
+  memberToRemove.remove();
+  await bot.events.wait(BotEvent.GuildMemberRemove);
+
+  console.log(
+    guild.members.cache.has(memberToRemove.id),
+    'whether the member is still in the guild',
+    'expected: false',
+  ); // expected: false
 })();
 
 bot.events.on(BotEvent.Debug, console.log);

@@ -964,6 +964,17 @@ export class BotAPI {
   }
 
   /**
+   * Removes a member from a guild.
+   * Requires the {@link Permission.KickMembers} permission
+   * @param {Snowflake} guildId The ID of the guild
+   * @param {Snowflake} userId The ID of the user to remove
+   * @returns {Promise<void>}
+   */
+  public async removeMember(guildId: Snowflake, userId: Snowflake): Promise<void> {
+    await this.requests.send(EndpointRoute.GuildMember, { guildId, userId }, HttpMethod.Delete);
+  }
+
+  /**
    * Fetches an invite by its invite code
    * @param {string} inviteCode The invite code
    * @param {FetchInviteOptions} options An additional set of options for the invite

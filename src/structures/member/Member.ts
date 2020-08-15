@@ -148,7 +148,7 @@ export class Member extends GuildBaseStruct {
    * @param {ModifyMemberOptions} options The options to modify for the member
    * @returns {Promise<void>}
    */
-  public async modify(options: ModifyMemberOptions): Promise<void> {
+  public modify(options: ModifyMemberOptions): Promise<void> {
     return this.bot.api.modifyMember(this.guild.id, this.id, options);
   }
 
@@ -157,7 +157,15 @@ export class Member extends GuildBaseStruct {
    * @param {string} nick The new nickname
    * @returns {Promise<string | void>}
    */
-  public async modifyNickname(nick: string): Promise<string | void> {
+  public modifyNickname(nick: string): Promise<string | void> {
     return this.bot.api.modifyMemberNickname(this.guild.id, this.id, nick);
+  }
+
+  /**
+   * Removes this member from the guild
+   * @returns {Promise<void>}
+   */
+  public remove(): Promise<void> {
+    return this.bot.api.removeMember(this.guild.id, this.id);
   }
 }
