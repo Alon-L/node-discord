@@ -64,6 +64,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>The <a href="../enums/handlerevent.html">HandlerEvent</a>s listeners signatures for commands</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -84,9 +91,9 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="commandevents.html#_commandevent_after_" class="tsd-kind-icon">[<wbr>Command<wbr>Event.<wbr>After]</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="commandevents.html#_commandevent_before_" class="tsd-kind-icon">[<wbr>Command<wbr>Event.<wbr>Before]</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="commandevents.html#_commandevent_execute_" class="tsd-kind-icon">[<wbr>Command<wbr>Event.<wbr>Execute]</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="commandevents.html#_handlerevent_after_" class="tsd-kind-icon">[<wbr>Handler<wbr>Event.<wbr>After]</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="commandevents.html#_handlerevent_before_" class="tsd-kind-icon">[<wbr>Handler<wbr>Event.<wbr>Before]</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="commandevents.html#_handlerevent_execute_" class="tsd-kind-icon">[<wbr>Handler<wbr>Event.<wbr>Execute]</a></li>
 							</ul>
 						</section>
 					</div>
@@ -95,12 +102,12 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="_commandevent_after_" class="tsd-anchor"></a>
-					<h3>[<wbr>Command<wbr>Event.<wbr>After]</h3>
-					<div class="tsd-signature tsd-kind-icon">[<wbr>Command<wbr>Event.<wbr>After]<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
+					<a name="_handlerevent_after_" class="tsd-anchor"></a>
+					<h3>[<wbr>Handler<wbr>Event.<wbr>After]</h3>
+					<div class="tsd-signature tsd-kind-icon">[<wbr>Handler<wbr>Event.<wbr>After]<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cb2f0ac/src/structures/bot/command/Command.ts#L33">src/structures/bot/command/Command.ts:33</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/21ec68d/src/structures/bot/handlers/command/Command.ts#L15">src/structures/bot/handlers/command/Command.ts:15</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -120,12 +127,12 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="_commandevent_before_" class="tsd-anchor"></a>
-					<h3>[<wbr>Command<wbr>Event.<wbr>Before]</h3>
-					<div class="tsd-signature tsd-kind-icon">[<wbr>Command<wbr>Event.<wbr>Before]<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
+					<a name="_handlerevent_before_" class="tsd-anchor"></a>
+					<h3>[<wbr>Handler<wbr>Event.<wbr>Before]</h3>
+					<div class="tsd-signature tsd-kind-icon">[<wbr>Handler<wbr>Event.<wbr>Before]<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cb2f0ac/src/structures/bot/command/Command.ts#L32">src/structures/bot/command/Command.ts:32</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/21ec68d/src/structures/bot/handlers/command/Command.ts#L14">src/structures/bot/handlers/command/Command.ts:14</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -145,12 +152,12 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="_commandevent_execute_" class="tsd-anchor"></a>
-					<h3>[<wbr>Command<wbr>Event.<wbr>Execute]</h3>
-					<div class="tsd-signature tsd-kind-icon">[<wbr>Command<wbr>Event.<wbr>Execute]<span class="tsd-signature-symbol">:</span> <a href="../globals.html#commandexecutefunction" class="tsd-signature-type">CommandExecuteFunction</a></div>
+					<a name="_handlerevent_execute_" class="tsd-anchor"></a>
+					<h3>[<wbr>Handler<wbr>Event.<wbr>Execute]</h3>
+					<div class="tsd-signature tsd-kind-icon">[<wbr>Handler<wbr>Event.<wbr>Execute]<span class="tsd-signature-symbol">:</span> <a href="../globals.html#commandexecutefunction" class="tsd-signature-type">CommandExecuteFunction</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cb2f0ac/src/structures/bot/command/Command.ts#L31">src/structures/bot/command/Command.ts:31</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/21ec68d/src/structures/bot/handlers/command/Command.ts#L13">src/structures/bot/handlers/command/Command.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -172,13 +179,13 @@
 						<a href="commandevents.html" class="tsd-kind-icon">Command<wbr>Events</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="commandevents.html#_commandevent_after_" class="tsd-kind-icon">[<wbr>Command<wbr>Event.<wbr>After]</a>
+								<a href="commandevents.html#_handlerevent_after_" class="tsd-kind-icon">[<wbr>Handler<wbr>Event.<wbr>After]</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="commandevents.html#_commandevent_before_" class="tsd-kind-icon">[<wbr>Command<wbr>Event.<wbr>Before]</a>
+								<a href="commandevents.html#_handlerevent_before_" class="tsd-kind-icon">[<wbr>Handler<wbr>Event.<wbr>Before]</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="commandevents.html#_commandevent_execute_" class="tsd-kind-icon">[<wbr>Command<wbr>Event.<wbr>Execute]</a>
+								<a href="commandevents.html#_handlerevent_execute_" class="tsd-kind-icon">[<wbr>Handler<wbr>Event.<wbr>Execute]</a>
 							</li>
 						</ul>
 					</li>

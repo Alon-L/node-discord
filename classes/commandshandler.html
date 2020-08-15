@@ -79,6 +79,12 @@
 					</li>
 				</ul>
 			</section>
+			<section class="tsd-panel">
+				<h3>Implements</h3>
+				<ul class="tsd-hierarchy">
+					<li><a href="handler.html" class="tsd-signature-type">Handler</a><span class="tsd-signature-symbol">&lt;</span><a href="command.html" class="tsd-signature-type">Command</a><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
@@ -117,7 +123,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cb2f0ac/src/structures/bot/command/CommandsHandler.ts#L11">src/structures/bot/command/CommandsHandler.ts:11</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/21ec68d/src/structures/bot/handlers/command/CommandsHandler.ts#L12">src/structures/bot/handlers/command/CommandsHandler.ts:12</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="commandshandler.html" class="tsd-signature-type">CommandsHandler</a></h4>
@@ -133,12 +139,12 @@
 					<div class="tsd-signature tsd-kind-icon">commands<span class="tsd-signature-symbol">:</span> <a href="collection.html" class="tsd-signature-type">Collection</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="command.html" class="tsd-signature-type">Command</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cb2f0ac/src/structures/bot/command/CommandsHandler.ts#L11">src/structures/bot/command/CommandsHandler.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/21ec68d/src/structures/bot/handlers/command/CommandsHandler.ts#L12">src/structures/bot/handlers/command/CommandsHandler.ts:12</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The commands associated by their name</p>
+							<p>The commands associated to this handler mapped by their names</p>
 						</div>
 					</div>
 				</section>
@@ -149,13 +155,13 @@
 					<a name="execute" class="tsd-anchor"></a>
 					<h3>execute</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">execute<span class="tsd-signature-symbol">(</span>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, <span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Parameters</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">CommandEvents</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">Execute</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+						<li class="tsd-signature tsd-kind-icon">execute<span class="tsd-signature-symbol">(</span>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, <span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Parameters</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">CommandEvents</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">Execute</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cb2f0ac/src/structures/bot/command/CommandsHandler.ts#L31">src/structures/bot/command/CommandsHandler.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/21ec68d/src/structures/bot/handlers/command/CommandsHandler.ts#L24">src/structures/bot/handlers/command/CommandsHandler.ts:24</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -174,11 +180,11 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">Parameters</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">CommandEvents</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">Execute</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The arguments to give the command&#39;s <a href="../enums/commandevent.html#execute">CommandEvent.Execute</a> event handler</p>
+										<p>The arguments to give the command&#39;s <a href="../enums/handlerevent.html#execute">HandlerEvent.Execute</a> event handler</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -192,7 +198,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cb2f0ac/src/structures/bot/command/CommandsHandler.ts#L21">src/structures/bot/command/CommandsHandler.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/21ec68d/src/structures/bot/handlers/command/CommandsHandler.ts#L43">src/structures/bot/handlers/command/CommandsHandler.ts:43</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

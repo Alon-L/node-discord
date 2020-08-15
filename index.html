@@ -93,9 +93,6 @@
 						<a href="enums/channeltype.html" class="tsd-kind-icon">Channel<wbr>Type</a>
 					</li>
 					<li class=" tsd-kind-enum">
-						<a href="enums/commandevent.html" class="tsd-kind-icon">Command<wbr>Event</a>
-					</li>
-					<li class=" tsd-kind-enum">
 						<a href="enums/endpointroute.html" class="tsd-kind-icon">Endpoint<wbr>Route</a>
 					</li>
 					<li class=" tsd-kind-enum">
@@ -127,6 +124,9 @@
 					</li>
 					<li class=" tsd-kind-enum">
 						<a href="enums/guildsplashformat.html" class="tsd-kind-icon">Guild<wbr>Splash<wbr>Format</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/handlerevent.html" class="tsd-kind-icon">Handler<wbr>Event</a>
 					</li>
 					<li class=" tsd-kind-enum">
 						<a href="enums/httpmethod.html" class="tsd-kind-icon">Http<wbr>Method</a>
@@ -239,9 +239,6 @@
 					<li class=" tsd-kind-class">
 						<a href="classes/botconnection.html" class="tsd-kind-icon">Bot<wbr>Connection</a>
 					</li>
-					<li class=" tsd-kind-class tsd-has-type-parameter">
-						<a href="classes/boteventshandler.html" class="tsd-kind-icon">Bot<wbr>Events<wbr>Handler</a>
-					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/botguildscontroller.html" class="tsd-kind-icon">Bot<wbr>Guilds<wbr>Controller</a>
 					</li>
@@ -278,7 +275,7 @@
 					<li class=" tsd-kind-class tsd-has-type-parameter">
 						<a href="classes/collection.html" class="tsd-kind-icon">Collection</a>
 					</li>
-					<li class=" tsd-kind-class tsd-has-type-parameter">
+					<li class=" tsd-kind-class">
 						<a href="classes/command.html" class="tsd-kind-icon">Command</a>
 					</li>
 					<li class=" tsd-kind-class">
@@ -292,6 +289,12 @@
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/emoji.html" class="tsd-kind-icon">Emoji</a>
+					</li>
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="classes/event.html" class="tsd-kind-icon">Event</a>
+					</li>
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="classes/eventshandler.html" class="tsd-kind-icon">Events<wbr>Handler</a>
 					</li>
 					<li class=" tsd-kind-class tsd-has-type-parameter">
 						<a href="classes/flags.html" class="tsd-kind-icon">Flags</a>
@@ -337,6 +340,12 @@
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/guildunavailable.html" class="tsd-kind-icon">Guild<wbr>Unavailable</a>
+					</li>
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="classes/handler.html" class="tsd-kind-icon">Handler</a>
+					</li>
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="classes/handleritem.html" class="tsd-kind-icon">Handler<wbr>Item</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/handlersutils.html" class="tsd-kind-icon">Handlers<wbr>Utils</a>
@@ -430,6 +439,15 @@
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/emojioptions.html" class="tsd-kind-icon">Emoji<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-has-type-parameter">
+						<a href="interfaces/eventattributes.html" class="tsd-kind-icon">Event<wbr>Attributes</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-has-type-parameter">
+						<a href="interfaces/eventevents.html" class="tsd-kind-icon">Event<wbr>Events</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/events.html" class="tsd-kind-icon">Events</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/fetchguildoptions.html" class="tsd-kind-icon">Fetch<wbr>Guild<wbr>Options</a>
@@ -530,9 +548,6 @@
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/messagereference.html" class="tsd-kind-icon">Message<wbr>Reference</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-has-type-parameter">
-						<a href="interfaces/methods.html" class="tsd-kind-icon">Methods</a>
-					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/modifyguildoptions.html" class="tsd-kind-icon">Modify<wbr>Guild<wbr>Options</a>
 					</li>
@@ -626,14 +641,8 @@
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/websocketoptions.html" class="tsd-kind-icon">Websocket<wbr>Options</a>
 					</li>
-					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-						<a href="globals.html#args" class="tsd-kind-icon">Args</a>
-					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#avatarformat" class="tsd-kind-icon">Avatar<wbr>Format</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-						<a href="globals.html#base" class="tsd-kind-icon">Base</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#basestructwithid" class="tsd-kind-icon">Base<wbr>Struct<wbr>With<wbr>Id</a>
@@ -653,26 +662,11 @@
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#data" class="tsd-kind-icon">Data</a>
 					</li>
-					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-						<a href="globals.html#emiteventnames" class="tsd-kind-icon">Emit<wbr>Event<wbr>Names</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-						<a href="globals.html#emitevents" class="tsd-kind-icon">Emit<wbr>Events</a>
-					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#emojiresolvable" class="tsd-kind-icon">Emoji<wbr>Resolvable</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#eventhandlers" class="tsd-kind-icon">Event<wbr>Handlers</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-						<a href="globals.html#eventnames" class="tsd-kind-icon">Event<wbr>Names</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-						<a href="globals.html#evented" class="tsd-kind-icon">Evented</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-						<a href="globals.html#events" class="tsd-kind-icon">Events</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#gatewaystruct" class="tsd-kind-icon">Gateway<wbr>Struct</a>
@@ -680,23 +674,20 @@
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#guildchannelpositions" class="tsd-kind-icon">Guild<wbr>Channel<wbr>Positions</a>
 					</li>
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+						<a href="globals.html#handlerattributes" class="tsd-kind-icon">Handler<wbr>Attributes</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#handlerfunction" class="tsd-kind-icon">Handler<wbr>Function</a>
+					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#invitecode" class="tsd-kind-icon">Invite<wbr>Code</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-						<a href="globals.html#listener" class="tsd-kind-icon">Listener</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#modifyemojioptions" class="tsd-kind-icon">Modify<wbr>Emoji<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
 						<a href="globals.html#nullable" class="tsd-kind-icon">Nullable</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-						<a href="globals.html#oneventnames" class="tsd-kind-icon">On<wbr>Event<wbr>Names</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-						<a href="globals.html#onevents" class="tsd-kind-icon">On<wbr>Events</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#params" class="tsd-kind-icon">Params</a>
@@ -718,12 +709,6 @@
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#snowflake" class="tsd-kind-icon">Snowflake</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-						<a href="globals.html#strictbroadcast" class="tsd-kind-icon">Strict<wbr>Broadcast</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-						<a href="globals.html#stricteventemitter" class="tsd-kind-icon">Strict<wbr>Event<wbr>Emitter</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#textbasedchannel" class="tsd-kind-icon">Text<wbr>Based<wbr>Channel</a>
@@ -756,9 +741,6 @@
 						<a href="globals.html#majorkeys" class="tsd-kind-icon">major<wbr>Keys</a>
 					</li>
 					<li class=" tsd-kind-variable">
-						<a href="globals.html#meta" class="tsd-kind-icon">meta</a>
-					</li>
-					<li class=" tsd-kind-variable">
 						<a href="globals.html#paramsmethods" class="tsd-kind-icon">params<wbr>Methods</a>
 					</li>
 					<li class=" tsd-kind-variable">
@@ -774,7 +756,13 @@
 						<a href="globals.html#registercommand" class="tsd-kind-icon">Register<wbr>Command</a>
 					</li>
 					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#registercommandhandler" class="tsd-kind-icon">Register<wbr>Command<wbr>Handler</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
 						<a href="globals.html#registerevent" class="tsd-kind-icon">Register<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#registereventhandler" class="tsd-kind-icon">Register<wbr>Event<wbr>Handler</a>
 					</li>
 					<li class=" tsd-kind-object-literal">
 						<a href="globals.html#endpoints" class="tsd-kind-icon">Endpoints</a>
