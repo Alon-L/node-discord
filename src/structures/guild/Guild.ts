@@ -16,6 +16,7 @@ import {
   GuildInvitesController,
   GuildMembersController,
 } from '../controllers';
+import { GuildBansController } from '../controllers/GuildBansController';
 import { GuildSystemChannelFlags, PermissionFlags } from '../flags';
 import { Member, MemberPresence } from '../member';
 
@@ -386,12 +387,10 @@ export class Guild extends GuildPreview {
   /**
    * All cached guild bans
    */
-  public bans: Collection<Snowflake, Member | User>;
+  public bans!: GuildBansController;
 
   constructor(bot: Bot, guild: GatewayStruct) {
     super(bot, guild);
-
-    this.bans = new Collection<Snowflake, Member>();
   }
 
   /**
@@ -411,6 +410,8 @@ export class Guild extends GuildPreview {
     this.channels = new GuildChannelsController(this);
 
     this.invites = new GuildInvitesController(this);
+
+    this.bans = new GuildBansController(this);
 
     if (guild.channels) {
       this.channels.cache.addMany(

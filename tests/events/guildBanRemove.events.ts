@@ -1,17 +1,17 @@
 'use strict';
 
 import { BotEvent } from '../../src/socket';
-import { Bot, User } from '../../src/structures';
-import { Guild, GuildUnavailable } from '../../src/structures/guild';
+import { Bot } from '../../src/structures';
+import { GuildBan } from '../../src/structures/guild/GuildBan';
 import config from '../config.json';
 
 const bot = new Bot(config.token);
 bot.connection.connect();
 
 (async function (): Promise<void> {
-  bot.events.on(BotEvent.GuildBanRemove, (guild: Guild | GuildUnavailable, user: User) => {
-    if (guild instanceof Guild) {
-      console.log(guild.name, user.username);
+  bot.events.on(BotEvent.GuildBanRemove, (ban: GuildBan | undefined) => {
+    if (ban) {
+      console.log(ban.guild.name, ban.user.username);
     }
   });
 

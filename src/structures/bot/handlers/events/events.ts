@@ -9,6 +9,7 @@ import { Timestamp } from '../../../Timestamp';
 import { User } from '../../../User';
 import { Channel, GuildChannel } from '../../../channels';
 import { Guild, GuildUnavailable } from '../../../guild';
+import { GuildBan } from '../../../guild/GuildBan';
 import { Member, MemberPresence } from '../../../member';
 import { Message, PartialMessage, MessageReaction } from '../../../message';
 
@@ -104,21 +105,19 @@ declare function GUILD_DELETE(guild: Guild | GuildUnavailable): unknown;
 
 /**
  * Sent when a user is banned from a guild
- * @param {Guild | GuildUnavailable} guild The guild where this ban occurred
- * @param {Member | User} member The member that has been banned
+ * @param {GuildBan} ban The guild ban object
  * @asMemberOf EventsHandler
  * @event BotEventHandler#GUILD_BAN_ADD
  */
-declare function GUILD_BAN_ADD(guild: Guild, member: Member | User): unknown;
+declare function GUILD_BAN_ADD(ban: GuildBan): unknown;
 
 /**
  * Sent when a user is unbanned from a guild.
- * @param {Guild | GuildUnavailable} guild The guild where this un-ban occurred
- * @param {User} user The user that been unbanned
+ * @param {GuildBan} ban The guild ban object. Possibly undefined if the ban is yet to be cached
  * @asMemberOf EventsHandler
  * @event BotEventsHandler#GUILD_BAN_ADD
  */
-declare function GUILD_BAN_REMOVE(guild: Guild, user: User): unknown;
+declare function GUILD_BAN_REMOVE(ban: GuildBan | undefined): unknown;
 
 /**
  * Sent when a guild's emojis have been updated.
