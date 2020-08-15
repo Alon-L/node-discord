@@ -26,7 +26,11 @@ export class GuildBansController extends BaseFetchController<GuildBan>
    * @returns {Promise<Collection<Snowflake, GuildBan>>}
    */
   public async fetchAll(): Promise<Collection<Snowflake, GuildBan>> {
-    return this.bot.api.fetchGuildBans(this.guild.id);
+    const bans = await this.bot.api.fetchGuildBans(this.guild.id);
+
+    this.cache.merge(bans);
+
+    return bans;
   }
 
   /**
@@ -35,7 +39,11 @@ export class GuildBansController extends BaseFetchController<GuildBan>
    * @returns {Promise<GuildBan>}
    */
   public async fetch(id: Snowflake): Promise<GuildBan> {
-    return this.bot.api.fetchGuildBan(this.guild.id, id);
+    const ban = await this.bot.api.fetchGuildBan(this.guild.id, id);
+
+    this.cache.add(ban);
+
+    return ban;
   }
 
   /**
