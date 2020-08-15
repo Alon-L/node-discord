@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ReactionUsersController | node-discord</title>
+	<title>MemberRolesController | node-discord</title>
 	<meta name="description" content="Documentation for node-discord">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="reactionuserscontroller.html">ReactionUsersController</a>
+					<a href="memberrolescontroller.html">MemberRolesController</a>
 				</li>
 			</ul>
-			<h1>Class ReactionUsersController</h1>
+			<h1>Class MemberRolesController</h1>
 		</div>
 	</div>
 </header>
@@ -67,8 +67,8 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Interface for the users that added a reaction identified by its emoji.
-						The users are mapped by their IDs</p>
+						<p>Provides an interface for a member&#39;s roles cache.
+						The roles are mapped by their IDs</p>
 					</div>
 				</div>
 			</section>
@@ -76,10 +76,10 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="basefetchallcontroller.html" class="tsd-signature-type">BaseFetchAllController</a><span class="tsd-signature-symbol">&lt;</span><a href="user.html" class="tsd-signature-type">User</a><span class="tsd-signature-symbol">&gt;</span>
+						<a href="basecontroller.html" class="tsd-signature-type">BaseController</a><span class="tsd-signature-symbol">&lt;</span><a href="role.html" class="tsd-signature-type">Role</a><span class="tsd-signature-symbol">&gt;</span>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">ReactionUsersController</span>
+								<span class="target">MemberRolesController</span>
 							</li>
 						</ul>
 					</li>
@@ -92,20 +92,21 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="reactionuserscontroller.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="memberrolescontroller.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="reactionuserscontroller.html#cache" class="tsd-kind-icon">cache</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="reactionuserscontroller.html#reaction" class="tsd-kind-icon">reaction</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="memberrolescontroller.html#cache" class="tsd-kind-icon">cache</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="memberrolescontroller.html#member" class="tsd-kind-icon">member</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="reactionuserscontroller.html#fetchall" class="tsd-kind-icon">fetch<wbr>All</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="memberrolescontroller.html#add" class="tsd-kind-icon">add</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="memberrolescontroller.html#remove" class="tsd-kind-icon">remove</a></li>
 							</ul>
 						</section>
 					</div>
@@ -117,23 +118,23 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Reaction<wbr>Users<wbr>Controller<span class="tsd-signature-symbol">(</span>reaction<span class="tsd-signature-symbol">: </span><a href="messagereaction.html" class="tsd-signature-type">MessageReaction</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="reactionuserscontroller.html" class="tsd-signature-type">ReactionUsersController</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Member<wbr>Roles<wbr>Controller<span class="tsd-signature-symbol">(</span>member<span class="tsd-signature-symbol">: </span><a href="member.html" class="tsd-signature-type">Member</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="memberrolescontroller.html" class="tsd-signature-type">MemberRolesController</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="basecontroller.html">BaseController</a>.<a href="basecontroller.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c99d7d9/src/structures/controllers/ReactionUsersController.ts#L40">src/structures/controllers/ReactionUsersController.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c99d7d9/src/structures/controllers/MemberRolesController.ts#L20">src/structures/controllers/MemberRolesController.ts:20</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>reaction: <a href="messagereaction.html" class="tsd-signature-type">MessageReaction</a></h5>
+									<h5>member: <a href="member.html" class="tsd-signature-type">Member</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="reactionuserscontroller.html" class="tsd-signature-type">ReactionUsersController</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="memberrolescontroller.html" class="tsd-signature-type">MemberRolesController</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -143,7 +144,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="cache" class="tsd-anchor"></a>
 					<h3>cache</h3>
-					<div class="tsd-signature tsd-kind-icon">cache<span class="tsd-signature-symbol">:</span> <a href="controllercache.html" class="tsd-signature-type">ControllerCache</a><span class="tsd-signature-symbol">&lt;</span><a href="user.html" class="tsd-signature-type">User</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<div class="tsd-signature tsd-kind-icon">cache<span class="tsd-signature-symbol">:</span> <a href="controllercache.html" class="tsd-signature-type">ControllerCache</a><span class="tsd-signature-symbol">&lt;</span><a href="role.html" class="tsd-signature-type">Role</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="basecontroller.html">BaseController</a>.<a href="basecontroller.html#cache">cache</a></p>
 						<ul>
@@ -157,52 +158,82 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="reaction" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> reaction</h3>
-					<div class="tsd-signature tsd-kind-icon">reaction<span class="tsd-signature-symbol">:</span> <a href="messagereaction.html" class="tsd-signature-type">MessageReaction</a></div>
+					<a name="member" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> member</h3>
+					<div class="tsd-signature tsd-kind-icon">member<span class="tsd-signature-symbol">:</span> <a href="member.html" class="tsd-signature-type">Member</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c99d7d9/src/structures/controllers/ReactionUsersController.ts#L35">src/structures/controllers/ReactionUsersController.ts:35</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c99d7d9/src/structures/controllers/MemberRolesController.ts#L15">src/structures/controllers/MemberRolesController.ts:15</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The reaction this controller is associated to</p>
+							<p>The member associated to this controller</p>
 						</div>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-					<a name="fetchall" class="tsd-anchor"></a>
-					<h3>fetch<wbr>All</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">fetch<wbr>All<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/fetchreactionusersoptions.html" class="tsd-signature-type">FetchReactionUsersOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="collection.html" class="tsd-signature-type">Collection</a><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol">, </span><a href="user.html" class="tsd-signature-type">User</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="add" class="tsd-anchor"></a>
+					<h3>add</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">add<span class="tsd-signature-symbol">(</span>roleId<span class="tsd-signature-symbol">: </span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="basefetchallcontroller.html">BaseFetchAllController</a>.<a href="basefetchallcontroller.html#fetchall">fetchAll</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c99d7d9/src/structures/controllers/ReactionUsersController.ts#L54">src/structures/controllers/ReactionUsersController.ts:54</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c99d7d9/src/structures/controllers/MemberRolesController.ts#L34">src/structures/controllers/MemberRolesController.ts:34</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Fetches all users that reacted with the reaction emoji associated to this controller</p>
+									<p>Adds a role to this member by the role&#39;s ID</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="../interfaces/fetchreactionusersoptions.html" class="tsd-signature-type">FetchReactionUsersOptions</a></h5>
+									<h5>roleId: <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>A set of options for this operation</p>
+										<p>The ID of the role</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="collection.html" class="tsd-signature-type">Collection</a><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol">, </span><a href="user.html" class="tsd-signature-type">User</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="remove" class="tsd-anchor"></a>
+					<h3>remove</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">remove<span class="tsd-signature-symbol">(</span>roleId<span class="tsd-signature-symbol">: </span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/c99d7d9/src/structures/controllers/MemberRolesController.ts#L43">src/structures/controllers/MemberRolesController.ts:43</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Removes a role from this member by the role&#39;s ID</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>roleId: <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The ID of the role</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -221,19 +252,22 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="reactionuserscontroller.html" class="tsd-kind-icon">Reaction<wbr>Users<wbr>Controller</a>
+						<a href="memberrolescontroller.html" class="tsd-kind-icon">Member<wbr>Roles<wbr>Controller</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-								<a href="reactionuserscontroller.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="memberrolescontroller.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="reactionuserscontroller.html#cache" class="tsd-kind-icon">cache</a>
+								<a href="memberrolescontroller.html#cache" class="tsd-kind-icon">cache</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="reactionuserscontroller.html#reaction" class="tsd-kind-icon">reaction</a>
+								<a href="memberrolescontroller.html#member" class="tsd-kind-icon">member</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-								<a href="reactionuserscontroller.html#fetchall" class="tsd-kind-icon">fetch<wbr>All</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="memberrolescontroller.html#add" class="tsd-kind-icon">add</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="memberrolescontroller.html#remove" class="tsd-kind-icon">remove</a>
 							</li>
 						</ul>
 					</li>
