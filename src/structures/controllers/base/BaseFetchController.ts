@@ -16,7 +16,7 @@ export abstract class BaseFetchController<T extends BaseStructWithId> extends Ba
 
   /**
    * Returns an already cached item or fetches it
-   * @param {string} id The ID of the item you wish to get or fetch
+   * @param {Snowflake | string} id The ID of the item you wish to get or fetch
    * @returns {Promise<T>}
    */
   public async get(id: Snowflake | string): Promise<T> {
