@@ -11,6 +11,7 @@ import {
   FetchSomeMembersOptions,
   FetchSomeMessagesOptions,
 } from '../controllers';
+import { CreateRoleOptions } from '../controllers/GuildRolesController';
 import { Permissible, PermissionOverwriteFlags } from '../flags';
 import { ModifyGuildOptions, EmojiOptions } from '../guild';
 import { MemberBanOptions, ModifyMemberOptions } from '../member';
@@ -247,6 +248,23 @@ export class APISerializer {
       reason: options.reason,
       delete_message_days: options.deleteMessageDays,
     };
+  }
+
+  /**
+   * Returns the serialized create role options for when creating guild roles
+   * @param {CreateRoleOptions} options The create role options
+   * @returns {Params}
+   */
+  public static createRoleOptions(options?: CreateRoleOptions): Params {
+    return (
+      options && {
+        name: options.name,
+        permissions: options.permissions?.bits,
+        color: options.color,
+        hoist: options.listedSeparately,
+        mentionable: options.mentionable,
+      }
+    );
   }
 
   /**

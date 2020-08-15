@@ -1,8 +1,8 @@
 'use strict';
 
 import assert from 'assert';
-import { BotEvent } from '../../src/socket';
-import { Bot } from '../../src/structures';
+import { BotEvent, Permission } from '../../src/socket';
+import { Bot, PermissionFlags } from '../../src/structures';
 import config from '../config.json';
 
 const bot = new Bot(config.token);
@@ -20,4 +20,19 @@ bot.connection.connect();
     'whether the fetched roles match the cached ones',
     'expected: undefined',
   ); // expected: undefined
+
+  const role = guild.roles.create({
+    name: 'role name!',
+    mentionable: true,
+    listedSeparately: true,
+    permissions: PermissionFlags.build(Permission.ManageRoles, Permission.ManageChannels),
+    color: 0xffffff,
+  });
+  await bot.events.wait(BotEvent.GuildRoleCreate);
+
+  console.log(
+    guild.roles.cache.last?.name === (await role).name,
+    'whether the last role matches the created one',
+    'expected: true',
+  ); // expected: true
 })();
