@@ -34,6 +34,7 @@ import {
   ModifyEmojiOptions,
   ModifyGuildOptions,
 } from '../guild';
+import { GuildBan } from '../guild/GuildBan';
 import { Member, ModifyMemberOptions } from '../member';
 import { Message, MessageData, MessageEditData, MessageEmbed, MessageOptions } from '../message';
 
@@ -976,6 +977,43 @@ export class BotAPI {
    */
   public async removeMember(guildId: Snowflake, userId: Snowflake): Promise<void> {
     await this.requests.send(EndpointRoute.GuildMember, { guildId, userId }, HttpMethod.Delete);
+  }
+
+  /**
+   * Fetches all bans in a guild by a guild ID
+   * @param {Snowflake} guildId The ID of the guild
+   * @returns {Promise<Collection<Snowflake, GuildBan>>}
+   */
+  public async fetchGuildBans(guildId: Snowflake): Promise<Collection<Snowflake, GuildBan>> {
+    const bans = await this.requests.send<GatewayStruct[]>(
+      EndpointRoute.GuildBans,
+      { guildId },
+      HttpMethod.Get,
+    );
+
+    const guild = await this.bot.guilds.get(guildId);
+
+    return new Collection<Snowflake, GuildBan>(
+      bans.map(ban => [ban.user.id, new GuildBan(this.bot, ban, guild)]),
+    );
+  }
+
+  /**
+   * Fetches a ban in a guild by a user ID
+   * @param {Snowflake} guildId The ID of the guild
+   * @param {Snowflake} userId The ID of the user
+   * @returns {Promise<GuildBan>}
+   */
+  public async fetchGuildBan(guildId: Snowflake, userId: Snowflake): Promise<GuildBan> {
+    const ban = await this.requests.send<GatewayStruct>(
+      EndpointRoute.GuildBan,
+      { guildId, userId },
+      HttpMethod.Get,
+    );
+
+    const guild = await this.bot.guilds.get(guildId);
+
+    return new GuildBan(this.bot, ban, guild);
   }
 
   /**
