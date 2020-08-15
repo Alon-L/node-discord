@@ -7,7 +7,6 @@ import { ChannelUtils } from '../../utils';
 import { Avatar, GuildBannerFormat } from '../Avatar';
 import { GatewayStruct } from '../BaseStruct';
 import { Role } from '../Role';
-import { User } from '../User';
 import { Bot } from '../bot';
 import { GuildChannel, GuildTextChannel } from '../channels';
 import {
@@ -17,6 +16,7 @@ import {
   GuildMembersController,
 } from '../controllers';
 import { GuildBansController } from '../controllers/GuildBansController';
+import { GuildRolesController } from '../controllers/GuildRolesController';
 import { GuildSystemChannelFlags, PermissionFlags } from '../flags';
 import { Member, MemberPresence } from '../member';
 
@@ -244,9 +244,9 @@ export class Guild extends GuildPreview {
   public channels!: GuildChannelsController;
 
   /**
-   * {@link Collection} of all {@link Role}s associated to this guild
+   * The guild's roles controller
    */
-  public roles!: Collection<Snowflake, Role>;
+  public roles!: GuildRolesController;
 
   /**
    * The guild's members controller
@@ -385,7 +385,7 @@ export class Guild extends GuildPreview {
   public invites!: GuildInvitesController;
 
   /**
-   * All cached guild bans
+   * The guild's bans controller
    */
   public bans!: GuildBansController;
 
@@ -402,6 +402,8 @@ export class Guild extends GuildPreview {
     super.init(guild);
 
     this.presences = new Collection<Snowflake, MemberPresence>();
+
+    this.roles = new GuildRolesController(this);
 
     this.members = new GuildMembersController(this);
 
@@ -424,8 +426,8 @@ export class Guild extends GuildPreview {
     // Add all of this guild's cached channels to the Bot's cached channels
     this.bot.channels.cache.merge(this.channels.cache);
 
-    this.roles = new Collection<Snowflake, Role>(
-      guild.roles.map((role: GatewayStruct) => [role.id, new Role(this.bot, role, this)]),
+    this.roles.cache.addMany(
+      guild.roles.map((role: GatewayStruct) => new Role(this.bot, role, this)),
     );
 
     if (guild.members) {

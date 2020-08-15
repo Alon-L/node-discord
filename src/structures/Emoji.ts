@@ -75,7 +75,7 @@ export class Emoji extends BaseStruct {
     this.name = emoji.name;
 
     this.roles = new Collection<Snowflake, Role>(
-      this.guild?.roles.filter((_r, id) => emoji.roles.includes(id)),
+      this.guild?.roles.cache.filter((_r, id) => emoji.roles.includes(id)),
     );
 
     if (emoji.user) {

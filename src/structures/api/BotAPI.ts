@@ -8,6 +8,7 @@ import { GatewayStruct } from '../BaseStruct';
 import { Emoji, EmojiResolvable } from '../Emoji';
 import { Invite, InviteOptions } from '../Invite';
 import { PermissionOverwrite } from '../PermissionOverwrite';
+import { Role } from '../Role';
 import { User } from '../User';
 import { Bot } from '../bot';
 import {
@@ -1046,6 +1047,25 @@ export class BotAPI {
    */
   public async unbanMember(guildId: Snowflake, userId: Snowflake): Promise<void> {
     await this.requests.send(EndpointRoute.GuildBan, { guildId, userId }, HttpMethod.Delete);
+  }
+
+  /**
+   * Fetches all roles in a guild by its ID
+   * @param {Snowflake} guildId The ID of the guild
+   * @returns {Promise<Collection<Snowflake, Role>>}
+   */
+  public async fetchRoles(guildId: Snowflake): Promise<Collection<Snowflake, Role>> {
+    const roles = await this.requests.send<GatewayStruct[]>(
+      EndpointRoute.GuildRoles,
+      { guildId },
+      HttpMethod.Get,
+    );
+
+    const guild = await this.bot.guilds.get(guildId);
+
+    return new Collection<Snowflake, Role>(
+      roles.map(role => [role.id, new Role(this.bot, role, guild)]),
+    );
   }
 
   /**

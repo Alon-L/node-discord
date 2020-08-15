@@ -7,12 +7,12 @@ export default async ({ d }: Payload, bot: Bot): Promise<void> => {
 
   const guild = await bot.guilds.get(guildId);
 
-  const role = guild.roles.get(roleId);
+  const role = guild.roles.cache.get(roleId);
 
   if (!role) return;
 
-  // Remove the role from the guild's roles collection
-  guild.roles.delete(role.id);
+  // Remove the role from the guild's roles cache
+  guild.roles.cache.delete(role.id);
 
   bot.events.emit(BotEvent.GuildRoleDelete, role);
 };

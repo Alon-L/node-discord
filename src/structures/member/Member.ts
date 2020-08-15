@@ -145,7 +145,9 @@ export class Member extends GuildBaseStruct {
       }
     }
 
-    this.roles.cache.merge(this.guild.roles.filter((_r, id) => member.roles?.includes(id)));
+    this.roles.cache.merge(
+      this.guild.roles.cache.filter((_role, id) => member.roles?.includes(id)),
+    );
 
     this.joinedAt = new Timestamp(member.joined_at);
 

@@ -87,7 +87,9 @@ export class MessageMentions extends BaseStruct {
 
     if (mentions.roles && this.message.guild) {
       this.roles.merge(
-        this.message.guild.roles.filter(role => (mentions.roles as Snowflake[]).includes(role.id)),
+        this.message.guild.roles.cache.filter(role =>
+          (mentions.roles as Snowflake[]).includes(role.id),
+        ),
       );
     }
 
