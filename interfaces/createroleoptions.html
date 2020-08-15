@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>MessageApplication | node-discord</title>
+	<title>CreateRoleOptions | node-discord</title>
 	<meta name="description" content="Documentation for node-discord">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,28 +54,21 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="messageapplication.html">MessageApplication</a>
+					<a href="createroleoptions.html">CreateRoleOptions</a>
 				</li>
 			</ul>
-			<h1>Interface MessageApplication</h1>
+			<h1>Interface CreateRoleOptions</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Information about the message application</p>
-					</div>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">MessageApplication</span>
+						<span class="target">CreateRoleOptions</span>
 					</li>
 				</ul>
 			</section>
@@ -86,11 +79,11 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="messageapplication.html#coverimage" class="tsd-kind-icon">cover<wbr>Image</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="messageapplication.html#description" class="tsd-kind-icon">description</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="messageapplication.html#icon" class="tsd-kind-icon">icon</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="messageapplication.html#id" class="tsd-kind-icon">id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="messageapplication.html#name" class="tsd-kind-icon">name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="createroleoptions.html#color" class="tsd-kind-icon">color</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="createroleoptions.html#listedseparately" class="tsd-kind-icon">listed<wbr>Separately</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="createroleoptions.html#mentionable" class="tsd-kind-icon">mentionable</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="createroleoptions.html#name" class="tsd-kind-icon">name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="createroleoptions.html#permissions" class="tsd-kind-icon">permissions</a></li>
 							</ul>
 						</section>
 					</div>
@@ -99,78 +92,106 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="coverimage" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> cover<wbr>Image</h3>
-					<div class="tsd-signature tsd-kind-icon">cover<wbr>Image<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<a name="color" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> color</h3>
+					<div class="tsd-signature tsd-kind-icon">color<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/2fa6b1a/src/structures/message/Message.ts#L82">src/structures/message/Message.ts:82</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/2fa6b1a/src/structures/controllers/GuildRolesController.ts#L26">src/structures/controllers/GuildRolesController.ts:26</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The ID of the embed&#39;s image asset</p>
+							<p>The hex color for the created role</p>
 						</div>
+						<dl class="tsd-comment-tags">
+							<dt>default</dt>
+							<dd><p>0</p>
+							</dd>
+							<dt>example</dt>
+							<dd><p>0x406fff // creates a blue role</p>
+							</dd>
+						</dl>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="description" class="tsd-anchor"></a>
-					<h3>description</h3>
-					<div class="tsd-signature tsd-kind-icon">description<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="listedseparately" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> listed<wbr>Separately</h3>
+					<div class="tsd-signature tsd-kind-icon">listed<wbr>Separately<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/2fa6b1a/src/structures/message/Message.ts#L87">src/structures/message/Message.ts:87</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/2fa6b1a/src/structures/controllers/GuildRolesController.ts#L32">src/structures/controllers/GuildRolesController.ts:32</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The application&#39;s description</p>
+							<p>Whether the created role should be displayed separately in the sidebar</p>
 						</div>
+						<dl class="tsd-comment-tags">
+							<dt>default</dt>
+							<dd><p>false</p>
+							</dd>
+						</dl>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="icon" class="tsd-anchor"></a>
-					<h3>icon</h3>
-					<div class="tsd-signature tsd-kind-icon">icon<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
+					<a name="mentionable" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> mentionable</h3>
+					<div class="tsd-signature tsd-kind-icon">mentionable<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/2fa6b1a/src/structures/message/Message.ts#L92">src/structures/message/Message.ts:92</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/2fa6b1a/src/structures/controllers/GuildRolesController.ts#L38">src/structures/controllers/GuildRolesController.ts:38</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The ID of the application&#39;s icon</p>
+							<p>Whether the created role should be mentionable</p>
 						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="id" class="tsd-anchor"></a>
-					<h3>id</h3>
-					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/2fa6b1a/src/structures/message/Message.ts#L77">src/structures/message/Message.ts:77</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The ID of the application</p>
-						</div>
+						<dl class="tsd-comment-tags">
+							<dt>default</dt>
+							<dd><p>false</p>
+							</dd>
+						</dl>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="name" class="tsd-anchor"></a>
-					<h3>name</h3>
-					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> name</h3>
+					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/2fa6b1a/src/structures/message/Message.ts#L97">src/structures/message/Message.ts:97</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/2fa6b1a/src/structures/controllers/GuildRolesController.ts#L13">src/structures/controllers/GuildRolesController.ts:13</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The name of the application</p>
+							<p>The name of the created role</p>
 						</div>
+						<dl class="tsd-comment-tags">
+							<dt>default</dt>
+							<dd><p>&quot;new role&quot;</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="permissions" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> permissions</h3>
+					<div class="tsd-signature tsd-kind-icon">permissions<span class="tsd-signature-symbol">:</span> <a href="../classes/permissionflags.html" class="tsd-signature-type">PermissionFlags</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/2fa6b1a/src/structures/controllers/GuildRolesController.ts#L19">src/structures/controllers/GuildRolesController.ts:19</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The enabled permission flags for the created role</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>default</dt>
+							<dd><p>Permissions for the @everyone role</p>
+							</dd>
+						</dl>
 					</div>
 				</section>
 			</section>
@@ -188,22 +209,22 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="messageapplication.html" class="tsd-kind-icon">Message<wbr>Application</a>
+						<a href="createroleoptions.html" class="tsd-kind-icon">Create<wbr>Role<wbr>Options</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="messageapplication.html#coverimage" class="tsd-kind-icon">cover<wbr>Image</a>
+								<a href="createroleoptions.html#color" class="tsd-kind-icon">color</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="messageapplication.html#description" class="tsd-kind-icon">description</a>
+								<a href="createroleoptions.html#listedseparately" class="tsd-kind-icon">listed<wbr>Separately</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="messageapplication.html#icon" class="tsd-kind-icon">icon</a>
+								<a href="createroleoptions.html#mentionable" class="tsd-kind-icon">mentionable</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="messageapplication.html#id" class="tsd-kind-icon">id</a>
+								<a href="createroleoptions.html#name" class="tsd-kind-icon">name</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="messageapplication.html#name" class="tsd-kind-icon">name</a>
+								<a href="createroleoptions.html#permissions" class="tsd-kind-icon">permissions</a>
 							</li>
 						</ul>
 					</li>
