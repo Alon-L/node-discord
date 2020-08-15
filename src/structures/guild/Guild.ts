@@ -333,7 +333,8 @@ export class Guild extends GuildPreview {
   // public voiceStates: TEMP | undefined;
 
   /**
-   * Presences of the members in the guild, will only include non-offline members if the size is greater than {@link identify.large_threshold}
+   * Presences of the members in the guild.
+   * Will only include non-offline members if the size is greater than {@link identify.large_threshold}
    */
   public presences!: Collection<Snowflake, MemberPresence>;
 
