@@ -74,14 +74,12 @@ export class Requests {
    * @param {RouteArgs} routeArgs The arguments this route requires
    * @param {HttpMethod} method The http method for this request
    * @param {Params} params The params / body for this request
-   * @returns {Promise<Data>}
+   * @returns {Promise<TReturn>}
    */
-  public send<T extends keyof typeof Endpoints>(
-    route: T,
-    routeArgs: RouteArgs,
-    method: HttpMethod,
-    params?: Params,
-  ): Promise<ReturnedData | undefined> {
+  public send<
+    TReturn = ReturnedData | undefined,
+    T extends keyof typeof Endpoints = keyof typeof Endpoints
+  >(route: T, routeArgs: RouteArgs, method: HttpMethod, params?: Params): Promise<TReturn> {
     // Retrieve the major params of this request
     const majorParams = this.getMajorParams(routeArgs);
 
@@ -101,7 +99,7 @@ export class Requests {
     );
 
     // Tells the bucket to send this request
-    return bucket.send(endpoint, params);
+    return bucket.send<TReturn>(endpoint, params);
   }
 
   /**

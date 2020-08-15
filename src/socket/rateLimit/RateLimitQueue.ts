@@ -17,9 +17,10 @@ export interface RateLimitQueueItem {
 
   /**
    * Callback function to be called whenever the request is made
-   * @param {ReturnedData | undefined} data
+   * @param {never} data
    */
-  callback: (data: ReturnedData | undefined) => void;
+  // TODO: Improve this type
+  callback: (data: never) => void;
 }
 
 /**
@@ -44,12 +45,12 @@ export class RateLimitQueue extends Array<RateLimitQueueItem> {
    * @param {Params} params The params / body for the added API request
    * @returns {Promise<ReturnedData>}
    */
-  add(endpoint: string, params: Params): Promise<ReturnedData | undefined> {
-    return new Promise<ReturnedData>(resolve => {
+  add<T = ReturnedData | undefined>(endpoint: string, params: Params): Promise<T> {
+    return new Promise<T>(resolve => {
       this.push({
         endpoint,
         params,
-        callback: (data: ReturnedData | undefined) => {
+        callback: (data: T) => {
           resolve(data);
         },
       });
@@ -69,7 +70,7 @@ export class RateLimitQueue extends Array<RateLimitQueueItem> {
       const { endpoint, params, callback } = nextRequest;
 
       // Sends the request
-      const data = await this.bucket.send(endpoint, params);
+      const data = await this.bucket.send<never>(endpoint, params);
 
       // Executes the callback function
       callback(data);

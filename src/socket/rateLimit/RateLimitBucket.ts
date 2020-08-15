@@ -74,7 +74,7 @@ export class RateLimitBucket {
    * @param {Params} params The request params / body
    * @returns {Promise<ReturnedData | undefined>}
    */
-  public async send(endpoint: string, params: Params): Promise<ReturnedData | undefined> {
+  public async send<T = ReturnedData | undefined>(endpoint: string, params: Params): Promise<T> {
     // The rate limit is reached. Add request to the queue
     if (this.remaining !== undefined && this.remaining <= 0) {
       this.bot.debug(
@@ -107,7 +107,7 @@ export class RateLimitBucket {
     // Sets the rate limit information given from the response's headers
     this.setLimits(response.headers);
 
-    return json;
+    return (json as unknown) as T;
   }
 
   /**
