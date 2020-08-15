@@ -924,6 +924,46 @@ export class BotAPI {
   }
 
   /**
+   * Adds a role to a guild member.
+   * Requires the {@link Permission.ManageRoles} permission
+   * @param {Snowflake} guildId The ID of the guild
+   * @param {Snowflake} userId The ID of the member user
+   * @param {Snowflake} roleId The ID of the role
+   * @returns {Promise<void>}
+   */
+  public async memberAddRole(
+    guildId: Snowflake,
+    userId: Snowflake,
+    roleId: Snowflake,
+  ): Promise<void> {
+    await this.requests.send(
+      EndpointRoute.GuildMemberRole,
+      { guildId, userId, roleId },
+      HttpMethod.Put,
+    );
+  }
+
+  /**
+   * Removes a role from a guild member.
+   * Requires the {@link Permission.ManageRoles} permission
+   * @param {Snowflake} guildId The ID of the guild
+   * @param {Snowflake} userId The ID of the member user
+   * @param {Snowflake} roleId The ID of the role
+   * @returns {Promise<void>}
+   */
+  public async memberRemoveRole(
+    guildId: Snowflake,
+    userId: Snowflake,
+    roleId: Snowflake,
+  ): Promise<void> {
+    await this.requests.send(
+      EndpointRoute.GuildMemberRole,
+      { guildId, userId, roleId },
+      HttpMethod.Delete,
+    );
+  }
+
+  /**
    * Fetches an invite by its invite code
    * @param {string} inviteCode The invite code
    * @param {FetchInviteOptions} options An additional set of options for the invite
