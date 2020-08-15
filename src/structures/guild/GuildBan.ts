@@ -1,5 +1,6 @@
 import { Guild } from './Guild';
 import { GuildBaseStruct } from './GuildBaseStruct';
+import { Snowflake } from '../../types';
 import { GatewayStruct } from '../BaseStruct';
 import { User } from '../User';
 import { Bot } from '../bot';
@@ -35,5 +36,14 @@ export class GuildBan extends GuildBaseStruct {
     this.user = this.bot.users.get(ban.user.id) || new User(this.bot, ban.user);
 
     return this;
+  }
+
+  /**
+   * The ID of the user banned from the guild.
+   * Serves as an identifier for this ban
+   * @type {Snowflake}
+   */
+  public get id(): Snowflake {
+    return this.user.id;
   }
 }
