@@ -18,12 +18,12 @@ import {
   GuildChannelOptions,
 } from '../channels';
 import {
-  FetchSomeMembersOptions,
   FetchGuildOptions,
   FetchInviteOptions,
   FetchReactionUsersOptions,
-  GuildChannelPositions,
+  FetchSomeMembersOptions,
   FetchSomeMessagesOptions,
+  GuildChannelPositions,
 } from '../controllers';
 import { Permissible, PermissionOverwriteFlags } from '../flags';
 import {
@@ -35,7 +35,7 @@ import {
   ModifyGuildOptions,
 } from '../guild';
 import { GuildBan } from '../guild/GuildBan';
-import { Member, ModifyMemberOptions } from '../member';
+import { Member, MemberBanOptions, ModifyMemberOptions } from '../member';
 import { Message, MessageData, MessageEditData, MessageEmbed, MessageOptions } from '../message';
 
 /**
@@ -1014,6 +1014,27 @@ export class BotAPI {
     const guild = await this.bot.guilds.get(guildId);
 
     return new GuildBan(this.bot, ban, guild);
+  }
+
+  /**
+   * Bans a member from a guild, and optionally deletes the previous messages sent by the banner member.
+   * Requires the {@link Permission.BanMembers} permission
+   * @param {Snowflake} guildId The ID of the guild
+   * @param {Snowflake} userId The ID of the user
+   * @param {MemberBanOptions} options The options for the ban
+   * @returns {Promise<void>}
+   */
+  public async banMember(
+    guildId: Snowflake,
+    userId: Snowflake,
+    options: MemberBanOptions,
+  ): Promise<void> {
+    await this.requests.send(
+      EndpointRoute.GuildBan,
+      { guildId, userId },
+      HttpMethod.Put,
+      APISerializer.banMemberOptions(options),
+    );
   }
 
   /**

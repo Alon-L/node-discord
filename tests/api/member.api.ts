@@ -48,6 +48,17 @@ bot.connection.connect();
     'whether the member is still in the guild',
     'expected: false',
   ); // expected: false
+
+  const memberToBan = await guild.members.get('219884020601847808');
+
+  memberToBan.ban({ reason: 'This is the reason for the ban!', deleteMessageDays: 2 });
+  await bot.events.wait(BotEvent.GuildBanAdd);
+
+  console.log(
+    guild.bans.cache.has(memberToBan.id),
+    'whether the member is included in the bans cache',
+    'expected: true',
+  ); // expected: true
 })();
 
 bot.events.on(BotEvent.Debug, console.log);

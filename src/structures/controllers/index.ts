@@ -1,3 +1,5 @@
+export * from './base';
+
 export * from './BotChannelsController';
 export * from './BotGuildsController';
 export * from './ChannelMessagesController';

@@ -13,7 +13,7 @@ import {
 } from '../controllers';
 import { Permissible, PermissionOverwriteFlags } from '../flags';
 import { ModifyGuildOptions, EmojiOptions } from '../guild';
-import { ModifyMemberOptions } from '../member';
+import { MemberBanOptions, ModifyMemberOptions } from '../member';
 import { MessageData, MessageEmbed } from '../message';
 
 /**
@@ -234,6 +234,18 @@ export class APISerializer {
       mute: options.mute,
       deaf: options.deaf,
       channel_id: options.channelId,
+    };
+  }
+
+  /**
+   * Returns the serialized ban member options for when banning guild members
+   * @param {MemberBanOptions} options The ban member options
+   * @returns {Params}
+   */
+  public static banMemberOptions(options: MemberBanOptions): Params {
+    return {
+      reason: options.reason,
+      delete_message_days: options.deleteMessageDays,
     };
   }
 

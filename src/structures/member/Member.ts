@@ -1,5 +1,4 @@
 import { MemberPresence } from './MemberPresence';
-import Collection from '../../Collection';
 import { Snowflake } from '../../types';
 import { GatewayStruct } from '../BaseStruct';
 import { Role } from '../Role';
@@ -42,6 +41,21 @@ export interface ModifyMemberOptions {
    * Requires the {@link Permission.MoveMembers} permission
    */
   channelId?: Snowflake;
+}
+
+/**
+ * Options used when banning a member
+ */
+export interface MemberBanOptions {
+  /**
+   * Reason for the ban
+   */
+  reason?: string;
+
+  /**
+   * Number of days to delete messages for (0-7)
+   */
+  deleteMessageDays: number;
 }
 
 /**
@@ -167,5 +181,15 @@ export class Member extends GuildBaseStruct {
    */
   public remove(): Promise<void> {
     return this.bot.api.removeMember(this.guild.id, this.id);
+  }
+
+  /**
+   * Bans this member from the guild, and optionally deletes its previous messages.
+   * Requires the {@link Permission.BanMembers} permission
+   * @param {MemberBanOptions} options The options for the ban
+   * @returns {Promise<void>}
+   */
+  public ban(options: MemberBanOptions): Promise<void> {
+    return this.bot.api.banMember(this.guild.id, this.id, options);
   }
 }
