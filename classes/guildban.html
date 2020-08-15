@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Role | node-discord</title>
+	<title>GuildBan | node-discord</title>
 	<meta name="description" content="Documentation for node-discord">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="role.html">Role</a>
+					<a href="guildban.html">GuildBan</a>
 				</li>
 			</ul>
-			<h1>Class Role</h1>
+			<h1>Class GuildBan</h1>
 		</div>
 	</div>
 </header>
@@ -67,7 +67,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Represents a role in a guild</p>
+						<p>Represents a user ban in a guild</p>
 					</div>
 				</div>
 			</section>
@@ -78,7 +78,7 @@
 						<a href="guildbasestruct.html" class="tsd-signature-type">GuildBaseStruct</a>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">Role</span>
+								<span class="target">GuildBan</span>
 							</li>
 						</ul>
 					</li>
@@ -91,29 +91,29 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="role.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="guildban.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="role.html#bot" class="tsd-kind-icon">bot</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="role.html#color" class="tsd-kind-icon">color</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="role.html#guild" class="tsd-kind-icon">guild</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="role.html#id" class="tsd-kind-icon">id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="role.html#listedseparately" class="tsd-kind-icon">listed<wbr>Separately</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="role.html#managed" class="tsd-kind-icon">managed</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="role.html#mentionable" class="tsd-kind-icon">mentionable</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="role.html#name" class="tsd-kind-icon">name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="role.html#permissions" class="tsd-kind-icon">permissions</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="role.html#position" class="tsd-kind-icon">position</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="guildban.html#bot" class="tsd-kind-icon">bot</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="guildban.html#guild" class="tsd-kind-icon">guild</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="guildban.html#reason" class="tsd-kind-icon">reason</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="guildban.html#user" class="tsd-kind-icon">user</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Accessors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="guildban.html#id" class="tsd-kind-icon">id</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="role.html#clone" class="tsd-kind-icon">clone</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="role.html#update" class="tsd-kind-icon">update</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="guildban.html#clone" class="tsd-kind-icon">clone</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="guildban.html#update" class="tsd-kind-icon">update</a></li>
 							</ul>
 						</section>
 					</div>
@@ -125,14 +125,14 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Role<span class="tsd-signature-symbol">(</span>bot<span class="tsd-signature-symbol">: </span><a href="bot.html" class="tsd-signature-type">Bot</a>, role<span class="tsd-signature-symbol">: </span><a href="../globals.html#gatewaystruct" class="tsd-signature-type">GatewayStruct</a>, guild<span class="tsd-signature-symbol">: </span><a href="guild.html" class="tsd-signature-type">Guild</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="role.html" class="tsd-signature-type">Role</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Guild<wbr>Ban<span class="tsd-signature-symbol">(</span>bot<span class="tsd-signature-symbol">: </span><a href="bot.html" class="tsd-signature-type">Bot</a>, ban<span class="tsd-signature-symbol">: </span><a href="../globals.html#gatewaystruct" class="tsd-signature-type">GatewayStruct</a>, guild<span class="tsd-signature-symbol">: </span><a href="guild.html" class="tsd-signature-type">Guild</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="guildban.html" class="tsd-signature-type">GuildBan</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="guildbasestruct.html">GuildBaseStruct</a>.<a href="guildbasestruct.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f30c3b6/src/structures/Role.ts#L49">src/structures/Role.ts:49</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f30c3b6/src/structures/guild/GuildBan.ts#L21">src/structures/guild/GuildBan.ts:21</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -141,13 +141,13 @@
 									<h5>bot: <a href="bot.html" class="tsd-signature-type">Bot</a></h5>
 								</li>
 								<li>
-									<h5>role: <a href="../globals.html#gatewaystruct" class="tsd-signature-type">GatewayStruct</a></h5>
+									<h5>ban: <a href="../globals.html#gatewaystruct" class="tsd-signature-type">GatewayStruct</a></h5>
 								</li>
 								<li>
 									<h5>guild: <a href="guild.html" class="tsd-signature-type">Guild</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="role.html" class="tsd-signature-type">Role</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="guildban.html" class="tsd-signature-type">GuildBan</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -170,21 +170,6 @@
 						</div>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="color" class="tsd-anchor"></a>
-					<h3>color</h3>
-					<div class="tsd-signature tsd-kind-icon">color<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f30c3b6/src/structures/Role.ts#L24">src/structures/Role.ts:24</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Number representation of hexadecimal color code</p>
-						</div>
-					</div>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="guild" class="tsd-anchor"></a>
 					<h3>guild</h3>
@@ -202,109 +187,61 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="reason" class="tsd-anchor"></a>
+					<h3>reason</h3>
+					<div class="tsd-signature tsd-kind-icon">reason<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f30c3b6/src/structures/guild/GuildBan.ts#L16">src/structures/guild/GuildBan.ts:16</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The reason for the guild.
+							Possibly undefined if no reason was specified</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="user" class="tsd-anchor"></a>
+					<h3>user</h3>
+					<div class="tsd-signature tsd-kind-icon">user<span class="tsd-signature-symbol">:</span> <a href="user.html" class="tsd-signature-type">User</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f30c3b6/src/structures/guild/GuildBan.ts#L21">src/structures/guild/GuildBan.ts:21</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The user banned from the guild</p>
+						</div>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Accessors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
 					<a name="id" class="tsd-anchor"></a>
 					<h3>id</h3>
-					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f30c3b6/src/structures/Role.ts#L14">src/structures/Role.ts:14</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The role&#39;s ID</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="listedseparately" class="tsd-anchor"></a>
-					<h3>listed<wbr>Separately</h3>
-					<div class="tsd-signature tsd-kind-icon">listed<wbr>Separately<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f30c3b6/src/structures/Role.ts#L29">src/structures/Role.ts:29</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Whether this role is listed separately on the guild members list</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="managed" class="tsd-anchor"></a>
-					<h3>managed</h3>
-					<div class="tsd-signature tsd-kind-icon">managed<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f30c3b6/src/structures/Role.ts#L44">src/structures/Role.ts:44</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Whether this role is managed by an integration</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="mentionable" class="tsd-anchor"></a>
-					<h3>mentionable</h3>
-					<div class="tsd-signature tsd-kind-icon">mentionable<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f30c3b6/src/structures/Role.ts#L49">src/structures/Role.ts:49</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Whether this role is mentionable</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="name" class="tsd-anchor"></a>
-					<h3>name</h3>
-					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f30c3b6/src/structures/Role.ts#L19">src/structures/Role.ts:19</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The role name</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="permissions" class="tsd-anchor"></a>
-					<h3>permissions</h3>
-					<div class="tsd-signature tsd-kind-icon">permissions<span class="tsd-signature-symbol">:</span> <a href="permissionflags.html" class="tsd-signature-type">PermissionFlags</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f30c3b6/src/structures/Role.ts#L39">src/structures/Role.ts:39</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The permissions of the role</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="position" class="tsd-anchor"></a>
-					<h3>position</h3>
-					<div class="tsd-signature tsd-kind-icon">position<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f30c3b6/src/structures/Role.ts#L34">src/structures/Role.ts:34</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The position of this role</p>
-						</div>
-					</div>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> id<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f30c3b6/src/structures/guild/GuildBan.ts#L46">src/structures/guild/GuildBan.ts:46</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The ID of the user banned from the guild.
+									Serves as an identifier for this ban</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
@@ -379,46 +316,31 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="role.html" class="tsd-kind-icon">Role</a>
+						<a href="guildban.html" class="tsd-kind-icon">Guild<wbr>Ban</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-								<a href="role.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="guildban.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="role.html#bot" class="tsd-kind-icon">bot</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="role.html#color" class="tsd-kind-icon">color</a>
+								<a href="guildban.html#bot" class="tsd-kind-icon">bot</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="role.html#guild" class="tsd-kind-icon">guild</a>
+								<a href="guildban.html#guild" class="tsd-kind-icon">guild</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="role.html#id" class="tsd-kind-icon">id</a>
+								<a href="guildban.html#reason" class="tsd-kind-icon">reason</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="role.html#listedseparately" class="tsd-kind-icon">listed<wbr>Separately</a>
+								<a href="guildban.html#user" class="tsd-kind-icon">user</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="role.html#managed" class="tsd-kind-icon">managed</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="role.html#mentionable" class="tsd-kind-icon">mentionable</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="role.html#name" class="tsd-kind-icon">name</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="role.html#permissions" class="tsd-kind-icon">permissions</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="role.html#position" class="tsd-kind-icon">position</a>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+								<a href="guildban.html#id" class="tsd-kind-icon">id</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="role.html#clone" class="tsd-kind-icon">clone</a>
+								<a href="guildban.html#clone" class="tsd-kind-icon">clone</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="role.html#update" class="tsd-kind-icon">update</a>
+								<a href="guildban.html#update" class="tsd-kind-icon">update</a>
 							</li>
 						</ul>
 					</li>

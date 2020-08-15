@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ChannelPermissionsController | node-discord</title>
+	<title>GuildBansController | node-discord</title>
 	<meta name="description" content="Documentation for node-discord">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="channelpermissionscontroller.html">ChannelPermissionsController</a>
+					<a href="guildbanscontroller.html">GuildBansController</a>
 				</li>
 			</ul>
-			<h1>Class ChannelPermissionsController</h1>
+			<h1>Class GuildBansController</h1>
 		</div>
 	</div>
 </header>
@@ -67,8 +67,8 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Interface for a guild channel&#39;s permission overwrites cache.
-						The permission overwrites are mapped by their Permissible&#39;s ID</p>
+						<p>Provides an interface for a guild&#39;s bans cache.
+						The bans are mapped by their banned user IDs</p>
 					</div>
 				</div>
 			</section>
@@ -76,13 +76,19 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="basedeletecontroller.html" class="tsd-signature-type">BaseDeleteController</a><span class="tsd-signature-symbol">&lt;</span><a href="permissionoverwrite.html" class="tsd-signature-type">PermissionOverwrite</a><span class="tsd-signature-symbol">&gt;</span>
+						<a href="basefetchcontroller.html" class="tsd-signature-type">BaseFetchController</a><span class="tsd-signature-symbol">&lt;</span><a href="guildban.html" class="tsd-signature-type">GuildBan</a><span class="tsd-signature-symbol">&gt;</span>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">ChannelPermissionsController</span>
+								<span class="target">GuildBansController</span>
 							</li>
 						</ul>
 					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3>Implements</h3>
+				<ul class="tsd-hierarchy">
+					<li><a href="basefetchallcontroller.html" class="tsd-signature-type">BaseFetchAllController</a><span class="tsd-signature-symbol">&lt;</span><a href="guildban.html" class="tsd-signature-type">GuildBan</a><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -92,21 +98,22 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="channelpermissionscontroller.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="guildbanscontroller.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="channelpermissionscontroller.html#cache" class="tsd-kind-icon">cache</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="channelpermissionscontroller.html#channel" class="tsd-kind-icon">channel</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="guildbanscontroller.html#cache" class="tsd-kind-icon">cache</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="guildbanscontroller.html#guild" class="tsd-kind-icon">guild</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="channelpermissionscontroller.html#delete" class="tsd-kind-icon">delete</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="channelpermissionscontroller.html#modify" class="tsd-kind-icon">modify</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="guildbanscontroller.html#fetch" class="tsd-kind-icon">fetch</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="guildbanscontroller.html#fetchall" class="tsd-kind-icon">fetch<wbr>All</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="guildbanscontroller.html#get" class="tsd-kind-icon">get</a></li>
 							</ul>
 						</section>
 					</div>
@@ -118,23 +125,23 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Channel<wbr>Permissions<wbr>Controller<span class="tsd-signature-symbol">(</span>channel<span class="tsd-signature-symbol">: </span><a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="channelpermissionscontroller.html" class="tsd-signature-type">ChannelPermissionsController</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Guild<wbr>Bans<wbr>Controller<span class="tsd-signature-symbol">(</span>guild<span class="tsd-signature-symbol">: </span><a href="guild.html" class="tsd-signature-type">Guild</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="guildbanscontroller.html" class="tsd-signature-type">GuildBansController</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="basecontroller.html">BaseController</a>.<a href="basecontroller.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f30c3b6/src/structures/controllers/ChannelPermissionsController.ts#L15">src/structures/controllers/ChannelPermissionsController.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f30c3b6/src/structures/controllers/GuildBansController.ts#L16">src/structures/controllers/GuildBansController.ts:16</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>channel: <a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a></h5>
+									<h5>guild: <a href="guild.html" class="tsd-signature-type">Guild</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="channelpermissionscontroller.html" class="tsd-signature-type">ChannelPermissionsController</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="guildbanscontroller.html" class="tsd-signature-type">GuildBansController</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -144,7 +151,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="cache" class="tsd-anchor"></a>
 					<h3>cache</h3>
-					<div class="tsd-signature tsd-kind-icon">cache<span class="tsd-signature-symbol">:</span> <a href="controllercache.html" class="tsd-signature-type">ControllerCache</a><span class="tsd-signature-symbol">&lt;</span><a href="permissionoverwrite.html" class="tsd-signature-type">PermissionOverwrite</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<div class="tsd-signature tsd-kind-icon">cache<span class="tsd-signature-symbol">:</span> <a href="controllercache.html" class="tsd-signature-type">ControllerCache</a><span class="tsd-signature-symbol">&lt;</span><a href="guildban.html" class="tsd-signature-type">GuildBan</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="basecontroller.html">BaseController</a>.<a href="basecontroller.html#cache">cache</a></p>
 						<ul>
@@ -158,17 +165,17 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="channel" class="tsd-anchor"></a>
-					<h3>channel</h3>
-					<div class="tsd-signature tsd-kind-icon">channel<span class="tsd-signature-symbol">:</span> <a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a></div>
+					<a name="guild" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> guild</h3>
+					<div class="tsd-signature tsd-kind-icon">guild<span class="tsd-signature-symbol">:</span> <a href="guild.html" class="tsd-signature-type">Guild</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f30c3b6/src/structures/controllers/ChannelPermissionsController.ts#L15">src/structures/controllers/ChannelPermissionsController.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f30c3b6/src/structures/controllers/GuildBansController.ts#L16">src/structures/controllers/GuildBansController.ts:16</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The guild channel this controller is associated to</p>
+							<p>The guild associated to this controller</p>
 						</div>
 					</div>
 				</section>
@@ -176,23 +183,22 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-					<a name="delete" class="tsd-anchor"></a>
-					<h3>delete</h3>
+					<a name="fetch" class="tsd-anchor"></a>
+					<h3>fetch</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">delete<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">fetch<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="guildban.html" class="tsd-signature-type">GuildBan</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="basedeletecontroller.html">BaseDeleteController</a>.<a href="basedeletecontroller.html#delete">delete</a></p>
+								<p>Overrides <a href="basefetchcontroller.html">BaseFetchController</a>.<a href="basefetchcontroller.html#fetch">fetch</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f30c3b6/src/structures/controllers/ChannelPermissionsController.ts#L43">src/structures/controllers/ChannelPermissionsController.ts:43</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f30c3b6/src/structures/controllers/GuildBansController.ts#L37">src/structures/controllers/GuildBansController.ts:37</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Deletes a channel permission overwrite for a user or role in a guild channel.
-									Requires the <a href="../enums/permission.html#manageroles">Permission.ManageRoles</a> permission</p>
+									<p>Fetches a guild ban by a user ID</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -200,49 +206,65 @@
 								<li>
 									<h5>id: <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The ID of the user or role you wish to delete from the channel&#39;s permission overwrites</p>
+										<p>The ID of the user</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="guildban.html" class="tsd-signature-type">GuildBan</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="modify" class="tsd-anchor"></a>
-					<h3>modify</h3>
+					<a name="fetchall" class="tsd-anchor"></a>
+					<h3>fetch<wbr>All</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">modify<span class="tsd-signature-symbol">(</span>permissible<span class="tsd-signature-symbol">: </span><a href="../interfaces/permissible.html" class="tsd-signature-type">Permissible</a>, flags<span class="tsd-signature-symbol">: </span><a href="../interfaces/permissionoverwriteflags.html" class="tsd-signature-type">PermissionOverwriteFlags</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="permissionoverwrite.html" class="tsd-signature-type">PermissionOverwrite</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">fetch<wbr>All<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="collection.html" class="tsd-signature-type">Collection</a><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol">, </span><a href="guildban.html" class="tsd-signature-type">GuildBan</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f30c3b6/src/structures/controllers/ChannelPermissionsController.ts#L30">src/structures/controllers/ChannelPermissionsController.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f30c3b6/src/structures/controllers/GuildBansController.ts#L28">src/structures/controllers/GuildBansController.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Modifies the channel permission overwrites for a member or a role.
-									Requires the <a href="../enums/permission.html#manageroles">Permission.ManageRoles</a> permission</p>
+									<p>Fetches all bans in the guilds</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="collection.html" class="tsd-signature-type">Collection</a><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol">, </span><a href="guildban.html" class="tsd-signature-type">GuildBan</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="get" class="tsd-anchor"></a>
+					<h3>get</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">get<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="guildban.html" class="tsd-signature-type">GuildBan</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="basefetchcontroller.html">BaseFetchController</a>.<a href="basefetchcontroller.html#get">get</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f30c3b6/src/structures/controllers/base/BaseFetchController.ts#L22">src/structures/controllers/base/BaseFetchController.ts:22</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns an already cached item or fetches it</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>permissible: <a href="../interfaces/permissible.html" class="tsd-signature-type">Permissible</a></h5>
+									<h5>id: <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Data for the member or role</p>
-									</div>
-								</li>
-								<li>
-									<h5>flags: <a href="../interfaces/permissionoverwriteflags.html" class="tsd-signature-type">PermissionOverwriteFlags</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The permissions flags you wish to modify</p>
+										<p>The ID of the item you wish to get or fetch</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="permissionoverwrite.html" class="tsd-signature-type">PermissionOverwrite</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="guildban.html" class="tsd-signature-type">GuildBan</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -261,22 +283,25 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="channelpermissionscontroller.html" class="tsd-kind-icon">Channel<wbr>Permissions<wbr>Controller</a>
+						<a href="guildbanscontroller.html" class="tsd-kind-icon">Guild<wbr>Bans<wbr>Controller</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-								<a href="channelpermissionscontroller.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="guildbanscontroller.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="channelpermissionscontroller.html#cache" class="tsd-kind-icon">cache</a>
+								<a href="guildbanscontroller.html#cache" class="tsd-kind-icon">cache</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="channelpermissionscontroller.html#channel" class="tsd-kind-icon">channel</a>
+								<a href="guildbanscontroller.html#guild" class="tsd-kind-icon">guild</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-								<a href="channelpermissionscontroller.html#delete" class="tsd-kind-icon">delete</a>
+								<a href="guildbanscontroller.html#fetch" class="tsd-kind-icon">fetch</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="channelpermissionscontroller.html#modify" class="tsd-kind-icon">modify</a>
+								<a href="guildbanscontroller.html#fetchall" class="tsd-kind-icon">fetch<wbr>All</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="guildbanscontroller.html#get" class="tsd-kind-icon">get</a>
 							</li>
 						</ul>
 					</li>
