@@ -10,7 +10,7 @@ export abstract class BaseController<T extends BaseStructWithId> {
   /**
    * The bot instance
    */
-  public bot: Bot;
+  protected readonly bot: Bot;
 
   /**
    * The cached data this controller contains

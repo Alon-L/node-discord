@@ -6,6 +6,7 @@ import { Role } from '../Role';
 import { Timestamp } from '../Timestamp';
 import { User } from '../User';
 import { Bot } from '../bot';
+import { MemberRolesController } from '../controllers/MemberRolesController';
 import { Guild, GuildBaseStruct } from '../guild';
 
 /**
@@ -66,7 +67,7 @@ export class Member extends GuildBaseStruct {
   /**
    * {@link Collection} of all {@link Role}s associated to this member
    */
-  public roles!: Collection<Snowflake, Role>;
+  public roles!: MemberRolesController;
 
   /**
    * Timestamp of when the member joined the guild
@@ -96,6 +97,8 @@ export class Member extends GuildBaseStruct {
 
   constructor(bot: Bot, member: GatewayStruct, guild: Guild, presence?: GatewayStruct) {
     super(bot, guild, member);
+
+    this.roles = new MemberRolesController(this);
 
     this.init(member, presence);
   }
@@ -128,9 +131,7 @@ export class Member extends GuildBaseStruct {
       }
     }
 
-    this.roles = new Collection<Snowflake, Role>(
-      this.guild.roles.filter((_r, id) => member.roles?.includes(id)),
-    );
+    this.roles.cache.merge(this.guild.roles.filter((_r, id) => member.roles?.includes(id)));
 
     this.joinedAt = new Timestamp(member.joined_at);
 
@@ -148,7 +149,7 @@ export class Member extends GuildBaseStruct {
    * @returns {Promise<void>}
    */
   public async modify(options: ModifyMemberOptions): Promise<void> {
-    return this.bot.api.modifyGuildMember(this.guild.id, this.id, options);
+    return this.bot.api.modifyMember(this.guild.id, this.id, options);
   }
 
   /**
