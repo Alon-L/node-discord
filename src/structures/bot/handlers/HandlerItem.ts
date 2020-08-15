@@ -64,6 +64,7 @@ export class HandlerItem<
    * @param {T} event The event
    * @param {any} args The arguments for this event's listener function
    * @returns {Promise<void>}
+   * @ignore
    */
   public async runAll<T extends HandlerEvent>(
     event: T,
