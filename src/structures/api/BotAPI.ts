@@ -829,7 +829,7 @@ export class BotAPI {
    * @param {Snowflake} userId The ID of the member user
    * @returns {Promise<Member>}
    */
-  public async fetchGuildMember(guildId: Snowflake, userId: Snowflake): Promise<Member> {
+  public async fetchMember(guildId: Snowflake, userId: Snowflake): Promise<Member> {
     const member = await this.requests.send(
       EndpointRoute.GuildMember,
       { guildId, userId },
@@ -847,7 +847,7 @@ export class BotAPI {
    * @param {FetchSomeMembersOptions} options The options for the fetch operation
    * @returns {Promise<Collection<Snowflake, Member>>}
    */
-  public async fetchSomeGuildMembers(
+  public async fetchSomeMembers(
     guildId: Snowflake,
     options?: FetchSomeMembersOptions,
   ): Promise<Collection<Snowflake, Member>> {
@@ -872,7 +872,7 @@ export class BotAPI {
    * @param {ModifyMemberOptions} options The options to modify for the member
    * @returns {Promise<void>}
    */
-  public async modifyGuildMember(
+  public async modifyMember(
     guildId: Snowflake,
     userId: Snowflake,
     options: ModifyMemberOptions,
@@ -893,7 +893,7 @@ export class BotAPI {
    * @param {string} nick The new nickname
    * @returns {Promise<string | void>}
    */
-  public modifyGuildMemberNickname(
+  public modifyMemberNickname(
     guildId: Snowflake,
     userId: Snowflake,
     nick?: string,
@@ -901,7 +901,7 @@ export class BotAPI {
     if (userId === this.bot.user?.id) {
       return this.modifyBotNickname(guildId, nick);
     } else {
-      return this.modifyGuildMember(guildId, userId, { nick });
+      return this.modifyMember(guildId, userId, { nick });
     }
   }
 

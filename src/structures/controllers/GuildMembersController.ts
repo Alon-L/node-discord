@@ -44,7 +44,7 @@ export class GuildMembersController extends BaseFetchController<Member>
    * @returns {Promise<Member>}
    */
   public async fetch(id: Snowflake): Promise<Member> {
-    const member = await this.bot.api.fetchGuildMember(this.guild.id, id);
+    const member = await this.bot.api.fetchMember(this.guild.id, id);
 
     this.cache.add(member);
 
@@ -59,10 +59,18 @@ export class GuildMembersController extends BaseFetchController<Member>
   public async fetchSome(
     options?: FetchSomeMembersOptions,
   ): Promise<Collection<Snowflake, Member>> {
-    const members = await this.bot.api.fetchSomeGuildMembers(this.guild.id, options);
+    const members = await this.bot.api.fetchSomeMembers(this.guild.id, options);
 
     this.cache.merge(members);
 
     return members;
+  }
+
+  /**
+   * Returns the bot member in the guild
+   * @type {Member | undefined}
+   */
+  public get me(): Member | undefined {
+    return this.bot.user && this.cache.get(this.bot.user.id);
   }
 }
