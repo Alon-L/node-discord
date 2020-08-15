@@ -26,4 +26,13 @@ bot.connection.connect();
     'whether the fetched ban matches the cached one',
     'expected: undefined',
   ); // expected: undefined
+
+  bans.delete(ban.id);
+  await bot.events.wait(BotEvent.GuildBanRemove);
+
+  console.log(
+    bans.cache.has(ban.id),
+    'whether the member is cached in the guild bans controller',
+    'expected: false',
+  ); // expected: false
 })();

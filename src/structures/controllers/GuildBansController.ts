@@ -1,4 +1,4 @@
-import { BaseFetchAllController, BaseFetchController } from './base';
+import { BaseDeleteController, BaseFetchAllController, BaseFetchController } from './base';
 import Collection from '../../Collection';
 import { Snowflake } from '../../types';
 import { Guild } from '../guild';
@@ -9,7 +9,7 @@ import { GuildBan } from '../guild/GuildBan';
  * The bans are mapped by their banned user IDs
  */
 export class GuildBansController extends BaseFetchController<GuildBan>
-  implements BaseFetchAllController<GuildBan> {
+  implements BaseFetchAllController<GuildBan>, BaseDeleteController<GuildBan> {
   /**
    * The guild associated to this controller
    */
@@ -36,5 +36,15 @@ export class GuildBansController extends BaseFetchController<GuildBan>
    */
   public async fetch(id: Snowflake): Promise<GuildBan> {
     return this.bot.api.fetchGuildBan(this.guild.id, id);
+  }
+
+  /**
+   * Unbans a member from the guild.
+   * Requires the {@link Permission.BanMembers} permission
+   * @param {Snowflake} id The ID of the member
+   * @returns {Promise<void>}
+   */
+  public delete(id: Snowflake): Promise<void> {
+    return this.bot.api.unbanMember(this.guild.id, id);
   }
 }

@@ -1038,6 +1038,17 @@ export class BotAPI {
   }
 
   /**
+   * Unbans a member from a guild.
+   * Requires the {@link Permission.BanMembers} permission
+   * @param {Snowflake} guildId The ID of the guild
+   * @param {Snowflake} userId The ID of the user to unban
+   * @returns {Promise<void>}
+   */
+  public async unbanMember(guildId: Snowflake, userId: Snowflake): Promise<void> {
+    await this.requests.send(EndpointRoute.GuildBan, { guildId, userId }, HttpMethod.Delete);
+  }
+
+  /**
    * Fetches an invite by its invite code
    * @param {string} inviteCode The invite code
    * @param {FetchInviteOptions} options An additional set of options for the invite
