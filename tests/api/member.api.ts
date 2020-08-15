@@ -17,12 +17,24 @@ bot.connection.connect();
   const newNick = 'Hello';
 
   member.modify({ nick: newNick });
-
   await bot.events.wait(BotEvent.GuildMemberUpdate);
 
   console.log(
     member.nick === newNick,
     "whether the member's nickname was correctly updated",
+    'expected: true',
+  ); // expected: true
+
+  const botMember = guild.members.me!;
+
+  const newerNick = newNick + 'a';
+
+  botMember.modifyNickname(newerNick);
+  await bot.events.wait(BotEvent.GuildMemberUpdate);
+
+  console.log(
+    botMember.nick === newerNick,
+    "whether the bot member's nickname was correctly updated",
     'expected: true',
   ); // expected: true
 })();
