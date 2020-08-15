@@ -256,7 +256,6 @@ export class Guild extends GuildPreview {
    * Guild owner {@link Member}.
    * Possibly undefined if the bot is yet to cache that member
    */
-  // TODO: fetch the owner if isn't cached yet
   public owner: Member | undefined;
 
   /**
