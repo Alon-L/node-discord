@@ -47,6 +47,11 @@ export class GuildPreview extends BaseStruct {
     this.init(preview);
   }
 
+  /**
+   * @ignore
+   * @param {GatewayStruct} preview The guild preview data
+   * @returns {this}
+   */
   public init(preview: GatewayStruct): this {
     this.id = preview.id;
     this.name = preview.name;

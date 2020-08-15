@@ -31,6 +31,11 @@ export class PermissionOverwrite extends BaseStruct {
     this.init(permission);
   }
 
+  /**
+   * @ignore
+   * @param {GatewayStruct} permission The permission data
+   * @returns {this}
+   */
   public init(permission: GatewayStruct): this {
     this.flags = {
       allow: new PermissionFlags(permission.allow_new),
