@@ -7,7 +7,7 @@ export default async ({ d }: Payload, bot: Bot): Promise<void> => {
 
   const guild = await bot.guilds.get(guildId);
 
-  const role = guild.roles.get(d.role.id);
+  const role = guild.roles.cache.get(d.role.id);
 
   if (!role) return;
 
