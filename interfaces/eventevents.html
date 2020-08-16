@@ -57,7 +57,7 @@
 					<a href="eventevents.html">EventEvents</a>
 				</li>
 			</ul>
-			<h1>Interface EventEvents&lt;T&gt;</h1>
+			<h1>Interface EventEvents&lt;T, TReturn&gt;</h1>
 		</div>
 	</div>
 </header>
@@ -76,6 +76,9 @@
 				<ul class="tsd-type-parameters">
 					<li>
 						<h4>T<span class="tsd-signature-symbol">: </span><a href="../enums/botevent.html" class="tsd-signature-type">BotEvent</a></h4>
+					</li>
+					<li>
+						<h4>TReturn</h4>
 					</li>
 				</ul>
 			</section>
@@ -112,10 +115,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="_handlerevent_after_" class="tsd-anchor"></a>
 					<h3>[<wbr>Handler<wbr>Event.<wbr>After]</h3>
-					<div class="tsd-signature tsd-kind-icon">[<wbr>Handler<wbr>Event.<wbr>After]<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
+					<div class="tsd-signature tsd-kind-icon">[<wbr>Handler<wbr>Event.<wbr>After]<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">TReturn</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f018723/src/structures/bot/handlers/events/Event.ts#L13">src/structures/bot/handlers/events/Event.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/1ec6dfc/src/structures/bot/handlers/events/Event.ts#L14">src/structures/bot/handlers/events/Event.ts:14</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -123,11 +126,11 @@
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter-signature">
 								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TReturn</span></li>
 								</ul>
 								<ul class="tsd-descriptions">
 									<li class="tsd-description">
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">TReturn</span></h4>
 									</li>
 								</ul>
 							</li>
@@ -137,10 +140,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="_handlerevent_before_" class="tsd-anchor"></a>
 					<h3>[<wbr>Handler<wbr>Event.<wbr>Before]</h3>
-					<div class="tsd-signature tsd-kind-icon">[<wbr>Handler<wbr>Event.<wbr>Before]<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
+					<div class="tsd-signature tsd-kind-icon">[<wbr>Handler<wbr>Event.<wbr>Before]<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">TReturn</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f018723/src/structures/bot/handlers/events/Event.ts#L12">src/structures/bot/handlers/events/Event.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/1ec6dfc/src/structures/bot/handlers/events/Event.ts#L13">src/structures/bot/handlers/events/Event.ts:13</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -148,11 +151,11 @@
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter-signature">
 								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TReturn</span></li>
 								</ul>
 								<ul class="tsd-descriptions">
 									<li class="tsd-description">
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">TReturn</span></h4>
 									</li>
 								</ul>
 							</li>
@@ -165,7 +168,7 @@
 					<div class="tsd-signature tsd-kind-icon">[<wbr>Handler<wbr>Event.<wbr>Execute]<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Events</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f018723/src/structures/bot/handlers/events/Event.ts#L11">src/structures/bot/handlers/events/Event.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/1ec6dfc/src/structures/bot/handlers/events/Event.ts#L12">src/structures/bot/handlers/events/Event.ts:12</a></li>
 						</ul>
 					</aside>
 				</section>
