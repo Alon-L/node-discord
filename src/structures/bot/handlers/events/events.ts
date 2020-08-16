@@ -13,12 +13,14 @@ import { GuildBan } from '../../../guild/GuildBan';
 import { Member, MemberPresence } from '../../../member';
 import { Message, PartialMessage, MessageReaction } from '../../../message';
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 /**
  * Sent when all shards become ready
  * @asMemberOf EventsHandler
  * @event BotEventsHandler#READY
  */
-declare function READY(): unknown;
+declare function READY(): any;
 
 /**
  * Sent when a shard becomes ready
@@ -26,7 +28,7 @@ declare function READY(): unknown;
  * @asMemberOf EventsHandler
  * @event BotEventsHandler#SHARD_READY
  */
-declare function SHARD_READY(shard: BotSocketShard): unknown;
+declare function SHARD_READY(shard: BotSocketShard): any;
 
 /**
  * Sent when a shard closes (disconnects)
@@ -34,7 +36,7 @@ declare function SHARD_READY(shard: BotSocketShard): unknown;
  * @asMemberOf EventsHandler
  * @event BotEventsHandler#SHARD_CLOSE
  */
-declare function SHARD_CLOSE(shard: BotSocketShard): unknown;
+declare function SHARD_CLOSE(shard: BotSocketShard): any;
 
 /**
  * Sent when a new channel is created
@@ -42,7 +44,7 @@ declare function SHARD_CLOSE(shard: BotSocketShard): unknown;
  * @asMemberOf EventsHandler
  * @event BotEventsHandler#CHANNEL_CREATE
  */
-declare function CHANNEL_CREATE(channel: Channel): unknown;
+declare function CHANNEL_CREATE(channel: Channel): any;
 
 /**
  * Sent when a channel is updated.
@@ -53,7 +55,7 @@ declare function CHANNEL_CREATE(channel: Channel): unknown;
  * @asMemberOf EventsHandler
  * @event BotEventsHandler#CHANNEL_UPDATE
  */
-declare function CHANNEL_UPDATE(before: Channel, after: Channel): unknown;
+declare function CHANNEL_UPDATE(before: Channel, after: Channel): any;
 
 /**
  * Sent when a channel is deleted
@@ -61,7 +63,7 @@ declare function CHANNEL_UPDATE(before: Channel, after: Channel): unknown;
  * @asMemberOf EventsHandler
  * @event BotEventsHandler#CHANNEL_DELETE
  */
-declare function CHANNEL_DELETE(channel: Channel): unknown;
+declare function CHANNEL_DELETE(channel: Channel): any;
 
 /**
  * Sent when a message is pinned or unpinned in a text channel.
@@ -74,7 +76,7 @@ declare function CHANNEL_DELETE(channel: Channel): unknown;
 declare function CHANNEL_PINS_UPDATE(
   channel: TextBasedChannel,
   oldPinTimestamp: Timestamp | undefined,
-): unknown;
+): any;
 
 /**
  * Sent when the Bot joins a guild, or a guild becomes available to the Bot
@@ -82,7 +84,7 @@ declare function CHANNEL_PINS_UPDATE(
  * @asMemberOf EventsHandler
  * @event BotEventsHandler#GUILD_CREATE
  */
-declare function GUILD_CREATE(guild: Guild | GuildUnavailable): unknown;
+declare function GUILD_CREATE(guild: Guild | GuildUnavailable): any;
 
 /**
  * Sent when a guild is updated
@@ -94,14 +96,14 @@ declare function GUILD_CREATE(guild: Guild | GuildUnavailable): unknown;
 declare function GUILD_UPDATE(
   before: Guild | GuildUnavailable,
   after: Guild | GuildUnavailable,
-): unknown;
+): any;
 
 /**
  * Sent when a guild becomes unavailable during a guild outage, or when the user leaves or is removed from a guild
  * @asMemberOf EventsHandler
  * @event BotEventsHandler#GUILD_DELETE
  */
-declare function GUILD_DELETE(guild: Guild | GuildUnavailable): unknown;
+declare function GUILD_DELETE(guild: Guild | GuildUnavailable): any;
 
 /**
  * Sent when a user is banned from a guild
@@ -109,7 +111,7 @@ declare function GUILD_DELETE(guild: Guild | GuildUnavailable): unknown;
  * @asMemberOf EventsHandler
  * @event BotEventHandler#GUILD_BAN_ADD
  */
-declare function GUILD_BAN_ADD(ban: GuildBan): unknown;
+declare function GUILD_BAN_ADD(ban: GuildBan): any;
 
 /**
  * Sent when a user is unbanned from a guild.
@@ -117,7 +119,7 @@ declare function GUILD_BAN_ADD(ban: GuildBan): unknown;
  * @asMemberOf EventsHandler
  * @event BotEventsHandler#GUILD_BAN_ADD
  */
-declare function GUILD_BAN_REMOVE(ban: GuildBan | undefined): unknown;
+declare function GUILD_BAN_REMOVE(ban: GuildBan | undefined): any;
 
 /**
  * Sent when a guild's emojis have been updated.
@@ -129,7 +131,7 @@ declare function GUILD_BAN_REMOVE(ban: GuildBan | undefined): unknown;
 declare function GUILD_EMOJIS_UPDATE(
   before: Collection<Snowflake, Emoji>,
   after: Collection<Snowflake, Emoji>,
-): unknown;
+): any;
 
 /**
  * Sent when a guild integration is updated.
@@ -137,7 +139,7 @@ declare function GUILD_EMOJIS_UPDATE(
  * @asMemberOf EventsHandler
  * @event BotEventsHandler#GUILD_INTEGRATIONS_UPDATE
  */
-declare function GUILD_INTEGRATIONS_UPDATE(guild: Guild): unknown;
+declare function GUILD_INTEGRATIONS_UPDATE(guild: Guild): any;
 
 /**
  * Sent when a new user joins a guild
@@ -145,7 +147,7 @@ declare function GUILD_INTEGRATIONS_UPDATE(guild: Guild): unknown;
  * @asMemberOf EventsHandler
  * @event BotEventsHandler#GUILD_MEMBER_ADD
  */
-declare function GUILD_MEMBER_ADD(member: Member): unknown;
+declare function GUILD_MEMBER_ADD(member: Member): any;
 
 /**
  * Sent when a user is removed from a guild (leave/kick/ban).
@@ -153,7 +155,7 @@ declare function GUILD_MEMBER_ADD(member: Member): unknown;
  * @asMemberOf EventsHandler
  * @event BotEventsHandler#GUILD_MEMBER_REMOVE
  */
-declare function GUILD_MEMBER_REMOVE(member: Member | User): unknown;
+declare function GUILD_MEMBER_REMOVE(member: Member | User): any;
 
 /**
  * Sent when a guild member is updated. This will also fire when the user object of a guild member changes.
@@ -162,7 +164,7 @@ declare function GUILD_MEMBER_REMOVE(member: Member | User): unknown;
  * @asMemberOf EventsHandler
  * @event BotEventsHandler#GUILD_MEMBER_UPDATE
  */
-declare function GUILD_MEMBER_UPDATE(before: Member, after: Member): unknown;
+declare function GUILD_MEMBER_UPDATE(before: Member, after: Member): any;
 
 /**
  * Sent in response to a Guild Members request
@@ -176,7 +178,7 @@ declare function GUILD_MEMBERS_CHUNK(
   guild: Guild,
   nonce: string | undefined,
   chunk: GuildMembersChunk,
-): unknown;
+): any;
 
 /**
  * Sent when all Guild Member Chunks for a request are collected
@@ -185,7 +187,7 @@ declare function GUILD_MEMBERS_CHUNK(
  * @asMemberOf EventsHandler
  * @event BotEventsHandler#GUILD_MEMBERS_CHUNK_FINISH
  */
-declare function GUILD_MEMBERS_CHUNK_FINISH(guild: Guild, nonce: string | undefined): unknown;
+declare function GUILD_MEMBERS_CHUNK_FINISH(guild: Guild, nonce: string | undefined): any;
 
 /**
  * Sent when a guild role is created
@@ -193,7 +195,7 @@ declare function GUILD_MEMBERS_CHUNK_FINISH(guild: Guild, nonce: string | undefi
  * @asMemberOf EventsHandler
  * @event BotEventsHandler#GUILD_ROLE_CREATE
  */
-declare function GUILD_ROLE_CREATE(role: Role): unknown;
+declare function GUILD_ROLE_CREATE(role: Role): any;
 
 /**
  * Sent when a guild role is updated
@@ -202,7 +204,7 @@ declare function GUILD_ROLE_CREATE(role: Role): unknown;
  * @asMemberOf EventsHandler
  * @event BotEventsHandler#GUILD_ROLE_UPDATE
  */
-declare function GUILD_ROLE_UPDATE(before: Role, after: Role): unknown;
+declare function GUILD_ROLE_UPDATE(before: Role, after: Role): any;
 
 /**
  * Sent when a guild role is deleted
@@ -210,7 +212,7 @@ declare function GUILD_ROLE_UPDATE(before: Role, after: Role): unknown;
  * @asMemberOf EventsHandler
  * @event BotEventsHandler#GUILD_ROLE_DELETE
  */
-declare function GUILD_ROLE_DELETE(role: Role): unknown;
+declare function GUILD_ROLE_DELETE(role: Role): any;
 
 /**
  * Sent when a new invite to a channel is created.
@@ -218,7 +220,7 @@ declare function GUILD_ROLE_DELETE(role: Role): unknown;
  * @asMemberOf EventsHandler
  * @event BotEventsHandler#INVITE_CREATE
  */
-declare function INVITE_CREATE(invite: Invite): unknown;
+declare function INVITE_CREATE(invite: Invite): any;
 
 /**
  * Sent when an invite is deleted.
@@ -226,7 +228,7 @@ declare function INVITE_CREATE(invite: Invite): unknown;
  * @asMemberOf EventsHandler
  * @event BotEventsHandler#INVITE_DELETE
  */
-declare function INVITE_DELETE(invite: Invite | PartialInvite): unknown;
+declare function INVITE_DELETE(invite: Invite | PartialInvite): any;
 
 /**
  * Sent when a message is created
@@ -234,7 +236,7 @@ declare function INVITE_DELETE(invite: Invite | PartialInvite): unknown;
  * @asMemberOf EventsHandler
  * @event BotEventsHandler#MESSAGE_CREATE
  */
-declare function MESSAGE_CREATE(message: Message): unknown;
+declare function MESSAGE_CREATE(message: Message): any;
 
 /**
  * Sent when a message is updated
@@ -243,7 +245,7 @@ declare function MESSAGE_CREATE(message: Message): unknown;
  * @asMemberOf EventsHandler
  * @event BotEventsHandler#MESSAGE_UPDATE
  */
-declare function MESSAGE_UPDATE(before: Message | undefined, after: Message): unknown;
+declare function MESSAGE_UPDATE(before: Message | undefined, after: Message): any;
 
 /**
  * Sent when a message is deleted
@@ -251,7 +253,7 @@ declare function MESSAGE_UPDATE(before: Message | undefined, after: Message): un
  * @asMemberOf EventsHandler
  * @event BotEventsHandler#MESSAGE_DELETE
  */
-declare function MESSAGE_DELETE(message: Message | PartialMessage): unknown;
+declare function MESSAGE_DELETE(message: Message | PartialMessage): any;
 
 /**
  * Sent when multiple messages are deleted at once.
@@ -264,7 +266,7 @@ declare function MESSAGE_DELETE(message: Message | PartialMessage): unknown;
 declare function MESSAGE_DELETE_BULK(
   channel: TextBasedChannel,
   messages: (Message | Snowflake)[],
-): unknown;
+): any;
 
 /**
  * Sent when a user adds a reaction to a message.
@@ -276,7 +278,7 @@ declare function MESSAGE_DELETE_BULK(
 declare function MESSAGE_REACTION_ADD(
   reaction: MessageReaction,
   user: Member | User | undefined,
-): unknown;
+): any;
 
 /**
  * Sent when a user removes a reaction from a message.
@@ -288,7 +290,7 @@ declare function MESSAGE_REACTION_ADD(
 declare function MESSAGE_REACTION_REMOVE(
   reaction: MessageReaction,
   user: Member | User | undefined,
-): unknown;
+): any;
 
 /**
  * Sent when a user explicitly removes all reactions from a message.
@@ -296,7 +298,7 @@ declare function MESSAGE_REACTION_REMOVE(
  * @asMemberOf EventsHandler
  * @event BotEventsHandler#MESSAGE_REACTION_REMOVE_ALL
  */
-declare function MESSAGE_REACTION_REMOVE_ALL(message: Message): unknown;
+declare function MESSAGE_REACTION_REMOVE_ALL(message: Message): any;
 
 /**
  * Sent when a bot removes all instances of a given emoji from the reactions of a message.
@@ -304,7 +306,7 @@ declare function MESSAGE_REACTION_REMOVE_ALL(message: Message): unknown;
  * @asMemberOf EventsHandler
  * @event BotEventsHandler#MESSAGE_REACTION_REMOVE_EMOJI
  */
-declare function MESSAGE_REACTION_REMOVE_EMOJI(reaction: MessageReaction | undefined): unknown;
+declare function MESSAGE_REACTION_REMOVE_EMOJI(reaction: MessageReaction | undefined): any;
 
 /**
  * Sent when a member's presence or info, such as name or avatar, is updated.
@@ -313,10 +315,7 @@ declare function MESSAGE_REACTION_REMOVE_EMOJI(reaction: MessageReaction | undef
  * @asMemberOf EventsHandler
  * @event BotEventsHandler#PRESENCE_UPDATE
  */
-declare function PRESENCE_UPDATE(
-  before: MemberPresence | undefined,
-  after: MemberPresence,
-): unknown;
+declare function PRESENCE_UPDATE(before: MemberPresence | undefined, after: MemberPresence): any;
 
 /**
  * Sent when a user starts typing in a channel.
@@ -330,7 +329,7 @@ declare function TYPING_START(
   channel: TextBasedChannel | undefined,
   user: Member | User | undefined,
   startedAt: number,
-): unknown;
+): any;
 
 /**
  * Sent when properties about the Bot's user change
@@ -339,7 +338,7 @@ declare function TYPING_START(
  * @asMemberOf EventsHandler
  * @event BotEventsHandler#USER_UPDATE
  */
-declare function USER_UPDATE(before: User, after: User): unknown;
+declare function USER_UPDATE(before: User, after: User): any;
 
 /**
  * Sent when a guild channel's webhook is created, updated, or deleted.
@@ -347,7 +346,7 @@ declare function USER_UPDATE(before: User, after: User): unknown;
  * @asMemberOf EventsHandler
  * @event BotEventsHandler#WEBHOOKS_UPDATE
  */
-declare function WEBHOOKS_UPDATE(channel: GuildChannel): unknown;
+declare function WEBHOOKS_UPDATE(channel: GuildChannel): any;
 
 /**
  * Events that are called when all Bot shards change their state.
@@ -361,7 +360,7 @@ export type BotStateEvents = BotEvent.Ready | BotEvent.Close;
 export interface Events {
   [BotEvent.Debug]: typeof console.log;
   [BotEvent.Ready]: typeof READY;
-  [BotEvent.Close]: () => unknown;
+  [BotEvent.Close]: () => any;
   [BotEvent.ChannelCreate]: typeof CHANNEL_CREATE;
   [BotEvent.ChannelUpdate]: typeof CHANNEL_UPDATE;
   [BotEvent.ChannelDelete]: typeof CHANNEL_DELETE;
