@@ -7,10 +7,11 @@ import { HandlerFunction, HandlerItem } from '../HandlerItem';
 /**
  * The {@link HandlerEvent}s listeners signatures for events
  */
-export interface EventEvents<T extends BotEvent> extends Record<HandlerEvent, HandlerFunction> {
+export interface EventEvents<T extends BotEvent, TReturn = unknown>
+  extends Record<HandlerEvent, HandlerFunction> {
   [HandlerEvent.Execute]: Events[T];
-  [HandlerEvent.Before]: () => void;
-  [HandlerEvent.After]: () => void;
+  [HandlerEvent.Before]: () => TReturn;
+  [HandlerEvent.After]: () => TReturn;
 }
 
 /**
@@ -66,10 +67,14 @@ export function RegisterEvent<T extends BotEvent>(attributes: EventAttributes<T>
  * @returns {Function}
  */
 export function RegisterEventHandler<THandlerName extends HandlerEvent>(name: THandlerName) {
-  return function <T extends Event<BotEvent>, TName extends T extends Event<infer N> ? N : never>(
+  return function <
+    T extends Event<BotEvent>,
+    TName extends T extends Event<infer N> ? N : never,
+    TReturn
+  >(
     target: T,
     propertyKey: keyof T,
-    descriptor: TypedPropertyDescriptor<EventEvents<TName>[THandlerName]>,
+    descriptor: TypedPropertyDescriptor<EventEvents<TName, TReturn>[THandlerName]>,
   ): void {
     if (!descriptor.value) return;
 
