@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>FetchReactionUsersOptions | node-discord</title>
+	<title>RoleOptions | node-discord</title>
 	<meta name="description" content="Documentation for node-discord">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,28 +54,21 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="fetchreactionusersoptions.html">FetchReactionUsersOptions</a>
+					<a href="roleoptions.html">RoleOptions</a>
 				</li>
 			</ul>
-			<h1>Interface FetchReactionUsersOptions</h1>
+			<h1>Interface RoleOptions</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Options for when fetching the users that reacted with a particular emoji</p>
-					</div>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">FetchReactionUsersOptions</span>
+						<span class="target">RoleOptions</span>
 					</li>
 				</ul>
 			</section>
@@ -86,9 +79,11 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="fetchreactionusersoptions.html#after" class="tsd-kind-icon">after</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="fetchreactionusersoptions.html#before" class="tsd-kind-icon">before</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="fetchreactionusersoptions.html#limit" class="tsd-kind-icon">limit</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="roleoptions.html#color" class="tsd-kind-icon">color</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="roleoptions.html#listedseparately" class="tsd-kind-icon">listed<wbr>Separately</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="roleoptions.html#mentionable" class="tsd-kind-icon">mentionable</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="roleoptions.html#name" class="tsd-kind-icon">name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="roleoptions.html#permissions" class="tsd-kind-icon">permissions</a></li>
 							</ul>
 						</section>
 					</div>
@@ -97,48 +92,106 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="after" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> after</h3>
-					<div class="tsd-signature tsd-kind-icon">after<span class="tsd-signature-symbol">:</span> <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></div>
+					<a name="color" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> color</h3>
+					<div class="tsd-signature tsd-kind-icon">color<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cdb3d08/src/structures/controllers/ReactionUsersController.ts#L19">src/structures/controllers/ReactionUsersController.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cdb3d08/src/structures/Role.ts#L25">src/structures/Role.ts:25</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Get users after this user ID</p>
+							<p>The hex color for the created role</p>
 						</div>
+						<dl class="tsd-comment-tags">
+							<dt>default</dt>
+							<dd><p>0</p>
+							</dd>
+							<dt>example</dt>
+							<dd><p>0x406fff // creates a blue role</p>
+							</dd>
+						</dl>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="before" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> before</h3>
-					<div class="tsd-signature tsd-kind-icon">before<span class="tsd-signature-symbol">:</span> <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></div>
+					<a name="listedseparately" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> listed<wbr>Separately</h3>
+					<div class="tsd-signature tsd-kind-icon">listed<wbr>Separately<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cdb3d08/src/structures/controllers/ReactionUsersController.ts#L14">src/structures/controllers/ReactionUsersController.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cdb3d08/src/structures/Role.ts#L31">src/structures/Role.ts:31</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Get users before this user ID</p>
+							<p>Whether the created role should be displayed separately in the sidebar</p>
 						</div>
+						<dl class="tsd-comment-tags">
+							<dt>default</dt>
+							<dd><p>false</p>
+							</dd>
+						</dl>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="limit" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> limit</h3>
-					<div class="tsd-signature tsd-kind-icon">limit<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
+					<a name="mentionable" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> mentionable</h3>
+					<div class="tsd-signature tsd-kind-icon">mentionable<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cdb3d08/src/structures/controllers/ReactionUsersController.ts#L24">src/structures/controllers/ReactionUsersController.ts:24</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cdb3d08/src/structures/Role.ts#L37">src/structures/Role.ts:37</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Max number of users to return (1-100)</p>
+							<p>Whether the created role should be mentionable</p>
 						</div>
+						<dl class="tsd-comment-tags">
+							<dt>default</dt>
+							<dd><p>false</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="name" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> name</h3>
+					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cdb3d08/src/structures/Role.ts#L12">src/structures/Role.ts:12</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The name of the created role</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>default</dt>
+							<dd><p>&quot;new role&quot;</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="permissions" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> permissions</h3>
+					<div class="tsd-signature tsd-kind-icon">permissions<span class="tsd-signature-symbol">:</span> <a href="../classes/permissionflags.html" class="tsd-signature-type">PermissionFlags</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/cdb3d08/src/structures/Role.ts#L18">src/structures/Role.ts:18</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The enabled permission flags for the created role</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>default</dt>
+							<dd><p>Permissions for the @everyone role</p>
+							</dd>
+						</dl>
 					</div>
 				</section>
 			</section>
@@ -156,16 +209,22 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="fetchreactionusersoptions.html" class="tsd-kind-icon">Fetch<wbr>Reaction<wbr>Users<wbr>Options</a>
+						<a href="roleoptions.html" class="tsd-kind-icon">Role<wbr>Options</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="fetchreactionusersoptions.html#after" class="tsd-kind-icon">after</a>
+								<a href="roleoptions.html#color" class="tsd-kind-icon">color</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="fetchreactionusersoptions.html#before" class="tsd-kind-icon">before</a>
+								<a href="roleoptions.html#listedseparately" class="tsd-kind-icon">listed<wbr>Separately</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="fetchreactionusersoptions.html#limit" class="tsd-kind-icon">limit</a>
+								<a href="roleoptions.html#mentionable" class="tsd-kind-icon">mentionable</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="roleoptions.html#name" class="tsd-kind-icon">name</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="roleoptions.html#permissions" class="tsd-kind-icon">permissions</a>
 							</li>
 						</ul>
 					</li>
