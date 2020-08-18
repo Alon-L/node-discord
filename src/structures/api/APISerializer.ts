@@ -2,7 +2,7 @@ import { Positions } from './BotAPI';
 import { Params } from '../../socket/rateLimit';
 import { Snowflake } from '../../types';
 import { InviteOptions } from '../Invite';
-import { Role } from '../Role';
+import { Role, RoleOptions } from '../Role';
 import { CreateGuildChannelOptions, GuildChannelOptions } from '../channels';
 import {
   FetchGuildOptions,
@@ -11,7 +11,6 @@ import {
   FetchSomeMembersOptions,
   FetchSomeMessagesOptions,
 } from '../controllers';
-import { CreateRoleOptions } from '../controllers/GuildRolesController';
 import { Permissible, PermissionOverwriteFlags } from '../flags';
 import { ModifyGuildOptions, EmojiOptions } from '../guild';
 import { MemberBanOptions, ModifyMemberOptions } from '../member';
@@ -251,11 +250,11 @@ export class APISerializer {
   }
 
   /**
-   * Returns the serialized create role options for when creating guild roles
-   * @param {CreateRoleOptions} options The create role options
+   * Returns the serialized role options for when creating or modifying roles
+   * @param {RoleOptions} options The role options
    * @returns {Params}
    */
-  public static createRoleOptions(options?: CreateRoleOptions): Params {
+  public static roleOptions(options?: RoleOptions): Params {
     return (
       options && {
         name: options.name,

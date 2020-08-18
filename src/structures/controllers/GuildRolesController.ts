@@ -1,50 +1,16 @@
 import { BaseCreateController, BaseFetchAllController } from './base';
 import Collection from '../../Collection';
 import { Snowflake } from '../../types';
-import { Role } from '../Role';
+import { Role, RoleOptions } from '../Role';
 import { Positions } from '../api';
-import { PermissionFlags } from '../flags';
 import { Guild } from '../guild';
-
-export interface CreateRoleOptions {
-  /**
-   * The name of the created role
-   * @default "new role"
-   */
-  name?: string;
-
-  /**
-   * The enabled permission flags for the created role
-   * @default Permissions for the @everyone role
-   */
-  permissions?: PermissionFlags;
-
-  /**
-   * The hex color for the created role
-   * @default 0
-   * @example 0x406fff // creates a blue role
-   */
-  color?: number;
-
-  /**
-   * Whether the created role should be displayed separately in the sidebar
-   * @default false
-   */
-  listedSeparately?: boolean;
-
-  /**
-   * Whether the created role should be mentionable
-   * @default false
-   */
-  mentionable?: boolean;
-}
 
 /**
  * Provides an interface for a guild's roles cache.
  * The roles are mapped by their IDs
  */
 export class GuildRolesController extends BaseFetchAllController<Role>
-  implements BaseCreateController<Role, CreateRoleOptions> {
+  implements BaseCreateController<Role, RoleOptions> {
   /**
    * The guild associated to this controller
    */
@@ -71,10 +37,10 @@ export class GuildRolesController extends BaseFetchAllController<Role>
   /**
    * Creates a new role in this guild.
    * Requires the {@link Permission.ManageRoles} permission
-   * @param {CreateRoleOptions | undefined} options The options for the created role
+   * @param {RoleOptions | undefined} options The options for the created role
    * @returns {Promise<Role>}
    */
-  public create(options?: CreateRoleOptions): Promise<Role> {
+  public create(options?: RoleOptions): Promise<Role> {
     return this.bot.api.createRole(this.guild.id, options);
   }
 

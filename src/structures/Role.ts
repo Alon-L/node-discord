@@ -4,6 +4,39 @@ import { PermissionFlags } from './flags';
 import { Guild, GuildBaseStruct } from './guild';
 import { Snowflake } from '../types';
 
+export interface RoleOptions {
+  /**
+   * The name of the created role
+   * @default "new role"
+   */
+  name?: string;
+
+  /**
+   * The enabled permission flags for the created role
+   * @default Permissions for the @everyone role
+   */
+  permissions?: PermissionFlags;
+
+  /**
+   * The hex color for the created role
+   * @default 0
+   * @example 0x406fff // creates a blue role
+   */
+  color?: number;
+
+  /**
+   * Whether the created role should be displayed separately in the sidebar
+   * @default false
+   */
+  listedSeparately?: boolean;
+
+  /**
+   * Whether the created role should be mentionable
+   * @default false
+   */
+  mentionable?: boolean;
+}
+
 /**
  * Represents a role in a guild
  */

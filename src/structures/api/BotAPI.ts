@@ -25,7 +25,6 @@ import {
   FetchSomeMembersOptions,
   FetchSomeMessagesOptions,
 } from '../controllers';
-import { CreateRoleOptions } from '../controllers/GuildRolesController';
 import { Permissible, PermissionOverwriteFlags } from '../flags';
 import {
   CreateEmojiOptions,
@@ -1085,15 +1084,15 @@ export class BotAPI {
    * Creates a new role in a guild.
    * Requires the {@link Permission.ManageRoles} permission
    * @param {Snowflake} guildId The ID of the guild
-   * @param {CreateRoleOptions} options The options for the created role
+   * @param {RoleOptions} options The options for the created role
    * @returns {Promise<Role>}
    */
-  public async createRole(guildId: Snowflake, options?: CreateRoleOptions): Promise<Role> {
+  public async createRole(guildId: Snowflake, options?: RoleOptions): Promise<Role> {
     const role = await this.requests.send<GatewayStruct>(
       EndpointRoute.GuildRoles,
       { guildId },
       HttpMethod.Post,
-      APISerializer.createRoleOptions(options),
+      APISerializer.roleOptions(options),
     );
 
     const guild = await this.bot.guilds.get(guildId);
