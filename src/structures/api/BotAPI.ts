@@ -1151,6 +1151,17 @@ export class BotAPI {
   }
 
   /**
+   * Deletes a role in a guild.
+   * Requires the {@link Permission.ManageRoles} permission
+   * @param {Snowflake} guildId The ID of the guild
+   * @param {Snowflake} roleId The ID of the role
+   * @returns {Promise<void>}
+   */
+  public async deleteRole(guildId: Snowflake, roleId: Snowflake): Promise<void> {
+    await this.requests.send(EndpointRoute.GuildRole, { guildId, roleId }, HttpMethod.Delete);
+  }
+
+  /**
    * Fetches an invite by its invite code
    * @param {string} inviteCode The invite code
    * @param {FetchInviteOptions} options An additional set of options for the invite

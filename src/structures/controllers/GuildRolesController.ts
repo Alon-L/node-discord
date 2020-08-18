@@ -53,4 +53,14 @@ export class GuildRolesController extends BaseFetchAllController<Role>
   public modifyPositions(positions: Positions): Promise<Collection<Snowflake, Role>> {
     return this.bot.api.modifyRolesPositions(this.guild.id, positions);
   }
+
+  /**
+   * Deletes a role in this guild.
+   * Requires the {@link Permission.ManageRoles} permission
+   * @param {Snowflake} id The ID of the role
+   * @returns {Promise<void>}
+   */
+  public delete(id: Snowflake): Promise<void> {
+    return this.bot.api.deleteRole(this.guild.id, id);
+  }
 }
