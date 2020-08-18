@@ -252,6 +252,17 @@ export interface PruneCountOptions {
 }
 
 /**
+ * Options for a guild prune operation
+ */
+export interface PruneOptions extends PruneCountOptions {
+  /**
+   * Whether the prune operation will return the number of members pruned. Discouraged for large guilds
+   * @default true
+   */
+  computePruneCount?: number;
+}
+
+/**
  * Guilds in Discord represent an isolated collection of users and channels, and are often referred to as "servers" in the UI.
  * @extends BaseStruct
  */
@@ -564,6 +575,16 @@ export class Guild extends GuildPreview {
    */
   public pruneCount(options?: PruneCountOptions): Promise<number> {
     return this.bot.api.guildPruneCount(this.id, options);
+  }
+
+  /**
+   * Begins a prune operation on this guild.
+   * Requires the {@link Permission.KickMembers} permission
+   * @param {PruneOptions} options The options for the prune operation
+   * @returns {Promise<number | null>} The number of members that were removed in the prune operation, or null if the {@link PruneOptions.computePruneCount} is false
+   */
+  public prune(options?: PruneOptions): Promise<number | null> {
+    return this.bot.api.guildPrune(this.id, options);
   }
 
   /**

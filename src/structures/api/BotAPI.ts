@@ -34,6 +34,7 @@ import {
   ModifyEmojiOptions,
   ModifyGuildOptions,
   PruneCountOptions,
+  PruneOptions,
 } from '../guild';
 import { GuildBan } from '../guild/GuildBan';
 import { Member, MemberBanOptions, ModifyMemberOptions } from '../member';
@@ -1175,6 +1176,24 @@ export class BotAPI {
       { guildId },
       HttpMethod.Get,
       APISerializer.pruneCountOptions(options),
+    );
+
+    return pruned;
+  }
+
+  /**
+   * Begins a prune operation on a guild.
+   * Requires the {@link Permission.KickMembers} permission
+   * @param {Snowflake} guildId The ID of the guild
+   * @param {PruneOptions} options The options for the prune operation
+   * @returns {Promise<number | null>} The number of members that were removed in the prune operation, or null if the {@link PruneOptions.computePruneCount} is false
+   */
+  public async guildPrune(guildId: Snowflake, options?: PruneOptions): Promise<number | null> {
+    const { pruned } = await this.requests.send<GatewayStruct>(
+      EndpointRoute.GuildPrune,
+      { guildId },
+      HttpMethod.Post,
+      APISerializer.pruneOptions(options),
     );
 
     return pruned;
