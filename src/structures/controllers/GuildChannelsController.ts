@@ -90,7 +90,7 @@ export class GuildChannelsController extends BaseFetchController<GuildChannel>
   public async swap(channel1: GuildChannel, channel2: GuildChannel): Promise<void> {
     const positions = { [channel1.id]: channel2.position, [channel2.id]: channel1.position };
 
-    return this.bot.api.modifyGuildChannelPositions(this.guild.id, positions);
+    return this.bot.api.modifyGuildChannelsPositions(this.guild.id, positions);
   }
 
   /**
@@ -100,6 +100,6 @@ export class GuildChannelsController extends BaseFetchController<GuildChannel>
    * @returns {Promise<void>}
    */
   public async modifyPositions(positions: GuildChannelPositions): Promise<void> {
-    return this.bot.api.modifyGuildChannelPositions(this.guild.id, positions);
+    return this.bot.api.modifyGuildChannelsPositions(this.guild.id, positions);
   }
 }

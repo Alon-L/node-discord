@@ -816,7 +816,7 @@ export class BotAPI {
    * @param {GuildChannelPositions} positions The new positions for the guild channels
    * @returns {Promise<void>}
    */
-  public async modifyGuildChannelPositions(
+  public async modifyGuildChannelsPositions(
     guildId: Snowflake,
     positions: GuildChannelPositions,
   ): Promise<void> {
