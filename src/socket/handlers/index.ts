@@ -14,6 +14,7 @@ export { default as GUILD_MEMBERS_CHUNK } from './guildMembersChunk';
 export { default as GUILD_MEMBER_UPDATE } from './guildMemberUpdate';
 export { default as GUILD_ROLE_CREATE } from './guildRoleCreate';
 export { default as GUILD_ROLE_DELETE } from './guildRoleDelete';
+export { default as GUILD_ROLE_UPDATE } from './guildRoleUpdate';
 export { default as GUILD_UPDATE } from './guildUpdate';
 export { default as INVITE_CREATE } from './inviteCreate';
 export { default as INVITE_DELETE } from './inviteDelete';
