@@ -4,15 +4,15 @@ import { HandlerEvent } from '../Handler';
 import { HandlerItem, HandlerFunction } from '../HandlerItem';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type CommandExecuteFunction = (message: Message, ...args: any[]) => void;
+export type CommandExecuteFunction<T> = (message: Message, ...args: any[]) => T;
 
 /**
  * The {@link HandlerEvent}s listeners signatures for commands
  */
-export interface CommandEvents extends Record<HandlerEvent, HandlerFunction> {
-  [HandlerEvent.Execute]: CommandExecuteFunction;
-  [HandlerEvent.Before]: () => void;
-  [HandlerEvent.After]: () => void;
+export interface CommandEvents<T = unknown> extends Record<HandlerEvent, HandlerFunction> {
+  [HandlerEvent.Execute]: CommandExecuteFunction<T>;
+  [HandlerEvent.Before]: () => T;
+  [HandlerEvent.After]: () => T;
 }
 
 /**
@@ -69,10 +69,10 @@ export function RegisterCommand(attributes: CommandAttributes) {
  * @returns {Function}
  */
 export function RegisterCommandHandler<THandlerName extends HandlerEvent>(name: THandlerName) {
-  return function <T extends Command>(
+  return function <T extends Command, TReturn>(
     target: T,
     propertyKey: keyof T,
-    descriptor: TypedPropertyDescriptor<CommandEvents[THandlerName]>,
+    descriptor: TypedPropertyDescriptor<CommandEvents<TReturn>[THandlerName]>,
   ): void {
     if (!descriptor.value) return;
 
