@@ -12,7 +12,7 @@ import {
   FetchSomeMessagesOptions,
 } from '../controllers';
 import { Permissible, PermissionOverwriteFlags } from '../flags';
-import { ModifyGuildOptions, EmojiOptions } from '../guild';
+import { ModifyGuildOptions, EmojiOptions, PruneCountOptions } from '../guild';
 import { MemberBanOptions, ModifyMemberOptions } from '../member';
 import { MessageData, MessageEmbed } from '../message';
 
@@ -262,6 +262,20 @@ export class APISerializer {
         color: options.color,
         hoist: options.listedSeparately,
         mentionable: options.mentionable,
+      }
+    );
+  }
+
+  /**
+   * Returns the serialized prune count options for when getting a guild prune count
+   * @param {PruneCountOptions} options The prune count options
+   * @returns {Params}
+   */
+  public static pruneCountOptions(options?: PruneCountOptions): Params {
+    return (
+      options && {
+        days: options.days,
+        include_roles: options.includeRoles,
       }
     );
   }

@@ -33,6 +33,7 @@ import {
   GuildPreview,
   ModifyEmojiOptions,
   ModifyGuildOptions,
+  PruneCountOptions,
 } from '../guild';
 import { GuildBan } from '../guild/GuildBan';
 import { Member, MemberBanOptions, ModifyMemberOptions } from '../member';
@@ -1159,6 +1160,24 @@ export class BotAPI {
    */
   public async deleteRole(guildId: Snowflake, roleId: Snowflake): Promise<void> {
     await this.requests.send(EndpointRoute.GuildRole, { guildId, roleId }, HttpMethod.Delete);
+  }
+
+  /**
+   * Returns the number of members that would be removed in a prune operation.
+   * Any inactive user that has a subset of the provided role(s) will be counted in the prune and users with additional roles will not.
+   * @param {Snowflake} guildId The Id of the guild
+   * @param {PruneCountOptions} options Options for the prune
+   * @returns {Promise<number>}
+   */
+  public async guildPruneCount(guildId: Snowflake, options?: PruneCountOptions): Promise<number> {
+    const { pruned } = await this.requests.send<GatewayStruct>(
+      EndpointRoute.GuildPrune,
+      { guildId },
+      HttpMethod.Get,
+      APISerializer.pruneCountOptions(options),
+    );
+
+    return pruned;
   }
 
   /**

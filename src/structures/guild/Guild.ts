@@ -234,6 +234,24 @@ export interface ModifyGuildOptions {
 }
 
 /**
+ * Options used for a guild prune count
+ */
+export interface PruneCountOptions {
+  /**
+   * The number of days to count prune for (1 or more)
+   * @default 7
+   */
+  days?: number;
+
+  /**
+   * By default, prune will not remove users with roles.
+   * You can optionally include specific roles in your prune by providing this field with an array of role IDs to include in the prune.
+   * @default []
+   */
+  includeRoles?: Snowflake[];
+}
+
+/**
  * Guilds in Discord represent an isolated collection of users and channels, and are often referred to as "servers" in the UI.
  * @extends BaseStruct
  */
@@ -536,6 +554,16 @@ export class Guild extends GuildPreview {
    */
   public modify(options: ModifyGuildOptions): Promise<Guild> {
     return this.bot.api.modifyGuild(this.id, options);
+  }
+
+  /**
+   * Returns the number of members that would be removed in a prune operation.
+   * Any inactive user that has a subset of the provided role(s) will be counted in the prune and users with additional roles will not.
+   * @param {PruneCountOptions} options Options for the prune
+   * @returns {Promise<number>}
+   */
+  public pruneCount(options?: PruneCountOptions): Promise<number> {
+    return this.bot.api.guildPruneCount(this.id, options);
   }
 
   /**

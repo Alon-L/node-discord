@@ -30,6 +30,7 @@ export const enum EndpointRoute {
   GuildBan = '/guilds/{guild.id}/bans/{user.id}',
   GuildRoles = '/guilds/{guild.id}/roles',
   GuildRole = '/guilds/{guild.id}/roles/{role.id}',
+  GuildPrune = '/guilds/{guild.id}/prune',
   Invite = '/invites/{invite.code}',
 }
 
@@ -93,6 +94,7 @@ export const Endpoints: Record<EndpointRoute, (...args: string[]) => string> = {
   [EndpointRoute.GuildRoles]: (guildId: Snowflake) => `/guilds/${guildId}/roles`,
   [EndpointRoute.GuildRole]: (guildId: Snowflake, roleId: Snowflake) =>
     `/guilds/${guildId}/roles/${roleId}`,
+  [EndpointRoute.GuildPrune]: (guildId: Snowflake) => `/guilds/${guildId}/prune`,
   [EndpointRoute.Invite]: (inviteCode: string) => `/invites/${inviteCode}`,
 };
 

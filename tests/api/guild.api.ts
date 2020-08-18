@@ -34,6 +34,8 @@ bot.connection.connect();
     'whether no new guild channels were fetched',
     'expected: undefined',
   ); // expected: undefined
+
+  console.log(await guild.pruneCount({ days: 1 }));
 })();
 
 bot.events.on(BotEvent.Debug, console.log);
