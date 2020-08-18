@@ -16,6 +16,7 @@ import {
   GuildMembersController,
 } from '../controllers';
 import { GuildBansController } from '../controllers/GuildBansController';
+import { GuildIntegrationsController } from '../controllers/GuildIntegrationsController';
 import { GuildRolesController } from '../controllers/GuildRolesController';
 import { GuildSystemChannelFlags, PermissionFlags } from '../flags';
 import { Member, MemberPresence } from '../member';
@@ -418,6 +419,11 @@ export class Guild extends GuildPreview {
    */
   public bans!: GuildBansController;
 
+  /**
+   * The guild's integrations controller
+   */
+  public integrations!: GuildIntegrationsController;
+
   constructor(bot: Bot, guild: GatewayStruct) {
     super(bot, guild);
   }
@@ -443,6 +449,8 @@ export class Guild extends GuildPreview {
     this.invites = new GuildInvitesController(this);
 
     this.bans = new GuildBansController(this);
+
+    this.integrations = new GuildIntegrationsController(this);
 
     if (guild.channels) {
       this.channels.cache.addMany(

@@ -37,6 +37,7 @@ import {
   PruneOptions,
 } from '../guild';
 import { GuildBan } from '../guild/GuildBan';
+import { GuildIntegration } from '../guild/GuildIntegration';
 import { Member, MemberBanOptions, ModifyMemberOptions } from '../member';
 import { Message, MessageData, MessageEditData, MessageEmbed, MessageOptions } from '../message';
 
@@ -1216,6 +1217,31 @@ export class BotAPI {
 
     return new Collection<string, Invite>(
       invites.map(invite => [invite.code, new Invite(this.bot, invite, guild)]),
+    );
+  }
+
+  /**
+   * Fetches all guild integrations in a guild
+   * Requires the {@link Permission.ManageGuild} permission
+   * @param {Snowflake} guildId The ID of the guild
+   * @returns {Promise<Collection<Snowflake, GuildIntegration>>}
+   */
+  public async fetchGuildIntegrations(
+    guildId: Snowflake,
+  ): Promise<Collection<Snowflake, GuildIntegration>> {
+    const integrations = await this.requests.send<GatewayStruct[]>(
+      EndpointRoute.GuildIntegrations,
+      { guildId },
+      HttpMethod.Get,
+    );
+
+    const guild = await this.bot.guilds.get(guildId);
+
+    return new Collection<Snowflake, GuildIntegration>(
+      integrations.map(integration => [
+        integration.id,
+        new GuildIntegration(this.bot, integration, guild),
+      ]),
     );
   }
 
