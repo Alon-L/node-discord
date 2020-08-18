@@ -2,6 +2,7 @@ import { BaseCreateController, BaseFetchAllController } from './base';
 import Collection from '../../Collection';
 import { Snowflake } from '../../types';
 import { Role } from '../Role';
+import { Positions } from '../api';
 import { PermissionFlags } from '../flags';
 import { Guild } from '../guild';
 
@@ -75,5 +76,15 @@ export class GuildRolesController extends BaseFetchAllController<Role>
    */
   public create(options?: CreateRoleOptions): Promise<Role> {
     return this.bot.api.createRole(this.guild.id, options);
+  }
+
+  /**
+   * Modifies the positions of a set of roles for this guild.
+   * Requires the {@link Permission.ManageRoles}
+   * @param {Positions} positions The new roles positions
+   * @returns {Promise<Collection<Snowflake, Role>>} A collection of all the guild's roles
+   */
+  public modifyPositions(positions: Positions): Promise<Collection<Snowflake, Role>> {
+    return this.bot.api.modifyRolesPositions(this.guild.id, positions);
   }
 }

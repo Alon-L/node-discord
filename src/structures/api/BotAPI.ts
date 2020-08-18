@@ -1100,6 +1100,31 @@ export class BotAPI {
   }
 
   /**
+   * Modifies the positions of a set of roles for a guild.
+   * Requires the {@link Permission.ManageRoles}
+   * @param {Snowflake} guildId The ID of the guild
+   * @param {Positions} positions The new roles positions
+   * @returns {Promise<Collection<Snowflake, Role>>} A collection of all the guild's roles
+   */
+  public async modifyRolesPositions(
+    guildId: Snowflake,
+    positions: Positions,
+  ): Promise<Collection<Snowflake, Role>> {
+    const roles = await this.requests.send<GatewayStruct[]>(
+      EndpointRoute.GuildRoles,
+      { guildId },
+      HttpMethod.Patch,
+      APISerializer.positions(positions),
+    );
+
+    const guild = await this.bot.guilds.get(guildId);
+
+    return new Collection<Snowflake, Role>(
+      roles.map(role => [role.id, new Role(this.bot, role, guild)]),
+    );
+  }
+
+  /**
    * Fetches an invite by its invite code
    * @param {string} inviteCode The invite code
    * @param {FetchInviteOptions} options An additional set of options for the invite
