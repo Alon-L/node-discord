@@ -1200,6 +1200,26 @@ export class BotAPI {
   }
 
   /**
+   * Fetches all invites (with metadata) in a guild.
+   * Requires the {@link Permission.ManageGuild} permission
+   * @param {Snowflake} guildId The ID of the guild
+   * @returns {Promise<Collection<string, Invite>>}
+   */
+  public async fetchGuildInvites(guildId: Snowflake): Promise<Collection<string, Invite>> {
+    const invites = await this.requests.send<GatewayStruct[]>(
+      EndpointRoute.GuildInvites,
+      { guildId },
+      HttpMethod.Get,
+    );
+
+    const guild = await this.bot.guilds.get(guildId);
+
+    return new Collection<string, Invite>(
+      invites.map(invite => [invite.code, new Invite(this.bot, invite, guild)]),
+    );
+  }
+
+  /**
    * Fetches an invite by its invite code
    * @param {string} inviteCode The invite code
    * @param {FetchInviteOptions} options An additional set of options for the invite

@@ -38,4 +38,15 @@ bot.connection.connect();
   ); // expected: true
 
   console.log(guild.invites.cache.size === size - 1, 'one less cached invite', 'expected: true'); // expected: true
+
+  const newInvite = await channel.invites.create();
+  const guildInvites = await guild.invites.fetchAll();
+
+  console.log(
+    guildInvites.has(newInvite.code),
+    'whether the fetch all operation returned the created invite',
+    'expected: true',
+  ); // expected: true
 })();
+
+bot.events.on(BotEvent.Debug, console.log);

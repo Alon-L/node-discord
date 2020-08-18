@@ -1,4 +1,5 @@
-import { BaseDeleteController, BaseFetchController } from './base';
+import { BaseDeleteController, BaseFetchAllController, BaseFetchController } from './base';
+import Collection from '../../Collection';
 import { Snowflake } from '../../types';
 import { Invite } from '../Invite';
 import { Guild } from '../guild';
@@ -18,7 +19,7 @@ export interface FetchInviteOptions {
  * The invites are mapped by their invite codes
  */
 export class GuildInvitesController extends BaseFetchController<Invite>
-  implements BaseDeleteController<Invite> {
+  implements BaseDeleteController<Invite>, BaseFetchAllController<Invite> {
   /**
    * The guild this controller is associated to
    */
@@ -51,5 +52,18 @@ export class GuildInvitesController extends BaseFetchController<Invite>
     this.cache.add(invite);
 
     return invite;
+  }
+
+  /**
+   * Fetches all invites (with metadata) in this guild.
+   * Requires the {@link Permission.ManageGuild} permission
+   * @returns {Promise<Collection<string, Invite>>}
+   */
+  public async fetchAll(): Promise<Collection<string, Invite>> {
+    const invites = await this.bot.api.fetchGuildInvites(this.guild.id);
+
+    this.cache.merge(invites);
+
+    return invites;
   }
 }
