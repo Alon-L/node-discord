@@ -177,4 +177,13 @@ export class GuildIntegration extends GuildBaseStruct {
   public modify(options: ModifyIntegrationOptions): Promise<void> {
     return this.bot.api.modifyGuildIntegration(this.guild.id, this.id, options);
   }
+
+  /**
+   * Syncs this guild integration.
+   * Requires the {@link Permission.ManageGuild} permission
+   * @returns {Promise<void>}
+   */
+  public sync(): Promise<void> {
+    return this.bot.api.syncGuildIntegration(this.guild.id, this.id);
+  }
 }

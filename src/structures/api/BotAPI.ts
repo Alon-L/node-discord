@@ -1305,6 +1305,21 @@ export class BotAPI {
   }
 
   /**
+   * Syncs a guild integration.
+   * Requires the {@link Permission.ManageGuild} permission
+   * @param {Snowflake} guildId The ID of the guild
+   * @param {Snowflake} integrationId The ID of the guild integration
+   * @returns {Promise<void>}
+   */
+  public async syncGuildIntegration(guildId: Snowflake, integrationId: Snowflake): Promise<void> {
+    await this.requests.send(
+      EndpointRoute.GuildIntegrationSync,
+      { guildId, integrationId },
+      HttpMethod.Post,
+    );
+  }
+
+  /**
    * Fetches an invite by its invite code
    * @param {string} inviteCode The invite code
    * @param {FetchInviteOptions} options An additional set of options for the invite
