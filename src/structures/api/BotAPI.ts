@@ -42,7 +42,9 @@ import { Message, MessageData, MessageEditData, MessageEmbed, MessageOptions } f
 /**
  * New positions for a orderly listed values on Discord, such as guild channels or roles
  * The key is the item's ID.
- * The value is the item's new position
+ * The value is the item's new position.
+ *
+ * The positions are in a descending order ending at 0
  * @example
  * // Guild channels positions
  * { '702476896008405005': 1, '721781755060813914': 2 }
