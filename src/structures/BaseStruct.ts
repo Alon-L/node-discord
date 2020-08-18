@@ -42,11 +42,11 @@ export class BaseStruct {
 
   /**
    * Virtual init method
-   * @param {GatewayStruct} _
+   * @param {GatewayStruct} _struct The structure to initialize from
    * @returns {this}
    */
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  public init(_: GatewayStruct): this {
+  public init(_struct: GatewayStruct): this {
     return this;
   }
 
