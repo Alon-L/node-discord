@@ -1290,6 +1290,21 @@ export class BotAPI {
   }
 
   /**
+   * Deletes the attached integration for a guild.
+   * Requires the {@link Permission.ManageGuild} permission
+   * @param {Snowflake} guildId The ID of the guild
+   * @param {Snowflake} integrationId The ID of the guild integration
+   * @returns {Promise<void>}
+   */
+  public async deleteGuildIntegration(guildId: Snowflake, integrationId: Snowflake): Promise<void> {
+    await this.requests.send(
+      EndpointRoute.GuildIntegration,
+      { guildId, integrationId },
+      HttpMethod.Delete,
+    );
+  }
+
+  /**
    * Fetches an invite by its invite code
    * @param {string} inviteCode The invite code
    * @param {FetchInviteOptions} options An additional set of options for the invite

@@ -1,4 +1,4 @@
-import { BaseFetchAllController } from './base';
+import { BaseDeleteController, BaseFetchAllController } from './base';
 import Collection from '../../Collection';
 import { Snowflake } from '../../types';
 import { Guild } from '../guild';
@@ -8,7 +8,8 @@ import { GuildIntegration, CreateIntegrationOptions } from '../guild/GuildIntegr
  * Provides an interface for a guild's integrations cache.
  * The integrations are mapped by their IDs
  */
-export class GuildIntegrationsController extends BaseFetchAllController<GuildIntegration> {
+export class GuildIntegrationsController extends BaseFetchAllController<GuildIntegration>
+  implements BaseDeleteController<GuildIntegration> {
   /**
    * The guild associated to this controller
    */
@@ -41,5 +42,15 @@ export class GuildIntegrationsController extends BaseFetchAllController<GuildInt
    */
   public create(options: CreateIntegrationOptions): Promise<void> {
     return this.bot.api.createGuildIntegration(this.guild.id, options);
+  }
+
+  /**
+   * Deletes the attached integration for this guild.
+   * Requires the {@link Permission.ManageGuild} permission
+   * @param {Snowflake} id The ID of the guild integration
+   * @returns {Promise<void>}
+   */
+  public delete(id: Snowflake): Promise<void> {
+    return this.bot.api.deleteGuildIntegration(this.guild.id, id);
   }
 }
