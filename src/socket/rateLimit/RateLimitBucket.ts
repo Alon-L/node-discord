@@ -144,7 +144,7 @@ export class RateLimitBucket {
 
     if (!ValidCodes.includes(response.status)) {
       // Debug the json response
-      this.bot.debug(json);
+      this.bot.debug('Error!', json);
 
       if (Array.isArray(json)) {
         throw new TypeError(`${response.url} - an error has occurred with an array response type`);
