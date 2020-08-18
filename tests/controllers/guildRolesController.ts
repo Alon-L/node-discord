@@ -35,4 +35,18 @@ bot.connection.connect();
     'whether the last role matches the created one',
     'expected: true',
   ); // expected: true
+
+  const last = guild.roles.cache.last!;
+  const newPosition = last.position + 1;
+
+  guild.roles.modifyPositions({ [last.id]: newPosition });
+  await bot.events.wait(BotEvent.GuildRoleUpdate);
+
+  console.log(
+    last.position === newPosition,
+    'whether the role is now at its new position',
+    'expected: true',
+  ); // expected: true
 })();
+
+bot.events.on(BotEvent.Debug, console.log);
