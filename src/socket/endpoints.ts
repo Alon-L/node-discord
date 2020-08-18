@@ -33,7 +33,7 @@ export const enum EndpointRoute {
   GuildPrune = '/guilds/{guild.id}/prune',
   GuildInvites = '/guilds/{guild.id}/invites',
   GuildIntegrations = '/guilds/{guild.id}/integrations',
-  GuildIntegration = '/guilds/{guild.id}/integrations/{integration.id}\n',
+  GuildIntegration = '/guilds/{guild.id}/integrations/{integration.id}',
   Invite = '/invites/{invite.code}',
 }
 
