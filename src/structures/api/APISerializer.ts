@@ -146,14 +146,14 @@ export class APISerializer {
    * @returns {Params}
    */
   public static inviteOptions(options?: InviteOptions): Params {
-    return (
-      options && {
-        max_age: options.max?.age,
-        max_uses: options.max?.uses,
-        temporary: options.temporary,
-        unique: options.unique,
-      }
-    );
+    return options
+      ? {
+          max_age: options.max?.age,
+          max_uses: options.max?.uses,
+          temporary: options.temporary,
+          unique: options.unique,
+        }
+      : {};
   }
 
   /**
