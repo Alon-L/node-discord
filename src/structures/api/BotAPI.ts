@@ -24,7 +24,6 @@ import {
   FetchReactionUsersOptions,
   FetchSomeMembersOptions,
   FetchSomeMessagesOptions,
-  GuildChannelPositions,
 } from '../controllers';
 import { CreateRoleOptions } from '../controllers/GuildRolesController';
 import { Permissible, PermissionOverwriteFlags } from '../flags';
@@ -39,6 +38,19 @@ import {
 import { GuildBan } from '../guild/GuildBan';
 import { Member, MemberBanOptions, ModifyMemberOptions } from '../member';
 import { Message, MessageData, MessageEditData, MessageEmbed, MessageOptions } from '../message';
+
+/**
+ * New positions for a orderly listed values on Discord, such as guild channels or roles
+ * The key is the item's ID.
+ * The value is the item's new position
+ * @example
+ * // Guild channels positions
+ * { '702476896008405005': 1, '721781755060813914': 2 }
+ * @example
+ * // Roles positions
+ * { '706861476752785461': 2 }
+ */
+export type Positions = Record<Snowflake, number | null>;
 
 /**
  * Creates all outgoing API requests
@@ -813,18 +825,18 @@ export class BotAPI {
    * Modifies the positions of a set of channels for the guild.
    * Requires the {@Link Permission.ManageChannels} permission
    * @param {Snowflake} guildId The ID of the guild
-   * @param {GuildChannelPositions} positions The new positions for the guild channels
+   * @param {Positions} positions The new positions for the guild channels
    * @returns {Promise<void>}
    */
   public async modifyGuildChannelsPositions(
     guildId: Snowflake,
-    positions: GuildChannelPositions,
+    positions: Positions,
   ): Promise<void> {
     await this.requests.send(
       EndpointRoute.GuildChannels,
       { guildId },
       HttpMethod.Patch,
-      APISerializer.guildChannelPositions(positions),
+      APISerializer.positions(positions),
     );
   }
 

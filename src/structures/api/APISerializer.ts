@@ -1,3 +1,4 @@
+import { Positions } from './BotAPI';
 import { Params } from '../../socket/rateLimit';
 import { Snowflake } from '../../types';
 import { InviteOptions } from '../Invite';
@@ -5,7 +6,6 @@ import { Role } from '../Role';
 import { CreateGuildChannelOptions, GuildChannelOptions } from '../channels';
 import {
   FetchGuildOptions,
-  GuildChannelPositions,
   FetchInviteOptions,
   FetchReactionUsersOptions,
   FetchSomeMembersOptions,
@@ -133,11 +133,11 @@ export class APISerializer {
   }
 
   /**
-   * Returns the serialized guild channel positions for when modifying guild channel positions
-   * @param {GuildChannelPositions} positions The guild channel positions
+   * Returns the serialized positions for when modifying lists positions
+   * @param {Positions} positions The new positions
    * @returns {Params}
    */
-  public static guildChannelPositions(positions: GuildChannelPositions): Params {
+  public static positions(positions: Positions): Params {
     return Object.entries(positions).map(([id, position]) => ({ id, position }));
   }
 

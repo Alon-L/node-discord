@@ -6,15 +6,9 @@ import {
 } from './base';
 import Collection from '../../Collection';
 import { Snowflake } from '../../types';
+import { Positions } from '../api';
 import { GuildChannel, CreateGuildChannelOptions } from '../channels';
 import { Guild } from '../guild';
-
-/**
- * New positions for the guild channels.
- * The key is the guild channel's ID.
- * The value is the guild channel's new position
- */
-export type GuildChannelPositions = Record<Snowflake, number>;
 
 /**
  * Provides an interface for a guild's channels cache.
@@ -96,10 +90,10 @@ export class GuildChannelsController extends BaseFetchController<GuildChannel>
   /**
    * Modifies the positions of a set of channels for the guild.
    * Requires the {@Link Permission.ManageChannels} permission
-   * @param {GuildChannelPositions} positions The new positions for the guild channels
+   * @param {Positions} positions The new positions for the guild channels
    * @returns {Promise<void>}
    */
-  public async modifyPositions(positions: GuildChannelPositions): Promise<void> {
+  public async modifyPositions(positions: Positions): Promise<void> {
     return this.bot.api.modifyGuildChannelsPositions(this.guild.id, positions);
   }
 }
