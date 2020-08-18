@@ -101,24 +101,30 @@ export class Invite extends BaseStruct {
    */
   public uses!: number;
 
-  constructor(bot: Bot, invite: GatewayStruct) {
+  constructor(bot: Bot, invite: GatewayStruct, guild?: Guild) {
     super(bot, invite);
 
-    this.init(invite);
+    this.init(invite, guild);
   }
 
   /**
    * @ignore
    * @param {GatewayStruct} invite The invite data
+   * @param {Guild} guild The guild this invite is for
    * @returns {this}
    */
-  public init(invite: GatewayStruct): this {
+  public init(invite: GatewayStruct, guild?: Guild): this {
     this.code = invite.code;
     this.createdAt = new Timestamp(invite.created_at);
 
-    if (invite.guild_id) {
-      this.guild = this.bot.guilds.cache.get(invite.guild_id);
-      this.channel = this.guild?.channels.cache.get(invite.channel_id);
+    if (guild) {
+      this.guild = guild;
+    } else if (invite.guild) {
+      this.guild = this.bot.guilds.cache.get(invite.guild.id);
+    }
+
+    if (this.guild && invite.channel) {
+      this.channel = this.guild.channels.cache.get(invite.channel.id);
     }
 
     if (invite.inviter) {
