@@ -543,6 +543,7 @@ export class Guild extends GuildPreview {
    * @param {Bot} bot The bot instance
    * @param {GatewayStruct} guild The guild data
    * @returns {Guild | GuildUnavailable}
+   * @ignore
    */
   public static create(bot: Bot, guild: GatewayStruct): Guild | GuildUnavailable {
     return guild.unavailable ? new GuildUnavailable(bot, guild) : new Guild(bot, guild);
@@ -553,6 +554,7 @@ export class Guild extends GuildPreview {
    * @param {Bot} bot The bot instance
    * @param {Snowflake} guildId The ID of the guild
    * @returns {Guild | GuildUnavailable | undefined}
+   * @ignore
    */
   public static find(bot: Bot, guildId: Snowflake): Guild | GuildUnavailable | undefined {
     if (bot.unavailableGuilds.has(guildId)) {
@@ -568,6 +570,7 @@ export class Guild extends GuildPreview {
    * Caches a guild in the correct collection
    * @param {Bot} bot The bot instance
    * @param {Guild | GuildUnavailable} guild The guild you wish to cache
+   * @ignore
    */
   public static cache(bot: Bot, guild: Guild | GuildUnavailable): void {
     if (guild instanceof Guild) {
@@ -581,6 +584,7 @@ export class Guild extends GuildPreview {
    * Deletes a guild from the correct cache
    * @param {Bot} bot The bot instance
    * @param {Guild | GuildUnavailable} guild The available / unavailable guild
+   * @ignore
    */
   public static delete(bot: Bot, guild: Guild | GuildUnavailable): void {
     if (guild instanceof Guild) {
