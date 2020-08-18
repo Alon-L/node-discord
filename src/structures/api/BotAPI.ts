@@ -820,8 +820,6 @@ export class BotAPI {
     guildId: Snowflake,
     positions: GuildChannelPositions,
   ): Promise<void> {
-    console.log(APISerializer.guildChannelPositions(positions));
-
     await this.requests.send(
       EndpointRoute.GuildChannels,
       { guildId },
