@@ -46,6 +46,21 @@ export interface IntegrationAccount {
 }
 
 /**
+ * Options for when creating new guild integrations
+ */
+export interface CreateIntegrationOptions {
+  /**
+   * The integration type
+   */
+  type: string;
+
+  /**
+   * The ID of the integration
+   */
+  id: Snowflake;
+}
+
+/**
  * Guild integration object
  */
 export class GuildIntegration extends GuildBaseStruct {

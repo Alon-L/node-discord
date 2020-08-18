@@ -13,6 +13,7 @@ import {
 } from '../controllers';
 import { Permissible, PermissionOverwriteFlags } from '../flags';
 import { ModifyGuildOptions, EmojiOptions, PruneCountOptions, PruneOptions } from '../guild';
+import { CreateIntegrationOptions } from '../guild/GuildIntegration';
 import { MemberBanOptions, ModifyMemberOptions } from '../member';
 import { MessageData, MessageEmbed } from '../message';
 
@@ -292,6 +293,18 @@ export class APISerializer {
         compute_prune_count: options.computePruneCount,
       }
     );
+  }
+
+  /**
+   * Returns the serialized create integration options for when creating new guild integrations
+   * @param {CreateIntegrationOptions} options The create integration options
+   * @returns {Params}
+   */
+  public static createIntegrationOptions(options: CreateIntegrationOptions): Params {
+    return {
+      type: options.type,
+      id: options.id,
+    };
   }
 
   /**

@@ -2,7 +2,7 @@ import { BaseFetchAllController } from './base';
 import Collection from '../../Collection';
 import { Snowflake } from '../../types';
 import { Guild } from '../guild';
-import { GuildIntegration } from '../guild/GuildIntegration';
+import { GuildIntegration, CreateIntegrationOptions } from '../guild/GuildIntegration';
 
 /**
  * Provides an interface for a guild's integrations cache.
@@ -31,5 +31,15 @@ export class GuildIntegrationsController extends BaseFetchAllController<GuildInt
     this.cache.merge(integrations);
 
     return integrations;
+  }
+
+  /**
+   * Attaches an integration from the Bot to this guild.
+   * Requires the {@link Permission.ManageGuild} permission
+   * @param {CreateIntegrationOptions} options The options for the new integration
+   * @returns {Promise<GuildIntegration>}
+   */
+  public create(options: CreateIntegrationOptions): Promise<void> {
+    return this.bot.api.createGuildIntegration(this.guild.id, options);
   }
 }
