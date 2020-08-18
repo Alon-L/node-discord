@@ -37,7 +37,11 @@ import {
   PruneOptions,
 } from '../guild';
 import { GuildBan } from '../guild/GuildBan';
-import { CreateIntegrationOptions, GuildIntegration } from '../guild/GuildIntegration';
+import {
+  CreateIntegrationOptions,
+  GuildIntegration,
+  ModifyIntegrationOptions,
+} from '../guild/GuildIntegration';
 import { Member, MemberBanOptions, ModifyMemberOptions } from '../member';
 import { Message, MessageData, MessageEditData, MessageEmbed, MessageOptions } from '../message';
 
@@ -1261,6 +1265,27 @@ export class BotAPI {
       { guildId },
       HttpMethod.Post,
       APISerializer.createIntegrationOptions(options),
+    );
+  }
+
+  /**
+   * Modifies the behavior and settings of a guild integration.
+   * Requires the {@link Permission.ManageGuild} permission
+   * @param {Snowflake} guildId The ID of the guild
+   * @param {Snowflake} integrationId The ID of the integration
+   * @param {ModifyIntegrationOptions} options The options for the modified guild integration
+   * @returns {Promise<void>}
+   */
+  public async modifyGuildIntegration(
+    guildId: Snowflake,
+    integrationId: Snowflake,
+    options: ModifyIntegrationOptions,
+  ): Promise<void> {
+    await this.requests.send(
+      EndpointRoute.GuildIntegration,
+      { guildId, integrationId },
+      HttpMethod.Patch,
+      APISerializer.modifyIntegrationOptions(options),
     );
   }
 

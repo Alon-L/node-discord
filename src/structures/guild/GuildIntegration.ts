@@ -61,6 +61,21 @@ export interface CreateIntegrationOptions {
 }
 
 /**
+ * Options for when modifying guild integrations
+ */
+export interface ModifyIntegrationOptions {
+  /**
+   * The new expire options for the modified integration
+   */
+  expire?: Partial<IntegrationExpire>;
+
+  /**
+   * Whether emoticons should be synced for this integration (twitch only currently)
+   */
+  enableEmoticons?: boolean;
+}
+
+/**
  * Guild integration object
  */
 export class GuildIntegration extends GuildBaseStruct {
@@ -151,5 +166,15 @@ export class GuildIntegration extends GuildBaseStruct {
     this.syncedAt = new Timestamp(integration.synced_at);
 
     return this;
+  }
+
+  /**
+   * Modifies the behavior and settings of this guild integration.
+   * Requires the {@link Permission.ManageGuild} permission
+   * @param {ModifyIntegrationOptions} options The options for the modified guild integration
+   * @returns {Promise<void>}
+   */
+  public modify(options: ModifyIntegrationOptions): Promise<void> {
+    return this.bot.api.modifyGuildIntegration(this.guild.id, this.id, options);
   }
 }

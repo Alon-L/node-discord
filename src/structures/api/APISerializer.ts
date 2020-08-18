@@ -13,7 +13,7 @@ import {
 } from '../controllers';
 import { Permissible, PermissionOverwriteFlags } from '../flags';
 import { ModifyGuildOptions, EmojiOptions, PruneCountOptions, PruneOptions } from '../guild';
-import { CreateIntegrationOptions } from '../guild/GuildIntegration';
+import { CreateIntegrationOptions, ModifyIntegrationOptions } from '../guild/GuildIntegration';
 import { MemberBanOptions, ModifyMemberOptions } from '../member';
 import { MessageData, MessageEmbed } from '../message';
 
@@ -304,6 +304,19 @@ export class APISerializer {
     return {
       type: options.type,
       id: options.id,
+    };
+  }
+
+  /**
+   * Returns the serialized modify integration options for when modifying guild integrations
+   * @param {ModifyIntegrationOptions} options The modify integration options
+   * @returns {Params}
+   */
+  public static modifyIntegrationOptions(options: ModifyIntegrationOptions): Params {
+    return {
+      expire_behavior: options.expire?.behavior,
+      expire_grace_period: options.expire?.gracePeriod,
+      enable_emoticons: options.enableEmoticons,
     };
   }
 
