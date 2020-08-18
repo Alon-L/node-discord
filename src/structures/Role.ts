@@ -104,4 +104,14 @@ export class Role extends GuildBaseStruct {
 
     return this;
   }
+
+  /**
+   * Modifies this role.
+   * Requires the {@link Permission.ManageRoles} permission
+   * @param {RoleOptions} options The options for the modified role
+   * @returns {Promise<Role>} The updated role
+   */
+  public modify(options: RoleOptions): Promise<Role> {
+    return this.bot.api.modifyRole(this.guild.id, this.id, options);
+  }
 }

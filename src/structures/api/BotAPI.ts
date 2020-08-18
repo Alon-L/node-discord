@@ -8,7 +8,7 @@ import { GatewayStruct } from '../BaseStruct';
 import { Emoji, EmojiResolvable } from '../Emoji';
 import { Invite, InviteOptions } from '../Invite';
 import { PermissionOverwrite } from '../PermissionOverwrite';
-import { Role } from '../Role';
+import { Role, RoleOptions } from '../Role';
 import { User } from '../User';
 import { Bot } from '../bot';
 import {
@@ -1123,6 +1123,31 @@ export class BotAPI {
     return new Collection<Snowflake, Role>(
       roles.map(role => [role.id, new Role(this.bot, role, guild)]),
     );
+  }
+
+  /**
+   * Modifies a role.
+   * Requires the {@link Permission.ManageRoles} permission
+   * @param {Snowflake} guildId The ID of the guild
+   * @param {Snowflake} roleId The ID of the role
+   * @param {RoleOptions} options The options for the updated role
+   * @returns {Promise<Role>} The updated role
+   */
+  public async modifyRole(
+    guildId: Snowflake,
+    roleId: Snowflake,
+    options: RoleOptions,
+  ): Promise<Role> {
+    const role = await this.requests.send<GatewayStruct>(
+      EndpointRoute.GuildRole,
+      { guildId, roleId },
+      HttpMethod.Patch,
+      APISerializer.roleOptions(options),
+    );
+
+    const guild = await this.bot.guilds.get(guildId);
+
+    return new Role(this.bot, role, guild);
   }
 
   /**
