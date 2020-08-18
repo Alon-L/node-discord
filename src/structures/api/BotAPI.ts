@@ -35,6 +35,7 @@ import {
   ModifyGuildOptions,
   PruneCountOptions,
   PruneOptions,
+  GuildWidget,
 } from '../guild';
 import { GuildBan } from '../guild/GuildBan';
 import {
@@ -1317,6 +1318,29 @@ export class BotAPI {
       { guildId, integrationId },
       HttpMethod.Post,
     );
+  }
+
+  /**
+   * Fetches a guild's widget object.
+   * Requires the {@link Permission.ManageGuild} permission
+   * @param {Snowflake} guildId The ID of the guild
+   * @returns {Promise<GuildWidget>}
+   */
+  public async fetchGuildWidget(guildId: Snowflake): Promise<GuildWidget> {
+    const { enabled, channel_id: channelId } = await this.requests.send<GatewayStruct>(
+      EndpointRoute.GuildWidget,
+      { guildId },
+      HttpMethod.Get,
+    );
+
+    const guild = await this.bot.guilds.get(guildId);
+
+    const channel = channelId ? await guild.channels.get(channelId) : null;
+
+    return {
+      enabled,
+      channel,
+    };
   }
 
   /**

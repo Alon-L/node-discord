@@ -596,6 +596,15 @@ export class Guild extends GuildPreview {
   }
 
   /**
+   * Fetches this guild's widget object.
+   * Requires the {@link Permission.ManageGuild} permission
+   * @returns {Promise<GuildWidget>}
+   */
+  public fetchWidget(): Promise<GuildWidget> {
+    return this.bot.api.fetchGuildWidget(this.id);
+  }
+
+  /**
    * Creates a {@link Guild} or {@link GuildUnavailable}
    * @param {Bot} bot The bot instance
    * @param {GatewayStruct} guild The guild data

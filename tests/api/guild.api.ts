@@ -38,6 +38,8 @@ bot.connection.connect();
   console.log(await guild.pruneCount({ days: 1 }));
 
   console.log(await guild.prune({ days: 1 }));
+
+  console.log(await guild.fetchWidget());
 })();
 
 bot.events.on(BotEvent.Debug, console.log);
