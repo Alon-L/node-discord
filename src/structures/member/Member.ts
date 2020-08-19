@@ -194,4 +194,12 @@ export class Member extends GuildBaseStruct {
   public ban(options: MemberBanOptions): Promise<void> {
     return this.bot.api.banMember(this.guild.id, this.id, options);
   }
+
+  /**
+   * @ignore
+   * @returns {string | undefined}
+   */
+  public toString(): string | undefined {
+    return this.user?.toString();
+  }
 }
