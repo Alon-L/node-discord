@@ -135,7 +135,7 @@ export class User extends BaseStruct {
    * @type {string}
    * @example DiscordUser#0001
    */
-  get fullName(): string {
+  public get fullName(): string {
     return `${this.username}#${this.hashtag}`;
   }
 }
