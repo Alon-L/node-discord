@@ -16,6 +16,19 @@ test('collection filter', () => {
   expect(filtered.size).toBe(collection.size - 1);
 });
 
+test('collection find', () => {
+  const collection = new Collection<string, number>();
+  collection.set('1', 1);
+  collection.set('2', 2);
+  collection.set('3', 3);
+
+  const three = collection.find((value: number) => value > 2);
+  expect(three).toBe(3);
+
+  const nothing = collection.find((value: number) => value > 3);
+  expect(nothing).toBeUndefined();
+});
+
 describe('collection merging', () => {
   test('collection merge collection', () => {
     const collection2 = new Collection<string, number>([['4', 4]]);

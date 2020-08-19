@@ -263,6 +263,26 @@ class Collection<K, V> extends Map<K, V> {
   }
 
   /**
+   * Returns the value of the item in this collection that satisfies the provided testing callback function
+   * Equivalent to Array#find() https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
+   * @param {function(value: V, key: K, collection: this): boolean} cb A function to test for each element
+   * @returns {V | undefined}
+   */
+  public find(cb: (value: V, key: K, collection: this) => boolean): V | undefined {
+    let item: V | undefined;
+
+    for (const [key, value] of this) {
+      const result = cb(value, key, this);
+      if (result) {
+        item = value;
+        break;
+      }
+    }
+
+    return item;
+  }
+
+  /**
    * @ignore
    * @returns {Serializable}
    */
