@@ -117,9 +117,9 @@ export class Role extends GuildBaseStruct {
 
   /**
    * @ignore
-   * @returns {string | undefined}
+   * @returns {string}
    */
-  public toString(): string | undefined {
+  public toString(): string {
     return `<@&${this.id}>`;
   }
 }
