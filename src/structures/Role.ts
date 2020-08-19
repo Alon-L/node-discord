@@ -114,4 +114,12 @@ export class Role extends GuildBaseStruct {
   public modify(options: RoleOptions): Promise<Role> {
     return this.bot.api.modifyRole(this.guild.id, this.id, options);
   }
+
+  /**
+   * @ignore
+   * @returns {string | undefined}
+   */
+  public toString(): string | undefined {
+    return `<@&${this.id}>`;
+  }
 }
