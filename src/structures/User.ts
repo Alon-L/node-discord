@@ -133,7 +133,7 @@ export class User extends BaseStruct {
   /**
    * Combines a user's username and hashtag and generates a full name
    * @type {string}
-   * @example DiscordUser#0001
+   * @example Day#0001
    */
   public get fullName(): string {
     return `${this.username}#${this.hashtag}`;
