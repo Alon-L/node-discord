@@ -90,4 +90,12 @@ export class GuildEmoji extends Emoji {
   public delete(): Promise<void> {
     return this.bot.api.deleteGuildEmoji(this.guild.id, this.id);
   }
+
+  /**
+   * @ignore
+   * @returns {string}
+   */
+  public toString(): string {
+    return this.animated ? `<a:${this.name}:${this.id}>` : `<:${this.name}:${this.id}>`;
+  }
 }
