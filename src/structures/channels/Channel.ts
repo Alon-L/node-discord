@@ -54,4 +54,12 @@ export class Channel extends BaseStruct {
   public delete(): Promise<Channel> {
     return this.bot.api.deleteChannel(this.id);
   }
+
+  /**
+   * @ignore
+   * @returns {string}
+   */
+  public toString(): string {
+    return `<#${this.id}>`;
+  }
 }
