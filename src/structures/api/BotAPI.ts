@@ -35,7 +35,6 @@ import {
   ModifyGuildOptions,
   PruneCountOptions,
   PruneOptions,
-  GuildWidget,
 } from '../guild';
 import { GuildBan } from '../guild/GuildBan';
 import {
@@ -43,6 +42,7 @@ import {
   GuildIntegration,
   ModifyIntegrationOptions,
 } from '../guild/GuildIntegration';
+import { GuildWidget } from '../guild/GuildWidget';
 import { Member, MemberBanOptions, ModifyMemberOptions } from '../member';
 import { Message, MessageData, MessageEditData, MessageEmbed, MessageOptions } from '../message';
 
@@ -1327,7 +1327,7 @@ export class BotAPI {
    * @returns {Promise<GuildWidget>}
    */
   public async fetchGuildWidget(guildId: Snowflake): Promise<GuildWidget> {
-    const { enabled, channel_id: channelId } = await this.requests.send<GatewayStruct>(
+    const widget = await this.requests.send<GatewayStruct>(
       EndpointRoute.GuildWidget,
       { guildId },
       HttpMethod.Get,
@@ -1335,12 +1335,7 @@ export class BotAPI {
 
     const guild = await this.bot.guilds.get(guildId);
 
-    const channel = channelId ? await guild.channels.get(channelId) : null;
-
-    return {
-      enabled,
-      channel,
-    };
+    return new GuildWidget(this.bot, widget, guild);
   }
 
   /**

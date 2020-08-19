@@ -1,6 +1,7 @@
 import { GuildEmoji } from './GuildEmoji';
 import { GuildPreview } from './GuildPreview';
 import { GuildUnavailable } from './GuildUnavailable';
+import { GuildWidget } from './GuildWidget';
 import Collection from '../../Collection';
 import { Snowflake } from '../../types';
 import { ChannelUtils } from '../../utils';
@@ -105,22 +106,6 @@ export interface GuildLevels {
    * Required MFA level for the guild
    */
   mfa: MFALevel;
-}
-
-/**
- * Information about the guild's widget
- */
-export interface GuildWidget {
-  /**
-   * Whether or not the server widget is enabled
-   */
-  enabled: boolean | undefined;
-
-  /**
-   * The channel for the server widget. Possibly null if widget is not enabled or widget
-   * channel has not been selected
-   */
-  channel: GuildChannel | null | undefined;
 }
 
 /**
@@ -325,7 +310,7 @@ export class Guild extends GuildPreview {
   public applicationId!: Snowflake | null;
 
   /**
-   * {@link GuildWidget} object containing information about the guild widget data
+   * The guild widget data
    */
   public widget!: GuildWidget;
 
@@ -513,10 +498,12 @@ export class Guild extends GuildPreview {
 
     this.applicationId = guild.application_id;
 
-    this.widget = {
-      enabled: guild.widget_enabled,
-      channel: this.channels.cache.get(guild.widget_channel_id),
-    };
+    this.widget = new GuildWidget(
+      this.bot,
+      // Serializes the guild widget data
+      { enabled: guild.widget_enabled, channel_id: guild.widget_channel_id },
+      this,
+    );
 
     this.systemChannel = {
       channel: this.channels.cache.get(guild.system_channel_id) as GuildTextChannel,
