@@ -1,7 +1,7 @@
 import { Avatar, UserAvatarFormat } from './Avatar';
 import { BaseStruct, GatewayStruct } from './BaseStruct';
 import { Bot } from './bot';
-import { DMChannel } from './channels';
+import { DMChannel, TextChannel } from './channels';
 import { UserFlags } from './flags';
 import { Snowflake } from '../types';
 
@@ -84,6 +84,11 @@ export class User extends BaseStruct {
    * The public flags on a user's account
    */
   public publicFlags: UserFlags | undefined;
+
+  /**
+   * This user's DM channel with the bot, if cached
+   */
+  public dm: DMChannel | undefined;
 
   constructor(bot: Bot, user: GatewayStruct) {
     super(bot, user);
