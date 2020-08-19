@@ -13,7 +13,7 @@ bot.connection.connect();
   const guild = await bot.guilds.get('702476896008405002');
   const member = await guild.members.me!;
 
-  const roleId = guild.roles.get('744174116772249610')!.id;
+  const roleId = guild.roles.cache.get('744174116772249610')!.id;
 
   console.log(roleId);
 

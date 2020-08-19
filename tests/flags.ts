@@ -12,7 +12,7 @@ bot.connection.connect();
 
   const guild = await bot.guilds.get('702476896008405002');
 
-  const role = guild.roles.get('706861476752785461');
+  const role = guild.roles.cache.get('706861476752785461');
   console.log(role?.permissions.has(Permission.Administrator), 'has permission');
 })();
 

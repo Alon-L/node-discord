@@ -25,7 +25,7 @@ bot.connection.connect();
           description: 'Hello World!',
           author: {
             name: 'HELLO!',
-            iconURL: bot.users.get('237470577298898946')?.avatarURL(),
+            iconURL: bot.users.cache.get('237470577298898946')?.avatarURL(),
           },
         },
       },
