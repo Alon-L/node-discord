@@ -11,7 +11,7 @@ import { PermissionOverwrite } from '../PermissionOverwrite';
 import { Role, RoleOptions } from '../Role';
 import { User } from '../User';
 import { Bot } from '../bot';
-import { BotUser } from '../bot/BotUser';
+import { BotUser, ModifyBotUserOptions } from '../bot/BotUser';
 import {
   Channel,
   CreateGuildChannelOptions,
@@ -1396,6 +1396,22 @@ export class BotAPI {
     );
 
     return new User(this.bot, user);
+  }
+
+  /**
+   * Modifies this bot's user account settings
+   * @param {ModifyBotUserOptions} options The options for the modified bot user
+   * @returns {Promise<BotUser>}
+   */
+  public async modifyBotUser(options: ModifyBotUserOptions): Promise<BotUser> {
+    const user = await this.requests.send<GatewayStruct>(
+      EndpointRoute.UserBot,
+      {},
+      HttpMethod.Patch,
+      APISerializer.modifyBotUserOptions(options),
+    );
+
+    return new BotUser(this.bot, user);
   }
 
   /**

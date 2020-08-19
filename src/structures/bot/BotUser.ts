@@ -19,4 +19,13 @@ export interface ModifyBotUserOptions {
 /**
  * Represents the bot's user account
  */
-export class BotUser extends User {}
+export class BotUser extends User {
+  /**
+   * Modifies this bot's user account settings
+   * @param {ModifyBotUserOptions} options The options for the modified bot user
+   * @returns {Promise<BotUser>}
+   */
+  public modify(options: ModifyBotUserOptions): Promise<BotUser> {
+    return this.bot.api.modifyBotUser(options);
+  }
+}

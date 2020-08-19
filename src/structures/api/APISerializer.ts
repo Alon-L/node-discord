@@ -3,6 +3,7 @@ import { Params } from '../../socket/rateLimit';
 import { Snowflake } from '../../types';
 import { InviteOptions } from '../Invite';
 import { Role, RoleOptions } from '../Role';
+import { ModifyBotUserOptions } from '../bot/BotUser';
 import { CreateGuildChannelOptions, GuildChannelOptions } from '../channels';
 import {
   FetchGuildOptions,
@@ -330,6 +331,18 @@ export class APISerializer {
     return {
       enabled: options.enabled,
       channel_id: options.channelId,
+    };
+  }
+
+  /**
+   * Returns the serialized modify bot user options for when modifying this bot's user
+   * @param {ModifyBotUserOptions} options The modify bot user options
+   * @returns {Params}
+   */
+  public static modifyBotUserOptions(options: ModifyBotUserOptions): Params {
+    return {
+      username: options.username,
+      avatar: options.avatar,
     };
   }
 
