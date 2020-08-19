@@ -11,7 +11,7 @@ import { PermissionOverwrite } from '../PermissionOverwrite';
 import { Role, RoleOptions } from '../Role';
 import { User } from '../User';
 import { Bot } from '../bot';
-import { BotUser, ModifyBotUserOptions } from '../bot/BotUser';
+import { BotUser, FetchGuildsOptions, ModifyBotUserOptions, PartialGuild } from '../bot/BotUser';
 import {
   Channel,
   CreateGuildChannelOptions,
@@ -26,7 +26,7 @@ import {
   FetchSomeMembersOptions,
   FetchSomeMessagesOptions,
 } from '../controllers';
-import { Permissible, PermissionOverwriteFlags } from '../flags';
+import { Permissible, PermissionOverwriteFlags, PermissionFlags } from '../flags';
 import {
   CreateEmojiOptions,
   Guild,
@@ -1412,6 +1412,35 @@ export class BotAPI {
     );
 
     return new BotUser(this.bot, user);
+  }
+
+  /**
+   * Fetches the guilds the bot user is a member of
+   * @param {FetchGuildsOptions} options The options for the fetch operation
+   * @returns {Promise<Collection<Snowflake, PartialGuild>>}
+   */
+  public async fetchBotGuilds(
+    options?: FetchGuildsOptions,
+  ): Promise<Collection<Snowflake, PartialGuild>> {
+    const guilds = await this.requests.send<GatewayStruct[]>(
+      EndpointRoute.UserBotGuilds,
+      {},
+      HttpMethod.Get,
+      APISerializer.fetchGuildsOptions(options),
+    );
+
+    return new Collection<Snowflake, PartialGuild>(
+      guilds.map<[Snowflake, PartialGuild]>(guild => [
+        guild.id,
+        {
+          id: guild.id,
+          name: guild.name,
+          icon: guild.icon,
+          owner: guild.owner,
+          permissions: new PermissionFlags(guild.permissions_new),
+        },
+      ]),
+    );
   }
 
   /**

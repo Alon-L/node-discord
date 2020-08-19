@@ -3,7 +3,7 @@ import { Params } from '../../socket/rateLimit';
 import { Snowflake } from '../../types';
 import { InviteOptions } from '../Invite';
 import { Role, RoleOptions } from '../Role';
-import { ModifyBotUserOptions } from '../bot/BotUser';
+import { FetchGuildsOptions, ModifyBotUserOptions } from '../bot/BotUser';
 import { CreateGuildChannelOptions, GuildChannelOptions } from '../channels';
 import {
   FetchGuildOptions,
@@ -344,6 +344,21 @@ export class APISerializer {
       username: options.username,
       avatar: options.avatar,
     };
+  }
+
+  /**
+   * Returns the serialized fetch guilds options for when fetching the guilds the bot's user is in
+   * @param {FetchGuildsOptions} options The fetch guilds options
+   * @returns {Params}
+   */
+  public static fetchGuildsOptions(options?: FetchGuildsOptions): Params {
+    return (
+      options && {
+        before: options.before,
+        after: options.after,
+        limit: options.limit,
+      }
+    );
   }
 
   /**

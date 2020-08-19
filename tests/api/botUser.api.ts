@@ -21,6 +21,10 @@ bot.connection.connect();
     "whether the bot's user username was updated",
     'expected: true',
   ); // expected: true
+
+  const guilds = await user.fetchGuilds();
+
+  console.log(guilds.size);
 })();
 
 bot.events.on(BotEvent.Debug, console.log);
