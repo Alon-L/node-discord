@@ -1,12 +1,12 @@
 import { Serializable } from 'child_process';
 import { BotCommunication } from './BotCommunication';
 import { BotConnection } from './BotConnection';
+import { BotUser } from './BotUser';
 import { CommandsHandler } from './handlers/command';
 import { EventsHandler } from './handlers/events';
 import Collection from '../../Collection';
 import { BotEvent, botOptions, CacheOptions, WebsocketOptions } from '../../socket';
 import { ShardId, Snowflake } from '../../types';
-import { User } from '../User';
 import { BotAPI } from '../api';
 import { BotChannelsController, BotGuildsController } from '../controllers';
 import { BotUsersController } from '../controllers/BotUsersController';
@@ -91,7 +91,7 @@ export class Bot {
    * This bot's Discord user
    * Initializes right before the Bot READY event
    */
-  public user: User | undefined;
+  public user: BotUser | undefined;
 
   /**
    * The bot's guilds controller

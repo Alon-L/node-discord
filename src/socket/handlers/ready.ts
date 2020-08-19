@@ -1,4 +1,5 @@
-import { Bot, User } from '../../structures';
+import { Bot } from '../../structures';
+import { BotUser } from '../../structures/bot/BotUser';
 import { BotSocketShard, Payload } from '../BotSocketShard';
 
 export default ({ d }: Payload, bot: Bot, socket: BotSocketShard): void => {
@@ -6,7 +7,7 @@ export default ({ d }: Payload, bot: Bot, socket: BotSocketShard): void => {
 
   socket.sessionId = sessionId;
 
-  bot.user = new User(bot, user);
+  bot.user = new BotUser(bot, user);
   bot.users.cache.add(bot.user);
 
   if (guilds.length) {

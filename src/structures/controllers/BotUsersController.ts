@@ -2,6 +2,7 @@ import { BaseFetchController } from './base';
 import { Snowflake } from '../../types';
 import { User } from '../User';
 import { Bot } from '../bot';
+import { BotUser } from '../bot/BotUser';
 
 /**
  * Provides an interface for the bot's users cache.
@@ -14,9 +15,9 @@ export class BotUsersController extends BaseFetchController<User> {
 
   /**
    * Fetches the bot user
-   * @returns {Promise<User>}
+   * @returns {Promise<BotUser>}
    */
-  public async fetchBot(): Promise<User> {
+  public async fetchBot(): Promise<BotUser> {
     const user = await this.bot.api.fetchBotUser();
 
     this.cache.add(user);

@@ -11,6 +11,7 @@ import { PermissionOverwrite } from '../PermissionOverwrite';
 import { Role, RoleOptions } from '../Role';
 import { User } from '../User';
 import { Bot } from '../bot';
+import { BotUser } from '../bot/BotUser';
 import {
   Channel,
   CreateGuildChannelOptions,
@@ -1374,12 +1375,12 @@ export class BotAPI {
 
   /**
    * Fetches the bot user
-   * @returns {Promise<User>}
+   * @returns {Promise<BotUser>}
    */
-  public async fetchBotUser(): Promise<User> {
+  public async fetchBotUser(): Promise<BotUser> {
     const user = await this.requests.send<GatewayStruct>(EndpointRoute.UserBot, {}, HttpMethod.Get);
 
-    return new User(this.bot, user);
+    return new BotUser(this.bot, user);
   }
 
   /**
