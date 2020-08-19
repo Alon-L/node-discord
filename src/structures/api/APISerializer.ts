@@ -14,6 +14,7 @@ import {
 import { Permissible, PermissionOverwriteFlags } from '../flags';
 import { ModifyGuildOptions, EmojiOptions, PruneCountOptions, PruneOptions } from '../guild';
 import { CreateIntegrationOptions, ModifyIntegrationOptions } from '../guild/GuildIntegration';
+import { ModifyWidgetOptions } from '../guild/GuildWidget';
 import { MemberBanOptions, ModifyMemberOptions } from '../member';
 import { MessageData, MessageEmbed } from '../message';
 
@@ -317,6 +318,18 @@ export class APISerializer {
       expire_behavior: options.expire?.behavior,
       expire_grace_period: options.expire?.gracePeriod,
       enable_emoticons: options.enableEmoticons,
+    };
+  }
+
+  /**
+   * Returns the serialized modify widget options for when modifying a guild widget
+   * @param {ModifyWidgetOptions} options The modify widget options
+   * @returns {Params}
+   */
+  public static modifyWidgetOptions(options: ModifyWidgetOptions): Params {
+    return {
+      enabled: options.enabled,
+      channel_id: options.channelId,
     };
   }
 

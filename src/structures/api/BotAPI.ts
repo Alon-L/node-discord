@@ -42,7 +42,7 @@ import {
   GuildIntegration,
   ModifyIntegrationOptions,
 } from '../guild/GuildIntegration';
-import { GuildWidget } from '../guild/GuildWidget';
+import { GuildWidget, ModifyWidgetOptions } from '../guild/GuildWidget';
 import { Member, MemberBanOptions, ModifyMemberOptions } from '../member';
 import { Message, MessageData, MessageEditData, MessageEmbed, MessageOptions } from '../message';
 
@@ -1331,6 +1331,29 @@ export class BotAPI {
       EndpointRoute.GuildWidget,
       { guildId },
       HttpMethod.Get,
+    );
+
+    const guild = await this.bot.guilds.get(guildId);
+
+    return new GuildWidget(this.bot, widget, guild);
+  }
+
+  /**
+   * Modifies this guild widget.
+   * Requires the {@link Permission.ManageGuild} permission
+   * @param {Snowflake} guildId The ID of the guild
+   * @param {ModifyWidgetOptions} options The options for the updated guild widget
+   * @returns {Promise<GuildWidget>} The updated guild widget
+   */
+  public async modifyGuildWidget(
+    guildId: Snowflake,
+    options: ModifyWidgetOptions,
+  ): Promise<GuildWidget> {
+    const widget = await this.requests.send<GatewayStruct>(
+      EndpointRoute.GuildWidget,
+      { guildId },
+      HttpMethod.Patch,
+      APISerializer.modifyWidgetOptions(options),
     );
 
     const guild = await this.bot.guilds.get(guildId);

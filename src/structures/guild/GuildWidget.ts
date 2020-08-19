@@ -1,8 +1,24 @@
 import { Guild } from './Guild';
 import { GuildBaseStruct } from './GuildBaseStruct';
+import { Snowflake } from '../../types';
 import { GatewayStruct } from '../BaseStruct';
 import { Bot } from '../bot';
 import { GuildChannel } from '../channels';
+
+/**
+ * Options for when modifying guild widgets
+ */
+export interface ModifyWidgetOptions {
+  /**
+   * Whether the guild widget should be enabled
+   */
+  enabled?: boolean;
+
+  /**
+   * The updated widget channel ID
+   */
+  channelId?: Snowflake;
+}
 
 /**
  * Guild widget object
@@ -30,5 +46,15 @@ export class GuildWidget extends GuildBaseStruct {
     this.channel = this.guild.channels.cache.get(widget.channel_id);
 
     return this;
+  }
+
+  /**
+   * Modifies this guild widget.
+   * Requires the {@link Permission.ManageGuild} permission
+   * @param {ModifyWidgetOptions} options The options for the updated guild widget
+   * @returns {Promise<GuildWidget>} The updated guild widget
+   */
+  public modify(options: ModifyWidgetOptions): Promise<GuildWidget> {
+    return this.bot.api.modifyGuildWidget(this.guild.id, options);
   }
 }
