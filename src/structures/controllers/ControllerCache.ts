@@ -1,12 +1,11 @@
 import Collection from '../../Collection';
-import { Snowflake } from '../../types';
 import { BaseStructWithId } from '../BaseStruct';
 
 /**
  * Cache holder for controllers.
  * @template T
  */
-export class ControllerCache<T extends BaseStructWithId> extends Collection<Snowflake | string, T> {
+export class ControllerCache<T extends BaseStructWithId> extends Collection<T['id'], T> {
   /**
    * Adds an item to the cache mapped by its ID
    * @param {T} item The item you wish to add
