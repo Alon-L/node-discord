@@ -145,6 +145,19 @@ export class User extends BaseStruct {
   }
 
   /**
+   * Sends a DM message to the user from the bot user
+   * @param {any} args Identical to the arguments of {@link TextChannel.sendMessage}
+   * @returns {any} Identical to the return type of {@link TextChannel.sendMessage}
+   */
+  public async sendMessage(
+    ...args: Parameters<TextChannel['sendMessage']>
+  ): ReturnType<TextChannel['sendMessage']> {
+    const dm = this.dm || (await this.createDM());
+
+    return dm.sendMessage(...args);
+  }
+
+  /**
    * Combines a user's username and hashtag and generates a full name
    * @type {string}
    * @example Day#0001

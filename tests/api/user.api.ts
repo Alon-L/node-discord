@@ -14,7 +14,16 @@ bot.connection.connect();
 
   const dmChannel = await user.createDM();
 
-  dmChannel.sendMessage('Hello!');
+  await dmChannel.sendMessage('Hello!');
+
+  const content = 'Hello 2!';
+  const message = await user.sendMessage(content);
+
+  console.log(
+    message.content === content,
+    "whether the sent message's content matches the given one",
+    'expected: true',
+  ); // expected: true
 })();
 
 bot.events.on(BotEvent.Debug, console.log);
