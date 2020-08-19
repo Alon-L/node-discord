@@ -163,6 +163,13 @@ export class ChannelUtils {
     ) {
       bot.channels.cache.add(channel);
     }
+
+    if (channel instanceof DMChannel) {
+      const recipient = bot.users.cache.get(channel.recipient.id);
+      if (!recipient) return;
+
+      recipient.dm = channel;
+    }
   }
 
   /**
