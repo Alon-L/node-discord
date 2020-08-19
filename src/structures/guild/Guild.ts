@@ -616,6 +616,14 @@ export class Guild extends GuildPreview {
   }
 
   /**
+   * Leaves this guild
+   * @returns {Promise<void>}
+   */
+  public leave(): Promise<void> {
+    return this.bot.api.leaveGuild(this.id);
+  }
+
+  /**
    * Creates a {@link Guild} or {@link GuildUnavailable}
    * @param {Bot} bot The bot instance
    * @param {GatewayStruct} guild The guild data

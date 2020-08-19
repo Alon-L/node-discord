@@ -92,4 +92,13 @@ export class BotUser extends User {
   public fetchGuilds(options?: FetchGuildsOptions): Promise<Collection<Snowflake, PartialGuild>> {
     return this.bot.api.fetchBotGuilds(options);
   }
+
+  /**
+   * Leaves a guild by its ID
+   * @param {Snowflake} guildId The ID of the guild
+   * @returns {Promise<void>}
+   */
+  public leaveGuild(guildId: Snowflake): Promise<void> {
+    return this.bot.api.leaveGuild(guildId);
+  }
 }

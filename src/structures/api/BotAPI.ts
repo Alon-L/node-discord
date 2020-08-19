@@ -1444,6 +1444,15 @@ export class BotAPI {
   }
 
   /**
+   * Leaves a guild by its ID
+   * @param {Snowflake} guildId The ID of the guild
+   * @returns {Promise<void>}
+   */
+  public async leaveGuild(guildId: Snowflake): Promise<void> {
+    await this.requests.send(EndpointRoute.UserBotGuild, { guildId }, HttpMethod.Delete);
+  }
+
+  /**
    * Fetches an invite by its invite code
    * @param {string} inviteCode The invite code
    * @param {FetchInviteOptions} options An additional set of options for the invite
