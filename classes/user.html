@@ -79,6 +79,11 @@
 						<ul class="tsd-hierarchy">
 							<li>
 								<span class="target">User</span>
+								<ul class="tsd-hierarchy">
+									<li>
+										<a href="botuser.html" class="tsd-signature-type">BotUser</a>
+									</li>
+								</ul>
 							</li>
 						</ul>
 					</li>
@@ -99,6 +104,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="user.html#avatarhash" class="tsd-kind-icon">avatar<wbr>Hash</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="user.html#bot" class="tsd-kind-icon">bot</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="user.html#dm" class="tsd-kind-icon">dm</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="user.html#email" class="tsd-kind-icon">email</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="user.html#flags" class="tsd-kind-icon">flags</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="user.html#hashtag" class="tsd-kind-icon">hashtag</a></li>
@@ -124,6 +130,8 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="user.html#avatarurl" class="tsd-kind-icon">avatarURL</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="user.html#clone" class="tsd-kind-icon">clone</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="user.html#createdm" class="tsd-kind-icon">createDM</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="user.html#sendmessage" class="tsd-kind-icon">send<wbr>Message</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="user.html#update" class="tsd-kind-icon">update</a></li>
 							</ul>
 						</section>
@@ -143,7 +151,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="basestruct.html">BaseStruct</a>.<a href="basestruct.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/69be344/src/structures/User.ts#L85">src/structures/User.ts:85</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/a9bfb8d/src/structures/User.ts#L91">src/structures/User.ts:91</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -168,7 +176,7 @@
 					<div class="tsd-signature tsd-kind-icon">avatar<wbr>Hash<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/69be344/src/structures/User.ts#L40">src/structures/User.ts:40</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/a9bfb8d/src/structures/User.ts#L41">src/structures/User.ts:41</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -184,7 +192,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="messageattachment.html">MessageAttachment</a>.<a href="messageattachment.html#bot">bot</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/69be344/src/structures/BaseStruct.ts#L30">src/structures/BaseStruct.ts:30</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/a9bfb8d/src/structures/BaseStruct.ts#L30">src/structures/BaseStruct.ts:30</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -194,12 +202,27 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="dm" class="tsd-anchor"></a>
+					<h3>dm</h3>
+					<div class="tsd-signature tsd-kind-icon">dm<span class="tsd-signature-symbol">:</span> <a href="dmchannel.html" class="tsd-signature-type">DMChannel</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/a9bfb8d/src/structures/User.ts#L91">src/structures/User.ts:91</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>This user&#39;s DM channel with the bot, if cached</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="email" class="tsd-anchor"></a>
 					<h3>email</h3>
 					<div class="tsd-signature tsd-kind-icon">email<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/69be344/src/structures/User.ts#L70">src/structures/User.ts:70</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/a9bfb8d/src/structures/User.ts#L71">src/structures/User.ts:71</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -214,7 +237,7 @@
 					<div class="tsd-signature tsd-kind-icon">flags<span class="tsd-signature-symbol">:</span> <a href="userflags.html" class="tsd-signature-type">UserFlags</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/69be344/src/structures/User.ts#L80">src/structures/User.ts:80</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/a9bfb8d/src/structures/User.ts#L81">src/structures/User.ts:81</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -229,7 +252,7 @@
 					<div class="tsd-signature tsd-kind-icon">hashtag<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/69be344/src/structures/User.ts#L35">src/structures/User.ts:35</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/a9bfb8d/src/structures/User.ts#L36">src/structures/User.ts:36</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -244,7 +267,7 @@
 					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/69be344/src/structures/User.ts#L25">src/structures/User.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/a9bfb8d/src/structures/User.ts#L26">src/structures/User.ts:26</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -259,7 +282,7 @@
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Bot<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/69be344/src/structures/User.ts#L45">src/structures/User.ts:45</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/a9bfb8d/src/structures/User.ts#L46">src/structures/User.ts:46</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -274,7 +297,7 @@
 					<div class="tsd-signature tsd-kind-icon">locale<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/69be344/src/structures/User.ts#L60">src/structures/User.ts:60</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/a9bfb8d/src/structures/User.ts#L61">src/structures/User.ts:61</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -289,7 +312,7 @@
 					<div class="tsd-signature tsd-kind-icon">mfa<wbr>Enabled<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/69be344/src/structures/User.ts#L55">src/structures/User.ts:55</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/a9bfb8d/src/structures/User.ts#L56">src/structures/User.ts:56</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -304,7 +327,7 @@
 					<div class="tsd-signature tsd-kind-icon">nitro<wbr>Type<span class="tsd-signature-symbol">:</span> <a href="../enums/nitrotype.html" class="tsd-signature-type">NitroType</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/69be344/src/structures/User.ts#L75">src/structures/User.ts:75</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/a9bfb8d/src/structures/User.ts#L76">src/structures/User.ts:76</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -319,7 +342,7 @@
 					<div class="tsd-signature tsd-kind-icon">public<wbr>Flags<span class="tsd-signature-symbol">:</span> <a href="userflags.html" class="tsd-signature-type">UserFlags</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/69be344/src/structures/User.ts#L85">src/structures/User.ts:85</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/a9bfb8d/src/structures/User.ts#L86">src/structures/User.ts:86</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -334,7 +357,7 @@
 					<div class="tsd-signature tsd-kind-icon">system<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/69be344/src/structures/User.ts#L50">src/structures/User.ts:50</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/a9bfb8d/src/structures/User.ts#L51">src/structures/User.ts:51</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -349,7 +372,7 @@
 					<div class="tsd-signature tsd-kind-icon">username<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/69be344/src/structures/User.ts#L30">src/structures/User.ts:30</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/a9bfb8d/src/structures/User.ts#L31">src/structures/User.ts:31</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -364,7 +387,7 @@
 					<div class="tsd-signature tsd-kind-icon">verified<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/69be344/src/structures/User.ts#L65">src/structures/User.ts:65</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/a9bfb8d/src/structures/User.ts#L66">src/structures/User.ts:66</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -386,7 +409,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/69be344/src/structures/User.ts#L138">src/structures/User.ts:138</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/a9bfb8d/src/structures/User.ts#L165">src/structures/User.ts:165</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -395,7 +418,7 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>DiscordUser#0001</p>
+									<dd><p>Day#0001</p>
 									</dd>
 								</dl>
 							</div>
@@ -416,7 +439,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/69be344/src/structures/User.ts#L129">src/structures/User.ts:129</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/a9bfb8d/src/structures/User.ts#L135">src/structures/User.ts:135</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -455,7 +478,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="messageattachment.html">MessageAttachment</a>.<a href="messageattachment.html#clone">clone</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/69be344/src/structures/BaseStruct.ts#L57">src/structures/BaseStruct.ts:57</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/a9bfb8d/src/structures/BaseStruct.ts#L57">src/structures/BaseStruct.ts:57</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -464,6 +487,60 @@
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="createdm" class="tsd-anchor"></a>
+					<h3>createDM</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">createDM<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="dmchannel.html" class="tsd-signature-type">DMChannel</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/a9bfb8d/src/structures/User.ts#L143">src/structures/User.ts:143</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new DM channel between this user and the bot user</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="dmchannel.html" class="tsd-signature-type">DMChannel</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="sendmessage" class="tsd-anchor"></a>
+					<h3>send<wbr>Message</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">send<wbr>Message<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Parameters</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TextChannel</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">"sendMessage"</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ReturnType</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TextChannel</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">"sendMessage"</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/a9bfb8d/src/structures/User.ts#L152">src/structures/User.ts:152</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sends a DM message to the user from the bot user</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">Parameters</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TextChannel</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">"sendMessage"</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Identical to the arguments of <a href="../interfaces/textchannel.html#sendmessage">TextChannel.sendMessage</a></p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ReturnType</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TextChannel</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">"sendMessage"</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Identical to the return type of <a href="../interfaces/textchannel.html#sendmessage">TextChannel.sendMessage</a></p>
 						</li>
 					</ul>
 				</section>
@@ -478,7 +555,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="messageattachment.html">MessageAttachment</a>.<a href="messageattachment.html#update">update</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/69be344/src/structures/BaseStruct.ts#L66">src/structures/BaseStruct.ts:66</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/a9bfb8d/src/structures/BaseStruct.ts#L66">src/structures/BaseStruct.ts:66</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -526,6 +603,9 @@
 								<a href="user.html#bot" class="tsd-kind-icon">bot</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="user.html#dm" class="tsd-kind-icon">dm</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="user.html#email" class="tsd-kind-icon">email</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
@@ -569,6 +649,12 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="user.html#clone" class="tsd-kind-icon">clone</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="user.html#createdm" class="tsd-kind-icon">createDM</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="user.html#sendmessage" class="tsd-kind-icon">send<wbr>Message</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="user.html#update" class="tsd-kind-icon">update</a>
