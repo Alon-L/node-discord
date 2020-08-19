@@ -161,7 +161,10 @@ export class GuildIntegration extends GuildBaseStruct {
       behavior: integration.expire_behavior,
       gracePeriod: integration.expire_grace_period,
     };
-    this.user = this.bot.users.get(integration.user.id) || new User(this.bot, integration.user);
+
+    this.user =
+      this.bot.users.cache.get(integration.user.id) || new User(this.bot, integration.user);
+
     this.account = integration.account;
     this.syncedAt = new Timestamp(integration.synced_at);
 

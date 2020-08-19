@@ -1373,6 +1373,31 @@ export class BotAPI {
   }
 
   /**
+   * Fetches the bot user
+   * @returns {Promise<User>}
+   */
+  public async fetchBotUser(): Promise<User> {
+    const user = await this.requests.send<GatewayStruct>(EndpointRoute.UserBot, {}, HttpMethod.Get);
+
+    return new User(this.bot, user);
+  }
+
+  /**
+   * Fetches a user by its ID
+   * @param {Snowflake} userId The user ID
+   * @returns {Promise<User>}
+   */
+  public async fetchUser(userId: Snowflake): Promise<User> {
+    const user = await this.requests.send<GatewayStruct>(
+      EndpointRoute.User,
+      { userId },
+      HttpMethod.Get,
+    );
+
+    return new User(this.bot, user);
+  }
+
+  /**
    * Fetches an invite by its invite code
    * @param {string} inviteCode The invite code
    * @param {FetchInviteOptions} options An additional set of options for the invite

@@ -7,7 +7,7 @@ export default ({ d }: Payload, bot: Bot, socket: BotSocketShard): void => {
   socket.sessionId = sessionId;
 
   bot.user = new User(bot, user);
-  bot.users.set(bot.user.id, bot.user);
+  bot.users.cache.add(bot.user);
 
   if (guilds.length) {
     // Store all pending guilds to later be retrieved from incoming gateway GUILD_CREATE events

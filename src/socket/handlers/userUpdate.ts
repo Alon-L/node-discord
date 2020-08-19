@@ -5,7 +5,7 @@ import { BotEvent } from '../constants';
 export default async ({ d }: Payload, bot: Bot): Promise<void> => {
   const { id } = d;
 
-  const user = bot.users.get(id);
+  const user = bot.users.cache.get(id);
 
   if (!user) return;
 

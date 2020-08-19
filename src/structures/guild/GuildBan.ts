@@ -33,7 +33,7 @@ export class GuildBan extends GuildBaseStruct {
    */
   public init(ban: GatewayStruct): this {
     this.reason = ban.reason;
-    this.user = this.bot.users.get(ban.user.id) || new User(this.bot, ban.user);
+    this.user = this.bot.users.cache.get(ban.user.id) || new User(this.bot, ban.user);
 
     return this;
   }

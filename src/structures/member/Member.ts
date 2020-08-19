@@ -71,7 +71,7 @@ export class Member extends GuildBaseStruct {
   /**
    * The user this guild member represents
    */
-  public user: User | undefined;
+  public user!: User | undefined;
 
   /**
    * The user's guild nickname
@@ -134,14 +134,14 @@ export class Member extends GuildBaseStruct {
     }
 
     if (member.user) {
-      if (this.bot.users.has(this.id)) {
+      if (this.bot.users.cache.has(this.id)) {
         // Update the cached user to this member's user
         // Store the cached user in this user field
-        this.user = this.bot.users.get(this.id)!.init(member.user);
+        this.user = this.bot.users.cache.get(this.id)!.init(member.user);
       } else {
         // Create a new user instance and cache it
         this.user = new User(this.bot, member.user);
-        this.bot.users.set(this.id, this.user);
+        this.bot.users.cache.add(this.user);
       }
     }
 

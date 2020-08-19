@@ -29,8 +29,7 @@ export default async ({ d }: Payload, bot: Bot): Promise<void> => {
   // Increment the count of the reaction
   reaction.count++;
 
-  // TODO: getOrFetch
-  const user = bot.users.get(userId);
+  const user = await bot.users.get(userId);
   const member = d.member && guild ? new Member(bot, d.member, guild) : undefined;
 
   // Add the user to the Collection of users who reacted with this reaction

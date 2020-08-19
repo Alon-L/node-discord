@@ -9,6 +9,7 @@ import { ShardId, Snowflake } from '../../types';
 import { User } from '../User';
 import { BotAPI } from '../api';
 import { BotChannelsController, BotGuildsController } from '../controllers';
+import { BotUsersController } from '../controllers/BotUsersController';
 import { GuildEmoji, GuildUnavailable } from '../guild';
 
 /**
@@ -108,9 +109,9 @@ export class Bot {
   public channels: BotChannelsController;
 
   /**
-   * {@link Collection} of all {@link User}s found in all guilds the Bot is part of
+   * The bot's users controller
    */
-  public users: Collection<Snowflake, User>;
+  public users: BotUsersController;
 
   /**
    * {@link Collection} of all {@link GuildEmoji}s found in all guilds the Bot is part of
@@ -149,7 +150,7 @@ export class Bot {
 
     this.channels = new BotChannelsController(this);
 
-    this.users = new Collection<Snowflake, User>();
+    this.users = new BotUsersController(this);
 
     this.emojis = new Collection<Snowflake, GuildEmoji>();
   }

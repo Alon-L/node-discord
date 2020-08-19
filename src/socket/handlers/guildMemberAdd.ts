@@ -14,7 +14,7 @@ export default async ({ d }: Payload, bot: Bot): Promise<void> => {
 
   if (member.user) {
     // Cache the user in the Bot's users cache
-    bot.users.set(member.id, member.user);
+    bot.users.cache.add(member.user);
   }
 
   bot.events.emit(BotEvent.GuildMemberAdd, member);
