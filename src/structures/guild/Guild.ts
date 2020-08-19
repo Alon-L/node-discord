@@ -249,6 +249,21 @@ export interface PruneOptions extends PruneCountOptions {
 }
 
 /**
+ * Represents a guild's vanity URL invite object
+ */
+export interface GuildVanityInvite {
+  /**
+   * The vanity URL code. Possibly null if a vanity URL for the guild is not set
+   */
+  code: string | null;
+
+  /**
+   * The number of uses this invite has
+   */
+  uses: number;
+}
+
+/**
  * Guilds in Discord represent an isolated collection of users and channels, and are often referred to as "servers" in the UI.
  * @extends BaseStruct
  */
@@ -589,6 +604,15 @@ export class Guild extends GuildPreview {
    */
   public fetchWidget(): Promise<GuildWidget> {
     return this.bot.api.fetchGuildWidget(this.id);
+  }
+
+  /**
+   * Fetches this guild's vanity URL.
+   * Requires the {@link Permission.ManageGuild} permission
+   * @returns {Promise<GuildVanityInvite>}
+   */
+  public fetchVanityURL(): Promise<GuildVanityInvite> {
+    return this.bot.api.fetchGuildVanityURL(this.id);
   }
 
   /**

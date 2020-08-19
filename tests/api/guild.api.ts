@@ -40,6 +40,8 @@ bot.connection.connect();
   console.log(await guild.prune({ days: 1 }));
 
   console.log(await guild.fetchWidget());
+
+  console.log(await guild.fetchVanityURL());
 })();
 
 bot.events.on(BotEvent.Debug, console.log);

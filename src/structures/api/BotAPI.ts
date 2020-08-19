@@ -31,6 +31,7 @@ import {
   Guild,
   GuildEmoji,
   GuildPreview,
+  GuildVanityInvite,
   ModifyEmojiOptions,
   ModifyGuildOptions,
   PruneCountOptions,
@@ -1359,6 +1360,16 @@ export class BotAPI {
     const guild = await this.bot.guilds.get(guildId);
 
     return new GuildWidget(this.bot, widget, guild);
+  }
+
+  /**
+   * Fetches this guild's vanity URL.
+   * Requires the {@link Permission.ManageGuild} permission
+   * @param {Snowflake} guildId The ID of the guild
+   * @returns {Promise<GuildVanityInvite>}
+   */
+  public async fetchGuildVanityURL(guildId: Snowflake): Promise<GuildVanityInvite> {
+    return await this.requests.send(EndpointRoute.GuildVanityURL, { guildId }, HttpMethod.Get);
   }
 
   /**
