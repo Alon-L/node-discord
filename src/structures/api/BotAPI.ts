@@ -1453,6 +1453,22 @@ export class BotAPI {
   }
 
   /**
+   * Creates a new DM channel between a user and the bot user
+   * @param {Snowflake} userId The ID of the user
+   * @returns {Promise<DMChannel>}
+   */
+  public async createDM(userId: Snowflake): Promise<DMChannel> {
+    const dmChannel = await this.requests.send<GatewayStruct>(
+      EndpointRoute.UserBotChannels,
+      {},
+      HttpMethod.Post,
+      APISerializer.createDM(userId),
+    );
+
+    return new DMChannel(this.bot, dmChannel);
+  }
+
+  /**
    * Fetches an invite by its invite code
    * @param {string} inviteCode The invite code
    * @param {FetchInviteOptions} options An additional set of options for the invite

@@ -362,6 +362,17 @@ export class APISerializer {
   }
 
   /**
+   * Returns the serialized parameters for when creating a new DM channel
+   * @param {Snowflake} userId The ID of the DM channel recipient user
+   * @returns {Params}
+   */
+  public static createDM(userId: Snowflake): Params {
+    return {
+      recipient_id: userId,
+    };
+  }
+
+  /**
    * Returns the serialized fetch invite options for when fetching an invite
    * @param {FetchInviteOptions} options The fetch invite options
    * @returns {Params}

@@ -19,7 +19,7 @@ export class DMChannel extends Channel implements TextChannel {
   public messages: ChannelMessagesController;
 
   /** @inheritDoc */
-  public pins: ChannelPinsController;
+  public pins!: ChannelPinsController;
 
   /**
    * The recipient of the DM
@@ -30,7 +30,6 @@ export class DMChannel extends Channel implements TextChannel {
     super(bot, dmChannel);
 
     this.messages = new ChannelMessagesController(this);
-    this.pins = new ChannelPinsController(this);
   }
 
   /**
@@ -40,6 +39,8 @@ export class DMChannel extends Channel implements TextChannel {
    */
   public init(dmChannel: GatewayStruct): this {
     super.init(dmChannel);
+
+    this.pins = new ChannelPinsController(this);
 
     this.lastMessageId = dmChannel.last_message_id;
 

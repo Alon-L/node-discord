@@ -1,6 +1,7 @@
 import { Avatar, UserAvatarFormat } from './Avatar';
 import { BaseStruct, GatewayStruct } from './BaseStruct';
 import { Bot } from './bot';
+import { DMChannel } from './channels';
 import { UserFlags } from './flags';
 import { Snowflake } from '../types';
 
@@ -128,6 +129,14 @@ export class User extends BaseStruct {
    */
   public avatarURL(format: UserAvatarFormat = UserAvatarFormat.PNG, size?: number): string {
     return Avatar.userAvatarURL(this.avatarHash, this.id, this.hashtag, format, size);
+  }
+
+  /**
+   * Creates a new DM channel between this user and the bot user
+   * @returns {Promise<DMChannel>}
+   */
+  public createDM(): Promise<DMChannel> {
+    return this.bot.api.createDM(this.id);
   }
 
   /**

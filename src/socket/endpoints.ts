@@ -41,6 +41,7 @@ export const enum EndpointRoute {
   User = '/users/{user.id}',
   UserBotGuilds = '/users/@me/guilds',
   UserBotGuild = '/users/@me/guild/{guild.id}',
+  UserBotChannels = '/users/@me/channels',
   Invite = '/invites/{invite.code}',
 }
 
@@ -117,6 +118,7 @@ export const Endpoints: Record<EndpointRoute, (...args: string[]) => string> = {
   [EndpointRoute.User]: (userId: Snowflake) => `/users/${userId}`,
   [EndpointRoute.UserBotGuilds]: () => `/users/@me/guilds`,
   [EndpointRoute.UserBotGuild]: (guildId: Snowflake) => `/users/@me/guilds/${guildId}`,
+  [EndpointRoute.UserBotChannels]: () => `/users/@me/channels`,
   [EndpointRoute.Invite]: (inviteCode: string) => `/invites/${inviteCode}`,
 };
 
