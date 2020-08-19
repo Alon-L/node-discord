@@ -165,4 +165,12 @@ export class User extends BaseStruct {
   public get fullName(): string {
     return `${this.username}#${this.hashtag}`;
   }
+
+  /**
+   * @ignore
+   * @returns {string}
+   */
+  public toString(): string {
+    return `<@${this.id}>`;
+  }
 }
