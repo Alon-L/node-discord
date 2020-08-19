@@ -25,7 +25,7 @@ export interface ModifyWidgetOptions {
  */
 export class GuildWidget extends GuildBaseStruct {
   /**
-   * Whether or not the server widget is enabled
+   * Whether or not the guild widget is enabled
    */
   enabled!: boolean | undefined;
 
