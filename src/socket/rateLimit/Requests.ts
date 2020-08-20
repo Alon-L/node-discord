@@ -38,6 +38,11 @@ export type Params = Data | Data[] | undefined;
 export type RouteArgs = Record<string, string>;
 
 /**
+ * Represents a file attachment sent to the API
+ */
+export type RequestFile = { path: string; name: string } | string;
+
+/**
  * All major param keys
  * https://discord.com/developers/docs/topics/rate-limits#rate-limits
  */
@@ -74,12 +79,19 @@ export class Requests {
    * @param {RouteArgs} routeArgs The arguments this route requires
    * @param {HttpMethod} method The http method for this request
    * @param {Params} params The params / body for this request
+   * @param {RequestFile[]} files The files sent in this request
    * @returns {Promise<TReturn>}
    */
   public send<
     TReturn = ReturnedData | undefined,
     T extends keyof typeof Endpoints = keyof typeof Endpoints
-  >(route: T, routeArgs: RouteArgs, method: HttpMethod, params?: Params): Promise<TReturn> {
+  >(
+    route: T,
+    routeArgs: RouteArgs,
+    method: HttpMethod,
+    params?: Params,
+    files?: RequestFile[],
+  ): Promise<TReturn> {
     // Retrieve the major params of this request
     const majorParams = this.getMajorParams(routeArgs);
 
@@ -99,7 +111,7 @@ export class Requests {
     );
 
     // Tells the bucket to send this request
-    return bucket.send<TReturn>(endpoint, params);
+    return bucket.send<TReturn>(endpoint, params, files);
   }
 
   /**

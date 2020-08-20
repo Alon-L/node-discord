@@ -1,5 +1,4 @@
 export * from './rateLimit';
-export * from './APIRequest';
 export * from './BotHeartbeats';
 export * from './BotShard';
 export * from './BotShardManager';

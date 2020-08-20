@@ -1,8 +1,8 @@
 import { Headers, Response } from 'node-fetch';
 import { RateLimitQueue } from './RateLimitQueue';
-import { Params, ReturnedData } from './Requests';
+import { Params, RequestFile, ReturnedData } from './Requests';
 import { Bot } from '../../structures';
-import { APIRequest } from '../APIRequest';
+import { APIRequest } from '../../structures/api/APIRequest';
 import { GatewayCloseCode } from '../constants';
 import { EndpointRoute, HttpMethod, RateLimitHeaders, StatusCode, ValidCodes } from '../endpoints';
 
@@ -72,16 +72,21 @@ export class RateLimitBucket {
    * Creates a new API request and sends it if the bucket is capable of doing so
    * @param {string} endpoint The request endpoint
    * @param {Params} params The request params / body
+   * @param {RequestFile[]} files The files sent in this request
    * @returns {Promise<ReturnedData | undefined>}
    */
-  public async send<T = ReturnedData | undefined>(endpoint: string, params: Params): Promise<T> {
+  public async send<T = ReturnedData | undefined>(
+    endpoint: string,
+    params: Params,
+    files?: RequestFile[],
+  ): Promise<T> {
     // The rate limit is reached. Add request to the queue
     if (this.remaining !== undefined && this.remaining <= 0) {
       this.bot.debug(
         `You reached the rate limit for ${endpoint}. Your request will still go through, but make sure you don't do this again!`,
       );
 
-      return this.queue.add(endpoint, params);
+      return this.queue.add(endpoint, params, files);
     }
 
     // Decrements the remaining number of requests (to later be updated by the fixed value)
@@ -90,7 +95,13 @@ export class RateLimitBucket {
     }
 
     // Creates a new API request
-    const apiRequest = new APIRequest(this.token, endpoint, params, this.method);
+    const apiRequest = new APIRequest(
+      this.token,
+      endpoint,
+      params,
+      this.method,
+      APIRequest.parseFiles(files),
+    );
 
     const response = await apiRequest.send();
 

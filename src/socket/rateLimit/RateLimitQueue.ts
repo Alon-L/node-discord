@@ -1,5 +1,5 @@
 import { RateLimitBucket } from './RateLimitBucket';
-import { Params, ReturnedData } from './Requests';
+import { Params, RequestFile, ReturnedData } from './Requests';
 
 /**
  * The items that the rate limit queue stores
@@ -14,6 +14,11 @@ export interface RateLimitQueueItem {
    * The params / body for this API request
    */
   params: Params;
+
+  /**
+   * The files sent in the API request
+   */
+  files?: RequestFile[];
 
   /**
    * Callback function to be called whenever the request is made
@@ -43,13 +48,19 @@ export class RateLimitQueue extends Array<RateLimitQueueItem> {
    * Adds a new API request to the queue and waits until it executes
    * @param {string} endpoint The endpoint for the added API request
    * @param {Params} params The params / body for the added API request
+   * @param {RequestFile[]} files The files sent in the API request
    * @returns {Promise<ReturnedData>}
    */
-  add<T = ReturnedData | undefined>(endpoint: string, params: Params): Promise<T> {
+  add<T = ReturnedData | undefined>(
+    endpoint: string,
+    params: Params,
+    files?: RequestFile[],
+  ): Promise<T> {
     return new Promise<T>(resolve => {
       this.push({
         endpoint,
         params,
+        files,
         callback: (data: T) => {
           resolve(data);
         },
@@ -67,10 +78,10 @@ export class RateLimitQueue extends Array<RateLimitQueueItem> {
       const nextRequest = this.shift();
       if (!nextRequest) break;
 
-      const { endpoint, params, callback } = nextRequest;
+      const { endpoint, params, files, callback } = nextRequest;
 
       // Sends the request
-      const data = await this.bucket.send<never>(endpoint, params);
+      const data = await this.bucket.send<never>(endpoint, params, files);
 
       // Executes the callback function
       callback(data);

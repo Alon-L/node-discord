@@ -1,6 +1,6 @@
 import { APISerializer } from './APISerializer';
 import Collection from '../../Collection';
-import { EndpointRoute, HttpMethod } from '../../socket';
+import { EndpointRoute, HttpMethod, RequestFile } from '../../socket';
 import { Params, Requests } from '../../socket/rateLimit';
 import { Snowflake } from '../../types';
 import { ChannelUtils } from '../../utils';
@@ -254,7 +254,9 @@ export class BotAPI {
     options?: MessageOptions,
   ): Promise<Message> {
     // Default params to be sent in the request
-    const params: Params = { ...options };
+    let params: Params = { ...options };
+
+    let files: RequestFile[] | undefined;
 
     if (typeof data === 'string') {
       // The params should only include the raw content
@@ -264,7 +266,9 @@ export class BotAPI {
       params['embed'] = data.structure;
     } else {
       // The params should include all given data fields
-      Object.assign(params, APISerializer.messageData(data));
+      params = await APISerializer.messageData(data);
+
+      files = data.files;
     }
 
     const messageData = await this.requests.send<GatewayStruct>(
@@ -272,6 +276,7 @@ export class BotAPI {
       { channelId },
       HttpMethod.Post,
       params,
+      files,
     );
 
     const channel = await this.bot.channels.getText(channelId);

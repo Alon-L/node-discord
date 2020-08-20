@@ -17,6 +17,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "form-data": "^3.0.0",
     "node-fetch": "^2.6.0",
     "ws": "^7.3.1"
   },

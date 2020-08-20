@@ -1,11 +1,19 @@
 import querystring, { ParsedUrlQueryInput } from 'querystring';
+import FormData from 'form-data';
 import fetch, { Response } from 'node-fetch';
-import { HttpMethod } from './endpoints';
-import { baseURL } from './properties';
-import { Body, Params } from './rateLimit';
+import { APIFile } from './APIFile';
+import { HttpMethod, baseURL } from '../../socket';
+import { Params, RequestFile } from '../../socket/rateLimit';
 
 const paramsMethods: HttpMethod[] = [HttpMethod.Get];
 const bodyMethods: HttpMethod[] = [HttpMethod.Post, HttpMethod.Patch, HttpMethod.Put];
+
+/**
+ * Enum containing common request headers
+ */
+export enum Header {
+  ContentType = 'content-type',
+}
 
 /**
  * Creates and sends an HTTP request to Discord's API
@@ -15,11 +23,19 @@ export class APIRequest {
   private readonly endpoint: string;
   private readonly params: Params;
   private readonly method: HttpMethod;
+  private readonly files: APIFile[] | undefined;
 
-  constructor(token: string, endpoint: string, params: Params, method: HttpMethod) {
+  constructor(
+    token: string,
+    endpoint: string,
+    params: Params,
+    method: HttpMethod,
+    files?: APIFile[],
+  ) {
     this.token = token;
     this.endpoint = endpoint;
     this.method = method;
+    this.files = files;
 
     // Clear all nullish params
     if (params) {
@@ -46,12 +62,21 @@ export class APIRequest {
    * @returns {Promise<Response>}
    */
   public async send(): Promise<Response> {
-    const { url, body, headers } = this;
+    const { url, headers } = this;
+
+    const body = await this.body();
+
+    // Adds the headers from the form-data body
+    if (body && body instanceof FormData) {
+      Object.assign(headers, body.getHeaders());
+    }
+
+    console.log(headers, body);
 
     return fetch(url, {
       method: this.method,
-      body: body && JSON.stringify(body),
-      headers: headers,
+      body,
+      headers,
     });
   }
 
@@ -72,13 +97,37 @@ export class APIRequest {
 
   /**
    * Returns the body of the request
-   * @type {Body | undefined}
+   * @returns {string | Promise<FormData> | undefined}
    */
-  private get body(): Body | undefined {
+  private body(): string | Promise<FormData> | undefined {
     // Only return a body if the HTTP method is included in 'bodyMethods'
     if (bodyMethods.includes(this.method) && this.params) {
-      return this.params;
+      return this.files ? this.bodyFiles() : JSON.stringify(this.params);
     }
+  }
+
+  /**
+   * Returns a form-data body if files need to be sent
+   * @returns {Promise<FormData>}
+   */
+  private async bodyFiles(): Promise<FormData> {
+    const { files, params } = this;
+
+    if (!files) throw new Error('No files found!');
+
+    const body = new FormData();
+
+    // Adds all the files to the form-data
+    for (const file of files) {
+      body.append(file.name, await file.read(), file.name);
+    }
+
+    // Adds additional params to the 'payload_json' field
+    if (params) {
+      body.append('payload_json', JSON.stringify(params));
+    }
+
+    return body;
   }
 
   /**
@@ -93,8 +142,17 @@ export class APIRequest {
     };
 
     // Adds the Content-Type header if the request contains a body
-    if (this.body) headers['Content-Type'] = 'application/json';
+    if (this.body() && !this.files) headers[Header.ContentType] = 'application/json';
 
     return headers;
+  }
+
+  /**
+   * Parses the given files into {@link APIFile} objects
+   * @param {RequestFile[]} files The files
+   * @returns {APIFile[] | undefined}
+   */
+  public static parseFiles(files?: RequestFile[]): APIFile[] | undefined {
+    return files?.map(file => new APIFile(file));
   }
 }

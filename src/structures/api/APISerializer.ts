@@ -71,10 +71,10 @@ export class APISerializer {
    * @returns {Params}
    */
   public static messageData(data: MessageData): Params {
-    const { embed } = data;
+    const { content, embed } = data;
 
     return {
-      ...data,
+      content,
       embed:
         embed &&
         (embed instanceof MessageEmbed ? embed.structure : MessageEmbed.dataToStructure(embed)),
