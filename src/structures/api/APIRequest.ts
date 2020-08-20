@@ -71,8 +71,6 @@ export class APIRequest {
       Object.assign(headers, body.getHeaders());
     }
 
-    console.log(headers, body);
-
     return fetch(url, {
       method: this.method,
       body,
