@@ -3,6 +3,7 @@ import { MessageEmbed, MessageEmbedData } from './MessageEmbed';
 import { MessageMentions } from './MessageMentions';
 import { MessageReaction } from './MessageReaction';
 import Collection from '../../Collection';
+import { RequestFile } from '../../socket/rateLimit';
 import { Snowflake, TextBasedChannel } from '../../types';
 import { BaseStruct, GatewayStruct } from '../BaseStruct';
 import { EmojiResolvable } from '../Emoji';
@@ -130,6 +131,11 @@ export interface MessageData {
    * The message's embed data
    */
   embed?: Partial<Omit<MessageEmbedData, 'type' | 'provider' | 'video'>> | MessageEmbed;
+
+  /**
+   * The path to a file to send as an attachment
+   */
+  files?: RequestFile[];
 }
 
 /**
