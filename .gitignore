@@ -4,6 +4,11 @@ node_modules
 # Workspace configuration
 .idea
 
+# Images used for testing files
+tests/*.png
+tests/*.jpg
+tests/*.gif
+
 # Compiled output
 /lib
 
