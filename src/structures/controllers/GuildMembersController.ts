@@ -4,8 +4,6 @@ import { Snowflake } from '../../types';
 import { Guild } from '../guild';
 import { Member } from '../member';
 
-// TODO: implement BaseCreateController https://discord.com/developers/docs/resources/guild#add-guild-member
-
 /**
  * Options for when fetching some guild members in a guild
  */
