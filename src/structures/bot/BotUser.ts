@@ -54,11 +54,10 @@ export interface PartialGuild {
    */
   name: string;
 
-  // TODO: partial guild icon https://discord.com/developers/docs/resources/user#get-current-user-guilds
   /**
-   * The icon of the guild
+   * The icon hash of the guild
    */
-  icon: undefined;
+  icon: string;
 
   /**
    * Whether the bot user is the owner of the guild
