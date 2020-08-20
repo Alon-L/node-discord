@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>BaseController | node-discord</title>
+	<title>APIFile | node-discord</title>
 	<meta name="description" content="Documentation for node-discord">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="basecontroller.html">BaseController</a>
+					<a href="apifile.html">APIFile</a>
 				</li>
 			</ul>
-			<h1>Class BaseController&lt;T&gt;</h1>
+			<h1>Class APIFile</h1>
 		</div>
 	</div>
 </header>
@@ -67,47 +67,15 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Provides a base interface for the bot&#39;s cached data</p>
+						<p>Represents a file sent directly to the API</p>
 					</div>
 				</div>
-			</section>
-			<section class="tsd-panel tsd-type-parameters">
-				<h3>Type parameters</h3>
-				<ul class="tsd-type-parameters">
-					<li>
-						<h4>T<span class="tsd-signature-symbol">: </span><a href="../globals.html#basestructwithid" class="tsd-signature-type">BaseStructWithId</a></h4>
-						<div class="tsd-comment tsd-typography">
-							<div class="lead">
-							</div>
-						</div>
-					</li>
-				</ul>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">BaseController</span>
-						<ul class="tsd-hierarchy">
-							<li>
-								<a href="basecreatecontroller.html" class="tsd-signature-type">BaseCreateController</a>
-							</li>
-							<li>
-								<a href="basedeletecontroller.html" class="tsd-signature-type">BaseDeleteController</a>
-							</li>
-							<li>
-								<a href="basefetchallcontroller.html" class="tsd-signature-type">BaseFetchAllController</a>
-							</li>
-							<li>
-								<a href="basefetchsomecontroller.html" class="tsd-signature-type">BaseFetchSomeController</a>
-							</li>
-							<li>
-								<a href="basefetchcontroller.html" class="tsd-signature-type">BaseFetchController</a>
-							</li>
-							<li>
-								<a href="memberrolescontroller.html" class="tsd-signature-type">MemberRolesController</a>
-							</li>
-						</ul>
+						<span class="target">APIFile</span>
 					</li>
 				</ul>
 			</section>
@@ -118,13 +86,20 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="basecontroller.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="apifile.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="basecontroller.html#cache" class="tsd-kind-icon">cache</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="apifile.html#name" class="tsd-kind-icon">name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="apifile.html#path" class="tsd-kind-icon">path</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="apifile.html#read" class="tsd-kind-icon">read</a></li>
 							</ul>
 						</section>
 					</div>
@@ -136,25 +111,22 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Base<wbr>Controller<span class="tsd-signature-symbol">(</span>struct<span class="tsd-signature-symbol">: </span><a href="basestruct.html" class="tsd-signature-type">BaseStruct</a><span class="tsd-signature-symbol"> | </span><a href="bot.html" class="tsd-signature-type">Bot</a>, limit<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="basecontroller.html" class="tsd-signature-type">BaseController</a></li>
+						<li class="tsd-signature tsd-kind-icon">new APIFile<span class="tsd-signature-symbol">(</span>file<span class="tsd-signature-symbol">: </span><a href="../globals.html#requestfile" class="tsd-signature-type">RequestFile</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="apifile.html" class="tsd-signature-type">APIFile</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/5422031/src/structures/controllers/base/BaseController.ts#L18">src/structures/controllers/base/BaseController.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/5422031/src/structures/api/APIFile.ts#L19">src/structures/api/APIFile.ts:19</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>struct: <a href="basestruct.html" class="tsd-signature-type">BaseStruct</a><span class="tsd-signature-symbol"> | </span><a href="bot.html" class="tsd-signature-type">Bot</a></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> limit: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+									<h5>file: <a href="../globals.html#requestfile" class="tsd-signature-type">RequestFile</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="basecontroller.html" class="tsd-signature-type">BaseController</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="apifile.html" class="tsd-signature-type">APIFile</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -162,19 +134,49 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="cache" class="tsd-anchor"></a>
-					<h3>cache</h3>
-					<div class="tsd-signature tsd-kind-icon">cache<span class="tsd-signature-symbol">:</span> <a href="controllercache.html" class="tsd-signature-type">ControllerCache</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<a name="name" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> name</h3>
+					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/5422031/src/structures/controllers/base/BaseController.ts#L18">src/structures/controllers/base/BaseController.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/5422031/src/structures/api/APIFile.ts#L19">src/structures/api/APIFile.ts:19</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The cached data this controller contains</p>
-						</div>
-					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="path" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> path</h3>
+					<div class="tsd-signature tsd-kind-icon">path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/5422031/src/structures/api/APIFile.ts#L18">src/structures/api/APIFile.ts:18</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="read" class="tsd-anchor"></a>
+					<h3>read</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">read<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ReadableStream</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/5422031/src/structures/api/APIFile.ts#L39">src/structures/api/APIFile.ts:39</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Reads the content of this file as a readable stream</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ReadableStream</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -190,14 +192,20 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class tsd-has-type-parameter">
-						<a href="basecontroller.html" class="tsd-kind-icon">Base<wbr>Controller</a>
+					<li class="current tsd-kind-class">
+						<a href="apifile.html" class="tsd-kind-icon">APIFile</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="basecontroller.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="apifile.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="basecontroller.html#cache" class="tsd-kind-icon">cache</a>
+								<a href="apifile.html#name" class="tsd-kind-icon">name</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="apifile.html#path" class="tsd-kind-icon">path</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="apifile.html#read" class="tsd-kind-icon">read</a>
 							</li>
 						</ul>
 					</li>
