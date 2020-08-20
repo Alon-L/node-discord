@@ -66,16 +66,16 @@ export class ReactionUsersController extends BaseFetchAllController<User> {
       this.reaction.botReacted = true;
     }
 
-    // TODO: uncomment this after introducing GuildMembersController:
-    /*
     if (this.message.guild) {
       // The message was sent in a guild
       // All users are also members in that guild
 
       this.reaction.members.merge(
-        users.map(user => [user.id, this.message.guild.members.getOrFetch(user.id)]),
+        users
+          .filter(user => this.message.guild!.members.cache.has(user.id))
+          .map(user => this.message.guild!.members.cache.get(user.id)!),
       );
-    }*/
+    }
 
     return users;
   }
