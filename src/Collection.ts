@@ -59,15 +59,14 @@ class Collection<K, V> extends Map<K, V> {
    * Creates a new Collection with all elements that pass the test implemented by the provided callback.
    * Identical to {@link Array.prototype.filter}
    * @param {function(value: V, key: K, collection: this): boolean} cb Callback function. Return true to keep the element, false otherwise
-   * @returns {Collection<K, T>}
-   * @template T - the type of the returned collection's values
+   * @returns {Collection<K, V>}
    */
-  public filter<T>(cb: (value: V, key?: K, collection?: this) => boolean): Collection<K, T> {
-    const collection = new Collection<K, T>();
+  public filter(cb: (value: V, key?: K, collection?: this) => boolean): Collection<K, V> {
+    const collection = new Collection<K, V>();
 
     for (const [key, value] of this) {
       if (cb(value, key, this)) {
-        collection.set(key, (value as unknown) as T);
+        collection.set(key, value);
       }
     }
 
