@@ -228,7 +228,6 @@ export class BotAPI {
     return new Message(this.bot, message, channel);
   }
 
-  // TODO: Add the ability to send files and attachments
   /**
    * Posts a message to a {@link GuildTextChannel} or {@link DMChannel}.
    * If operating on a {@link GuildTextChannel}, this requires the {@link Permission.SendMessages} permission.
