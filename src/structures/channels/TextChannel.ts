@@ -35,6 +35,9 @@ export interface TextChannel {
    * @example ```typescript
    * channel.sendMessage({ content: 'Hello World!', embed: { title: 'My Embed!' } });
    * ```
+   * @example ```typescript
+   * channel.sendMessage({ content: 'Hello World!', files: [{ path: './my_image.png', name: 'image.png' }] });
+   * ```
    * 3. A {@link MessageEmbed} instance
    * @param {MessageOptions} options
    * @returns {Promise<Message>}
