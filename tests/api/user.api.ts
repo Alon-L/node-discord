@@ -10,7 +10,7 @@ bot.connection.connect();
 (async function (): Promise<void> {
   await bot.events.wait(BotEvent.Ready);
 
-  const user = await bot.users.get('237470577298898946');
+  const user = await bot.users.get('247763041888894978');
 
   const dmChannel = await user.createDM();
 
@@ -24,6 +24,13 @@ bot.connection.connect();
     "whether the sent message's content matches the given one",
     'expected: true',
   ); // expected: true
+
+  await user.sendMessage({ files: [{ name: 'a.png', path: './tests/api/a.png' }] });
+
+  // TODO: Fix sending files as URLs
+  /*await user.sendMessage({
+    files: ['https://media.discordapp.net/attachments/494121083172290561/746014095572074546/a.jpg'],
+  });*/
 })();
 
 bot.events.on(BotEvent.Debug, console.log);
