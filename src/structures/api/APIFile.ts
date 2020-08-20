@@ -23,7 +23,7 @@ export class APIFile {
       this.type = APIFileType.URL;
 
       this.path = file;
-      this.name = file.split('/')[file.split('/').length - 1];
+      this.name = file.substring(file.lastIndexOf('/') + 1);
     } else {
       this.type = APIFileType.File;
 
