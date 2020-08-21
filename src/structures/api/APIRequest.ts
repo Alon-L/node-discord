@@ -45,7 +45,7 @@ export class APIRequest {
         );
       } else {
         this.params = Object.entries(params)
-          .filter(([, value]) => value !== undefined && value !== null)
+          .filter(([, value]) => value !== undefined)
           .reduce(
             (params, [key, value]) => ({
               ...params,
