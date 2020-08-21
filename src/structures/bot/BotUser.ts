@@ -1,5 +1,6 @@
 import Collection from '../../Collection';
 import { Snowflake } from '../../types';
+import { ImageData } from '../ImageData';
 import { User } from '../User';
 import { PermissionFlags } from '../flags';
 
@@ -14,9 +15,10 @@ export interface ModifyBotUserOptions {
 
   // TODO: avatar field https://discord.com/developers/docs/resources/user#modify-current-user
   /**
-   * If passed, modifies the user's avatar
+   * If passed, modifies the user's avatar.
+   * Path to the new user's avatar image
    */
-  avatar?: undefined;
+  avatar?: ImageData;
 }
 
 /**
