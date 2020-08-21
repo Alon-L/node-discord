@@ -1,5 +1,6 @@
 export * from './api';
 export * from './base';
+export * from './bot';
 export * from './channels';
 export * from './controllers';
 export * from './flags';
