@@ -7,6 +7,7 @@ import { Snowflake } from '../../types';
 import { ChannelUtils } from '../../utils';
 import { Avatar, GuildBannerFormat } from '../Avatar';
 import { GatewayStruct } from '../BaseStruct';
+import { ImageURI } from '../ImageURI';
 import { Role } from '../Role';
 import { Bot } from '../bot';
 import { GuildChannel, GuildTextChannel } from '../channels';
@@ -181,7 +182,7 @@ export interface ModifyGuildOptions {
   /**
    * The new icon of the guild
    */
-  icon?: undefined;
+  icon?: ImageURI | null;
 
   /**
    * The user ID to transfer guild ownership to (bot must be the owner of the guild)
@@ -192,13 +193,13 @@ export interface ModifyGuildOptions {
   /**
    * The new splash image of the guild
    */
-  splash?: undefined;
+  splash?: ImageURI | null;
 
   // TODO: modify guild banner https://discord.com/developers/docs/resources/guild#modify-guild
   /**
    * The new banner image of the guild
    */
-  banner?: undefined;
+  banner?: ImageURI | null;
 
   /**
    * The ID of the channel where guid notices such as welcome messages and boost events are posted
