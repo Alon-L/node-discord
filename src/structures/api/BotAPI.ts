@@ -720,7 +720,7 @@ export class BotAPI {
       EndpointRoute.GuildEmoji,
       { guildId, emojiId },
       HttpMethod.Patch,
-      APISerializer.emojiOptions(options),
+      APISerializer.modifyEmojiOptions(options),
     );
 
     const guild = await this.bot.guilds.get(guildId);

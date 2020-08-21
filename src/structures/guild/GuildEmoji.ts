@@ -20,12 +20,7 @@ export interface CreateEmojiOptions extends Required<ModifyEmojiOptions> {
 /**
  * Options for when modifying guild emojis
  */
-export type ModifyEmojiOptions = EmojiOptions;
-
-/**
- * Options for new emojis
- */
-export interface EmojiOptions {
+export interface ModifyEmojiOptions {
   /**
    * The name of the emoji
    */

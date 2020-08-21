@@ -13,7 +13,13 @@ import {
   FetchSomeMessagesOptions,
 } from '../controllers';
 import { Permissible, PermissionOverwriteFlags } from '../flags';
-import { ModifyGuildOptions, EmojiOptions, PruneCountOptions, PruneOptions } from '../guild';
+import {
+  ModifyGuildOptions,
+  PruneCountOptions,
+  PruneOptions,
+  CreateEmojiOptions,
+  ModifyEmojiOptions,
+} from '../guild';
 import { CreateIntegrationOptions, ModifyIntegrationOptions } from '../guild/GuildIntegration';
 import { ModifyWidgetOptions } from '../guild/GuildWidget';
 import { MemberBanOptions, ModifyMemberOptions } from '../member';
@@ -160,13 +166,13 @@ export class APISerializer {
   }
 
   /**
-   * Returns the serialized emoji options for when creating or modifying emojis
-   * @param {EmojiOptions} options The emoji options
+   * Returns the serialized modify emoji options for modifying emojis
+   * @param {ModifyEmojiOptions} options The modify emoji options
    * @returns {Params}
    */
-  public static emojiOptions(options: EmojiOptions): Params {
+  public static modifyEmojiOptions(options: ModifyEmojiOptions): Params {
     return {
-      ...options,
+      name: options.name,
       // Serialize the role IDs
       roles: options.roles && APISerializer.roleIds(options.roles),
     };
