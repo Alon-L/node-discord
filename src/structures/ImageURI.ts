@@ -1,5 +1,8 @@
-import { promises as fs } from 'fs';
+import fs from 'fs';
+import util from 'util';
 import mime from 'mime-types';
+
+const readFile = util.promisify(fs.readFile);
 
 /**
  * Represents an image being sent to the Discord API as Image Data
@@ -40,7 +43,7 @@ export class ImageURI {
    * @type {string}
    */
   private get image(): Promise<string> {
-    return fs.readFile(this.path, { encoding: 'base64' });
+    return readFile(this.path, { encoding: 'base64' });
   }
 
   /**
