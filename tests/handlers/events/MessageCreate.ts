@@ -1,11 +1,7 @@
+import { HandlerEvent } from '../../../src/bot/handlers';
+import { RegisterEvent, RegisterEventHandler, Event } from '../../../src/bot/handlers/events';
 import { BotEvent } from '../../../src/socket';
-import { Message } from '../../../src/structures';
-import { HandlerEvent } from '../../../src/structures/bot/handlers/Handler';
-import {
-  RegisterEvent,
-  RegisterEventHandler,
-  Event,
-} from '../../../src/structures/bot/handlers/events';
+import { Message } from '../../../src/structures/message';
 
 @RegisterEvent({ name: BotEvent.MessageCreate })
 export class MessageCreate extends Event<BotEvent.MessageCreate> {

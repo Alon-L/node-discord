@@ -1,7 +1,7 @@
 'use strict';
 
+import { Bot } from '../../src/bot';
 import { BotEvent, Permission } from '../../src/socket';
-import { Bot } from '../../src/structures';
 import { PermissionFlags, PermissibleType } from '../../src/structures/flags';
 import config from '../config.json';
 

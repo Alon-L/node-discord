@@ -1,4 +1,4 @@
-import { BotOptions } from '../structures/bot';
+import { BotOptions } from '../bot';
 
 /**
  * The latest version of the Discord API

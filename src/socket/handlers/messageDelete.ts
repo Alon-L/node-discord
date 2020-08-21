@@ -1,5 +1,7 @@
-import { Bot, GuildTextChannel, Message, PartialMessage } from '../../structures';
-import { ChannelUtils } from '../../utils';
+import { Bot } from '../../bot';
+import { GuildTextChannel } from '../../structures/channels';
+import { ChannelUtils } from '../../structures/channels/utils';
+import { PartialMessage, Message } from '../../structures/message';
 import { Payload } from '../BotSocketShard';
 import { BotEvent } from '../constants';
 

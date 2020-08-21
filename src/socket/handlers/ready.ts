@@ -1,5 +1,5 @@
-import { Bot } from '../../structures';
-import { BotUser } from '../../structures/bot/BotUser';
+import { Bot } from '../../bot';
+import { BotUser } from '../../structures';
 import { BotSocketShard, Payload } from '../BotSocketShard';
 
 export default ({ d }: Payload, bot: Bot, socket: BotSocketShard): void => {

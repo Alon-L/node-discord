@@ -1,4 +1,5 @@
-import { Bot, GatewayStruct } from '../../structures';
+import { Bot } from '../../bot';
+import { GatewayStruct } from '../../structures/base';
 import { Member, MemberPresence } from '../../structures/member';
 import { Payload } from '../BotSocketShard';
 import { BotEvent } from '../constants';

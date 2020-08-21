@@ -1,9 +1,9 @@
 import { Channel, ChannelType } from './Channel';
 import { GuildCategoryChannel } from './GuildCategoryChannel';
+import { Bot } from '../../bot';
 import { Snowflake } from '../../types';
-import { GatewayStruct } from '../BaseStruct';
 import { PermissionOverwrite } from '../PermissionOverwrite';
-import { Bot } from '../bot';
+import { GatewayStruct } from '../base';
 import { ChannelPermissionsController, GuildChannelInvitesController } from '../controllers';
 import { PermissibleType, PermissionOverwriteFlags } from '../flags';
 import { Guild } from '../guild';

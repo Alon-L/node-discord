@@ -1,12 +1,12 @@
-import { Guild } from './Guild';
-import { BaseStruct, GatewayStruct } from '../BaseStruct';
-import { Bot } from '../bot';
+import { BaseStruct, GatewayStruct } from './BaseStruct';
+import { Bot } from '../../bot';
+import { Guild } from '../guild';
 
 /**
  * Basic structure every guild-related structure extends
  * Handles the creation of a guild property and guild-related methods
  */
-export class GuildBaseStruct extends BaseStruct {
+export class BaseGuildStruct extends BaseStruct {
   /**
    * The {@link Guild} associated to this structure
    */

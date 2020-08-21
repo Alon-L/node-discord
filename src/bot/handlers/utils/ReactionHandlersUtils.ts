@@ -1,5 +1,5 @@
 import { HandlersUtils } from './HandlersUtils';
-import { Message, Emoji } from '../../structures';
+import { Emoji, Message } from '../../../structures';
 
 /**
  * Provides util methods for all reactions-related handlers

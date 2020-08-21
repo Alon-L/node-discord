@@ -1,5 +1,5 @@
-import { Bot } from '../../structures';
-import { GuildBan } from '../../structures/guild/GuildBan';
+import { Bot } from '../../bot';
+import { GuildBan } from '../../structures/guild';
 import { Payload } from '../BotSocketShard';
 import { BotEvent } from '../constants';
 

@@ -1,6 +1,6 @@
+import { Bot } from '../../bot';
 import { Snowflake } from '../../types';
-import { BaseStruct, GatewayStruct } from '../BaseStruct';
-import { Bot } from '../bot';
+import { BaseStruct, GatewayStruct } from '../base';
 
 /**
  * The type of a channel

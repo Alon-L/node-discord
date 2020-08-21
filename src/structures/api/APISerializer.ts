@@ -1,9 +1,9 @@
 import { Positions } from './BotAPI';
 import { Params } from '../../socket/rateLimit';
 import { Snowflake } from '../../types';
+import { FetchGuildsOptions, ModifyBotUserOptions } from '../BotUser';
 import { InviteOptions } from '../Invite';
 import { Role, RoleOptions } from '../Role';
-import { FetchGuildsOptions, ModifyBotUserOptions } from '../bot/BotUser';
 import { CreateGuildChannelOptions, GuildChannelOptions } from '../channels';
 import {
   FetchGuildOptions,
@@ -20,8 +20,7 @@ import {
   CreateEmojiOptions,
   ModifyEmojiOptions,
 } from '../guild';
-import { CreateIntegrationOptions, ModifyIntegrationOptions } from '../guild/GuildIntegration';
-import { ModifyWidgetOptions } from '../guild/GuildWidget';
+import { CreateIntegrationOptions, ModifyIntegrationOptions, ModifyWidgetOptions } from '../guild';
 import { MemberBanOptions, ModifyMemberOptions } from '../member';
 import { MessageData, MessageEmbed } from '../message';
 

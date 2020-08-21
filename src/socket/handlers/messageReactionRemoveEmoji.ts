@@ -1,5 +1,5 @@
-import { Bot } from '../../structures';
-import { ReactionHandlersUtils } from '../../utils/handlers';
+import { Bot } from '../../bot';
+import { ReactionHandlersUtils } from '../../bot/handlers/utils';
 import { Payload } from '../BotSocketShard';
 import { BotEvent } from '../constants';
 

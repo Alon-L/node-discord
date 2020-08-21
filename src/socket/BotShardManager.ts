@@ -3,7 +3,7 @@ import type { Arguments } from 'typed-emitter';
 import { BotShard, BotShardState } from './BotShard';
 import { GatewayCloseCode, recommendedShardTimeout } from './constants';
 import Collection from '../Collection';
-import { Events } from '../structures/bot/handlers/events/events';
+import { Events } from '../bot/handlers/events/events';
 import { ShardId } from '../types';
 
 /**

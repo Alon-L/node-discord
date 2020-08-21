@@ -1,5 +1,5 @@
-import { PayloadData } from '../../socket';
-import { Bot } from '../../structures';
+import { PayloadData } from '../../../socket';
+import { Bot } from '../../Bot';
 
 /**
  * Main class for all util methods for socket event handlers.

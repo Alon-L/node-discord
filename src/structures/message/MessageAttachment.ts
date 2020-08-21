@@ -1,6 +1,6 @@
 import { Message } from './Message';
 import { Snowflake, Dimensions, Nullable } from '../../types';
-import { BaseStruct, GatewayStruct } from '../BaseStruct';
+import { BaseStruct, GatewayStruct } from '../base';
 
 /**
  * Represents an attachment added to a {@link Message}

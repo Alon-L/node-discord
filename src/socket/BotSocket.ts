@@ -4,8 +4,8 @@ import { BotSocketShard, BotSocketShardState } from './BotSocketShard';
 import { GatewayCloseCode, recommendedShardTimeout } from './constants';
 import { baseURL } from './properties';
 import Collection from '../Collection';
-import { Bot, ShardChangedStateRequest, ShardCommunicationAction } from '../structures/bot';
-import { BotStateEvents } from '../structures/bot/handlers/events/events';
+import { Bot, ShardChangedStateRequest, ShardCommunicationAction } from '../bot';
+import { BotStateEvents } from '../bot/handlers/events/events';
 import { ShardId } from '../types';
 
 export interface SessionStartLimit {

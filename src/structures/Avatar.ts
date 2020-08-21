@@ -1,4 +1,4 @@
-import { cdnBaseURL } from '../socket';
+import { cdnBaseURL } from '../socket/properties';
 import { Snowflake } from '../types';
 
 /**

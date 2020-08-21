@@ -1,12 +1,12 @@
 import { MemberPresence } from './MemberPresence';
+import { Bot } from '../../bot';
 import { Snowflake } from '../../types';
-import { GatewayStruct } from '../BaseStruct';
 import { Role } from '../Role';
 import { Timestamp } from '../Timestamp';
 import { User } from '../User';
-import { Bot } from '../bot';
+import { GatewayStruct, BaseGuildStruct } from '../base';
 import { MemberRolesController } from '../controllers';
-import { Guild, GuildBaseStruct } from '../guild';
+import { Guild } from '../guild';
 
 /**
  * Options used when modifying a guild member
@@ -60,9 +60,9 @@ export interface MemberBanOptions {
 
 /**
  * Representation of a Discord {@link User} in a guild
- * @extends GuildBaseStruct
+ * @extends BaseGuildStruct
  */
-export class Member extends GuildBaseStruct {
+export class Member extends BaseGuildStruct {
   /**
    * The member's user ID
    */

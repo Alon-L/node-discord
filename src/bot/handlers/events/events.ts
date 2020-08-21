@@ -1,17 +1,12 @@
-import Collection from '../../../../Collection';
-import { BotSocketShard, BotEvent } from '../../../../socket';
-import { GuildMembersChunk } from '../../../../socket/handlers/guildMembersChunk';
-import { Snowflake, TextBasedChannel } from '../../../../types';
-import { Emoji } from '../../../Emoji';
-import { Invite, PartialInvite } from '../../../Invite';
-import { Role } from '../../../Role';
-import { Timestamp } from '../../../Timestamp';
-import { User } from '../../../User';
-import { Channel, GuildChannel } from '../../../channels';
-import { Guild, GuildUnavailable } from '../../../guild';
-import { GuildBan } from '../../../guild/GuildBan';
-import { Member, MemberPresence } from '../../../member';
-import { Message, PartialMessage, MessageReaction } from '../../../message';
+import Collection from '../../../Collection';
+import { BotSocketShard, BotEvent } from '../../../socket';
+import { GuildMembersChunk } from '../../../socket/handlers/guildMembersChunk';
+import { Emoji, Invite, PartialInvite, Role, Timestamp, User } from '../../../structures';
+import { Channel, GuildChannel } from '../../../structures/channels';
+import { Guild, GuildUnavailable, GuildBan } from '../../../structures/guild';
+import { Member, MemberPresence } from '../../../structures/member';
+import { Message, PartialMessage, MessageReaction } from '../../../structures/message';
+import { Snowflake, TextBasedChannel } from '../../../types';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 

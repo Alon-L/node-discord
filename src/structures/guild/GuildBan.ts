@@ -1,14 +1,13 @@
 import { Guild } from './Guild';
-import { GuildBaseStruct } from './GuildBaseStruct';
+import { Bot } from '../../bot';
 import { Snowflake } from '../../types';
-import { GatewayStruct } from '../BaseStruct';
 import { User } from '../User';
-import { Bot } from '../bot';
+import { BaseGuildStruct, GatewayStruct } from '../base';
 
 /**
  * Represents a user ban in a guild
  */
-export class GuildBan extends GuildBaseStruct {
+export class GuildBan extends BaseGuildStruct {
   /**
    * The reason for the guild.
    * Possibly undefined if no reason was specified

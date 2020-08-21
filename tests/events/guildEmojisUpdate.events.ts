@@ -1,8 +1,9 @@
 'use strict';
 
 import Collection from '../../src/Collection';
+import { Bot } from '../../src/bot';
 import { BotEvent } from '../../src/socket';
-import { Bot, Emoji } from '../../src/structures';
+import { Emoji } from '../../src/structures';
 import { Snowflake } from '../../src/types';
 import config from '../config.json';
 

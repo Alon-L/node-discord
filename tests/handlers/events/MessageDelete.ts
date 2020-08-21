@@ -1,7 +1,8 @@
+import { Bot } from '../../../src/bot';
+import { HandlerEvent } from '../../../src/bot/handlers';
+import { Event } from '../../../src/bot/handlers/events';
 import { BotEvent } from '../../../src/socket';
-import { Bot, Message, PartialMessage } from '../../../src/structures';
-import { HandlerEvent } from '../../../src/structures/bot/handlers/Handler';
-import { Event } from '../../../src/structures/bot/handlers/events';
+import { PartialMessage, Message } from '../../../src/structures/message';
 
 export class MessageDelete extends Event<BotEvent.MessageDelete> {
   constructor(bot: Bot) {

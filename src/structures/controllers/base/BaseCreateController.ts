@@ -1,5 +1,5 @@
 import { BaseController } from './BaseController';
-import { BaseStructWithId } from '../../BaseStruct';
+import { BaseStructWithId } from '../../base';
 
 /**
  * Base controller with create capabilities

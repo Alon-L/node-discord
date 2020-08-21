@@ -1,8 +1,8 @@
 import { Message } from './Message';
 import Collection from '../../Collection';
 import { Snowflake } from '../../types';
-import { BaseStruct, GatewayStruct } from '../BaseStruct';
 import { Emoji } from '../Emoji';
+import { BaseStruct, GatewayStruct } from '../base';
 import { ReactionUsersController } from '../controllers';
 import { Member } from '../member';
 

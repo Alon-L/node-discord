@@ -1,9 +1,9 @@
 import { Message } from './Message';
 import Collection from '../../Collection';
 import { Snowflake } from '../../types';
-import { BaseStruct, GatewayStruct } from '../BaseStruct';
 import { Role } from '../Role';
 import { User } from '../User';
+import { BaseStruct, GatewayStruct } from '../base';
 import { GuildChannel } from '../channels';
 import { Member } from '../member';
 

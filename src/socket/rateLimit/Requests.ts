@@ -1,7 +1,7 @@
 import { Serializable } from 'child_process';
 import { RateLimitBucket } from './RateLimitBucket';
 import Collection from '../../Collection';
-import { Bot } from '../../structures';
+import { Bot } from '../../bot';
 import { HttpMethod, Endpoints } from '../endpoints';
 
 /**

@@ -1,10 +1,9 @@
 import { Member } from './Member';
+import { Bot } from '../../bot';
 import { Snowflake } from '../../types';
-import { GatewayStruct } from '../BaseStruct';
 import { Timestamp } from '../Timestamp';
-import { Bot } from '../bot';
+import { GatewayStruct, BaseGuildStruct } from '../base';
 import { PresenceActivityFlags } from '../flags';
-import { GuildBaseStruct } from '../guild';
 
 /**
  * The type of the presence activity
@@ -206,7 +205,7 @@ export interface PresenceClientStatus {
 /**
  * A member's presence is their current state on a guild
  */
-export class MemberPresence extends GuildBaseStruct {
+export class MemberPresence extends BaseGuildStruct {
   /**
    * The member associated to this presence
    */

@@ -1,5 +1,5 @@
 import { Events } from './events';
-import { BotEvent } from '../../../../socket';
+import { BotEvent } from '../../../socket';
 import { Bot } from '../../Bot';
 import { HandlerEvent } from '../Handler';
 import { HandlerFunction, HandlerItem } from '../HandlerItem';

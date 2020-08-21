@@ -1,8 +1,7 @@
 import { Guild } from './Guild';
-import { GuildBaseStruct } from './GuildBaseStruct';
+import { Bot } from '../../bot';
 import { Snowflake } from '../../types';
-import { GatewayStruct } from '../BaseStruct';
-import { Bot } from '../bot';
+import { GatewayStruct, BaseGuildStruct } from '../base';
 import { GuildChannel } from '../channels';
 
 /**
@@ -23,7 +22,7 @@ export interface ModifyWidgetOptions {
 /**
  * Guild widget object
  */
-export class GuildWidget extends GuildBaseStruct {
+export class GuildWidget extends BaseGuildStruct {
   /**
    * Whether or not the guild widget is enabled
    */

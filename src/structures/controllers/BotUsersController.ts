@@ -1,8 +1,8 @@
 import { BaseFetchController } from './base';
+import { Bot } from '../../bot';
 import { Snowflake } from '../../types';
+import { BotUser } from '../BotUser';
 import { User } from '../User';
-import { Bot } from '../bot';
-import { BotUser } from '../bot/BotUser';
 
 /**
  * Provides an interface for the bot's users cache.

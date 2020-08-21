@@ -1,5 +1,5 @@
 import Collection from '../../Collection';
-import { BaseStructWithId } from '../BaseStruct';
+import { BaseStructWithId } from '../base';
 
 /**
  * Cache holder for controllers.

@@ -1,6 +1,7 @@
-import { Bot, Message } from '../../structures';
+import { Bot } from '../../bot';
+import { ChannelUtils } from '../../structures/channels/utils';
+import { Message } from '../../structures/message';
 import { Snowflake } from '../../types';
-import { ChannelUtils } from '../../utils';
 import { Payload } from '../BotSocketShard';
 import { BotEvent } from '../constants';
 

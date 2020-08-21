@@ -2,7 +2,7 @@ import { EventEmitter } from 'events';
 import type TypedEventEmitter from 'typed-emitter';
 import { Event } from './Event';
 import { Events } from './events';
-import { BotEvent } from '../../../../socket';
+import { BotEvent } from '../../../socket';
 import { Handler, HandlerEvent } from '../Handler';
 
 /**

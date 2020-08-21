@@ -1,11 +1,11 @@
 import { Guild } from './Guild';
+import { Bot } from '../../bot';
 import { Snowflake } from '../../types';
 import { Avatar, GuildEmojiFormat } from '../Avatar';
-import { GatewayStruct } from '../BaseStruct';
 import { Emoji } from '../Emoji';
 import { ImageURI } from '../ImageURI';
 import { Role } from '../Role';
-import { Bot } from '../bot';
+import { GatewayStruct } from '../base';
 
 /**
  * Options for when creating new guild emojis

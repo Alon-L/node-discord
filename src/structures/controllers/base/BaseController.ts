@@ -1,5 +1,5 @@
-import { BaseStruct, BaseStructWithId } from '../../BaseStruct';
-import { Bot } from '../../bot';
+import { Bot } from '../../../bot';
+import { BaseStruct, BaseStructWithId } from '../../base';
 import { ControllerCache } from '../ControllerCache';
 
 /**

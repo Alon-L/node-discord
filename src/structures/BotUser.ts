@@ -1,8 +1,8 @@
-import Collection from '../../Collection';
-import { Snowflake } from '../../types';
-import { ImageURI } from '../ImageURI';
-import { User } from '../User';
-import { PermissionFlags } from '../flags';
+import { ImageURI } from './ImageURI';
+import { User } from './User';
+import { PermissionFlags } from './flags';
+import Collection from '../Collection';
+import { Snowflake } from '../types';
 
 /**
  * Options for when modifying the bot user

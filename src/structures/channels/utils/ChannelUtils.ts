@@ -1,13 +1,12 @@
-import { Bot, GatewayStruct, Guild } from '../structures';
-import {
-  Channel,
-  ChannelType,
-  DMChannel,
-  GuildCategoryChannel,
-  GuildChannel,
-  GuildTextChannel,
-} from '../structures/channels';
-import { Snowflake, TextBasedChannel } from '../types';
+import { Bot } from '../../../bot';
+import { Snowflake, TextBasedChannel } from '../../../types';
+import { GatewayStruct } from '../../base';
+import { Guild } from '../../guild';
+import { Channel, ChannelType } from '../Channel';
+import { DMChannel } from '../DMChannel';
+import { GuildCategoryChannel } from '../GuildCategoryChannel';
+import { GuildChannel } from '../GuildChannel';
+import { GuildTextChannel } from '../GuildTextChannel';
 
 /**
  * Handles channel-related util methods

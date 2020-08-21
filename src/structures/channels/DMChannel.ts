@@ -1,10 +1,10 @@
 import { Channel } from './Channel';
 import { TextChannel } from './TextChannel';
+import { Bot } from '../../bot';
 import { Snowflake } from '../../types';
-import { GatewayStruct } from '../BaseStruct';
 import { Timestamp } from '../Timestamp';
 import { User } from '../User';
-import { Bot } from '../bot';
+import { GatewayStruct } from '../base';
 import { ChannelMessagesController, ChannelPinsController } from '../controllers';
 import { Message, MessageData, MessageOptions, MessageEmbed } from '../message';
 

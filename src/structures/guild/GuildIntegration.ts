@@ -1,11 +1,10 @@
 import { Guild } from './Guild';
-import { GuildBaseStruct } from './GuildBaseStruct';
+import { Bot } from '../../bot';
 import { Snowflake } from '../../types';
-import { GatewayStruct } from '../BaseStruct';
 import { Role } from '../Role';
 import { Timestamp } from '../Timestamp';
 import { User } from '../User';
-import { Bot } from '../bot';
+import { GatewayStruct, BaseGuildStruct } from '../base';
 
 /**
  * The behavior of expiring subscribers of an integration
@@ -78,7 +77,7 @@ export interface ModifyIntegrationOptions {
 /**
  * Guild integration object
  */
-export class GuildIntegration extends GuildBaseStruct {
+export class GuildIntegration extends BaseGuildStruct {
   /**
    * The ID of the integration
    */

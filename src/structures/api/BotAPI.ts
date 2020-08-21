@@ -1,17 +1,16 @@
 import { APISerializer } from './APISerializer';
 import Collection from '../../Collection';
+import { Bot } from '../../bot';
 import { EndpointRoute, HttpMethod, RequestFile } from '../../socket';
 import { Params, Requests } from '../../socket/rateLimit';
 import { Snowflake } from '../../types';
-import { ChannelUtils } from '../../utils';
-import { GatewayStruct } from '../BaseStruct';
+import { BotUser, FetchGuildsOptions, ModifyBotUserOptions, PartialGuild } from '../BotUser';
 import { Emoji, EmojiResolvable } from '../Emoji';
 import { Invite, InviteOptions } from '../Invite';
 import { PermissionOverwrite } from '../PermissionOverwrite';
 import { Role, RoleOptions } from '../Role';
 import { User } from '../User';
-import { Bot } from '../bot';
-import { BotUser, FetchGuildsOptions, ModifyBotUserOptions, PartialGuild } from '../bot/BotUser';
+import { GatewayStruct } from '../base';
 import {
   Channel,
   CreateGuildChannelOptions,
@@ -19,6 +18,7 @@ import {
   GuildChannel,
   GuildChannelOptions,
 } from '../channels';
+import { ChannelUtils } from '../channels/utils';
 import {
   FetchGuildOptions,
   FetchInviteOptions,
@@ -38,13 +38,14 @@ import {
   PruneCountOptions,
   PruneOptions,
 } from '../guild';
-import { GuildBan } from '../guild/GuildBan';
 import {
+  GuildBan,
   CreateIntegrationOptions,
   GuildIntegration,
   ModifyIntegrationOptions,
-} from '../guild/GuildIntegration';
-import { GuildWidget, ModifyWidgetOptions } from '../guild/GuildWidget';
+  GuildWidget,
+  ModifyWidgetOptions,
+} from '../guild';
 import { Member, MemberBanOptions, ModifyMemberOptions } from '../member';
 import { Message, MessageData, MessageEditData, MessageEmbed, MessageOptions } from '../message';
 

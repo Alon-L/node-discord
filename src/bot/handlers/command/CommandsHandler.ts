@@ -1,5 +1,5 @@
 import { Command, CommandEvents } from './Command';
-import Collection from '../../../../Collection';
+import Collection from '../../../Collection';
 import { Handler, HandlerEvent } from '../Handler';
 
 /**
