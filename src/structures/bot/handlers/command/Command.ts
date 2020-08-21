@@ -1,4 +1,4 @@
-import { Message } from '../../../structures/message';
+import { Message } from '../../../message';
 import { Bot } from '../../Bot';
 import { HandlerEvent } from '../Handler';
 import { HandlerItem, HandlerFunction } from '../HandlerItem';

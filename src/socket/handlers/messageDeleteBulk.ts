@@ -1,4 +1,4 @@
-import { Bot } from '../../bot';
+import { Bot } from '../../structures/bot';
 import { ChannelUtils } from '../../structures/channels/utils';
 import { Message } from '../../structures/message';
 import { Snowflake } from '../../types';

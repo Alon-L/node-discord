@@ -1,5 +1,5 @@
 import { BaseStruct, GatewayStruct } from './BaseStruct';
-import { Bot } from '../../bot';
+import { Bot } from '../bot';
 import { Guild } from '../guild';
 
 /**

@@ -1,8 +1,8 @@
 import { Avatar, UserAvatarFormat } from './Avatar';
 import { BaseStruct, GatewayStruct } from './base';
+import { Bot } from './bot';
 import { DMChannel, TextChannel } from './channels';
 import { UserFlags } from './flags';
-import { Bot } from '../bot';
 import { Snowflake } from '../types';
 
 /**

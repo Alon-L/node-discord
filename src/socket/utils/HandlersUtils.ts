@@ -1,4 +1,4 @@
-import { Bot } from '../../bot/Bot';
+import { Bot } from '../../structures/bot/Bot';
 import { PayloadData } from '../index';
 
 /**

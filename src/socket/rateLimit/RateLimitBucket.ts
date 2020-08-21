@@ -1,8 +1,8 @@
 import { Headers, Response } from 'node-fetch';
 import { RateLimitQueue } from './RateLimitQueue';
 import { Params, RequestFile, ReturnedData } from './Requests';
-import { Bot } from '../../bot';
 import { APIRequest } from '../../structures/api/APIRequest';
+import { Bot } from '../../structures/bot';
 import { GatewayCloseCode } from '../constants';
 import { EndpointRoute, HttpMethod, RateLimitHeaders, StatusCode, ValidCodes } from '../endpoints';
 

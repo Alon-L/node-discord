@@ -4,9 +4,12 @@ import { BotSocketShard, BotSocketShardState } from './BotSocketShard';
 import { GatewayCloseCode, recommendedShardTimeout } from './constants';
 import { baseURL } from './properties';
 import Collection from '../Collection';
-import { Bot } from '../bot/Bot';
-import { ShardCommunicationAction, ShardChangedStateRequest } from '../bot/BotCommunication';
-import { BotStateEvents } from '../bot/handlers/events/events';
+import { Bot } from '../structures/bot/Bot';
+import {
+  ShardCommunicationAction,
+  ShardChangedStateRequest,
+} from '../structures/bot/BotCommunication';
+import { BotStateEvents } from '../structures/bot/handlers/events/events';
 import { ShardId } from '../types';
 
 export interface SessionStartLimit {

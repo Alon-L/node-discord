@@ -1,6 +1,6 @@
-import { Bot } from '../../bot';
 import { Snowflake } from '../../types';
 import { BaseStruct, GatewayStruct } from '../base';
+import { Bot } from '../bot';
 
 /**
  * Used instead of {@link Guild} when the guild is unavailable

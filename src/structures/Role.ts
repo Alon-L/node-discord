@@ -1,7 +1,7 @@
 import { GatewayStruct, BaseGuildStruct } from './base';
+import { Bot } from './bot';
 import { PermissionFlags } from './flags';
 import { Guild } from './guild';
-import { Bot } from '../bot';
 import { Snowflake } from '../types';
 
 export interface RoleOptions {

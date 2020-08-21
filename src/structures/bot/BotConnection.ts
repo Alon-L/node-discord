@@ -1,7 +1,7 @@
 import { Bot } from './Bot';
 import { ShardCommunicationAction, ShardDisconnectAllRequest } from './BotCommunication';
-import { BotSocket } from '../socket/BotSocket';
-import { GatewayCloseCode } from '../socket/constants';
+import { BotSocket } from '../../socket/BotSocket';
+import { GatewayCloseCode } from '../../socket/constants';
 
 /**
  * Responsible for the creation and closure of the WebSocket connection to the Discord API gateway

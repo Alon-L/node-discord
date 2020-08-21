@@ -1,8 +1,8 @@
 'use strict';
 
-import { Bot } from '../../src/bot';
 import { BotEvent } from '../../src/socket';
 import { User } from '../../src/structures';
+import { Bot } from '../../src/structures/bot';
 import { Member } from '../../src/structures/member';
 import { MessageReaction } from '../../src/structures/message';
 import config from '../config.json';

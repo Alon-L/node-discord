@@ -3,17 +3,13 @@ import { BotCommunication } from './BotCommunication';
 import { BotConnection } from './BotConnection';
 import { CommandsHandler } from './handlers/command';
 import { EventsHandler } from './handlers/events';
-import Collection from '../Collection';
-import { BotEvent, botOptions, CacheOptions, WebsocketOptions } from '../socket';
-import { BotUser } from '../structures';
-import { BotAPI } from '../structures/api';
-import {
-  BotChannelsController,
-  BotGuildsController,
-  BotUsersController,
-} from '../structures/controllers';
-import { GuildEmoji, GuildUnavailable } from '../structures/guild';
-import { ShardId, Snowflake } from '../types';
+import Collection from '../../Collection';
+import { BotEvent, botOptions, CacheOptions, WebsocketOptions } from '../../socket';
+import { ShardId, Snowflake } from '../../types';
+import { BotAPI } from '../api';
+import { BotChannelsController, BotGuildsController, BotUsersController } from '../controllers';
+import { GuildEmoji, GuildUnavailable } from '../guild';
+import { BotUser } from '../index';
 
 /**
  * The options given to every Bot shard

@@ -3,8 +3,8 @@ import { EventEmitter } from 'events';
 import type { Arguments } from 'typed-emitter';
 import { Bot } from './Bot';
 import { Events, BotStateEvents } from './handlers/events/events';
-import { BotShardState, GatewayCloseCode } from '../socket';
-import { ShardId } from '../types';
+import { BotShardState, GatewayCloseCode } from '../../socket';
+import { ShardId } from '../../types';
 
 /**
  * Abstract typing for all shard requests

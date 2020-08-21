@@ -1,10 +1,10 @@
 import { Guild } from './Guild';
-import { Bot } from '../../bot';
 import { Snowflake } from '../../types';
 import { Role } from '../Role';
 import { Timestamp } from '../Timestamp';
 import { User } from '../User';
 import { GatewayStruct, BaseGuildStruct } from '../base';
+import { Bot } from '../bot';
 
 /**
  * The behavior of expiring subscribers of an integration

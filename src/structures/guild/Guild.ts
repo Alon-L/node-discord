@@ -3,12 +3,12 @@ import { GuildPreview } from './GuildPreview';
 import { GuildUnavailable } from './GuildUnavailable';
 import { GuildWidget } from './GuildWidget';
 import Collection from '../../Collection';
-import { Bot } from '../../bot';
 import { Snowflake } from '../../types';
 import { Avatar, GuildBannerFormat } from '../Avatar';
 import { ImageURI } from '../ImageURI';
 import { Role } from '../Role';
 import { GatewayStruct } from '../base';
+import { Bot } from '../bot';
 import { GuildChannel, GuildTextChannel } from '../channels';
 import { ChannelUtils } from '../channels/utils';
 import {

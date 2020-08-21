@@ -13,7 +13,7 @@ import {
 } from './constants';
 import * as events from './handlers';
 import { identify, version, WebsocketOptions } from './properties';
-import { Bot, ShardOptions } from '../bot';
+import { Bot, ShardOptions } from '../structures/bot';
 import { Snowflake } from '../types';
 
 /**

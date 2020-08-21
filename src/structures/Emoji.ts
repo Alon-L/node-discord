@@ -1,9 +1,9 @@
 import { Role } from './Role';
 import { User } from './User';
 import { BaseStruct, GatewayStruct } from './base';
+import { Bot } from './bot';
 import { Guild } from './guild';
 import Collection from '../Collection';
-import { Bot } from '../bot';
 import { Snowflake } from '../types';
 
 /**

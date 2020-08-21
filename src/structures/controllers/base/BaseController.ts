@@ -1,5 +1,5 @@
-import { Bot } from '../../../bot/Bot';
 import { BaseStruct, BaseStructWithId } from '../../base';
+import { Bot } from '../../bot/Bot';
 import { ControllerCache } from '../ControllerCache';
 
 /**

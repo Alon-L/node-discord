@@ -1,5 +1,5 @@
-import { Bot } from '../../bot';
 import { Timestamp } from '../../structures/Timestamp';
+import { Bot } from '../../structures/bot';
 import { ChannelUtils } from '../../structures/channels/utils';
 import { Payload } from '../BotSocketShard';
 import { BotEvent } from '../constants';

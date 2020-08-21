@@ -1,8 +1,8 @@
 'use strict';
 
-import { Bot } from '../../src/bot';
 import { BotEvent } from '../../src/socket';
 import { Timestamp } from '../../src/structures';
+import { Bot } from '../../src/structures/bot';
 import { GuildTextChannel } from '../../src/structures/channels';
 import { TextBasedChannel } from '../../src/types';
 import config from '../config.json';

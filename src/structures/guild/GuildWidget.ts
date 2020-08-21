@@ -1,7 +1,7 @@
 import { Guild } from './Guild';
-import { Bot } from '../../bot';
 import { Snowflake } from '../../types';
 import { GatewayStruct, BaseGuildStruct } from '../base';
+import { Bot } from '../bot';
 import { GuildChannel } from '../channels';
 
 /**

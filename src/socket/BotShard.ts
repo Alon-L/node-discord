@@ -17,8 +17,8 @@ import {
   ShardCommunicationEmitEvents,
   ShardEmitBotEventRequest,
   ShardEmitDisconnectRequest,
-} from '../bot/BotCommunication';
-import { Events } from '../bot/handlers/events/events';
+} from '../structures/bot/BotCommunication';
+import { Events } from '../structures/bot/handlers/events/events';
 import { ShardId } from '../types';
 
 /**

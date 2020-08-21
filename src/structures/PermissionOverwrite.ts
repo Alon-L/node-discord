@@ -1,7 +1,7 @@
 import { BaseStruct, GatewayStruct } from './base';
+import { Bot } from './bot';
 import { GuildChannel } from './channels';
 import { PermissionFlags, Permissible, PermissionOverwriteFlags } from './flags';
-import { Bot } from '../bot';
 
 /**
  * A full permission overwrite entry.

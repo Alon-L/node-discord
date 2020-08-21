@@ -1,9 +1,9 @@
 import { Timestamp } from './Timestamp';
 import { User } from './User';
 import { BaseStruct, GatewayStruct } from './base';
+import { Bot } from './bot';
 import { GuildChannel } from './channels';
 import { Guild } from './guild';
-import { Bot } from '../bot';
 import { Snowflake } from '../types';
 
 export type InviteCode = string;

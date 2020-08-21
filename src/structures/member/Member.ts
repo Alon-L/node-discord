@@ -1,10 +1,10 @@
 import { MemberPresence } from './MemberPresence';
-import { Bot } from '../../bot';
 import { Snowflake } from '../../types';
 import { Role } from '../Role';
 import { Timestamp } from '../Timestamp';
 import { User } from '../User';
 import { GatewayStruct, BaseGuildStruct } from '../base';
+import { Bot } from '../bot';
 import { MemberRolesController } from '../controllers';
 import { Guild } from '../guild';
 

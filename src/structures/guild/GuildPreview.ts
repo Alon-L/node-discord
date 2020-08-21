@@ -1,9 +1,9 @@
 import { GuildApproximates } from './Guild';
-import { Bot } from '../../bot';
 import { GuildFeature } from '../../socket';
 import { Snowflake } from '../../types';
 import { Avatar, GuildDiscoverySplashFormat, GuildIconFormat, GuildSplashFormat } from '../Avatar';
 import { BaseStruct, GatewayStruct } from '../base';
+import { Bot } from '../bot';
 
 export class GuildPreview extends BaseStruct {
   /**

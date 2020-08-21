@@ -1,6 +1,5 @@
 import { APISerializer } from './APISerializer';
 import Collection from '../../Collection';
-import { Bot } from '../../bot';
 import { EndpointRoute, HttpMethod, RequestFile } from '../../socket';
 import { Params, Requests } from '../../socket/rateLimit';
 import { Snowflake } from '../../types';
@@ -11,6 +10,7 @@ import { PermissionOverwrite } from '../PermissionOverwrite';
 import { Role, RoleOptions } from '../Role';
 import { User } from '../User';
 import { GatewayStruct } from '../base';
+import { Bot } from '../bot';
 import {
   Channel,
   CreateGuildChannelOptions,

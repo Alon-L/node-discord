@@ -1,8 +1,8 @@
 'use strict';
 
 import assert from 'assert';
-import { Bot } from '../../src/bot';
 import { BotEvent, Permission } from '../../src/socket';
+import { Bot } from '../../src/structures/bot';
 import { PermissionFlags } from '../../src/structures/flags';
 import config from '../config.json';
 
