@@ -8,8 +8,7 @@ import Collection from '../../Collection';
 import { BotEvent, botOptions, CacheOptions, WebsocketOptions } from '../../socket';
 import { ShardId, Snowflake } from '../../types';
 import { BotAPI } from '../api';
-import { BotChannelsController, BotGuildsController } from '../controllers';
-import { BotUsersController } from '../controllers/BotUsersController';
+import { BotChannelsController, BotGuildsController, BotUsersController } from '../controllers';
 import { GuildEmoji, GuildUnavailable } from '../guild';
 
 /**

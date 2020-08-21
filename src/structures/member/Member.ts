@@ -5,7 +5,7 @@ import { Role } from '../Role';
 import { Timestamp } from '../Timestamp';
 import { User } from '../User';
 import { Bot } from '../bot';
-import { MemberRolesController } from '../controllers/MemberRolesController';
+import { MemberRolesController } from '../controllers';
 import { Guild, GuildBaseStruct } from '../guild';
 
 /**

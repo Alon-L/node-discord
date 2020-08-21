@@ -16,9 +16,11 @@ import {
   GuildInvitesController,
   GuildMembersController,
 } from '../controllers';
-import { GuildBansController } from '../controllers/GuildBansController';
-import { GuildIntegrationsController } from '../controllers/GuildIntegrationsController';
-import { GuildRolesController } from '../controllers/GuildRolesController';
+import {
+  GuildBansController,
+  GuildIntegrationsController,
+  GuildRolesController,
+} from '../controllers';
 import { GuildSystemChannelFlags, PermissionFlags } from '../flags';
 import { Member, MemberPresence } from '../member';
 
