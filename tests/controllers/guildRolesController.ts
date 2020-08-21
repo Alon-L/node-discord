@@ -25,7 +25,7 @@ bot.connection.connect();
     name: 'role name!',
     mentionable: true,
     listedSeparately: true,
-    permissions: PermissionFlags.build(Permission.ManageRoles, Permission.ManageChannels),
+    permissions: PermissionFlags.from(Permission.ManageRoles, Permission.ManageChannels),
     color: 0xffffff,
   });
   await bot.events.wait(BotEvent.GuildRoleCreate);

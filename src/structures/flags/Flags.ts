@@ -34,7 +34,7 @@ export class Flags<T extends number> {
    * @param {T[]} flags An array of all flags the {@link Flags} instance should contain
    * @returns {Flags<T>}
    */
-  public static build<T extends number>(...flags: T[]): Flags<T> {
+  public static from<T extends number>(...flags: T[]): Flags<T> {
     const bits = flags.reduce((totalBits: number, bit: number) => totalBits | bit, 0);
 
     return new Flags<T>(bits);

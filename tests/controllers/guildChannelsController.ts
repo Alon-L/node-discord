@@ -24,15 +24,15 @@ bot.connection.connect();
     permissions: {
       [guild.members.cache.first!.id]: {
         type: PermissibleType.Member,
-        allow: PermissionFlags.build(Permission.ViewChannel),
+        allow: PermissionFlags.from(Permission.ViewChannel),
       },
       [bot.user!.id]: {
         type: PermissibleType.Member,
-        allow: PermissionFlags.build(Permission.ViewChannel),
+        allow: PermissionFlags.from(Permission.ViewChannel),
       },
       [guild.id]: {
         type: PermissibleType.Role,
-        deny: PermissionFlags.build(Permission.ViewChannel),
+        deny: PermissionFlags.from(Permission.ViewChannel),
       },
     },
   });

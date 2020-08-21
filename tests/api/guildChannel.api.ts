@@ -29,8 +29,8 @@ bot.connection.connect();
       type: PermissibleType.Member,
     },
     {
-      allow: PermissionFlags.build(Permission.SendMessages, Permission.AddReactions),
-      deny: PermissionFlags.build(Permission.AttachFiles),
+      allow: PermissionFlags.from(Permission.SendMessages, Permission.AddReactions),
+      deny: PermissionFlags.from(Permission.AttachFiles),
     },
   );
 
