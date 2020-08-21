@@ -1,6 +1,6 @@
 import { Serializable } from 'child_process';
 import { EventEmitter } from 'events';
-import { Arguments } from 'typed-emitter';
+import type { Arguments } from 'typed-emitter';
 import { Bot } from './Bot';
 import { Events, BotStateEvents } from './handlers/events/events';
 import { BotShardState, GatewayCloseCode } from '../../socket';

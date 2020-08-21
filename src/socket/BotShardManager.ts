@@ -1,5 +1,5 @@
 import { Serializable } from 'child_process';
-import { Arguments } from 'typed-emitter';
+import type { Arguments } from 'typed-emitter';
 import { BotShard, BotShardState } from './BotShard';
 import { GatewayCloseCode, recommendedShardTimeout } from './constants';
 import Collection from '../Collection';

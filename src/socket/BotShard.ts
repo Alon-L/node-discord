@@ -1,6 +1,6 @@
 import { ChildProcess, fork, Serializable } from 'child_process';
 import path from 'path';
-import { Arguments } from 'typed-emitter';
+import type { Arguments } from 'typed-emitter';
 import { BotShardManager } from './BotShardManager';
 import { GatewayCloseCode } from './constants';
 import {
