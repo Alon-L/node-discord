@@ -1,0 +1,47 @@
+import fs from 'fs';
+import mime from 'mime-types';
+
+/**
+ * Represents an image being sent to the Discord API as Image Data
+ * https://discord.com/developers/docs/reference#image-data
+ */
+export class ImageURI {
+  /**
+   * The path of the image
+   */
+  private readonly path: string;
+
+  constructor(path: string) {
+    this.path = path;
+  }
+
+  /**
+   * Returns the image mime and base64 data as a formatted string
+   * @returns {string}
+   */
+  public stringify(): string {
+    const { image, mime } = this;
+
+    if (!mime) {
+      throw new Error(`Invalid mime type for image ${this.path}`);
+    }
+
+    return `data:${mime};base64,${image}`;
+  }
+
+  /**
+   * Returns the image as base64
+   * @type {string}
+   */
+  private get image(): string {
+    return fs.readFileSync(this.path, { encoding: 'base64' });
+  }
+
+  /**
+   * Returns the mime type of the image
+   * @type {string | boolean}
+   */
+  private get mime(): string | false {
+    return mime.lookup(this.path);
+  }
+}

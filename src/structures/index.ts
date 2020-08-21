@@ -11,6 +11,7 @@ export * from './Avatar';
 export * from './BaseStruct';
 export * from './Emoji';
 export * from './Invite';
+export * from './ImageURI';
 export * from './PermissionOverwrite';
 export * from './Role';
 export * from './Timestamp';
