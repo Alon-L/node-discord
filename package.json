@@ -1,6 +1,6 @@
 {
-  "name": "node-discord",
-  "version": "1.0.0",
+  "name": "@node-discord/core",
+  "version": "1.0.0-alpha.0",
   "description": "More than just a Discord API Wrapper",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
