@@ -8,7 +8,12 @@
     "test": "jest",
     "lint": "eslint src --ext .ts --ext .js",
     "lint:fix": "eslint --fix src --ext .ts --ext .js",
-    "docs:generate": "typedoc --options typedoc.json"
+    "docs:generate": "typedoc --options typedoc.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run lint:fix && git add -A src",
+    "postversion": "git push && git push --tags"
   },
   "main": "./lib/types/index.js",
   "types": "./lib/types/index.d.ts",
