@@ -2,6 +2,11 @@
   "name": "node-discord",
   "version": "1.0.0",
   "description": "More than just a Discord API Wrapper",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib/**/*"
+  ],
   "scripts": {
     "start": "ts-node src/index.ts",
     "build": "tsc",
@@ -15,8 +20,6 @@
     "version": "npm run lint:fix && git add -A src",
     "postversion": "git push && git push --tags"
   },
-  "main": "./lib/types/index.js",
-  "types": "./lib/types/index.d.ts",
   "repository": "git@github.com:alon-l/node-discord",
   "keywords": [],
   "author": "",
