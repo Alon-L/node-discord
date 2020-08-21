@@ -695,7 +695,7 @@ export class BotAPI {
       EndpointRoute.GuildEmojis,
       { guildId },
       HttpMethod.Post,
-      APISerializer.createEmojiOptions(options),
+      await APISerializer.createEmojiOptions(options),
     );
 
     const guild = await this.bot.guilds.get(guildId);
@@ -783,7 +783,7 @@ export class BotAPI {
       EndpointRoute.Guild,
       { guildId },
       HttpMethod.Patch,
-      APISerializer.modifyGuildOptions(options),
+      await APISerializer.modifyGuildOptions(options),
     );
 
     return new Guild(this.bot, guild);
@@ -1412,7 +1412,7 @@ export class BotAPI {
       EndpointRoute.UserBot,
       {},
       HttpMethod.Patch,
-      APISerializer.modifyBotUserOptions(options),
+      await APISerializer.modifyBotUserOptions(options),
     );
 
     return new BotUser(this.bot, user);

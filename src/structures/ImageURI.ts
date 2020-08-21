@@ -1,4 +1,4 @@
-import fs from 'fs';
+import { promises as fs } from 'fs';
 import mime from 'mime-types';
 
 /**
@@ -25,22 +25,22 @@ export class ImageURI {
    * Returns the image mime and base64 data as a formatted string
    * @returns {string}
    */
-  public stringify(): string {
+  public async stringify(): Promise<string> {
     const { image, mime } = this;
 
     if (!mime) {
       throw new Error(`Invalid mime type for image ${this.path}`);
     }
 
-    return `data:${mime};base64,${image}`;
+    return `data:${mime};base64,${await image}`;
   }
 
   /**
    * Returns the image as base64
    * @type {string}
    */
-  private get image(): string {
-    return fs.readFileSync(this.path, { encoding: 'base64' });
+  private get image(): Promise<string> {
+    return fs.readFile(this.path, { encoding: 'base64' });
   }
 
   /**

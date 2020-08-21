@@ -181,12 +181,12 @@ export class APISerializer {
   /**
    * Returns the serialized create emoji options for when creating emojis
    * @param {CreateEmojiOptions} options The create emoji options
-   * @returns {Params}
+   * @returns {Promise<Params>}
    */
-  public static createEmojiOptions(options: CreateEmojiOptions): Params {
+  public static async createEmojiOptions(options: CreateEmojiOptions): Promise<Params> {
     return {
       name: options.name,
-      image: options.image.stringify(),
+      image: await options.image.stringify(),
       roles: options.roles,
     };
   }
@@ -207,9 +207,9 @@ export class APISerializer {
   /**
    * Returns the serialized modify guild options for when modifying a guild
    * @param {ModifyGuildOptions} options The modify guild options
-   * @returns {Params}
+   * @returns {Promise<Params>}
    */
-  public static modifyGuildOptions(options: ModifyGuildOptions): Params {
+  public static async modifyGuildOptions(options: ModifyGuildOptions): Promise<Params> {
     return {
       name: options.name,
       region: options.region,
@@ -218,10 +218,10 @@ export class APISerializer {
       explicit_content_filter: options.levels?.explicitContent,
       afk_channel_id: options.afk?.channel?.id,
       afk_timeout: options.afk?.timeout,
-      icon: options.icon && options.icon.stringify(),
+      icon: options.icon && (await options.icon.stringify()),
       owner_id: options.ownerId,
-      splash: options.splash && options.splash.stringify(),
-      banner: options.banner && options.banner.stringify(),
+      splash: options.splash && (await options.splash.stringify()),
+      banner: options.banner && (await options.banner.stringify()),
       system_channel_id: options.systemChannelId,
       rules_channel_id: options.rulesChannelId,
       public_updates_channel_id: options.updatesChannelId,
@@ -356,12 +356,12 @@ export class APISerializer {
   /**
    * Returns the serialized modify bot user options for when modifying this bot's user
    * @param {ModifyBotUserOptions} options The modify bot user options
-   * @returns {Params}
+   * @returns {Promise<Params>}
    */
-  public static modifyBotUserOptions(options: ModifyBotUserOptions): Params {
+  public static async modifyBotUserOptions(options: ModifyBotUserOptions): Promise<Params> {
     return {
       username: options.username,
-      avatar: options.avatar && options.avatar.stringify(),
+      avatar: options.avatar && (await options.avatar.stringify()),
     };
   }
 
