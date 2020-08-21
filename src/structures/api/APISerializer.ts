@@ -179,6 +179,19 @@ export class APISerializer {
   }
 
   /**
+   * Returns the serialized create emoji options for when creating emojis
+   * @param {CreateEmojiOptions} options The create emoji options
+   * @returns {Params}
+   */
+  public static createEmojiOptions(options: CreateEmojiOptions): Params {
+    return {
+      name: options.name,
+      image: options.image.stringify(),
+      roles: options.roles,
+    };
+  }
+
+  /**
    * Returns the serialized fetch guild options for when fetching a guild
    * @param {FetchGuildOptions} options The fetch guild options
    * @returns {Params}

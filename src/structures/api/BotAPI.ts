@@ -695,7 +695,7 @@ export class BotAPI {
       EndpointRoute.GuildEmojis,
       { guildId },
       HttpMethod.Post,
-      APISerializer.emojiOptions(options),
+      APISerializer.createEmojiOptions(options),
     );
 
     const guild = await this.bot.guilds.get(guildId);

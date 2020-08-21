@@ -3,18 +3,28 @@ import { Snowflake } from '../../types';
 import { Avatar, GuildEmojiFormat } from '../Avatar';
 import { GatewayStruct } from '../BaseStruct';
 import { Emoji } from '../Emoji';
+import { ImageURI } from '../ImageURI';
 import { Role } from '../Role';
 import { Bot } from '../bot';
 
 /**
  * Options for when creating new guild emojis
  */
-export interface CreateEmojiOptions extends Required<ModifyEmojiOptions> {
+export interface CreateEmojiOptions {
+  /**
+   * The name of the emoji
+   */
+  name: string;
+
   /**
    * The 128x128 emoji image
    */
-  // TODO: image data https://discord.com/developers/docs/resources/emoji#create-guild-emoji
-  image: undefined;
+  image: ImageURI;
+
+  /**
+   * Roles for which this emoji will be whitelisted
+   */
+  roles?: (Snowflake | Role)[];
 }
 
 /**
