@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IntegrationExpireBehavior | node-discord</title>
+	<title>ImageURI | node-discord</title>
 	<meta name="description" content="Documentation for node-discord">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="integrationexpirebehavior.html">IntegrationExpireBehavior</a>
+					<a href="imageuri.html">ImageURI</a>
 				</li>
 			</ul>
-			<h1>Enumeration IntegrationExpireBehavior</h1>
+			<h1>Class ImageURI</h1>
 		</div>
 	</div>
 </header>
@@ -67,45 +67,99 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>The behavior of expiring subscribers of an integration</p>
+						<p>Represents an image being sent to the Discord API as Image Data
+						<a href="https://discord.com/developers/docs/reference#image-data">https://discord.com/developers/docs/reference#image-data</a></p>
 					</div>
 				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">ImageURI</span>
+					</li>
+				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Enumeration members</h3>
+							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="integrationexpirebehavior.html#kick" class="tsd-kind-icon">Kick</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="integrationexpirebehavior.html#removerole" class="tsd-kind-icon">Remove<wbr>Role</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="imageuri.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="imageuri.html#stringify" class="tsd-kind-icon">stringify</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Enumeration members</h2>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="kick" class="tsd-anchor"></a>
-					<h3>Kick</h3>
-					<div class="tsd-signature tsd-kind-icon">Kick<span class="tsd-signature-symbol">:</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/ee06158/src/structures/guild/GuildIntegration.ts#L15">src/structures/guild/GuildIntegration.ts:15</a></li>
-						</ul>
-					</aside>
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>ImageURI<span class="tsd-signature-symbol">(</span>path<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="imageuri.html" class="tsd-signature-type">ImageURI</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/ee06158/src/structures/ImageURI.ts#L12">src/structures/ImageURI.ts:12</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-typescript"><span class="hljs-keyword">const</span> image = <span class="hljs-keyword">new</span> ImageURI(<span class="hljs-string">&#x27;./image.png&#x27;</span>);</code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>path: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The image path</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="imageuri.html" class="tsd-signature-type">ImageURI</a></h4>
+						</li>
+					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="removerole" class="tsd-anchor"></a>
-					<h3>Remove<wbr>Role</h3>
-					<div class="tsd-signature tsd-kind-icon">Remove<wbr>Role<span class="tsd-signature-symbol">:</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/ee06158/src/structures/guild/GuildIntegration.ts#L14">src/structures/guild/GuildIntegration.ts:14</a></li>
-						</ul>
-					</aside>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="stringify" class="tsd-anchor"></a>
+					<h3>stringify</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">stringify<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/ee06158/src/structures/ImageURI.ts#L28">src/structures/ImageURI.ts:28</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns the image mime and base64 data as a formatted string</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -121,14 +175,14 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-enum">
-						<a href="integrationexpirebehavior.html" class="tsd-kind-icon">Integration<wbr>Expire<wbr>Behavior</a>
+					<li class="current tsd-kind-class">
+						<a href="imageuri.html" class="tsd-kind-icon">ImageURI</a>
 						<ul>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="integrationexpirebehavior.html#kick" class="tsd-kind-icon">Kick</a>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="imageuri.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="integrationexpirebehavior.html#removerole" class="tsd-kind-icon">Remove<wbr>Role</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="imageuri.html#stringify" class="tsd-kind-icon">stringify</a>
 							</li>
 						</ul>
 					</li>

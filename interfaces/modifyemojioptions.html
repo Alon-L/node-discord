@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IntegrationExpireBehavior | node-discord</title>
+	<title>ModifyEmojiOptions | node-discord</title>
 	<meta name="description" content="Documentation for node-discord">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="integrationexpirebehavior.html">IntegrationExpireBehavior</a>
+					<a href="modifyemojioptions.html">ModifyEmojiOptions</a>
 				</li>
 			</ul>
-			<h1>Enumeration IntegrationExpireBehavior</h1>
+			<h1>Interface ModifyEmojiOptions</h1>
 		</div>
 	</div>
 </header>
@@ -67,45 +67,63 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>The behavior of expiring subscribers of an integration</p>
+						<p>Options for when modifying guild emojis</p>
 					</div>
 				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">ModifyEmojiOptions</span>
+					</li>
+				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Enumeration members</h3>
+							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="integrationexpirebehavior.html#kick" class="tsd-kind-icon">Kick</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="integrationexpirebehavior.html#removerole" class="tsd-kind-icon">Remove<wbr>Role</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="modifyemojioptions.html#name" class="tsd-kind-icon">name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="modifyemojioptions.html#roles" class="tsd-kind-icon">roles</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Enumeration members</h2>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="kick" class="tsd-anchor"></a>
-					<h3>Kick</h3>
-					<div class="tsd-signature tsd-kind-icon">Kick<span class="tsd-signature-symbol">:</span></div>
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="name" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> name</h3>
+					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/ee06158/src/structures/guild/GuildIntegration.ts#L15">src/structures/guild/GuildIntegration.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/ee06158/src/structures/guild/GuildEmoji.ts#L37">src/structures/guild/GuildEmoji.ts:37</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The name of the emoji</p>
+						</div>
+					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="removerole" class="tsd-anchor"></a>
-					<h3>Remove<wbr>Role</h3>
-					<div class="tsd-signature tsd-kind-icon">Remove<wbr>Role<span class="tsd-signature-symbol">:</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="roles" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> roles</h3>
+					<div class="tsd-signature tsd-kind-icon">roles<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../classes/role.html" class="tsd-signature-type">Role</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/ee06158/src/structures/guild/GuildIntegration.ts#L14">src/structures/guild/GuildIntegration.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/ee06158/src/structures/guild/GuildEmoji.ts#L42">src/structures/guild/GuildEmoji.ts:42</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Roles for which this emoji will be whitelisted</p>
+						</div>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -121,14 +139,14 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-enum">
-						<a href="integrationexpirebehavior.html" class="tsd-kind-icon">Integration<wbr>Expire<wbr>Behavior</a>
+					<li class="current tsd-kind-interface">
+						<a href="modifyemojioptions.html" class="tsd-kind-icon">Modify<wbr>Emoji<wbr>Options</a>
 						<ul>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="integrationexpirebehavior.html#kick" class="tsd-kind-icon">Kick</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="modifyemojioptions.html#name" class="tsd-kind-icon">name</a>
 							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="integrationexpirebehavior.html#removerole" class="tsd-kind-icon">Remove<wbr>Role</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="modifyemojioptions.html#roles" class="tsd-kind-icon">roles</a>
 							</li>
 						</ul>
 					</li>
