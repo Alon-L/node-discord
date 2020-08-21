@@ -13,7 +13,6 @@ export interface ModifyBotUserOptions {
    */
   username?: string;
 
-  // TODO: avatar field https://discord.com/developers/docs/resources/user#modify-current-user
   /**
    * If passed, modifies the user's avatar.
    * Path to the new user's avatar image
