@@ -178,7 +178,6 @@ export interface ModifyGuildOptions {
    */
   afk?: Partial<GuildAFK>;
 
-  // TODO: modify guild icon https://discord.com/developers/docs/resources/guild#modify-guild
   /**
    * The new icon of the guild
    */
@@ -189,13 +188,11 @@ export interface ModifyGuildOptions {
    */
   ownerId?: Snowflake;
 
-  // TODO: modify guild splash https://discord.com/developers/docs/resources/guild#modify-guild
   /**
    * The new splash image of the guild
    */
   splash?: ImageURI | null;
 
-  // TODO: modify guild banner https://discord.com/developers/docs/resources/guild#modify-guild
   /**
    * The new banner image of the guild
    */
