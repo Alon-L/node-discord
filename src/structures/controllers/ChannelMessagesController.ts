@@ -1,4 +1,6 @@
-import { BaseDeleteController, BaseFetchController, BaseFetchSomeController } from './base';
+import { BaseDeleteController } from './base/BaseDeleteController';
+import { BaseFetchController } from './base/BaseFetchController';
+import { BaseFetchSomeController } from './base/BaseFetchSomeController';
 import Collection from '../../Collection';
 import { Snowflake, TextBasedChannel } from '../../types';
 import { Message } from '../message';

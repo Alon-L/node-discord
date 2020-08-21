@@ -5,7 +5,8 @@ import { Snowflake } from '../../types';
 import { Timestamp } from '../Timestamp';
 import { User } from '../User';
 import { GatewayStruct } from '../base';
-import { ChannelMessagesController, ChannelPinsController } from '../controllers';
+import { ChannelMessagesController } from '../controllers/ChannelMessagesController';
+import { ChannelPinsController } from '../controllers/ChannelPinsController';
 import { Message, MessageData, MessageOptions, MessageEmbed } from '../message';
 
 /**

@@ -4,7 +4,8 @@ import { BotSocketShard, BotSocketShardState } from './BotSocketShard';
 import { GatewayCloseCode, recommendedShardTimeout } from './constants';
 import { baseURL } from './properties';
 import Collection from '../Collection';
-import { Bot, ShardChangedStateRequest, ShardCommunicationAction } from '../bot';
+import { Bot } from '../bot/Bot';
+import { ShardCommunicationAction, ShardChangedStateRequest } from '../bot/BotCommunication';
 import { BotStateEvents } from '../bot/handlers/events/events';
 import { ShardId } from '../types';
 

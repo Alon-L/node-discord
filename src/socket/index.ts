@@ -1,4 +1,6 @@
 export * from './rateLimit';
+export * from './utils';
+
 export * from './BotHeartbeats';
 export * from './BotShard';
 export * from './BotShardManager';

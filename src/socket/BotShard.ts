@@ -4,20 +4,20 @@ import type { Arguments } from 'typed-emitter';
 import { BotShardManager } from './BotShardManager';
 import { GatewayCloseCode } from './constants';
 import {
-  BotCommunication,
   ShardBroadcastRequest,
+  ShardSendRequest,
   ShardChangedStateRequest,
+  ShardDisconnectAllRequest,
   ShardCommunicationAction,
   ShardCommunicationActionResponse,
   ShardCommunicationActionResponses,
-  ShardCommunicationEmitEvents,
-  ShardDisconnectAllRequest,
-  ShardEmitBotEventRequest,
-  ShardEmitCommunicationEventRequest,
+  BotCommunication,
   ShardEmitCommunicationEventResponse,
+  ShardEmitCommunicationEventRequest,
+  ShardCommunicationEmitEvents,
+  ShardEmitBotEventRequest,
   ShardEmitDisconnectRequest,
-  ShardSendRequest,
-} from '../bot';
+} from '../bot/BotCommunication';
 import { Events } from '../bot/handlers/events/events';
 import { ShardId } from '../types';
 

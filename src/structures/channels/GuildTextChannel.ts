@@ -4,7 +4,8 @@ import { Bot } from '../../bot';
 import { Snowflake } from '../../types';
 import { Timestamp } from '../Timestamp';
 import { GatewayStruct } from '../base';
-import { ChannelMessagesController, ChannelPinsController } from '../controllers';
+import { ChannelMessagesController } from '../controllers/ChannelMessagesController';
+import { ChannelPinsController } from '../controllers/ChannelPinsController';
 import { Guild } from '../guild';
 import { Message, MessageOptions, MessageData, MessageEmbed } from '../message';
 

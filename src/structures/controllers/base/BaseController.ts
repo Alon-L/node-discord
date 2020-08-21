@@ -1,4 +1,4 @@
-import { Bot } from '../../../bot';
+import { Bot } from '../../../bot/Bot';
 import { BaseStruct, BaseStructWithId } from '../../base';
 import { ControllerCache } from '../ControllerCache';
 
@@ -18,10 +18,10 @@ export abstract class BaseController<T extends BaseStructWithId> {
   public cache: ControllerCache<T>;
 
   constructor(struct: BaseStruct | Bot, limit?: number) {
-    if (struct instanceof Bot) {
-      this.bot = struct;
-    } else {
+    if (struct instanceof BaseStruct) {
       this.bot = struct.bot;
+    } else {
+      this.bot = struct;
     }
 
     this.cache = new ControllerCache<T>(null, limit);

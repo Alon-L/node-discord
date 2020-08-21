@@ -2,7 +2,7 @@
 
 import { Bot } from '../../src/bot';
 import { BotEvent } from '../../src/socket';
-import { User } from '../../src/structures';
+import { User } from '../../src/structures/User';
 import { Member } from '../../src/structures/member';
 import config from '../config.json';
 

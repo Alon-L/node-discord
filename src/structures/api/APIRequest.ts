@@ -2,7 +2,8 @@ import querystring, { ParsedUrlQueryInput } from 'querystring';
 import FormData from 'form-data';
 import fetch, { Response } from 'node-fetch';
 import { APIFile } from './APIFile';
-import { HttpMethod, baseURL } from '../../socket';
+import { HttpMethod } from '../../socket/endpoints';
+import { baseURL } from '../../socket/properties';
 import { Params, RequestFile } from '../../socket/rateLimit';
 
 const paramsMethods: HttpMethod[] = [HttpMethod.Get];

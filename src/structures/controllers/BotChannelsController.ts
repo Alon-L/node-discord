@@ -1,6 +1,8 @@
 import { BaseDeleteController, BaseFetchController } from './base';
 import { Snowflake, TextBasedChannel } from '../../types';
-import { Channel, DMChannel, GuildTextChannel } from '../channels';
+import { Channel } from '../channels/Channel';
+import { DMChannel } from '../channels/DMChannel';
+import { GuildTextChannel } from '../channels/GuildTextChannel';
 
 /**
  * Provides an interface for the bot's channels cache.

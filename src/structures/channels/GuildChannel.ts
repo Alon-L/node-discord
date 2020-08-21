@@ -4,7 +4,8 @@ import { Bot } from '../../bot';
 import { Snowflake } from '../../types';
 import { PermissionOverwrite } from '../PermissionOverwrite';
 import { GatewayStruct } from '../base';
-import { ChannelPermissionsController, GuildChannelInvitesController } from '../controllers';
+import { ChannelPermissionsController } from '../controllers/ChannelPermissionsController';
+import { GuildChannelInvitesController } from '../controllers/GuildChannelInvitesController';
 import { PermissibleType, PermissionOverwriteFlags } from '../flags';
 import { Guild } from '../guild';
 
@@ -158,9 +159,7 @@ export class GuildChannel extends Channel {
   public get parent(): GuildCategoryChannel | null {
     if (!this.parentId) return null;
 
-    const parent = this.guild.channels.cache.get(this.parentId);
-
-    return parent instanceof GuildCategoryChannel ? parent : null;
+    return (this.guild.channels.cache.get(this.parentId) as GuildCategoryChannel) || null;
   }
 
   /**

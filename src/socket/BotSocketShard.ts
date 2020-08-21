@@ -16,7 +16,10 @@ import { identify, version, WebsocketOptions } from './properties';
 import { Bot, ShardOptions } from '../bot';
 import { Snowflake } from '../types';
 
-export enum BotSocketShardState {
+/**
+ * The state of the socket shard
+ */
+export const enum BotSocketShardState {
   Connecting,
   Processing,
   Ready,
