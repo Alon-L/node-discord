@@ -342,7 +342,7 @@ export class APISerializer {
   public static modifyBotUserOptions(options: ModifyBotUserOptions): Params {
     return {
       username: options.username,
-      avatar: options.avatar,
+      avatar: options.avatar && options.avatar.stringify(),
     };
   }
 

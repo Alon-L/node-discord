@@ -1,6 +1,6 @@
 import Collection from '../../Collection';
 import { Snowflake } from '../../types';
-import { ImageData } from '../ImageData';
+import { ImageURI } from '../ImageURI';
 import { User } from '../User';
 import { PermissionFlags } from '../flags';
 
@@ -18,7 +18,7 @@ export interface ModifyBotUserOptions {
    * If passed, modifies the user's avatar.
    * Path to the new user's avatar image
    */
-  avatar?: ImageData;
+  avatar?: ImageURI | null;
 }
 
 /**

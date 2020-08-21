@@ -1,7 +1,7 @@
 'use strict';
 
 import { BotEvent } from '../../src/socket';
-import { Bot } from '../../src/structures';
+import { Bot, ImageURI } from '../../src/structures';
 import config from '../config.json';
 
 const bot = new Bot(config.token);
@@ -13,7 +13,7 @@ bot.connection.connect();
   const user = bot.user!;
   const newUsername = user.username + 'a';
 
-  user.modify({ username: newUsername });
+  user.modify({ username: newUsername, avatar: new ImageURI('./tests/api/a.png') });
   await bot.events.wait(BotEvent.UserUpdate);
 
   console.log(
