@@ -11,6 +11,12 @@ export class ImageURI {
    */
   private readonly path: string;
 
+  /**
+   * @param {string} path The image path
+   * @example ```typescript
+   * const image = new ImageURI('./image.png');
+   * ```
+   */
   constructor(path: string) {
     this.path = path;
   }
