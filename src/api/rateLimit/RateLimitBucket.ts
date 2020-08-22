@@ -1,3 +1,4 @@
+import util from 'util';
 import { Headers, Response } from 'node-fetch';
 import { RateLimitQueue } from './RateLimitQueue';
 import { Params, RequestFile, ReturnedData } from './Requests';
@@ -162,10 +163,16 @@ export class RateLimitBucket {
 
       if (Array.isArray(json)) {
         throw new TypeError(
-          `${response.url} - an error has occurred with an array response type - ${json}`,
+          `${response.url} - an error has occurred with an array response type - ${util.inspect(
+            json,
+          )}`,
         );
       } else {
-        throw new Error(`${response.url} (${response.status} code) - ${json.message || json}`);
+        throw new Error(
+          `${response.url} (${response.status} code) - ${
+            json.message || json.content || util.inspect(json)
+          }`,
+        );
       }
     }
   }
