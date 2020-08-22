@@ -19,7 +19,7 @@
 </p>
 
 Node-discord is a strict TypeScript Discord API Wrapper that focuses on utility and extensibility.  
-The library implements every core aspect of the Discord API and proivdes additional tools to assist developers with their needs.
+The library implements every core aspect of the Discord API and provides additional tools to assist developers with their needs.
 
 # Getting Started
 Install the library using NPM or Yarn:
