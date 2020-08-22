@@ -20,13 +20,25 @@
     "version": "npm run lint:fix && git add -A src",
     "postversion": "git push && git push --tags"
   },
-  "repository": "git@github.com:alon-l/node-discord",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Alon-L/node-discord.git"
+  },
   "engines": {
     "node": ">=10.0.0"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "Discord",
+    "Bot",
+    "Discord API",
+    "Discord Wrapper"
+  ],
+  "author": {
+    "name": "Alon Livne",
+    "email": "inquiries@alonlivne.dev",
+    "url": "https://www.alonlivne.dev"
+  },
+  "license": "MIT",
   "dependencies": {
     "form-data": "^3.0.0",
     "mime-types": "^2.1.27",
