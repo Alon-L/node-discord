@@ -19,7 +19,7 @@ bot.connection.connect();
     game: { type: PresenceActivityType.Game, name: 'Game name' },
   });
 
-  /*user.modify({ username: newUsername, avatar: new ImageURI('./tests/api/a.png') });
+  user.modify({ username: newUsername, avatar: new ImageURI('./tests/api/a.png') });
   await bot.events.wait(BotEvent.UserUpdate);
 
   console.log(
@@ -30,7 +30,7 @@ bot.connection.connect();
 
   const guilds = await user.fetchGuilds();
 
-  console.log(guilds.size);*/
+  console.log(guilds.size);
 })();
 
 bot.events.on(BotEvent.Debug, console.log);
