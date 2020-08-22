@@ -1,9 +1,9 @@
-import { BaseCreateController, BaseFetchAllController } from './base';
-import Collection from '../Collection';
-import { Positions } from '../api';
-import { Role, RoleOptions } from '../structures/Role';
-import { Guild } from '../structures/guild';
-import { Snowflake } from '../types';
+import Collection from '../../Collection';
+import { Positions } from '../../api';
+import { Role, RoleOptions } from '../../structures';
+import { Guild } from '../../structures/guild';
+import { Snowflake } from '../../types';
+import { BaseCreateController, BaseFetchAllController } from '../base';
 
 /**
  * Provides an interface for a guild's roles cache.

@@ -1,7 +1,7 @@
-import { Bot } from '../../bot/Bot';
+import { Bot } from '../../bot';
 import { Payload } from '../BotSocketShard';
 import { BotEvent } from '../constants';
-import { ReactionHandlersUtils } from '../utils/ReactionHandlersUtils';
+import { ReactionHandlersUtils } from '../utils';
 
 export default async ({ d }: Payload, bot: Bot): Promise<void> => {
   const handlersUtils = new ReactionHandlersUtils(bot, d);

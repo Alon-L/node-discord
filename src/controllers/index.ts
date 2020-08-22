@@ -1,20 +1,10 @@
 export * from './base';
 
-export * from './BotChannelsController';
-export * from './BotGuildsController';
-export * from './BotUsersController';
-export * from './ChannelMessagesController';
-export * from './ChannelPermissionsController';
-export * from './ChannelPinsController';
+export * from './bot';
+export * from './channel';
+export * from './guild';
+export * from './member';
+export * from './message';
+export * from './reaction';
+
 export * from './ControllerCache';
-export * from './GuildBansController';
-export * from './GuildChannelInvitesController';
-export * from './GuildChannelsController';
-export * from './GuildEmojisController';
-export * from './GuildIntegrationsController';
-export * from './GuildInvitesController';
-export * from './GuildMembersController';
-export * from './GuildRolesController';
-export * from './MemberRolesController';
-export * from './MessageReactionsController';
-export * from './ReactionUsersController';

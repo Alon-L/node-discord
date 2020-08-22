@@ -1,6 +1,6 @@
-import { BaseFetchController } from './base';
-import { Guild, GuildPreview } from '../structures/guild';
-import { Snowflake } from '../types';
+import { Guild, GuildPreview } from '../../structures/guild';
+import { Snowflake } from '../../types';
+import { BaseFetchController } from '../base';
 
 // TODO: implement BaseCreateController https://discord.com/developers/docs/resources/guild#create-guild
 // TODO: implement BaseDeleteController https://discord.com/developers/docs/resources/guild#delete-guild

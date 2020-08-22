@@ -1,8 +1,8 @@
-import { BaseDeleteController, BaseFetchAllController, BaseFetchController } from './base';
-import Collection from '../Collection';
-import { Invite } from '../structures/Invite';
-import { Guild } from '../structures/guild';
-import { Snowflake } from '../types';
+import Collection from '../../Collection';
+import { Invite } from '../../structures';
+import { Guild } from '../../structures/guild';
+import { Snowflake } from '../../types';
+import { BaseDeleteController, BaseFetchAllController, BaseFetchController } from '../base';
 
 /**
  * Options for when fetching an invite

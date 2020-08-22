@@ -1,6 +1,6 @@
 import { MemberPresence } from './MemberPresence';
 import { Bot } from '../../bot';
-import { MemberRolesController } from '../../controllers';
+import { MemberRolesController } from '../../controllers/member';
 import { Snowflake } from '../../types';
 import { Role } from '../Role';
 import { Timestamp } from '../Timestamp';

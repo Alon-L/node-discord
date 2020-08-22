@@ -1,8 +1,8 @@
-import { BaseFetchSomeController, BaseFetchController } from './base';
-import Collection from '../Collection';
-import { Guild } from '../structures/guild';
-import { Member } from '../structures/member';
-import { Snowflake } from '../types';
+import Collection from '../../Collection';
+import { Guild } from '../../structures/guild';
+import { Member } from '../../structures/member';
+import { Snowflake } from '../../types';
+import { BaseFetchSomeController, BaseFetchController } from '../base';
 
 /**
  * Options for when fetching some guild members in a guild

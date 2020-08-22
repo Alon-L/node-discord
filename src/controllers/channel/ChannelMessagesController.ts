@@ -1,9 +1,7 @@
-import { BaseDeleteController } from './base/BaseDeleteController';
-import { BaseFetchController } from './base/BaseFetchController';
-import { BaseFetchSomeController } from './base/BaseFetchSomeController';
-import Collection from '../Collection';
-import { Message } from '../structures/message';
-import { Snowflake, TextBasedChannel } from '../types';
+import Collection from '../../Collection';
+import { Message } from '../../structures/message';
+import { Snowflake, TextBasedChannel } from '../../types';
+import { BaseDeleteController, BaseFetchController, BaseFetchSomeController } from '../base';
 
 /**
  * Options for when fetching some messages in a text channel

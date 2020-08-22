@@ -1,8 +1,8 @@
-import { BaseFetchAllController } from './base';
-import Collection from '../Collection';
-import { Timestamp } from '../structures/Timestamp';
-import { Message } from '../structures/message';
-import { Snowflake, TextBasedChannel } from '../types';
+import Collection from '../../Collection';
+import { Timestamp } from '../../structures';
+import { Message } from '../../structures/message';
+import { Snowflake, TextBasedChannel } from '../../types';
+import { BaseFetchAllController } from '../base';
 
 /**
  * Interface for a text channel's pinned messages cache.

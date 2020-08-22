@@ -1,8 +1,8 @@
-import { BaseDeleteController } from './base';
-import { PermissionOverwrite } from '../structures/PermissionOverwrite';
-import { GuildChannel } from '../structures/channels';
-import { Permissible, PermissionOverwriteFlags } from '../structures/flags';
-import { Snowflake } from '../types';
+import { PermissionOverwrite } from '../../structures';
+import { GuildChannel } from '../../structures/channels';
+import { Permissible, PermissionOverwriteFlags } from '../../structures/flags';
+import { Snowflake } from '../../types';
+import { BaseDeleteController } from '../base';
 
 /**
  * Interface for a guild channel's permission overwrites cache.

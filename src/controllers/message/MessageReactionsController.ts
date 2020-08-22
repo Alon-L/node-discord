@@ -1,7 +1,7 @@
-import { BaseDeleteController } from './base';
-import { EmojiResolvable } from '../structures/Emoji';
-import { Message, MessageReaction } from '../structures/message';
-import { Snowflake } from '../types';
+import { EmojiResolvable } from '../../structures';
+import { Message, MessageReaction } from '../../structures/message';
+import { Snowflake } from '../../types';
+import { BaseDeleteController } from '../base';
 
 /**
  * Provides an interface for a message's reactions cache.

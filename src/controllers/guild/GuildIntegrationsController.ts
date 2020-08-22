@@ -1,8 +1,7 @@
-import { BaseDeleteController, BaseFetchAllController } from './base';
-import Collection from '../Collection';
-import { Guild } from '../structures/guild';
-import { GuildIntegration, CreateIntegrationOptions } from '../structures/guild/GuildIntegration';
-import { Snowflake } from '../types';
+import Collection from '../../Collection';
+import { Guild, GuildIntegration, CreateIntegrationOptions } from '../../structures/guild';
+import { Snowflake } from '../../types';
+import { BaseDeleteController, BaseFetchAllController } from '../base';
 
 /**
  * Provides an interface for a guild's integrations cache.

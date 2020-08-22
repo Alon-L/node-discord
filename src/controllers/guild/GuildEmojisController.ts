@@ -1,7 +1,7 @@
-import { BaseCreateController, BaseFetchAllController, BaseFetchController } from './base';
-import Collection from '../Collection';
-import { Guild, GuildEmoji, CreateEmojiOptions } from '../structures/guild';
-import { Snowflake } from '../types';
+import Collection from '../../Collection';
+import { Guild, GuildEmoji, CreateEmojiOptions } from '../../structures/guild';
+import { Snowflake } from '../../types';
+import { BaseCreateController, BaseFetchAllController, BaseFetchController } from '../base';
 
 /**
  * Provides an interface for a guild's emojis cache.

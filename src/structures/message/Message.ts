@@ -5,7 +5,7 @@ import { MessageReaction } from './MessageReaction';
 import Collection from '../../Collection';
 import { RequestFile } from '../../api/rateLimit';
 import { Bot } from '../../bot';
-import { MessageReactionsController } from '../../controllers';
+import { MessageReactionsController } from '../../controllers/message';
 import { Snowflake, TextBasedChannel } from '../../types';
 import { EmojiResolvable } from '../Emoji';
 import { Timestamp } from '../Timestamp';

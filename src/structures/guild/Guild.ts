@@ -9,12 +9,12 @@ import {
   GuildEmojisController,
   GuildInvitesController,
   GuildMembersController,
-} from '../../controllers';
+} from '../../controllers/guild';
 import {
   GuildBansController,
   GuildIntegrationsController,
   GuildRolesController,
-} from '../../controllers';
+} from '../../controllers/guild';
 import { Snowflake } from '../../types';
 import { Avatar, GuildBannerFormat } from '../Avatar';
 import { ImageURI } from '../ImageURI';

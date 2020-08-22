@@ -1,8 +1,8 @@
-import { BaseController } from './base';
-import { Role } from '../structures/Role';
-import { Guild } from '../structures/guild';
-import { Member } from '../structures/member';
-import { Snowflake } from '../types';
+import { Role } from '../../structures';
+import { Guild } from '../../structures/guild';
+import { Member } from '../../structures/member';
+import { Snowflake } from '../../types';
+import { BaseController } from '../base';
 
 /**
  * Provides an interface for a member's roles cache.

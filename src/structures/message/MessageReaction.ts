@@ -1,6 +1,6 @@
 import { Message } from './Message';
 import Collection from '../../Collection';
-import { ReactionUsersController } from '../../controllers';
+import { ReactionUsersController } from '../../controllers/reaction';
 import { Snowflake } from '../../types';
 import { Emoji } from '../Emoji';
 import { BaseStruct, GatewayStruct } from '../base';

@@ -1,8 +1,8 @@
-import { BaseFetchAllController } from './base';
-import Collection from '../Collection';
-import { User } from '../structures/User';
-import { Message, MessageReaction } from '../structures/message';
-import { Snowflake } from '../types';
+import Collection from '../../Collection';
+import { User } from '../../structures';
+import { Message, MessageReaction } from '../../structures/message';
+import { Snowflake } from '../../types';
+import { BaseFetchAllController } from '../base';
 
 /**
  * Options for when fetching the users that reacted with a particular emoji

@@ -4,7 +4,7 @@ import { CommandsHandler } from './handlers/command';
 import { EventsHandler } from './handlers/events';
 import Collection from '../Collection';
 import { BotAPI, version } from '../api';
-import { BotChannelsController, BotGuildsController, BotUsersController } from '../controllers';
+import { BotChannelsController, BotGuildsController, BotUsersController } from '../controllers/bot';
 import { BotCommunication } from '../sharding';
 import { BotEvent, WebsocketOptions } from '../socket';
 import { BotUser } from '../structures';

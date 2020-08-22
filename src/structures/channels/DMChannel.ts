@@ -1,8 +1,7 @@
 import { Channel } from './Channel';
 import { TextChannel } from './TextChannel';
 import { Bot } from '../../bot';
-import { ChannelMessagesController } from '../../controllers/ChannelMessagesController';
-import { ChannelPinsController } from '../../controllers/ChannelPinsController';
+import { ChannelMessagesController, ChannelPinsController } from '../../controllers/channel';
 import { Snowflake } from '../../types';
 import { Timestamp } from '../Timestamp';
 import { User } from '../User';

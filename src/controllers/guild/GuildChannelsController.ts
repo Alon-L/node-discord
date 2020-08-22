@@ -1,14 +1,14 @@
+import Collection from '../../Collection';
+import { Positions } from '../../api';
+import { GuildChannel, CreateGuildChannelOptions } from '../../structures/channels';
+import { Guild } from '../../structures/guild';
+import { Snowflake } from '../../types';
 import {
   BaseCreateController,
   BaseDeleteController,
   BaseFetchAllController,
   BaseFetchController,
-} from './base';
-import Collection from '../Collection';
-import { Positions } from '../api';
-import { GuildChannel, CreateGuildChannelOptions } from '../structures/channels';
-import { Guild } from '../structures/guild';
-import { Snowflake } from '../types';
+} from '../base';
 
 /**
  * Provides an interface for a guild's channels cache.

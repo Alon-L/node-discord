@@ -1,8 +1,7 @@
-import { BaseDeleteController, BaseFetchAllController, BaseFetchController } from './base';
-import Collection from '../Collection';
-import { Guild } from '../structures/guild';
-import { GuildBan } from '../structures/guild/GuildBan';
-import { Snowflake } from '../types';
+import Collection from '../../Collection';
+import { Guild, GuildBan } from '../../structures/guild';
+import { Snowflake } from '../../types';
+import { BaseDeleteController, BaseFetchAllController, BaseFetchController } from '../base';
 
 /**
  * Provides an interface for a guild's bans cache.

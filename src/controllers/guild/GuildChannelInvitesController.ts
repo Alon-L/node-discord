@@ -1,7 +1,7 @@
-import { BaseCreateController, BaseFetchAllController } from './base';
-import Collection from '../Collection';
-import { Invite, InviteOptions } from '../structures/Invite';
-import { GuildChannel } from '../structures/channels';
+import Collection from '../../Collection';
+import { Invite, InviteOptions } from '../../structures';
+import { GuildChannel } from '../../structures/channels';
+import { BaseCreateController, BaseFetchAllController } from '../base';
 
 /**
  * Provides an interface for a guild channel's invites cache.

@@ -1,4 +1,4 @@
-import { Bot } from '../../bot/Bot';
+import { Bot } from '../../bot';
 import { PayloadData } from '../BotSocketShard';
 
 /**
