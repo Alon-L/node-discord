@@ -13,8 +13,8 @@
   <a href="https://www.npmjs.com/package/@node-discord/core"><img alt="Node Verison" src="https://img.shields.io/node/v/@node-discord/core?style=for-the-badge"></a>
 </p>
 <p align="center">
-  <a href="#"><img alt="Test Status" src="https://img.shields.io/github/workflow/status/alon-l/node-discord/Test?style=for-the-badge"></a>
-  <a href="#"><img alt="Deploy Status" src="https://img.shields.io/github/workflow/status/alon-l/node-discord/Deploy?style=for-the-badge"></a>
+  <a href="#"><img alt="Test Status" src="https://img.shields.io/github/workflow/status/alon-l/node-discord/Test?label=Test&style=for-the-badge"></a>
+  <a href="#"><img alt="Deploy Status" src="https://img.shields.io/github/workflow/status/alon-l/node-discord/Deploy?label=Deploy&style=for-the-badge"></a>
   <a href="LICENSE"><img alt="License" src="https://img.shields.io/npm/l/@node-discord/core?style=for-the-badge"></a>
 </p>
 
