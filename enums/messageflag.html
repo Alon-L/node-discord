@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>BotSocketShardState | node-discord</title>
+	<title>MessageFlag | node-discord</title>
 	<meta name="description" content="Documentation for node-discord">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="botsocketshardstate.html">BotSocketShardState</a>
+					<a href="messageflag.html">MessageFlag</a>
 				</li>
 			</ul>
-			<h1>Enumeration BotSocketShardState</h1>
+			<h1>Enumeration MessageFlag</h1>
 		</div>
 	</div>
 </header>
@@ -67,7 +67,8 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>The state of the socket shard</p>
+						<p>All message flags
+						<a href="https://discord.com/developers/docs/resources/channel#message-object-message-flags">https://discord.com/developers/docs/resources/channel#message-object-message-flags</a></p>
 					</div>
 				</div>
 			</section>
@@ -78,11 +79,11 @@
 						<section class="tsd-index-section ">
 							<h3>Enumeration members</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="botsocketshardstate.html#closed" class="tsd-kind-icon">Closed</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="botsocketshardstate.html#connecting" class="tsd-kind-icon">Connecting</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="botsocketshardstate.html#processing" class="tsd-kind-icon">Processing</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="botsocketshardstate.html#ready" class="tsd-kind-icon">Ready</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="botsocketshardstate.html#terminated" class="tsd-kind-icon">Terminated</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="messageflag.html#crossposted" class="tsd-kind-icon">Crossposted</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="messageflag.html#iscrosspost" class="tsd-kind-icon">Is<wbr>Crosspost</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="messageflag.html#sourcemessagedeleted" class="tsd-kind-icon">Source<wbr>Message<wbr>Deleted</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="messageflag.html#suppressembeds" class="tsd-kind-icon">Suppress<wbr>Embeds</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="messageflag.html#urgent" class="tsd-kind-icon">Urgent</a></li>
 							</ul>
 						</section>
 					</div>
@@ -91,54 +92,79 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Enumeration members</h2>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="closed" class="tsd-anchor"></a>
-					<h3>Closed</h3>
-					<div class="tsd-signature tsd-kind-icon">Closed<span class="tsd-signature-symbol">:</span></div>
+					<a name="crossposted" class="tsd-anchor"></a>
+					<h3>Crossposted</h3>
+					<div class="tsd-signature tsd-kind-icon">Crossposted<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 1 &lt;&lt; 0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/e549666/src/socket/BotSocketShard.ts#L27">src/socket/BotSocketShard.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/e549666/src/structures/flags/MessageFlags.ts#L11">src/structures/flags/MessageFlags.ts:11</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>This message has been published to subscribed channels (via Channel Following)</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="connecting" class="tsd-anchor"></a>
-					<h3>Connecting</h3>
-					<div class="tsd-signature tsd-kind-icon">Connecting<span class="tsd-signature-symbol">:</span></div>
+					<a name="iscrosspost" class="tsd-anchor"></a>
+					<h3>Is<wbr>Crosspost</h3>
+					<div class="tsd-signature tsd-kind-icon">Is<wbr>Crosspost<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 1 &lt;&lt; 1</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/e549666/src/socket/BotSocketShard.ts#L24">src/socket/BotSocketShard.ts:24</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/e549666/src/structures/flags/MessageFlags.ts#L16">src/structures/flags/MessageFlags.ts:16</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>This message originated from a message in another channel (via Channel Following)</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="processing" class="tsd-anchor"></a>
-					<h3>Processing</h3>
-					<div class="tsd-signature tsd-kind-icon">Processing<span class="tsd-signature-symbol">:</span></div>
+					<a name="sourcemessagedeleted" class="tsd-anchor"></a>
+					<h3>Source<wbr>Message<wbr>Deleted</h3>
+					<div class="tsd-signature tsd-kind-icon">Source<wbr>Message<wbr>Deleted<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 1 &lt;&lt; 3</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/e549666/src/socket/BotSocketShard.ts#L25">src/socket/BotSocketShard.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/e549666/src/structures/flags/MessageFlags.ts#L26">src/structures/flags/MessageFlags.ts:26</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The source message for this crosspost has been deleted (via Channel Following)</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="ready" class="tsd-anchor"></a>
-					<h3>Ready</h3>
-					<div class="tsd-signature tsd-kind-icon">Ready<span class="tsd-signature-symbol">:</span></div>
+					<a name="suppressembeds" class="tsd-anchor"></a>
+					<h3>Suppress<wbr>Embeds</h3>
+					<div class="tsd-signature tsd-kind-icon">Suppress<wbr>Embeds<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 1 &lt;&lt; 2</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/e549666/src/socket/BotSocketShard.ts#L26">src/socket/BotSocketShard.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/e549666/src/structures/flags/MessageFlags.ts#L21">src/structures/flags/MessageFlags.ts:21</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Do not include any embeds when serializing this message</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="terminated" class="tsd-anchor"></a>
-					<h3>Terminated</h3>
-					<div class="tsd-signature tsd-kind-icon">Terminated<span class="tsd-signature-symbol">:</span></div>
+					<a name="urgent" class="tsd-anchor"></a>
+					<h3>Urgent</h3>
+					<div class="tsd-signature tsd-kind-icon">Urgent<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 1 &lt;&lt; 4</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/e549666/src/socket/BotSocketShard.ts#L28">src/socket/BotSocketShard.ts:28</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/e549666/src/structures/flags/MessageFlags.ts#L31">src/structures/flags/MessageFlags.ts:31</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>This message came from the urgent message system</p>
+						</div>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -155,22 +181,22 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-enum">
-						<a href="botsocketshardstate.html" class="tsd-kind-icon">Bot<wbr>Socket<wbr>Shard<wbr>State</a>
+						<a href="messageflag.html" class="tsd-kind-icon">Message<wbr>Flag</a>
 						<ul>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="botsocketshardstate.html#closed" class="tsd-kind-icon">Closed</a>
+								<a href="messageflag.html#crossposted" class="tsd-kind-icon">Crossposted</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="botsocketshardstate.html#connecting" class="tsd-kind-icon">Connecting</a>
+								<a href="messageflag.html#iscrosspost" class="tsd-kind-icon">Is<wbr>Crosspost</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="botsocketshardstate.html#processing" class="tsd-kind-icon">Processing</a>
+								<a href="messageflag.html#sourcemessagedeleted" class="tsd-kind-icon">Source<wbr>Message<wbr>Deleted</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="botsocketshardstate.html#ready" class="tsd-kind-icon">Ready</a>
+								<a href="messageflag.html#suppressembeds" class="tsd-kind-icon">Suppress<wbr>Embeds</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="botsocketshardstate.html#terminated" class="tsd-kind-icon">Terminated</a>
+								<a href="messageflag.html#urgent" class="tsd-kind-icon">Urgent</a>
 							</li>
 						</ul>
 					</li>

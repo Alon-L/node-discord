@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>BotSocketShardState | node-discord</title>
+	<title>SystemChannelFlag | node-discord</title>
 	<meta name="description" content="Documentation for node-discord">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="botsocketshardstate.html">BotSocketShardState</a>
+					<a href="systemchannelflag.html">SystemChannelFlag</a>
 				</li>
 			</ul>
-			<h1>Enumeration BotSocketShardState</h1>
+			<h1>Enumeration SystemChannelFlag</h1>
 		</div>
 	</div>
 </header>
@@ -67,7 +67,8 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>The state of the socket shard</p>
+						<p>All guild system channel flags
+						<a href="https://discord.com/developers/docs/resources/guild#guild-object-system-channel-flags">https://discord.com/developers/docs/resources/guild#guild-object-system-channel-flags</a></p>
 					</div>
 				</div>
 			</section>
@@ -78,11 +79,8 @@
 						<section class="tsd-index-section ">
 							<h3>Enumeration members</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="botsocketshardstate.html#closed" class="tsd-kind-icon">Closed</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="botsocketshardstate.html#connecting" class="tsd-kind-icon">Connecting</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="botsocketshardstate.html#processing" class="tsd-kind-icon">Processing</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="botsocketshardstate.html#ready" class="tsd-kind-icon">Ready</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="botsocketshardstate.html#terminated" class="tsd-kind-icon">Terminated</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="systemchannelflag.html#suppressboosts" class="tsd-kind-icon">Suppress<wbr>Boosts</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="systemchannelflag.html#suppressjoinnotifications" class="tsd-kind-icon">Suppress<wbr>Join<wbr>Notifications</a></li>
 							</ul>
 						</section>
 					</div>
@@ -91,54 +89,34 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Enumeration members</h2>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="closed" class="tsd-anchor"></a>
-					<h3>Closed</h3>
-					<div class="tsd-signature tsd-kind-icon">Closed<span class="tsd-signature-symbol">:</span></div>
+					<a name="suppressboosts" class="tsd-anchor"></a>
+					<h3>Suppress<wbr>Boosts</h3>
+					<div class="tsd-signature tsd-kind-icon">Suppress<wbr>Boosts<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 1 &lt;&lt; 1</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/e549666/src/socket/BotSocketShard.ts#L27">src/socket/BotSocketShard.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/e549666/src/structures/flags/GuildSystemChannelFlags.ts#L16">src/structures/flags/GuildSystemChannelFlags.ts:16</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Suppress server boost notifications</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="connecting" class="tsd-anchor"></a>
-					<h3>Connecting</h3>
-					<div class="tsd-signature tsd-kind-icon">Connecting<span class="tsd-signature-symbol">:</span></div>
+					<a name="suppressjoinnotifications" class="tsd-anchor"></a>
+					<h3>Suppress<wbr>Join<wbr>Notifications</h3>
+					<div class="tsd-signature tsd-kind-icon">Suppress<wbr>Join<wbr>Notifications<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 1 &lt;&lt; 0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/e549666/src/socket/BotSocketShard.ts#L24">src/socket/BotSocketShard.ts:24</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/e549666/src/structures/flags/GuildSystemChannelFlags.ts#L11">src/structures/flags/GuildSystemChannelFlags.ts:11</a></li>
 						</ul>
 					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="processing" class="tsd-anchor"></a>
-					<h3>Processing</h3>
-					<div class="tsd-signature tsd-kind-icon">Processing<span class="tsd-signature-symbol">:</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/e549666/src/socket/BotSocketShard.ts#L25">src/socket/BotSocketShard.ts:25</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="ready" class="tsd-anchor"></a>
-					<h3>Ready</h3>
-					<div class="tsd-signature tsd-kind-icon">Ready<span class="tsd-signature-symbol">:</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/e549666/src/socket/BotSocketShard.ts#L26">src/socket/BotSocketShard.ts:26</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="terminated" class="tsd-anchor"></a>
-					<h3>Terminated</h3>
-					<div class="tsd-signature tsd-kind-icon">Terminated<span class="tsd-signature-symbol">:</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/e549666/src/socket/BotSocketShard.ts#L28">src/socket/BotSocketShard.ts:28</a></li>
-						</ul>
-					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Suppress member join notifications</p>
+						</div>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -155,22 +133,13 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-enum">
-						<a href="botsocketshardstate.html" class="tsd-kind-icon">Bot<wbr>Socket<wbr>Shard<wbr>State</a>
+						<a href="systemchannelflag.html" class="tsd-kind-icon">System<wbr>Channel<wbr>Flag</a>
 						<ul>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="botsocketshardstate.html#closed" class="tsd-kind-icon">Closed</a>
+								<a href="systemchannelflag.html#suppressboosts" class="tsd-kind-icon">Suppress<wbr>Boosts</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="botsocketshardstate.html#connecting" class="tsd-kind-icon">Connecting</a>
-							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="botsocketshardstate.html#processing" class="tsd-kind-icon">Processing</a>
-							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="botsocketshardstate.html#ready" class="tsd-kind-icon">Ready</a>
-							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="botsocketshardstate.html#terminated" class="tsd-kind-icon">Terminated</a>
+								<a href="systemchannelflag.html#suppressjoinnotifications" class="tsd-kind-icon">Suppress<wbr>Join<wbr>Notifications</a>
 							</li>
 						</ul>
 					</li>
