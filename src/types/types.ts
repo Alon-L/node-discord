@@ -22,8 +22,3 @@ export interface Dimensions {
   height: number;
   width: number;
 }
-
-/**
- * Text based channels of Discord
- */
-export type TextBasedChannel = GuildTextChannel | DMChannel;

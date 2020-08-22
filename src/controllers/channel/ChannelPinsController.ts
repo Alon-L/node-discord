@@ -1,7 +1,7 @@
 import Collection from '../../Collection';
-import { Timestamp } from '../../structures';
+import { Timestamp, TextBasedChannel } from '../../structures';
 import { Message } from '../../structures/message';
-import { Snowflake, TextBasedChannel } from '../../types';
+import { Snowflake } from '../../types';
 import { BaseFetchAllController } from '../base';
 
 /**

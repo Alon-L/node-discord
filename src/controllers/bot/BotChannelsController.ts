@@ -1,5 +1,5 @@
-import { Channel, DMChannel, GuildTextChannel } from '../../structures/channels';
-import { Snowflake, TextBasedChannel } from '../../types';
+import { Channel, DMChannel, GuildTextChannel, TextBasedChannel } from '../../structures/channels';
+import { Snowflake } from '../../types';
 import { BaseDeleteController, BaseFetchController } from '../base';
 
 /**

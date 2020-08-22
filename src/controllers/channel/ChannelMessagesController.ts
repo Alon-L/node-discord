@@ -1,6 +1,7 @@
 import Collection from '../../Collection';
+import { TextBasedChannel } from '../../structures/channels';
 import { Message } from '../../structures/message';
-import { Snowflake, TextBasedChannel } from '../../types';
+import { Snowflake } from '../../types';
 import { BaseDeleteController, BaseFetchController, BaseFetchSomeController } from '../base';
 
 /**

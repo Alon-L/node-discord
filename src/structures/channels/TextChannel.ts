@@ -1,6 +1,13 @@
+import { DMChannel } from './DMChannel';
+import { GuildTextChannel } from './GuildTextChannel';
 import { ChannelMessagesController, ChannelPinsController } from '../../controllers/channel';
 import { Snowflake } from '../../types';
 import { Message, MessageData, MessageOptions, MessageEmbed } from '../message';
+
+/**
+ * Text based channels of Discord
+ */
+export type TextBasedChannel = GuildTextChannel | DMChannel;
 
 /**
  * Abstract class that all text-based channels implement
