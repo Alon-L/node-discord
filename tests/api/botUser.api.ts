@@ -2,7 +2,7 @@
 
 import { Bot } from '../../src/bot';
 import { BotEvent } from '../../src/socket';
-import { PresenceActivityType, PresenceStatus } from '../../src/structures';
+import { PresenceActivityType, PresenceStatus, ImageURI } from '../../src/structures';
 import config from '../config.json';
 
 const bot = new Bot(config.token);
