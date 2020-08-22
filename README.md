@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <a href="https://"><img alt="Discord Support Server" src="https://img.shields.io/discord/702476896008405002?style=for-the-badge&color=7289DA&label=Support%20Server&logo=discord&logoColor=fff"></a>
+  <a href="https://discord.gg/TF7BqSh"><img alt="Discord Support Server" src="https://img.shields.io/discord/702476896008405002?style=for-the-badge&color=7289DA&label=Support%20Server&logo=discord&logoColor=fff"></a>
 </p>
 <p align="center">
   <a href="https://www.npmjs.com/package/@node-discord/core"><img alt="NPM Version" src="https://img.shields.io/npm/v/@node-discord/core?style=for-the-badge"></a>
@@ -31,7 +31,7 @@ $ yarn add @node-discord/core --ignore-optional
 
 ## Quick Code Example
 Here is a short code example to initialize a Bot and connect it to the Discord gateway.
-```js
+```javascript
 const { Bot, BotEvent } = require('@node-discord/core');
 
 const bot = new Bot('YOUR BOT TOKEN');
