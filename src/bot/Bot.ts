@@ -178,6 +178,14 @@ export class Bot {
   }
 
   /**
+   * Connects the bot to the Discord gateway
+   * @returns {Promise<void>}
+   */
+  public connect(): Promise<void> {
+    return this.connection.connect();
+  }
+
+  /**
    * Sends debug messages to the {@link BotEvent.Debug} event
    * @example ```typescript
    * bot.on(BotEvents.Debug, console.log);
