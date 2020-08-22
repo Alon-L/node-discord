@@ -1,5 +1,5 @@
+import { ChannelMessagesController, ChannelPinsController } from '../../controllers';
 import { Snowflake } from '../../types';
-import { ChannelMessagesController, ChannelPinsController } from '../controllers';
 import { Message, MessageData, MessageOptions, MessageEmbed } from '../message';
 
 /**

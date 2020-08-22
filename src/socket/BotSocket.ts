@@ -1,15 +1,11 @@
 import fetch from 'node-fetch';
-import { BotShardState } from './BotShard';
 import { BotSocketShard, BotSocketShardState } from './BotSocketShard';
 import { GatewayCloseCode, recommendedShardTimeout } from './constants';
-import { baseURL } from './properties';
 import Collection from '../Collection';
-import { Bot } from '../structures/bot/Bot';
-import {
-  ShardCommunicationAction,
-  ShardChangedStateRequest,
-} from '../structures/bot/BotCommunication';
-import { BotStateEvents } from '../structures/bot/handlers/events/events';
+import { baseURL } from '../api';
+import { Bot } from '../bot';
+import { BotStateEvents } from '../bot/handlers/events/events';
+import { ShardChangedStateRequest, ShardCommunicationAction, BotShardState } from '../sharding';
 import { ShardId } from '../types';
 
 export interface SessionStartLimit {

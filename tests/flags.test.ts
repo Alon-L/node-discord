@@ -1,7 +1,6 @@
 'use strict';
 
-import { Permission } from '../src/socket';
-import { PermissionFlags } from '../src/structures/flags';
+import { PermissionFlags, Permission } from '../src/structures/flags';
 
 test('from permission flags', () => {
   const permissions: Permission[] = [

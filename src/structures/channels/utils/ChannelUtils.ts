@@ -1,6 +1,6 @@
+import { Bot } from '../../../bot';
 import { Snowflake, TextBasedChannel } from '../../../types';
 import { GatewayStruct } from '../../base';
-import { Bot } from '../../bot';
 import { Guild } from '../../guild';
 import { Channel, ChannelType } from '../Channel';
 import { DMChannel } from '../DMChannel';

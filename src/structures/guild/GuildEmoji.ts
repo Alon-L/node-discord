@@ -1,11 +1,11 @@
 import { Guild } from './Guild';
+import { Bot } from '../../bot';
 import { Snowflake } from '../../types';
 import { Avatar, GuildEmojiFormat } from '../Avatar';
 import { Emoji } from '../Emoji';
 import { ImageURI } from '../ImageURI';
 import { Role } from '../Role';
 import { GatewayStruct } from '../base';
-import { Bot } from '../bot';
 
 /**
  * Options for when creating new guild emojis
@@ -69,7 +69,7 @@ export class GuildEmoji extends Emoji {
 
   /**
    * Returns the guild emoji's URL
-   * @param {IconFormat} format The format of the returned emoji image
+   * @param {GuildEmojiFormat} format The format of the returned emoji image
    * @param {number} size The size of the returned emoji image
    * @returns {string}
    */

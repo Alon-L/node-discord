@@ -3,25 +3,25 @@ import { GuildPreview } from './GuildPreview';
 import { GuildUnavailable } from './GuildUnavailable';
 import { GuildWidget } from './GuildWidget';
 import Collection from '../../Collection';
-import { Snowflake } from '../../types';
-import { Avatar, GuildBannerFormat } from '../Avatar';
-import { ImageURI } from '../ImageURI';
-import { Role } from '../Role';
-import { GatewayStruct } from '../base';
-import { Bot } from '../bot';
-import { GuildChannel, GuildTextChannel } from '../channels';
-import { ChannelUtils } from '../channels/utils';
+import { Bot } from '../../bot';
 import {
   GuildChannelsController,
   GuildEmojisController,
   GuildInvitesController,
   GuildMembersController,
-} from '../controllers';
+} from '../../controllers';
 import {
   GuildBansController,
   GuildIntegrationsController,
   GuildRolesController,
-} from '../controllers';
+} from '../../controllers';
+import { Snowflake } from '../../types';
+import { Avatar, GuildBannerFormat } from '../Avatar';
+import { ImageURI } from '../ImageURI';
+import { Role } from '../Role';
+import { GatewayStruct } from '../base';
+import { GuildChannel, GuildTextChannel } from '../channels';
+import { ChannelUtils } from '../channels/utils';
 import { GuildSystemChannelFlags, PermissionFlags } from '../flags';
 import { Member, MemberPresence } from '../member';
 

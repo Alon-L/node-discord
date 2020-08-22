@@ -2,8 +2,8 @@
 
 import { Help } from './Help';
 import { Ping } from './Ping';
+import { Bot } from '../../../src/bot';
 import { BotEvent } from '../../../src/socket';
-import { Bot } from '../../../src/structures/bot';
 import { Message } from '../../../src/structures/message';
 import config from '../../config.json';
 

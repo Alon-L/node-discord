@@ -1,7 +1,6 @@
 import querystring from 'querystring';
 import WebSocket, { Data } from 'ws';
 import { BotHeartbeats } from './BotHeartbeats';
-import { BotShardState } from './BotShard';
 import { BotSocket, SessionStartLimit } from './BotSocket';
 import {
   BotEvent,
@@ -12,8 +11,10 @@ import {
   UnresumeableGatewayCloseCodes,
 } from './constants';
 import * as events from './handlers';
-import { identify, version, WebsocketOptions } from './properties';
-import { Bot, ShardOptions } from '../structures/bot';
+import { identify, WebsocketOptions } from './properties';
+import { version } from '../api';
+import { Bot, ShardOptions } from '../bot';
+import { BotShardState } from '../sharding';
 import { Snowflake } from '../types';
 
 /**

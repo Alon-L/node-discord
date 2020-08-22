@@ -61,12 +61,14 @@ class Collection<K, V> extends Map<K, V> {
    * @param {function(value: V, key: K, collection: this): boolean} cb Callback function. Return true to keep the element, false otherwise
    * @returns {Collection<K, V>}
    */
-  public filter(cb: (value: V, key?: K, collection?: this) => boolean): Collection<K, V> {
-    const collection = new Collection<K, V>();
+  public filter<T extends V = V>(
+    cb: (value: V, key?: K, collection?: this) => boolean,
+  ): Collection<K, T> {
+    const collection = new Collection<K, T>();
 
     for (const [key, value] of this) {
       if (cb(value, key, this)) {
-        collection.set(key, value);
+        collection.set(key, value as T);
       }
     }
 

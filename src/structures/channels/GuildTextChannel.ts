@@ -1,11 +1,11 @@
 import { GuildChannel } from './GuildChannel';
 import { TextChannel } from './TextChannel';
+import { Bot } from '../../bot';
+import { ChannelMessagesController } from '../../controllers/ChannelMessagesController';
+import { ChannelPinsController } from '../../controllers/ChannelPinsController';
 import { Snowflake } from '../../types';
 import { Timestamp } from '../Timestamp';
 import { GatewayStruct } from '../base';
-import { Bot } from '../bot';
-import { ChannelMessagesController } from '../controllers/ChannelMessagesController';
-import { ChannelPinsController } from '../controllers/ChannelPinsController';
 import { Guild } from '../guild';
 import { Message, MessageOptions, MessageData, MessageEmbed } from '../message';
 

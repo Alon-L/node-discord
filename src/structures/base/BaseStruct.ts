@@ -1,5 +1,5 @@
+import { Bot } from '../../bot';
 import { Snowflake } from '../../types';
-import { Bot } from '../bot';
 
 import Dict = NodeJS.Dict;
 

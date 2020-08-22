@@ -1,9 +1,9 @@
-import { HandlerEvent } from '../../../src/structures/bot/handlers';
+import { HandlerEvent } from '../../../src/bot/handlers';
 import {
   Command,
   RegisterCommand,
   RegisterCommandHandler,
-} from '../../../src/structures/bot/handlers/command';
+} from '../../../src/bot/handlers/command';
 import { Message } from '../../../src/structures/message';
 
 @RegisterCommand({ name: 'ping' })

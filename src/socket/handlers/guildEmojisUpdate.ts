@@ -1,6 +1,6 @@
+import { Bot } from '../../bot';
+import { ControllerCache } from '../../controllers';
 import { GatewayStruct } from '../../structures/base';
-import { Bot } from '../../structures/bot';
-import { ControllerCache } from '../../structures/controllers';
 import { GuildEmoji } from '../../structures/guild';
 import { Payload } from '../BotSocketShard';
 import { BotEvent } from '../constants';

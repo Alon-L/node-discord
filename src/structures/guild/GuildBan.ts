@@ -1,8 +1,8 @@
 import { Guild } from './Guild';
+import { Bot } from '../../bot';
 import { Snowflake } from '../../types';
 import { User } from '../User';
 import { BaseGuildStruct, GatewayStruct } from '../base';
-import { Bot } from '../bot';
 
 /**
  * Represents a user ban in a guild

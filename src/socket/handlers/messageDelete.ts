@@ -1,4 +1,4 @@
-import { Bot } from '../../structures/bot';
+import { Bot } from '../../bot';
 import { GuildTextChannel } from '../../structures/channels';
 import { ChannelUtils } from '../../structures/channels/utils';
 import { PartialMessage, Message } from '../../structures/message';

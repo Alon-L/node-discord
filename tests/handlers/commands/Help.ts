@@ -1,6 +1,6 @@
-import { Bot } from '../../../src/structures/bot';
-import { HandlerEvent } from '../../../src/structures/bot/handlers';
-import { Command } from '../../../src/structures/bot/handlers/command';
+import { Bot } from '../../../src/bot';
+import { HandlerEvent } from '../../../src/bot/handlers';
+import { Command } from '../../../src/bot/handlers/command';
 import { Message } from '../../../src/structures/message';
 
 export class Help extends Command {

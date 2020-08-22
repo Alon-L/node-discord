@@ -1,5 +1,11 @@
-import { cdnBaseURL } from '../socket/properties';
 import { Snowflake } from '../types';
+
+/**
+ * The base URL for Discord API images
+ * https://discord.com/developers/docs/reference#image-formatting-image-base-url
+ * @type {string}
+ */
+export const cdnBaseURL = 'https://cdn.discordapp.com';
 
 /**
  * All image formats
@@ -15,7 +21,7 @@ const enum Format {
 /**
  * The allowed formats for guild emojis (better known as custom emojis)
  */
-export const enum GuildEmojiFormat {
+export enum GuildEmojiFormat {
   PNG = Format.PNG,
   GIF = Format.GIF,
 }
@@ -23,7 +29,7 @@ export const enum GuildEmojiFormat {
 /**
  * The allowed formats for guild icons
  */
-export const enum GuildIconFormat {
+export enum GuildIconFormat {
   JPEG = Format.JPEG,
   JPG = Format.JPG,
   PNG = Format.PNG,
@@ -34,7 +40,7 @@ export const enum GuildIconFormat {
 /**
  * The allowed formats for a guild's splash image
  */
-export const enum GuildSplashFormat {
+export enum GuildSplashFormat {
   JPEG = Format.JPEG,
   JPG = Format.JPG,
   PNG = Format.PNG,
@@ -44,7 +50,7 @@ export const enum GuildSplashFormat {
 /**
  * The allowed formats for a guild's discovery splash image
  */
-export const enum GuildDiscoverySplashFormat {
+export enum GuildDiscoverySplashFormat {
   JPEG = Format.JPEG,
   JPG = Format.JPG,
   PNG = Format.PNG,
@@ -54,7 +60,7 @@ export const enum GuildDiscoverySplashFormat {
 /**
  * The allowed formats for a guild's banner image
  */
-export const enum GuildBannerFormat {
+export enum GuildBannerFormat {
   JPEG = Format.JPEG,
   JPG = Format.JPG,
   PNG = Format.PNG,
@@ -64,7 +70,7 @@ export const enum GuildBannerFormat {
 /**
  * The allowed formats for a user's avatar
  */
-export const enum UserAvatarFormat {
+export enum UserAvatarFormat {
   JPEG = Format.JPEG,
   JPG = Format.JPG,
   PNG = Format.PNG,

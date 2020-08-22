@@ -1,8 +1,8 @@
 'use strict';
 
-import { BotEvent, Permission } from '../../src/socket';
-import { Bot } from '../../src/structures/bot';
-import { PermissionFlags, PermissibleType } from '../../src/structures/flags';
+import { Bot } from '../../src/bot';
+import { BotEvent } from '../../src/socket';
+import { PermissionFlags, PermissibleType, Permission } from '../../src/structures/flags';
 import config from '../config.json';
 
 const bot = new Bot(config.token);

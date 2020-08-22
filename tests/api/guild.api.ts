@@ -1,8 +1,8 @@
 'use strict';
 
 import assert from 'assert';
+import { Bot } from '../../src/bot';
 import { BotEvent } from '../../src/socket';
-import { Bot } from '../../src/structures/bot';
 import config from '../config.json';
 
 const bot = new Bot(config.token);

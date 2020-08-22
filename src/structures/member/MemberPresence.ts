@@ -1,8 +1,8 @@
 import { Member } from './Member';
+import { Bot } from '../../bot';
 import { Snowflake } from '../../types';
 import { Timestamp } from '../Timestamp';
 import { GatewayStruct, BaseGuildStruct } from '../base';
-import { Bot } from '../bot';
 import { PresenceActivityFlags } from '../flags';
 
 /**

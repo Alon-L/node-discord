@@ -1,14 +1,14 @@
 import { Avatar, UserAvatarFormat } from './Avatar';
 import { BaseStruct, GatewayStruct } from './base';
-import { Bot } from './bot';
 import { DMChannel, TextChannel } from './channels';
 import { UserFlags } from './flags';
+import { Bot } from '../bot';
 import { Snowflake } from '../types';
 
 /**
  * User nitro types
  */
-enum NitroType {
+export enum NitroType {
   None,
   NitroClassic,
   Nitro,
@@ -16,7 +16,6 @@ enum NitroType {
 
 /**
  * Represents a user in the Discord platform
-
  * @extends BaseStruct
  */
 export class User extends BaseStruct {
@@ -127,7 +126,7 @@ export class User extends BaseStruct {
 
   /**
    * Returns a user's avatar URL. Returns the default user avatar if the user does not have an avatar.
-   * *Note: the default user avatar only supports type {@link IconFormat.PNG}*
+   * *Note: the default user avatar only supports type {@link UserAvatarFormat.PNG}*
    * @param {UserAvatarFormat} format The avatar image format
    * @param {number} size The avatar image size
    * @returns {string}

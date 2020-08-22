@@ -1,7 +1,7 @@
 'use strict';
 
+import { Bot } from '../../src/bot';
 import { BotEvent } from '../../src/socket';
-import { Bot } from '../../src/structures/bot';
 import { Message } from '../../src/structures/message';
 import { Snowflake, TextBasedChannel } from '../../src/types';
 import config from '../config.json';

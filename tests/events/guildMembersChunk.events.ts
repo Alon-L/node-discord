@@ -1,8 +1,8 @@
 'use strict';
 
+import { Bot } from '../../src/bot';
 import { BotEvent } from '../../src/socket';
 import { GuildMembersChunk } from '../../src/socket/handlers/guildMembersChunk';
-import { Bot } from '../../src/structures/bot';
 import { Guild } from '../../src/structures/guild';
 import config from '../config.json';
 
