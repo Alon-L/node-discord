@@ -161,9 +161,11 @@ export class RateLimitBucket {
       this.bot.debug('Error!', json);
 
       if (Array.isArray(json)) {
-        throw new TypeError(`${response.url} - an error has occurred with an array response type`);
+        throw new TypeError(
+          `${response.url} - an error has occurred with an array response type - ${json}`,
+        );
       } else {
-        throw new Error(`${response.url} (${response.status} code) - ${json.message?.toString()}`);
+        throw new Error(`${response.url} (${response.status} code) - ${json.message || json}`);
       }
     }
   }
