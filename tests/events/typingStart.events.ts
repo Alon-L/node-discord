@@ -2,9 +2,8 @@
 
 import { Bot } from '../../src/bot';
 import { BotEvent } from '../../src/socket';
-import { User } from '../../src/structures';
+import { User, TextBasedChannel } from '../../src/structures';
 import { Member } from '../../src/structures/member';
-import { TextBasedChannel } from '../../src/types';
 import config from '../config.json';
 
 const bot = new Bot(config.token);
