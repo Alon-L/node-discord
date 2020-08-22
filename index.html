@@ -67,18 +67,47 @@
 					More than just a Discord API Wrapper.
 				</p>
 				<p align="center">
-					<a href="https://"><img alt="Discord Support Server" src="https://img.shields.io/discord/702476896008405002?color=7289DA&label=Support%20Server&logo=discord&logoColor=fff"></a>
+					<a href="https://"><img alt="Discord Support Server" src="https://img.shields.io/discord/702476896008405002?style=for-the-badge&color=7289DA&label=Support%20Server&logo=discord&logoColor=fff"></a>
 				</p>
 				<p align="center">
-					<a href="https://www.npmjs.com/package/@node-discord/core"><img alt="NPM Version" src="https://img.shields.io/npm/v/@node-discord/core"></a>
-					<a href="https://www.npmjs.com/package/@node-discord/core"><img alt="NPM Downloads" src="https://img.shields.io/npm/dt/@node-discord/core"></a>
-					<a href="https://www.npmjs.com/package/@node-discord/core"><img alt="Node Verison" src="https://img.shields.io/node/v/@node-discord/core"></a>
+					<a href="https://www.npmjs.com/package/@node-discord/core"><img alt="NPM Version" src="https://img.shields.io/npm/v/@node-discord/core?style=for-the-badge"></a>
+					<a href="https://www.npmjs.com/package/@node-discord/core"><img alt="NPM Downloads" src="https://img.shields.io/npm/dt/@node-discord/core?style=for-the-badge"></a>
+					<a href="https://www.npmjs.com/package/@node-discord/core"><img alt="Node Verison" src="https://img.shields.io/node/v/@node-discord/core?style=for-the-badge"></a>
 				</p>
 				<p align="center">
-					<a href="#"><img alt="Test Status" src="https://github.com/Alon-L/node-discord/workflows/Test/badge.svg"></a>
-					<a href="#"><img alt="Deploy Status" src="https://github.com/Alon-L/node-discord/workflows/Deploy/badge.svg"></a>
+					<a href="#"><img alt="Test Status" src="https://img.shields.io/github/workflow/status/alon-l/node-discord/Test?style=for-the-badge"></a>
+					<a href="#"><img alt="Deploy Status" src="https://img.shields.io/github/workflow/status/alon-l/node-discord/Deploy?style=for-the-badge"></a>
+					<a href="LICENSE"><img alt="License" src="https://img.shields.io/npm/l/@node-discord/core?style=for-the-badge"></a>
 				</p>
-				<p>node-discord is a strict TypeScript Discord API Wrapper that focuses on utility and extendibility.<br>The library implements every core aspect of the Discord API and proivdes additional tools to assist developers with their needs.</p>
+				<p>Node-discord is a strict TypeScript Discord API Wrapper that focuses on utility and extendibility.<br>The library implements every core aspect of the Discord API and proivdes additional tools to assist developers with their needs.</p>
+				<a href="#getting-started" id="getting-started" style="color: inherit; text-decoration: none;">
+					<h1>Getting Started</h1>
+				</a>
+				<p>Install the library using NPM or Yarn:</p>
+				<pre><code>$ npm install @<span class="hljs-keyword">node</span><span class="hljs-title">-discord</span>/core --no-optional
+
+$ yarn add @<span class="hljs-keyword">node</span><span class="hljs-title">-discord</span>/core --ignore-optional</code></pre>
+				<a href="#quick-code-example" id="quick-code-example" style="color: inherit; text-decoration: none;">
+					<h2>Quick Code Example</h2>
+				</a>
+				<p>Here is a short code example to initialize a Bot and connect it to the Discord gateway.</p>
+				<pre><code class="language-javascript">const { Bot, BotEvent } = require(&#x27;@node-discord/core&#x27;);
+
+const bot = new Bot(&#x27;YOUR BOT TOKEN&#x27;);
+
+bot.events.on(BotEvent.Ready, () =&gt; {
+  console.log(&#x27;Ready!);
+});
+
+bot.connect();</code></pre>
+				<a href="#features" id="features" style="color: inherit; text-decoration: none;">
+					<h1>Features</h1>
+				</a>
+				<p>:heavy_check_mark: Strictly written in TypeScript<br>:heavy_check_mark: Lightweight<br>:heavy_check_mark: Fully supports the Discord API  </p>
+				<a href="#coming-features" id="coming-features" style="color: inherit; text-decoration: none;">
+					<h2>Coming Features</h2>
+				</a>
+				<p>:comet: Fully extendible plugins API<br>:comet: Additional utilities<br>:comet: CLI generator for new projects<br>:comet: Custom ESLint configuration  </p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
