@@ -31,7 +31,7 @@ $ yarn add @node-discord/core --ignore-optional
 
 ## Quick Code Example
 Here is a short code example to initialize a Bot and connect it to the Discord gateway.
-```javascript
+```js
 const { Bot, BotEvent } = require('@node-discord/core');
 
 const bot = new Bot('YOUR BOT TOKEN');
@@ -44,12 +44,12 @@ bot.connect();
 ```
 
 # Features
-:heavy_check_mark: Strictly written in TypeScript  
-:heavy_check_mark: Lightweight  
-:heavy_check_mark: Fully supports the Discord API  
+✔️ Strictly written in TypeScript  
+✔️ Lightweight  
+✔️ Fully supports the Discord API  
 
 ## Coming Features
-:comet: Fully extendable plugins API  
-:comet: Additional utilities  
-:comet: CLI generator for new projects  
-:comet: Custom ESLint configuration  
+☄️ Fully extendable plugins API  
+☄️ Additional utilities  
+☄️ CLI generator for new projects  
+☄️ Custom ESLint configuration  
