@@ -18,7 +18,7 @@
   <a href="LICENSE"><img alt="License" src="https://img.shields.io/npm/l/@node-discord/core?style=for-the-badge"></a>
 </p>
 
-Node-discord is a strict TypeScript Discord API Wrapper that focuses on utility and extendibility.  
+Node-discord is a strict TypeScript Discord API Wrapper that focuses on utility and extensibility.  
 The library implements every core aspect of the Discord API and proivdes additional tools to assist developers with their needs.
 
 # Getting Started
@@ -49,7 +49,7 @@ bot.connect();
 :heavy_check_mark: Fully supports the Discord API  
 
 ## Coming Features
-:comet: Fully extendible plugins API  
+:comet: Fully extendable plugins API  
 :comet: Additional utilities  
 :comet: CLI generator for new projects  
 :comet: Custom ESLint configuration  
