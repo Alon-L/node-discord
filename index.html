@@ -62,22 +62,42 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<p><a href="#"><img src="https://raw.githubusercontent.com/Alon-L/node-discord/gh-pages/assets/images/header.png" alt="node-discord"></a></p>
-				<p align="center">
-					More than just a Discord API Wrapper.
-				</p>
-				<p align="center">
-					<a href="https://"><img alt="Discord Support Server" src="https://img.shields.io/discord/702476896008405002?color=7289DA&label=Support%20Server&logo=discord&logoColor=fff"></a>
-				</p>
-				<p align="center">
-					<a href="https://www.npmjs.com/package/@node-discord/core"><img alt="NPM Version" src="https://img.shields.io/npm/v/@node-discord/core"></a>
-					<a href="https://www.npmjs.com/package/@node-discord/core"><img alt="NPM Downloads" src="https://img.shields.io/npm/dt/@node-discord/core"></a>
-					<a href="https://www.npmjs.com/package/@node-discord/core"><img alt="Node Verison" src="https://img.shields.io/node/v/@node-discord/core"></a>
-				</p>
-				<p align="center">
-					<a href="#"><img alt="Test Status" src="https://github.com/Alon-L/node-discord/workflows/Test/badge.svg"></a>
-					<a href="#"><img alt="Deploy Status" src="https://github.com/Alon-L/node-discord/workflows/Deploy/badge.svg"></a>
-				</p>
+				<a href="#readme" id="readme" style="color: inherit; text-decoration: none;">
+					<h1>README</h1>
+				</a>
+				<a href="#getting-super-powers" id="getting-super-powers" style="color: inherit; text-decoration: none;">
+					<h2>Getting Super Powers</h2>
+				</a>
+				<p>Becoming a super hero is a fairly straight forward process:</p>
+				<p>{% tabs %}
+				{% tab title=&quot;TypeScript&quot; %}</p>
+				<pre><code class="language-typescript">import { Bot, BotEvent } from &#x27;@node-discord/core&#x27;;
+
+const bot = new Bot(&#x27;YOUR TOKEN&#x27;);
+
+bot.events.on(BotEvent.Ready, () =&gt; {
+    console.log(&#x27;Ready!);
+});
+
+bot.connect();</code></pre>
+				<p>{% endtab %}</p>
+				<p>{% tab title=&quot;JavaScript&quot; %}</p>
+				<pre><code class="language-javascript"></code></pre>
+				<p>{% endtab %}
+				{% endtabs %}</p>
+				<p>{% hint style=&quot;info&quot; %}
+					Super-powers are granted randomly so please submit an issue if you&#39;re not happy with yours.
+				{% endhint %}</p>
+				<p>Once you&#39;re strong enough, save the world:</p>
+				<p>{% code title=&quot;hello.sh&quot; %}</p>
+				<pre><code class="language-bash"><span class="hljs-comment"># Ain&#x27;t no code for that yet, sorry</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;You got to trust me on this, I saved the world&#x27;</span></code></pre>
+				<p>{% endcode %}</p>
+				<p><a href="./"><img src="https://raw.githubusercontent.com/Alon-L/node-discord/gh-pages/assets/images/header.png" alt="node-discord"></a></p>
+				<p> More than just a Discord API Wrapper.</p>
+				<p> <a href="https://"><img src="https://img.shields.io/discord/702476896008405002?color=7289DA&label=Support%20Server&logo=discord&logoColor=fff" alt="Discord Support Server"></a></p>
+				<p> <a href="https://www.npmjs.com/package/@node-discord/core"><img src="https://img.shields.io/npm/v/@node-discord/core" alt="NPM Version"></a> <a href="https://www.npmjs.com/package/@node-discord/core"><img src="https://img.shields.io/npm/dt/@node-discord/core" alt="NPM Downloads"></a> <a href="https://www.npmjs.com/package/@node-discord/core"><img src="https://img.shields.io/node/v/@node-discord/core" alt="Node Verison"></a></p>
+				<p> <a href="./"><img src="https://github.com/Alon-L/node-discord/workflows/Test/badge.svg" alt="Test Status"></a> <a href="./"><img src="https://github.com/Alon-L/node-discord/workflows/Deploy/badge.svg" alt="Deploy Status"></a></p>
 				<p>node-discord is a strict TypeScript Discord API Wrapper that focuses on utility and extendibility.<br>The library implements every core aspect of the Discord API and proivdes additional tools to assist developers with their needs.</p>
 			</div>
 		</div>
