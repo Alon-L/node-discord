@@ -1,5 +1,3 @@
-import { DMChannel, GuildTextChannel } from '../structures/channels';
-
 /**
  * Discord Snowflake.
  * More information can be found here {@link https://discordapp.com/developers/docs/reference#snowflakes}
