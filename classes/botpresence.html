@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Timestamp | node-discord</title>
+	<title>BotPresence | node-discord</title>
 	<meta name="description" content="Documentation for node-discord">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="timestamp.html">Timestamp</a>
+					<a href="botpresence.html">BotPresence</a>
 				</li>
 			</ul>
-			<h1>Class Timestamp</h1>
+			<h1>Class BotPresence</h1>
 		</div>
 	</div>
 </header>
@@ -67,7 +67,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Handles the conversion of timestamps received from the Discord API into UNIX timestamps</p>
+						<p>Represents the bot&#39;s presence</p>
 					</div>
 				</div>
 			</section>
@@ -75,7 +75,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Timestamp</span>
+						<span class="target">BotPresence</span>
 					</li>
 				</ul>
 			</section>
@@ -86,19 +86,20 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="timestamp.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="botpresence.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="timestamp.html#date" class="tsd-kind-icon">date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="botpresence.html#bot" class="tsd-kind-icon">bot</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="botpresence.html#presence" class="tsd-kind-icon">presence</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="timestamp.html#unix" class="tsd-kind-icon">unix</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botpresence.html#modify" class="tsd-kind-icon">modify</a></li>
 							</ul>
 						</section>
 					</div>
@@ -110,22 +111,22 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Timestamp<span class="tsd-signature-symbol">(</span>date<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="timestamp.html" class="tsd-signature-type">Timestamp</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Bot<wbr>Presence<span class="tsd-signature-symbol">(</span>bot<span class="tsd-signature-symbol">: </span><a href="bot.html" class="tsd-signature-type">Bot</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="botpresence.html" class="tsd-signature-type">BotPresence</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f6155af/src/structures/Timestamp.ts#L5">src/structures/Timestamp.ts:5</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f6155af/src/structures/BotPresence.ts#L17">src/structures/BotPresence.ts:17</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>date: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
+									<h5>bot: <a href="bot.html" class="tsd-signature-type">Bot</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="timestamp.html" class="tsd-signature-type">Timestamp</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="botpresence.html" class="tsd-signature-type">BotPresence</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -133,32 +134,66 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="date" class="tsd-anchor"></a>
-					<h3>date</h3>
-					<div class="tsd-signature tsd-kind-icon">date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
+					<a name="bot" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> bot</h3>
+					<div class="tsd-signature tsd-kind-icon">bot<span class="tsd-signature-symbol">:</span> <a href="bot.html" class="tsd-signature-type">Bot</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f6155af/src/structures/Timestamp.ts#L5">src/structures/Timestamp.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f6155af/src/structures/BotPresence.ts#L12">src/structures/BotPresence.ts:12</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The bot instance</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="presence" class="tsd-anchor"></a>
+					<h3>presence</h3>
+					<div class="tsd-signature tsd-kind-icon">presence<span class="tsd-signature-symbol">:</span> <a href="../interfaces/updatestatus.html" class="tsd-signature-type">UpdateStatus</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f6155af/src/structures/BotPresence.ts#L17">src/structures/BotPresence.ts:17</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The current bot presence</p>
+						</div>
+					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="unix" class="tsd-anchor"></a>
-					<h3>unix</h3>
+					<a name="modify" class="tsd-anchor"></a>
+					<h3>modify</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">unix<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
+						<li class="tsd-signature tsd-kind-icon">modify<span class="tsd-signature-symbol">(</span>presence<span class="tsd-signature-symbol">: </span><a href="../interfaces/updatestatus.html" class="tsd-signature-type">UpdateStatus</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f6155af/src/structures/Timestamp.ts#L11">src/structures/Timestamp.ts:11</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/f6155af/src/structures/BotPresence.ts#L28">src/structures/BotPresence.ts:28</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Modifies the presence of the bot</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>presence: <a href="../interfaces/updatestatus.html" class="tsd-signature-type">UpdateStatus</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The new bot presence</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -177,16 +212,19 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="timestamp.html" class="tsd-kind-icon">Timestamp</a>
+						<a href="botpresence.html" class="tsd-kind-icon">Bot<wbr>Presence</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="timestamp.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="botpresence.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="timestamp.html#date" class="tsd-kind-icon">date</a>
+								<a href="botpresence.html#bot" class="tsd-kind-icon">bot</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="botpresence.html#presence" class="tsd-kind-icon">presence</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="timestamp.html#unix" class="tsd-kind-icon">unix</a>
+								<a href="botpresence.html#modify" class="tsd-kind-icon">modify</a>
 							</li>
 						</ul>
 					</li>
