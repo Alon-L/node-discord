@@ -2,19 +2,19 @@ import { ChildProcess, fork, Serializable } from 'child_process';
 import path from 'path';
 import { Arguments } from 'typed-emitter';
 import {
-  ShardDisconnectAllRequest,
-  ShardChangedStateRequest,
-  ShardSendRequest,
+  BotCommunication,
   ShardBroadcastRequest,
+  ShardChangedStateRequest,
   ShardCommunicationAction,
   ShardCommunicationActionResponse,
   ShardCommunicationActionResponses,
-  BotCommunication,
-  ShardEmitCommunicationEventResponse,
-  ShardEmitCommunicationEventRequest,
   ShardCommunicationEmitEvents,
+  ShardDisconnectAllRequest,
   ShardEmitBotEventRequest,
+  ShardEmitCommunicationEventRequest,
+  ShardEmitCommunicationEventResponse,
   ShardEmitDisconnectRequest,
+  ShardSendRequest,
 } from './BotCommunication';
 import { BotShardManager } from './BotShardManager';
 import { Events } from '../bot/handlers/events/events';

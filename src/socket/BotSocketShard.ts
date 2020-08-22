@@ -316,16 +316,14 @@ export class BotSocketShard {
   private identify(): void {
     const { id, amount } = this.shard;
 
-    this.ws.send(
-      this.pack({
-        op: OPCode.Identify,
-        d: {
-          ...identify,
-          token: this.token,
-          shard: [id, amount],
-        },
-      }),
-    );
+    this.send({
+      op: OPCode.Identify,
+      d: {
+        ...identify,
+        token: this.token,
+        shard: [id, amount],
+      },
+    });
   }
 
   /**
@@ -426,16 +424,14 @@ export class BotSocketShard {
    * Sends a request to the gateway in order to resume from the last connection
    */
   private resume(): void {
-    this.ws.send(
-      this.pack({
-        op: OPCode.Resume,
-        d: {
-          token: this.token,
-          session_id: this.sessionId,
-          seq: this.lastSequence || this.sequence,
-        },
-      }),
-    );
+    this.send({
+      op: OPCode.Resume,
+      d: {
+        token: this.token,
+        session_id: this.sessionId,
+        seq: this.lastSequence || this.sequence,
+      },
+    });
   }
 
   /**
@@ -453,6 +449,15 @@ export class BotSocketShard {
       );
       await new Promise(resolve => setTimeout(resolve, resetAfter));
     }
+  }
+
+  /**
+   * Packs and sends the data to the WebSocket
+   * @param {unknown} data The data
+   * @returns {void}
+   */
+  public send(data: unknown): void {
+    return this.ws.send(this.pack(data));
   }
 
   /**

@@ -1,6 +1,6 @@
 import { Role } from '../../structures';
 import { Guild } from '../../structures/guild';
-import { Member } from '../../structures/member';
+import { Member } from '../../structures/member/Member';
 import { Snowflake } from '../../types';
 import { BaseController } from '../base';
 

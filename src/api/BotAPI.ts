@@ -54,7 +54,7 @@ import {
   GuildWidget,
   ModifyWidgetOptions,
 } from '../structures/guild';
-import { Member, MemberBanOptions, ModifyMemberOptions } from '../structures/member';
+import { Member, MemberBanOptions, ModifyMemberOptions } from '../structures/member/Member';
 import {
   Message,
   MessageData,

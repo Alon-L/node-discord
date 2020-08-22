@@ -41,7 +41,7 @@ export default async ({ d }: Payload, bot: Bot): Promise<void> => {
     members.map((member: GatewayStruct) => new Member(bot, member, guild)),
   );
 
-  // Assign the presences returned from the event
+  // Assign the presence returned from the event
   if (presences) {
     for (const presence of presences) {
       const { id } = presence.user;

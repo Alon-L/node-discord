@@ -28,7 +28,7 @@ import {
   ModifyIntegrationOptions,
   ModifyWidgetOptions,
 } from '../structures/guild';
-import { MemberBanOptions, ModifyMemberOptions } from '../structures/member';
+import { MemberBanOptions, ModifyMemberOptions } from '../structures/member/Member';
 import { MessageData, MessageEmbed } from '../structures/message';
 import { Snowflake } from '../types';
 

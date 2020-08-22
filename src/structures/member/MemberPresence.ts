@@ -191,15 +191,27 @@ export interface PresenceGame {
 /**
  * The presence status of a member
  */
-export type PresenceStatus = 'idle' | 'dnd' | 'online' | 'offline';
+export enum PresenceStatus {
+  Idle = 'idle',
+  DND = 'dnd',
+  Online = 'online',
+  Invisible = 'invisible',
+  Offline = 'offline',
+}
+
+export enum PresenceClientStatusIndicator {
+  Online = 'online',
+  Idle = 'idle',
+  DND = 'dnd',
+}
 
 /**
  * Active sessions are indicated with an "online", "idle", or "dnd" string per platform. If a user is offline or invisible, the corresponding field is not present.
  */
 export interface PresenceClientStatus {
-  desktop?: PresenceStatus;
-  mobile?: PresenceStatus;
-  web?: PresenceStatus;
+  desktop?: PresenceClientStatusIndicator;
+  mobile?: PresenceClientStatusIndicator;
+  web?: PresenceClientStatusIndicator;
 }
 
 /**
@@ -256,14 +268,14 @@ export class MemberPresence extends BaseGuildStruct {
    */
   public init(presence: GatewayStruct): this {
     if (presence.game) {
-      this.game = MemberPresence.createActivity(presence.game);
+      this.game = MemberPresence.parseActivity(presence.game);
     }
 
     this.status = presence.status;
 
     if (presence.activities) {
       this.activities = presence.activities.map((activity: GatewayStruct) =>
-        MemberPresence.createActivity(activity),
+        MemberPresence.parseActivity(activity),
       );
     }
 
@@ -283,14 +295,14 @@ export class MemberPresence extends BaseGuildStruct {
    * @param {GatewayStruct} activity The gateway activity object
    * @returns {PresenceGame}
    */
-  private static createActivity(activity: GatewayStruct): PresenceGame {
+  private static parseActivity(activity: GatewayStruct): PresenceGame {
     return {
       name: activity.name,
       type: activity.type,
       url: activity.url,
       createdAt: activity.created_at,
       timestamps: activity.timestamps,
-      applicationId: activity.applicationId,
+      applicationId: activity.application_id,
       details: activity.details,
       state: activity.state,
       emoji: activity.emoji,

@@ -1,6 +1,6 @@
 import Collection from '../../Collection';
 import { Guild } from '../../structures/guild';
-import { Member } from '../../structures/member';
+import { Member } from '../../structures/member/Member';
 import { Snowflake } from '../../types';
 import { BaseFetchSomeController, BaseFetchController } from '../base';
 

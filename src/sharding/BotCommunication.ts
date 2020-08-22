@@ -49,6 +49,11 @@ export interface ShardResponse {
  */
 export const enum ShardCommunicationAction {
   /**
+   * Updates the presence status of all shards
+   */
+  UpdatePresence = 'updatePresence',
+
+  /**
    * Emits an event on all shards
    */
   Broadcast = 'broadcast',

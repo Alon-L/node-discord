@@ -1,11 +1,12 @@
 import fetch from 'node-fetch';
-import { BotSocketShard, BotSocketShardState } from './BotSocketShard';
-import { GatewayCloseCode, recommendedShardTimeout } from './constants';
+import { BotSocketShard, BotSocketShardState, Payload } from './BotSocketShard';
+import { GatewayCloseCode, OPCode, recommendedShardTimeout } from './constants';
 import Collection from '../Collection';
 import { baseURL } from '../api';
 import { Bot } from '../bot';
 import { BotStateEvents } from '../bot/handlers/events/events';
 import { ShardChangedStateRequest, ShardCommunicationAction, BotShardState } from '../sharding';
+import { GatewayStruct } from '../structures';
 import { ShardId } from '../types';
 
 export interface SessionStartLimit {
@@ -128,6 +129,20 @@ export class BotSocket {
       process.send(request);
     } else {
       this.bot.events.emit(botEvent);
+    }
+  }
+
+  /**
+   * Modifies the presence of the bot
+   * @param {GatewayStruct} presence The new presence for the bot
+   * @returns {void}
+   */
+  public modifyPresence(presence: GatewayStruct): void {
+    for (const [, shard] of this.shards) {
+      shard.send({
+        op: OPCode.PresenceUpdate,
+        d: presence,
+      } as Payload);
     }
   }
 

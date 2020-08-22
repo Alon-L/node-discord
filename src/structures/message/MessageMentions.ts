@@ -5,7 +5,7 @@ import { Role } from '../Role';
 import { User } from '../User';
 import { BaseStruct, GatewayStruct } from '../base';
 import { GuildChannel } from '../channels';
-import { Member } from '../member';
+import { Member } from '../member/Member';
 
 interface MentionTypes {
   users: GatewayStruct[];

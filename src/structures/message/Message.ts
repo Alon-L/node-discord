@@ -14,7 +14,7 @@ import { BaseStruct, GatewayStruct } from '../base';
 import { TextBasedChannel } from '../channels';
 import { MessageFlags } from '../flags';
 import { Guild } from '../guild';
-import { Member } from '../member';
+import { Member } from '../member/Member';
 
 /**
  * The type of a message

@@ -4,7 +4,7 @@ import { ReactionUsersController } from '../../controllers/reaction';
 import { Snowflake } from '../../types';
 import { Emoji } from '../Emoji';
 import { BaseStruct, GatewayStruct } from '../base';
-import { Member } from '../member';
+import { Member } from '../member/Member';
 
 /**
  * Holds all users that reacted to a {@link Message} with a specific {@link Emoji}

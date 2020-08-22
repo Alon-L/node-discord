@@ -369,7 +369,7 @@ export class Guild extends GuildPreview {
   public presences!: Collection<Snowflake, MemberPresence>;
 
   /**
-   * The maximum number of presences for the guild (the default value, currently 25000, is in effect when `null` is returned)
+   * The maximum number of presence for the guild (the default value, currently 25000, is in effect when `null` is returned)
    */
   public maxPresences: number | null | undefined;
 
