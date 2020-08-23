@@ -24,9 +24,9 @@ The library implements every core aspect of the Discord API and provides additio
 # Getting Started
 Install the library using NPM or Yarn:
 ```
-$ npm install @node-discord/core --no-optional
+$ npm install @node-discord/core
 
-$ yarn add @node-discord/core --ignore-optional
+$ yarn add @node-discord/core
 ```
 
 ## Quick Code Example
@@ -37,7 +37,7 @@ const { Bot, BotEvent } = require('@node-discord/core');
 const bot = new Bot('YOUR BOT TOKEN');
 
 bot.events.on(BotEvent.Ready, () => {
-  console.log('Ready!);
+  console.log('Ready!');
 });
 
 bot.connect();
