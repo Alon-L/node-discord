@@ -1564,6 +1564,34 @@ export class BotAPI {
   }
 
   /**
+   * Fetches all webhooks in a guild
+   * @param {Snowflake} guildId The ID of the guild
+   * @returns {Promise<Collection<Snowflake | string, Webhook>>}
+   */
+  public async fetchGuildWebhooks(guildId: Snowflake): Promise<Collection<Snowflake, Webhook>> {
+    const webhooks = await this.requests.send<GatewayStruct[]>(
+      EndpointRoute.GuildWebhooks,
+      { guildId },
+      HttpMethod.Get,
+    );
+
+    return new Collection<Snowflake, Webhook>(
+      await Promise.all(
+        webhooks.map(
+          async (webhook: GatewayStruct): Promise<[Snowflake, Webhook]> => {
+            const { channel_id: channelId } = webhook;
+
+            // Fetch the guild channel associated to this webhook
+            const channel = await this.bot.channels.getGuildChannel(channelId);
+
+            return [webhook.id, new Webhook(this.bot, webhook, channel)];
+          },
+        ),
+      ),
+    );
+  }
+
+  /**
    * Fetches a webhook by its ID
    * @param {Snowflake} webhookId The ID of the webhook
    * @returns {Promise<Webhook>}
