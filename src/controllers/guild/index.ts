@@ -7,3 +7,4 @@ export * from './GuildIntegrationsController';
 export * from './GuildInvitesController';
 export * from './GuildMembersController';
 export * from './GuildRolesController';
+export * from './GuildWebhooksController';
