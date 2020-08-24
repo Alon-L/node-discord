@@ -14,7 +14,7 @@ bot.connection.connect();
   await bot.events.wait(BotEvent.Ready);
 
   const guild = await bot.guilds.get('702476896008405002');
-  const channel = await guild.channels.get('721781755060813914');
+  const channel = await guild.channels.get('702476896008405005');
 
   // console.log(await channel.delete());
 

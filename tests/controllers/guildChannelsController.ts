@@ -1,9 +1,9 @@
 'use strict';
 
 import { Bot } from '../../src/bot';
-import { BotEvent, Permission } from '../../src/socket';
+import { BotEvent } from '../../src/socket';
 import { ChannelType } from '../../src/structures/channels';
-import { PermissionFlags, PermissibleType } from '../../src/structures/flags';
+import { PermissionFlags, PermissibleType, Permission } from '../../src/structures/flags';
 import { Guild } from '../../src/structures/guild';
 import config from '../config.json';
 
@@ -15,7 +15,7 @@ bot.connection.connect();
 
   const guild = await bot.guilds.get('702476896008405002');
 
-  const firstChannel = guild.channels.cache.first!;
+  const textChannel = await guild.channels.getText('702476896008405005');
 
   // Create a new channel
   const channel = await guild.channels.create({
@@ -42,7 +42,7 @@ bot.connection.connect();
   console.log((await guild.channels.fetch(channel.id)).id);
   console.log((await guild.channels.get(channel.id)).id);
 
-  guild.channels.modifyPositions({ [channel.id]: 3, [firstChannel.id]: 1 });
+  guild.channels.modifyPositions({ [channel.id]: 3, [textChannel.id]: 1 });
 
   await bot.events.wait(BotEvent.ChannelUpdate);
 
@@ -53,12 +53,12 @@ bot.connection.connect();
   ); // expected: true
 
   console.log(
-    guild.channels.cache.get(firstChannel.id)?.position === 1,
+    guild.channels.cache.get(textChannel.id)?.position === 1,
     "whether the first channel's position has been updated",
     'expected: true',
   ); //expected: true
 
-  await guild.channels.swap(channel, firstChannel);
+  await guild.channels.swap(channel, textChannel);
 
   // eslint-disable-next-line no-constant-condition
   while (1) {
