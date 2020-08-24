@@ -1,10 +1,5 @@
 import Collection from '../../Collection';
-import {
-  Webhook,
-  CreateWebhookOptions,
-  GuildChannel,
-  ModifyWebhookOptions,
-} from '../../structures';
+import { Webhook, CreateWebhookOptions, GuildChannel } from '../../structures';
 import { Snowflake } from '../../types';
 import {
   BaseCreateController,

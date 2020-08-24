@@ -1,5 +1,4 @@
 import { Bot } from '../../../bot';
-import { Snowflake } from '../../../types';
 import { GatewayStruct } from '../../base';
 import { Guild } from '../../guild';
 import { Channel, ChannelType } from '../Channel';
@@ -7,7 +6,6 @@ import { DMChannel } from '../DMChannel';
 import { GuildCategoryChannel } from '../GuildCategoryChannel';
 import { GuildChannel } from '../GuildChannel';
 import { GuildTextChannel } from '../GuildTextChannel';
-import { TextBasedChannel } from '../TextChannel';
 
 /**
  * Handles channel-related util methods
