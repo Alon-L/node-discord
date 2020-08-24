@@ -53,3 +53,8 @@ bot.connect();
 ☄️ Additional utilities  
 ☄️ CLI generator for new projects  
 ☄️ Custom ESLint configuration  
+
+# Optional Libraries
+There are multiple optional libraries which could be installed in addition to node-discord to improve performance.
+- **erlpack** - Provides fast encoding and decoding for WebSocket payloads.
+- **zlib-sync** - Compresses and decompresses WebSocket payloads before attempting to parse them.
