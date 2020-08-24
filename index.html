@@ -84,19 +84,19 @@
 					<h1>Getting Started</h1>
 				</a>
 				<p>Install the library using NPM or Yarn:</p>
-				<pre><code>$ npm install @<span class="hljs-keyword">node</span><span class="hljs-title">-discord</span>/core --no-optional
+				<pre><code>$ npm install @<span class="hljs-keyword">node</span><span class="hljs-title">-discord</span>/core
 
-$ yarn add @<span class="hljs-keyword">node</span><span class="hljs-title">-discord</span>/core --ignore-optional</code></pre>
+$ yarn add @<span class="hljs-keyword">node</span><span class="hljs-title">-discord</span>/core</code></pre>
 				<a href="#quick-code-example" id="quick-code-example" style="color: inherit; text-decoration: none;">
 					<h2>Quick Code Example</h2>
 				</a>
 				<p>Here is a short code example to initialize a Bot and connect it to the Discord gateway.</p>
-				<pre><code class="language-javascript">const { Bot, BotEvent } = require(&#x27;@node-discord/core&#x27;);
+				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> { Bot, BotEvent } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;@node-discord/core&#x27;</span>);
 
-const bot = new Bot(&#x27;YOUR BOT TOKEN&#x27;);
+<span class="hljs-keyword">const</span> bot = <span class="hljs-keyword">new</span> Bot(<span class="hljs-string">&#x27;YOUR BOT TOKEN&#x27;</span>);
 
-bot.events.on(BotEvent.Ready, () =&gt; {
-  console.log(&#x27;Ready!);
+bot.events.on(BotEvent.Ready, <span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Ready!&#x27;</span>);
 });
 
 bot.connect();</code></pre>
@@ -108,6 +108,14 @@ bot.connect();</code></pre>
 					<h2>Coming Features</h2>
 				</a>
 				<p>☄️ Fully extendable plugins API<br>☄️ Additional utilities<br>☄️ CLI generator for new projects<br>☄️ Custom ESLint configuration  </p>
+				<a href="#optional-libraries" id="optional-libraries" style="color: inherit; text-decoration: none;">
+					<h1>Optional Libraries</h1>
+				</a>
+				<p>There are multiple optional libraries which could be installed in addition to node-discord to improve performance.</p>
+				<ul>
+					<li><strong>erlpack</strong> - Provides fast encoding and decoding for WebSocket payloads.</li>
+					<li><strong>zlib-sync</strong> - Compresses and decompresses WebSocket payloads before attempting to parse them.</li>
+				</ul>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -817,6 +825,9 @@ bot.connect();</code></pre>
 						<a href="globals.html#nullable" class="tsd-kind-icon">Nullable</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#optionallibrary" class="tsd-kind-icon">Optional<wbr>Library</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#params" class="tsd-kind-icon">Params</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
@@ -842,9 +853,6 @@ bot.connect();</code></pre>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#textbasedchannel" class="tsd-kind-icon">Text<wbr>Based<wbr>Channel</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="globals.html#dict" class="tsd-kind-icon">Dict</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#unreconnectablegatewayclosecodes" class="tsd-kind-icon">Unreconnectable<wbr>Gateway<wbr>Close<wbr>Codes</a>
