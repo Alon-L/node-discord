@@ -28,7 +28,7 @@ bot.connection.connect();
   await user.sendMessage({
     content: 'Hello!',
     embed: { description: 'Hello!!!' },
-    files: [{ name: 'a.png', path: './tests/api/a.png' }],
+    files: [{ name: 'a.png', path: './tests/a.png' }],
   });
 
   // TODO: Fix sending files as URLs

@@ -14,3 +14,4 @@ export * from './PermissionOverwrite';
 export * from './Role';
 export * from './Timestamp';
 export * from './User';
+export * from './Webhook';

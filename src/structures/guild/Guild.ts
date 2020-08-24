@@ -15,6 +15,7 @@ import {
   GuildIntegrationsController,
   GuildRolesController,
 } from '../../controllers/guild';
+import { GuildWebhooksController } from '../../controllers/guild/GuildWebhooksController';
 import { Snowflake } from '../../types';
 import { Avatar, GuildBannerFormat } from '../Avatar';
 import { ImageURI } from '../ImageURI';
@@ -424,6 +425,11 @@ export class Guild extends GuildPreview {
    */
   public integrations!: GuildIntegrationsController;
 
+  /**
+   * The guild's webhooks controller
+   */
+  public webhooks!: GuildWebhooksController;
+
   constructor(bot: Bot, guild: GatewayStruct) {
     super(bot, guild);
   }
@@ -451,6 +457,8 @@ export class Guild extends GuildPreview {
     this.bans = new GuildBansController(this);
 
     this.integrations = new GuildIntegrationsController(this);
+
+    this.webhooks = new GuildWebhooksController(this);
 
     if (guild.channels) {
       this.channels.cache.addMany(

@@ -1,6 +1,7 @@
 export * from './GuildBansController';
 export * from './GuildChannelInvitesController';
 export * from './GuildChannelsController';
+export * from './GuildChannelWebhooksController';
 export * from './GuildEmojisController';
 export * from './GuildIntegrationsController';
 export * from './GuildInvitesController';
