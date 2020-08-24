@@ -112,7 +112,8 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botchannelscontroller.html#delete" class="tsd-kind-icon">delete</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="botchannelscontroller.html#fetch" class="tsd-kind-icon">fetch</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="botchannelscontroller.html#get" class="tsd-kind-icon">get</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="botchannelscontroller.html#get" class="tsd-kind-icon">get</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botchannelscontroller.html#getguildchannel" class="tsd-kind-icon">get<wbr>Guild<wbr>Channel</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="botchannelscontroller.html#gettext" class="tsd-kind-icon">get<wbr>Text</a></li>
 							</ul>
 						</section>
@@ -132,7 +133,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="basecontroller.html">BaseController</a>.<a href="basecontroller.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/bacfe40/src/controllers/base/BaseController.ts#L18">src/controllers/base/BaseController.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/236513c/src/controllers/base/BaseController.ts#L18">src/controllers/base/BaseController.ts:18</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -158,7 +159,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="basecontroller.html">BaseController</a>.<a href="basecontroller.html#cache">cache</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/bacfe40/src/controllers/base/BaseController.ts#L18">src/controllers/base/BaseController.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/236513c/src/controllers/base/BaseController.ts#L18">src/controllers/base/BaseController.ts:18</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -180,7 +181,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/bacfe40/src/controllers/bot/BotChannelsController.ts#L16">src/controllers/bot/BotChannelsController.ts:16</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/236513c/src/controllers/bot/BotChannelsController.ts#L22">src/controllers/bot/BotChannelsController.ts:22</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -212,7 +213,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="basefetchcontroller.html">BaseFetchController</a>.<a href="basefetchcontroller.html#fetch">fetch</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/bacfe40/src/controllers/bot/BotChannelsController.ts#L25">src/controllers/bot/BotChannelsController.ts:25</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/236513c/src/controllers/bot/BotChannelsController.ts#L31">src/controllers/bot/BotChannelsController.ts:31</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -233,35 +234,64 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 					<a name="get" class="tsd-anchor"></a>
 					<h3>get</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">get<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="channel.html" class="tsd-signature-type">Channel</a><span class="tsd-signature-symbol">&gt;</span></li>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">get<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="channel.html" class="tsd-signature-type">Channel</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="basefetchcontroller.html">BaseFetchController</a>.<a href="basefetchcontroller.html#get">get</a></p>
+								<p>Overrides <a href="basefetchcontroller.html">BaseFetchController</a>.<a href="basefetchcontroller.html#get">get</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/bacfe40/src/controllers/base/BaseFetchController.ts#L22">src/controllers/base/BaseFetchController.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/236513c/src/controllers/bot/BotChannelsController.ts#L36">src/controllers/bot/BotChannelsController.ts:36</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>inheritdoc</dt>
+									<dd></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>id: <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="channel.html" class="tsd-signature-type">Channel</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getguildchannel" class="tsd-anchor"></a>
+					<h3>get<wbr>Guild<wbr>Channel</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Guild<wbr>Channel<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/236513c/src/controllers/bot/BotChannelsController.ts#L68">src/controllers/bot/BotChannelsController.ts:68</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an already cached item or fetches it</p>
+									<p>Gets or fetches a guild channel by its ID</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>id: <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
+									<h5>id: <a href="../globals.html#snowflake" class="tsd-signature-type">Snowflake</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The ID of the item you wish to get or fetch</p>
+										<p>The ID of the text channel</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="channel.html" class="tsd-signature-type">Channel</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="guildchannel.html" class="tsd-signature-type">GuildChannel</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -275,7 +305,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/bacfe40/src/controllers/bot/BotChannelsController.ts#L34">src/controllers/bot/BotChannelsController.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/236513c/src/controllers/bot/BotChannelsController.ts#L53">src/controllers/bot/BotChannelsController.ts:53</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -325,8 +355,11 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 								<a href="botchannelscontroller.html#fetch" class="tsd-kind-icon">fetch</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 								<a href="botchannelscontroller.html#get" class="tsd-kind-icon">get</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="botchannelscontroller.html#getguildchannel" class="tsd-kind-icon">get<wbr>Guild<wbr>Channel</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="botchannelscontroller.html#gettext" class="tsd-kind-icon">get<wbr>Text</a>
