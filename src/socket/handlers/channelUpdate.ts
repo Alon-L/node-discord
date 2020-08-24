@@ -1,12 +1,11 @@
 import { Bot } from '../../bot';
-import { ChannelUtils } from '../../structures/channels/utils';
 import { Payload } from '../BotSocketShard';
 import { BotEvent } from '../constants';
 
 export default async ({ d }: Payload, bot: Bot): Promise<void> => {
-  const { guild_id: guildId, id } = d;
+  const { id } = d;
 
-  const channel = await ChannelUtils.find(bot, guildId, id);
+  const channel = await bot.channels.get(id);
 
   const { before, after } = channel.update(d);
 

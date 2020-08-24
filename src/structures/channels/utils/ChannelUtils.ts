@@ -93,60 +93,6 @@ export class ChannelUtils {
   }
 
   /**
-   * Finds or fetches a channel by its ID
-   * @param {Bot} bot The bot instance
-   * @param {Snowflake | undefined} guildId The guild ID associated to this channel (if none was specified, a DM channel will be searched for)
-   * @param {Snowflake} channelId The ID of the searched channel
-   * @returns {Promise<Channel>}
-   */
-  public static async find(
-    bot: Bot,
-    guildId: Snowflake | undefined,
-    channelId: Snowflake,
-  ): Promise<Channel> {
-    const guild = guildId && (await bot.guilds.get(guildId));
-
-    return guild ? guild.channels.get(channelId) : ChannelUtils.findDM(bot, channelId);
-  }
-
-  /**
-   * Returns a text channel by its ID
-   * @param {Bot} bot The bot instance
-   * @param {Snowflake | undefined} guildId The guild ID associated to this channel (if none was specified, a DM channel will be searched for)
-   * @param {Snowflake} channelId The ID of the searched channel
-   * @returns {Promise<TextBasedChannel>}
-   */
-  public static async findText(
-    bot: Bot,
-    guildId: Snowflake | undefined,
-    channelId: Snowflake,
-  ): Promise<TextBasedChannel> {
-    const channel = await ChannelUtils.find(bot, guildId, channelId);
-
-    if (!(channel instanceof GuildTextChannel || channel instanceof DMChannel)) {
-      throw new TypeError('The channel is not a valid text channel');
-    }
-
-    return channel;
-  }
-
-  /**
-   * Returns a DM channel by its ID
-   * @param {Bot} bot The bot instance
-   * @param {string} channelId The ID of the DMChannel to be searched for
-   * @returns {DMChannel}
-   */
-  public static async findDM(bot: Bot, channelId: string): Promise<DMChannel> {
-    const channel = await bot.channels.get(channelId);
-
-    if (!(channel instanceof DMChannel)) {
-      throw new TypeError('The channel is not a valid DM channel');
-    }
-
-    return channel;
-  }
-
-  /**
    * Caches a channel in the correct Collection
    * @param {Bot} bot The bot instance
    * @param {Channel} channel The channel you wish to cache

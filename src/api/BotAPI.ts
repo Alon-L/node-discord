@@ -24,6 +24,8 @@ import {
   Role,
   RoleOptions,
   User,
+  CreateWebhookOptions,
+  Webhook,
 } from '../structures';
 import { GatewayStruct } from '../structures/base';
 import {
@@ -196,7 +198,7 @@ export class BotAPI {
     const channel = await this.deleteChannel(channelId);
 
     if (!(channel instanceof GuildChannel)) {
-      throw new TypeError('The deleted channel is a DM channel');
+      throw new TypeError('The deleted channel is not a guild channel');
     }
 
     return channel;
@@ -536,11 +538,7 @@ export class BotAPI {
       params,
     );
 
-    const channel = await this.bot.channels.get(channelId);
-
-    if (!(channel instanceof GuildChannel)) {
-      throw new TypeError('The channel is not a guild channel');
-    }
+    const channel = await this.bot.channels.getGuildChannel(channelId);
 
     return new PermissionOverwrite(this.bot, { ...params, id: permissible.id }, channel);
   }
