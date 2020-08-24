@@ -1,13 +1,11 @@
 import { Bot } from '../../bot';
 import { Snowflake } from '../../types';
 
-import Dict = NodeJS.Dict;
-
 /**
  * Payload data received from the Discord gateway
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type GatewayStruct = Dict<any>;
+export type GatewayStruct = Record<string, any>;
 
 interface UpdateReturn<T extends BaseStruct> {
   before: T;
