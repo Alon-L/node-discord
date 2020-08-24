@@ -1,8 +1,44 @@
+import { ImageURI } from './ImageURI';
 import { User } from './User';
 import { BaseGuildStruct, GatewayStruct } from './base';
 import { GuildChannel } from './channels';
 import { Bot } from '../bot';
 import { Snowflake } from '../types';
+
+/**
+ * Options used for creating webhooks
+ */
+export interface CreateWebhookOptions {
+  /**
+   * The name of the webhook (1-80 characters)
+   */
+  name: string;
+
+  /**
+   * The image for the default webhook avatar
+   */
+  avatar?: ImageURI;
+}
+
+/**
+ * Options used for modifying webhooks
+ */
+export interface ModifyWebhookOptions {
+  /**
+   * The modified default name of the webhook
+   */
+  name?: string;
+
+  /**
+   * The modified image for the default webhook avatar
+   */
+  avatar?: ImageURI | null;
+
+  /**
+   * The modified channel ID this webhook should be moved to
+   */
+  channelId?: Snowflake;
+}
 
 /**
  * The type of a webhook
@@ -75,5 +111,18 @@ export class Webhook extends BaseGuildStruct {
     this.token = webhook.token;
 
     return this;
+  }
+
+  /**
+   * Modifies a webhook by its ID
+   * @param {ModifyWebhookOptions} options The options for the modified webhook
+   * @returns {Promise<Webhook>}
+   */
+  public async modify(options: ModifyWebhookOptions): Promise<Webhook> {
+    const webhook = await this.bot.api.modifyWebhook(this.id, options);
+
+    this.update(webhook);
+
+    return webhook;
   }
 }

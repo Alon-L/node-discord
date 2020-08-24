@@ -13,6 +13,8 @@ import {
   FetchGuildsOptions,
   ModifyBotUserOptions,
   RoleOptions,
+  CreateWebhookOptions,
+  ModifyWebhookOptions,
 } from '../structures';
 import { CreateGuildChannelOptions, GuildChannelOptions } from '../structures/channels';
 import { Permissible, PermissionOverwriteFlags } from '../structures/flags';
@@ -28,7 +30,7 @@ import {
   ModifyIntegrationOptions,
   ModifyWidgetOptions,
 } from '../structures/guild';
-import { MemberBanOptions, ModifyMemberOptions } from '../structures/member/Member';
+import { MemberBanOptions, ModifyMemberOptions } from '../structures/member';
 import { MessageData, MessageEmbed } from '../structures/message';
 import { Snowflake } from '../types';
 
@@ -409,5 +411,30 @@ export class APISerializer {
         with_counts: options.withCounts,
       }
     );
+  }
+
+  /**
+   * Returns the serialized create webhook options for when creating webhooks
+   * @param {CreateWebhookOptions} options The create webhook options
+   * @returns {Promise<Params>}
+   */
+  public static async createWebhookOptions(options: CreateWebhookOptions): Promise<Params> {
+    return {
+      name: options.name,
+      avatar: options.avatar && (await options.avatar.stringify()),
+    };
+  }
+
+  /**
+   * Returns the serialized modify webhook options for when modifying webhooks
+   * @param {ModifyWebhookOptions} options The modify webhook options
+   * @returns {Promise<Params>}
+   */
+  public static async modifyWebhookOptions(options: ModifyWebhookOptions): Promise<Params> {
+    return {
+      name: options.name,
+      avatar: options.avatar && (await options.avatar.stringify()),
+      channel_id: options.channelId,
+    };
   }
 }

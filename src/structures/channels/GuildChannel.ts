@@ -2,7 +2,10 @@ import { Channel, ChannelType } from './Channel';
 import { GuildCategoryChannel } from './GuildCategoryChannel';
 import { Bot } from '../../bot';
 import { ChannelPermissionsController } from '../../controllers/channel';
-import { GuildChannelInvitesController } from '../../controllers/guild';
+import {
+  GuildChannelInvitesController,
+  GuildChannelWebhooksController,
+} from '../../controllers/guild';
 import { Snowflake } from '../../types';
 import { PermissionOverwrite } from '../PermissionOverwrite';
 import { GatewayStruct } from '../base';
@@ -116,12 +119,19 @@ export class GuildChannel extends Channel {
    */
   public parentId: Snowflake | undefined | null;
 
+  /**
+   * The guild channel's webhooks controller
+   */
+  public webhooks: GuildChannelWebhooksController;
+
   constructor(bot: Bot, guildChannel: GatewayStruct, guild: Guild) {
     super(bot, guildChannel);
 
     this.guild = guild;
 
     this.invites = new GuildChannelInvitesController(this);
+
+    this.webhooks = new GuildChannelWebhooksController(this);
   }
 
   /**
