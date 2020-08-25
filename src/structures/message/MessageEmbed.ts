@@ -368,4 +368,37 @@ export class MessageEmbed implements Partial<MessageEmbedData> {
       width: struct?.width,
     };
   }
+
+  public static from(messageEmbedOptions: {
+    timestamp?: string | number | Date | Timestamp;
+    thumbnail?: string;
+    color?: number;
+    title?: string;
+    description?: string;
+    url?: string;
+    image?: string;
+    footer?: MessageEmbedFooter;
+    author?: MessageEmbedAuthor;
+    fields?: MessageEmbedField[];
+  }) {
+    const options: any = messageEmbedOptions;
+
+    if (messageEmbedOptions.image)
+      options.image = {
+        url: messageEmbedOptions.image,
+      };
+
+    if (messageEmbedOptions.thumbnail)
+      options.thumbnail = {
+        url: messageEmbedOptions.thumbnail,
+      };
+
+    if (messageEmbedOptions.timestamp) {
+      if (messageEmbedOptions.timestamp instanceof Timestamp)
+        options.timestamp = messageEmbedOptions.timestamp.ISO();
+      else options.timestamp = new Timestamp(messageEmbedOptions.timestamp).ISO();
+    }
+
+    return new MessageEmbed(options);
+  }
 }
