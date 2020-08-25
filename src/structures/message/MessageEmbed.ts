@@ -1,4 +1,5 @@
 import { Message } from './Message';
+import { Bot } from '../../bot';
 import { Dimensions } from '../../types';
 import { Timestamp } from '../Timestamp';
 import { BaseStruct, GatewayStruct } from '../base';
@@ -170,12 +171,7 @@ export interface MessageEmbedData {
 /**
  * Represents an embed contained in a {@link Message}
  */
-export class MessageEmbed extends BaseStruct implements Partial<MessageEmbedData> {
-  /**
-   * The {@link Message} associated to this embed
-   */
-  public message: Message;
-
+export class MessageEmbed implements Partial<MessageEmbedData> {
   /**
    * Title of this embed
    */
@@ -241,11 +237,7 @@ export class MessageEmbed extends BaseStruct implements Partial<MessageEmbedData
    */
   public fields: MessageEmbedField[] | undefined;
 
-  constructor(message: Message, embed: GatewayStruct) {
-    super(message.bot, embed);
-
-    this.message = message;
-
+  constructor(embed: GatewayStruct) {
     this.init(embed);
   }
 

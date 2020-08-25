@@ -334,7 +334,7 @@ export class Message extends BaseStruct {
       ]),
     );
 
-    this.embeds = message.embeds.map((embed: GatewayStruct) => new MessageEmbed(this, embed));
+    this.embeds = message.embeds.map((embed: GatewayStruct) => new MessageEmbed(embed));
 
     if (message.reactions) {
       this.reactions.cache.addMany(
