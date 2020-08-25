@@ -13,4 +13,8 @@ export class Timestamp {
   public unix(): number | undefined {
     return this.date ? Date.parse(this.date) : undefined;
   }
+
+  public ISO() {
+    if (this.date) return new Date(this.unix()!).toISOString();
+  }
 }
