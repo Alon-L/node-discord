@@ -1,5 +1,5 @@
 import { MessageAttachment } from './MessageAttachment';
-import { MessageEmbed, MessageEmbedData } from './MessageEmbed';
+import { MessageEmbed, MessageEmbedOptions } from './MessageEmbed';
 import { MessageMentions } from './MessageMentions';
 import { MessageReaction } from './MessageReaction';
 import Collection from '../../Collection';
@@ -131,7 +131,7 @@ export interface MessageData {
   /**
    * The message's embed data
    */
-  embed?: Partial<Omit<MessageEmbedData, 'type' | 'provider' | 'video'>> | MessageEmbed;
+  embed?: Omit<MessageEmbedOptions, 'type' | 'provider' | 'video'> | MessageEmbed;
 
   /**
    * The path to a file to send as an attachment

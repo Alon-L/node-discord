@@ -149,27 +149,30 @@ export interface MessageEmbedField {
   inline?: boolean;
 }
 
-export interface MessageEmbedData {
-  title: string;
-  type: string;
-  description: string;
-  url: string;
-  timestamp: number | Timestamp;
-  color: number;
-  footer: MessageEmbedFooter;
-  image: MessageEmbedImage;
-  thumbnail: MessageEmbedThumbnail;
-  video: MessageEmbedVideo;
-  provider: MessageEmbedProvider;
-  author: MessageEmbedAuthor;
-  fields: MessageEmbedField[];
+/**
+ * Options for when creating message embeds
+ */
+export interface MessageEmbedOptions {
+  title?: string;
+  type?: MessageEmbedType;
+  description?: string;
+  url?: string;
+  timestamp?: number | Timestamp;
+  color?: number;
+  footer?: MessageEmbedFooter;
+  image?: MessageEmbedImage;
+  thumbnail?: MessageEmbedThumbnail;
+  video?: MessageEmbedVideo;
+  provider?: MessageEmbedProvider;
+  author?: MessageEmbedAuthor;
+  fields?: MessageEmbedField[];
 }
 
 // TODO: Link this description to a guide page about Discord message embeds
 /**
  * Represents an embed contained in a {@link Message}
  */
-export class MessageEmbed implements Partial<MessageEmbedData> {
+export class MessageEmbed implements MessageEmbedOptions {
   /**
    * Title of this embed
    */
@@ -298,10 +301,10 @@ export class MessageEmbed implements Partial<MessageEmbedData> {
 
   /**
    * Returns the gateway structure of a given embed data
-   * @param {MessageEmbedData} embed The embed data
+   * @param {MessageEmbedOptions} embed The embed data
    * @returns {GatewayStruct}
    */
-  public static dataToStructure(embed: Partial<MessageEmbedData>): GatewayStruct {
+  public static dataToStructure(embed: MessageEmbedOptions): GatewayStruct {
     return {
       title: embed.title,
       type: embed.type,
