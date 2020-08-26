@@ -1,14 +1,13 @@
 import { Bot } from '../../bot';
 import { GuildTextChannel } from '../../structures/channels';
-import { ChannelUtils } from '../../structures/channels/utils';
 import { PartialMessage, Message } from '../../structures/message';
 import { Payload } from '../BotSocketShard';
 import { BotEvent } from '../constants';
 
 export default async ({ d }: Payload, bot: Bot): Promise<void> => {
-  const { id, guild_id: guildId, channel_id: channelId } = d;
+  const { id, channel_id: channelId } = d;
 
-  const channel = await ChannelUtils.findText(bot, guildId, channelId);
+  const channel = await bot.channels.getText(channelId);
 
   const guild = channel instanceof GuildTextChannel ? channel.guild : undefined;
 

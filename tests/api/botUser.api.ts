@@ -19,7 +19,7 @@ bot.connection.connect();
     game: { type: PresenceActivityType.Game, name: 'Game name' },
   });
 
-  user.modify({ username: newUsername, avatar: new ImageURI('./tests/api/a.png') });
+  user.modify({ username: newUsername, avatar: new ImageURI('./tests/a.png') });
   await bot.events.wait(BotEvent.UserUpdate);
 
   console.log(

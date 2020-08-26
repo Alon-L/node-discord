@@ -190,7 +190,10 @@ export class RateLimitBucket {
     const resetAfter = headers.get(RateLimitHeaders.ResetAfter);
 
     // Set the parsed value of the rate limit information
-    this.remaining = remaining ? parseInt(remaining) : undefined;
+
+    // Use the cached remaining number if this is not the first request for async requests
+    this.remaining = this.limit ? this.remaining : remaining ? parseInt(remaining) : undefined;
+
     this.limit = limit ? parseInt(limit) : undefined;
     this.reset = reset ? parseFloat(reset) : undefined;
 

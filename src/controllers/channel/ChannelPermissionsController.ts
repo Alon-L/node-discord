@@ -27,7 +27,7 @@ export class ChannelPermissionsController extends BaseDeleteController<Permissio
    * @param {PermissionOverwriteFlags} flags The permissions flags you wish to modify
    * @returns {Promise<void>}
    */
-  public async modify(
+  public modify(
     permissible: Permissible,
     flags: PermissionOverwriteFlags,
   ): Promise<PermissionOverwrite> {
@@ -40,7 +40,7 @@ export class ChannelPermissionsController extends BaseDeleteController<Permissio
    * @param {Snowflake} id The ID of the user or role you wish to delete from the channel's permission overwrites
    * @returns {Promise<void>}
    */
-  public async delete(id: Snowflake): Promise<void> {
+  public delete(id: Snowflake): Promise<void> {
     return this.bot.api.deleteGuildChannelPermission(this.channel.id, id);
   }
 }

@@ -14,6 +14,8 @@ export enum NitroType {
   Nitro,
 }
 
+// TODO: replace "new User()" with cache get or create
+
 /**
  * Represents a user in the Discord platform
  * @extends BaseStruct

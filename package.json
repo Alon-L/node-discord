@@ -1,6 +1,6 @@
 {
   "name": "@node-discord/core",
-  "version": "1.0.0-alpha.8",
+  "version": "1.0.0-alpha.9",
   "description": "More than just a Discord API Wrapper",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -46,26 +46,34 @@
     "typed-emitter": "^1.3.0",
     "ws": "^7.3.1"
   },
-  "optionalDependencies": {
+  "peerDependencies": {
     "erlpack": "^0.1.3",
     "zlib-sync": "^0.1.7"
   },
+  "peerDependenciesMeta": {
+    "erlpack": {
+      "optional": true
+    },
+    "zlib-sync": {
+      "optional": true
+    }
+  },
   "devDependencies": {
     "@commitlint/cli": "^9.1.2",
-    "@commitlint/config-conventional": "^9.1.1",
-    "@types/jest": "^26.0.9",
+    "@commitlint/config-conventional": "^9.1.2",
+    "@types/jest": "^26.0.10",
     "@types/mime-types": "^2.1.0",
-    "@types/node": "^14.0.27",
+    "@types/node": "^14.6.0",
     "@types/node-fetch": "^2.5.7",
     "@types/ws": "^7.2.6",
-    "@typescript-eslint/eslint-plugin": "^3.9.0",
-    "@typescript-eslint/parser": "^3.9.0",
+    "@typescript-eslint/eslint-plugin": "^3.10.0",
+    "@typescript-eslint/parser": "^3.10.0",
     "eslint": "^7.7.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-prettier": "^3.1.4",
     "husky": "^4.2.5",
-    "jest": "^26.4.0",
+    "jest": "^26.4.2",
     "lint-staged": "^10.2.11",
     "prettier": "^2.0.5",
     "ts-jest": "^26.2.0",

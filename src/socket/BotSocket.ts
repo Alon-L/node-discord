@@ -64,7 +64,7 @@ export class BotSocket {
         id: shardId,
       });
 
-      await botShard.configure();
+      botShard.configure();
 
       this.shards.set(shardId, botShard);
 

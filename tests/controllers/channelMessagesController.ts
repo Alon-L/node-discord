@@ -13,12 +13,7 @@ bot.connection.connect();
 
   const guild = await bot.guilds.get('702476896008405002');
 
-  const channel = guild.channels.cache.filter<GuildTextChannel>(
-    (channel: GuildChannel) => channel.type === ChannelType.GuildText,
-  ).first;
-  if (!channel) throw new Error('No channels found');
-
-  console.log(channel.name);
+  const channel = await guild.channels.getText('702476896008405005');
 
   const messages = await channel.messages.fetchSome({ limit: 25 });
   console.log(

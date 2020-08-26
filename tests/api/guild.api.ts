@@ -16,7 +16,7 @@ bot.connection.connect();
   const oldSystemChannelId = guild.systemChannel.channel?.id;
 
   guild.modify({
-    systemChannelId: '721781755060813914',
+    systemChannelId: '702476896008405005',
   });
 
   await bot.events.wait(BotEvent.GuildUpdate);

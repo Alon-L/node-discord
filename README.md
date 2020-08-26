@@ -24,9 +24,9 @@ The library implements every core aspect of the Discord API and provides additio
 # Getting Started
 Install the library using NPM or Yarn:
 ```
-$ npm install @node-discord/core --no-optional
+$ npm install @node-discord/core
 
-$ yarn add @node-discord/core --ignore-optional
+$ yarn add @node-discord/core
 ```
 
 ## Quick Code Example
@@ -37,7 +37,7 @@ const { Bot, BotEvent } = require('@node-discord/core');
 const bot = new Bot('YOUR BOT TOKEN');
 
 bot.events.on(BotEvent.Ready, () => {
-  console.log('Ready!);
+  console.log('Ready!');
 });
 
 bot.connect();
@@ -53,3 +53,8 @@ bot.connect();
 ☄️ Additional utilities  
 ☄️ CLI generator for new projects  
 ☄️ Custom ESLint configuration  
+
+# Optional Libraries
+There are multiple optional libraries which could be installed in addition to node-discord to improve performance.
+- **erlpack** - Provides fast encoding and decoding for WebSocket payloads.
+- **zlib-sync** - Compresses and decompresses WebSocket payloads before attempting to parse them.

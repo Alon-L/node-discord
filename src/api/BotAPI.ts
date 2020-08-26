@@ -24,6 +24,9 @@ import {
   Role,
   RoleOptions,
   User,
+  CreateWebhookOptions,
+  Webhook,
+  ModifyWebhookOptions,
 } from '../structures';
 import { GatewayStruct } from '../structures/base';
 import {
@@ -54,7 +57,7 @@ import {
   GuildWidget,
   ModifyWidgetOptions,
 } from '../structures/guild';
-import { Member, MemberBanOptions, ModifyMemberOptions } from '../structures/member/Member';
+import { Member, MemberBanOptions, ModifyMemberOptions } from '../structures/member';
 import {
   Message,
   MessageData,
@@ -72,7 +75,7 @@ import { Snowflake } from '../types';
  * The positions are in a descending order ending at 0
  * @example
  * // Guild channels positions
- * { '702476896008405005': 1, '721781755060813914': 2 }
+ * { '702476896008405005': 1, '702476896008405005': 2 }
  * @example
  * // Roles positions
  * { '706861476752785461': 2 }
@@ -196,7 +199,7 @@ export class BotAPI {
     const channel = await this.deleteChannel(channelId);
 
     if (!(channel instanceof GuildChannel)) {
-      throw new TypeError('The deleted channel is a DM channel');
+      throw new TypeError('The deleted channel is not a guild channel');
     }
 
     return channel;
@@ -536,11 +539,7 @@ export class BotAPI {
       params,
     );
 
-    const channel = await this.bot.channels.get(channelId);
-
-    if (!(channel instanceof GuildChannel)) {
-      throw new TypeError('The channel is not a guild channel');
-    }
+    const channel = await this.bot.channels.getGuildChannel(channelId);
 
     return new PermissionOverwrite(this.bot, { ...params, id: permissible.id }, channel);
   }
@@ -1519,5 +1518,129 @@ export class BotAPI {
     );
 
     return new Invite(this.bot, invite);
+  }
+
+  /**
+   * Creates a new webhook for a guild channel.
+   * Requires the {@link Permission.ManageWebhooks} permission
+   * @param {Snowflake} channelId The ID of the guild channel
+   * @param {CreateWebhookOptions} options The options for the new webhook
+   * @returns {Promise<Webhook>}
+   */
+  public async createWebhook(
+    channelId: Snowflake,
+    options: CreateWebhookOptions,
+  ): Promise<Webhook> {
+    const webhook = await this.requests.send<GatewayStruct>(
+      EndpointRoute.ChannelWebhooks,
+      { channelId },
+      HttpMethod.Post,
+      await APISerializer.createWebhookOptions(options),
+    );
+
+    const channel = await this.bot.channels.getGuildChannel(channelId);
+
+    return new Webhook(this.bot, webhook, channel);
+  }
+
+  /**
+   * Fetches all webhooks in a guild channel.
+   * Requires the {@link Permission.ManageWebhooks} permission
+   * @param {Snowflake} channelId The ID of the guild channel
+   * @returns {Promise<Collection<Snowflake, Webhook>>}
+   */
+  public async fetchWebhooks(channelId: Snowflake): Promise<Collection<Snowflake, Webhook>> {
+    const webhooks = await this.requests.send<GatewayStruct[]>(
+      EndpointRoute.ChannelWebhooks,
+      { channelId },
+      HttpMethod.Get,
+    );
+
+    const channel = await this.bot.channels.getGuildChannel(channelId);
+
+    return new Collection<Snowflake, Webhook>(
+      webhooks.map(webhook => [webhook.id, new Webhook(this.bot, webhook, channel)]),
+    );
+  }
+
+  /**
+   * Fetches all webhooks in a guild
+   * @param {Snowflake} guildId The ID of the guild
+   * @returns {Promise<Collection<Snowflake | string, Webhook>>}
+   */
+  public async fetchGuildWebhooks(guildId: Snowflake): Promise<Collection<Snowflake, Webhook>> {
+    const webhooks = await this.requests.send<GatewayStruct[]>(
+      EndpointRoute.GuildWebhooks,
+      { guildId },
+      HttpMethod.Get,
+    );
+
+    return new Collection<Snowflake, Webhook>(
+      await Promise.all(
+        webhooks.map(
+          async (webhook: GatewayStruct): Promise<[Snowflake, Webhook]> => {
+            const { channel_id: channelId } = webhook;
+
+            // Fetch the guild channel associated to this webhook
+            const channel = await this.bot.channels.getGuildChannel(channelId);
+
+            return [webhook.id, new Webhook(this.bot, webhook, channel)];
+          },
+        ),
+      ),
+    );
+  }
+
+  /**
+   * Fetches a webhook by its ID
+   * @param {Snowflake} webhookId The ID of the webhook
+   * @returns {Promise<Webhook>}
+   */
+  public async fetchWebhook(webhookId: Snowflake): Promise<Webhook> {
+    const webhook = await this.requests.send<GatewayStruct>(
+      EndpointRoute.Webhook,
+      { webhookId },
+      HttpMethod.Get,
+    );
+
+    const { channel_id: channelId } = webhook;
+
+    const channel = await this.bot.channels.getGuildChannel(channelId);
+
+    return new Webhook(this.bot, webhook, channel);
+  }
+
+  /**
+   * Modifies a webhook by its ID
+   * @param {Snowflake} webhookId The webhook ID
+   * @param {ModifyWebhookOptions} options The options for the modified webhook
+   * @returns {Promise<Webhook>}
+   */
+  public async modifyWebhook(
+    webhookId: Snowflake,
+    options: ModifyWebhookOptions,
+  ): Promise<Webhook> {
+    const webhook = await this.requests.send<GatewayStruct>(
+      EndpointRoute.Webhook,
+      { webhookId },
+      HttpMethod.Patch,
+      await APISerializer.modifyWebhookOptions(options),
+    );
+
+    const { channel_id: channelId } = webhook;
+
+    const channel = await this.bot.channels.getGuildChannel(channelId);
+
+    return new Webhook(this.bot, webhook, channel);
+  }
+
+  /**
+   * Deletes a webhook permanently.
+   * Requires the {@link Permission.ManageWebhooks} permission
+   * @param {Snowflake} webhookId The ID of the webhook
+   * @returns {Promise<void>}
+   */
+  public async deleteWebhook(webhookId: Snowflake): Promise<void> {
+    await this.requests.send(EndpointRoute.Webhook, { webhookId }, HttpMethod.Delete);
   }
 }

@@ -1,6 +1,10 @@
 import Collection from '../../Collection';
 import { Positions } from '../../api';
-import { GuildChannel, CreateGuildChannelOptions } from '../../structures/channels';
+import {
+  GuildChannel,
+  CreateGuildChannelOptions,
+  GuildTextChannel,
+} from '../../structures/channels';
 import { Guild } from '../../structures/guild';
 import { Snowflake } from '../../types';
 import {
@@ -28,6 +32,21 @@ export class GuildChannelsController extends BaseFetchController<GuildChannel>
     super(guild);
 
     this.guild = guild;
+  }
+
+  /**
+   * Gets or fetches a guild text channel by its ID
+   * @param {Snowflake} id The ID of the guild text channel
+   * @returns {Promise<TextBasedChannel>}
+   */
+  public async getText(id: Snowflake): Promise<GuildTextChannel> {
+    const channel = await this.get(id);
+
+    if (!(channel instanceof GuildTextChannel)) {
+      throw new TypeError('The channel is not a valid guild text channel');
+    }
+
+    return channel;
   }
 
   /**

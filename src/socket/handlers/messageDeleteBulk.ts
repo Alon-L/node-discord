@@ -1,14 +1,13 @@
 import { Bot } from '../../bot';
-import { ChannelUtils } from '../../structures/channels/utils';
 import { Message } from '../../structures/message';
 import { Snowflake } from '../../types';
 import { Payload } from '../BotSocketShard';
 import { BotEvent } from '../constants';
 
 export default async ({ d }: Payload, bot: Bot): Promise<void> => {
-  const { ids, channel_id: channelId, guild_id: guildId } = d;
+  const { ids, channel_id: channelId } = d;
 
-  const channel = await ChannelUtils.findText(bot, guildId, channelId);
+  const channel = await bot.channels.getText(channelId);
 
   // Use the Message class if the message is cached, otherwise use the message ID
   const messages: (Message | Snowflake)[] = ids.map(

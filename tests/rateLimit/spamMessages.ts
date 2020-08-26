@@ -1,8 +1,8 @@
 'use strict';
 
-import config from './config.json';
-import { Bot } from '../src/bot';
-import { BotEvent } from '../src/socket';
+import { Bot } from '../../src/bot';
+import { BotEvent } from '../../src/socket';
+import config from '../config.json';
 
 const bot = new Bot(config.token);
 bot.connection.connect();
