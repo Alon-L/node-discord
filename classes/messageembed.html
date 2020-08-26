@@ -75,19 +75,14 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="basestruct.html" class="tsd-signature-type">BaseStruct</a>
-						<ul class="tsd-hierarchy">
-							<li>
-								<span class="target">MessageEmbed</span>
-							</li>
-						</ul>
+						<span class="target">MessageEmbed</span>
 					</li>
 				</ul>
 			</section>
 			<section class="tsd-panel">
 				<h3>Implements</h3>
 				<ul class="tsd-hierarchy">
-					<li><span class="tsd-signature-symbol">{}</span></li>
+					<li><a href="../interfaces/messageembedoptions.html" class="tsd-signature-type">MessageEmbedOptions</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -97,20 +92,18 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="messageembed.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="messageembed.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="messageembed.html#author" class="tsd-kind-icon">author</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="messageembed.html#bot" class="tsd-kind-icon">bot</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="messageembed.html#color" class="tsd-kind-icon">color</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="messageembed.html#description" class="tsd-kind-icon">description</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="messageembed.html#fields" class="tsd-kind-icon">fields</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="messageembed.html#footer" class="tsd-kind-icon">footer</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="messageembed.html#image" class="tsd-kind-icon">image</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="messageembed.html#message" class="tsd-kind-icon">message</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="messageembed.html#provider" class="tsd-kind-icon">provider</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="messageembed.html#thumbnail" class="tsd-kind-icon">thumbnail</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="messageembed.html#timestamp" class="tsd-kind-icon">timestamp</a></li>
@@ -123,9 +116,8 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="messageembed.html#clone" class="tsd-kind-icon">clone</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="messageembed.html#update" class="tsd-kind-icon">update</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="messageembed.html#datatostructure" class="tsd-kind-icon">data<wbr>ToStructure</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="messageembed.html#from" class="tsd-kind-icon">from</a></li>
 							</ul>
 						</section>
 					</div>
@@ -133,25 +125,21 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Constructors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
-					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Message<wbr>Embed<span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><a href="message.html" class="tsd-signature-type">Message</a>, embed<span class="tsd-signature-symbol">: </span><a href="../globals.html#gatewaystruct" class="tsd-signature-type">GatewayStruct</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="messageembed.html" class="tsd-signature-type">MessageEmbed</a></li>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Message<wbr>Embed<span class="tsd-signature-symbol">(</span>embed<span class="tsd-signature-symbol">: </span><a href="../globals.html#gatewaystruct" class="tsd-signature-type">GatewayStruct</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="messageembed.html" class="tsd-signature-type">MessageEmbed</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="basestruct.html">BaseStruct</a>.<a href="basestruct.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/2cecd7b/src/structures/message/MessageEmbed.ts#L242">src/structures/message/MessageEmbed.ts:242</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/b48176d/src/structures/message/MessageEmbed.ts#L245">src/structures/message/MessageEmbed.ts:245</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
-								<li>
-									<h5>message: <a href="message.html" class="tsd-signature-type">Message</a></h5>
-								</li>
 								<li>
 									<h5>embed: <a href="../globals.html#gatewaystruct" class="tsd-signature-type">GatewayStruct</a></h5>
 								</li>
@@ -168,8 +156,9 @@
 					<h3>author</h3>
 					<div class="tsd-signature tsd-kind-icon">author<span class="tsd-signature-symbol">:</span> <a href="../interfaces/messageembedauthor.html" class="tsd-signature-type">MessageEmbedAuthor</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/messageembedoptions.html">MessageEmbedOptions</a>.<a href="../interfaces/messageembedoptions.html#author">author</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/2cecd7b/src/structures/message/MessageEmbed.ts#L237">src/structures/message/MessageEmbed.ts:237</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/b48176d/src/structures/message/MessageEmbed.ts#L240">src/structures/message/MessageEmbed.ts:240</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -178,29 +167,14 @@
 						</div>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-					<a name="bot" class="tsd-anchor"></a>
-					<h3>bot</h3>
-					<div class="tsd-signature tsd-kind-icon">bot<span class="tsd-signature-symbol">:</span> <a href="bot.html" class="tsd-signature-type">Bot</a></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="basestruct.html">BaseStruct</a>.<a href="basestruct.html#bot">bot</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/2cecd7b/src/structures/base/BaseStruct.ts#L28">src/structures/base/BaseStruct.ts:28</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The <a href="bot.html">Bot</a> operating this structure</p>
-						</div>
-					</div>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="color" class="tsd-anchor"></a>
 					<h3>color</h3>
 					<div class="tsd-signature tsd-kind-icon">color<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/messageembedoptions.html">MessageEmbedOptions</a>.<a href="../interfaces/messageembedoptions.html#color">color</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/2cecd7b/src/structures/message/MessageEmbed.ts#L207">src/structures/message/MessageEmbed.ts:207</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/b48176d/src/structures/message/MessageEmbed.ts#L210">src/structures/message/MessageEmbed.ts:210</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -214,8 +188,9 @@
 					<h3>description</h3>
 					<div class="tsd-signature tsd-kind-icon">description<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/messageembedoptions.html">MessageEmbedOptions</a>.<a href="../interfaces/messageembedoptions.html#description">description</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/2cecd7b/src/structures/message/MessageEmbed.ts#L192">src/structures/message/MessageEmbed.ts:192</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/b48176d/src/structures/message/MessageEmbed.ts#L195">src/structures/message/MessageEmbed.ts:195</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -229,8 +204,9 @@
 					<h3>fields</h3>
 					<div class="tsd-signature tsd-kind-icon">fields<span class="tsd-signature-symbol">:</span> <a href="../interfaces/messageembedfield.html" class="tsd-signature-type">MessageEmbedField</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/messageembedoptions.html">MessageEmbedOptions</a>.<a href="../interfaces/messageembedoptions.html#fields">fields</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/2cecd7b/src/structures/message/MessageEmbed.ts#L242">src/structures/message/MessageEmbed.ts:242</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/b48176d/src/structures/message/MessageEmbed.ts#L245">src/structures/message/MessageEmbed.ts:245</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -244,8 +220,9 @@
 					<h3>footer</h3>
 					<div class="tsd-signature tsd-kind-icon">footer<span class="tsd-signature-symbol">:</span> <a href="../interfaces/messageembedfooter.html" class="tsd-signature-type">MessageEmbedFooter</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/messageembedoptions.html">MessageEmbedOptions</a>.<a href="../interfaces/messageembedoptions.html#footer">footer</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/2cecd7b/src/structures/message/MessageEmbed.ts#L212">src/structures/message/MessageEmbed.ts:212</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/b48176d/src/structures/message/MessageEmbed.ts#L215">src/structures/message/MessageEmbed.ts:215</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -259,8 +236,9 @@
 					<h3>image</h3>
 					<div class="tsd-signature tsd-kind-icon">image<span class="tsd-signature-symbol">:</span> <a href="../interfaces/messageembedimage.html" class="tsd-signature-type">MessageEmbedImage</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/messageembedoptions.html">MessageEmbedOptions</a>.<a href="../interfaces/messageembedoptions.html#image">image</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/2cecd7b/src/structures/message/MessageEmbed.ts#L217">src/structures/message/MessageEmbed.ts:217</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/b48176d/src/structures/message/MessageEmbed.ts#L220">src/structures/message/MessageEmbed.ts:220</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -270,27 +248,13 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="message" class="tsd-anchor"></a>
-					<h3>message</h3>
-					<div class="tsd-signature tsd-kind-icon">message<span class="tsd-signature-symbol">:</span> <a href="message.html" class="tsd-signature-type">Message</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/2cecd7b/src/structures/message/MessageEmbed.ts#L177">src/structures/message/MessageEmbed.ts:177</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The <a href="message.html">Message</a> associated to this embed</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="provider" class="tsd-anchor"></a>
 					<h3>provider</h3>
 					<div class="tsd-signature tsd-kind-icon">provider<span class="tsd-signature-symbol">:</span> <a href="../interfaces/messageembedprovider.html" class="tsd-signature-type">MessageEmbedProvider</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/messageembedoptions.html">MessageEmbedOptions</a>.<a href="../interfaces/messageembedoptions.html#provider">provider</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/2cecd7b/src/structures/message/MessageEmbed.ts#L232">src/structures/message/MessageEmbed.ts:232</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/b48176d/src/structures/message/MessageEmbed.ts#L235">src/structures/message/MessageEmbed.ts:235</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -304,8 +268,9 @@
 					<h3>thumbnail</h3>
 					<div class="tsd-signature tsd-kind-icon">thumbnail<span class="tsd-signature-symbol">:</span> <a href="../interfaces/messageembedthumbnail.html" class="tsd-signature-type">MessageEmbedThumbnail</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/messageembedoptions.html">MessageEmbedOptions</a>.<a href="../interfaces/messageembedoptions.html#thumbnail">thumbnail</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/2cecd7b/src/structures/message/MessageEmbed.ts#L222">src/structures/message/MessageEmbed.ts:222</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/b48176d/src/structures/message/MessageEmbed.ts#L225">src/structures/message/MessageEmbed.ts:225</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -319,8 +284,9 @@
 					<h3>timestamp</h3>
 					<div class="tsd-signature tsd-kind-icon">timestamp<span class="tsd-signature-symbol">:</span> <a href="timestamp.html" class="tsd-signature-type">Timestamp</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/messageembedoptions.html">MessageEmbedOptions</a>.<a href="../interfaces/messageembedoptions.html#timestamp">timestamp</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/2cecd7b/src/structures/message/MessageEmbed.ts#L202">src/structures/message/MessageEmbed.ts:202</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/b48176d/src/structures/message/MessageEmbed.ts#L205">src/structures/message/MessageEmbed.ts:205</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -334,8 +300,9 @@
 					<h3>title</h3>
 					<div class="tsd-signature tsd-kind-icon">title<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/messageembedoptions.html">MessageEmbedOptions</a>.<a href="../interfaces/messageembedoptions.html#title">title</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/2cecd7b/src/structures/message/MessageEmbed.ts#L182">src/structures/message/MessageEmbed.ts:182</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/b48176d/src/structures/message/MessageEmbed.ts#L185">src/structures/message/MessageEmbed.ts:185</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -349,8 +316,9 @@
 					<h3>type</h3>
 					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <a href="../enums/messageembedtype.html" class="tsd-signature-type">MessageEmbedType</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/messageembedoptions.html">MessageEmbedOptions</a>.<a href="../interfaces/messageembedoptions.html#type">type</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/2cecd7b/src/structures/message/MessageEmbed.ts#L187">src/structures/message/MessageEmbed.ts:187</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/b48176d/src/structures/message/MessageEmbed.ts#L190">src/structures/message/MessageEmbed.ts:190</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -364,8 +332,9 @@
 					<h3>url</h3>
 					<div class="tsd-signature tsd-kind-icon">url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/messageembedoptions.html">MessageEmbedOptions</a>.<a href="../interfaces/messageembedoptions.html#url">url</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/2cecd7b/src/structures/message/MessageEmbed.ts#L197">src/structures/message/MessageEmbed.ts:197</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/b48176d/src/structures/message/MessageEmbed.ts#L200">src/structures/message/MessageEmbed.ts:200</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -379,8 +348,9 @@
 					<h3>video</h3>
 					<div class="tsd-signature tsd-kind-icon">video<span class="tsd-signature-symbol">:</span> <a href="../interfaces/messageembedvideo.html" class="tsd-signature-type">MessageEmbedVideo</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/messageembedoptions.html">MessageEmbedOptions</a>.<a href="../interfaces/messageembedoptions.html#video">video</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/2cecd7b/src/structures/message/MessageEmbed.ts#L227">src/structures/message/MessageEmbed.ts:227</a></li>
+							<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/b48176d/src/structures/message/MessageEmbed.ts#L230">src/structures/message/MessageEmbed.ts:230</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -392,72 +362,17 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-					<a name="clone" class="tsd-anchor"></a>
-					<h3>clone</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">clone<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Inherited from <a href="basestruct.html">BaseStruct</a>.<a href="basestruct.html#clone">clone</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/2cecd7b/src/structures/base/BaseStruct.ts#L55">src/structures/base/BaseStruct.ts:55</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Clone a structure</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-					<a name="update" class="tsd-anchor"></a>
-					<h3>update</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">update<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><a href="../globals.html#gatewaystruct" class="tsd-signature-type">GatewayStruct</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/updatereturn.html" class="tsd-signature-type">UpdateReturn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">this</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Inherited from <a href="basestruct.html">BaseStruct</a>.<a href="basestruct.html#update">update</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/2cecd7b/src/structures/base/BaseStruct.ts#L64">src/structures/base/BaseStruct.ts:64</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Update a structure and return its before and after versions</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>data: <a href="../globals.html#gatewaystruct" class="tsd-signature-type">GatewayStruct</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The updated data</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/updatereturn.html" class="tsd-signature-type">UpdateReturn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">this</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
 					<a name="datatostructure" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> data<wbr>ToStructure</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">data<wbr>ToStructure<span class="tsd-signature-symbol">(</span>embed<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/messageembeddata.html" class="tsd-signature-type">MessageEmbedData</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#gatewaystruct" class="tsd-signature-type">GatewayStruct</a></li>
+						<li class="tsd-signature tsd-kind-icon">data<wbr>ToStructure<span class="tsd-signature-symbol">(</span>embed<span class="tsd-signature-symbol">: </span><a href="../interfaces/messageembedoptions.html" class="tsd-signature-type">MessageEmbedOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#gatewaystruct" class="tsd-signature-type">GatewayStruct</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/2cecd7b/src/structures/message/MessageEmbed.ts#L314">src/structures/message/MessageEmbed.ts:314</a></li>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/b48176d/src/structures/message/MessageEmbed.ts#L315">src/structures/message/MessageEmbed.ts:315</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -468,13 +383,44 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>embed: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/messageembeddata.html" class="tsd-signature-type">MessageEmbedData</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>embed: <a href="../interfaces/messageembedoptions.html" class="tsd-signature-type">MessageEmbedOptions</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The embed data</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../globals.html#gatewaystruct" class="tsd-signature-type">GatewayStruct</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="from" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> from</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">from<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><a href="../interfaces/messageembedoptions.html" class="tsd-signature-type">MessageEmbedOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="messageembed.html" class="tsd-signature-type">MessageEmbed</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Alon-L/node-discord/blob/b48176d/src/structures/message/MessageEmbed.ts#L386">src/structures/message/MessageEmbed.ts:386</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new MessageEmbed object from the given message embed options</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>options: <a href="../interfaces/messageembedoptions.html" class="tsd-signature-type">MessageEmbedOptions</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The message embed</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="messageembed.html" class="tsd-signature-type">MessageEmbed</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -495,14 +441,11 @@
 					<li class="current tsd-kind-class">
 						<a href="messageembed.html" class="tsd-kind-icon">Message<wbr>Embed</a>
 						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
 								<a href="messageembed.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="messageembed.html#author" class="tsd-kind-icon">author</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="messageembed.html#bot" class="tsd-kind-icon">bot</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="messageembed.html#color" class="tsd-kind-icon">color</a>
@@ -518,9 +461,6 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="messageembed.html#image" class="tsd-kind-icon">image</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="messageembed.html#message" class="tsd-kind-icon">message</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="messageembed.html#provider" class="tsd-kind-icon">provider</a>
@@ -543,14 +483,11 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="messageembed.html#video" class="tsd-kind-icon">video</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="messageembed.html#clone" class="tsd-kind-icon">clone</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="messageembed.html#update" class="tsd-kind-icon">update</a>
-							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
 								<a href="messageembed.html#datatostructure" class="tsd-kind-icon">data<wbr>ToStructure</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="messageembed.html#from" class="tsd-kind-icon">from</a>
 							</li>
 						</ul>
 					</li>
