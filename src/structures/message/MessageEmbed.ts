@@ -174,6 +174,12 @@ export interface MessageEmbedOptions {
  */
 export class MessageEmbed implements MessageEmbedOptions {
   /**
+   * The structure used to initialize this MessageEmbed object
+   * @ignore
+   */
+  public structure!: GatewayStruct;
+
+  /**
    * Title of this embed
    */
   public title: string | undefined;
@@ -248,6 +254,8 @@ export class MessageEmbed implements MessageEmbedOptions {
    * @returns {this}
    */
   public init(embed: GatewayStruct): this {
+    this.structure = embed;
+
     this.title = embed.title;
     this.type = embed.type;
     this.description = embed.description;
