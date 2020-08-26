@@ -1,7 +1,6 @@
-import { Message } from './Message';
 import { Dimensions } from '../../types';
 import { Timestamp } from '../Timestamp';
-import { BaseStruct, GatewayStruct } from '../base';
+import { GatewayStruct } from '../base';
 
 /**
  * Embed types are "loosely defined" and, for the most part, are not used by our clients for rendering. Embed attributes power what is rendered. Embed types should be considered deprecated and might be removed in a future API version.
@@ -150,31 +149,35 @@ export interface MessageEmbedField {
   inline?: boolean;
 }
 
-export interface MessageEmbedData {
-  title: string;
-  type: string;
-  description: string;
-  url: string;
-  timestamp: number | Timestamp;
-  color: number;
-  footer: MessageEmbedFooter;
-  image: MessageEmbedImage;
-  thumbnail: MessageEmbedThumbnail;
-  video: MessageEmbedVideo;
-  provider: MessageEmbedProvider;
-  author: MessageEmbedAuthor;
-  fields: MessageEmbedField[];
+/**
+ * Options for when creating message embeds
+ */
+export interface MessageEmbedOptions {
+  title?: string;
+  type?: MessageEmbedType;
+  description?: string;
+  url?: string;
+  timestamp?: number | Timestamp;
+  color?: number;
+  footer?: MessageEmbedFooter;
+  image?: MessageEmbedImage;
+  thumbnail?: MessageEmbedThumbnail;
+  video?: MessageEmbedVideo;
+  provider?: MessageEmbedProvider;
+  author?: MessageEmbedAuthor;
+  fields?: MessageEmbedField[];
 }
 
 // TODO: Link this description to a guide page about Discord message embeds
 /**
  * Represents an embed contained in a {@link Message}
  */
-export class MessageEmbed extends BaseStruct implements Partial<MessageEmbedData> {
+export class MessageEmbed implements MessageEmbedOptions {
   /**
-   * The {@link Message} associated to this embed
+   * The structure used to initialize this MessageEmbed object
+   * @ignore
    */
-  public message: Message;
+  public structure!: GatewayStruct;
 
   /**
    * Title of this embed
@@ -241,11 +244,7 @@ export class MessageEmbed extends BaseStruct implements Partial<MessageEmbedData
    */
   public fields: MessageEmbedField[] | undefined;
 
-  constructor(message: Message, embed: GatewayStruct) {
-    super(message.bot, embed);
-
-    this.message = message;
-
+  constructor(embed: GatewayStruct) {
     this.init(embed);
   }
 
@@ -255,6 +254,8 @@ export class MessageEmbed extends BaseStruct implements Partial<MessageEmbedData
    * @returns {this}
    */
   public init(embed: GatewayStruct): this {
+    this.structure = embed;
+
     this.title = embed.title;
     this.type = embed.type;
     this.description = embed.description;
@@ -308,10 +309,10 @@ export class MessageEmbed extends BaseStruct implements Partial<MessageEmbedData
 
   /**
    * Returns the gateway structure of a given embed data
-   * @param {MessageEmbedData} embed The embed data
+   * @param {MessageEmbedOptions} embed The embed data
    * @returns {GatewayStruct}
    */
-  public static dataToStructure(embed: Partial<MessageEmbedData>): GatewayStruct {
+  public static dataToStructure(embed: MessageEmbedOptions): GatewayStruct {
     return {
       title: embed.title,
       type: embed.type,
@@ -375,5 +376,14 @@ export class MessageEmbed extends BaseStruct implements Partial<MessageEmbedData
       height: struct?.height,
       width: struct?.width,
     };
+  }
+
+  /**
+   * Creates a new MessageEmbed object from the given message embed options
+   * @param {MessageEmbedOptions} options The message embed
+   * @returns {MessageEmbed}
+   */
+  public static from(options: MessageEmbedOptions): MessageEmbed {
+    return new MessageEmbed(MessageEmbed.dataToStructure(options));
   }
 }
