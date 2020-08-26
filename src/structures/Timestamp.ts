@@ -17,11 +17,19 @@ export class Timestamp {
     }
   }
 
+  /**
+   * Returns the UNIX timestamp of this timestamp
+   * @returns {number | undefined}
+   */
   public unix(): number | undefined {
     return this.date ? Date.parse(this.date) : undefined;
   }
 
-  public ISO() {
-    if (this.date) return new Date(this.unix()!).toISOString();
+  /**
+   * Returns the ISO date of this timestamp
+   * @returns {string | undefined}
+   */
+  public get iso(): string | undefined {
+    return this.date ? new Date(this.date).toISOString() : undefined;
   }
 }
