@@ -1,9 +1,0 @@
-{
-     "editor.tabCompletion": "onlySnippets",
-     "editor.tabSize": 2,
-     "editor.detectIndentation": false,
-     "editor.insertSpaces": true,
-     "files.eol": "\n",
-     "typescript.format.semicolons": "insert",
-     "javascript.format.semicolons": "insert"
-}
