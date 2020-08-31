@@ -3,6 +3,7 @@ node_modules
 
 # Workspace configuration
 .idea
+.vscode
 
 # Images used for testing files
 tests/*.png
