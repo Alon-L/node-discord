@@ -31,9 +31,6 @@ export const enum BotSocketShardState {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type PayloadData = any;
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type OptionalLibrary = any;
-
 /**
  * A payload thats gonna be sent to the Discord API
  */
@@ -56,8 +53,8 @@ export type EventHandlers = Record<
 >;
 
 // Initializes variables for optional libraries
-let erlpack: OptionalLibrary | undefined;
-let zlib: OptionalLibrary | undefined;
+let erlpack: typeof import('erlpack') | undefined;
+let zlib: typeof import('zlib-sync') | undefined;
 
 /**
  * Connects every bot shard to a {@link WebSocket} with the Discord Gateway.
@@ -133,7 +130,7 @@ export class BotSocketShard {
   /**
    * The Inflate context used to compress incoming payloads
    */
-  private zlib: OptionalLibrary | undefined;
+  private zlib: import('zlib-sync').Inflate | undefined;
 
   constructor(botSocket: BotSocket, token: string, shard: ShardOptions) {
     this.botSocket = botSocket;
@@ -169,7 +166,7 @@ export class BotSocketShard {
       zlib = require('zlib-sync');
 
       // Create new Inflate context
-      this.zlib = new zlib.Inflate({
+      this.zlib = new zlib!.Inflate({
         chunkSize: 128 * 1024,
         windowBits: 32,
       });

@@ -5,14 +5,14 @@ import Connection from './Connection';
 import { BotEvent } from '../../socket';
 
 let LibSodium: typeof import('sodium-native');
-let Opusscript: typeof import('opusscript');
+let OpusScript: typeof import('opusscript').OpusScript;
 
 try {
-  LibSodium = require("sodium-native") //eslint-disable-line
+  LibSodium = require("sodium-native") as typeof import('sodium-native'); //eslint-disable-line
 } catch (err) {} //eslint-disable-line
 
 try {
-  Opusscript = require("opusscript") //eslint-disable-line
+  OpusScript = require("opusscript").OpusScript  //eslint-disable-line
 } catch (err) {} //eslint-disable-line
 
 export default class UDPSocket extends EventEmitter {
@@ -36,17 +36,11 @@ export default class UDPSocket extends EventEmitter {
    */
   public OpusOut = new Readable();
 
-  private OpusEncoder = new Opusscript(
-    Opusscript.VALID_SAMPLING_RATES[4],
-    2,
-    Opusscript.Application.AUDIO,
-  );
+  private OpusEncoder!: import('opusscript').OpusScript;
 
   constructor(connection: Connection) {
     super();
     this.connection = connection;
-
-    this.OpusEncoder.encoderCTL(4002, 64000);
 
     this.socket = createSocket('udp4');
   }
@@ -81,6 +75,19 @@ export default class UDPSocket extends EventEmitter {
   }
 
   start(): void {
+    if (!OpusScript) throw new Error('OpusScript not found!');
+    if (!LibSodium) throw new Error('LibSodium not found!');
+
+    if (!this.OpusEncoder) {
+      this.OpusEncoder = new OpusScript(
+        OpusScript.VALID_SAMPLING_RATES[4],
+        2,
+        OpusScript.Application.AUDIO,
+      );
+
+      this.OpusEncoder.encoderCTL(4002, 64000);
+    }
+
     this.socket.on('message', message => {
       const data = this.decryptPackage(message);
 
