@@ -8,7 +8,7 @@ export default ({ d }: Payload, bot: Bot, socket: BotSocketShard): void => {
 
   socket.sessionId = sessionId;
 
-  const guild = Guild.create(bot, d);
+  const guild = Guild.create(bot, d, socket.shard.id);
 
   if (guild instanceof Guild) {
     // Delete the guild from the unavailable guilds collection if exists

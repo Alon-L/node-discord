@@ -1,7 +1,9 @@
 import { Bot } from './Bot';
+import Collection from '../Collection';
 import { ShardCommunicationAction, ShardDisconnectAllRequest } from '../sharding';
-import { BotSocket, GatewayCloseCode } from '../socket';
+import { BotSocket, BotSocketShard, GatewayCloseCode } from '../socket';
 import { GatewayStruct } from '../structures';
+import { ShardId } from '../types';
 
 /**
  * Responsible for the creation and closure of the WebSocket connection to the Discord API gateway
@@ -55,5 +57,9 @@ export class BotConnection {
    */
   public modifyPresence(presence: GatewayStruct): void {
     this.socket.modifyPresence(presence);
+  }
+
+  public get shards(): Collection<ShardId, BotSocketShard> {
+    return this.socket.shards;
   }
 }

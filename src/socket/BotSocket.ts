@@ -26,7 +26,7 @@ interface GatewayBot {
  */
 export class BotSocket {
   private readonly token: string;
-  private readonly shards: Collection<ShardId, BotSocketShard>;
+  public readonly shards: Collection<ShardId, BotSocketShard>;
   public readonly bot: Bot;
   public gatewayURL!: string;
   public sessionStartLimit!: SessionStartLimit;
@@ -135,14 +135,26 @@ export class BotSocket {
   /**
    * Modifies the presence of the bot
    * @param {GatewayStruct} presence The new presence for the bot
+   * @param {number} [shardId] The shard id thats gonna be affected
    * @returns {void}
    */
-  public modifyPresence(presence: GatewayStruct): void {
-    for (const [, shard] of this.shards) {
+  public modifyPresence(presence: GatewayStruct, shardId?: number): void {
+    if (shardId) {
+      const shard = this.shards.get(shardId);
+
+      if (!shard) return;
+
       shard.send({
         op: OPCode.PresenceUpdate,
         d: presence,
       } as Payload);
+    } else {
+      for (const [, shard] of this.shards) {
+        shard.send({
+          op: OPCode.PresenceUpdate,
+          d: presence,
+        } as Payload);
+      }
     }
   }
 

@@ -35,11 +35,17 @@ export type PayloadData = any;
 export type OptionalLibrary = any;
 
 /**
- * A payload received from the Discord API gateway
+ * A payload thats gonna be sent to the Discord API
  */
-export interface Payload {
+export interface GatewayCommand {
   op: OPCode;
   d: PayloadData;
+}
+
+/**
+ * A payload received from the Discord API gateway
+ */
+export interface Payload extends GatewayCommand {
   s: number;
   t: GatewayEvent;
 }
@@ -459,7 +465,7 @@ export class BotSocketShard {
    * @param {unknown} data The data
    * @returns {void}
    */
-  public send(data: unknown): void {
+  public send(data: GatewayCommand): void {
     return this.ws.send(this.pack(data));
   }
 
@@ -483,7 +489,7 @@ export class BotSocketShard {
    * @param {any} data Data to be transferred and sent to the gateway
    * @returns {string}
    */
-  public pack(data: unknown): Buffer | string | undefined {
+  public pack(data: GatewayCommand): Buffer | string | undefined {
     return this.options.encoding === 'etf' ? erlpack?.pack(data) : JSON.stringify(data);
   }
 

@@ -4,5 +4,5 @@ export * from './GuildCategoryChannel';
 export * from './GuildChannel';
 export * from './GuildTextChannel';
 export * from './TextChannel';
-
+export * from './GuildVoiceChannel';
 export * from './utils';

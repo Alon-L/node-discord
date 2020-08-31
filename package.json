@@ -48,7 +48,9 @@
   },
   "peerDependencies": {
     "erlpack": "^0.1.3",
-    "zlib-sync": "^0.1.7"
+    "zlib-sync": "^0.1.7",
+    "opusscript": "0.0.7",
+    "sodium-native": "^3.2.0"
   },
   "peerDependenciesMeta": {
     "erlpack": {
@@ -56,9 +58,16 @@
     },
     "zlib-sync": {
       "optional": true
+    },
+    "opusscript": {
+      "optional": true
+    },
+    "sodium-native": {
+      "optional": true
     }
   },
   "devDependencies": {
+    "@types/sodium-native": "^2.3.5",
     "@commitlint/cli": "^9.1.2",
     "@commitlint/config-conventional": "^9.1.2",
     "@types/jest": "^26.0.10",

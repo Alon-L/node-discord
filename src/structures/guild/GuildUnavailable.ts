@@ -19,8 +19,15 @@ export class GuildUnavailable extends BaseStruct {
    */
   public unavailable: boolean | undefined;
 
-  constructor(bot: Bot, guild: GatewayStruct) {
+  /**
+   * The id of the shard which belongs to this guild
+   */
+  public shardId: number | undefined;
+
+  constructor(bot: Bot, guild: GatewayStruct, shardId?: number) {
     super(bot, guild);
+
+    this.shardId = shardId;
 
     this.init(guild);
   }

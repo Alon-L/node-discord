@@ -11,9 +11,7 @@ export default async ({ d }: Payload, bot: Bot): Promise<void> => {
 
   const { before, after } = member.update({
     nick: member.nick,
-    joined_at: member.joinedAt.date,
-    deaf: member.deaf,
-    mute: member.mute,
+    joined_at: member.joinedAt.date, // Removed deaf and muted from since they belong to the voice state
     ...d,
   });
 

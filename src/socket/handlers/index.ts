@@ -31,3 +31,5 @@ export { default as PRESENCE_UPDATE } from './presenceUpdate';
 export { default as TYPING_START } from './typingStart';
 export { default as USER_UPDATE } from './userUpdate';
 export { default as WEBHOOKS_UPDATE } from './webhooksUpdate';
+export { default as VOICE_SERVER_UPDATE } from './voiceServerUpdate';
+export { default as VOICE_STATE_UPDATE } from './voiceStateUpdate';
