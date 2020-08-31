@@ -47,7 +47,7 @@
     "ws": "^7.3.1"
   },
   "peerDependencies": {
-    "erlpack": "^0.1.3",
+    "erlpack": "git+https://github.com/discord/erlpack.git",
     "zlib-sync": "^0.1.7",
     "opusscript": "0.0.7",
     "sodium-native": "^3.2.0"
@@ -67,13 +67,13 @@
     }
   },
   "devDependencies": {
-    "@types/sodium-native": "^2.3.5",
     "@commitlint/cli": "^9.1.2",
     "@commitlint/config-conventional": "^9.1.2",
     "@types/jest": "^26.0.10",
     "@types/mime-types": "^2.1.0",
     "@types/node": "^14.6.0",
     "@types/node-fetch": "^2.5.7",
+    "@types/sodium-native": "^2.3.5",
     "@types/ws": "^7.2.6",
     "@typescript-eslint/eslint-plugin": "^3.10.0",
     "@typescript-eslint/parser": "^3.10.0",
