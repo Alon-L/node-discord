@@ -1,12 +1,14 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "target": "es6",
+    "target": "es2019",
     "declaration": true,
     "outDir": "./lib",
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "strict": true
+    "strict": true,
+    "lib": ["es2019", "es2020.bigint", "es2020.string", "es2020.symbol.wellknown"],
+    "types": ["node"]
   },
   "include": [
     "src"
