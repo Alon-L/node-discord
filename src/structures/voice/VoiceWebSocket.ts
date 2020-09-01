@@ -1,7 +1,7 @@
 import { EventEmitter } from 'events';
 import WebSocket from 'ws';
-import Connection from './Connection';
-import VoiceHeartbeats from './VoiceHeartbeats';
+import { Connection } from './Connection';
+import { VoiceHeartbeats } from './VoiceHeartbeats';
 import { PayloadData } from '../../socket';
 
 export enum VOICE_OPCODES {
@@ -33,7 +33,7 @@ export interface VoicePayload extends VoiceCommand {
   s: number;
 }
 
-export default class VoiceWebSocket extends EventEmitter {
+export class VoiceWebSocket extends EventEmitter {
   public connection: Connection;
 
   private ws?: WebSocket;

@@ -1,8 +1,8 @@
-import GuildVoice from './GuildVoice';
-import UDPSocket from './UDPSocket';
-import VoiceWebSocket from './VoiceWebSocket';
+import { GuildVoice } from './GuildVoice';
+import { UDPSocket } from './UDPSocket';
+import { VoiceWebSocket } from './VoiceWebSocket';
 
-export default class Connection {
+export class Connection {
   public sockets!: {
     ws: VoiceWebSocket;
     udp: UDPSocket;

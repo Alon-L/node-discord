@@ -1,7 +1,7 @@
 import { createSocket, Socket } from 'dgram';
 import { EventEmitter } from 'events';
 import { Readable } from 'stream';
-import Connection from './Connection';
+import { Connection } from './Connection';
 import { BotEvent } from '../../socket';
 
 let LibSodium: typeof import('sodium-native');
@@ -15,7 +15,7 @@ try {
   OpusScript = require("opusscript").OpusScript  //eslint-disable-line
 } catch (err) {} //eslint-disable-line
 
-export default class UDPSocket extends EventEmitter {
+export class UDPSocket extends EventEmitter {
   public connection: Connection;
 
   public socket: Socket;

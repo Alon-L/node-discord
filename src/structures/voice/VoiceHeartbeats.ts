@@ -1,4 +1,4 @@
-import VoiceWebSocket from './VoiceWebSocket';
+import { VoiceWebSocket } from './VoiceWebSocket';
 
 interface HeartbeatData {
   op: 3;
@@ -13,7 +13,7 @@ interface HeartbeatInterval {
 /**
  * Handles the sending and receiving of Discord heartbeats
  */
-export default class VoiceHeartbeats {
+export class VoiceHeartbeats {
   private readonly ws: VoiceWebSocket;
   private readonly sequence: number | null;
   private acked: boolean;

@@ -26,8 +26,8 @@ import { GuildChannel, GuildTextChannel } from '../channels';
 import { ChannelUtils } from '../channels/utils';
 import { GuildSystemChannelFlags, PermissionFlags } from '../flags';
 import { Member, MemberPresence } from '../member';
-import GuildVoice from '../voice/GuildVoice';
-import VoiceState from '../voice/VoiceState';
+import { GuildVoice } from '../voice/GuildVoice';
+import { VoiceState } from '../voice/VoiceState';
 
 /**
  * Guild verification levels
