@@ -514,6 +514,25 @@ export class Guild extends GuildPreview {
       }
     }
 
+    const nonVoicedMembers = this.members.cache
+      .filter(x => !x.voice)
+      .map<Member & { mute: boolean; deaf: boolean }>(x =>
+        Object.assign(
+          x,
+          guild.members.find((y: { id: Snowflake; mute: boolean; deaf: boolean }) => y.id === x.id),
+        ),
+      ).toArray;
+
+    for (const nonVoiceMember of nonVoicedMembers) {
+      this.voiceStates.set(
+        nonVoiceMember.id,
+        new VoiceState(this.bot, nonVoiceMember, {
+          deaf: nonVoiceMember.deaf,
+          mute: nonVoiceMember.mute,
+        }),
+      );
+    }
+
     this.owner = this.members.cache.get(guild.owner_id);
     this.ownerId = guild.owner_id;
 

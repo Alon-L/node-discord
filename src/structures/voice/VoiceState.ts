@@ -2,6 +2,7 @@ import { Bot } from '../../bot';
 import { Nullable, Snowflake } from '../../types';
 import { BaseStruct, GatewayStruct } from '../base';
 import { GuildVoiceChannel } from '../channels/GuildVoiceChannel';
+import { MuteFlags, MUTE_STATE } from '../flags/MuteFlags';
 import { Member } from '../member';
 
 interface VoiceStateData {
@@ -18,22 +19,14 @@ interface VoiceStateData {
   suppress: boolean;
 }
 
-enum MUTE_STATE {
-  SELF,
-  FORCE,
-  NONE,
-}
-
 export class VoiceState extends BaseStruct {
   private channelId!: Nullable<Snowflake>;
   public sessionId!: string;
-  public deafen!: MUTE_STATE;
-  public muted!: MUTE_STATE;
+  public deafen!: MuteFlags;
+  public muted!: MuteFlags;
   public member: Member;
 
-  static MUTE_STATE = MUTE_STATE;
-
-  constructor(bot: Bot, member: Member, voiceState: GatewayStruct) {
+  constructor(bot: Bot, member: Member, voiceState: GatewayStruct & Partial<VoiceStateData>) {
     super(bot, voiceState);
 
     this.member = member;
@@ -42,17 +35,21 @@ export class VoiceState extends BaseStruct {
   }
 
   public init(voiceState: VoiceStateData): this {
-    if (voiceState.self_mute) this.muted = MUTE_STATE.SELF;
-    else if (voiceState.mute) this.muted = MUTE_STATE.FORCE;
-    else this.muted = MUTE_STATE.NONE;
+    if (voiceState.self_mute) this.muted = new MuteFlags(MUTE_STATE.SELF);
+    if (voiceState.mute) this.muted = new MuteFlags(MUTE_STATE.FORCE);
 
-    if (voiceState.self_deaf) this.deafen = MUTE_STATE.SELF;
-    else if (voiceState.deaf) this.deafen = MUTE_STATE.FORCE;
-    else this.deafen = MUTE_STATE.NONE;
+    if (voiceState.self_deaf) new MuteFlags(MUTE_STATE.SELF);
+    if (voiceState.deaf) this.deafen = new MuteFlags(MUTE_STATE.FORCE);
 
     this.channelId = voiceState.channel_id;
 
+    this.sessionId = voiceState.session_id;
+
     return this;
+  }
+
+  isOnVoice(): boolean {
+    return !!this.sessionId;
   }
 
   get currentChannel(): Nullable<GuildVoiceChannel> {
