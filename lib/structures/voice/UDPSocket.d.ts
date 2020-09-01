@@ -2,8 +2,8 @@
 import { Socket } from 'dgram';
 import { EventEmitter } from 'events';
 import { Readable } from 'stream';
-import Connection from './Connection';
-export default class UDPSocket extends EventEmitter {
+import { Connection } from './Connection';
+export declare class UDPSocket extends EventEmitter {
     connection: Connection;
     socket: Socket;
     private auth?;

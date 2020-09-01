@@ -6,7 +6,7 @@ import { Channel, GuildChannel } from '../../../structures/channels';
 import { Guild, GuildUnavailable, GuildBan } from '../../../structures/guild';
 import { Member, MemberPresence } from '../../../structures/member';
 import { Message, PartialMessage, MessageReaction } from '../../../structures/message';
-import VoiceState from '../../../structures/voice/VoiceState';
+import { VoiceState } from '../../../structures/voice/VoiceState';
 import { Snowflake } from '../../../types';
 /**
  * Sent when all shards become ready

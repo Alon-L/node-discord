@@ -1,11 +1,11 @@
-import Connection from './Connection';
+import { Connection } from './Connection';
 import { Guild } from '..';
 import { Bot } from '../../bot';
 import { Snowflake } from '../../types';
 /**
  * Represents a voice connection of a guild
  */
-export default class GuildVoice {
+export declare class GuildVoice {
     /**
      * The {@link Bot} operating this structure
      */
