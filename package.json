@@ -14,7 +14,6 @@
     "lint": "eslint src --ext .ts --ext .js",
     "lint:fix": "eslint --fix src --ext .ts --ext .js",
     "docs:generate": "typedoc --options typedoc.json",
-    "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run lint",
     "preversion": "npm run lint",
     "version": "npm run lint:fix && git add -A src",
