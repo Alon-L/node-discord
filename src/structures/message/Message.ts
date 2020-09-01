@@ -435,6 +435,6 @@ export class Message extends BaseStruct {
    */
   get member(): Member | undefined {
     if (this.channel.type === ChannelType.DM) return undefined;
-    else (<GuildTextChannel>this.channel).guild.members.cache.get(this.author!.id);
+    else return (<GuildTextChannel>this.channel).guild.members.cache.get(this.author!.id);
   }
 }
