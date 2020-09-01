@@ -165,11 +165,6 @@ export declare class Message extends BaseStruct {
      */
     author: User | undefined;
     /**
-     * The member properties for this message's author.
-     * Might not exist if message was sent over a DM
-     */
-    member: Member | undefined;
-    /**
      * The content of the message
      */
     content: string;
@@ -291,5 +286,10 @@ export declare class Message extends BaseStruct {
      * @returns {Promise<void>}
      */
     unpin(): Promise<void>;
+    /**
+     * The member properties for this message's author.
+     * Might not exist if message was sent over a DM
+     */
+    get member(): Member | undefined;
 }
 export {};
