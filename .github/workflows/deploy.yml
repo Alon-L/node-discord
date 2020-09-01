@@ -28,3 +28,5 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           BRANCH: gh-pages
           FOLDER: docs
+          GIT_CONFIG_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+          GIT_CONFIG_NAME: github-actions[bot]
