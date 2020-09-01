@@ -155,8 +155,8 @@ export class Bot {
     const shardAmount = parseInt(process.env.SHARDS_AMOUNT as string);
 
     this.shardOptions = {
-      id: shardId,
-      amount: shardAmount,
+      id: shardId || 0,
+      amount: shardAmount || 1,
     };
 
     this.commands = new CommandsHandler();
