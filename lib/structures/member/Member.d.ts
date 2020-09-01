@@ -7,7 +7,7 @@ import { Timestamp } from '../Timestamp';
 import { User } from '../User';
 import { GatewayStruct, BaseGuildStruct } from '../base';
 import { Guild } from '../guild';
-import VoiceState from '../voice/VoiceState';
+import { VoiceState } from '../voice/VoiceState';
 /**
  * Options used when modifying a guild member
  */

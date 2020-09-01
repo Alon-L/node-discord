@@ -1,7 +1,7 @@
 import { Bot } from '../../bot';
 import { Nullable, Snowflake } from '../../types';
 import { BaseStruct, GatewayStruct } from '../base';
-import GuildVoiceChannel from '../channels/GuildVoiceChannel';
+import { GuildVoiceChannel } from '../channels/GuildVoiceChannel';
 import { Member } from '../member';
 interface VoiceStateData {
     guild_id: Snowflake;
@@ -21,7 +21,7 @@ declare enum MUTE_STATE {
     FORCE = 1,
     NONE = 2
 }
-export default class VoiceState extends BaseStruct {
+export declare class VoiceState extends BaseStruct {
     private channelId;
     sessionId: string;
     deafen: MUTE_STATE;

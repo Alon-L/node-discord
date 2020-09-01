@@ -1,6 +1,6 @@
 /// <reference types="node" />
 import { EventEmitter } from 'events';
-import Connection from './Connection';
+import { Connection } from './Connection';
 import { PayloadData } from '../../socket';
 export declare enum VOICE_OPCODES {
     IDENTIFY = 0,
@@ -28,7 +28,7 @@ export interface VoiceCommand {
 export interface VoicePayload extends VoiceCommand {
     s: number;
 }
-export default class VoiceWebSocket extends EventEmitter {
+export declare class VoiceWebSocket extends EventEmitter {
     connection: Connection;
     private ws?;
     private hearbeat?;

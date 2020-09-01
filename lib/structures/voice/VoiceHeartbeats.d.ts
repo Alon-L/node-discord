@@ -1,5 +1,5 @@
 /// <reference types="node" />
-import VoiceWebSocket from './VoiceWebSocket';
+import { VoiceWebSocket } from './VoiceWebSocket';
 interface HeartbeatInterval {
     timeout: number;
     executor?: NodeJS.Timeout;
@@ -7,7 +7,7 @@ interface HeartbeatInterval {
 /**
  * Handles the sending and receiving of Discord heartbeats
  */
-export default class VoiceHeartbeats {
+export declare class VoiceHeartbeats {
     private readonly ws;
     private readonly sequence;
     private acked;

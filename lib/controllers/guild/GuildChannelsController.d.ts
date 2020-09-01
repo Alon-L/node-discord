@@ -1,6 +1,6 @@
 import Collection from '../../Collection';
 import { Positions } from '../../api';
-import { GuildChannel, CreateGuildChannelOptions, GuildTextChannel } from '../../structures/channels';
+import { GuildChannel, CreateGuildChannelOptions, GuildTextChannel, GuildVoiceChannel } from '../../structures/channels';
 import { Guild } from '../../structures/guild';
 import { Snowflake } from '../../types';
 import { BaseCreateController, BaseDeleteController, BaseFetchAllController, BaseFetchController } from '../base';
@@ -20,6 +20,12 @@ export declare class GuildChannelsController extends BaseFetchController<GuildCh
      * @returns {Promise<TextBasedChannel>}
      */
     getText(id: Snowflake): Promise<GuildTextChannel>;
+    /**
+     * Gets or fetches a guild voice channel by its ID
+     * @param {Snowflake} id The ID of the guild voice channel
+     * @returns {Promise<GuildVoiceChannel>}
+     */
+    getVoice(id: Snowflake): Promise<GuildVoiceChannel>;
     /**
      * Creates a new guild channel in the guild associated to this controller.
      * Requires the {@link Permission.ManageChannels}

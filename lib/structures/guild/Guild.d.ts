@@ -14,8 +14,8 @@ import { GatewayStruct } from '../base';
 import { GuildChannel, GuildTextChannel } from '../channels';
 import { GuildSystemChannelFlags, PermissionFlags } from '../flags';
 import { Member, MemberPresence } from '../member';
-import GuildVoice from '../voice/GuildVoice';
-import VoiceState from '../voice/VoiceState';
+import { GuildVoice } from '../voice/GuildVoice';
+import { VoiceState } from '../voice/VoiceState';
 /**
  * Guild verification levels
  */
