@@ -14,7 +14,7 @@ import { Channel, GuildChannel } from '../../../structures/channels';
 import { Guild, GuildUnavailable, GuildBan } from '../../../structures/guild';
 import { Member, MemberPresence } from '../../../structures/member';
 import { Message, PartialMessage, MessageReaction } from '../../../structures/message';
-import VoiceState from '../../../structures/voice/VoiceState';
+import { VoiceState } from '../../../structures/voice/VoiceState';
 import { Snowflake } from '../../../types';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
