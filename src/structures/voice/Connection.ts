@@ -26,6 +26,8 @@ export class Connection {
   public set endpoint(val: string) {
     if (this._endpoint === val) return;
     else {
+      this._endpoint = val;
+
       if (this.sockets.ws) {
         this.sockets.ws.close();
         this.sockets.ws.removeAllListeners();
@@ -41,6 +43,8 @@ export class Connection {
         ws: new VoiceWebSocket(this),
         udp: new UDPSocket(this),
       };
+
+      this.sockets.ws.open();
     }
   }
 

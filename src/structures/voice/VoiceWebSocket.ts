@@ -58,24 +58,26 @@ export class VoiceWebSocket extends EventEmitter {
     this.ws.on('message', this.onMessage.bind(this));
 
     this.hearbeat = new VoiceHeartbeats(this);
-
-    this.send({
-      op: VOICE_OPCODES.IDENTIFY,
-      d: {
-        server_id: this.connection.voice.guild.id,
-        user_id: this.connection.voice.bot.user!.id,
-        session_id: this.connection.voice.guild.shard.sessionId,
-        token: this.connection.token,
-      },
-    });
   }
 
   private async onMessage(message: VoicePayload) {
     this.sequnce = message.s;
+
+    this.connection.voice.bot.debug(message.op, VOICE_OPCODES[message.op], 'op - t');
+
     switch (message.op) {
       case VOICE_OPCODES.HELLO: {
         this.hearbeat!.interval.timeout = message.d.heartbeat_interval;
         this.hearbeat!.start();
+        this.send({
+          op: VOICE_OPCODES.IDENTIFY,
+          d: {
+            server_id: this.connection.voice.guild.id,
+            user_id: this.connection.voice.bot.user!.id,
+            session_id: this.connection.voice.guild.shard.sessionId,
+            token: this.connection.token,
+          },
+        });
         break;
       }
 
@@ -102,6 +104,7 @@ export class VoiceWebSocket extends EventEmitter {
 
       case VOICE_OPCODES.SESSION_DESCRIPTION: {
         this.connection.sockets.udp.secretKeys = Buffer.from(message.d.secret_keys as number[]);
+        this.connection.sockets.udp.start();
         break;
       }
     }
