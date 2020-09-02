@@ -28,17 +28,7 @@ export class GuildVoice {
   }
 
   join(channelId: Snowflake, options: { mute?: boolean; deaf?: boolean }): Promise<Connection> {
-    this.guild.shard.send({
-      op: 2,
-      d: {
-        guild_id: this.guild.id,
-        channel_id: channelId,
-        self_mute: !!options.mute,
-        self_deaf: !!options.deaf,
-      },
-    });
-
-    return new Promise(resolve => {
+    return new Promise<Connection>(resolve => {
       const listener = ((guild: Guild, voiceServer: { token: string; endpoint: string }) => {
         if (guild.id === this.guild.id) {
           this.connection.endpoint = voiceServer.endpoint;
@@ -52,6 +42,16 @@ export class GuildVoice {
       }).bind(this);
 
       this.bot.events.on(BotEvent.VoiceServerUpdate, listener);
+
+      this.bot.connection.shards.first!.send({
+        op: 4,
+        d: {
+          guild_id: this.guild.id,
+          channel_id: channelId,
+          self_mute: !!options.mute,
+          self_deaf: !!options.deaf,
+        },
+      });
     });
   }
 }
