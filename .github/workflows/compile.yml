@@ -29,7 +29,7 @@ jobs:
         with:
           add: 'lib'
           force: true
-          message: 'ci(Compile): Compile the project @ $GITHUB_SHA'
+          message: 'ci(Compile): Compile the project @ $env:GITHUB_SHA'
           author_email: 41898282+github-actions[bot]@users.noreply.github.com
           author_name: github-actions[bot]
         env:
