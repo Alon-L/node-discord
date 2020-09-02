@@ -1,13 +1,9 @@
 import { Flags } from './Flags';
 
-export enum MUTE_STATE {
+export enum MuteState {
   SELF = 1 << 2,
   FORCE = 1 << 1,
+  NONE = 1 << 0,
 }
 
-export class MuteFlags extends Flags<MUTE_STATE> {
-  // Mute flags are the states of mutes and deafens
-  constructor(flags: number) {
-    super(flags);
-  }
-}
+export class MuteFlags extends Flags<MuteState> {}

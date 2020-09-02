@@ -2,7 +2,7 @@ import { Bot } from '../../bot';
 import { Nullable, Snowflake } from '../../types';
 import { BaseStruct, GatewayStruct } from '../base';
 import { GuildVoiceChannel } from '../channels/GuildVoiceChannel';
-import { MuteFlags, MUTE_STATE } from '../flags/MuteFlags';
+import { MuteFlags, MuteState } from '../flags/MuteFlags';
 import { Member } from '../member';
 
 interface VoiceStateData {
@@ -35,11 +35,11 @@ export class VoiceState extends BaseStruct {
   }
 
   public init(voiceState: VoiceStateData): this {
-    if (voiceState.self_mute) this.muted = new MuteFlags(MUTE_STATE.SELF);
-    if (voiceState.mute) this.muted = new MuteFlags(MUTE_STATE.FORCE);
+    if (voiceState.self_mute) this.muted = new MuteFlags(MuteState.SELF);
+    if (voiceState.mute) this.muted = new MuteFlags(MuteState.FORCE);
 
-    if (voiceState.self_deaf) new MuteFlags(MUTE_STATE.SELF);
-    if (voiceState.deaf) this.deafen = new MuteFlags(MUTE_STATE.FORCE);
+    if (voiceState.self_deaf) new MuteFlags(MuteState.SELF);
+    if (voiceState.deaf) this.deafen = new MuteFlags(MuteState.FORCE);
 
     this.channelId = voiceState.channel_id;
 
