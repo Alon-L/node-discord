@@ -107,7 +107,7 @@ export class VoiceWebSocket extends EventEmitter {
       }
 
       case VOICE_OPCODES.SESSION_DESCRIPTION: {
-        this.connection.sockets.udp.secretKeys = Buffer.from(message.d.secret_keys as number[]);
+        this.connection.sockets.udp.secretKeys = Buffer.from(message.d.secret_key as number[]);
         this.connection.sockets.udp.start();
         break;
       }
