@@ -12,6 +12,7 @@ tests/*.gif
 
 # Compiled output
 /lib
+/dist
 
 # Test bot credentials
 tests/config.json

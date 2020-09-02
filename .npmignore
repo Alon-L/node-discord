@@ -8,3 +8,4 @@ tests
 jest.config.js
 typedoc.json
 tsconfig.json
+dist

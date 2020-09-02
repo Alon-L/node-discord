@@ -37,7 +37,7 @@ jobs:
         run: npm ci
 
       - name: Build package
-        run: npm run build
+        run: npm run ci:build
 
   jest:
     name: Jest

@@ -19,7 +19,7 @@ jobs:
         run: npm ci
 
       - name: Build package
-        run: npm run build
+        run: npm run ci:build
         
       - name: Commit
         uses: EndBug/add-and-commit@v4

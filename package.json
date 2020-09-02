@@ -10,6 +10,7 @@
   "scripts": {
     "start": "ts-node src/index.ts",
     "build": "tsc",
+    "ci:build": "tsc --outDir ./lib",
     "test": "jest",
     "lint": "eslint src --ext .ts --ext .js",
     "lint:fix": "eslint --fix src --ext .ts --ext .js",
