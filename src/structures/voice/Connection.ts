@@ -3,7 +3,10 @@ import { UDPSocket } from './UDPSocket';
 import { VoiceWebSocket } from './VoiceWebSocket';
 
 export class Connection {
-  public sockets!: {
+  public sockets: {
+    ws: VoiceWebSocket;
+    udp: UDPSocket;
+  } = {} as {
     ws: VoiceWebSocket;
     udp: UDPSocket;
   };
