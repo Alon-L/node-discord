@@ -1,7 +1,7 @@
 import { createSocket, Socket } from 'dgram';
 import { EventEmitter } from 'events';
-import { Readable } from 'stream';
 import { Connection } from './Connection';
+import { VoiceStream } from './VoiceStream';
 import { BotEvent } from '../../socket';
 
 let LibSodium: typeof import('sodium-native');
@@ -29,12 +29,12 @@ export class UDPSocket extends EventEmitter {
   /**
    * PCM Raw
    */
-  public PCMOut = new Readable();
+  public PCMOut = new VoiceStream();
 
   /**
    * Opus Encoded
    */
-  public OpusOut = new Readable();
+  public OpusOut = new VoiceStream();
 
   private OpusEncoder!: import('opusscript').OpusScript;
 
