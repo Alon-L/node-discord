@@ -18,15 +18,18 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Remove the old release
+        run: rm -rf ./lib
+
       - name: Build package
         run: npm run ci:build
-        
+          
       - name: Commit
         uses: EndBug/add-and-commit@v4
         with:
           add: 'lib'
           force: true
-          message: 'ci(Compile): compiled latest push'
+          message: 'ci(Compile): Compile the project @ $GITHUB_SHA'
           author_email: 41898282+github-actions[bot]@users.noreply.github.com
           author_name: github-actions[bot]
         env:
