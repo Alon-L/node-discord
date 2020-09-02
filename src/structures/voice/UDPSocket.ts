@@ -2,8 +2,6 @@ import { createSocket, Socket } from 'dgram';
 import { EventEmitter } from 'events';
 import { Connection } from './Connection';
 import { Readable } from './Readable';
-import { BotEvent } from '../../socket';
-
 let LibSodium: typeof import('sodium-native');
 let OpusScript: typeof import('opusscript').OpusScript;
 
@@ -12,7 +10,7 @@ try {
 } catch (err) {} //eslint-disable-line
 
 try {
-  OpusScript = require("opusscript").OpusScript  //eslint-disable-line
+  OpusScript = require("opusscript")  //eslint-disable-line
 } catch (err) {} //eslint-disable-line
 
 export class UDPSocket extends EventEmitter {
@@ -91,11 +89,14 @@ export class UDPSocket extends EventEmitter {
     this.socket.on('message', message => {
       const data = this.decryptPackage(message);
 
-      if (data instanceof Error) return this.connection.voice.bot.events.emit(BotEvent.Debug, data);
+      if (data instanceof Error) return this.connection.voice.bot.debug('Error:', data);
 
-      this.OpusOut.push(data);
-
-      this.PCMOut.push(this.OpusEncoder.decode(data));
+      try {
+        this.PCMOut.push(this.OpusEncoder.decode(data));
+        this.OpusOut.push(data);
+      } catch (error) {
+        this.connection.voice.bot.debug('Error: ' + error);
+      }
     });
   }
 
