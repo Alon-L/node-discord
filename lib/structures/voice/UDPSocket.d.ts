@@ -1,8 +1,8 @@
 /// <reference types="node" />
 import { Socket } from 'dgram';
 import { EventEmitter } from 'events';
-import { Readable } from 'stream';
 import { Connection } from './Connection';
+import { VoiceStream } from './VoiceStream';
 export declare class UDPSocket extends EventEmitter {
     connection: Connection;
     socket: Socket;
@@ -12,11 +12,11 @@ export declare class UDPSocket extends EventEmitter {
     /**
      * PCM Raw
      */
-    PCMOut: Readable;
+    PCMOut: VoiceStream;
     /**
      * Opus Encoded
      */
-    OpusOut: Readable;
+    OpusOut: VoiceStream;
     private OpusEncoder;
     constructor(connection: Connection);
     discoverIP(server: {
