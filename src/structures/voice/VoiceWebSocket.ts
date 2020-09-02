@@ -60,7 +60,9 @@ export class VoiceWebSocket extends EventEmitter {
     this.hearbeat = new VoiceHeartbeats(this);
   }
 
-  private async onMessage(message: VoicePayload) {
+  private async onMessage(data: string) {
+    const message: VoicePayload = JSON.parse(data);
+
     this.sequnce = message.s;
 
     this.connection.voice.bot.debug(message.op, VOICE_OPCODES[message.op], 'op - t');
