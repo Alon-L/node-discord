@@ -47,7 +47,7 @@
     "ws": "^7.3.1"
   },
   "peerDependencies": {
-    "erlpack": "git+https://github.com/discord/erlpack.git",
+    "erlpack": "^0.1.3",
     "zlib-sync": "^0.1.7",
     "opusscript": "0.0.7",
     "sodium-native": "^3.2.0"
