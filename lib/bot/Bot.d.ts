@@ -50,6 +50,13 @@ export interface BotOptions {
      * Bot cache options
      */
     cache: CacheOptions;
+    /**
+     * Shard Options
+     */
+    shards: Partial<{
+        enabled: boolean;
+        size: 'default' | number;
+    }>;
 }
 /**
  * The bot is the main operator of the API.
