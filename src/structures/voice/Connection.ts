@@ -1,4 +1,5 @@
 import { GuildVoice } from './GuildVoice';
+import { Readable } from './Readable';
 import { UDPSocket } from './UDPSocket';
 import { VoiceWebSocket } from './VoiceWebSocket';
 
@@ -45,6 +46,14 @@ export class Connection {
 
   public get endpoint(): string {
     return this._endpoint;
+  }
+
+  public get PCMOut(): Readable {
+    return this.sockets.udp.PCMOut;
+  }
+
+  public get OpusOut(): Readable {
+    return this.sockets.udp.OpusOut;
   }
 
   public voice: GuildVoice;

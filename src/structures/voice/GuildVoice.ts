@@ -3,6 +3,7 @@ import { Guild } from '..';
 import { Bot } from '../../bot';
 import { BotEvent } from '../../socket';
 import { Snowflake } from '../../types';
+import { MuteFlags } from '../flags/MuteFlags';
 
 /**
  * Represents a voice connection of a guild
@@ -27,7 +28,18 @@ export class GuildVoice {
     this.bot = guild.bot;
   }
 
-  join(channelId: Snowflake, options: { mute?: boolean; deaf?: boolean }): Promise<Connection> {
+  get deaf(): MuteFlags {
+    return this.guild.voiceStates.get(this.bot.user!.id)!.deafen;
+  }
+
+  get mute(): MuteFlags {
+    return this.guild.voiceStates.get(this.bot.user!.id)!.muted;
+  }
+
+  join(
+    channelId: Snowflake | null,
+    options: { mute?: boolean; deaf?: boolean },
+  ): Promise<Connection> {
     return new Promise<Connection>(resolve => {
       const listener = ((guild: Guild, voiceServer: { token: string; endpoint: string }) => {
         if (guild.id === this.guild.id) {
