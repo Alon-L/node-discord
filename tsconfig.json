@@ -7,8 +7,8 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "strict": true,
-    "lib": ["es2019", "es2020.bigint", "es2020.string", "es2020.symbol.wellknown"],
-    "types": ["node"]
+    "lib": ["es2019"],
+    "types": ["node", "jest"]
   },
   "include": [
     "src"
