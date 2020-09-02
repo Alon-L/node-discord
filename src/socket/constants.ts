@@ -104,8 +104,8 @@ export enum BotEvent {
   ShardClose = 'SHARD_CLOSE',
   TypingStart = 'TYPING_START',
   UserUpdate = 'USER_UPDATE',
-  /*VoiceStateUpdate = 'VOICE_STATE_UPDATE',
-  VoiceServerUpdate = 'VOICE_SERVER_UPDATE',*/
+  VoiceStateUpdate = 'VOICE_STATE_UPDATE',
+  VoiceServerUpdate = 'VOICE_SERVER_UPDATE',
   WebhooksUpdate = 'WEBHOOKS_UPDATE',
 }
 

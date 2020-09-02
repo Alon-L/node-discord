@@ -14,6 +14,7 @@ import { Channel, GuildChannel } from '../../../structures/channels';
 import { Guild, GuildUnavailable, GuildBan } from '../../../structures/guild';
 import { Member, MemberPresence } from '../../../structures/member';
 import { Message, PartialMessage, MessageReaction } from '../../../structures/message';
+import { VoiceState } from '../../../structures/voice/VoiceState';
 import { Snowflake } from '../../../types';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -352,6 +353,27 @@ declare function USER_UPDATE(before: User, after: User): any;
 declare function WEBHOOKS_UPDATE(channel: GuildChannel): any;
 
 /**
+ * Sent whenever a new voice server update comes
+ * @param {Guild} guild The guild that happens in it
+ * @param {{ token: string; endpoint: string }} voiceServerStats The new voice server information
+ * @asMemberOf EventsHandler
+ * @event BotEventsHandler#VOICE_SERVER_UPDATE
+ */
+declare function VOICE_SERVER_UPDATE(
+  guild: Guild,
+  voiceServer: { token: string; endpoint: string },
+): any;
+
+/**
+ * Sent whenever a voice state changes
+ * @param {VoiceState} old The old one
+ * @param {VoiceState} new The new one
+ * @asMemberOf EventHandler
+ * @event BotEventsHandler#VOICE_STATE_UPDATE
+ */
+declare function VOICE_STATE_UPDATE(oldState: VoiceState, newState: VoiceState): any;
+
+/**
  * Events that are called when all Bot shards change their state.
  * These events take no arguments
  */
@@ -399,4 +421,6 @@ export interface Events {
   [BotEvent.TypingStart]: typeof TYPING_START;
   [BotEvent.UserUpdate]: typeof USER_UPDATE;
   [BotEvent.WebhooksUpdate]: typeof WEBHOOKS_UPDATE;
+  [BotEvent.VoiceServerUpdate]: typeof VOICE_SERVER_UPDATE;
+  [BotEvent.VoiceStateUpdate]: typeof VOICE_STATE_UPDATE;
 }

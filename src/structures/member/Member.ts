@@ -7,6 +7,7 @@ import { Timestamp } from '../Timestamp';
 import { User } from '../User';
 import { GatewayStruct, BaseGuildStruct } from '../base';
 import { Guild } from '../guild';
+import { VoiceState } from '../voice/VoiceState';
 
 /**
  * Options used when modifying a guild member
@@ -95,16 +96,6 @@ export class Member extends BaseGuildStruct {
   public boostingSince!: Timestamp | null;
 
   /**
-   * Whether the member is deafened in voice channels
-   */
-  public deaf!: boolean;
-
-  /**
-   * Whether the member is muted in voice channels
-   */
-  public mute!: boolean;
-
-  /**
    * The member's user presence data
    */
   public presence: MemberPresence | undefined;
@@ -153,9 +144,6 @@ export class Member extends BaseGuildStruct {
 
     this.boostingSince = member.premium_since ? new Timestamp(member.premium_since) : null;
 
-    this.deaf = member.deaf;
-    this.mute = member.mute;
-
     return this;
   }
 
@@ -201,5 +189,13 @@ export class Member extends BaseGuildStruct {
    */
   public toString(): string | undefined {
     return this.user?.toString();
+  }
+
+  public get voice(): VoiceState {
+    return this.guild.voiceStates.get(this.id)!;
+  }
+
+  public set voice(val: VoiceState) {
+    this.guild.voiceStates.set(this.id, val);
   }
 }

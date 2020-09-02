@@ -6,6 +6,7 @@ import { DMChannel } from '../DMChannel';
 import { GuildCategoryChannel } from '../GuildCategoryChannel';
 import { GuildChannel } from '../GuildChannel';
 import { GuildTextChannel } from '../GuildTextChannel';
+import { GuildVoiceChannel } from '../GuildVoiceChannel';
 
 /**
  * Handles channel-related util methods
@@ -46,6 +47,8 @@ export class ChannelUtils {
         channel = new GuildCategoryChannel(bot, data, guild);
         break;
       case ChannelType.GuildVoice:
+        channel = new GuildVoiceChannel(bot, data, guild);
+        break;
       case ChannelType.GuildNews:
       case ChannelType.GuildStore:
         channel = new GuildChannel(bot, data, guild);

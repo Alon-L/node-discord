@@ -9,9 +9,11 @@ export type ShardId = number;
 /**
  * Turns all fields of a given type to be nullable
  */
-export type Nullable<T> = {
-  [P in keyof T]: T[P] | null;
-};
+export type Nullable<T> =
+  | {
+      [P in keyof T]: T[P] | null;
+    }
+  | null;
 
 /**
  * Width and height dimensions. Mostly used for images and/or videos

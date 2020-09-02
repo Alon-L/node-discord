@@ -1,0 +1,36 @@
+name: Compile
+
+on: [push]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install Node v12
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Remove the old release
+        run: rm -rf ./lib
+
+      - name: Build package
+        run: npm run ci:build
+          
+      - name: Commit
+        uses: EndBug/add-and-commit@v4
+        with:
+          add: 'lib'
+          force: true
+          message: 'ci(Compile): Compile the project @ $env:GITHUB_SHA'
+          author_email: 41898282+github-actions[bot]@users.noreply.github.com
+          author_name: github-actions[bot]
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN  }}

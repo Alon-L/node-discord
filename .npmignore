@@ -1,0 +1,11 @@
+.github
+src
+tests
+.commitlintrc.js
+.eslintrc
+.gitignore
+.prettierrc
+jest.config.js
+typedoc.json
+tsconfig.json
+dist

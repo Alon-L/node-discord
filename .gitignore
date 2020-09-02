@@ -3,6 +3,7 @@ node_modules
 
 # Workspace configuration
 .idea
+.vscode
 
 # Images used for testing files
 tests/*.png
@@ -11,6 +12,7 @@ tests/*.gif
 
 # Compiled output
 /lib
+/dist
 
 # Test bot credentials
 tests/config.json

@@ -56,5 +56,7 @@ bot.connect();
 
 # Optional Libraries
 There are multiple optional libraries which could be installed in addition to node-discord to improve performance.
-- **erlpack** - Provides fast encoding and decoding for WebSocket payloads.
-- **zlib-sync** - Compresses and decompresses WebSocket payloads before attempting to parse them.
+- **[discord/erlpack](https://github.com/discord/erlpack)** - Provides fast encoding and decoding for WebSocket payloads.
+- **[zlib-sync](https://www.npmjs.com/package/zlib-sync)** - Compresses and decompresses WebSocket payloads before attempting to parse them.
+- **[OpusScript](https://www.npmjs.com/package/opusscript)** - Decodes and encodes opus encoded voice packets. **Needed for voice support**
+- **[sodium-native](https://www.npmjs.com/package/sodium-native)** - Decodes incoming voice packets from Discord. **Needed for voice support**

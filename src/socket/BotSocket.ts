@@ -26,7 +26,7 @@ interface GatewayBot {
  */
 export class BotSocket {
   private readonly token: string;
-  private readonly shards: Collection<ShardId, BotSocketShard>;
+  public readonly shards: Collection<ShardId, BotSocketShard>;
   public readonly bot: Bot;
   public gatewayURL!: string;
   public sessionStartLimit!: SessionStartLimit;
@@ -45,16 +45,22 @@ export class BotSocket {
    * @returns {Promise<void>}
    */
   public async startShards(timeout = recommendedShardTimeout): Promise<void> {
-    const {
-      url: gatewayURL,
-      shards: suggestedShards,
-      session_start_limit: sessionStartLimit,
-    } = await this.gateway;
+    let amount: number;
 
-    this.gatewayURL = gatewayURL;
-    this.sessionStartLimit = sessionStartLimit;
+    const { url, shards: shard_count, session_start_limit } = await this.gateway; //only call this endpoint to retrieve a new URL if they are unable to properly establish a connection using the cached version of the URL.
 
-    const { id, amount = suggestedShards } = this.bot.shardOptions;
+    this.gatewayURL = url;
+
+    if (
+      (this.bot.options.shards.size === 'default' || !this.bot.options.shards.size) &&
+      this.bot.options.shards.enabled
+    )
+      amount = shard_count;
+    else if (!this.bot.options.shards.enabled) amount = 1;
+    else amount = this.bot.options.shards.size as number;
+    this.sessionStartLimit = session_start_limit;
+
+    const { id } = this.bot.shardOptions;
 
     const shards = id !== undefined ? [id] : Array.from({ length: amount }).map((_, i) => i);
 
@@ -68,7 +74,7 @@ export class BotSocket {
 
       this.shards.set(shardId, botShard);
 
-      botShard.connect();
+      await botShard.connect();
 
       // eslint-disable-next-line no-await-in-loop
       await new Promise(resolve => setTimeout(resolve, timeout));
@@ -135,14 +141,26 @@ export class BotSocket {
   /**
    * Modifies the presence of the bot
    * @param {GatewayStruct} presence The new presence for the bot
+   * @param {number} [shardId] The shard id thats gonna be affected
    * @returns {void}
    */
-  public modifyPresence(presence: GatewayStruct): void {
-    for (const [, shard] of this.shards) {
+  public modifyPresence(presence: GatewayStruct, shardId?: number): void {
+    if (shardId) {
+      const shard = this.shards.get(shardId);
+
+      if (!shard) return;
+
       shard.send({
         op: OPCode.PresenceUpdate,
         d: presence,
       } as Payload);
+    } else {
+      for (const [, shard] of this.shards) {
+        shard.send({
+          op: OPCode.PresenceUpdate,
+          d: presence,
+        } as Payload);
+      }
     }
   }
 

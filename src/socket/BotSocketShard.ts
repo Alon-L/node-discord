@@ -31,15 +31,18 @@ export const enum BotSocketShardState {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type PayloadData = any;
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type OptionalLibrary = any;
+/**
+ * A payload thats gonna be sent to the Discord API
+ */
+export interface GatewayCommand {
+  op: OPCode;
+  d: PayloadData;
+}
 
 /**
  * A payload received from the Discord API gateway
  */
-export interface Payload {
-  op: OPCode;
-  d: PayloadData;
+export interface Payload extends GatewayCommand {
   s: number;
   t: GatewayEvent;
 }
@@ -50,8 +53,8 @@ export type EventHandlers = Record<
 >;
 
 // Initializes variables for optional libraries
-let erlpack: OptionalLibrary | undefined;
-let zlib: OptionalLibrary | undefined;
+let erlpack: typeof import('erlpack') | undefined;
+let zlib: typeof import('zlib-sync') | undefined;
 
 /**
  * Connects every bot shard to a {@link WebSocket} with the Discord Gateway.
@@ -127,7 +130,7 @@ export class BotSocketShard {
   /**
    * The Inflate context used to compress incoming payloads
    */
-  private zlib: OptionalLibrary | undefined;
+  private zlib: import('zlib-sync').Inflate | undefined;
 
   constructor(botSocket: BotSocket, token: string, shard: ShardOptions) {
     this.botSocket = botSocket;
@@ -163,7 +166,7 @@ export class BotSocketShard {
       zlib = require('zlib-sync');
 
       // Create new Inflate context
-      this.zlib = new zlib.Inflate({
+      this.zlib = new zlib!.Inflate({
         chunkSize: 128 * 1024,
         windowBits: 32,
       });
@@ -459,7 +462,7 @@ export class BotSocketShard {
    * @param {unknown} data The data
    * @returns {void}
    */
-  public send(data: unknown): void {
+  public send(data: GatewayCommand): void {
     return this.ws.send(this.pack(data));
   }
 
@@ -483,7 +486,7 @@ export class BotSocketShard {
    * @param {any} data Data to be transferred and sent to the gateway
    * @returns {string}
    */
-  public pack(data: unknown): Buffer | string | undefined {
+  public pack(data: GatewayCommand): Buffer | string | undefined {
     return this.options.encoding === 'etf' ? erlpack?.pack(data) : JSON.stringify(data);
   }
 

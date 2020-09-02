@@ -10,11 +10,11 @@
   "scripts": {
     "start": "ts-node src/index.ts",
     "build": "tsc",
+    "ci:build": "tsc --outDir ./lib",
     "test": "jest",
     "lint": "eslint src --ext .ts --ext .js",
     "lint:fix": "eslint --fix src --ext .ts --ext .js",
     "docs:generate": "typedoc --options typedoc.json",
-    "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run lint",
     "preversion": "npm run lint",
     "version": "npm run lint:fix && git add -A src",
@@ -48,13 +48,21 @@
   },
   "peerDependencies": {
     "erlpack": "^0.1.3",
-    "zlib-sync": "^0.1.7"
+    "zlib-sync": "^0.1.7",
+    "opusscript": "0.0.7",
+    "sodium-native": "^3.2.0"
   },
   "peerDependenciesMeta": {
     "erlpack": {
       "optional": true
     },
     "zlib-sync": {
+      "optional": true
+    },
+    "opusscript": {
+      "optional": true
+    },
+    "sodium-native": {
       "optional": true
     }
   },
@@ -65,6 +73,7 @@
     "@types/mime-types": "^2.1.0",
     "@types/node": "^14.6.0",
     "@types/node-fetch": "^2.5.7",
+    "@types/sodium-native": "^2.3.5",
     "@types/ws": "^7.2.6",
     "@typescript-eslint/eslint-plugin": "^3.10.0",
     "@typescript-eslint/parser": "^3.10.0",

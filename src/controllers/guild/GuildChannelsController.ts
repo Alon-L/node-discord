@@ -4,6 +4,7 @@ import {
   GuildChannel,
   CreateGuildChannelOptions,
   GuildTextChannel,
+  GuildVoiceChannel,
 } from '../../structures/channels';
 import { Guild } from '../../structures/guild';
 import { Snowflake } from '../../types';
@@ -43,6 +44,21 @@ export class GuildChannelsController extends BaseFetchController<GuildChannel>
     const channel = await this.get(id);
 
     if (!(channel instanceof GuildTextChannel)) {
+      throw new TypeError('The channel is not a valid guild text channel');
+    }
+
+    return channel;
+  }
+
+  /**
+   * Gets or fetches a guild voice channel by its ID
+   * @param {Snowflake} id The ID of the guild voice channel
+   * @returns {Promise<GuildVoiceChannel>}
+   */
+  public async getVoice(id: Snowflake): Promise<GuildVoiceChannel> {
+    const channel = await this.get(id);
+
+    if (!(channel instanceof GuildVoiceChannel)) {
       throw new TypeError('The channel is not a valid guild text channel');
     }
 

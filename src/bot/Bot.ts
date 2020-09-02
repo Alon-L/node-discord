@@ -18,7 +18,7 @@ export interface ShardOptions {
   /**
    * Shard ID
    */
-  id?: ShardId;
+  id: ShardId;
 
   /**
    * Number of shards this instance of the bot uses
@@ -47,6 +47,10 @@ export const botOptions: BotOptions = {
   websocket: {
     v: version,
   },
+  shards: {
+    enabled: false,
+    size: 'default',
+  },
 };
 
 /**
@@ -62,6 +66,11 @@ export interface BotOptions {
    * Bot cache options
    */
   cache: CacheOptions;
+
+  /**
+   * Shard Options
+   */
+  shards: Partial<{ enabled: boolean; size: 'default' | number }>;
 }
 
 /**
@@ -151,12 +160,12 @@ export class Bot {
     this.api = new BotAPI(this, this.token);
 
     // Sets bot sharding data
-    const shardId = Number(process.env.SHARD_ID);
-    const shardAmount = Number(process.env.SHARDS_AMOUNT);
+    const shardId = parseInt(process.env.SHARD_ID as string);
+    const shardAmount = parseInt(process.env.SHARDS_AMOUNT as string);
 
     this.shardOptions = {
-      id: Number.isNaN(shardId) ? undefined : shardId,
-      amount: Number.isNaN(shardAmount) ? undefined : shardAmount,
+      id: shardId || 0,
+      amount: shardAmount || 1,
     };
 
     this.commands = new CommandsHandler();

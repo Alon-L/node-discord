@@ -16,7 +16,8 @@ import {
   GuildRolesController,
 } from '../../controllers/guild';
 import { GuildWebhooksController } from '../../controllers/guild/GuildWebhooksController';
-import { Snowflake } from '../../types';
+import { BotSocketShard } from '../../socket';
+import { ShardId, Snowflake } from '../../types';
 import { Avatar, GuildBannerFormat } from '../Avatar';
 import { ImageURI } from '../ImageURI';
 import { Role } from '../Role';
@@ -25,6 +26,8 @@ import { GuildChannel, GuildTextChannel } from '../channels';
 import { ChannelUtils } from '../channels/utils';
 import { GuildSystemChannelFlags, PermissionFlags } from '../flags';
 import { Member, MemberPresence } from '../member';
+import { GuildVoice } from '../voice/GuildVoice';
+import { VoiceState } from '../voice/VoiceState';
 
 /**
  * Guild verification levels
@@ -360,8 +363,7 @@ export class Guild extends GuildPreview {
    */
   public memberCount: number | undefined;
 
-  // TODO: implement this along with voice support
-  // public voiceStates: TEMP | undefined;
+  public voiceStates!: Collection<Snowflake, VoiceState>;
 
   /**
    * Presences of the members in the guild.
@@ -430,8 +432,16 @@ export class Guild extends GuildPreview {
    */
   public webhooks!: GuildWebhooksController;
 
-  constructor(bot: Bot, guild: GatewayStruct) {
+  /**
+   * The id of the shard which belongs to this guild
+   */
+  public shardId?: ShardId;
+
+  public voice!: GuildVoice;
+
+  constructor(bot: Bot, guild: GatewayStruct, shardId?: ShardId) {
     super(bot, guild);
+    this.shardId = shardId;
   }
 
   /**
@@ -459,6 +469,10 @@ export class Guild extends GuildPreview {
     this.integrations = new GuildIntegrationsController(this);
 
     this.webhooks = new GuildWebhooksController(this);
+
+    this.voice = new GuildVoice(this);
+
+    this.voiceStates = new Collection<Snowflake, VoiceState>();
 
     if (guild.channels) {
       this.channels.cache.addMany(
@@ -488,6 +502,34 @@ export class Guild extends GuildPreview {
               ),
             ),
         ),
+      );
+    }
+
+    if (guild.voice_states) {
+      for (const voicestate of guild.voice_states) {
+        this.voiceStates.set(
+          voicestate.user_id,
+          new VoiceState(this.bot, this.members.cache.get(voicestate.user_id)!, voicestate),
+        );
+      }
+    }
+
+    const nonVoicedMembers = this.members.cache
+      .filter(x => !x.voice)
+      .map<Member & { mute: boolean; deaf: boolean }>(x =>
+        Object.assign(
+          x,
+          guild.members.find((y: { id: Snowflake; mute: boolean; deaf: boolean }) => y.id === x.id),
+        ),
+      ).toArray;
+
+    for (const nonVoiceMember of nonVoicedMembers) {
+      this.voiceStates.set(
+        nonVoiceMember.id,
+        new VoiceState(this.bot, nonVoiceMember, {
+          deaf: nonVoiceMember.deaf,
+          mute: nonVoiceMember.mute,
+        }),
       );
     }
 
@@ -631,15 +673,23 @@ export class Guild extends GuildPreview {
     return this.bot.api.leaveGuild(this.id);
   }
 
+  // Returns undefined if the guilds fetched via REST and not received by gateway
+  public get shard(): BotSocketShard {
+    return this.bot.connection.shards.get(this.shardId!)!;
+  }
+
   /**
    * Creates a {@link Guild} or {@link GuildUnavailable}
    * @param {Bot} bot The bot instance
    * @param {GatewayStruct} guild The guild data
+   * @param {number} [shardId] The shard id that belongs to that guild
    * @returns {Guild | GuildUnavailable}
    * @ignore
    */
-  public static create(bot: Bot, guild: GatewayStruct): Guild | GuildUnavailable {
-    return guild.unavailable ? new GuildUnavailable(bot, guild) : new Guild(bot, guild);
+  public static create(bot: Bot, guild: GatewayStruct, shardId: number): Guild | GuildUnavailable {
+    return guild.unavailable
+      ? new GuildUnavailable(bot, guild, shardId)
+      : new Guild(bot, guild, shardId);
   }
 
   /**
