@@ -47,6 +47,10 @@ export const botOptions: BotOptions = {
   websocket: {
     v: version,
   },
+  shards: {
+    enabled: false,
+    size: 'default',
+  },
 };
 
 /**
@@ -62,6 +66,11 @@ export interface BotOptions {
    * Bot cache options
    */
   cache: CacheOptions;
+
+  /**
+   * Shard Options
+   */
+  shards: Partial<{ enabled: boolean; size: 'default' | number }>;
 }
 
 /**

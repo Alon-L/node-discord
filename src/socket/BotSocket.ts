@@ -45,16 +45,22 @@ export class BotSocket {
    * @returns {Promise<void>}
    */
   public async startShards(timeout = recommendedShardTimeout): Promise<void> {
-    const {
-      url: gatewayURL,
-      shards: suggestedShards,
-      session_start_limit: sessionStartLimit,
-    } = await this.gateway;
+    let amount: number;
 
-    this.gatewayURL = gatewayURL;
-    this.sessionStartLimit = sessionStartLimit;
+    const { url, shards: shard_count, session_start_limit } = await this.gateway; //only call this endpoint to retrieve a new URL if they are unable to properly establish a connection using the cached version of the URL.
 
-    const { id, amount = suggestedShards } = this.bot.shardOptions;
+    this.gatewayURL = url;
+
+    if (
+      (this.bot.options.shards.size === 'default' || !this.bot.options.shards.size) &&
+      this.bot.options.shards.enabled
+    )
+      amount = shard_count;
+    else if (!this.bot.options.shards.enabled) amount = 1;
+    else amount = this.bot.options.shards.size as number;
+    this.sessionStartLimit = session_start_limit;
+
+    const { id } = this.bot.shardOptions;
 
     const shards = id !== undefined ? [id] : Array.from({ length: amount }).map((_, i) => i);
 
@@ -68,7 +74,7 @@ export class BotSocket {
 
       this.shards.set(shardId, botShard);
 
-      botShard.connect();
+      await botShard.connect();
 
       // eslint-disable-next-line no-await-in-loop
       await new Promise(resolve => setTimeout(resolve, timeout));
