@@ -1,4 +1,5 @@
 import { GuildVoice } from './GuildVoice';
+import { Readable } from './Readable';
 import { UDPSocket } from './UDPSocket';
 import { VoiceWebSocket } from './VoiceWebSocket';
 export declare class Connection {
@@ -15,6 +16,8 @@ export declare class Connection {
      */
     set endpoint(val: string);
     get endpoint(): string;
+    get PCMOut(): Readable;
+    get OpusOut(): Readable;
     voice: GuildVoice;
     constructor(voice: GuildVoice);
 }
