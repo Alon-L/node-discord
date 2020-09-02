@@ -76,7 +76,9 @@ export class VoiceWebSocket extends EventEmitter {
           d: {
             server_id: this.connection.voice.guild.id,
             user_id: this.connection.voice.bot.user!.id,
-            session_id: this.connection.voice.guild.shard.sessionId,
+            session_id: this.connection.voice.guild.voiceStates.get(
+              this.connection.voice.bot.user!.id,
+            )?.sessionId,
             token: this.connection.token,
           },
         });
